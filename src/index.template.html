@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DRAFTI — Checkers, refined</title>
+<meta name="description" content="DRAFTI is an original open-source checkers game: American and International rules, AI opponent, pass-and-play, in a single HTML file.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%237c4a24'/%3E%3Crect x='2' y='2' width='13' height='13' fill='%23e9d5a7'/%3E%3Crect x='17' y='17' width='13' height='13' fill='%23e9d5a7'/%3E%3Ccircle cx='22' cy='10' r='4.5' fill='%23191009'/%3E%3Ccircle cx='9' cy='24' r='4.5' fill='%23ecdcb4'/%3E%3C/svg%3E">
+<style>
+/*__STYLES__*/
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <svg class="brand-logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#7c4a24"/><rect x="2" y="2" width="13" height="13" fill="#e9d5a7"/><rect x="17" y="17" width="13" height="13" fill="#e9d5a7"/><circle cx="22" cy="10" r="4.5" fill="#191009"/><circle cx="9" cy="24" r="4.5" fill="#ecdcb4"/></svg>
+    <span class="brand-name">DRAFTI</span>
+    <span class="brand-tag">checkers, refined</span>
+  </div>
+  <div class="topbar-right">
+    <button class="btn" id="btnSound" title="Toggle sound" aria-label="Toggle sound"></button>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="stage">
+    <div class="banner" id="banner">
+      <span class="dot ivory" id="bannerDot"></span>
+      <span id="bannerText">Loading…</span>
+    </div>
+    <div class="board-frame" id="boardFrame">
+      <div class="board-inner">
+        <div class="board" id="board" role="grid" aria-label="Checkers board"></div>
+        <div class="pieces" id="pieces"></div>
+      </div>
+    </div>
+    <div class="trays">
+      <div class="tray" id="trayTop"></div>
+      <div class="tray" id="trayBottom"></div>
+    </div>
+  </section>
+
+  <aside class="panel">
+    <div class="card">
+      <h2>Game setup</h2>
+      <div class="seg">
+        <div class="seg-row">
+          <span class="seg-label">Rules</span>
+          <div class="seg-btns" id="segRules">
+            <button data-v="american">American 8×8</button>
+            <button data-v="international">International 10×10</button>
+          </div>
+        </div>
+        <div class="seg-row">
+          <span class="seg-label">Opponent</span>
+          <div class="seg-btns" id="segMode">
+            <button data-v="ai">Computer</button>
+            <button data-v="hotseat">Two players</button>
+          </div>
+        </div>
+        <div class="seg-row" id="rowSide">
+          <span class="seg-label">You play</span>
+          <div class="seg-btns" id="segSide">
+            <button data-v="1">Ivory</button>
+            <button data-v="-1">Ebony</button>
+          </div>
+        </div>
+        <div class="seg-row" id="rowDiff">
+          <span class="seg-label">Strength</span>
+          <div class="seg-btns" id="segDiff">
+            <button data-v="easy">Casual</button>
+            <button data-v="medium">Club</button>
+            <button data-v="hard">Tough</button>
+          </div>
+        </div>
+      </div>
+      <p class="setup-note" id="setupNote"></p>
+    </div>
+
+    <div class="card">
+      <h2>Table</h2>
+      <div class="actions">
+        <button class="btn primary" id="btnNew">
+          <svg viewBox="0 0 24 24"><path d="M12 5V2L7 6l5 4V7a6 6 0 1 1-6 6H4a8 8 0 1 0 8-8z"/></svg>
+          New game</button>
+        <button class="btn" id="btnUndo">
+          <svg viewBox="0 0 24 24"><path d="M9 14 4 9l5-5v3.5c3.9 0 7 3.1 7 7 0 3.9-3.1 7-7 7-2.4 0-4.5-1.2-5.7-3l1.7-1.2C6.1 18.9 7.4 19.5 9 19.5c2.8 0 5-2.2 5-5s-2.2-5-5-5V14z"/></svg>
+          Undo</button>
+        <button class="btn" id="btnHint">
+          <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.4 1 2.3v1h6v-1c0-.9.4-1.8 1-2.3A7 7 0 0 0 12 2zM9 20h6v1a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-1z"/></svg>
+          Hint</button>
+        <button class="btn" id="btnStats">
+          <svg viewBox="0 0 24 24"><path d="M4 20h16v2H4zM6 10h3v8H6zm5-6h3v14h-3zm5 3h3v11h-3z"/></svg>
+          Stats</button>
+        <button class="btn" id="btnRotate" title="Rotate board each turn (two-player mode)">
+          <svg viewBox="0 0 24 24"><path d="M16.5 4.5 20 8l-3.5 3.5V9.3c-3 0-5.3 1-7 3.2l-1.6-1.9C10 7.7 13 6.5 16.5 6.5V4.5zM7.5 19.5 4 16l3.5-3.5v2.2c3 0 5.3-1 7-3.2l1.6 1.9C14 16.3 11 17.5 7.5 17.5v2z"/></svg>
+          Rotate</button>
+      </div>
+    </div>
+
+    <div class="card history-card">
+      <h2>Move log</h2>
+      <ol class="history" id="history"></ol>
+    </div>
+  </aside>
+</main>
+
+<div class="backdrop" id="backdrop">
+  <div class="modal" id="modalGameOver" hidden>
+    <h3 id="goTitle">Game over</h3>
+    <p class="big-result" id="goResult"></p>
+    <p id="goReason"></p>
+    <div class="row">
+      <button class="btn" id="goClose">Review board</button>
+      <button class="btn primary" id="goRematch" style="grid-column:auto">Rematch</button>
+    </div>
+  </div>
+
+  <div class="modal" id="modalStats" hidden>
+    <h3>Record</h3>
+    <p>Games finished against the computer, per ruleset.</p>
+    <table id="statsTable"></table>
+    <div class="row">
+      <button class="btn" id="statsReset">Reset record</button>
+      <button class="btn primary" id="statsClose" style="grid-column:auto">Close</button>
+    </div>
+  </div>
+
+  <div class="modal" id="modalConfirm" hidden>
+    <h3 id="cfTitle">Start a new game?</h3>
+    <p id="cfText">The current game will be abandoned.</p>
+    <div class="row">
+      <button class="btn" id="cfNo">Keep playing</button>
+      <button class="btn primary" id="cfYes" style="grid-column:auto">New game</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  DRAFTI — an original, open-source implementation of the public-domain game of checkers · MIT license · no trackers, no accounts, plays offline
+</footer>
+
+<script>
+/*__ENGINE__*/
+</script>
+<script>
+/*__UI__*/
+</script>
+</body>
+</html>
