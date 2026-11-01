@@ -67,28 +67,81 @@
     s.catch = ['s_' + s.id + '_1', 's_' + s.id + '_2'];
   }
 
-  // ---------------- the arena roster: ten Tanzanian AIs ----------------------
-  // AI vs AI is never a nameless "AI vs AI": a champion holds the board while
-  // it keeps winning, beaten challengers make way for the next name on the
-  // list, and every AI grows smarter with every game it plays (experience ->
-  // ladder level). One complete cycle = all ten have appeared; the challenger
-  // queue reshuffles at the start of each cycle. First title bout by default:
-  // Simba vs Yanga.
-  const ROSTER = [
-    { id: 'simba',   name: 'Simba',   face: '🦁', styleId: 'italian',   blurb: 'The king of the board — attacks like royalty.' },
-    { id: 'yanga',   name: 'Yanga',   face: '🥁', styleId: 'brazilian', blurb: 'Pride of the people — plays with rhythm.' },
-    { id: 'amani',   name: 'Amani',   face: '',   styleId: 'english',   blurb: 'Calm and patient — sees the whole board.' },
-    { id: 'juma',    name: 'Juma',    face: '',   styleId: 'czech',     blurb: 'Never forgets a trap. Never rushes.' },
-    { id: 'hodari',  name: 'Hodari',  face: '',   styleId: 'kenyan',    blurb: 'Attacks in silence, strikes hard.' },
-    { id: 'haraka',  name: 'Haraka',  face: '⚡', styleId: 'russian',   blurb: 'Fast, fearless, slightly reckless.' },
-    { id: 'tumaini', name: 'Tumaini', face: '',   styleId: 'american',  blurb: 'Straight through the centre, no detours.' },
-    { id: 'baraka',  name: 'Baraka',  face: '',   styleId: 'spanish',   blurb: 'Holds the ground and the long diagonal.' },
-    { id: 'zawadi',  name: 'Zawadi',  face: '',   styleId: 'tanzanian', blurb: 'Smiles at your plan — then breaks it.' },
-    { id: 'chiku',   name: 'Chiku',   face: '',   styleId: 'french',    blurb: 'Quick, clever, gone before you look.' },
+  // ---------------- the world arena: 194 nations, one board ------------------
+  // AI vs AI is never nameless: Tanzania hosts the board (the champion's
+  // seat) and the world lines up to challenge — Kenya first (the neighbourly
+  // rivalry), then East Africa, then every nation of Africa, then Europe,
+  // Asia, the Americas and Oceania. The winner keeps the board; a beaten
+  // champion joins the back of the line, so no nation hogs the schedule.
+  // Every 12 bouts closes a season and the next one opens with every
+  // challenger a rung stronger. All seats search on the same 1-10 ladder the
+  // menu uses, and a challenger is never left more than two rungs below the
+  // champion — bouts stay watchable.
+  const BAND_NAMES = { 0: 'Host nation', 1: 'The rivalry', 2: 'East Africa', 3: 'Africa', 4: 'Europe', 5: 'Asia', 6: 'Americas', 7: 'Oceania' };
+  const NATION_DATA = [
+    ['TZ', 'Tanzania', 0],
+    ['KE', 'Kenya', 1],
+    // East Africa — the neighbourhood takes the first call
+    ['UG', 'Uganda', 2], ['RW', 'Rwanda', 2], ['BI', 'Burundi', 2], ['SS', 'South Sudan', 2],
+    ['SO', 'Somalia', 2], ['CD', 'DR Congo', 2], ['ET', 'Ethiopia', 2], ['ER', 'Eritrea', 2], ['DJ', 'Djibouti', 2],
+    // Africa — the whole continent
+    ['EG', 'Egypt', 3], ['LY', 'Libya', 3], ['TN', 'Tunisia', 3], ['DZ', 'Algeria', 3], ['MA', 'Morocco', 3], ['SD', 'Sudan', 3],
+    ['MR', 'Mauritania', 3], ['ML', 'Mali', 3], ['NE', 'Niger', 3], ['TD', 'Chad', 3], ['SN', 'Senegal', 3], ['GM', 'Gambia', 3],
+    ['GW', 'Guinea-Bissau', 3], ['GN', 'Guinea', 3], ['SL', 'Sierra Leone', 3], ['LR', 'Liberia', 3], ['CI', 'Côte d’Ivoire', 3],
+    ['GH', 'Ghana', 3], ['TG', 'Togo', 3], ['BJ', 'Benin', 3], ['BF', 'Burkina Faso', 3], ['NG', 'Nigeria', 3],
+    ['CM', 'Cameroon', 3], ['CF', 'Central Africa', 3], ['GQ', 'Eq. Guinea', 3], ['GA', 'Gabon', 3], ['CG', 'Congo', 3], ['ST', 'São Tomé', 3],
+    ['AO', 'Angola', 3], ['ZM', 'Zambia', 3], ['ZW', 'Zimbabwe', 3], ['MW', 'Malawi', 3], ['MZ', 'Mozambique', 3], ['NA', 'Namibia', 3],
+    ['BW', 'Botswana', 3], ['ZA', 'South Africa', 3], ['LS', 'Lesotho', 3], ['SZ', 'Eswatini', 3], ['MG', 'Madagascar', 3],
+    ['MU', 'Mauritius', 3], ['SC', 'Seychelles', 3], ['KM', 'Comoros', 3], ['CV', 'Cabo Verde', 3],
+    // Europe
+    ['AL', 'Albania', 4], ['AD', 'Andorra', 4], ['AT', 'Austria', 4], ['BY', 'Belarus', 4], ['BE', 'Belgium', 4],
+    ['BA', 'Bosnia & Herz.', 4], ['BG', 'Bulgaria', 4], ['HR', 'Croatia', 4], ['CY', 'Cyprus', 4], ['CZ', 'Czechia', 4],
+    ['DK', 'Denmark', 4], ['EE', 'Estonia', 4], ['FI', 'Finland', 4], ['FR', 'France', 4], ['DE', 'Germany', 4], ['GR', 'Greece', 4],
+    ['HU', 'Hungary', 4], ['IS', 'Iceland', 4], ['IE', 'Ireland', 4], ['IT', 'Italy', 4], ['LV', 'Latvia', 4], ['LI', 'Liechtenstein', 4],
+    ['LT', 'Lithuania', 4], ['LU', 'Luxembourg', 4], ['MT', 'Malta', 4], ['MD', 'Moldova', 4], ['MC', 'Monaco', 4],
+    ['ME', 'Montenegro', 4], ['NL', 'Netherlands', 4], ['MK', 'North Macedonia', 4], ['NO', 'Norway', 4], ['PL', 'Poland', 4],
+    ['PT', 'Portugal', 4], ['RO', 'Romania', 4], ['RU', 'Russia', 4], ['SM', 'San Marino', 4], ['RS', 'Serbia', 4],
+    ['SK', 'Slovakia', 4], ['SI', 'Slovenia', 4], ['ES', 'Spain', 4], ['SE', 'Sweden', 4], ['CH', 'Switzerland', 4],
+    ['UA', 'Ukraine', 4], ['GB', 'United Kingdom', 4],
+    // Asia
+    ['AF', 'Afghanistan', 5], ['AM', 'Armenia', 5], ['AZ', 'Azerbaijan', 5], ['BH', 'Bahrain', 5], ['BD', 'Bangladesh', 5],
+    ['BT', 'Bhutan', 5], ['BN', 'Brunei', 5], ['KH', 'Cambodia', 5], ['CN', 'China', 5], ['GE', 'Georgia', 5], ['IN', 'India', 5],
+    ['ID', 'Indonesia', 5], ['IR', 'Iran', 5], ['IQ', 'Iraq', 5], ['IL', 'Israel', 5], ['JP', 'Japan', 5], ['JO', 'Jordan', 5],
+    ['KZ', 'Kazakhstan', 5], ['KW', 'Kuwait', 5], ['KG', 'Kyrgyzstan', 5], ['LA', 'Laos', 5], ['LB', 'Lebanon', 5],
+    ['MY', 'Malaysia', 5], ['MV', 'Maldives', 5], ['MN', 'Mongolia', 5], ['MM', 'Myanmar', 5], ['NP', 'Nepal', 5],
+    ['KP', 'North Korea', 5], ['OM', 'Oman', 5], ['PK', 'Pakistan', 5], ['PH', 'Philippines', 5], ['QA', 'Qatar', 5],
+    ['SA', 'Saudi Arabia', 5], ['SG', 'Singapore', 5], ['KR', 'South Korea', 5], ['LK', 'Sri Lanka', 5], ['PS', 'Palestine', 5],
+    ['SY', 'Syria', 5], ['TJ', 'Tajikistan', 5], ['TH', 'Thailand', 5], ['TL', 'Timor-Leste', 5], ['TR', 'Turkey', 5],
+    ['TM', 'Turkmenistan', 5], ['AE', 'UAE', 5], ['UZ', 'Uzbekistan', 5], ['VN', 'Vietnam', 5], ['YE', 'Yemen', 5],
+    // The Americas
+    ['AG', 'Antigua & Barbuda', 6], ['BS', 'Bahamas', 6], ['BB', 'Barbados', 6], ['BZ', 'Belize', 6], ['CA', 'Canada', 6],
+    ['CR', 'Costa Rica', 6], ['CU', 'Cuba', 6], ['DM', 'Dominica', 6], ['DO', 'Dom. Republic', 6], ['SV', 'El Salvador', 6],
+    ['GD', 'Grenada', 6], ['GT', 'Guatemala', 6], ['HT', 'Haiti', 6], ['HN', 'Honduras', 6], ['JM', 'Jamaica', 6],
+    ['MX', 'Mexico', 6], ['NI', 'Nicaragua', 6], ['PA', 'Panama', 6], ['KN', 'St Kitts & Nevis', 6], ['LC', 'St Lucia', 6],
+    ['VC', 'St Vincent', 6], ['TT', 'Trinidad & Tobago', 6], ['US', 'United States', 6],
+    ['AR', 'Argentina', 6], ['BO', 'Bolivia', 6], ['BR', 'Brazil', 6], ['CL', 'Chile', 6], ['CO', 'Colombia', 6],
+    ['EC', 'Ecuador', 6], ['GY', 'Guyana', 6], ['PY', 'Paraguay', 6], ['PE', 'Peru', 6], ['SR', 'Suriname', 6],
+    ['UY', 'Uruguay', 6], ['VE', 'Venezuela', 6],
+    // Oceania
+    ['AU', 'Australia', 7], ['FJ', 'Fiji', 7], ['KI', 'Kiribati', 7], ['MH', 'Marshall Is.', 7], ['FM', 'Micronesia', 7],
+    ['NR', 'Nauru', 7], ['NZ', 'New Zealand', 7], ['PW', 'Palau', 7], ['PG', 'Papua New Guinea', 7], ['WS', 'Samoa', 7],
+    ['SB', 'Solomon Is.', 7], ['TO', 'Tonga', 7], ['TV', 'Tuvalu', 7], ['VU', 'Vanuatu', 7],
   ];
+  const flagOf = (code) =>
+    String.fromCodePoint(...code.toUpperCase().split('').map((c) => 0x1F1E6 + c.charCodeAt(0) - 65));
+  // the national schools keep their own flags; every other nation draws a
+  // playing style by a steady hash of its code, so the world stays varied
+  const HOME_STYLE = { TZ: 'tanzanian', KE: 'kenyan', IT: 'italian', BR: 'brazilian', GB: 'english', CZ: 'czech', RU: 'russian', US: 'american', ES: 'spanish', FR: 'french', MN: 'mongolian' };
+  const STYLE_IDS = STYLES.map((s) => s.id);
+  const styleHash = (s) => [...s].reduce((a, c) => (a * 31 + c.charCodeAt(0)) | 0, 7);
+  const ROSTER = NATION_DATA.map(([id, name, band]) => ({
+    id, name, band, face: flagOf(id),
+    styleId: HOME_STYLE[id] || STYLE_IDS[Math.abs(styleHash(id + name)) % STYLE_IDS.length],
+  }));
   const rosterById = (id) => ROSTER.find((r) => r.id === id) || ROSTER[0];
-  // every roster name is the crowd's to change: tap a chip in the drawer and
-  // type. Overrides live in their own store so the arena state keeps working.
+
+  // every nation's name is the crowd's to change: tap a chip in the drawer
+  // and type. Overrides live in their own store so the arena keeps working.
   const NAMES_KEY = 'drafti.names.v1';
   const nameOverrides = loadJSON(NAMES_KEY, {}) || {};
   for (const k of Object.keys(nameOverrides)) {
@@ -98,80 +151,120 @@
   const aiName = (id) => {
     const r = rosterById(id);
     const v = nameOverrides[id];
-    return (typeof v === 'string' && v.trim()) ? v.trim().slice(0, 14) : r.name;
+    return (typeof v === 'string' && v.trim()) ? v.trim().slice(0, 18) : r.name;
   };
-  const ARENA_KEY = 'drafti.arena.v1';
+
+  // ---------------- seasons, experience, the challenge ladder ----------------
+  const ARENA_KEY = 'drafti.arena.v2'; // v1 held the old ten-club personas
+  const SEASON_LEN = 12;               // bouts per season — then the world steps up
   // experience: a game played teaches (+2), a win teaches a little more (+3),
-  // a defeat teaches the most (+4) — so a beaten AI comes back stronger and
-  // no one stays on top forever. Five experience points = one ladder level.
-  const arenaXpFor = (winner, seatId) =>
-    winner === null ? 2 : (seatId === winner ? 3 : 4);
-  const rosterLevel = (id) => Math.min(10, 1 + Math.floor((arena.xp[id] || 0) / 5));
-  let arena = loadJSON(ARENA_KEY, null) || {
-    xp: {}, wins: {}, champion: 'simba', queue: [], appeared: [], cycle: 1, reign: 0, bouts: 0,
-    challRounds: 0,
-  };
-  for (const r of ROSTER) {
-    if (typeof arena.xp[r.id] !== 'number') arena.xp[r.id] = 0;
-    if (typeof arena.wins[r.id] !== 'number') arena.wins[r.id] = 0;
-  }
-  if (!rosterById(arena.champion)) arena.champion = 'simba';
-  if (!Array.isArray(arena.appeared)) arena.appeared = [];
-  if (typeof arena.challRounds !== 'number' || arena.challRounds < 0) arena.challRounds = 0;
-  if (typeof arena.bouts !== 'number' || arena.bouts < 0) arena.bouts = 0;
-  if (typeof arena.streak !== 'number' || arena.streak < 0) arena.streak = 0;
-  if (typeof arena.cycle !== 'number' || arena.cycle < 1) arena.cycle = 1;
-  // default first bout: Simba vs Yanga, then the rest in a shuffled queue
-  if (!Array.isArray(arena.queue) || !arena.queue.length) {
-    const rest = ROSTER.map((r) => r.id).filter((id) => id !== arena.champion && id !== 'yanga');
-    for (let i = rest.length - 1; i > 0; i--) {
-      const j = (Math.random() * (i + 1)) | 0;
-      const t = rest[i]; rest[i] = rest[j]; rest[j] = t;
+  // a defeat teaches the most (+4) — so a beaten nation comes back stronger
+  // and no one stays on top forever. Five points = one rung on the 1-10
+  // ladder, and each new season every nation climbs one more rung.
+  const rosterLevel = (id) =>
+    Math.min(10, Math.max(1, 1 + Math.floor((arena.xp[id] || 0) / 5) + (arena.season - 1)));
+  // the challenge ladder, in the order the world comes calling: the rivalry
+  // first, then East Africa, Africa, and the continents beyond — shuffled
+  // inside each band so the visit order never goes stale
+  function ladderQueue(excludeId) {
+    const out = [];
+    for (let band = 1; band <= 7; band++) {
+      const bandIds = ROSTER.filter((r) => r.band === band && r.id !== excludeId).map((r) => r.id);
+      for (let i = bandIds.length - 1; i > 0; i--) {
+        const j = (Math.random() * (i + 1)) | 0;
+        const t = bandIds[i]; bandIds[i] = bandIds[j]; bandIds[j] = t;
+      }
+      out.push(...bandIds);
     }
-    arena.queue = ['yanga'].concat(rest);
+    return out;
   }
+  let arena = loadJSON(ARENA_KEY, null);
+  if (!arena || !ROSTER.some((r) => r.id === arena.champion)) {
+    arena = { champion: 'TZ', queue: ladderQueue('TZ'), appeared: [], season: 1, bouts: 0,
+      xp: {}, wins: {}, streak: 0, challRounds: 0 };
+  }
+  // the one law of the arena: two different nations on the board, always.
+  // guardArena() runs before every seat pick and repairs anything broken —
+  // ids from older saves, duplicates, an emptied queue, a challenger that
+  // mirrors the champion (the bug that once seated Simba against Simba).
+  function guardArena() {
+    const ids = new Set(ROSTER.map((r) => r.id));
+    if (!ids.has(arena.champion)) arena.champion = ROSTER[0].id;
+    const seen = new Set();
+    arena.queue = (Array.isArray(arena.queue) ? arena.queue : [])
+      .filter((id) => ids.has(id) && id !== arena.champion && !seen.has(id) && seen.add(id));
+    if (!arena.queue.length || arena.queue[0] === arena.champion) {
+      arena.queue = ladderQueue(arena.champion);
+    }
+    arena.appeared = (Array.isArray(arena.appeared) ? arena.appeared : []).filter((id) => ids.has(id));
+    if (!arena.appeared.includes(arena.champion)) arena.appeared.push(arena.champion);
+    if (typeof arena.season !== 'number' || arena.season < 1) arena.season = 1;
+    if (typeof arena.bouts !== 'number' || arena.bouts < 0 || arena.bouts >= SEASON_LEN) arena.bouts = 0;
+    if (typeof arena.challRounds !== 'number' || arena.challRounds < 0) arena.challRounds = 0;
+    if (typeof arena.streak !== 'number' || arena.streak < 0) arena.streak = 0;
+    for (const r of ROSTER) {
+      if (typeof arena.xp[r.id] !== 'number') arena.xp[r.id] = 0;
+      if (typeof arena.wins[r.id] !== 'number') arena.wins[r.id] = 0;
+    }
+  }
+  guardArena();
   const saveArena = () => saveJSON(ARENA_KEY, arena);
 
-  // the name chips: tap one, type the new name, Enter or blur commits
+  // the name chips: tap one, type the new name, Enter or blur commits. The
+  // grid opens on the teams in play — the host and the next challengers in
+  // line — and one tap lists every nation on earth, each of them renameable.
+  let namesExpanded = false;
+  function nameChip(r) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'name-chip';
+    b.title = 'Tap to rename';
+    b.appendChild(document.createTextNode(r.face + ' '));
+    b.appendChild(document.createTextNode(aiName(r.id)));
+    b.addEventListener('click', () => {
+      const inp = document.createElement('input');
+      inp.className = 'name-edit';
+      inp.maxLength = 18;
+      inp.value = aiName(r.id);
+      inp.setAttribute('aria-label', 'Rename ' + aiName(r.id));
+      b.replaceWith(inp);
+      inp.focus();
+      inp.select();
+      let done = false;
+      const commit = () => {
+        if (done) return;
+        done = true;
+        const v = inp.value.replace(/[\r\n\t]+/g, ' ').trim().slice(0, 18);
+        if (!v || v === r.name) delete nameOverrides[r.id];
+        else nameOverrides[r.id] = v;
+        saveNames();
+        renderNameGrid();
+        updateAll();
+      };
+      inp.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') inp.blur();
+        else if (e.key === 'Escape') { done = true; renderNameGrid(); }
+      });
+      inp.addEventListener('blur', commit);
+    });
+    return b;
+  }
   function renderNameGrid() {
     const grid = $('nameGrid');
     if (!grid) return;
     grid.innerHTML = '';
-    for (const r of ROSTER) {
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'name-chip';
-      b.title = 'Tap to rename';
-      if (r.face) b.appendChild(document.createTextNode(r.face + ' '));
-      b.appendChild(document.createTextNode(aiName(r.id)));
-      b.addEventListener('click', () => {
-        const inp = document.createElement('input');
-        inp.className = 'name-edit';
-        inp.maxLength = 14;
-        inp.value = aiName(r.id);
-        inp.setAttribute('aria-label', 'Rename ' + aiName(r.id));
-        b.replaceWith(inp);
-        inp.focus();
-        inp.select();
-        let done = false;
-        const commit = () => {
-          if (done) return;
-          done = true;
-          const v = inp.value.replace(/[\r\n\t]+/g, ' ').trim().slice(0, 14);
-          if (!v || v === r.name) delete nameOverrides[r.id];
-          else nameOverrides[r.id] = v;
-          saveNames();
-          renderNameGrid();
-          updateAll();
-        };
-        inp.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter') inp.blur();
-          else if (e.key === 'Escape') { done = true; renderNameGrid(); }
-        });
-        inp.addEventListener('blur', commit);
-      });
-      grid.appendChild(b);
-    }
+    const list = namesExpanded
+      ? ROSTER.slice().sort((a, b) => a.band - b.band || a.name.localeCompare(b.name))
+      : [rosterById(arena.champion)].concat(arena.queue.slice(0, 11).map((id) => rosterById(id)));
+    for (const r of list) grid.appendChild(nameChip(r));
+    const more = document.createElement('button');
+    more.type = 'button';
+    more.className = 'name-chip name-more';
+    more.textContent = namesExpanded
+      ? '− back to the teams in play'
+      : '+ all ' + ROSTER.length + ' nations…';
+    more.addEventListener('click', () => { namesExpanded = !namesExpanded; renderNameGrid(); });
+    grid.appendChild(more);
   }
 
   // Which personality drives the engine currently thinking? `side` is the
@@ -2007,8 +2100,10 @@
     saveStats();
   }
 
+  let overShown = false; // one farewell per game — the arena must not double-count
   function showGameOver() {
-    if (!G.over) return;
+    if (!G.over || overShown) return;
+    overShown = true;
     const r = G.result;
     if (G.mode === 'ai') {
       FX.play(r.winner === null ? 'draw' : r.winner === G.humanSide ? 'win' : 'lose');
@@ -2065,34 +2160,28 @@
     setTimeout(() => openModal('modalGameOver'), 650);
   }
 
-  // ---------------- the arena: champion vs challenger, roster of ten ---------
-  // The winner keeps the board and faces the next name on the list; a beaten
-  // champion is replaced; each challenger gets `arenaRounds` rounds (default
-  // one) to try to take the crown before the queue shifts on. Experience:
-  // a win teaches +3, a defeat +4, a draw +2 — beaten AIs return stronger,
-  // so no one rules forever. When the whole roster has appeared and the
-  // reigning champion wins again, the crowd calls for the retirement
-  // ceremony: "How can you allow the one with that skill to retire?!"
+  // ---------------- the arena: host vs challenger, the world ladder ----------
+  // The champion hosts; each challenger gets `arenaRounds` rounds (default
+  // one) to try to take the crown before the ladder moves on. Experience:
+  // a win teaches +3, a defeat +4, a draw +2 — beaten nations return
+  // stronger, so no one rules forever. Every 12 bouts closes a season; the
+  // next one opens with every nation a rung stronger (the host too, so
+  // bouts stay even). When the whole world has appeared and the reigning
+  // champion wins again, the crowd calls for the retirement ceremony:
+  // "How can you allow the one with that skill to retire?!"
   let manualRetire = false;
   // honored exit: the champion leaves the board to applause; the next name
-  // takes the crown; a finished cycle reshuffles the queue
+  // takes the crown; a finished ladder reshuffles the queue
   function retireChampionHonors() {
     const champId = arena.champion;
-    arena.queue.push(champId);
-    const rest = arena.queue.filter((id) => id !== champId);
-    arena.champion = rest.shift() || champId;
-    arena.queue = rest;
+    arena.queue = arena.queue.filter((id) => id !== champId);
+    arena.champion = arena.queue.shift() || champId; // the next name takes the crown
     arena.challRounds = 0;
     if (arena.appeared.length >= ROSTER.length) {
-      arena.cycle++;
       arena.appeared = [arena.champion];
-      const all = ROSTER.map((r) => r.id).filter((id) => id !== arena.champion);
-      for (let i = all.length - 1; i > 0; i--) {
-        const j = (Math.random() * (i + 1)) | 0;
-        const t = all[i]; all[i] = all[j]; all[j] = t;
-      }
-      arena.queue = all;
+      arena.queue = ladderQueue(arena.champion);
     }
+    guardArena();
     saveArena();
   }
   function applyArenaResult(winnerSide) { // IVORY / EBONY / 0 = draw
@@ -2100,7 +2189,8 @@
     const manual = manualRetire;
     manualRetire = false;
     const winnerId = winnerSide === IVORY ? champId : winnerSide === EBONY ? challId : null;
-    for (const id of [champId, challId]) {
+    const seats = champId === challId ? [champId] : [champId, challId];
+    for (const id of seats) {
       arena.xp[id] += winnerId === null ? 2 : (id === winnerId ? 3 : 4);
       if (id === winnerId) arena.wins[id]++;
     }
@@ -2131,7 +2221,7 @@
         text = aiName(challId) + ' gets another round (' +
           (arena.challRounds + 1) + '/' + settings.arenaRounds + ').';
       }
-      // the roster has all appeared and the champion still holds the board:
+      // the whole world has appeared and the champion still holds the board:
       // the crowd asks the only question left — how can you let that retire?
       if (arena.appeared.length >= ROSTER.length) ceremony = true;
     } else {
@@ -2147,18 +2237,25 @@
         aiName(arena.champion) + '!';
     }
     if (arena.appeared.length >= ROSTER.length) {
-      // one complete cycle: all ten AIs have played — fresh queue, new cycle
-      arena.cycle++;
+      // one complete pass: every nation has played — the ladder reshuffles
       arena.appeared = [arena.champion];
-      const rest = ROSTER.map((r) => r.id).filter((id) => id !== arena.champion);
-      for (let i = rest.length - 1; i > 0; i--) {
-        const j = (Math.random() * (i + 1)) | 0;
-        const t = rest[i]; rest[i] = rest[j]; rest[j] = t;
-      }
-      arena.queue = rest;
+      arena.queue = ladderQueue(arena.champion);
     }
+    // the season closes every SEASON_LEN bouts — the world comes back stronger
+    let seasonEnd = false;
+    arena.bouts++;
+    if (arena.bouts >= SEASON_LEN) {
+      arena.bouts = 0;
+      arena.season++;
+      seasonEnd = true;
+    }
+    guardArena();
     saveArena();
-    return { ceremony, text, champion: arena.champion };
+    if (seasonEnd) {
+      text = '🏆 Season ' + arena.season + ' begins — every nation returns one rung stronger.' +
+        (text ? ' ' + text : '');
+    }
+    return { ceremony, text, champion: arena.champion, seasonEnd };
   }
 
   // the retirement ceremony: the winner's name takes the centre of the board
@@ -2203,13 +2300,19 @@
       setTimeout(() => SFX_BANK.play(pick(['st_gasp1', 'st_gasp2']), { vol: 0.85 }), 500);
       setTimeout(() => SFX_BANK.play('st_crowd1', { vol: 0.7 }), 1400);
     }
+    if (res.seasonEnd) {
+      // a season closes: the gong sounds, the world readies its stronger side
+      setTimeout(() => SFX_BANK.play('gong', { vol: 0.9 }), 700);
+      setTimeout(() => SFX_BANK.play(pick(['st_air1', 'st_crowd1']), { vol: 0.8 }), 1600);
+    }
     const beginCountdown = () => {
       const c = rosterById(arena.champion), ch = rosterById(arena.queue[0] || arena.champion);
       let left = 6;
       const announce = () => {
         el.hidden = false;
         el.innerHTML = 'Next: <b>' + (c.face ? c.face + ' ' : '') + aiName(arena.champion) + '</b> vs <b>' +
-          aiName(arena.queue[0] || arena.champion) + '</b> · cycle ' + arena.cycle + ' · ' + left + 's';
+          (ch.face ? ch.face + ' ' : '') + aiName(arena.queue[0] || arena.champion) + '</b> · Season ' +
+          arena.season + ' · bout ' + (arena.bouts + 1) + '/' + SEASON_LEN + ' · ' + left + 's';
       };
       const fire = () => {
         cancelAutoNext();
@@ -2251,18 +2354,25 @@
     G.capStreak = 0; G.capStreakSide = 0;
     repAdd(posKey(G.board, G.side));
     G.legal = E.legalMoves(G.rs, G.board, G.side);
-    G.over = false; G.result = null; G.recorded = false;
+    G.over = false; G.result = null; G.recorded = false; overShown = false;
     G.phase = 'idle'; G.sel = null; G.hint = null; G.lastMove = null;
     lastThinkMs = 0; thinkArmedKey = -1; thinkFired = 0; clockArmedKey = -1;
     pendingTrap = null;
     aiCardsThisGame = 0; // the narrator's quota resets with every fresh game
     G.firstBlood = false;
     G.shrimpFired = false;
-    // arena seats: the champion sits ivory, the challenger ebony; the
-    // challenger never faces a champion more than two rungs above it
+    // arena seats: the champion hosts on ivory, the challenger sits ebony;
+    // guardArena() has already sworn the queue holds nothing but other
+    // nations — the fence below only stands watch over future code paths.
+    // The challenger is never left more than two rungs below the champion.
+    if (G.mode === 'aivai') guardArena();
     if (G.mode === 'aivai' && settings.aivaiAuto) {
       G.seatIvory = arena.champion;
-      G.seatEbony = arena.queue[0] || arena.champion;
+      G.seatEbony = arena.queue[0];
+      if (G.seatEbony === G.seatIvory || !ROSTER.some((r) => r.id === G.seatEbony)) {
+        G.seatEbony = ROSTER.find((r) => r.id !== G.seatIvory).id;
+        arena.queue.unshift(G.seatEbony);
+      }
       const cl = Math.min(10, Math.max(1, rosterLevel(G.seatIvory)));
       const hl = Math.min(10, Math.max(rosterLevel(G.seatEbony), cl - 2));
       G.diffIvory = LEVEL_IDS[cl - 1];
@@ -2271,7 +2381,8 @@
       if (!arena.appeared.includes(G.seatEbony)) arena.appeared.push(G.seatEbony);
       saveArena();
     } else {
-      G.seatIvory = arena.champion; G.seatEbony = arena.queue[0];
+      G.seatIvory = arena.champion;
+      G.seatEbony = ROSTER.find((r) => r.id !== arena.champion).id;
       G.diffIvory = settings.diff; G.diffEbony = settings.diff;
     }
     doomClear();
@@ -2279,17 +2390,12 @@
     rebuildPieces();
     updateAll();
     scheduleAI();
-    // the opponent introduces themselves: in the arena, the roster AI speaks
-    // first (its own line when banked), otherwise the national school talks
-    const rosterIntro = G.mode === 'aivai' && settings.aivaiAuto &&
-      SFX_BANK.defs['roster_' + G.seatIvory] ? 'roster_' + G.seatIvory : null;
+    // the host introduces themselves: their national school speaks first
     const greeter = G.mode === 'ai' ? styleById(settings.style)
       : G.mode === 'aivai' ? (settings.aivaiAuto
         ? styleById(rosterById(G.seatIvory).styleId)
         : styleById(settings.styleIvory)) : null;
-    if (rosterIntro) {
-      setTimeout(() => SFX_BANK.play(rosterIntro, { vol: 0.85 }), 950);
-    } else if (greeter && Math.random() < (G.mode === 'aivai' ? 0.3 : 0.45)) {
+    if (greeter && Math.random() < (G.mode === 'aivai' ? 0.3 : 0.45)) {
       setTimeout(() => SFX_BANK.play(greeter.intro, { vol: 0.8 }), 950);
     }
     // AI vs AI: the arena announcer opens the show — who against who
@@ -2299,7 +2405,8 @@
         setTimeout(() => {
           SFX_BANK.play('v_spec1', { vol: 0.9 });
           flashWhisper(settings.aivaiAuto
-            ? seatTag(IVORY) + ' vs ' + seatTag(EBONY) + ' — cycle ' + arena.cycle +
+            ? seatTag(IVORY) + ' vs ' + seatTag(EBONY) + ' — Season ' + arena.season +
+              ', bout ' + (arena.bouts + 1) + ' of ' + SEASON_LEN +
               (arena.challRounds ? ' · round ' + (arena.challRounds + 1) + '/' + settings.arenaRounds : '')
             : LEVELS[G.diff].name + ' — ' + styleById(settings.styleIvory).name +
               ' vs ' + styleById(settings.styleEbony).name);
@@ -2321,7 +2428,7 @@
       G.side = h.side;
       G.noProg = h.noProgBefore;
     }
-    G.over = false; G.result = null; G.recorded = false;
+    G.over = false; G.result = null; G.recorded = false; overShown = false;
     G.lastMove = G.history.length ? G.history[G.history.length - 1].move : null;
     G.sel = null; G.hint = null;
     G.capStreak = 0; G.capStreakSide = 0;
@@ -2405,7 +2512,7 @@
     const spect = G.mode === 'aivai'
       ? (settings.aivaiAuto
         ? ' · ' + aiName(G.seatIvory) + ' vs ' + aiName(G.seatEbony) +
-          ' · cycle ' + arena.cycle
+          ' · Season ' + arena.season + ' · bout ' + (arena.bouts + 1) + '/' + SEASON_LEN
         : ' · AI vs AI')
       : '';
     if (G.phase === 'thinking') {
@@ -2506,8 +2613,8 @@
       $('arenaNote').textContent = settings.mode !== 'aivai'
         ? 'The arena only runs in AI vs AI mode.'
         : settings.aivaiAuto
-          ? 'Ten Tanzanian AIs rotate: ' + ROSTER.map((r) => aiName(r.id)).join(', ') +
-            '. The winner keeps the board, a beaten champion is replaced, and every game makes all of them a little smarter (experience → ladder level). A challenger never faces a champion more than two rungs above it, so bouts stay fair. When the whole roster has played and the champion is still standing, it retires — with the ceremony it deserves.'
+          ? ROSTER.length + ' nations rotate through the arena: Tanzania hosts the board and Kenya comes calling first, then East Africa, the rest of Africa, and every nation across Europe, Asia, the Americas and Oceania — open The players to rename any team you like. The winner keeps the board; a beaten champion joins the back of the line, so no nation hogs the schedule. Every ' + SEASON_LEN +
+            ' bouts a season closes and the world returns one rung stronger, and a challenger never faces a champion more than two rungs above it, so bouts stay fair. When every nation has played and the champion still stands, it retires — with the ceremony it deserves.'
           : 'Hand-picked engines: pick the two schools yourself. Auto-rematch is off, so the game stops after every bout.';
     }
     $('nameInput').value = settings.pname;
@@ -3070,5 +3177,6 @@
     menu: { open: openMenu, close: closeMenu, isOpen: () => drawerOpen },
     workerSource,
     engine: E, executeMove, showGameOver, settings,
+    arena: () => arena, // live arena state, for automated verification
   };
 })();

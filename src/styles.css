@@ -952,7 +952,7 @@ body.pieces-stone .piece.ebony .body {
 .cer-quote { margin-top: 10px; color: var(--accent); font-size: 13px; font-style: italic; }
 @keyframes cerPop { from { transform: scale(.55); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
-/* ---------- roster name chips: every Tanzanian AI is renameable ---------- */
+/* ---------- nation name chips: every team in the world is renameable ------- */
 .name-grid { display: flex; flex-wrap: wrap; gap: 6px; }
 .name-chip {
   display: inline-flex; align-items: center; gap: 4px;
@@ -961,6 +961,7 @@ body.pieces-stone .piece.ebony .body {
   transition: border-color .15s, color .15s;
 }
 .name-chip:hover { border-color: var(--accent-soft); color: var(--accent); }
+.name-chip.name-more { border-style: dashed; color: var(--accent); background: transparent; }
 .name-edit {
   background: #0a1322; border: 1px solid var(--accent); border-radius: 999px;
   color: var(--ink); font-size: 12px; padding: 5px 11px; width: 104px; outline: none; font-family: var(--sans);

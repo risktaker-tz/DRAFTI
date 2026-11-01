@@ -38,21 +38,26 @@ shaming, a heavy-hit voice and a board jolt — with your name in the banner:
     board rotation each turn.
   - *AI vs AI* — spectate two engines playing each other, with pause and
     1× / 2× / 4× speed. With **auto-rematch** on, the show never stops — and
-    it is never a nameless "AI vs AI": a **roster of ten Tanzanian AIs**
-    (Simba 🦁 vs Yanga 🥁 first, then Twiga, Tembo, Chui, Duma, Kifaru,
-    Nyati, Fisi and Sungura) plays a title challenge. **The winner keeps the
-    board** and faces the next name; a beaten champion is replaced; each
-    challenger gets a set number of rounds (1 by default, editable) before
-    the next AI shifts in; one complete cycle = all ten have played, and the
-    queue reshuffles each cycle. Every game teaches: wins add experience,
-    defeats add more, experience climbs the ladder — and a challenger never
-    faces a champion more than two rungs above it, so no one rules forever.
-    When the whole roster has appeared and the champion is still standing,
-    it **retires with a full ceremony**: the winner's name takes the centre
-    of the board while the crowd asks *"How can you allow the one with that
-    skill to retire?!"* — and you can retire any champion yourself with the
-    🎖 Retire button. Prefer the old way? Turn the roster off and hand-pick
-    the two national schools.
+    it is never a nameless "AI vs AI": a **world arena of 194 national
+    teams** plays a title challenge. **Tanzania hosts the board** and Kenya
+    comes calling first (the neighbourly rivalry), then East Africa, the
+    rest of Africa, and every nation across Europe, Asia, the Americas and
+    Oceania. **The winner keeps the board** and faces the next name; a
+    beaten champion joins the back of the line, so no nation hogs the
+    schedule; each challenger gets a set number of rounds (1 by default,
+    editable) before the next nation shifts in. Every **12 bouts closes a
+    season** and the next one opens with the whole world one rung stronger;
+    a full pass of the ladder reshuffles the queue. Every game teaches:
+    wins add experience, defeats add more, experience climbs the ladder —
+    and a challenger never faces a champion more than two rungs above it,
+    so bouts stay fair. When the whole world has appeared and the champion
+    is still standing, it **retires with a full ceremony**: the winner's
+    name takes the centre of the board while the crowd asks *"How can you
+    allow the one with that skill to retire?!"* — and you can retire any
+    champion yourself with the 🎖 Retire button. Every nation's name is
+    renameable in The players (the grid lists the teams in play, with an
+    all-nations expander). Prefer the old way? Turn the arena off and
+    hand-pick the two national schools.
   - **AI human playing mode** (in the arena card) — the engines stop moving
     like metronomes and start moving like people at a table: quick snaps on
     forced shots, real thinks on hard positions, the occasional long stare,
