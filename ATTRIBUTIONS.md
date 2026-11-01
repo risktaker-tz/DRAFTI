@@ -5,7 +5,7 @@ sourced meme effect credited below. Samples are embedded in `web/index.html`
 (base64 MP3); the processed source files live in `src/audio/`. This file
 lists the origin and license of each.
 
-The bank holds **258 sounds**: 22 recorded samples, 10 sourced meme effects
+The bank holds **330+ sounds**: 22 recorded samples, 10 sourced meme effects
 (below), 19 sourced animal-comedy & viral-sting samples, 183 neural-TTS
 voice lines and 33 original synthesized interface/game sounds (plus four
 more synthesized effects — trap snap, refusal buzz, relief chime and the
@@ -30,6 +30,20 @@ cross-checked against the numbered caption cards burned into the video
 frames (01, 02, 03, 04, 06, 08, 10) — no mapping is guessed. These clips are
 short excerpts included for entertainment; the original uploads remain the
 property of their creators, who are credited here and in the in-app bank.
+
+## Meme moments — in-house voiced recreations
+
+Two requested moments come from YouTube Shorts this project's build sandbox
+could not download (the uploader-bot wall blocks automated access). Rather
+than fake a claim to the original audio, the lines are voiced in-house with
+the TTS engine and are clearly labeled here. If you can save the original
+audio, drop the mp3 files into `src/audio/` under the names below and rebuild
+(`python3 build_web.py`) — see `sfx_swap/README.txt`.
+
+| Sound in game | What it says (recreation) | Wanted source clip | Use in the game |
+| --- | --- | --- | --- |
+| `shrimp1`, `shrimp2` | "Wait — is this the shrimp one?!" | "Is this the shrimp one??" horse/equestrian short — https://youtube.com/shorts/mvUVrweNvsQ | The last-shrimp moment: your final piece is about to be devoured |
+| `v_retire1`, `v_retire2` | "How can you allow the one with that skill to retire?!" (0-15 s moment of the clip, recreated) | "How can you allow the one with that skill to retire" — https://youtube.com/shorts/KBVNiOAnHiA | The retirement ceremony for a retiring champion |
 
 ## Animal comedy & viral stings (freesound.org, CC0)
 
@@ -103,6 +117,15 @@ time.", "My plan! Ruined!", "Boy, that was some move."), the doom-loop
 taunts ("You are trapped. There is no escape."), narrow-escape callouts,
 crowning hype ("The king has arrived!"), "First blood!" and two more
 heavy-hit lines) were generated the same way, in both voices.
+
+Batch-7 additions (the think deck: 24 narrator lines for long engine thinks
+— "Meanwhile, on the board…", "Ten moves deep already." — and 20 heckles for
+a slow human — "Coffee break?", "One move. One." — each in both voices, so a
+thinking moment can go through more than a hundred clips before anything
+repeats) were generated the same way, in both voices.
+
+Batch-8 additions (the arena roster's ten self-introductions — "I am Simba.
+The king of the board." — one per Tanzanian AI) were generated the same way.
 
 ## Interface & synthesized game sounds
 

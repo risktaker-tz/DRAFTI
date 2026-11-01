@@ -37,11 +37,27 @@ shaming, a heavy-hit voice and a board jolt — with your name in the banner:
   - *Two players* — pass-and-play on one device, with optional automatic
     board rotation each turn.
   - *AI vs AI* — spectate two engines playing each other, with pause and
-    1× / 2× / 4× speed — and each side can follow a **different national
-    school** (Italian Furioso vs Czech Fortress, anyone?). With
-    **auto-rematch** on, the show never stops: when a game ends the arena
-    announcer calls it, a countdown rolls into the **next level up** with the
-    two schools swapping colours, and a fresh bout starts by itself.
+    1× / 2× / 4× speed. With **auto-rematch** on, the show never stops — and
+    it is never a nameless "AI vs AI": a **roster of ten Tanzanian AIs**
+    (Simba 🦁 vs Yanga 🥁 first, then Twiga, Tembo, Chui, Duma, Kifaru,
+    Nyati, Fisi and Sungura) plays a title challenge. **The winner keeps the
+    board** and faces the next name; a beaten champion is replaced; each
+    challenger gets a set number of rounds (1 by default, editable) before
+    the next AI shifts in; one complete cycle = all ten have played, and the
+    queue reshuffles each cycle. Every game teaches: wins add experience,
+    defeats add more, experience climbs the ladder — and a challenger never
+    faces a champion more than two rungs above it, so no one rules forever.
+    When the whole roster has appeared and the champion is still standing,
+    it **retires with a full ceremony**: the winner's name takes the centre
+    of the board while the crowd asks *"How can you allow the one with that
+    skill to retire?!"* — and you can retire any champion yourself with the
+    🎖 Retire button. Prefer the old way? Turn the roster off and hand-pick
+    the two national schools.
+  - **AI human playing mode** (in the arena card) — the engines stop moving
+    like metronomes and start moving like people at a table: quick snaps on
+    forced shots, real thinks on hard positions, the occasional long stare,
+    and think-time moments drawn from a deck of 130+ unique clips so nothing
+    repeats back-to-back.
 - **Your name at the table** — you play as **UHAKIKA** by default, and the
   name is yours to edit in the menu (a second name appears in two-player
   mode). The turn banner ("Your move — UHAKIKA") and the result banner use
@@ -122,7 +138,7 @@ shaming, a heavy-hit voice and a board jolt — with your name in the banner:
   doomed side shuffles along to nervous chicken clucks (the engine
   squawks in full panic when *it* is the one trapped), and climbing back
   out earns the relief chime and "A narrow escape! Unbelievable!".
-- **260+ reactive sounds** — the game watches everything and reacts:
+- **330+ reactive sounds** — the game watches everything and reacts:
   - multi-piece jumps get **majestic animal fanfares** — a bald eagle scream
     for a double jump, a lion's roar (plus a board shake) for three or more,
     an elephant trumpet and brass fanfare when a man is crowned, plus

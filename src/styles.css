@@ -897,3 +897,26 @@ body.pieces-stone .piece.ebony .body {
   width: 11px; height: 11px; border-radius: 50%; flex: none;
   box-shadow: inset 0 -1px 2px rgba(0, 0, 0, .4), inset 0 1px 1px rgba(255, 255, 255, .5), 0 0 0 1px rgba(0, 0, 0, .25);
 }
+
+/* ---------- retirement ceremony: the name takes the centre of the board --- */
+.ceremony {
+  position: absolute; inset: 0; z-index: 60;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(3, 7, 13, .52); backdrop-filter: blur(3px);
+  border-radius: 12px;
+}
+.cer-card {
+  text-align: center; padding: 24px 38px; border-radius: 18px;
+  background: linear-gradient(170deg, rgba(22, 34, 54, .95), rgba(10, 16, 28, .96));
+  border: 1px solid var(--panel-line);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, .6), 0 0 46px var(--accent-weak);
+  animation: cerPop .65s cubic-bezier(.2, 1.5, .4, 1);
+}
+.cer-face { font-size: 56px; line-height: 1; filter: drop-shadow(0 6px 22px rgba(255, 202, 84, .4)); }
+.cer-name {
+  margin: 8px 0 2px; font-size: 34px; font-weight: 800; letter-spacing: .04em;
+  color: var(--ink); text-shadow: 0 0 26px var(--accent-soft);
+}
+.cer-sub { color: var(--ink-dim); font-size: 13px; }
+.cer-quote { margin-top: 10px; color: var(--accent); font-size: 13px; font-style: italic; }
+@keyframes cerPop { from { transform: scale(.55); opacity: 0; } to { transform: scale(1); opacity: 1; } }

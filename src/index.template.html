@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DRAFTI — Checkers, refined</title>
-<meta name="description" content="DRAFTI is an original open-source checkers game: five international rulesets, ten AI levels from Beginner to The Machine, twelve national playing styles, two-player and auto-rematch AI-vs-AI modes, 21 themes, 8 piece sets, jump-path previews, board-shaking impacts and 240+ reactive sounds, in a single HTML file.">
+<meta name="description" content="DRAFTI is an original open-source checkers game: five international rulesets, ten AI levels from Beginner to The Machine, twelve national playing styles, and an AI-vs-AI arena where ten named Tanzanian AIs — Simba, Yanga and friends — fight for the board with winner-stays rotation, experience-based skill, retirement ceremonies and human-like pacing, plus two-player mode, 21 themes, 8 piece sets and 330+ reactive sounds, in a single HTML file.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%237c4a24'/%3E%3Crect x='2' y='2' width='13' height='13' fill='%23e9d5a7'/%3E%3Crect x='17' y='17' width='13' height='13' fill='%23e9d5a7'/%3E%3Ccircle cx='22' cy='10' r='4.5' fill='%23191009'/%3E%3Ccircle cx='9' cy='24' r='4.5' fill='%23ecdcb4'/%3E%3C/svg%3E">
 <style>
 /*__STYLES__*/
@@ -38,6 +38,7 @@
         <div class="board" id="board" role="grid" aria-label="Checkers board"></div>
         <div class="pieces" id="pieces"></div>
       </div>
+      <div class="ceremony" id="ceremony" hidden></div>
     </div>
     <div class="qa-bar" id="qaBar" role="toolbar" aria-label="Quick actions">
       <button class="btn" id="qaHint" title="Suggest a move (H)">
@@ -60,6 +61,7 @@
         <button data-v="4">4×</button>
       </div>
       <span class="auto-next" id="autoNext" hidden></span>
+      <button class="btn" id="btnRetire" title="Retire the reigning champion after this game — with full honors and the ceremony they deserve">🎖 Retire</button>
       <button class="btn" id="btnAivaiNew">
         <svg viewBox="0 0 24 24"><path d="M12 5V2L7 6l5 4V7a6 6 0 1 1-6 6H4a8 8 0 1 0 8-8z"/></svg>
         Restart</button>
@@ -79,7 +81,7 @@
 
   <div class="drawer-body">
     <div class="card">
-      <h2><span class="h-ico">⚙</span> Game setup</h2>
+      <h2><span class="h-ico">⚙</span> The match</h2>
       <div class="seg">
         <div class="seg-row">
           <span class="seg-label">Rules</span>
@@ -126,14 +128,6 @@
           <div class="seg-btns wrap-seg" id="segStyle"></div>
           <p class="setup-note" id="styleNote"></p>
         </div>
-        <div class="seg-row" id="rowStyleI">
-          <span class="seg-label">🏁 Ivory engine style</span>
-          <div class="seg-btns wrap-seg" id="segStyleI"></div>
-        </div>
-        <div class="seg-row" id="rowStyleE">
-          <span class="seg-label">🏁 Ebony engine style</span>
-          <div class="seg-btns wrap-seg" id="segStyleE"></div>
-        </div>
         <div class="seg-row" id="rowClock">
           <span class="seg-label">Move clock (human turns)</span>
           <div class="seg-btns" id="segClock">
@@ -150,15 +144,47 @@
             <span id="name2Wrap"><input type="text" id="name2Input" class="name-input" maxlength="18" placeholder="Challenger" autocomplete="off" spellcheck="false"></span>
           </div>
         </div>
+      </div>
+      <p class="setup-note" id="setupNote"></p>
+    </div>
+
+    <div class="card">
+      <h2><span class="h-ico">🏟</span> The arena — AI vs AI</h2>
+      <div class="seg">
         <div class="seg-row" id="rowAuto">
           <span class="seg-label">When a game ends</span>
           <div class="seg-btns" id="segAuto">
-            <button data-v="on">Auto-rematch, next level up</button>
+            <button data-v="on">Auto-rematch arena</button>
             <button data-v="off">Stop and review</button>
           </div>
         </div>
+        <div class="seg-row" id="rowRounds">
+          <span class="seg-label">Rounds a challenger gets before the next AI shifts in</span>
+          <div class="seg-btns" id="segRounds">
+            <button data-v="1">1 round</button>
+            <button data-v="2">2</button>
+            <button data-v="3">3</button>
+            <button data-v="4">4</button>
+            <button data-v="5">5</button>
+          </div>
+        </div>
+        <div class="seg-row" id="rowHumanlike">
+          <span class="seg-label">AI human playing mode — the engines move like people: quick snaps, real thinks, no rush</span>
+          <div class="seg-btns" id="segHumanlike">
+            <button data-v="on">On</button>
+            <button data-v="off">Off</button>
+          </div>
+        </div>
+        <div class="seg-row" id="rowStyleI">
+          <span class="seg-label">🏁 Ivory engine style (roster off)</span>
+          <div class="seg-btns wrap-seg" id="segStyleI"></div>
+        </div>
+        <div class="seg-row" id="rowStyleE">
+          <span class="seg-label">🏁 Ebony engine style (roster off)</span>
+          <div class="seg-btns wrap-seg" id="segStyleE"></div>
+        </div>
       </div>
-      <p class="setup-note" id="setupNote"></p>
+      <p class="setup-note" id="arenaNote"></p>
     </div>
 
     <div class="card">

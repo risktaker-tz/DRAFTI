@@ -67,11 +67,67 @@
     s.catch = ['s_' + s.id + '_1', 's_' + s.id + '_2'];
   }
 
+  // ---------------- the arena roster: ten Tanzanian AIs ----------------------
+  // AI vs AI is never a nameless "AI vs AI": a champion holds the board while
+  // it keeps winning, beaten challengers make way for the next name on the
+  // list, and every AI grows smarter with every game it plays (experience ->
+  // ladder level). One complete cycle = all ten have appeared; the challenger
+  // queue reshuffles at the start of each cycle. First title bout by default:
+  // Simba vs Yanga.
+  const ROSTER = [
+    { id: 'simba',   name: 'Simba',   face: '🦁', styleId: 'italian',   blurb: 'The king of the board — attacks like royalty.' },
+    { id: 'yanga',   name: 'Yanga',   face: '🥁', styleId: 'brazilian', blurb: 'Pride of the people — plays with rhythm.' },
+    { id: 'twiga',   name: 'Twiga',   face: '🦒', styleId: 'english',   blurb: 'Sees the whole board from up there.' },
+    { id: 'tembo',   name: 'Tembo',   face: '🐘', styleId: 'czech',     blurb: 'Never forgets a trap. Never rushes.' },
+    { id: 'chui',    name: 'Chui',    face: '🐆', styleId: 'kenyan',    blurb: 'Stalks in silence, pounces hard.' },
+    { id: 'duma',    name: 'Duma',    face: '⚡', styleId: 'russian',   blurb: 'Fast, fearless, slightly reckless.' },
+    { id: 'kifaru',  name: 'Kifaru',  face: '🦏', styleId: 'american',  blurb: 'Charges straight through the centre.' },
+    { id: 'nyati',   name: 'Nyati',   face: '🐃', styleId: 'spanish',   blurb: 'Holds the ground and the long diagonal.' },
+    { id: 'fisi',    name: 'Fisi',    face: '🐺', styleId: 'tanzanian', blurb: 'Laughing at your plan — and at ours.' },
+    { id: 'sungura', name: 'Sungura', face: '🐇', styleId: 'french',    blurb: 'Quick, clever, gone before you look.' },
+  ];
+  const rosterById = (id) => ROSTER.find((r) => r.id === id) || ROSTER[0];
+  const ARENA_KEY = 'drafti.arena.v1';
+  // experience: a game played teaches (+2), a win teaches a little more (+3),
+  // a defeat teaches the most (+4) — so a beaten AI comes back stronger and
+  // no one stays on top forever. Five experience points = one ladder level.
+  const arenaXpFor = (winner, seatId) =>
+    winner === null ? 2 : (seatId === winner ? 3 : 4);
+  const rosterLevel = (id) => Math.min(10, 1 + Math.floor((arena.xp[id] || 0) / 5));
+  let arena = loadJSON(ARENA_KEY, null) || {
+    xp: {}, wins: {}, champion: 'simba', queue: [], appeared: [], cycle: 1, reign: 0, bouts: 0,
+    challRounds: 0,
+  };
+  for (const r of ROSTER) {
+    if (typeof arena.xp[r.id] !== 'number') arena.xp[r.id] = 0;
+    if (typeof arena.wins[r.id] !== 'number') arena.wins[r.id] = 0;
+  }
+  if (!rosterById(arena.champion)) arena.champion = 'simba';
+  if (!Array.isArray(arena.appeared)) arena.appeared = [];
+  if (typeof arena.challRounds !== 'number' || arena.challRounds < 0) arena.challRounds = 0;
+  if (typeof arena.bouts !== 'number' || arena.bouts < 0) arena.bouts = 0;
+  if (typeof arena.cycle !== 'number' || arena.cycle < 1) arena.cycle = 1;
+  // default first bout: Simba vs Yanga, then the rest in a shuffled queue
+  if (!Array.isArray(arena.queue) || !arena.queue.length) {
+    const rest = ROSTER.map((r) => r.id).filter((id) => id !== arena.champion && id !== 'yanga');
+    for (let i = rest.length - 1; i > 0; i--) {
+      const j = (Math.random() * (i + 1)) | 0;
+      const t = rest[i]; rest[i] = rest[j]; rest[j] = t;
+    }
+    arena.queue = ['yanga'].concat(rest);
+  }
+  const saveArena = () => saveJSON(ARENA_KEY, arena);
+
   // Which personality drives the engine currently thinking? `side` is the
   // side the ENGINE is searching for. Hotseat has no engines.
   function styleForSide(side) {
     if (G.mode === 'ai') return side === G.humanSide ? null : styleById(settings.style);
-    if (G.mode === 'aivai') return styleById(side === IVORY ? settings.styleIvory : settings.styleEbony);
+    if (G.mode === 'aivai') {
+      // the arena roster owns the seats when auto-rematch runs; otherwise the
+      // hand-picked schools from the menu play
+      if (arenaOn()) return styleById(rosterById(side === IVORY ? G.seatIvory : G.seatEbony).styleId);
+      return styleById(side === IVORY ? settings.styleIvory : settings.styleEbony);
+    }
     return null;
   }
 
@@ -82,7 +138,7 @@
   function saveJSON(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* private mode etc. */ } }
 
   const settings = Object.assign(
-    { rsId: 'american', mode: 'ai', diff: 'l5', humanSide: IVORY, sound: true, rotate: true, theme: 'neon', clock: 0, speed: 1, hv: false, ambient: true, style: 'classic', styleIvory: 'italian', styleEbony: 'czech', pname: 'UHAKIKA', pname2: 'Challenger', aivaiAuto: true, jumpPaths: true, shake: true, pieces: 'theme' },
+    { rsId: 'american', mode: 'ai', diff: 'l5', humanSide: IVORY, sound: true, rotate: true, theme: 'neon', clock: 0, speed: 1, hv: false, ambient: true, style: 'classic', styleIvory: 'italian', styleEbony: 'czech', pname: 'UHAKIKA', pname2: 'Challenger', aivaiAuto: true, jumpPaths: true, shake: true, pieces: 'theme', arenaRounds: 1, humanlike: false },
     loadJSON(SETTINGS_KEY, {})
   );
   if (!E.RULESETS[settings.rsId]) settings.rsId = 'american';
@@ -107,6 +163,8 @@
   };
   settings.pname = cleanName(settings.pname, 'UHAKIKA');
   settings.pname2 = cleanName(settings.pname2, 'Challenger');
+  if (![1, 2, 3, 4, 5].includes(settings.arenaRounds)) settings.arenaRounds = 1;
+  settings.humanlike = !!settings.humanlike;
 
   // ---------------- themes ----------------
   // Every theme overrides the CSS custom properties defined in styles.css.
@@ -782,7 +840,13 @@
     aiPaused: false, aiSpeed: settings.speed,
     capStreakSide: 0, capStreak: 0,
     firstBlood: false,
+    // arena roster seats: which AI sits on each colour this game, and the
+    // ladder rung each seat is searching at (champion vs challenger levels)
+    seatIvory: arena.champion, seatEbony: arena.queue[0],
+    diffIvory: settings.diff, diffEbony: settings.diff,
   };
+  // the roster arena is live whenever AI-vs-AI runs with auto-rematch
+  const arenaOn = () => G.mode === 'aivai' && settings.aivaiAuto;
 
   const posKey = (b, s) => b.join(',') + '|' + s;
   const boardAt = (i) => G.board[i];
@@ -793,7 +857,15 @@
   const displayName = (s) => {
     if (G.mode === 'ai' && s === G.humanSide) return settings.pname;
     if (G.mode === 'hotseat') return s === IVORY ? settings.pname : settings.pname2;
+    if (G.mode === 'aivai' && arenaOn()) return rosterById(s === IVORY ? G.seatIvory : G.seatEbony).name;
     return sideName(s);
+  };
+  // the seat's full tag: name + face + ladder level (arena roster only)
+  const seatTag = (s) => {
+    if (!(G.mode === 'aivai' && arenaOn())) return displayName(s);
+    const id = s === IVORY ? G.seatIvory : G.seatEbony;
+    const r = rosterById(id);
+    return r.face + ' ' + r.name + ' · L' + rosterLevel(id);
   };
   const humanTurn = () => !G.over && (G.mode === 'hotseat' || G.side === G.humanSide);
 
@@ -898,10 +970,14 @@
 
   function levelOpts(levelId, style) {
     const L = LEVELS[levelId] || LEVELS.l5;
+    // Think times breathe: the budget wobbles per move, instinctive (chaotic)
+    // styles answer faster while fortress styles take their time — no two
+    // thinks look alike, and neither opponent feels like a metronome.
+    const pace = (1.25 - 0.35 * (style ? style.chaos : 0.2)) * (0.85 + Math.random() * 0.35);
     // Pool-based move picking compares root scores against each other, so it
     // needs exact per-root values: only the shallow rungs (which have a pool)
     // pay for the full-window search.
-    const opts = { budgetMs: L.budgetMs, maxDepth: L.maxDepth, jitter: L.jitter,
+    const opts = { budgetMs: Math.max(80, Math.round(L.budgetMs * pace)), maxDepth: L.maxDepth, jitter: L.jitter,
       fullRootWindow: L.pool > 0 };
     if (style) opts.weights = Object.assign({ for: 0 }, style.w); // for: patched by caller
     return { opts, level: L };
@@ -916,7 +992,9 @@
       board: G.board,
       opts: kind === 'hint'
         ? { budgetMs: 600, maxDepth: 12, jitter: 0 }
-        : levelOpts(G.diff, style).opts,
+        : levelOpts(G.mode === 'aivai'
+          ? (G.side === IVORY ? G.diffIvory : G.diffEbony)
+          : G.diff, style).opts,
     };
     if (payload.opts.weights) payload.opts.weights.for = G.side;
     aiPending = kind === 'ai'; hintPending = kind === 'hint';
@@ -948,8 +1026,26 @@
       updateAll();
       return;
     }
-    // pacing: aivai keeps a watchable rhythm scaled by the speed selector
-    const base = G.mode === 'aivai' ? 700 / G.aiSpeed : 450;
+    // pacing: aivai keeps a watchable rhythm scaled by the speed selector —
+    // but nobody answers every move at the same beat. Default: quick snaps
+    // and the occasional stare. AI human playing mode: the full human
+    // pattern — forced moves answered fast, ordinary moves muled over, one
+    // long think in a while, nothing robotic.
+    let base;
+    if (settings.humanlike && (G.mode === 'aivai' || G.mode === 'ai')) {
+      const r = Math.random();
+      const caps = G.legal.some((m) => m.caps.length > 0);
+      if (G.legal.length <= 2) base = 700 + r * 900;               // forced: snap
+      else if (caps && G.legal.length <= 4) base = 900 + r * 1400; // obvious shot
+      else if (r < 0.12) base = 500 + r * 900;                     // the quick reply
+      else if (r > 0.88) base = 8000 + r * 9000;                   // the deep think
+      else base = 1600 + Math.random() * 4200;                     // ordinary think
+      if (G.mode === 'aivai') base /= G.aiSpeed;
+    } else {
+      base = (G.mode === 'aivai' ? 700 / G.aiSpeed : 450) *
+        (0.55 + Math.random() * 1.15) +
+        (G.mode === 'aivai' && Math.random() < 0.1 ? (1200 + Math.random() * 3500) / G.aiSpeed : 0);
+    }
     const delay = Math.max(0, base - (Date.now() - thinkStart));
     setTimeout(() => {
       if (res.id !== reqId || G.phase !== 'idle') return;
@@ -1721,6 +1817,16 @@
     }
     // doom drama: the winner converts while the loser keeps playing
     doomHeartbeat(moverSide, mv.caps.length);
+    // the last-shrimp moment: the side to move has a single piece left and
+    // the board is about to devour it — "wait… is this the shrimp one??"
+    if (!G.over && !G.shrimpFired && countSide(G.side) === 1 &&
+        countSide(-G.side) >= 2 && Math.random() < 0.35) {
+      G.shrimpFired = true;
+      setTimeout(() => {
+        SFX_BANK.play(pick(['shrimp1', 'shrimp2']), { vol: 0.95 });
+        flashWhisper('Is this the shrimp one??');
+      }, 850);
+    }
     // capture streaks: consecutive moves (by either side) that capture
     if (mv.caps.length > 0) {
       firstBloodSting();
@@ -1892,10 +1998,115 @@
     setTimeout(() => openModal('modalGameOver'), 650);
   }
 
-  // ---------------- AI vs AI auto-rematch: next bout, next rung ----------------
-  // The ladder climbs on its own while you spectate: after every game the
-  // stronger rung steps up (wrapping past The Machine), the two schools swap
-  // colours, and a fresh bout starts without anyone touching a button.
+  // ---------------- the arena: champion vs challenger, roster of ten ---------
+  // The winner keeps the board and faces the next name on the list; a beaten
+  // champion is replaced; each challenger gets `arenaRounds` rounds (default
+  // one) to try to take the crown before the queue shifts on. Experience:
+  // a win teaches +3, a defeat +4, a draw +2 — beaten AIs return stronger,
+  // so no one rules forever. When the whole roster has appeared and the
+  // reigning champion wins again, the crowd calls for the retirement
+  // ceremony: "How can you allow the one with that skill to retire?!"
+  let manualRetire = false;
+  // honored exit: the champion leaves the board to applause; the next name
+  // takes the crown; a finished cycle reshuffles the queue
+  function retireChampionHonors() {
+    const champId = arena.champion;
+    arena.queue.push(champId);
+    const rest = arena.queue.filter((id) => id !== champId);
+    arena.champion = rest.shift() || champId;
+    arena.queue = rest;
+    arena.challRounds = 0;
+    if (arena.appeared.length >= ROSTER.length) {
+      arena.cycle++;
+      arena.appeared = [arena.champion];
+      const all = ROSTER.map((r) => r.id).filter((id) => id !== arena.champion);
+      for (let i = all.length - 1; i > 0; i--) {
+        const j = (Math.random() * (i + 1)) | 0;
+        const t = all[i]; all[i] = all[j]; all[j] = t;
+      }
+      arena.queue = all;
+    }
+    saveArena();
+  }
+  function applyArenaResult(winnerSide) { // IVORY / EBONY / 0 = draw
+    const champId = G.seatIvory, challId = G.seatEbony;
+    const manual = manualRetire;
+    manualRetire = false;
+    const winnerId = winnerSide === IVORY ? champId : winnerSide === EBONY ? challId : null;
+    for (const id of [champId, challId]) {
+      arena.xp[id] += winnerId === null ? 2 : (id === winnerId ? 3 : 4);
+      if (id === winnerId) arena.wins[id]++;
+    }
+    const champ = rosterById(champId), chall = rosterById(challId);
+    let ceremony = false, text = '';
+    if (winnerSide === EBONY) {
+      // the challenger takes the crown; the beaten champion goes to the back
+      arena.queue.push(champId);
+      arena.queue = arena.queue.filter((id) => id !== challId);
+      arena.champion = challId;
+      arena.challRounds = 0;
+      text = chall.face + ' ' + chall.name + ' beats ' + champ.name + ' — new champion!';
+    } else if (winnerSide === IVORY) {
+      arena.challRounds++;
+      if (arena.challRounds >= settings.arenaRounds) {
+        arena.queue.shift(); // this challenger's rounds are up — next name in
+        arena.queue.push(challId);
+        arena.challRounds = 0;
+        text = champ.face + ' ' + champ.name + ' holds the board — ' + chall.name + ' steps aside.';
+      } else {
+        text = chall.face + ' ' + chall.name + ' gets another round (' +
+          (arena.challRounds + 1) + '/' + settings.arenaRounds + ').';
+      }
+      // the roster has all appeared and the champion still holds the board:
+      // the crowd asks the only question left — how can you let that retire?
+      if (arena.appeared.length >= ROSTER.length) ceremony = true;
+    } else {
+      text = 'A draw — ' + champ.name + ' keeps the board; ' + chall.name + ' goes again.';
+    }
+    if (manual && winnerSide !== EBONY) {
+      // you called time on a deserving champion — the ceremony is the point
+      ceremony = true;
+    }
+    if (ceremony) {
+      retireChampionHonors();
+      text = champ.face + ' ' + champ.name + ' retires a champion! Long live ' +
+        rosterById(arena.champion).name + '!';
+    }
+    if (arena.appeared.length >= ROSTER.length) {
+      // one complete cycle: all ten AIs have played — fresh queue, new cycle
+      arena.cycle++;
+      arena.appeared = [arena.champion];
+      const rest = ROSTER.map((r) => r.id).filter((id) => id !== arena.champion);
+      for (let i = rest.length - 1; i > 0; i--) {
+        const j = (Math.random() * (i + 1)) | 0;
+        const t = rest[i]; rest[i] = rest[j]; rest[j] = t;
+      }
+      arena.queue = rest;
+    }
+    saveArena();
+    return { ceremony, text, champion: arena.champion };
+  }
+
+  // the retirement ceremony: the winner's name takes the centre of the board
+  // while the crowd asks how anyone could let that skill retire
+  function showCeremony(champId) {
+    const r = rosterById(champId);
+    const el = $('ceremony');
+    if (!el) return sleep(6500);
+    el.innerHTML = '<div class="cer-card">' +
+      '<div class="cer-face">' + r.face + '</div>' +
+      '<div class="cer-name">' + r.name + '</div>' +
+      '<div class="cer-sub">retires a champion — ' + (arena.wins[r.id] || 0) +
+      ' wins, L' + rosterLevel(r.id) + ' of experience</div>' +
+      '<div class="cer-quote">"How can you allow the one with that skill to retire?!"</div>' +
+      '</div>';
+    el.hidden = false;
+    SFX_BANK.play('gong', { vol: 0.9 });
+    setTimeout(() => SFX_BANK.play(pick(['v_retire1', 'v_retire2']), { vol: 1 }), 900);
+    setTimeout(() => { el.hidden = true; }, 7400);
+    return sleep(7400);
+  }
+
   let autoNextTimer = 0;
   function cancelAutoNext() {
     clearTimeout(autoNextTimer);
@@ -1907,34 +2118,32 @@
     cancelAutoNext();
     const el = $('autoNext');
     if (!el) return;
-    const li = LEVEL_IDS.indexOf(G.diff);
-    const nextId = LEVEL_IDS[(li + 1) % LEVEL_IDS.length];
-    const swapI = settings.styleEbony, swapE = settings.styleIvory; // schools swap colours
-    let left = 6;
-    const announce = () => {
-      el.hidden = false;
-      el.innerHTML = 'Next: <b>' + LEVELS[nextId].name + '</b> · ' +
-        styleById(swapE).flag + ' vs ' + styleById(swapI).flag + ' · ' + left + 's';
-    };
-    const fire = () => {
-      cancelAutoNext();
-      settings.diff = nextId;
-      settings.styleIvory = swapI;
-      settings.styleEbony = swapE;
-      saveJSON(SETTINGS_KEY, settings);
-      G.diff = nextId;
-      FX.play('levelup');
-      flashLabel('Level up: ' + LEVELS[nextId].name + '!', 'party');
-      setTimeout(() => SFX_BANK.play(pick(['v_spec10', 'v_nextup']), { vol: 0.9 }), 500);
-      startNewGameWithFanfare();
-    };
-    announce();
-    const tick = setInterval(() => {
-      left -= 1;
-      if (left <= 0) { clearInterval(tick); fire(); return; }
+    const res = applyArenaResult(G.result && G.result.winner ? G.result.winner : 0);
+    if (res.text) flashWhisper(res.text);
+    const beginCountdown = () => {
+      const c = rosterById(arena.champion), ch = rosterById(arena.queue[0] || arena.champion);
+      let left = 6;
+      const announce = () => {
+        el.hidden = false;
+        el.innerHTML = 'Next: <b>' + c.face + ' ' + c.name + '</b> vs <b>' +
+          ch.face + ' ' + ch.name + '</b> · cycle ' + arena.cycle + ' · ' + left + 's';
+      };
+      const fire = () => {
+        cancelAutoNext();
+        FX.play('levelup');
+        setTimeout(() => SFX_BANK.play(pick(['v_spec10', 'v_nextup']), { vol: 0.9 }), 500);
+        startNewGameWithFanfare();
+      };
       announce();
-    }, 1000);
-    autoNextTimer = tick; // interval id doubles as the cancel handle
+      const tick = setInterval(() => {
+        left -= 1;
+        if (left <= 0) { clearInterval(tick); fire(); return; }
+        announce();
+      }, 1000);
+      autoNextTimer = tick; // interval id doubles as the cancel handle
+    };
+    if (res.ceremony) showCeremony(G.seatIvory).then(beginCountdown);
+    else beginCountdown();
   }
 
   // ---------------- game lifecycle ----------------
@@ -1964,25 +2173,52 @@
     pendingTrap = null;
     aiCardsThisGame = 0; // the narrator's quota resets with every fresh game
     G.firstBlood = false;
+    G.shrimpFired = false;
+    // arena seats: the champion sits ivory, the challenger ebony; the
+    // challenger never faces a champion more than two rungs above it
+    if (G.mode === 'aivai' && settings.aivaiAuto) {
+      G.seatIvory = arena.champion;
+      G.seatEbony = arena.queue[0] || arena.champion;
+      const cl = Math.min(10, Math.max(1, rosterLevel(G.seatIvory)));
+      const hl = Math.min(10, Math.max(rosterLevel(G.seatEbony), cl - 2));
+      G.diffIvory = LEVEL_IDS[cl - 1];
+      G.diffEbony = LEVEL_IDS[hl - 1];
+      if (!arena.appeared.includes(G.seatIvory)) arena.appeared.push(G.seatIvory);
+      if (!arena.appeared.includes(G.seatEbony)) arena.appeared.push(G.seatEbony);
+      saveArena();
+    } else {
+      G.seatIvory = arena.champion; G.seatEbony = arena.queue[0];
+      G.diffIvory = settings.diff; G.diffEbony = settings.diff;
+    }
     doomClear();
     buildBoard();
     rebuildPieces();
     updateAll();
     scheduleAI();
-    // the opponent introduces themselves in their national style
+    // the opponent introduces themselves: in the arena, the roster AI speaks
+    // first (its own line when banked), otherwise the national school talks
+    const rosterIntro = G.mode === 'aivai' && settings.aivaiAuto &&
+      SFX_BANK.defs['roster_' + G.seatIvory] ? 'roster_' + G.seatIvory : null;
     const greeter = G.mode === 'ai' ? styleById(settings.style)
-      : G.mode === 'aivai' ? styleById(settings.styleIvory) : null;
-    if (greeter && Math.random() < (G.mode === 'aivai' ? 0.3 : 0.45)) {
+      : G.mode === 'aivai' ? (settings.aivaiAuto
+        ? styleById(rosterById(G.seatIvory).styleId)
+        : styleById(settings.styleIvory)) : null;
+    if (rosterIntro) {
+      setTimeout(() => SFX_BANK.play(rosterIntro, { vol: 0.85 }), 950);
+    } else if (greeter && Math.random() < (G.mode === 'aivai' ? 0.3 : 0.45)) {
       setTimeout(() => SFX_BANK.play(greeter.intro, { vol: 0.8 }), 950);
     }
-    // AI vs AI: the arena announcer opens the show
+    // AI vs AI: the arena announcer opens the show — who against who
     if (G.mode === 'aivai' && Math.random() < 0.75) {
       setTimeout(() => {
         SFX_BANK.play('notify_pop');
         setTimeout(() => {
           SFX_BANK.play('v_spec1', { vol: 0.9 });
-          flashWhisper(LEVELS[G.diff].name + ' — ' + styleById(settings.styleIvory).name +
-            ' vs ' + styleById(settings.styleEbony).name);
+          flashWhisper(settings.aivaiAuto
+            ? seatTag(IVORY) + ' vs ' + seatTag(EBONY) + ' — cycle ' + arena.cycle +
+              (arena.challRounds ? ' · round ' + (arena.challRounds + 1) + '/' + settings.arenaRounds : '')
+            : LEVELS[G.diff].name + ' — ' + styleById(settings.styleIvory).name +
+              ' vs ' + styleById(settings.styleEbony).name);
         }, 200);
       }, 1250);
     }
@@ -2082,7 +2318,12 @@
       return;
     }
     dot.className = 'dot ' + sideDot();
-    const spect = G.mode === 'aivai' ? ' · AI vs AI' : '';
+    const spect = G.mode === 'aivai'
+      ? (settings.aivaiAuto
+        ? ' · ' + rosterById(G.seatIvory).name + ' vs ' + rosterById(G.seatEbony).name +
+          ' · cycle ' + arena.cycle
+        : ' · AI vs AI')
+      : '';
     if (G.phase === 'thinking') {
       banner.classList.add('thinking');
       text.textContent = hintPending ? 'Looking for a hint' : (G.mode === 'ai' && G.side !== G.humanSide
@@ -2106,8 +2347,9 @@
       for (let i = 0; i < count; i++) minis += '<span class="mini ' + color + '"></span>';
       return '<span>' + label + '</span> <b>' + count + '</b> ' + minis;
     };
-    $('trayTop').innerHTML = tray('Captured by Ivory', 'ebony', byIvory);
-    $('trayBottom').innerHTML = tray('Captured by Ebony', 'ivory', byEbony);
+    // arena games name the capturer, not the colour
+    $('trayTop').innerHTML = tray('Captured by ' + displayName(IVORY), 'ebony', byIvory);
+    $('trayBottom').innerHTML = tray('Captured by ' + displayName(EBONY), 'ivory', byEbony);
   }
 
   function updateHistory() {
@@ -2162,18 +2404,36 @@
     $('rowSide').style.display = settings.mode === 'ai' ? '' : 'none';
     $('rowDiff').style.display = settings.mode === 'ai' ? '' : 'none';
     $('rowStyle').style.display = settings.mode === 'ai' ? '' : 'none';
-    $('rowStyleI').style.display = settings.mode === 'aivai' ? '' : 'none';
-    $('rowStyleE').style.display = settings.mode === 'aivai' ? '' : 'none';
+    const arenaOnSetting = settings.mode === 'aivai' && settings.aivaiAuto;
+    $('rowStyleI').style.display = settings.mode === 'aivai' && !settings.aivaiAuto ? '' : 'none';
+    $('rowStyleE').style.display = settings.mode === 'aivai' && !settings.aivaiAuto ? '' : 'none';
+    $('rowRounds').style.display = arenaOnSetting ? '' : 'none';
+    $('rowHumanlike').style.display = settings.mode === 'aivai' || settings.mode === 'ai' ? '' : 'none';
     $('rowClock').style.display = settings.mode === 'aivai' ? 'none' : '';
     $('rowName').style.display = settings.mode === 'aivai' ? 'none' : '';
     $('name2Wrap').style.display = settings.mode === 'hotseat' ? '' : 'none';
     $('rowAuto').style.display = settings.mode === 'aivai' ? '' : 'none';
     set('segAuto', settings.aivaiAuto ? 'on' : 'off');
+    set('segRounds', settings.arenaRounds);
+    set('segHumanlike', settings.humanlike ? 'on' : 'off');
+    if ($('arenaNote')) {
+      $('arenaNote').textContent = settings.mode !== 'aivai'
+        ? 'The arena only runs in AI vs AI mode.'
+        : settings.aivaiAuto
+          ? 'Ten Tanzanian AIs rotate: ' + ROSTER.map((r) => r.name).join(', ') +
+            '. The winner keeps the board, a beaten champion is replaced, and every game makes all of them a little smarter (experience → ladder level). A challenger never faces a champion more than two rungs above it, so bouts stay fair. When the whole roster has played and the champion is still standing, it retires — with the ceremony it deserves.'
+          : 'Hand-picked engines: pick the two schools yourself. Auto-rematch is off, so the game stops after every bout.';
+    }
     $('nameInput').value = settings.pname;
     $('name2Input').value = settings.pname2;
     const rs = E.RULESETS[settings.rsId];
     const stNote = settings.mode === 'aivai'
-      ? styleById(settings.styleIvory).name + ' vs ' + styleById(settings.styleEbony).name + '.'
+      ? (settings.aivaiAuto
+        ? rosterById(G.seatIvory).face + ' ' + rosterById(G.seatIvory).name + ' (' +
+          styleById(rosterById(G.seatIvory).styleId).name + ') vs ' +
+          rosterById(G.seatEbony).face + ' ' + rosterById(G.seatEbony).name + ' (' +
+          styleById(rosterById(G.seatEbony).styleId).name + ').'
+        : styleById(settings.styleIvory).name + ' vs ' + styleById(settings.styleEbony).name + '.')
       : styleById(settings.style).blurb;
     $('setupNote').textContent = settings.mode === 'ai'
       ? rs.name + ' — ' + sideName(rs.firstSide) + ' opens. You play ' + sideName(settings.humanSide).toLowerCase() + '. ' + stNote
@@ -2207,6 +2467,8 @@
     $('btnHint').disabled = !humanTurn() || G.phase !== 'idle' || !G.legal.length;
     $('btnRotate').disabled = settings.mode !== 'hotseat';
     $('aivaiBar').hidden = settings.mode !== 'aivai';
+    $('btnRetire').disabled = !(G.mode === 'aivai' && settings.aivaiAuto);
+    $('btnRetire').classList.toggle('active', manualRetire);
     $('qaBar').style.display = settings.mode === 'aivai' ? 'none' : '';
     $('qaHint').disabled = $('btnHint').disabled;
     $('qaUndo').disabled = $('btnUndo').disabled;
@@ -2295,6 +2557,34 @@
     saveJSON(SETTINGS_KEY, settings);
     updateSegs();
     if (!settings.aivaiAuto) cancelAutoNext();
+  });
+  wireSeg('segRounds', (v) => {
+    settings.arenaRounds = +v;
+    saveJSON(SETTINGS_KEY, settings);
+    updateSegs();
+    SFX_BANK.play('ui_toggle_on');
+  });
+  wireSeg('segHumanlike', (v) => {
+    settings.humanlike = v === 'on';
+    saveJSON(SETTINGS_KEY, settings);
+    updateSegs();
+    SFX_BANK.play(settings.humanlike ? 'ui_toggle_on' : 'ui_toggle_off');
+    if (settings.humanlike) flashWhisper('AI human mode: the engines will sit down and play like people.');
+  });
+
+  $('btnRetire').addEventListener('click', () => {
+    if (!arenaOn()) return;
+    if (G.over) {
+      // between bouts: retire the champion right now, then a fresh bout
+      showCeremony(arena.champion).then(() => {
+        retireChampionHonors();
+        startNewGameWithFanfare();
+      });
+      return;
+    }
+    manualRetire = true;
+    SFX_BANK.play('notify_pop');
+    flashWhisper(rosterById(arena.champion).name + ' will retire after this game — with full honors.');
   });
 
   // player names: live edits, tidied on commit
@@ -2528,28 +2818,87 @@
   });
 
   // ---------------- move clock (human turns) & thinking heckles -------------
+  // Tier timing only decides WHEN a think reaction may fire; WHICH clip plays
+  // always comes off the shared no-repeat think deck below.
   const THINK_TIERS = [
-    { at: 12000, lines: ['t1a', 't1b', 't1c', 't1d', 't1e'], say: 'Still thinking…' },
-    { at: 25000, lines: ['t2a', 't2b', 't2c', 't2d', 't2e'], say: 'Any day now…' },
-    { at: 45000, lines: ['t3a', 't3b', 't3c', 't3d'], say: 'Just agree you lost…' },
-    { at: 75000, lines: ['t4a', 't4b', 't4c', 't4d'], say: 'Need help?' },
-    { at: 105000, lines: ['t5a', 't5b', 't5c'], say: 'I age…' },
+    { at: 12000, say: 'Still thinking…' },
+    { at: 25000, say: 'Any day now…' },
+    { at: 45000, say: 'Just agree you lost…' },
+    { at: 75000, say: 'Need help?' },
+    { at: 105000, say: 'I age…' },
   ];
-  const thinkSaid = new Set();
   let thinkArmedKey = -1, humanThinkStart = 0, thinkFired = 0;
   let clockArmedKey = -1, clockDeadline = 0, lastTickSec = -1;
   const turnKey = () => G.history.length * 2 + (G.side === IVORY ? 0 : 1);
 
-  // narrator time cards while an engine is lost in thought ("a few moments
-  // later…", and at the deep rungs, "two hours later…"). Thresholds are
-  // tuned to the ladder's real budgets: only the top rungs (and slow
-  // spectator games) ever think long enough to hear them.
+  // ---- the think deck: 130+ thinking-moment clips, never the same twice ----
+  // One shared bag for every thinking moment (a slow engine, a slow human):
+  // narrator cards, heckles, music-box figures, harp glisses, clock ticks.
+  // Fisher-Yates cycle: every clip plays once before any repeats, the clip
+  // right after a reshuffle is never the last one heard, and the low-tier
+  // "noise" sounds punctuate only occasionally, not every time.
+  function makeDeck(ids) {
+    const bag = ids.slice();
+    let last = null;
+    const shuffle = () => {
+      for (let i = bag.length - 1; i > 0; i--) {
+        const j = (Math.random() * (i + 1)) | 0;
+        const t = bag[i]; bag[i] = bag[j]; bag[j] = t;
+      }
+    };
+    shuffle();
+    return () => {
+      if (!bag.length) { bag.push(...ids); shuffle(); }
+      let ix = bag.length - 1;
+      if (bag[ix] === last && bag.length > 1) ix = (Math.random() * (bag.length - 1)) | 0;
+      const id = bag.splice(ix, 1)[0];
+      last = id;
+      return id;
+    };
+  }
+  const THINK_POOL = [].concat(
+    ['th_n01', 'th_n02', 'th_n03', 'th_n04', 'th_n05', 'th_n06', 'th_n07',
+     'th_n08', 'th_n09', 'th_n10', 'th_n11', 'th_n12', 'th_n13', 'th_n14',
+     'th_n15', 'th_n16', 'th_n17', 'th_n18', 'th_n19', 'th_n20', 'th_n21',
+     'th_n22', 'th_n23', 'th_n24',
+     'th_n01b', 'th_n02b', 'th_n03b', 'th_n04b', 'th_n05b', 'th_n06b', 'th_n07b',
+     'th_n08b', 'th_n09b', 'th_n10b', 'th_n11b', 'th_n12b', 'th_n13b', 'th_n14b',
+     'th_n15b', 'th_n16b', 'th_n17b', 'th_n18b', 'th_n19b', 'th_n20b', 'th_n21b',
+     'th_n22b', 'th_n23b', 'th_n24b',
+     'th_h01', 'th_h02', 'th_h03', 'th_h04', 'th_h05', 'th_h06', 'th_h07',
+     'th_h08', 'th_h09', 'th_h10', 'th_h11', 'th_h12', 'th_h13', 'th_h14',
+     'th_h15', 'th_h16', 'th_h17', 'th_h18', 'th_h19', 'th_h20',
+     'th_h01b', 'th_h02b', 'th_h03b', 'th_h04b', 'th_h05b', 'th_h06b', 'th_h07b',
+     'th_h08b', 'th_h09b', 'th_h10b', 'th_h11b', 'th_h12b', 'th_h13b', 'th_h14b',
+     'th_h15b', 'th_h16b', 'th_h17b', 'th_h18b', 'th_h19b', 'th_h20b',
+     't1a', 't1b', 't1c', 't1d', 't1e', 't2a', 't2b', 't2c', 't2d', 't2e',
+     't3a', 't3b', 't3c', 't3d', 't4a', 't4b', 't4c', 't4d', 't5a', 't5b', 't5c', 'v_time',
+     'later_moments', 'later_hours',
+     'th_m1', 'th_m2', 'th_m3', 'th_m4', 'th_m5', 'th_m6',
+     'th_g1', 'th_g2', 'th_p1', 'th_p2', 'th_p3', 'th_o1', 'th_o2', 'th_o3', 'th_o4',
+     'th_t1', 'th_t2', 'th_t3', 'th_t4', 'th_t5', 'th_t6', 'th_c1', 'th_f1', 'th_s1'],
+    (SFX_BANK && SFX_BANK.has && SFX_BANK.has('th_n01')) ? [] : ['notify_pop']
+  );
+  const THINK_DECK = makeDeck(THINK_POOL);
+  // draw for a thinking moment; if a clip is not in the bank yet (voices are
+  // generated in batches), redraw once so the moment is never silent
+  const thinkSound = () => {
+    let id = THINK_DECK();
+    if (!SFX_BANK.defs[id]) id = THINK_DECK();
+    return id;
+  };
+
+  // narrator time cards while an engine is lost in thought. Thresholds are
+  // tuned to the ladder's real budgets: only genuinely long thinks (budget +
+  // margin) ever trigger one, the clip itself comes off the no-repeat deck,
+  // and the gag sits on a leash (45 s global, three per game, silent at 2×/4×
+  // spectator speed) so it can never become a metronome.
   const AI_CARDS = [
-    { at: 4200, snd: 'later_moments', say: 'A few moments later…' },
-    { at: 9500, snd: 'later_hours', say: 'Two hours later…' },
+    { at: 4200, say: 'Deep in thought…' },
+    { at: 9500, say: 'Still calculating…' },
   ];
   let aiCardKey = -1, aiCardStart = 0, aiCardFired = 0;
-  let lastAiCardAt = 0, aiCardsThisGame = 0; // the gag stays on a long leash
+  let lastAiCardAt = 0, aiCardsThisGame = 0; // the gag stays on a leash
 
   setInterval(() => {
     const k = turnKey();
@@ -2569,11 +2918,11 @@
       // 2×/4× spectator speed.
       const budgetFloor = (LEVELS[G.diff] || LEVELS.l5).budgetMs + 800;
       while (aiCardFired < AI_CARDS.length && dt >= Math.max(AI_CARDS[aiCardFired].at, budgetFloor)) {
-        if (G.aiSpeed > 1 || Date.now() - lastAiCardAt < 90000 || aiCardsThisGame >= 2) break;
+        if (G.aiSpeed > 1 || Date.now() - lastAiCardAt < 45000 || aiCardsThisGame >= 3) break;
         const card = AI_CARDS[aiCardFired++];
         lastAiCardAt = Date.now();
         aiCardsThisGame++;
-        SFX_BANK.play(card.snd, { vol: 0.9 });
+        SFX_BANK.play(thinkSound(), { vol: 0.9 });
         flashWhisper(card.say);
       }
     }
@@ -2613,13 +2962,9 @@
     const dt = Date.now() - humanThinkStart;
     while (thinkFired < THINK_TIERS.length && dt >= THINK_TIERS[thinkFired].at) {
       const tier = THINK_TIERS[thinkFired++];
-      const fresh = tier.lines.filter((l) => !thinkSaid.has(l));
-      const line = pick(fresh.length ? fresh : tier.lines);
-      thinkSaid.add(line);
-      if (thinkSaid.size > 12) thinkSaid.delete(thinkSaid.values().next().value);
-      // a dead-quiet position (tier 3): crickets, sometimes
-      SFX_BANK.play(tier.at === 45000 && Math.random() < 0.4 ? 'cricket' : 'notify_pop');
-      setTimeout(() => SFX_BANK.play(line, { vol: 0.95 }), 170);
+      // a dead-quiet position (tier 3): crickets first, sometimes
+      if (tier.at === 45000 && Math.random() < 0.3) SFX_BANK.play('cricket');
+      setTimeout(() => SFX_BANK.play(thinkSound(), { vol: 0.95 }), 170);
       flashWhisper(tier.say);
     }
   }, 250);
