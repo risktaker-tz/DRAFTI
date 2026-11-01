@@ -1195,6 +1195,7 @@
     legendary: { rank: 6 },
   };
   let lastEvent = { rank: -1, ply: -1 };
+  let lastQualityPly = -9;     // last ply that earned a quality reaction
   let pendingVerdict = null;
   let pendingTrap = null; // { ply, setter, capPath } — a bait waiting to be taken or declined
   let verdictId = 0;
@@ -1276,18 +1277,21 @@
   }
 
   // Instant signals, computed at commit time from data we already have.
-  function classifySync(mv, moverLegalBefore, ply) {
+  // Engine movers only get the big board events (captures, crowns) — cartoon
+  // "mistake" stings are for humans; spectator games stay professional.
+  function classifySync(mv, moverLegalBefore, ply, moverSide) {
     let ev = 'none';
     const maxCaps = moverLegalBefore.reduce((a, m) => Math.max(a, m.caps.length), 0);
+    const engineMover = (G.mode === 'ai' && moverSide !== G.humanSide) || G.mode === 'aivai';
     if (mv.caps.length >= 3) ev = 'legendary';
     else if (mv.caps.length === 2) ev = 'majestic';
     else if (mv.promotes) ev = 'promo';
-    else if (mv.caps.length === 0 && maxCaps >= 2) ev = 'missed';
-    else if (mv.caps.length >= 1 && maxCaps >= 3 && mv.caps.length < maxCaps) ev = 'feastmissed';
+    else if (!engineMover && mv.caps.length === 0 && maxCaps >= 2) ev = 'missed';
+    else if (!engineMover && mv.caps.length >= 1 && maxCaps >= 3 && mv.caps.length < maxCaps) ev = 'feastmissed';
     else if (mv.caps.length === 0) {
       const end = mv.path[mv.path.length - 1];
       const recapturable = G.legal.some((m) => m.caps.length > 0 && m.caps.includes(end));
-      if (recapturable) ev = 'awkward';
+      if (recapturable && !engineMover) ev = 'awkward';
     }
     applyMoveEvent(ev, ply, mv.caps.length, mv.path[mv.path.length - 1]);
   }
@@ -1376,6 +1380,10 @@
       flashLabel('Hmm…', 'judge');
     } else if (ev === 'blunder') {
       lastBlunderPly = ply;
+      // a collapse is not a soundboard: back-to-back disasters get one soft
+      // sting instead of the full comedy number
+      if (ply - lastQualityPly <= 1) { lastQualityPly = ply; SFX_BANK.play('woops', { vol: 0.5 }); return; }
+      lastQualityPly = ply;
       SFX_BANK.play(Math.random() < 0.35 ? 'bruh' : 'trombone', { vol: 1 });
       // A long think that ended in a blunder earns the savage callout.
       SFX_BANK.play(longThinkSavage ? pick(SAVAGE_POOL)
@@ -1383,6 +1391,8 @@
       longThinkSavage = false;
       flashLabel(['Why?!', 'Oh no!'][(Math.random() * 2) | 0], 'comedy');
     } else if (ev === 'epic') {
+      if (ply - lastQualityPly <= 1) { lastQualityPly = ply; SFX_BANK.play('omg', { vol: 0.65 }); return; }
+      lastQualityPly = ply;
       SFX_BANK.play(pick(['omg', 'omg', 'wilhelm', 'ahhscary']), { vol: 1 });
       SFX_BANK.play(lastThinkMs > 20000 ? pick(SAVAGE_POOL)
         : (Math.random() < 0.5 ? 'v_wow' : 'v_why'), { vol: 0.9 });
@@ -1440,12 +1450,15 @@
   let doomPly = 0;             // ply when doom was declared
   let lastDoomTaunt = 0;       // cooldown for the "let me tell you something" loop
   let doomTauntIx = 0;
+  let doomTauntCount = 0;      // per-game cap — the joke must never become a record
+  let doomEsc = 0;             // consecutive escape readings before the escape counts
 
   function doomStart(side, ply, isHumanDoomed) {
     if (doomSide === side) return;
     doomSide = side;
     doomPly = ply;
     doomTauntIx = 0;
+    doomTauntCount = 0;
     frameEl.classList.add('doomed');
     if (isHumanDoomed) {
       // bad news for the player: the sad violin and a straight admission
@@ -1485,14 +1498,15 @@
     const now = Date.now();
     if (moverSide === doomSide) {
       // the doomed side shuffles on: soft brood clucks, occasionally the
-      // alarmed squawk — a chicken running around with its head cut off
-      if (Math.random() < 0.3) {
-        setTimeout(() => SFX_BANK.play(Math.random() < 0.3 ? 'panic' : 'chicken', { vol: 0.8 }), 700);
+      // alarmed squawk — but rarely, and never over a fresh taunt
+      if (Math.random() < 0.14 && now - lastDoomTaunt > 9000) {
+        setTimeout(() => SFX_BANK.play(Math.random() < 0.2 ? 'panic' : 'chicken', { vol: 0.7 }), 700);
       }
       return;
     }
-    if (now - lastDoomTaunt < 21000) return;
+    if (now - lastDoomTaunt < 34000 || doomTauntCount >= 4) return;
     lastDoomTaunt = now;
+    doomTauntCount++;
     const first = doomTauntIx === 0;
     doomTauntIx++;
     setTimeout(() => {
@@ -1520,6 +1534,9 @@
   };
   let lastDramaAt = 0;
   let lastPurrAt = 0;
+  let lastFeastCallAt = 0;   // "let me tell you something" on 3+ captures
+  let lastMissedWinAt = 0;   // engine declined a winning capture
+  let lastBaitTalkAt = 0;    // the engine's poisoned-material taunt
   function applyDrama(kind, big) {
     const d = DRAMA[kind];
     if (!d) return;
@@ -1548,8 +1565,15 @@
       const doomed = -pv.mover;
       const humanDoomed = G.mode === 'ai' ? doomed === G.humanSide
         : G.mode === 'hotseat'; // both seats are human — mourn together
-      if (res.opp.bestScore <= DOOM_ON) doomStart(doomed, pv.ply, humanDoomed);
-      else if (doomSide === doomed && res.opp.bestScore >= DOOM_OFF) doomEnd(pv.ply);
+      if (res.opp.bestScore <= DOOM_ON) {
+        doomEsc = 0;
+        doomStart(doomed, pv.ply, humanDoomed);
+      } else if (doomSide === doomed && res.opp.bestScore >= DOOM_OFF) {
+        // two consecutive readings above the horizon before the escape is
+        // real — a shallow verdict flickering past the band must not
+        // re-announce the doom every few moves
+        if (++doomEsc >= 2) { doomEsc = 0; doomEnd(pv.ply); }
+      }
     }
 
     // ---- score-sheet badge (! brilliant · !? inaccurate · ? mistake · ?? blunder)
@@ -1567,8 +1591,11 @@
     // doom: every capture loses. Either way the next ply is the moment of truth.
     if (res.opp && res.opp.bait) {
       pendingTrap = { ply: pv.ply + 1, setter: pv.mover, doom: !!res.opp.doom, badPath: res.opp.capWorstPath };
-      // the engine just laid out poisoned material — it talks its talk
-      if (G.mode === 'ai' && pv.mover !== G.humanSide) {
+      // the engine just laid out poisoned material — it talks its talk,
+      // but paced: a taunt every quiet trap would wear out its welcome
+      if (G.mode === 'ai' && pv.mover !== G.humanSide &&
+          Date.now() - lastBaitTalkAt > 25000 && Math.random() < 0.65) {
+        lastBaitTalkAt = Date.now();
         setTimeout(() => {
           SFX_BANK.play('notify_pop');
           setTimeout(() => SFX_BANK.play(pick(BAIT_POOL.lines), { vol: 0.95 }), 200);
@@ -1579,11 +1606,15 @@
 
     // ---- the engine set a winning trap… and played somewhere else ----
     if (res.missedWin) {
-      setTimeout(() => {
-        applyDrama('ai_missed');
-        if (Math.random() < 0.5) SFX_BANK.play('v_lucky3', { vol: 0.9 }); // "My plan! Ruined!"
-        else if (Math.random() < 0.4) SFX_BANK.play('duck', { vol: 0.9 });
-      }, 480);
+      if (Date.now() - lastMissedWinAt > 25000) {
+        lastMissedWinAt = Date.now();
+        setTimeout(() => {
+          const before = lastDramaAt;
+          applyDrama('ai_missed');
+          if (lastDramaAt !== before && Math.random() < 0.5) SFX_BANK.play('v_lucky3', { vol: 0.9 }); // "My plan! Ruined!"
+          else if (lastDramaAt !== before && Math.random() < 0.4) SFX_BANK.play('duck', { vol: 0.9 });
+        }, 480);
+      }
       return;
     }
 
@@ -1599,6 +1630,10 @@
 
     if (G.mode === 'aivai') return; // spectators skip per-move quality scoring
     if (res.onlyMove || !isFinite(res.delta)) return;
+    // a doomed side has no good moves — punishing every one of them is a
+    // broken record. The score-sheet badges tell the story; the board stays quiet.
+    const doomedMover = doomSide === pv.mover;
+    if (doomedMover && res.delta >= 70) return;
     if (res.delta >= 420) {
       longThinkSavage = lastThinkMs > 20000;
       applyMoveEvent('epic', pv.ply);
@@ -1664,8 +1699,12 @@
     const moverSide = G.side;
     G.sel = null; G.hint = null;
     updateAll();
-    // a big capture trip gets its build-up call while the hops are airborne
-    if (mv.caps.length >= 3) SFX_BANK.play('tellyou', { vol: 0.95 });
+    // a big capture trip gets its build-up call while the hops are airborne —
+    // at most one per 30 s so feasts never double up with the fanfare lines
+    if (mv.caps.length >= 3 && Date.now() - lastFeastCallAt > 30000) {
+      lastFeastCallAt = Date.now();
+      SFX_BANK.play('tellyou', { vol: 0.95 });
+    }
     await animateMove(mv);
     const ply = commitMove(mv);
     // trap drama: the mover either walked into the shot or found the safe way
@@ -1718,7 +1757,7 @@
       }, 500);
     }
     lastEvent = { rank: -1, ply: -1 };
-    if (!G.over) classifySync(mv, preLegal, ply);
+    if (!G.over) classifySync(mv, preLegal, ply, moverSide);
     checkGameEnd();
     G.phase = G.over ? 'over' : 'idle';
     updateAll();
@@ -1923,6 +1962,7 @@
     G.phase = 'idle'; G.sel = null; G.hint = null; G.lastMove = null;
     lastThinkMs = 0; thinkArmedKey = -1; thinkFired = 0; clockArmedKey = -1;
     pendingTrap = null;
+    aiCardsThisGame = 0; // the narrator's quota resets with every fresh game
     G.firstBlood = false;
     doomClear();
     buildBoard();
@@ -1973,6 +2013,7 @@
     FX.play('undo');
     if (Math.random() < 0.35) SFX_BANK.play('v_undo', { vol: 0.8 });
     G.phase = 'idle';
+    doomClear(); // a rollback can unpromise the doom — the vignette goes too
     updateAll();
     scheduleAI(); // undo can hand the turn back to the computer — keep it moving
   }
@@ -2504,10 +2545,11 @@
   // tuned to the ladder's real budgets: only the top rungs (and slow
   // spectator games) ever think long enough to hear them.
   const AI_CARDS = [
-    { at: 2600, snd: 'later_moments', say: 'A few moments later…' },
-    { at: 5200, snd: 'later_hours', say: 'Two hours later…' },
+    { at: 4200, snd: 'later_moments', say: 'A few moments later…' },
+    { at: 9500, snd: 'later_hours', say: 'Two hours later…' },
   ];
   let aiCardKey = -1, aiCardStart = 0, aiCardFired = 0;
+  let lastAiCardAt = 0, aiCardsThisGame = 0; // the gag stays on a long leash
 
   setInterval(() => {
     const k = turnKey();
@@ -2521,8 +2563,16 @@
     } else {
       if (k !== aiCardKey) { aiCardKey = k; aiCardStart = Date.now(); aiCardFired = 0; }
       const dt = Date.now() - aiCardStart;
-      while (aiCardFired < AI_CARDS.length && dt >= AI_CARDS[aiCardFired].at) {
+      // A narrator card is a rare gag, not a metronome: the think must be
+      // genuinely long for its rung (budget + margin), the gag itself sits on
+      // a 90 s global leash with two per game, and it rests entirely at
+      // 2×/4× spectator speed.
+      const budgetFloor = (LEVELS[G.diff] || LEVELS.l5).budgetMs + 800;
+      while (aiCardFired < AI_CARDS.length && dt >= Math.max(AI_CARDS[aiCardFired].at, budgetFloor)) {
+        if (G.aiSpeed > 1 || Date.now() - lastAiCardAt < 90000 || aiCardsThisGame >= 2) break;
         const card = AI_CARDS[aiCardFired++];
+        lastAiCardAt = Date.now();
+        aiCardsThisGame++;
         SFX_BANK.play(card.snd, { vol: 0.9 });
         flashWhisper(card.say);
       }
