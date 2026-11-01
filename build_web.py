@@ -22,6 +22,7 @@ def main() -> None:
     html = part("index.template.html")
     for token, filename in (
         ("/*__STYLES__*/", "styles.css"),
+        ("/*__AUDIO__*/", "audio.manifest.js"),
         ("/*__ENGINE__*/", "engine.js"),
         ("/*__UI__*/", "ui.js"),
     ):
@@ -29,7 +30,8 @@ def main() -> None:
         assert token in html, f"missing {token} in template"
         html = html.replace(token, replacement, 1)
 
-    assert "__STYLES__" not in html and "__ENGINE__" not in html and "__UI__" not in html
+    assert "__STYLES__" not in html and "__ENGINE__" not in html and "__UI__" not in html \
+        and "__AUDIO__" not in html
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(html, encoding="utf-8")
     print(f"wrote {OUT} ({OUT.stat().st_size:,} bytes)")

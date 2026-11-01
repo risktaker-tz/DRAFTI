@@ -285,3 +285,66 @@ footer a { color: rgba(211,169,95,.7); text-decoration: none; }
 /* board flip: counter-rotate piece bodies and square numbers so they stay upright */
 .flip .piece .body { transform: rotate(180deg); }
 .flip .sqnum { transform: rotate(180deg); }
+
+/* ---------------- sound-event labels & effects ---------------- */
+.stage { position: relative; }
+
+.event-label {
+  position: absolute;
+  left: 50%;
+  top: 11%;
+  transform: translate(-50%, 0) scale(.5);
+  opacity: 0;
+  z-index: 40;
+  pointer-events: none;
+  font-weight: 800;
+  font-size: clamp(20px, 3.2vw, 38px);
+  letter-spacing: .1em;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+.event-label.run { animation: labelPop 1.6s cubic-bezier(.22,1.4,.36,1) forwards; }
+
+.event-label.majestic {
+  color: #ffe3a1;
+  text-shadow: 0 0 18px rgba(255, 200, 90, .85), 0 2px 0 rgba(60, 30, 0, .65),
+    0 0 46px rgba(255, 170, 40, .5);
+}
+.event-label.comedy {
+  color: #ffb46b;
+  text-shadow: 0 2px 0 rgba(50, 10, 0, .7), 0 0 22px rgba(255, 110, 40, .55);
+}
+
+@keyframes labelPop {
+  0%   { opacity: 0; transform: translate(-50%, 18px) scale(.45) rotate(-5deg); }
+  14%  { opacity: 1; transform: translate(-50%, -8px) scale(1.14) rotate(2.5deg); }
+  24%  { transform: translate(-50%, -12px) scale(1) rotate(-1deg); }
+  30%  { transform: translate(-50%, -10px) scale(1) rotate(1deg); }
+  36%  { transform: translate(-50%, -11px) scale(1) rotate(0deg); }
+  76%  { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%, -58px) scale(1.05); }
+}
+
+/* dramatic board thump for legendary moments (inner element keeps flip-safe) */
+.board-frame.thump .board-inner { animation: boardThump .55s ease-out; }
+@keyframes boardThump {
+  0%   { transform: scale(1); }
+  18%  { transform: scale(1.022); }
+  38%  { transform: scale(.995); }
+  60%  { transform: scale(1.006); }
+  100% { transform: scale(1); }
+}
+
+/* sound-design card */
+.sfx-row { display: flex; align-items: center; gap: 10px; margin: 4px 0 10px; }
+.sfx-row input[type="range"] { flex: 1; accent-color: #d3a95f; }
+.sfx-row .vol-val { min-width: 42px; text-align: right; color: #b8ad93; font-size: 12px; }
+.sfx-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.sfx-chips button {
+  font: inherit; font-size: 12px; padding: 5px 9px; cursor: pointer;
+  border-radius: 999px; border: 1px solid rgba(211,169,95,.35);
+  background: transparent; color: #b8ad93; transition: all .15s;
+}
+.sfx-chips button.active {
+  border-color: #d3a95f; color: #f5e3bd; background: rgba(211,169,95,.14);
+}

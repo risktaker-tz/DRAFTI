@@ -22,6 +22,10 @@
   if (!E.RULESETS[settings.rsId]) settings.rsId = 'american';
   if (settings.mode !== 'ai' && settings.mode !== 'hotseat') settings.mode = 'ai';
   if (!['easy', 'medium', 'hard'].includes(settings.diff)) settings.diff = 'medium';
+  settings.sfx = Object.assign(
+    { master: 0.9, animals: true, comedy: true, voice: true, classic: true },
+    (settings.sfx && typeof settings.sfx === 'object') ? settings.sfx : {}
+  );
 
   const blankStats = () => ({ american: {}, international: {} });
   const stats = Object.assign(blankStats(), loadJSON(STATS_KEY, {}));
@@ -34,13 +38,24 @@
   // ---------------- sound ----------------
   const FX = {
     ctx: null,
+    out: null,
     ensure() {
       if (!this.ctx) {
         const AC = window.AudioContext || window.webkitAudioContext;
-        if (AC) this.ctx = new AC();
+        if (AC) {
+          this.ctx = new AC();
+          this.out = this.ctx.createGain();
+          this.out.gain.value = settings.sfx.master;
+          this.out.connect(this.ctx.destination);
+          if (typeof SFX_BANK !== 'undefined') SFX_BANK.decodeAll();
+        }
       }
       if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
       return this.ctx;
+    },
+    setMaster(v) {
+      settings.sfx.master = v;
+      if (this.out) this.out.gain.value = v;
     },
     tone(f, dur, type, vol, when, slideTo) {
       const ctx = this.ensure(); if (!ctx) return;
@@ -52,7 +67,7 @@
       g.gain.setValueAtTime(0.0001, t);
       g.gain.exponentialRampToValueAtTime(vol || 0.2, t + 0.012);
       g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-      o.connect(g); g.connect(ctx.destination);
+      o.connect(g); g.connect(this.out || ctx.destination);
       o.start(t); o.stop(t + dur + 0.05);
     },
     noise(dur, vol, when, freq) {
@@ -65,11 +80,12 @@
       const src = ctx.createBufferSource(); src.buffer = buf;
       const f = ctx.createBiquadFilter(); f.type = 'bandpass'; f.frequency.value = freq || 900; f.Q.value = 0.9;
       const g = ctx.createGain(); g.gain.value = vol || 0.2;
-      src.connect(f); f.connect(g); g.connect(ctx.destination);
+      src.connect(f); f.connect(g); g.connect(this.out || ctx.destination);
       src.start(t);
     },
     play(name) {
       if (!settings.sound) return;
+      if (name !== 'illegal' && !settings.sfx.classic) return;
       try {
         switch (name) {
           case 'select': this.tone(340, 0.05, 'triangle', 0.10); break;
@@ -83,6 +99,54 @@
           case 'undo': this.tone(300, 0.09, 'triangle', 0.13, 0, 210); break;
         }
       } catch { /* audio is best-effort */ }
+    },
+  };
+
+  // ---------------- sample sound bank (embedded open-license audio) ----------------
+  const SFX_BANK = {
+    defs: window.DRAFTI_SFX || {},
+    buffers: new Map(),
+    decoding: false,
+    CAT_VOL: { majestic: 0.95, comedy: 0.8, voice: 1.0 },
+    decodeAll() {
+      const ctx = FX.ctx;
+      if (!ctx || this.decoding) return;
+      this.decoding = true;
+      for (const [name, def] of Object.entries(this.defs)) {
+        if (this.buffers.has(name)) continue;
+        fetch(def.d)
+          .then((r) => r.arrayBuffer())
+          .then((ab) => ctx.decodeAudioData(ab))
+          .then((buf) => this.buffers.set(name, buf))
+          .catch(() => { /* sample simply won't play */ });
+      }
+    },
+    on(name) {
+      const def = this.defs[name];
+      if (!def) return false;
+      if (def.c === 'majestic') return settings.sfx.animals;
+      if (def.c === 'comedy') return settings.sfx.comedy;
+      if (def.c === 'voice') return settings.sfx.voice;
+      return true;
+    },
+    play(name, opts) {
+      if (!settings.sound || !this.on(name)) return null;
+      const ctx = FX.ensure(); if (!ctx) return null;
+      this.decodeAll();
+      const buf = this.buffers.get(name);
+      if (!buf) return null;
+      const def = this.defs[name] || {};
+      const cat = def.c || 'comedy';
+      const vol = ((opts && opts.vol != null ? opts.vol : 1) *
+        (this.CAT_VOL[cat] || 0.8));
+      const src = ctx.createBufferSource();
+      src.buffer = buf;
+      src.playbackRate.value = (opts && opts.rate) || (0.96 + Math.random() * 0.08);
+      const g = ctx.createGain();
+      g.gain.value = Math.max(0.0001, Math.min(1.2, vol));
+      src.connect(g); g.connect(FX.out || ctx.destination);
+      src.start();
+      return src;
     },
   };
 
@@ -124,14 +188,33 @@
         'const makeEngine = (' + makeEngine.toString() + ');\n' +
         'const E = makeEngine();\n' +
         'self.onmessage = (e) => {\n' +
-        '  const d = e.data; if (d.cmd !== "search") return;\n' +
-        '  const t0 = Date.now();\n' +
-        '  const res = E.search(E.RULESETS[d.rsId], new Int8Array(d.board), d.side, d.opts);\n' +
-        '  res.id = d.id; res.cmd = "searchResult"; res.ms = Date.now() - t0;\n' +
-        '  postMessage(res);\n' +
+        '  const d = e.data;\n' +
+        '  if (d.cmd === "search") {\n' +
+        '    const t0 = Date.now();\n' +
+        '    const res = E.search(E.RULESETS[d.rsId], new Int8Array(d.board), d.side, d.opts);\n' +
+        '    res.id = d.id; res.cmd = "searchResult"; res.ms = Date.now() - t0;\n' +
+        '    postMessage(res);\n' +
+        '  } else if (d.cmd === "classify") {\n' +
+        '    const res = E.search(E.RULESETS[d.rsId], new Int8Array(d.board), d.side, d.opts);\n' +
+        '    const roots = res.rootScores || [];\n' +
+        '    let played = null, bestOther = -Infinity, bestScore = -Infinity;\n' +
+        '    for (const r of roots) {\n' +
+        '      const key = r.m.path.join(",");\n' +
+        '      if (key === d.playedPath) played = r.score;\n' +
+        '      else if (r.score > bestOther) bestOther = r.score;\n' +
+        '      if (r.score > bestScore) bestScore = r.score;\n' +
+        '    }\n' +
+        '    postMessage({ cmd: "verdict", id: d.id,\n' +
+        '      delta: played == null || !isFinite(bestScore) ? NaN : bestScore - played,\n' +
+        '      playedScore: played == null ? 0 : played,\n' +
+        '      onlyMove: roots.length <= 1 });\n' +
+        '  }\n' +
         '};';
       worker = new Worker(URL.createObjectURL(new Blob([src], { type: 'text/javascript' })));
-      worker.onmessage = (e) => handleSearch(e.data);
+      worker.onmessage = (e) => {
+        if (e.data && e.data.cmd === 'verdict') handleVerdict(e.data);
+        else handleSearch(e.data);
+      };
       worker.onerror = () => { workerBroken = true; worker = null; };
     } catch { workerBroken = true; }
     return worker;
@@ -346,6 +429,137 @@
     if (sq) onSquareClick(+sq.dataset.i);
   });
 
+  // ---------------- move classification & sound events ----------------
+  // Every move gets a headline event. Fast signals run at commit time; a
+  // worker-based verdict (blunder / brilliant) may upgrade it shortly after.
+  // rank: 0 none · 1 awkward · 2 blunder · 3 epic blunder · 4 brilliant · 5 majestic · 6 legendary
+  const MOVE_EVENTS = {
+    none: { rank: 0 },
+    awkward: { rank: 1 },
+    missed: { rank: 1 },
+    blunder: { rank: 2 },
+    epic: { rank: 3 },
+    brilliant: { rank: 4 },
+    promo: { rank: 5 },
+    majestic: { rank: 5 },
+    legendary: { rank: 6 },
+  };
+  let lastEvent = { rank: -1, ply: -1 };
+  let pendingVerdict = null;
+  let verdictId = 0;
+  let labelTimer = 0;
+
+  function flashLabel(text, kind) {
+    const host = $('stage');
+    if (!host) return;
+    let el = $('eventLabel');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'eventLabel';
+      host.appendChild(el);
+    }
+    el.className = 'event-label ' + kind;
+    el.textContent = text;
+    void el.offsetWidth; // restart the CSS animation
+    el.classList.add('run');
+    clearTimeout(labelTimer);
+    labelTimer = setTimeout(() => el.classList.remove('run'), 1650);
+  }
+
+  function thump() {
+    frameEl.classList.remove('thump');
+    void frameEl.offsetWidth;
+    frameEl.classList.add('thump');
+    setTimeout(() => frameEl.classList.remove('thump'), 700);
+  }
+
+  // Instant signals, computed at commit time from data we already have.
+  function classifySync(mv, moverLegalBefore, ply) {
+    let ev = 'none';
+    if (mv.caps.length >= 3) ev = 'legendary';
+    else if (mv.caps.length === 2) ev = 'majestic';
+    else if (mv.promotes) ev = 'promo';
+    else if (mv.caps.length === 0 && moverLegalBefore.some((m) => m.caps.length >= 2)) ev = 'missed';
+    else if (mv.caps.length === 0) {
+      const end = mv.path[mv.path.length - 1];
+      const recapturable = G.legal.some((m) => m.caps.length > 0 && m.caps.includes(end));
+      if (recapturable) ev = 'awkward';
+    }
+    applyMoveEvent(ev, ply);
+  }
+
+  function applyMoveEvent(ev, ply) {
+    const def = MOVE_EVENTS[ev] || MOVE_EVENTS.none;
+    if (def.rank <= lastEvent.rank && lastEvent.ply === ply) return;
+    lastEvent = { rank: def.rank, ply };
+    if (ev === 'legendary') {
+      const roar = ['lion', 'lion_long', 'bear', 'wildroar'][(Math.random() * 4) | 0];
+      SFX_BANK.play(roar, { vol: 1 });
+      SFX_BANK.play('v_legendary', { vol: 0.85 });
+      flashLabel('Legendary!', 'majestic');
+      thump();
+    } else if (ev === 'majestic') {
+      SFX_BANK.play('eagle', { vol: 1 });
+      SFX_BANK.play(Math.random() < 0.55 ? 'v_magnificent' : 'v_chess', { vol: 0.8 });
+      flashLabel('Magnificent!', 'majestic');
+    } else if (ev === 'promo') {
+      SFX_BANK.play('elephant', { vol: 1 });
+      SFX_BANK.play('v_king', { vol: 0.9 });
+      flashLabel('Crowned!', 'majestic');
+    } else if (ev === 'brilliant') {
+      SFX_BANK.play(Math.random() < 0.6 ? 'wolfwhistle' : 'rimshot', { vol: 0.9 });
+      SFX_BANK.play('v_chess', { vol: 0.85 });
+      flashLabel('A chess move!', 'majestic');
+    } else if (ev === 'blunder') {
+      SFX_BANK.play('trombone', { vol: 1 });
+      SFX_BANK.play('v_ohno', { vol: 0.9 });
+      flashLabel('Oh no!', 'comedy');
+    } else if (ev === 'epic') {
+      SFX_BANK.play('wilhelm', { vol: 1 });
+      SFX_BANK.play('v_wow', { vol: 0.9 });
+      flashLabel('Disaster!', 'comedy');
+      thump();
+    } else if (ev === 'missed') {
+      SFX_BANK.play('whistle', { vol: 1 });
+      SFX_BANK.play('v_onejob', { vol: 0.9 });
+      flashLabel('You missed the jump!', 'comedy');
+    } else if (ev === 'awkward') {
+      const pool = ['ahooga', 'woops', 'banana', 'haha', 'klonk', 'shloop', 'gulp', 'smarts', 'fall', 'scramble', 'zip'];
+      SFX_BANK.play(pool[(Math.random() * pool.length) | 0], { vol: 0.85 });
+      if (Math.random() < 0.6) SFX_BANK.play('v_awkward', { vol: 0.75 });
+      flashLabel('Uh… oh', 'comedy');
+    }
+    // 'none': the classic wooden move sounds (already playing) carry it
+  }
+
+  // Ask the worker to judge the move (blunder / brilliant). Runs ~300 ms
+  // after the move; its verdict may upgrade the instant classification.
+  function requestVerdict(mv, preBoard, side, preNoProg, ply) {
+    if (G.over) return;
+    if (G.mode === 'ai' && side !== G.humanSide) return; // judge humans
+    if (settings.diff === 'easy') return; // easy plays badly on purpose
+    const w = getWorker();
+    if (!w) return;
+    const id = ++verdictId;
+    pendingVerdict = { id, ply };
+    w.postMessage({
+      cmd: 'classify', id, rsId: G.rsId, side, noProgress: preNoProg,
+      board: preBoard, playedPath: mv.path.join(),
+      opts: { budgetMs: 340, maxDepth: 9, jitter: 0 },
+    });
+  }
+
+  function handleVerdict(res) {
+    const pv = pendingVerdict;
+    if (!pv || res.id !== pv.id) return;
+    pendingVerdict = null;
+    if (G.over || G.history.length !== pv.ply) return;
+    if (res.onlyMove || !isFinite(res.delta)) return;
+    if (res.delta >= 420) applyMoveEvent('epic', pv.ply);
+    else if (res.delta >= 170) applyMoveEvent('blunder', pv.ply);
+    else if (res.delta <= -120 && res.playedScore > 40) applyMoveEvent('brilliant', pv.ply);
+  }
+
   // ---------------- move execution ----------------
   async function animateMove(mv) {
     const p = pieceAt(mv.from);
@@ -376,15 +590,25 @@
   async function executeMove(mv) {
     if (!mv || G.phase !== 'idle') return;
     G.phase = 'animating';
+    const preBoard = G.board.slice();
+    const preNoProg = G.noProg;
+    const preLegal = G.legal.slice();
+    const moverSide = G.side;
     G.sel = null; G.hint = null;
     updateAll();
     await animateMove(mv);
-    commitMove(mv);
+    const ply = commitMove(mv);
+    lastEvent = { rank: -1, ply: -1 };
+    if (!G.over) classifySync(mv, preLegal, ply);
     checkGameEnd();
     G.phase = G.over ? 'over' : 'idle';
     updateAll();
-    if (!G.over) scheduleAI();
-    else showGameOver();
+    if (!G.over) {
+      requestVerdict(mv, preBoard, moverSide, preNoProg, ply); // queued first so it lands fast
+      scheduleAI();
+    } else {
+      showGameOver();
+    }
   }
 
   function commitMove(mv) {
@@ -408,6 +632,7 @@
     G.side = -side;
     G.legal = E.legalMoves(G.rs, G.board, G.side);
     repAdd(posKey(G.board, G.side));
+    return G.history.length;
   }
 
   function checkGameEnd() {
@@ -456,6 +681,11 @@
     FX.play(G.mode === 'ai'
       ? (r.winner === null ? 'draw' : r.winner === G.humanSide ? 'win' : 'lose')
       : r.winner === null ? 'draw' : 'king');
+    if (G.mode === 'ai') {
+      const v = r.winner === null ? 'v_draw'
+        : r.winner === G.humanSide ? 'v_win' : 'v_lose';
+      setTimeout(() => SFX_BANK.play(v, { vol: 0.9 }), 550);
+    }
     $('goTitle').textContent = r.winner === null ? 'A draw'
       : (G.mode === 'ai'
         ? (r.winner === G.humanSide ? 'You win' : 'The computer wins')
@@ -609,6 +839,11 @@
     $('btnRotate').style.display = settings.mode === 'hotseat' ? '' : 'none';
     $('btnSound').textContent = settings.sound ? '🔊' : '🔇';
     $('btnRotate').classList.toggle('active', settings.mode === 'hotseat' && settings.rotate);
+    for (const b of $('sfxChips').querySelectorAll('button')) {
+      b.classList.toggle('active', !!settings.sfx[b.dataset.v]);
+    }
+    $('sfxVol').value = Math.round(settings.sfx.master * 100);
+    $('sfxVolVal').textContent = Math.round(settings.sfx.master * 100) + '%';
   }
 
   function updateControls() {
@@ -698,6 +933,29 @@
     updateAll();
   });
 
+  // sound-design controls
+  $('sfxVol').addEventListener('input', () => {
+    const v = $('sfxVol').value / 100;
+    FX.setMaster(v);
+    $('sfxVolVal').textContent = $('sfxVol').value + '%';
+  });
+  $('sfxVol').addEventListener('change', () => saveJSON(SETTINGS_KEY, settings));
+  $('sfxChips').addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    const key = b.dataset.v;
+    settings.sfx[key] = !settings.sfx[key];
+    saveJSON(SETTINGS_KEY, settings);
+    updateSegs();
+    // audible confirmation per category
+    if (settings.sound) {
+      if (key === 'animals') SFX_BANK.play('eagle');
+      else if (key === 'comedy') SFX_BANK.play('klonk');
+      else if (key === 'voice') SFX_BANK.play('v_magnificent');
+      else FX.play('select');
+    }
+  });
+
   $('goRematch').addEventListener('click', () => { closeModals(); newGame(); });
   $('goClose').addEventListener('click', closeModals);
   $('statsClose').addEventListener('click', closeModals);
@@ -721,8 +979,9 @@
 
   // ---------------- boot ----------------
   newGame();
+  try { FX.ensure(); } catch { /* audio starts on first gesture instead */ }
 
   // Minimal test hook: lets automated tests drive the real input path and
   // inspect game state. Not used by the game itself.
-  window.__drafti = { state: G, tap: onSquareClick };
+  window.__drafti = { state: G, tap: onSquareClick, sfx: SFX_BANK, fx: FX, rebuild: rebuildPieces };
 })();

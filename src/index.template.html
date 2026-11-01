@@ -24,7 +24,7 @@
 </header>
 
 <main class="layout">
-  <section class="stage">
+  <section class="stage" id="stage">
     <div class="banner" id="banner">
       <span class="dot ivory" id="bannerDot"></span>
       <span id="bannerText">Loading…</span>
@@ -99,6 +99,22 @@
       </div>
     </div>
 
+    <div class="card">
+      <h2>Sound design</h2>
+      <div class="sfx-row">
+        <span aria-hidden="true">🔈</span>
+        <input type="range" id="sfxVol" min="0" max="100" value="90" aria-label="Sound volume">
+        <span class="vol-val" id="sfxVolVal">90%</span>
+      </div>
+      <div class="sfx-chips" id="sfxChips">
+        <button data-v="animals" title="Majestic animal fanfares for brilliant moves">🦁 Majestic</button>
+        <button data-v="comedy" title="Comedy and awkward sounds for blunders">🤡 Comedy</button>
+        <button data-v="voice" title="Realistic voice commentary">🎙️ Voice</button>
+        <button data-v="classic" title="Classic wooden club sounds">🪵 Classic</button>
+      </div>
+      <p class="setup-note">Open-license samples &amp; voice lines · full credits in ATTRIBUTIONS.md</p>
+    </div>
+
     <div class="card history-card">
       <h2>Move log</h2>
       <ol class="history" id="history"></ol>
@@ -141,6 +157,9 @@
   DRAFTI — an original, open-source implementation of the public-domain game of checkers · MIT license · no trackers, no accounts, plays offline
 </footer>
 
+<script>
+/*__AUDIO__*/
+</script>
 <script>
 /*__ENGINE__*/
 </script>

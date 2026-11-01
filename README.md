@@ -7,6 +7,10 @@ everyone; DRAFTI is our own take on them.
 
 ![DRAFTI](docs/screenshot.png)
 
+A double jump earns the eagle and the gold "Magnificent!" treatment:
+
+![Magnificent](docs/screenshot-events.png)
+
 ## Features
 
 - **Two rulesets**
@@ -20,10 +24,25 @@ everyone; DRAFTI is our own take on them.
   Three strengths: Casual, Club, Tough.
 - **Pass-and-play** — two players on one device, with optional automatic board
   rotation each turn.
+- **Reactive sound design** — the game judges every move and reacts:
+  - multi-piece jumps get **majestic animal fanfares** — a bald eagle scream
+    for a double jump, a lion's roar (plus a board thump) for three or more,
+    an elephant trumpet when a man is crowned;
+  - blunders get **comedy** — a hanging piece earns a cartoon *woops*/*klonk*
+    /banana-peel slip (from the CC0 Warner Bros. cartoon sound collection), a
+    move the engine judges genuinely bad gets the sad trombone and an
+    "Oh no. Oh no no no.", and a real disaster earns the Wilhelm scream;
+  - miss an available double jump and a slide whistle drops in with
+    "You had ONE job!";
+  - **realistic voice commentary** ("That is chess, not checkers!",
+    "Unbelievable!", "All hail the king!") generated with neural TTS;
+  - every category (majestic / comedy / voice / classic wooden sounds) can be
+    toggled and volume-mixed in the Sound design panel.
+  All samples are open-licensed — full credits and links in
+  [ATTRIBUTIONS.md](ATTRIBUTIONS.md).
 - **Extras** — undo, full move log with standard score-sheet notation
-  (`9-13`, `22x15`, `21x14x5`), move hints, per-ruleset win/loss/draw record,
-  wooden-cub sound effects synthesized with Web Audio. No accounts, no
-  trackers, works offline.
+  (`9-13`, `22x15`, `21x14x5`), move hints, per-ruleset win/loss/draw record.
+  No accounts, no trackers, works offline.
 
 ## Play the web version
 
@@ -42,11 +61,13 @@ python3 -m http.server -d web  # then visit http://localhost:8000
 
 ```
 web/index.html        the playable game (built, self-contained single file)
-src/                  web sources: rules engine, UI, styles, page template
+src/                  web sources: rules engine, UI, styles, page template,
+                      audio (embedded samples + manifest)
 build_web.py          assembles src/ into web/index.html
 tests/                Node test suite for the rules engine
 android/              Kotlin + Jetpack Compose scaffold (engine ported)
 docs/                 screenshots
+ATTRIBUTIONS.md       licenses and credits for every embedded sound
 ```
 
 ## Development
