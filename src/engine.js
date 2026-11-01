@@ -1,6 +1,6 @@
 'use strict';
 /*
- * DRAFTI rules engine — an original implementation of two public-domain
+ * DRAFTI rules engine — an original implementation of five public-domain
  * draughts rulesets:
  *
  *   - american      American Checkers / English draughts, 8x8, 12 men a side.
@@ -14,6 +14,24 @@
  *                   fly any distance and pick their landing square. Maximum
  *                   capture is compulsory. A man is crowned only if it ENDS its
  *                   turn on the far edge (passing through does not crown).
+ *
+ *   - brazilian     Brazilian Draughts (Dama), 8x8, 12 men a side: the
+ *                   international rules played on the smaller board. Light
+ *                   side opens, flying kings, men capture both ways, maximum
+ *                   capture compulsory, pass-through does not crown.
+ *
+ *   - canadian      Canadian Draughts (Grand Jeu), 12x12, 30 men a side:
+ *                   international rules on the big board. Same flags, more
+ *                   space — flying kings dominate the endgame.
+ *
+ *   - russian       Russian Draughts (Shashki), 8x8, 12 men a side. Light
+ *                   side opens. Men capture forward AND backward, kings fly.
+ *                   Captures are mandatory, but there is NO majority rule:
+ *                   any capture sequence may be chosen. A man that lands on
+ *                   the king row mid-capture is crowned immediately and — if
+ *                   the king can keep capturing — MUST continue as a king
+ *                   within the same move (crownContinues). A man jumping
+ *                   across the last row without landing there stays a man.
  *
  * Board encoding: Int8Array(n*n), index = row*n+col, row 0 is the top
  * (Ebony's back rank). Piece codes: 0 empty, 1 ivory man, 2 ivory king,
@@ -42,6 +60,25 @@ function makeEngine() {
       flyingKings: true, menCaptureBack: true, maxCapture: true,
       promoteEndsMove: false, firstSide: IVORY, drawPlies: 50,
       manValue: 100, kingValue: 320, advance: 2, homeGuard: 10, center: 3,
+    },
+    brazilian: {
+      id: 'brazilian', name: 'Brazilian Draughts', n: 8, pieceRows: 3,
+      flyingKings: true, menCaptureBack: true, maxCapture: true,
+      promoteEndsMove: false, firstSide: IVORY, drawPlies: 50,
+      manValue: 100, kingValue: 300, advance: 3, homeGuard: 12, center: 4,
+    },
+    canadian: {
+      id: 'canadian', name: 'Canadian Draughts', n: 12, pieceRows: 5,
+      flyingKings: true, menCaptureBack: true, maxCapture: true,
+      promoteEndsMove: false, firstSide: IVORY, drawPlies: 50,
+      manValue: 100, kingValue: 320, advance: 2, homeGuard: 10, center: 3,
+    },
+    russian: {
+      id: 'russian', name: 'Russian Draughts', n: 8, pieceRows: 3,
+      flyingKings: true, menCaptureBack: true, maxCapture: false,
+      crownContinues: true, promoteEndsMove: false, firstSide: IVORY,
+      drawPlies: 50,
+      manValue: 100, kingValue: 280, advance: 3, homeGuard: 12, center: 4,
     },
   };
 
@@ -76,7 +113,9 @@ function makeEngine() {
   function genCaptures(rs, b, side) {
     const n = rs.n, out = [];
 
-    function rec(bd, cur, code, path, caps, capSet, isRoot) {
+    // `crowned`: a man that was crowned mid-sequence and is continuing as a
+    // king (Russian rules) — the leaf must still report promotes.
+    function rec(bd, cur, code, path, caps, capSet, isRoot, crowned) {
       const isKing = code === 2 || code === -2;
       const r = (cur / n) | 0, c = cur % n;
       let extended = false;
@@ -106,7 +145,7 @@ function makeEngine() {
             const li = lr * n + lc;
             any = true;
             capSet.add(pi); path.push(li); caps.push(pi);
-            rec(bd, li, code, path, caps, capSet, false);
+            rec(bd, li, code, path, caps, capSet, false, crowned);
             path.pop(); caps.pop(); capSet.delete(pi);
             l++;
           }
@@ -118,12 +157,17 @@ function makeEngine() {
           const oi = or_ * n + oc, li = lr * n + lc;
           if (bd[oi] === 0 || bd[oi] * side > 0 || capSet.has(oi)) continue;
           if (bd[li] !== 0) continue;
-          const crownNow = !isKing && rs.promoteEndsMove && isLastRow(rs, side, lr);
+          const landsLast = !isKing && isLastRow(rs, side, lr);
+          const crownNow = landsLast && rs.promoteEndsMove;
           capSet.add(oi); path.push(li); caps.push(oi);
           if (crownNow) {
             out.push({ from: path[0], path: path.slice(), caps: caps.slice(), promotes: true });
+          } else if (landsLast && rs.crownContinues) {
+            // Russian: the man is crowned the moment it lands on the king row
+            // and keeps capturing — as a king — if the sequence continues.
+            rec(bd, li, side * 2, path, caps, capSet, false, true);
           } else {
-            rec(bd, li, code, path, caps, capSet, false);
+            rec(bd, li, code, path, caps, capSet, false, crowned);
           }
           path.pop(); caps.pop(); capSet.delete(oi);
           extended = true;
@@ -134,14 +178,18 @@ function makeEngine() {
       if (!extended && caps.length > 0) {
         out.push({
           from: path[0], path: path.slice(), caps: caps.slice(),
-          promotes: !isKing && !rs.promoteEndsMove && isLastRow(rs, side, r),
+          // crowned: mid-capture crowning (Russian) — the piece ends as a king
+          // wherever the sequence finishes. Otherwise a leaf on the last row
+          // crowns (international family) unless crowning ends the move,
+          // which the crownNow branch above has already handled.
+          promotes: crowned || (!isKing && !rs.promoteEndsMove && isLastRow(rs, side, r)),
         });
       }
     }
 
     for (let i = 0; i < n * n; i++) {
       if (b[i] * side <= 0) continue;
-      rec(b, i, b[i], [i], [], new Set(), true);
+      rec(b, i, b[i], [i], [], new Set(), true, false);
     }
     return out;
   }

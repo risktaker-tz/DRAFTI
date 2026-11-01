@@ -1,8 +1,11 @@
 # Sound & voice attributions
 
-Every sound in DRAFTI is open-licensed. Samples are embedded in
-`web/index.html` (base64 MP3); the processed source files live in
+Every sound in DRAFTI is open-licensed or synthesized in-house. Samples are
+embedded in `web/index.html` (base64 MP3); the processed source files live in
 `src/audio/`. This file lists the origin and license of each.
+
+The bank holds **113 sounds**: 22 recorded samples (below), 58 neural-TTS
+voice lines and 33 original synthesized interface/game sounds.
 
 ## Cartoon & comedy effects
 
@@ -29,9 +32,21 @@ Freesound takes were located with the CC0 license filter
 
 All spoken lines ("Ohhh, magnificent!", "That is chess, not checkers!",
 "Why did you do that?!", "What a trap!", "You had one job!",
-"Oh no. Oh no no no no.", "All hail the king!", …) were generated for DRAFTI
-with a neural text-to-speech engine (z-ai TTS, voice "jam") — original
-recordings made for this project, no third-party material.
+"Oh no. Oh no no no.", "Still thinking? Take your time.", "You're losing it,
+mate.", "Just agree you lost already.", "Big brain moment!", "Wow. That was
+worth the wait!", "You thought about that for half a minute?!", "On a
+rampage!", …) were generated for DRAFTI with a neural text-to-speech engine
+(z-ai TTS, voice "jam") — original recordings made for this project, no
+third-party material.
+
+## Interface & synthesized game sounds
+
+33 sounds (drawer open/close whooshes, click, toggle blips, save chime, theme
+sparkle, error buzz, slide, clock tick/tock, alarm, referee whistle,
+notification pop, heartbeat, crown/win fanfares, defeat womp, draw chime,
+gong, drumroll, sparkle, riser, downer, laser, coin, power-up, achievement,
+capture-streak impacts) were synthesized for DRAFTI with numpy + FFmpeg from
+oscillators, noise and envelopes — original works with no source material.
 
 ## Processing
 

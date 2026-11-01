@@ -13,17 +13,34 @@ A double jump earns the eagle and the gold "Magnificent!" treatment:
 
 ## Features
 
-- **Two rulesets**
+- **Five international rulesets**
   - *American Checkers* (English draughts, 8×8) — dark side opens, men capture
     forward only, kings step one square, crowning a man ends the move.
+  - *Brazilian Draughts* (8×8) — international rules on the smaller board.
+  - *Russian Draughts* (Shashki, 8×8) — captures are mandatory but there is no
+    majority rule, and a man crowned mid-capture **continues the same move as
+    a flying king**.
   - *International Draughts* (FMJD, 10×10) — light side opens, men capture
     forwards *and* backwards, flying kings land anywhere behind the jumped
     piece, and the **maximum-capture rule** is enforced.
-- **AI opponent** — negamax with alpha-beta pruning, iterative deepening and a
-  transposition table, running in a Web Worker so the board never freezes.
-  Three strengths: Casual, Club, Tough.
-- **Pass-and-play** — two players on one device, with optional automatic board
-  rotation each turn.
+  - *Canadian Draughts* (12×12) — international rules on the grand board,
+    30 men a side; flying kings own the long diagonals.
+- **Three game modes**
+  - *Computer* — negamax with alpha-beta pruning, iterative deepening and a
+    transposition table, running in a Web Worker so the board never freezes.
+    Three strengths: Casual, Club, Tough.
+  - *Two players* — pass-and-play on one device, with optional automatic
+    board rotation each turn.
+  - *AI vs AI* — spectate two engines playing each other, with pause and
+    1× / 2× / 4× speed.
+- **Optional move clock** — 30 / 60 / 90 seconds per human move, with ticking
+  tension in the last ten seconds and a referee whistle when time expires (a
+  legal move is played for you, and the judge has words).
+- **A game menu that stays out of the way** — the ☰ button (or the `M` key)
+  slides every setting over a dimmed board: rules, opponent, strength, move
+  clock, themes, sound mixing, the full move log and your record. Close it
+  with ✕, `Esc`, the backdrop or *Back to the game*, and the whole page
+  belongs to the match again — board, turn banner, move ticker, trays.
 - **15 board themes** — pick your table in the Boards & themes panel: seven
   futuristic sets (Neon Circuit, Hologlass, Cyber Jade, Synthwave, Vapor
   Dreams, Solar Storm, Deep Space), the light Quantum Ice and Marble Lux, a
@@ -31,15 +48,24 @@ A double jump earns the eagle and the gold "Magnificent!" treatment:
   Tournament green, stark Ivory & Ebony, Sakura). Each theme recolors the
   whole interface — squares, pieces, frame, panels, accents — and your pick
   is remembered.
-- **Reactive sound design** — the game judges every move and reacts:
+- **113 reactive sounds** — the game watches everything and reacts:
   - multi-piece jumps get **majestic animal fanfares** — a bald eagle scream
     for a double jump, a lion's roar (plus a board thump) for three or more,
-    an elephant trumpet when a man is crowned;
+    an elephant trumpet and brass fanfare when a man is crowned, plus
+    capture-streak impacts ("On a rampage!");
   - **the judge** follows your play: accurate moves earn "Nice move.",
     "Sharp!" or "The only move!" when just one move holds the game; a quiet
     move that quietly springs a winning trap gets a *Sneaky!* reveal;
     questionable choices get "Hmm. Interesting choice."; real mistakes get
     the full **"Why did you do that?!"** treatment;
+  - **think, and the table talks back** — stare at the board for 12, 25, 45,
+    75 or 105 seconds and the heckles escalate from a polite "Still thinking?
+    Take your time." through "You're losing it, mate." and "Just agree you
+    lost already." to "I ordered food. It arrived. I ate it. Still waiting.";
+    survive the wait and then play a good move, and you earn the **big-brain
+    treatment** ("Wow. That was worth the wait!", "Okay, genius. I see you.")
+    — play a blunder after all that thought instead, and the judge lands the
+    savage line ("You thought about THAT for half a minute?!");
   - blunders get **comedy** — a hanging piece earns a cartoon *woops*/*klonk*
     /banana-peel slip (from the CC0 Warner Bros. cartoon sound collection), a
     move the engine judges genuinely bad gets the sad trombone and an
@@ -48,13 +74,20 @@ A double jump earns the eagle and the gold "Magnificent!" treatment:
     "You had ONE job!";
   - **realistic voice commentary** ("That is chess, not checkers!",
     "Unbelievable!", "All hail the king!") generated with neural TTS;
-  - every category (majestic / judge / comedy / voice / classic wooden
-    sounds) can be toggled and volume-mixed in the Sound design panel.
-  All samples are open-licensed — full credits and links in
-  [ATTRIBUTIONS.md](ATTRIBUTIONS.md).
+  - **interface sound design** — drawer whooshes, toggle blips, a theme
+    sparkle, a starting gong, undo rewinds, victory fanfares, defeat womps,
+    draw chimes and the ticking clock;
+  - every category (majestic / judge / comedy / voice / heckles / interface /
+    classic wooden sounds) can be toggled and volume-mixed in the Sound
+    design panel.
+  All samples are open-licensed or synthesized in-house — full credits and
+  links in [ATTRIBUTIONS.md](ATTRIBUTIONS.md).
 - **Extras** — undo, full move log with standard score-sheet notation
-  (`9-13`, `22x15`, `21x14x5`), move hints, per-ruleset win/loss/draw record.
-  No accounts, no trackers, works offline.
+  (`9-13`, `22x15`, `21x14x5`) plus a live ticker under the board, move
+  hints, per-ruleset win/loss/draw record. No accounts, no trackers, works
+  offline.
+
+![Game menu](docs/screenshot-menu.png)
 
 ## Play the web version
 
@@ -94,16 +127,19 @@ node tests/crosscheck_movegen.js   # independent second move generator, diffed
 ### How the engine is validated
 
 - **Perft** from the starting position matches the published English-draughts
-  node counts (7 / 49 / 302 / 1469 / 7361 / 36768).
+  node counts (7 / 49 / 302 / 1469 / 7361 / 36768), with opening counts
+  checked for all five rulesets (7 / 7 / 7 / 9 / 11) and symmetric-reply
+  counts at depth two.
 - A second, independently written move generator (different data structures,
   different recursion style) must produce byte-identical move sets on every
-  position reached in thousands of random playouts.
+  position reached in random playouts — run for all five rulesets.
 - Handcrafted unit tests pin the tricky rules: forced capture and forced
-  multi-jump continuation, the maximum-capture rule, flying-king landing
-  choice, both crowning conventions (American: crowning ends the move;
-  International: crowning only if the turn *ends* on the far edge), captured
-  pieces blocking until the move ends, and draw rules (40/25-move inactivity,
-  threefold repetition).
+  multi-jump continuation, the maximum-capture rule (and its absence in
+  Russian), flying-king landing choice, all three crowning conventions
+  (American: crowning ends the move; International family: crowning only if
+  the turn *ends* on the far edge; Russian: crowning mid-capture continues
+  as a king), captured pieces blocking until the move ends, and draw rules
+  (inactivity, threefold repetition).
 
 ### The AI
 

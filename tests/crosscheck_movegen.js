@@ -28,7 +28,7 @@ function indepCaptureSeqs(rs, b0, side) {
   const dirsFor = (isKing) =>
     isKing || rs.menCaptureBack ? DIRS4 : (side === 1 ? [[-1, -1], [-1, 1]] : [[1, -1], [1, 1]]);
 
-  function rec(bd, r, c, isKing, trail, caps, visited) {
+  function rec(bd, r, c, isKing, trail, caps, visited, crowned) {
     let extended = false;
     for (const [dr, dc] of dirsFor(isKing)) {
       if (isKing && rs.flyingKings) {
@@ -46,7 +46,7 @@ function indepCaptureSeqs(rs, b0, side) {
           const nb = clone(bd);
           nb[r][c] = 0; nb[lr][lc] = side * 2; // king relocates; victim stays (blocks)
           const nv = new Set(visited); nv.add(pr * n + pc);
-          rec(nb, lr, lc, true, trail.concat([lr * n + lc]), caps.concat([pr * n + pc]), nv);
+          rec(nb, lr, lc, true, trail.concat([lr * n + lc]), caps.concat([pr * n + pc]), nv, crowned);
           l++;
         }
         if (any) extended = true;
@@ -56,17 +56,22 @@ function indepCaptureSeqs(rs, b0, side) {
         const or_ = r + dr, oc = c + dc;
         if (bd[or_][oc] === 0 || bd[or_][oc] * side > 0 || visited.has(or_ * n + oc)) continue;
         if (bd[lr][lc] !== 0) continue;
-        const crowned = !isKing && rs.promoteEndsMove && lr === kingRow;
+        const landsLast = !isKing && lr === kingRow;
         extended = true;
-        const nb = clone(bd);
-        nb[r][c] = 0;
-        if (crowned) {
-          nb[lr][lc] = side * 2;
+        if (landsLast && rs.promoteEndsMove) {
           out.push({ trail: trail.concat([lr * n + lc]), caps: caps.concat([or_ * n + oc]), promotes: true });
+        } else if (landsLast && rs.crownContinues) {
+          // Russian: crowned at once, the sequence continues as a flying king.
+          const nb = clone(bd);
+          nb[r][c] = 0; nb[lr][lc] = side * 2;
+          const nv = new Set(visited); nv.add(or_ * n + oc);
+          rec(nb, lr, lc, true, trail.concat([lr * n + lc]), caps.concat([or_ * n + oc]), nv, true);
         } else {
+          const nb = clone(bd);
+          nb[r][c] = 0;
           nb[lr][lc] = side; // piece keeps its type (king stays king under non-flying rules)
           const nv = new Set(visited); nv.add(or_ * n + oc);
-          rec(nb, lr, lc, isKing, trail.concat([lr * n + lc]), caps.concat([or_ * n + oc]), nv);
+          rec(nb, lr, lc, isKing, trail.concat([lr * n + lc]), caps.concat([or_ * n + oc]), nv, crowned);
         }
       }
     }
@@ -74,7 +79,7 @@ function indepCaptureSeqs(rs, b0, side) {
       const endR = ((trail[trail.length - 1] / n) | 0);
       out.push({
         trail: trail.slice(), caps: caps.slice(),
-        promotes: !isKing && !rs.promoteEndsMove && endR === kingRow,
+        promotes: crowned || (!isKing && !rs.promoteEndsMove && endR === kingRow),
       });
     }
   }
@@ -126,11 +131,12 @@ const key = (m) => m.trail.join(',') + '|' + m.caps.join(',') + '|' + (m.promote
 const setOf = (ms) => new Set(ms.map(key));
 
 // ---- playouts & comparison --------------------------------------------------
-function run(rs, positions) {
+function run(rs, games, maxPlies) {
+  games = games || 150; maxPlies = maxPlies || 140;
   let mismatches = 0, checked = 0;
-  for (let g = 0; g < 150; g++) {
+  for (let g = 0; g < games; g++) {
     let flat = E.setupBoard(rs), side = rs.firstSide, np = 0;
-    for (let t = 0; t < 140; t++) {
+    for (let t = 0; t < maxPlies; t++) {
       const engMoves = E.legalMoves(rs, flat, side);
       if (!engMoves.length || np >= rs.drawPlies) break;
 
@@ -162,6 +168,11 @@ function run(rs, positions) {
   return mismatches;
 }
 
-let bad = run(E.RULESETS.american) + run(E.RULESETS.international);
+// the 12x12 board is much heavier — fewer games, same depth of scrutiny
+let bad = run(E.RULESETS.american)
+  + run(E.RULESETS.brazilian)
+  + run(E.RULESETS.russian)
+  + run(E.RULESETS.international)
+  + run(E.RULESETS.canadian, 60, 100);
 console.log(bad === 0 ? 'CROSS-CHECK CLEAN' : `CROSS-CHECK FAILED (${bad})`);
 process.exit(bad ? 1 : 0);

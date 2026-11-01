@@ -16,14 +16,16 @@
   function saveJSON(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* private mode etc. */ } }
 
   const settings = Object.assign(
-    { rsId: 'american', mode: 'ai', diff: 'medium', humanSide: IVORY, sound: true, rotate: true, theme: 'neon' },
+    { rsId: 'american', mode: 'ai', diff: 'medium', humanSide: IVORY, sound: true, rotate: true, theme: 'neon', clock: 0, speed: 1 },
     loadJSON(SETTINGS_KEY, {})
   );
   if (!E.RULESETS[settings.rsId]) settings.rsId = 'american';
-  if (settings.mode !== 'ai' && settings.mode !== 'hotseat') settings.mode = 'ai';
+  if (settings.mode !== 'ai' && settings.mode !== 'hotseat' && settings.mode !== 'aivai') settings.mode = 'ai';
   if (!['easy', 'medium', 'hard'].includes(settings.diff)) settings.diff = 'medium';
+  if (![0, 30, 60, 90].includes(settings.clock)) settings.clock = 0;
+  if (![1, 2, 4].includes(settings.speed)) settings.speed = 1;
   settings.sfx = Object.assign(
-    { master: 0.9, animals: true, judge: true, comedy: true, voice: true, classic: true },
+    { master: 0.9, animals: true, judge: true, comedy: true, voice: true, classic: true, think: true, ui: true },
     (settings.sfx && typeof settings.sfx === 'object') ? settings.sfx : {}
   );
 
@@ -464,7 +466,7 @@
     defs: window.DRAFTI_SFX || {},
     buffers: new Map(),
     decoding: false,
-    CAT_VOL: { majestic: 0.95, comedy: 0.8, voice: 1.0, judge: 1.0 },
+    CAT_VOL: { majestic: 0.95, comedy: 0.8, voice: 1.0, judge: 1.0, think: 1.0, ui: 0.6 },
     decodeAll() {
       const ctx = FX.ctx;
       if (!ctx || this.decoding) return;
@@ -485,6 +487,8 @@
       if (def.c === 'comedy') return settings.sfx.comedy;
       if (def.c === 'voice') return settings.sfx.voice;
       if (def.c === 'judge') return settings.sfx.judge;
+      if (def.c === 'think') return settings.sfx.think;
+      if (def.c === 'ui') return settings.sfx.ui;
       return true;
     },
     play(name, opts) {
@@ -524,6 +528,8 @@
     over: false, result: null, recorded: false,
     phase: 'idle', // idle | animating | thinking | over
     sel: null, hint: null, lastMove: null,
+    aiPaused: false, aiSpeed: settings.speed,
+    capStreakSide: 0, capStreak: 0,
   };
 
   const posKey = (b, s) => b.join(',') + '|' + s;
@@ -621,11 +627,13 @@
 
     if (wasHint) {
       G.hint = mv;
+      if (Math.random() < 0.5) SFX_BANK.play('v_hint', { vol: 0.85 });
       updateAll();
       return;
     }
-    // keep the computer's move from feeling instant
-    const delay = Math.max(0, 450 - (Date.now() - thinkStart));
+    // pacing: aivai keeps a watchable rhythm scaled by the speed selector
+    const base = G.mode === 'aivai' ? 700 / G.aiSpeed : 450;
+    const delay = Math.max(0, base - (Date.now() - thinkStart));
     setTimeout(() => {
       if (res.id !== reqId || G.phase !== 'idle') return;
       if (G.diff === 'easy' && Array.isArray(res.rootScores) && res.rootScores.length > 1) {
@@ -812,6 +820,14 @@
   let pendingVerdict = null;
   let verdictId = 0;
   let labelTimer = 0;
+  let whisperTimer = 0;
+
+  // post-thought reactions: a long think followed by a great (or awful) move
+  const PRAISE_POOL = ['v_bigbrain', 'v_worth', 'v_paidoff', 'v_slowsteady', 'v_genius', 'v_masterpiece'];
+  const SAVAGE_POOL = ['v_thought30', 'v_alltime', 'v_nosense'];
+  let longThinkSavage = false; // set by the verdict when a long think ended badly
+  let lastThinkMs = 0;         // how long the human pondered the move just played
+  let lastThinkPraised = -1;   // ply already praised (avoid double rewards)
 
   function flashLabel(text, kind) {
     const host = $('stage');
@@ -829,6 +845,25 @@
     clearTimeout(labelTimer);
     labelTimer = setTimeout(() => el.classList.remove('run'), 1650);
   }
+
+  // small, quieter label for heckles and nudges
+  function flashWhisper(text) {
+    const host = $('stage');
+    if (!host) return;
+    let el = $('whisperLabel');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'whisperLabel';
+      host.appendChild(el);
+    }
+    el.textContent = text;
+    void el.offsetWidth;
+    el.classList.add('run');
+    clearTimeout(whisperTimer);
+    whisperTimer = setTimeout(() => el.classList.remove('run'), 2400);
+  }
+
+  const pick = (arr) => arr[(Math.random() * arr.length) | 0];
 
   function thump() {
     frameEl.classList.remove('thump');
@@ -868,6 +903,7 @@
       flashLabel('Magnificent!', 'majestic');
     } else if (ev === 'promo') {
       SFX_BANK.play('elephant', { vol: 1 });
+      SFX_BANK.play('crown_fanfare', { vol: 0.8 });
       SFX_BANK.play('v_king', { vol: 0.9 });
       flashLabel('Crowned!', 'majestic');
     } else if (ev === 'brilliant') {
@@ -880,6 +916,14 @@
       SFX_BANK.play(line, { vol: 0.95 });
       flashLabel(line === 'v_trap' ? 'What a trap!' : line === 'v_crafty' ? 'Crafty!' : 'Sneaky!', 'judge');
     } else if (ev === 'accurate') {
+      // A long think that paid off gets the special praise treatment instead.
+      if (lastThinkMs > 12000 && lastThinkPraised !== ply) {
+        lastThinkPraised = ply;
+        SFX_BANK.play('sparkle', { vol: 0.9 });
+        SFX_BANK.play(pick(PRAISE_POOL), { vol: 0.95 });
+        flashLabel('Worth the wait!', 'majestic');
+        return;
+      }
       const only = flavor === 'only';
       SFX_BANK.play(only ? 'v_only' : ['v_nice', 'v_sharp', 'v_clean'][(Math.random() * 3) | 0], { vol: 0.9 });
       flashLabel(only ? 'The only move!' : ['Precise.', 'Sharp!', 'Clean.'][(Math.random() * 3) | 0], 'judge');
@@ -888,11 +932,15 @@
       flashLabel('Hmm…', 'judge');
     } else if (ev === 'blunder') {
       SFX_BANK.play('trombone', { vol: 1 });
-      SFX_BANK.play(['v_ohno', 'v_why', 'v_sure', 'v_cost'][(Math.random() * 4) | 0], { vol: 0.9 });
+      // A long think that ended in a blunder earns the savage callout.
+      SFX_BANK.play(longThinkSavage ? pick(SAVAGE_POOL)
+        : ['v_ohno', 'v_why', 'v_sure', 'v_cost'][(Math.random() * 4) | 0], { vol: 0.9 });
+      longThinkSavage = false;
       flashLabel(['Why?!', 'Oh no!'][(Math.random() * 2) | 0], 'comedy');
     } else if (ev === 'epic') {
       SFX_BANK.play('wilhelm', { vol: 1 });
-      SFX_BANK.play(Math.random() < 0.5 ? 'v_wow' : 'v_why', { vol: 0.9 });
+      SFX_BANK.play(lastThinkMs > 20000 ? pick(SAVAGE_POOL)
+        : (Math.random() < 0.5 ? 'v_wow' : 'v_why'), { vol: 0.9 });
       flashLabel('Disaster!', 'comedy');
       thump();
     } else if (ev === 'missed') {
@@ -912,6 +960,7 @@
   // after the move; its verdict may upgrade the instant classification.
   function requestVerdict(mv, preBoard, side, preNoProg, ply) {
     if (G.over) return;
+    if (G.mode === 'aivai') return; // no humans to judge
     if (G.mode === 'ai' && side !== G.humanSide) return; // judge humans
     if (settings.diff === 'easy') return; // easy plays badly on purpose
     const w = getWorker();
@@ -931,9 +980,13 @@
     pendingVerdict = null;
     if (G.over || G.history.length !== pv.ply) return;
     if (res.onlyMove || !isFinite(res.delta)) return;
-    if (res.delta >= 420) applyMoveEvent('epic', pv.ply);
-    else if (res.delta >= 170) applyMoveEvent('blunder', pv.ply);
-    else if (res.delta >= 70) applyMoveEvent('dubious', pv.ply);
+    if (res.delta >= 420) {
+      longThinkSavage = lastThinkMs > 20000;
+      applyMoveEvent('epic', pv.ply);
+    } else if (res.delta >= 170) {
+      longThinkSavage = lastThinkMs > 20000;
+      applyMoveEvent('blunder', pv.ply);
+    } else if (res.delta >= 70) applyMoveEvent('dubious', pv.ply);
     else if (res.delta <= -120 && res.playedScore > 40) applyMoveEvent('brilliant', pv.ply);
     else if (res.delta <= 8) {
       // A quiet move that suddenly leaves the opponent lost: a trap was set.
@@ -980,6 +1033,8 @@
   async function executeMove(mv) {
     if (!mv || G.phase !== 'idle') return;
     G.phase = 'animating';
+    const moverIsHuman = humanTurn();
+    if (moverIsHuman) lastThinkMs = thinkArmedKey === turnKey() ? Date.now() - humanThinkStart : 0;
     const preBoard = G.board.slice();
     const preNoProg = G.noProg;
     const preLegal = G.legal.slice();
@@ -988,6 +1043,21 @@
     updateAll();
     await animateMove(mv);
     const ply = commitMove(mv);
+    // capture streaks: consecutive moves (by either side) that capture
+    if (mv.caps.length > 0) {
+      G.capStreak = G.capStreakSide === moverSide ? G.capStreak + 1 : 1;
+      G.capStreakSide = moverSide;
+      if (G.capStreak >= 2) {
+        const big = G.capStreak >= 3;
+        setTimeout(() => {
+          SFX_BANK.play(big ? 'streak_big' : 'streak_hit', { vol: 0.9 });
+          if (Math.random() < (big ? 0.9 : 0.5)) SFX_BANK.play(big ? 'v_rampage2' : 'v_rampage', { vol: 0.9 });
+          flashWhisper(big ? 'Unstoppable!' : 'On a rampage!');
+        }, 620);
+      }
+    } else {
+      G.capStreak = 0; G.capStreakSide = 0;
+    }
     lastEvent = { rank: -1, ply: -1 };
     if (!G.over) classifySync(mv, preLegal, ply);
     checkGameEnd();
@@ -1068,13 +1138,21 @@
   function showGameOver() {
     if (!G.over) return;
     const r = G.result;
-    FX.play(G.mode === 'ai'
-      ? (r.winner === null ? 'draw' : r.winner === G.humanSide ? 'win' : 'lose')
-      : r.winner === null ? 'draw' : 'king');
     if (G.mode === 'ai') {
-      const v = r.winner === null ? 'v_draw'
-        : r.winner === G.humanSide ? 'v_win' : 'v_lose';
+      FX.play(r.winner === null ? 'draw' : r.winner === G.humanSide ? 'win' : 'lose');
+      SFX_BANK.play(r.winner === null ? 'draw_chime'
+        : r.winner === G.humanSide ? 'win_fanfare' : 'lose_womp', { vol: 0.9 });
+      if (r.winner === G.humanSide) {
+        SFX_BANK.play('achievement', { vol: 0.8 });
+        if (Math.random() < 0.35) setTimeout(() => SFX_BANK.play(pick(['v_win2', 'v_win3']), { vol: 0.85 }), 1400);
+      } else if (r.winner !== null && Math.random() < 0.35) {
+        setTimeout(() => SFX_BANK.play(pick(['v_lose2', 'v_lose3']), { vol: 0.85 }), 1400);
+      }
+      const v = r.winner === null ? 'v_draw' : r.winner === G.humanSide ? 'v_win' : 'v_lose';
       setTimeout(() => SFX_BANK.play(v, { vol: 0.9 }), 550);
+    } else {
+      FX.play(r.winner === null ? 'draw' : 'king');
+      SFX_BANK.play(r.winner === null ? 'draw_chime' : 'crown_fanfare', { vol: 0.85 });
     }
     $('goTitle').textContent = r.winner === null ? 'A draw'
       : (G.mode === 'ai'
@@ -1095,16 +1173,20 @@
     G.mode = settings.mode;
     G.diff = settings.diff;
     G.humanSide = settings.humanSide;
+    G.aiPaused = false;
+    G.aiSpeed = settings.speed;
     G.sqn = E.squareNumbers(G.rs);
     G.board = E.setupBoard(G.rs);
     G.side = G.rs.firstSide;
     G.noProg = 0;
     G.history = [];
     G.repMap = new Map();
+    G.capStreak = 0; G.capStreakSide = 0;
     repAdd(posKey(G.board, G.side));
     G.legal = E.legalMoves(G.rs, G.board, G.side);
     G.over = false; G.result = null; G.recorded = false;
     G.phase = 'idle'; G.sel = null; G.hint = null; G.lastMove = null;
+    lastThinkMs = 0; thinkArmedKey = -1; thinkFired = 0; clockArmedKey = -1;
     buildBoard();
     rebuildPieces();
     updateAll();
@@ -1113,6 +1195,7 @@
 
   function undo() {
     if (!G.history.length || G.phase === 'animating' || G.phase === 'over') return;
+    if (G.mode === 'aivai') return; // spectating — nothing to undo
     reqId++; aiPending = false; hintPending = false;
     let steps = 1;
     if (G.mode === 'ai' && G.side === G.humanSide && G.history.length >= 2) steps = 2;
@@ -1126,16 +1209,20 @@
     G.over = false; G.result = null; G.recorded = false;
     G.lastMove = G.history.length ? G.history[G.history.length - 1].move : null;
     G.sel = null; G.hint = null;
+    G.capStreak = 0; G.capStreakSide = 0;
     G.legal = E.legalMoves(G.rs, G.board, G.side);
     rebuildPieces();
     FX.play('undo');
+    if (Math.random() < 0.35) SFX_BANK.play('v_undo', { vol: 0.8 });
     G.phase = 'idle';
     updateAll();
   }
 
   function scheduleAI() {
     if (G.over || G.phase !== 'idle') return;
-    if (G.mode !== 'ai' || G.side === G.humanSide) return;
+    if (G.mode === 'hotseat') return;
+    if (G.mode === 'ai' && G.side === G.humanSide) return;
+    if (G.mode === 'aivai' && G.aiPaused) return;
     G.phase = 'thinking';
     updateAll();
     runSearch('ai');
@@ -1150,6 +1237,7 @@
 
   // ---------------- rendering ----------------
   function shouldFlip() {
+    if (G.mode === 'aivai') return false; // spectators keep a fixed view
     if (G.mode === 'ai') return G.humanSide === EBONY;
     return settings.rotate && !G.over && G.side === EBONY;
   }
@@ -1167,16 +1255,17 @@
       return;
     }
     dot.className = 'dot ' + sideDot();
+    const spect = G.mode === 'aivai' ? ' · AI vs AI' : '';
     if (G.phase === 'thinking') {
       banner.classList.add('thinking');
       text.textContent = hintPending ? 'Looking for a hint' : (G.mode === 'ai' && G.side !== G.humanSide
-        ? 'The computer is thinking' : sideName(G.side) + ' to move');
+        ? 'The computer is thinking' : sideName(G.side) + ' to move' + spect);
     } else if (G.phase === 'animating') {
       text.textContent = sideName(-G.side) + ' moves…';
     } else {
       text.textContent = G.mode === 'ai'
         ? (G.side === G.humanSide ? 'Your move — ' + sideName(G.side) : sideName(G.side) + ' to move')
-        : sideName(G.side) + ' to move';
+        : sideName(G.side) + ' to move' + spect;
     }
   }
   function sideDot() { return G.side === IVORY ? 'ivory' : 'ebony'; }
@@ -1199,17 +1288,31 @@
     if (!G.history.length) {
       ol.innerHTML = '<li class="empty">No moves yet — ' +
         (G.mode === 'ai' ? 'make your move or press Hint for a suggestion.' : sideName(G.rs.firstSide) + ' opens.') + '</li>';
+    } else {
+      let html = '';
+      G.history.forEach((h, ix) => {
+        html += '<li' + (ix === G.history.length - 1 ? ' class="current"' : '') + '>' +
+          '<span class="no">' + (ix + 1) + '.</span>' +
+          '<span class="pdot ' + (h.side === IVORY ? 'ivory' : 'ebony') + '"></span>' +
+          '<span>' + h.notation + (h.move.promotes ? ' ♔' : '') + '</span></li>';
+      });
+      ol.innerHTML = html;
+      ol.scrollTop = ol.scrollHeight;
+    }
+    // compact ticker under the board: the last moves, newest on the right
+    const tk = $('ticker');
+    if (!G.history.length) {
+      tk.innerHTML = '<span class="empty">' + sideName(G.rs.firstSide) + ' opens — moves will appear here.</span>';
       return;
     }
-    let html = '';
-    G.history.forEach((h, ix) => {
-      html += '<li' + (ix === G.history.length - 1 ? ' class="current"' : '') + '>' +
-        '<span class="no">' + (ix + 1) + '.</span>' +
+    const recent = G.history.slice(-14);
+    tk.innerHTML = recent.map((h, ix) => {
+      const cur = G.history.length - recent.length + ix === G.history.length - 1;
+      return '<span class="tk' + (cur ? ' current' : '') + '">' +
         '<span class="pdot ' + (h.side === IVORY ? 'ivory' : 'ebony') + '"></span>' +
-        '<span>' + h.notation + (h.move.promotes ? ' ♔' : '') + '</span></li>';
-    });
-    ol.innerHTML = html;
-    ol.scrollTop = ol.scrollHeight;
+        h.notation + (h.move.promotes ? '♔' : '') + '</span>';
+    }).join('');
+    tk.scrollLeft = tk.scrollWidth;
   }
 
   function updateSegs() {
@@ -1220,15 +1323,21 @@
     set('segMode', settings.mode);
     set('segSide', settings.humanSide);
     set('segDiff', settings.diff);
+    set('segClock', settings.clock);
+    set('segSpeed', G.aiSpeed);
     $('rowSide').style.display = settings.mode === 'ai' ? '' : 'none';
     $('rowDiff').style.display = settings.mode === 'ai' ? '' : 'none';
+    $('rowClock').style.display = settings.mode === 'aivai' ? 'none' : '';
     const rs = E.RULESETS[settings.rsId];
     $('setupNote').textContent = settings.mode === 'ai'
       ? rs.name + ' — ' + sideName(rs.firstSide) + ' opens. You play ' + sideName(settings.humanSide).toLowerCase() + '.'
-      : rs.name + ' — ' + sideName(rs.firstSide) + ' opens. Pass and play.';
+      : settings.mode === 'aivai'
+        ? rs.name + ' — ' + sideName(rs.firstSide) + ' opens. Sit back and watch the engines.'
+        : rs.name + ' — ' + sideName(rs.firstSide) + ' opens. Pass and play.';
     $('btnRotate').style.display = settings.mode === 'hotseat' ? '' : 'none';
     $('btnSound').textContent = settings.sound ? '🔊' : '🔇';
     $('btnRotate').classList.toggle('active', settings.mode === 'hotseat' && settings.rotate);
+    $('btnAivaiPause').textContent = G.aiPaused ? '▶ Resume' : '⏸ Pause';
     for (const b of $('sfxChips').querySelectorAll('button')) {
       b.classList.toggle('active', !!settings.sfx[b.dataset.v]);
     }
@@ -1240,9 +1349,10 @@
   }
 
   function updateControls() {
-    $('btnUndo').disabled = !G.history.length || G.phase === 'animating' || G.phase === 'over';
+    $('btnUndo').disabled = !G.history.length || G.phase === 'animating' || G.phase === 'over' || G.mode === 'aivai';
     $('btnHint').disabled = !humanTurn() || G.phase !== 'idle' || !G.legal.length;
     $('btnRotate').disabled = settings.mode !== 'hotseat';
+    $('aivaiBar').hidden = settings.mode !== 'aivai';
   }
 
   function updateAll() {
@@ -1274,7 +1384,7 @@
   let pendingConfirm = null;
 
   function showStats() {
-    const rows = ['american', 'international'].map((rid) => {
+    const rows = Object.keys(E.RULESETS).map((rid) => {
       const s = Object.assign({ p: 0, w: 0, l: 0, d: 0, bestRun: 0 }, stats[rid]);
       const name = E.RULESETS[rid].name;
       return '<tr><td>' + name + '</td><td>' + s.p + '</td><td>' + s.w + '</td><td>' + s.l + '</td><td>' + s.d + '</td><td>' + s.bestRun + '</td></tr>';
@@ -1289,6 +1399,7 @@
     $(id).addEventListener('click', (e) => {
       const b = e.target.closest('button');
       if (!b) return;
+      SFX_BANK.play('ui_click');
       apply(b.dataset.v);
     });
   }
@@ -1309,11 +1420,32 @@
   wireSeg('segDiff', (v) => {
     settings.diff = v; saveJSON(SETTINGS_KEY, settings); updateSegs();
   });
+  wireSeg('segClock', (v) => {
+    settings.clock = +v; saveJSON(SETTINGS_KEY, settings);
+    clockArmedKey = -1; // re-arm with the new budget
+    updateSegs();
+  });
+  wireSeg('segSpeed', (v) => {
+    settings.speed = +v; G.aiSpeed = +v;
+    saveJSON(SETTINGS_KEY, settings); updateSegs();
+  });
 
-  $('btnNew').addEventListener('click', () => confirmIfNeeded(newGame));
+  function startNewGameWithFanfare() {
+    newGame();
+    SFX_BANK.play('gong', { vol: 0.8 });
+    if (Math.random() < 0.4) setTimeout(() => SFX_BANK.play('v_new', { vol: 0.85 }), 500);
+  }
+  $('btnNew').addEventListener('click', () => confirmIfNeeded(startNewGameWithFanfare));
+  $('btnAivaiNew').addEventListener('click', () => confirmIfNeeded(startNewGameWithFanfare));
   $('btnUndo').addEventListener('click', undo);
   $('btnHint').addEventListener('click', requestHint);
   $('btnStats').addEventListener('click', showStats);
+  $('btnAivaiPause').addEventListener('click', () => {
+    G.aiPaused = !G.aiPaused;
+    SFX_BANK.play(G.aiPaused ? 'ui_toggle_off' : 'ui_toggle_on');
+    updateSegs();
+    if (!G.aiPaused) scheduleAI();
+  });
   $('btnSound').addEventListener('click', () => {
     settings.sound = !settings.sound;
     saveJSON(SETTINGS_KEY, settings);
@@ -1342,11 +1474,15 @@
     updateSegs();
     // audible confirmation per category
     if (settings.sound) {
-      if (key === 'animals') SFX_BANK.play('eagle');
-      else if (key === 'judge') SFX_BANK.play('v_hmm');
-      else if (key === 'comedy') SFX_BANK.play('klonk');
-      else if (key === 'voice') SFX_BANK.play('v_magnificent');
-      else FX.play('select');
+      SFX_BANK.play(settings.sfx[key] ? 'ui_toggle_on' : 'ui_toggle_off');
+      if (settings.sfx[key]) {
+        if (key === 'animals') setTimeout(() => SFX_BANK.play('eagle'), 140);
+        else if (key === 'judge') setTimeout(() => SFX_BANK.play('v_hmm'), 140);
+        else if (key === 'comedy') setTimeout(() => SFX_BANK.play('klonk'), 140);
+        else if (key === 'voice') setTimeout(() => SFX_BANK.play('v_magnificent'), 140);
+        else if (key === 'think') setTimeout(() => SFX_BANK.play('t2a'), 140);
+        else if (key === 'classic') setTimeout(() => FX.play('capture'), 140);
+      }
     }
   });
 
@@ -1370,14 +1506,14 @@
     saveJSON(SETTINGS_KEY, settings);
     applyTheme(settings.theme);
     updateSegs();
-    FX.play('select');
+    SFX_BANK.play('ui_theme');
   });
 
-  $('goRematch').addEventListener('click', () => { closeModals(); newGame(); });
+  $('goRematch').addEventListener('click', () => { closeModals(); startNewGameWithFanfare(); });
   $('goClose').addEventListener('click', closeModals);
   $('statsClose').addEventListener('click', closeModals);
   $('statsReset').addEventListener('click', () => {
-    stats.american = {}; stats.international = {};
+    for (const rid of Object.keys(E.RULESETS)) stats[rid] = {};
     saveStats(); showStats();
   });
   $('cfYes').addEventListener('click', () => { closeModals(); const f = pendingConfirm; pendingConfirm = null; if (f) f(); });
@@ -1387,12 +1523,107 @@
     if (!$('modalConfirm').hidden) return; // confirm needs an explicit choice
     closeModals();
   });
+
+  // ---------------- settings drawer ----------------
+  const drawer = $('drawer'), drawerBackdrop = $('drawerBackdrop');
+  let drawerOpen = false;
+  function openMenu() {
+    if (drawerOpen) return;
+    drawerOpen = true;
+    drawer.classList.add('open');
+    drawerBackdrop.classList.add('show');
+    drawer.setAttribute('aria-hidden', 'false');
+    $('btnMenu').setAttribute('aria-expanded', 'true');
+    SFX_BANK.play('ui_open');
+  }
+  function closeMenu() {
+    if (!drawerOpen) return;
+    drawerOpen = false;
+    drawer.classList.remove('open');
+    drawerBackdrop.classList.remove('show');
+    drawer.setAttribute('aria-hidden', 'true');
+    $('btnMenu').setAttribute('aria-expanded', 'false');
+    SFX_BANK.play('ui_close');
+  }
+  $('btnMenu').addEventListener('click', () => (drawerOpen ? closeMenu() : openMenu()));
+  $('btnDrawerClose').addEventListener('click', closeMenu);
+  $('btnDrawerSave').addEventListener('click', () => {
+    SFX_BANK.play('ui_save');
+    closeMenu();
+  });
+  drawerBackdrop.addEventListener('pointerdown', closeMenu);
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (!$('modalConfirm').hidden) { closeModals(); pendingConfirm = null; }
+      else if (drawerOpen) closeMenu();
       else closeModals();
+    } else if (e.key === 'm' || e.key === 'M') {
+      if (e.target === document.body) drawerOpen ? closeMenu() : openMenu();
     }
   });
+
+  // ---------------- move clock (human turns) & thinking heckles -------------
+  const THINK_TIERS = [
+    { at: 12000, lines: ['t1a', 't1b', 't1c', 't1d'], say: 'Still thinking…' },
+    { at: 25000, lines: ['t2a', 't2b', 't2c', 't2d'], say: 'Any day now…' },
+    { at: 45000, lines: ['t3a', 't3b', 't3c'], say: 'Just agree you lost…' },
+    { at: 75000, lines: ['t4a', 't4b', 't4c'], say: 'Need help?' },
+    { at: 105000, lines: ['t5a', 't5b'], say: 'I age…' },
+  ];
+  const thinkSaid = new Set();
+  let thinkArmedKey = -1, humanThinkStart = 0, thinkFired = 0;
+  let clockArmedKey = -1, clockDeadline = 0, lastTickSec = -1;
+  const turnKey = () => G.history.length * 2 + (G.side === IVORY ? 0 : 1);
+
+  setInterval(() => {
+    const k = turnKey();
+    const humanActive = humanTurn() && G.phase === 'idle' && !G.over;
+
+    // --- move clock ---
+    const pill = $('clockPill');
+    if (settings.clock > 0 && humanActive) {
+      if (k !== clockArmedKey) {
+        clockArmedKey = k;
+        clockDeadline = Date.now() + settings.clock * 1000;
+        lastTickSec = -1;
+      }
+      const remain = Math.max(0, (clockDeadline - Date.now()) / 1000);
+      pill.hidden = false;
+      pill.textContent = '⏱ ' + Math.ceil(remain) + 's';
+      pill.classList.toggle('urgent', remain <= 5.05);
+      const sec = Math.ceil(remain);
+      if (sec !== lastTickSec) {
+        lastTickSec = sec;
+        if (sec > 5 && sec <= 10) SFX_BANK.play('clock_tick');
+        else if (sec <= 5 && sec > 0) SFX_BANK.play('clock_tock');
+      }
+      if (remain <= 0 && G.legal.length) {
+        clockArmedKey = -1;
+        SFX_BANK.play('whistle_ref', { vol: 1 });
+        SFX_BANK.play('alarm', { vol: 0.7 });
+        flashLabel('Time!', 'comedy');
+        executeMove(G.legal[(Math.random() * G.legal.length) | 0]);
+      }
+    } else {
+      pill.hidden = true;
+    }
+
+    // --- escalating heckles while the human stares at the board ---
+    if (!humanActive || settings.mode === 'aivai') { thinkFired = 0; return; }
+    if (k !== thinkArmedKey) { thinkArmedKey = k; humanThinkStart = Date.now(); }
+    const dt = Date.now() - humanThinkStart;
+    while (thinkFired < THINK_TIERS.length && dt >= THINK_TIERS[thinkFired].at) {
+      const tier = THINK_TIERS[thinkFired++];
+      const fresh = tier.lines.filter((l) => !thinkSaid.has(l));
+      const line = pick(fresh.length ? fresh : tier.lines);
+      thinkSaid.add(line);
+      if (thinkSaid.size > 12) thinkSaid.delete(thinkSaid.values().next().value);
+      SFX_BANK.play('notify_pop');
+      setTimeout(() => SFX_BANK.play(line, { vol: 0.95 }), 170);
+      flashWhisper(tier.say);
+    }
+  }, 250);
 
   // ---------------- boot ----------------
   applyTheme(settings.theme);
@@ -1401,5 +1632,8 @@
 
   // Minimal test hook: lets automated tests drive the real input path and
   // inspect game state. Not used by the game itself.
-  window.__drafti = { state: G, tap: onSquareClick, sfx: SFX_BANK, fx: FX, rebuild: rebuildPieces };
+  window.__drafti = {
+    state: G, tap: onSquareClick, sfx: SFX_BANK, fx: FX, rebuild: rebuildPieces,
+    menu: { open: openMenu, close: closeMenu, isOpen: () => drawerOpen },
+  };
 })();
