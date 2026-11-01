@@ -213,6 +213,22 @@ body.fx-scan::after {
 .piece.appear { animation: appear .3s ease; }
 @keyframes appear { from { transform: scale(.4); opacity: 0; } }
 
+/* ---------- quick actions (hint / undo) under the board ---------- */
+.qa-bar { display: flex; gap: 10px; }
+.qa-bar .btn {
+  padding: 9px 22px; border-radius: 999px; font-size: 13.5px; font-weight: 600;
+  background: var(--panel); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .35), 0 0 16px var(--accent-weak);
+}
+.qa-bar .btn svg { width: 16px; height: 16px; }
+.qa-bar .btn:hover:not(:disabled) { box-shadow: 0 4px 18px rgba(0, 0, 0, .35), 0 0 22px var(--accent-weak); }
+.qa-bar .kbd {
+  font-size: 10px; color: var(--ink-dim); border: 1px solid var(--panel-line);
+  border-radius: 5px; padding: 1px 5px; letter-spacing: .06em; margin-left: 2px;
+}
+.qa-bar .btn.active { color: var(--accent); border-color: var(--accent-soft); }
+#btnHV { width: 100%; margin-top: 10px; }
+
 /* ---------- captured trays ---------- */
 .trays { display: flex; gap: 14px; width: min(94vw, 70vh, 660px); justify-content: space-between; }
 .tray {
@@ -352,6 +368,68 @@ footer a { color: var(--accent-soft); text-decoration: none; }
 /* board flip: counter-rotate piece bodies and square numbers so they stay upright */
 .flip .piece .body { transform: rotate(180deg); }
 .flip .sqnum { transform: rotate(180deg); }
+
+/* ---------- wood grain (Walnut Royale, Midnight Club, Walnut Classic) ---------- */
+body.fx-wood .sq.light {
+  background-image:
+    repeating-linear-gradient(91deg, rgba(122, 80, 34, .09) 0 2px, transparent 2px 6px),
+    repeating-linear-gradient(87deg, rgba(160, 112, 58, .07) 0 3px, transparent 3px 11px),
+    linear-gradient(160deg, var(--sq-light-hi), var(--sq-light) 55%, var(--sq-light-lo));
+}
+body.fx-wood .sq.dark {
+  background-image:
+    repeating-linear-gradient(89deg, rgba(28, 14, 4, .22) 0 2px, transparent 2px 6px),
+    repeating-linear-gradient(92deg, rgba(60, 32, 12, .16) 0 3px, transparent 3px 12px),
+    linear-gradient(160deg, var(--sq-dark-hi), var(--sq-dark) 55%, var(--sq-dark-lo));
+}
+body.fx-wood .sq:nth-child(3n) { background-position: 0 -6px, 0 5px, 0 0; }
+body.fx-wood .sq:nth-child(5n+2) { background-position: 0 7px, 0 -4px, 0 0; }
+body.fx-wood .piece .body {
+  box-shadow: 0 4px 9px rgba(0, 0, 0, .5), inset 0 2px 3px rgba(255, 255, 255, .3),
+              inset 0 -4px 6px rgba(0, 0, 0, .35), inset 0 0 0 2px rgba(0, 0, 0, .15),
+              inset 0 0 0 5px rgba(255, 255, 255, .07), inset 0 0 0 8px rgba(0, 0, 0, .13);
+}
+body.fx-wood .piece.ebony .body {
+  box-shadow: 0 4px 9px rgba(0, 0, 0, .55), inset 0 2px 3px rgba(255, 255, 255, .14),
+              inset 0 -4px 6px rgba(0, 0, 0, .5), inset 0 0 0 2px rgba(255, 255, 255, .05),
+              inset 0 0 0 5px rgba(0, 0, 0, .22), inset 0 0 0 8px rgba(255, 255, 255, .04);
+}
+
+/* ---------- neon glass: beveled translucent squares, lit frame edge ---------- */
+body.fx-glass .sq {
+  box-shadow: inset 0 0 0 1px var(--grid-line), inset 0 1px 0 rgba(255, 255, 255, .25),
+              inset 0 -8px 16px rgba(0, 0, 0, .3), inset 0 0 18px rgba(255, 255, 255, .05);
+}
+body.fx-glass .board-inner {
+  box-shadow: 0 0 0 1px var(--accent-soft), 0 0 22px var(--accent-soft), inset 0 2px 10px rgba(0, 0, 0, .4);
+}
+body.fx-glass .piece.ivory .body {
+  box-shadow: 0 4px 9px rgba(0, 0, 0, .5), inset 0 2px 3px rgba(255, 255, 255, .5),
+              inset 0 -4px 6px rgba(0, 0, 0, .25), inset 0 0 10px rgba(255, 255, 255, .35),
+              0 0 16px var(--pl-l-glow);
+}
+body.fx-glass .piece.ebony .body {
+  box-shadow: 0 4px 9px rgba(0, 0, 0, .55), inset 0 2px 3px rgba(255, 255, 255, .22),
+              inset 0 -4px 6px rgba(0, 0, 0, .5), inset 0 0 10px rgba(255, 61, 245, .2),
+              0 0 16px var(--pl-d-glow);
+}
+
+/* ---------- high visibility (colour-blind & low-vision aid) ---------- */
+body.hv .sq.dark {
+  background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, .09) 0 5px, transparent 5px 10px),
+                    linear-gradient(160deg, var(--sq-dark-hi), var(--sq-dark) 55%, var(--sq-dark-lo));
+  box-shadow: inset 0 0 0 1px var(--grid-line), inset 0 0 0 2px rgba(255, 255, 255, .26);
+}
+body.hv .sq.light { box-shadow: inset 0 0 0 1px var(--grid-line), inset 0 0 0 2px rgba(0, 0, 0, .22); }
+body.hv .sqnum { font-weight: 700; }
+body.hv .piece.ivory .body {
+  box-shadow: 0 4px 9px rgba(0, 0, 0, .55), 0 0 0 2.5px rgba(20, 20, 20, .55),
+              inset 0 2px 3px rgba(255, 255, 255, .4), inset 0 -4px 6px rgba(0, 0, 0, .3);
+}
+body.hv .piece.ebony .body {
+  box-shadow: 0 4px 9px rgba(0, 0, 0, .55), 0 0 0 2.5px rgba(255, 255, 255, .6),
+              inset 0 2px 3px rgba(255, 255, 255, .18), inset 0 -4px 6px rgba(0, 0, 0, .5);
+}
 
 /* ---------------- sound-event labels & effects ---------------- */
 .stage { position: relative; }

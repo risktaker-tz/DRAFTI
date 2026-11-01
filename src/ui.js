@@ -16,7 +16,7 @@
   function saveJSON(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* private mode etc. */ } }
 
   const settings = Object.assign(
-    { rsId: 'american', mode: 'ai', diff: 'medium', humanSide: IVORY, sound: true, rotate: true, theme: 'neon', clock: 0, speed: 1 },
+    { rsId: 'american', mode: 'ai', diff: 'medium', humanSide: IVORY, sound: true, rotate: true, theme: 'neon', clock: 0, speed: 1, hv: false },
     loadJSON(SETTINGS_KEY, {})
   );
   if (!E.RULESETS[settings.rsId]) settings.rsId = 'american';
@@ -43,13 +43,13 @@
     '--accent-ink': '#04222c', '--danger': '#ff6d5a',
     '--frame-hi': '#1c2f47', '--frame': '#101d30', '--frame-lo': '#0a1422',
     '--frame-glow': 'rgba(58,224,255,.16)',
-    '--sq-light-hi': '#2c4c6b', '--sq-light': '#24405c', '--sq-light-lo': '#1d3550',
-    '--sq-dark-hi': '#132a42', '--sq-dark': '#0e2136', '--sq-dark-lo': '#0a192a',
-    '--grid-line': 'rgba(96,205,255,.13)',
-    '--sqnum-l': 'rgba(9,20,32,.8)', '--sqnum-d': 'rgba(140,210,255,.5)',
+    '--sq-light-hi': '#3f6f9d', '--sq-light': '#35608c', '--sq-light-lo': '#2b5178',
+    '--sq-dark-hi': '#16293e', '--sq-dark': '#112238', '--sq-dark-lo': '#0c1a2e',
+    '--grid-line': 'rgba(96,205,255,.18)',
+    '--sqnum-l': 'rgba(9,20,32,.8)', '--sqnum-d': 'rgba(150,220,255,.75)',
     '--pl-l-1': '#ffffff', '--pl-l-2': '#dbeefa', '--pl-l-3': '#a8c8dd',
     '--pl-l-edge': '#7fa7c2', '--pl-l-glow': 'rgba(120,220,255,.35)',
-    '--pl-d-1': '#46586e', '--pl-d-2': '#2a3648', '--pl-d-3': '#131a26',
+    '--pl-d-1': '#5d7295', '--pl-d-2': '#364260', '--pl-d-3': '#1a2234',
     '--pl-d-edge': '#0a0f18', '--pl-d-glow': 'rgba(139,123,255,.4)',
   };
   const T = (id, name, fx, o) => ({ id, name, fx: fx || null, v: Object.assign({}, THEME_BASE, o) });
@@ -66,13 +66,13 @@
       '--accent-ink': '#03231b', '--danger': '#ff7a68',
       '--frame-hi': '#14262e', '--frame': '#0c1a21', '--frame-lo': '#071118',
       '--frame-glow': 'rgba(69,232,194,.15)',
-      '--sq-light-hi': '#1c4048', '--sq-light': '#16343c', '--sq-light-lo': '#10282f',
-      '--sq-dark-hi': '#0c232b', '--sq-dark': '#081a21', '--sq-dark-lo': '#05131a',
-      '--grid-line': 'rgba(90,240,210,.14)',
-      '--sqnum-l': 'rgba(5,20,24,.8)', '--sqnum-d': 'rgba(120,235,205,.5)',
+      '--sq-light-hi': '#2b5a63', '--sq-light': '#234b54', '--sq-light-lo': '#1b3c44',
+      '--sq-dark-hi': '#0e2c35', '--sq-dark': '#0a232b', '--sq-dark-lo': '#071a20',
+      '--grid-line': 'rgba(90,240,210,.18)',
+      '--sqnum-l': 'rgba(5,20,24,.8)', '--sqnum-d': 'rgba(130,240,215,.75)',
       '--pl-l-1': '#f2fffb', '--pl-l-2': '#d2f2e8', '--pl-l-3': '#9fd4c6',
       '--pl-l-edge': '#7fb5a6', '--pl-l-glow': 'rgba(80,240,200,.3)',
-      '--pl-d-1': '#35545e', '--pl-d-2': '#1e343d', '--pl-d-3': '#0e1c23',
+      '--pl-d-1': '#46707e', '--pl-d-2': '#2a4a56', '--pl-d-3': '#122630',
       '--pl-d-edge': '#08131a', '--pl-d-glow': 'rgba(127,157,255,.35)',
     }),
     T('cyberjade', 'Cyber Jade', null, {
@@ -85,13 +85,13 @@
       '--accent-ink': '#02271a', '--danger': '#ff6d5a',
       '--frame-hi': '#142e20', '--frame': '#0c1e14', '--frame-lo': '#071309',
       '--frame-glow': 'rgba(61,255,156,.15)',
-      '--sq-light-hi': '#16402c', '--sq-light': '#113424', '--sq-light-lo': '#0c281c',
-      '--sq-dark-hi': '#0a2317', '--sq-dark': '#071b11', '--sq-dark-lo': '#04120b',
-      '--grid-line': 'rgba(61,255,156,.14)',
-      '--sqnum-l': 'rgba(3,16,9,.8)', '--sqnum-d': 'rgba(110,240,170,.5)',
+      '--sq-light-hi': '#215f3a', '--sq-light': '#1a512f', '--sq-light-lo': '#144326',
+      '--sq-dark-hi': '#0d2e1c', '--sq-dark': '#0a2415', '--sq-dark-lo': '#071a0e',
+      '--grid-line': 'rgba(61,255,156,.18)',
+      '--sqnum-l': 'rgba(3,16,9,.8)', '--sqnum-d': 'rgba(120,245,180,.75)',
       '--pl-l-1': '#f0fff6', '--pl-l-2': '#c2ecd6', '--pl-l-3': '#8cc4a6',
       '--pl-l-edge': '#63a583', '--pl-l-glow': 'rgba(61,255,156,.3)',
-      '--pl-d-1': '#2e3b34', '--pl-d-2': '#1a241e', '--pl-d-3': '#0b100d',
+      '--pl-d-1': '#456a52', '--pl-d-2': '#2a4434', '--pl-d-3': '#12241a',
       '--pl-d-edge': '#050806', '--pl-d-glow': 'rgba(61,255,156,.25)',
     }),
     T('synth', 'Synthwave', null, {
@@ -104,13 +104,13 @@
       '--accent-ink': '#2c0620', '--danger': '#ff5a3c',
       '--frame-hi': '#3a2657', '--frame': '#271840', '--frame-lo': '#180d29',
       '--frame-glow': 'rgba(255,79,216,.18)',
-      '--sq-light-hi': '#43305f', '--sq-light': '#362550', '--sq-light-lo': '#2a1c40',
-      '--sq-dark-hi': '#2a1a45', '--sq-dark': '#1f1233', '--sq-dark-lo': '#150b24',
-      '--grid-line': 'rgba(255,79,216,.15)',
-      '--sqnum-l': 'rgba(12,4,24,.8)', '--sqnum-d': 'rgba(255,150,225,.55)',
+      '--sq-light-hi': '#5f4690', '--sq-light': '#523b7c', '--sq-light-lo': '#432f66',
+      '--sq-dark-hi': '#342056', '--sq-dark': '#281541', '--sq-dark-lo': '#1d0e33',
+      '--grid-line': 'rgba(255,79,216,.2)',
+      '--sqnum-l': 'rgba(12,4,24,.8)', '--sqnum-d': 'rgba(255,160,230,.8)',
       '--pl-l-1': '#fff3fb', '--pl-l-2': '#f0d5ea', '--pl-l-3': '#c9a3d4',
       '--pl-l-edge': '#a878b8', '--pl-l-glow': 'rgba(255,79,216,.35)',
-      '--pl-d-1': '#4a3a6e', '--pl-d-2': '#31244e', '--pl-d-3': '#1a112e',
+      '--pl-d-1': '#5f4a94', '--pl-d-2': '#463470', '--pl-d-3': '#251a44',
       '--pl-d-edge': '#120a20', '--pl-d-glow': 'rgba(255,157,69,.4)',
     }),
     T('vapor', 'Vapor Dreams', null, {
@@ -123,13 +123,13 @@
       '--accent-ink': '#33102a', '--danger': '#ff6d5a',
       '--frame-hi': '#54427a', '--frame': '#3e3060', '--frame-lo': '#291f44',
       '--frame-glow': 'rgba(255,154,213,.18)',
-      '--sq-light-hi': '#7c68a3', '--sq-light': '#6d5a94', '--sq-light-lo': '#5d4c82',
-      '--sq-dark-hi': '#4a3a6b', '--sq-dark': '#3c2f5a', '--sq-dark-lo': '#2e2447',
-      '--grid-line': 'rgba(255,154,213,.16)',
-      '--sqnum-l': 'rgba(20,12,40,.75)', '--sqnum-d': 'rgba(255,200,235,.55)',
+      '--sq-light-hi': '#9380be', '--sq-light': '#8372ae', '--sq-light-lo': '#71619a',
+      '--sq-dark-hi': '#5a4880', '--sq-dark': '#4b3a6e', '--sq-dark-lo': '#3d2e59',
+      '--grid-line': 'rgba(255,154,213,.18)',
+      '--sqnum-l': 'rgba(20,12,40,.75)', '--sqnum-d': 'rgba(255,205,240,.75)',
       '--pl-l-1': '#fffdf7', '--pl-l-2': '#f2e6f5', '--pl-l-3': '#d4b8e0',
       '--pl-l-edge': '#b191c4', '--pl-l-glow': 'rgba(255,154,213,.4)',
-      '--pl-d-1': '#3f3158', '--pl-d-2': '#2a2140', '--pl-d-3': '#171126',
+      '--pl-d-1': '#8a7ab4', '--pl-d-2': '#6f5d9e', '--pl-d-3': '#3b2f60',
       '--pl-d-edge': '#0e0a1a', '--pl-d-glow': 'rgba(154,213,255,.35)',
     }),
     T('solar', 'Solar Storm', null, {
@@ -142,14 +142,33 @@
       '--accent-ink': '#2c1202', '--danger': '#ff5a3c',
       '--frame-hi': '#4a2c14', '--frame': '#331d0c', '--frame-lo': '#1f1005',
       '--frame-glow': 'rgba(255,157,69,.18)',
-      '--sq-light-hi': '#55301a', '--sq-light': '#472713', '--sq-light-lo': '#39200e',
-      '--sq-dark-hi': '#2b1608', '--sq-dark': '#1f0f05', '--sq-dark-lo': '#140903',
-      '--grid-line': 'rgba(255,157,69,.15)',
-      '--sqnum-l': 'rgba(16,6,2,.8)', '--sqnum-d': 'rgba(255,190,130,.55)',
+      '--sq-light-hi': '#74431f', '--sq-light': '#633717', '--sq-light-lo': '#512b0f',
+      '--sq-dark-hi': '#3a1e0b', '--sq-dark': '#2b1505', '--sq-dark-lo': '#1d0d02',
+      '--grid-line': 'rgba(255,157,69,.2)',
+      '--sqnum-l': 'rgba(16,6,2,.8)', '--sqnum-d': 'rgba(255,195,140,.75)',
       '--pl-l-1': '#fff4e0', '--pl-l-2': '#f5ddb8', '--pl-l-3': '#d4ac78',
       '--pl-l-edge': '#b08850', '--pl-l-glow': 'rgba(255,157,69,.35)',
-      '--pl-d-1': '#4a3a30', '--pl-d-2': '#2e221a', '--pl-d-3': '#17100b',
+      '--pl-d-1': '#6e5240', '--pl-d-2': '#4e3828', '--pl-d-3': '#2a1c12',
       '--pl-d-edge': '#0d0805', '--pl-d-glow': 'rgba(255,90,60,.35)',
+    }),
+    T('glass', 'Neon Glass', 'glass', {
+      '--bg-image': 'radial-gradient(1000px 620px at 18% -12%, rgba(0,229,255,.16), transparent 55%),radial-gradient(900px 600px at 105% 108%, rgba(255,61,245,.14), transparent 55%),linear-gradient(180deg,#070312,#0d0524 55%,#050210)',
+      '--panel': 'rgba(16,10,36,.8)', '--panel-line': 'rgba(0,229,255,.3)',
+      '--modal-bg': 'linear-gradient(170deg,#150c30,#0b0620)', '--backdrop': 'rgba(2,0,10,.74)',
+      '--ink': '#eaf6ff', '--ink-dim': '#9a8fc4',
+      '--accent': '#00e5ff', '--accent-2': '#ff3df5',
+      '--accent-soft': 'rgba(0,229,255,.5)', '--accent-weak': 'rgba(0,229,255,.12)',
+      '--accent-ink': '#021b26', '--danger': '#ff5a8a',
+      '--frame-hi': '#241a4a', '--frame': '#171040', '--frame-lo': '#0d0830',
+      '--frame-glow': 'rgba(0,229,255,.22)',
+      '--sq-light-hi': '#3a8cbc', '--sq-light': '#2e7ca8', '--sq-light-lo': '#24678d',
+      '--sq-dark-hi': '#20144e', '--sq-dark': '#180e3c', '--sq-dark-lo': '#100829',
+      '--grid-line': 'rgba(0,229,255,.3)',
+      '--sqnum-l': 'rgba(2,20,30,.8)', '--sqnum-d': 'rgba(140,240,255,.8)',
+      '--pl-l-1': '#ffffff', '--pl-l-2': '#d9f6ff', '--pl-l-3': '#9fd4e8',
+      '--pl-l-edge': '#6fb3cc', '--pl-l-glow': 'rgba(0,229,255,.5)',
+      '--pl-d-1': '#8a76b4', '--pl-d-2': '#423468', '--pl-d-3': '#201643',
+      '--pl-d-edge': '#0e0820', '--pl-d-glow': 'rgba(255,61,245,.45)',
     }),
     T('ice', 'Quantum Ice', null, {
       '--bg-image': 'radial-gradient(1000px 600px at 15% -10%, rgba(255,255,255,.7), transparent 55%),linear-gradient(180deg,#eef5fa,#d9e8f2 60%,#cbdeeb)',
@@ -161,12 +180,12 @@
       '--accent-ink': '#ffffff', '--danger': '#d05a3c',
       '--frame-hi': '#c2d6e4', '--frame': '#a4bdce', '--frame-lo': '#87a3b6',
       '--frame-glow': 'rgba(11,135,184,.18)',
-      '--sq-light-hi': '#fbfeff', '--sq-light': '#eef7fb', '--sq-light-lo': '#dcebf4',
+      '--sq-light-hi': '#f7fbfe', '--sq-light': '#dcecf6', '--sq-light-lo': '#c8e0ee',
       '--sq-dark-hi': '#9ec2d6', '--sq-dark': '#8ab2c9', '--sq-dark-lo': '#74a0b8',
-      '--grid-line': 'rgba(30,90,120,.12)',
+      '--grid-line': 'rgba(30,90,120,.16)',
       '--sqnum-l': 'rgba(20,60,85,.55)', '--sqnum-d': 'rgba(255,255,255,.78)',
-      '--pl-l-1': '#ffffff', '--pl-l-2': '#eef6fa', '--pl-l-3': '#c9dde9',
-      '--pl-l-edge': '#93b5c8', '--pl-l-glow': 'rgba(11,135,184,.15)',
+      '--pl-l-1': '#ffffff', '--pl-l-2': '#f8fcfe', '--pl-l-3': '#c9dde9',
+      '--pl-l-edge': '#6f9cb5', '--pl-l-glow': 'rgba(11,135,184,.15)',
       '--pl-d-1': '#56788e', '--pl-d-2': '#3a566b', '--pl-d-3': '#22374a',
       '--pl-d-edge': '#16283a', '--pl-d-glow': 'rgba(90,123,216,.25)',
     }),
@@ -180,16 +199,16 @@
       '--accent-ink': '#2c1e04', '--danger': '#ff6d5a',
       '--frame-hi': '#23274a', '--frame': '#171a36', '--frame-lo': '#0d0f22',
       '--frame-glow': 'rgba(255,209,102,.14)',
-      '--sq-light-hi': '#2e3358', '--sq-light': '#262b4c', '--sq-light-lo': '#1e2240',
-      '--sq-dark-hi': '#1a1e3a', '--sq-dark': '#141730', '--sq-dark-lo': '#0e1122',
-      '--grid-line': 'rgba(255,209,102,.12)',
-      '--sqnum-l': 'rgba(6,8,20,.8)', '--sqnum-d': 'rgba(255,220,150,.5)',
+      '--sq-light-hi': '#3c4472', '--sq-light': '#313860', '--sq-light-lo': '#272d4f',
+      '--sq-dark-hi': '#171a38', '--sq-dark': '#12142e', '--sq-dark-lo': '#0d0f24',
+      '--grid-line': 'rgba(255,209,102,.17)',
+      '--sqnum-l': 'rgba(6,8,20,.8)', '--sqnum-d': 'rgba(255,225,160,.75)',
       '--pl-l-1': '#f5f7ff', '--pl-l-2': '#d8ddf2', '--pl-l-3': '#a9b2d4',
       '--pl-l-edge': '#7f8ab5', '--pl-l-glow': 'rgba(255,209,102,.3)',
-      '--pl-d-1': '#3a3f5e', '--pl-d-2': '#262a44', '--pl-d-3': '#14162a',
+      '--pl-d-1': '#4d5480', '--pl-d-2': '#333a5e', '--pl-d-3': '#1b1e38',
       '--pl-d-edge': '#0b0c1a', '--pl-d-glow': 'rgba(157,140,255,.4)',
     }),
-    T('club', 'Midnight Club', null, {
+    T('club', 'Midnight Club', 'wood', {
       '--bg-image': 'radial-gradient(1200px 700px at 50% -10%, #1c4029 0%, #14301f 45%, #0c2013 100%)',
       '--panel': 'rgba(16,32,22,.82)', '--panel-line': 'rgba(211,169,95,.25)',
       '--modal-bg': 'linear-gradient(170deg,#1d3527,#122319)', '--backdrop': 'rgba(5,12,8,.68)',
@@ -202,13 +221,13 @@
       '--sq-light-hi': '#f0debc', '--sq-light': '#e9d5a7', '--sq-light-lo': '#d9c193',
       '--sq-dark-hi': '#8a5629', '--sq-dark': '#7c4a24', '--sq-dark-lo': '#6d3f1d',
       '--grid-line': 'transparent',
-      '--sqnum-l': 'rgba(90,60,25,.5)', '--sqnum-d': 'rgba(240,231,211,.5)',
+      '--sqnum-l': 'rgba(90,60,25,.6)', '--sqnum-d': 'rgba(240,231,211,.55)',
       '--pl-l-1': '#fffdf4', '--pl-l-2': '#ecdcb4', '--pl-l-3': '#c6ab7c',
-      '--pl-l-edge': '#a98d5e', '--pl-l-glow': GLOW0,
+      '--pl-l-edge': '#8f7448', '--pl-l-glow': GLOW0,
       '--pl-d-1': '#6a553f', '--pl-d-2': '#35261a', '--pl-d-3': '#150d07',
       '--pl-d-edge': '#0c0703', '--pl-d-glow': GLOW0,
     }),
-    T('walnut', 'Walnut Classic', null, {
+    T('walnut', 'Walnut Classic', 'wood', {
       '--bg-image': 'linear-gradient(180deg,#f3e9d8,#e6d5bc 60%,#dcc9ac)',
       '--panel': 'rgba(255,252,246,.85)', '--panel-line': 'rgba(165,105,45,.3)',
       '--modal-bg': 'linear-gradient(170deg,#fffaf2,#f0e4d0)', '--backdrop': 'rgba(60,40,20,.5)',
@@ -223,9 +242,28 @@
       '--grid-line': 'transparent',
       '--sqnum-l': 'rgba(90,60,25,.55)', '--sqnum-d': 'rgba(248,236,214,.6)',
       '--pl-l-1': '#fffdf4', '--pl-l-2': '#ecdcb4', '--pl-l-3': '#c6ab7c',
-      '--pl-l-edge': '#a98d5e', '--pl-l-glow': GLOW0,
+      '--pl-l-edge': '#8f7448', '--pl-l-glow': GLOW0,
       '--pl-d-1': '#6a553f', '--pl-d-2': '#35261a', '--pl-d-3': '#150d07',
       '--pl-d-edge': '#0c0703', '--pl-d-glow': GLOW0,
+    }),
+    T('royale', 'Walnut Royale', 'wood', {
+      '--bg-image': 'radial-gradient(1200px 700px at 50% -10%, rgba(255,220,160,.15), transparent 60%),linear-gradient(180deg,#2a1d13,#1f150d 55%,#150d07)',
+      '--panel': 'rgba(38,26,16,.85)', '--panel-line': 'rgba(214,178,120,.28)',
+      '--modal-bg': 'linear-gradient(170deg,#332316,#221710)', '--backdrop': 'rgba(10,6,2,.62)',
+      '--ink': '#f3e8d4', '--ink-dim': '#bfa887',
+      '--accent': '#d6b278', '--accent-2': '#a97e46',
+      '--accent-soft': 'rgba(214,178,120,.5)', '--accent-weak': 'rgba(214,178,120,.12)',
+      '--accent-ink': '#241708', '--danger': '#c96a4a',
+      '--frame-hi': '#5a3a1e', '--frame': '#3f2812', '--frame-lo': '#2b1a0a',
+      '--frame-glow': 'rgba(214,178,120,.16)',
+      '--sq-light-hi': '#ecd3a4', '--sq-light': '#e2c48f', '--sq-light-lo': '#d3b37a',
+      '--sq-dark-hi': '#8a5a2e', '--sq-dark': '#7c4e26', '--sq-dark-lo': '#6a401d',
+      '--grid-line': 'rgba(60,35,15,.25)',
+      '--sqnum-l': 'rgba(80,50,20,.6)', '--sqnum-d': 'rgba(245,230,200,.65)',
+      '--pl-l-1': '#fbf3dd', '--pl-l-2': '#f6ead0', '--pl-l-3': '#e2cda0',
+      '--pl-l-edge': '#a8895c', '--pl-l-glow': GLOW0,
+      '--pl-d-1': '#6b4526', '--pl-d-2': '#472c14', '--pl-d-3': '#241305',
+      '--pl-d-edge': '#140a02', '--pl-d-glow': GLOW0,
     }),
     T('tourney', 'Tournament', null, {
       '--bg-image': 'linear-gradient(180deg,#eef0e8,#dfe4d4 60%,#d4dbc6)',
@@ -242,7 +280,7 @@
       '--grid-line': 'transparent',
       '--sqnum-l': 'rgba(40,70,40,.55)', '--sqnum-d': 'rgba(240,240,220,.65)',
       '--pl-l-1': '#fffdf3', '--pl-l-2': '#f0e6c8', '--pl-l-3': '#cdbf94',
-      '--pl-l-edge': '#ab9c6e', '--pl-l-glow': GLOW0,
+      '--pl-l-edge': '#91805a', '--pl-l-glow': GLOW0,
       '--pl-d-1': '#4a4536', '--pl-d-2': '#2a281c', '--pl-d-3': '#14130c',
       '--pl-d-edge': '#0a0906', '--pl-d-glow': GLOW0,
     }),
@@ -258,10 +296,10 @@
       '--frame-glow': 'rgba(70,98,138,.2)',
       '--sq-light-hi': '#fafbfc', '--sq-light': '#f1f3f5', '--sq-light-lo': '#e2e6ea',
       '--sq-dark-hi': '#6a7686', '--sq-dark': '#5c6672', '--sq-dark-lo': '#4c5664',
-      '--grid-line': 'rgba(90,100,115,.12)',
+      '--grid-line': 'rgba(90,100,115,.16)',
       '--sqnum-l': 'rgba(60,70,85,.5)', '--sqnum-d': 'rgba(255,255,255,.7)',
       '--pl-l-1': '#ffffff', '--pl-l-2': '#f0f2f5', '--pl-l-3': '#cfd4dc',
-      '--pl-l-edge': '#a8b0bc', '--pl-l-glow': GLOW0,
+      '--pl-l-edge': '#8b95a3', '--pl-l-glow': GLOW0,
       '--pl-d-1': '#4a5462', '--pl-d-2': '#323a48', '--pl-d-3': '#1c222c',
       '--pl-d-edge': '#10141c', '--pl-d-glow': GLOW0,
     }),
@@ -280,8 +318,8 @@
       '--grid-line': 'rgba(0,0,0,.1)',
       '--sqnum-l': 'rgba(0,0,0,.45)', '--sqnum-d': 'rgba(255,255,255,.6)',
       '--pl-l-1': '#ffffff', '--pl-l-2': '#f0f0f0', '--pl-l-3': '#c8c8c8',
-      '--pl-l-edge': '#909090', '--pl-l-glow': GLOW0,
-      '--pl-d-1': '#3c3c3c', '--pl-d-2': '#242424', '--pl-d-3': '#0e0e0e',
+      '--pl-l-edge': '#787878', '--pl-l-glow': GLOW0,
+      '--pl-d-1': '#4a4a4a', '--pl-d-2': '#363636', '--pl-d-3': '#0e0e0e',
       '--pl-d-edge': '#000000', '--pl-d-glow': GLOW0,
     }),
     T('sakura', 'Sakura', null, {
@@ -299,7 +337,7 @@
       '--grid-line': 'transparent',
       '--sqnum-l': 'rgba(150,70,95,.55)', '--sqnum-d': 'rgba(255,245,247,.7)',
       '--pl-l-1': '#ffffff', '--pl-l-2': '#fdf0f2', '--pl-l-3': '#f0ccd6',
-      '--pl-l-edge': '#d4a0b0', '--pl-l-glow': GLOW0,
+      '--pl-l-edge': '#b57f92', '--pl-l-glow': GLOW0,
       '--pl-d-1': '#7a4a5c', '--pl-d-2': '#57303f', '--pl-d-3': '#331c26',
       '--pl-d-edge': '#1f0f16', '--pl-d-glow': GLOW0,
     }),
@@ -313,13 +351,13 @@
       '--accent-ink': '#04240a', '--danger': '#ff5030',
       '--frame-hi': '#1d3a1d', '--frame': '#122412', '--frame-lo': '#0a140a',
       '--frame-glow': 'rgba(57,255,20,.2)',
-      '--sq-light-hi': '#1d4d22', '--sq-light': '#17401c', '--sq-light-lo': '#113416',
-      '--sq-dark-hi': '#0c240e', '--sq-dark': '#081a0a', '--sq-dark-lo': '#041006',
-      '--grid-line': 'rgba(57,255,20,.18)',
-      '--sqnum-l': 'rgba(140,255,140,.5)', '--sqnum-d': 'rgba(120,220,120,.45)',
+      '--sq-light-hi': '#2a7432', '--sq-light': '#236329', '--sq-light-lo': '#1c5121',
+      '--sq-dark-hi': '#102f13', '--sq-dark': '#0b240d', '--sq-dark-lo': '#071a08',
+      '--grid-line': 'rgba(57,255,20,.24)',
+      '--sqnum-l': 'rgba(160,255,160,.6)', '--sqnum-d': 'rgba(140,235,140,.7)',
       '--pl-l-1': '#eaffea', '--pl-l-2': '#b8f0b8', '--pl-l-3': '#78c878',
       '--pl-l-edge': '#4a9a4a', '--pl-l-glow': 'rgba(57,255,20,.4)',
-      '--pl-d-1': '#6e4a10', '--pl-d-2': '#46300a', '--pl-d-3': '#241804',
+      '--pl-d-1': '#8a6215', '--pl-d-2': '#563d0e', '--pl-d-3': '#301f05',
       '--pl-d-edge': '#140c02', '--pl-d-glow': 'rgba(255,176,0,.45)',
     }),
   ];
@@ -330,6 +368,8 @@
     const root = document.documentElement.style;
     for (const [k, v] of Object.entries(t.v)) root.setProperty(k, v);
     document.body.classList.toggle('fx-scan', t.fx === 'scan');
+    document.body.classList.toggle('fx-glass', t.fx === 'glass');
+    document.body.classList.toggle('fx-wood', t.fx === 'wood');
     const grid = $('themeGrid');
     if (grid) for (const b of grid.querySelectorAll('button')) b.classList.toggle('active', b.dataset.v === t.id);
   }
@@ -1216,6 +1256,7 @@
     if (Math.random() < 0.35) SFX_BANK.play('v_undo', { vol: 0.8 });
     G.phase = 'idle';
     updateAll();
+    scheduleAI(); // undo can hand the turn back to the computer — keep it moving
   }
 
   function scheduleAI() {
@@ -1337,6 +1378,7 @@
     $('btnRotate').style.display = settings.mode === 'hotseat' ? '' : 'none';
     $('btnSound').textContent = settings.sound ? '🔊' : '🔇';
     $('btnRotate').classList.toggle('active', settings.mode === 'hotseat' && settings.rotate);
+    $('btnHV').classList.toggle('active', !!settings.hv);
     $('btnAivaiPause').textContent = G.aiPaused ? '▶ Resume' : '⏸ Pause';
     for (const b of $('sfxChips').querySelectorAll('button')) {
       b.classList.toggle('active', !!settings.sfx[b.dataset.v]);
@@ -1353,6 +1395,10 @@
     $('btnHint').disabled = !humanTurn() || G.phase !== 'idle' || !G.legal.length;
     $('btnRotate').disabled = settings.mode !== 'hotseat';
     $('aivaiBar').hidden = settings.mode !== 'aivai';
+    $('qaBar').style.display = settings.mode === 'aivai' ? 'none' : '';
+    $('qaHint').disabled = $('btnHint').disabled;
+    $('qaUndo').disabled = $('btnUndo').disabled;
+    $('qaHint').classList.toggle('active', hintPending);
   }
 
   function updateAll() {
@@ -1439,6 +1485,15 @@
   $('btnAivaiNew').addEventListener('click', () => confirmIfNeeded(startNewGameWithFanfare));
   $('btnUndo').addEventListener('click', undo);
   $('btnHint').addEventListener('click', requestHint);
+  $('qaHint').addEventListener('click', requestHint);
+  $('qaUndo').addEventListener('click', undo);
+  $('btnHV').addEventListener('click', () => {
+    settings.hv = !settings.hv;
+    saveJSON(SETTINGS_KEY, settings);
+    document.body.classList.toggle('hv', settings.hv);
+    updateSegs();
+    SFX_BANK.play(settings.hv ? 'ui_toggle_on' : 'ui_toggle_off');
+  });
   $('btnStats').addEventListener('click', showStats);
   $('btnAivaiPause').addEventListener('click', () => {
     G.aiPaused = !G.aiPaused;
@@ -1560,6 +1615,10 @@
       else closeModals();
     } else if (e.key === 'm' || e.key === 'M') {
       if (e.target === document.body) drawerOpen ? closeMenu() : openMenu();
+    } else if (e.key === 'h' || e.key === 'H') {
+      if (e.target === document.body) requestHint();
+    } else if (e.key === 'u' || e.key === 'U') {
+      if (e.target === document.body) undo();
     }
   });
 
@@ -1627,6 +1686,7 @@
 
   // ---------------- boot ----------------
   applyTheme(settings.theme);
+  document.body.classList.toggle('hv', !!settings.hv);
   newGame();
   try { FX.ensure(); } catch { /* audio starts on first gesture instead */ }
 

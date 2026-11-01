@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DRAFTI — Checkers, refined</title>
-<meta name="description" content="DRAFTI is an original open-source checkers game: five international rulesets, AI opponent, two-player and AI-vs-AI modes, 15 themes and 113 reactive sounds, in a single HTML file.">
+<meta name="description" content="DRAFTI is an original open-source checkers game: five international rulesets, AI opponent, two-player and AI-vs-AI modes, 17 themes and 113 reactive sounds, in a single HTML file.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%237c4a24'/%3E%3Crect x='2' y='2' width='13' height='13' fill='%23e9d5a7'/%3E%3Crect x='17' y='17' width='13' height='13' fill='%23e9d5a7'/%3E%3Ccircle cx='22' cy='10' r='4.5' fill='%23191009'/%3E%3Ccircle cx='9' cy='24' r='4.5' fill='%23ecdcb4'/%3E%3C/svg%3E">
 <style>
 /*__STYLES__*/
@@ -38,6 +38,14 @@
         <div class="board" id="board" role="grid" aria-label="Checkers board"></div>
         <div class="pieces" id="pieces"></div>
       </div>
+    </div>
+    <div class="qa-bar" id="qaBar" role="toolbar" aria-label="Quick actions">
+      <button class="btn" id="qaHint" title="Suggest a move (H)">
+        <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.4 1 2.3v1h6v-1c0-.9.4-1.8 1-2.3A7 7 0 0 0 12 2zM9 20h6v1a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-1z"/></svg>
+        Hint <span class="kbd">H</span></button>
+      <button class="btn" id="qaUndo" title="Take back the last move (U)">
+        <svg viewBox="0 0 24 24"><path d="M9 14 4 9l5-5v3.5c3.9 0 7 3.1 7 7 0 3.9-3.1 7-7 7-2.4 0-4.5-1.2-5.7-3l1.7-1.2C6.1 18.9 7.4 19.5 9 19.5c2.8 0 5-2.2 5-5s-2.2-5-5-5V14z"/></svg>
+        Undo <span class="kbd">U</span></button>
     </div>
     <div class="trays">
       <div class="tray" id="trayTop"></div>
@@ -142,7 +150,10 @@
     <div class="card">
       <h2><span class="h-ico">🎨</span> Boards &amp; themes</h2>
       <div class="theme-grid" id="themeGrid"></div>
-      <p class="setup-note" id="themeNote">15 tables — from neon cyber club to walnut classic.</p>
+      <button class="btn" id="btnHV" title="Stronger piece rims and hatched dark squares — helps with colour-blindness, small screens and bright rooms">
+        <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.7 7.6 1 12c1.7 4.4 6 7.5 11 7.5s9.3-3.1 11-7.5c-1.7-4.4-6-7.5-11-7.5zM12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+        High visibility (colour-blind friendly)</button>
+      <p class="setup-note" id="themeNote">17 tables — from neon glass and walnut royale to tournament classic.</p>
     </div>
 
     <div class="card">

@@ -41,13 +41,22 @@ A double jump earns the eagle and the gold "Magnificent!" treatment:
   clock, themes, sound mixing, the full move log and your record. Close it
   with ✕, `Esc`, the backdrop or *Back to the game*, and the whole page
   belongs to the match again — board, turn banner, move ticker, trays.
-- **15 board themes** — pick your table in the Boards & themes panel: seven
-  futuristic sets (Neon Circuit, Hologlass, Cyber Jade, Synthwave, Vapor
-  Dreams, Solar Storm, Deep Space), the light Quantum Ice and Marble Lux, a
-  CRT scanline Retro Arcade, and the classics (Midnight Club, Walnut Classic,
-  Tournament green, stark Ivory & Ebony, Sakura). Each theme recolors the
-  whole interface — squares, pieces, frame, panels, accents — and your pick
-  is remembered.
+- **Hint & Undo live at the board** — a 💡 Hint / ↩ Undo pill sits right
+  under the board in every live situation, with `H` and `U` keyboard
+  shortcuts, so coaching and takebacks never hide behind a menu. Undo is
+  AI-aware: it takes back your move, cancels the machine's reply, and the
+  engine re-plans if you roll back past its move.
+- **17 boards, tuned to be readable** — every table was contrast-checked
+  (square-vs-square and piece-vs-square) so the checker pattern and both
+  piece colours are always distinct: eight futuristic sets (Neon Circuit,
+  Hologlass, Cyber Jade, Synthwave, Vapor Dreams, Solar Storm, Deep Space,
+  and the glassy neon-lit **Neon Glass**), the light Quantum Ice and Marble
+  Lux, a CRT scanline Retro Arcade, and the classics (Midnight Club, Walnut
+  Classic, Tournament green, stark Ivory & Ebony, Sakura) — plus the
+  ultra-realistic **Walnut Royale**: maple and walnut squares with visible
+  wood grain and turned-wood pieces. A **High visibility** toggle adds
+  hatched dark squares and strong piece rims for colour-blind players and
+  bright rooms. Your pick is remembered.
 - **113 reactive sounds** — the game watches everything and reacts:
   - multi-piece jumps get **majestic animal fanfares** — a bald eagle scream
     for a double jump, a lion's roar (plus a board thump) for three or more,
@@ -86,6 +95,13 @@ A double jump earns the eagle and the gold "Magnificent!" treatment:
   (`9-13`, `22x15`, `21x14x5`) plus a live ticker under the board, move
   hints, per-ruleset win/loss/draw record. No accounts, no trackers, works
   offline.
+
+Two of the new tables — the glassy **Neon Glass** and the ultra-realistic
+**Walnut Royale**:
+
+![Neon Glass](docs/screenshot-glass.png)
+
+![Walnut Royale](docs/screenshot-royale.png)
 
 ![Game menu](docs/screenshot-menu.png)
 
