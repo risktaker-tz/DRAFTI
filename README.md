@@ -24,10 +24,22 @@ A double jump earns the eagle and the gold "Magnificent!" treatment:
   Three strengths: Casual, Club, Tough.
 - **Pass-and-play** — two players on one device, with optional automatic board
   rotation each turn.
+- **15 board themes** — pick your table in the Boards & themes panel: seven
+  futuristic sets (Neon Circuit, Hologlass, Cyber Jade, Synthwave, Vapor
+  Dreams, Solar Storm, Deep Space), the light Quantum Ice and Marble Lux, a
+  CRT scanline Retro Arcade, and the classics (Midnight Club, Walnut Classic,
+  Tournament green, stark Ivory & Ebony, Sakura). Each theme recolors the
+  whole interface — squares, pieces, frame, panels, accents — and your pick
+  is remembered.
 - **Reactive sound design** — the game judges every move and reacts:
   - multi-piece jumps get **majestic animal fanfares** — a bald eagle scream
     for a double jump, a lion's roar (plus a board thump) for three or more,
     an elephant trumpet when a man is crowned;
+  - **the judge** follows your play: accurate moves earn "Nice move.",
+    "Sharp!" or "The only move!" when just one move holds the game; a quiet
+    move that quietly springs a winning trap gets a *Sneaky!* reveal;
+    questionable choices get "Hmm. Interesting choice."; real mistakes get
+    the full **"Why did you do that?!"** treatment;
   - blunders get **comedy** — a hanging piece earns a cartoon *woops*/*klonk*
     /banana-peel slip (from the CC0 Warner Bros. cartoon sound collection), a
     move the engine judges genuinely bad gets the sad trombone and an
@@ -36,8 +48,8 @@ A double jump earns the eagle and the gold "Magnificent!" treatment:
     "You had ONE job!";
   - **realistic voice commentary** ("That is chess, not checkers!",
     "Unbelievable!", "All hail the king!") generated with neural TTS;
-  - every category (majestic / comedy / voice / classic wooden sounds) can be
-    toggled and volume-mixed in the Sound design panel.
+  - every category (majestic / judge / comedy / voice / classic wooden
+    sounds) can be toggled and volume-mixed in the Sound design panel.
   All samples are open-licensed — full credits and links in
   [ATTRIBUTIONS.md](ATTRIBUTIONS.md).
 - **Extras** — undo, full move log with standard score-sheet notation
@@ -115,7 +127,7 @@ AI and two-player modes. Open it in Android Studio and let Gradle sync — see
 - Online multiplayer (the rules engine is already deterministic and
   serializable — a room-code relay server is the missing piece)
 - Tournament clock, PDN import/export for saving and sharing games
-- Themes (walnut club, marble tournament, travel magnetic)
+- More themes: travel magnetic set, glass and stone materials
 
 ## License
 

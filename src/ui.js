@@ -16,16 +16,322 @@
   function saveJSON(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* private mode etc. */ } }
 
   const settings = Object.assign(
-    { rsId: 'american', mode: 'ai', diff: 'medium', humanSide: IVORY, sound: true, rotate: true },
+    { rsId: 'american', mode: 'ai', diff: 'medium', humanSide: IVORY, sound: true, rotate: true, theme: 'neon' },
     loadJSON(SETTINGS_KEY, {})
   );
   if (!E.RULESETS[settings.rsId]) settings.rsId = 'american';
   if (settings.mode !== 'ai' && settings.mode !== 'hotseat') settings.mode = 'ai';
   if (!['easy', 'medium', 'hard'].includes(settings.diff)) settings.diff = 'medium';
   settings.sfx = Object.assign(
-    { master: 0.9, animals: true, comedy: true, voice: true, classic: true },
+    { master: 0.9, animals: true, judge: true, comedy: true, voice: true, classic: true },
     (settings.sfx && typeof settings.sfx === 'object') ? settings.sfx : {}
   );
+
+  // ---------------- themes ----------------
+  // Every theme overrides the CSS custom properties defined in styles.css.
+  // The base palette (Neon Circuit) is always applied first so nothing leaks
+  // between themes.
+  const THEME_BASE = {
+    '--bg-image': 'radial-gradient(1100px 620px at 12% -8%, rgba(58,224,255,.13), transparent 55%),radial-gradient(950px 640px at 106% 106%, rgba(139,123,255,.15), transparent 55%),linear-gradient(180deg,#070b14,#0a1120 55%,#060a12)',
+    '--panel': 'rgba(13,22,38,.78)', '--panel-line': 'rgba(90,200,255,.22)',
+    '--modal-bg': 'linear-gradient(170deg,#0e1a2c,#091220)', '--backdrop': 'rgba(3,6,12,.72)',
+    '--ink': '#e8f4fb', '--ink-dim': '#8fa8bd',
+    '--accent': '#3ae0ff', '--accent-2': '#8b7bff',
+    '--accent-soft': 'rgba(58,224,255,.5)', '--accent-weak': 'rgba(58,224,255,.13)',
+    '--accent-ink': '#04222c', '--danger': '#ff6d5a',
+    '--frame-hi': '#1c2f47', '--frame': '#101d30', '--frame-lo': '#0a1422',
+    '--frame-glow': 'rgba(58,224,255,.16)',
+    '--sq-light-hi': '#2c4c6b', '--sq-light': '#24405c', '--sq-light-lo': '#1d3550',
+    '--sq-dark-hi': '#132a42', '--sq-dark': '#0e2136', '--sq-dark-lo': '#0a192a',
+    '--grid-line': 'rgba(96,205,255,.13)',
+    '--sqnum-l': 'rgba(9,20,32,.8)', '--sqnum-d': 'rgba(140,210,255,.5)',
+    '--pl-l-1': '#ffffff', '--pl-l-2': '#dbeefa', '--pl-l-3': '#a8c8dd',
+    '--pl-l-edge': '#7fa7c2', '--pl-l-glow': 'rgba(120,220,255,.35)',
+    '--pl-d-1': '#46586e', '--pl-d-2': '#2a3648', '--pl-d-3': '#131a26',
+    '--pl-d-edge': '#0a0f18', '--pl-d-glow': 'rgba(139,123,255,.4)',
+  };
+  const T = (id, name, fx, o) => ({ id, name, fx: fx || null, v: Object.assign({}, THEME_BASE, o) });
+  const GLOW0 = 'rgba(0,0,0,0)';
+  const THEMES = [
+    T('neon', 'Neon Circuit', null, {}),
+    T('hologlass', 'Hologlass', null, {
+      '--bg-image': 'radial-gradient(1000px 600px at 20% -10%, rgba(69,232,194,.14), transparent 55%),radial-gradient(900px 600px at 100% 110%, rgba(127,157,255,.14), transparent 55%),linear-gradient(180deg,#050d12,#0b1926 60%,#04090e)',
+      '--panel': 'rgba(10,24,30,.8)', '--panel-line': 'rgba(90,240,210,.22)',
+      '--modal-bg': 'linear-gradient(170deg,#0c2029,#07141b)', '--backdrop': 'rgba(2,8,11,.72)',
+      '--ink': '#e6f7f2', '--ink-dim': '#8fb3ab',
+      '--accent': '#45e8c2', '--accent-2': '#7f9dff',
+      '--accent-soft': 'rgba(69,232,194,.5)', '--accent-weak': 'rgba(69,232,194,.12)',
+      '--accent-ink': '#03231b', '--danger': '#ff7a68',
+      '--frame-hi': '#14262e', '--frame': '#0c1a21', '--frame-lo': '#071118',
+      '--frame-glow': 'rgba(69,232,194,.15)',
+      '--sq-light-hi': '#1c4048', '--sq-light': '#16343c', '--sq-light-lo': '#10282f',
+      '--sq-dark-hi': '#0c232b', '--sq-dark': '#081a21', '--sq-dark-lo': '#05131a',
+      '--grid-line': 'rgba(90,240,210,.14)',
+      '--sqnum-l': 'rgba(5,20,24,.8)', '--sqnum-d': 'rgba(120,235,205,.5)',
+      '--pl-l-1': '#f2fffb', '--pl-l-2': '#d2f2e8', '--pl-l-3': '#9fd4c6',
+      '--pl-l-edge': '#7fb5a6', '--pl-l-glow': 'rgba(80,240,200,.3)',
+      '--pl-d-1': '#35545e', '--pl-d-2': '#1e343d', '--pl-d-3': '#0e1c23',
+      '--pl-d-edge': '#08131a', '--pl-d-glow': 'rgba(127,157,255,.35)',
+    }),
+    T('cyberjade', 'Cyber Jade', null, {
+      '--bg-image': 'radial-gradient(1000px 620px at 50% -12%, rgba(61,255,156,.12), transparent 55%),linear-gradient(180deg,#030805,#06100a 55%,#020604)',
+      '--panel': 'rgba(8,22,15,.82)', '--panel-line': 'rgba(61,255,156,.22)',
+      '--modal-bg': 'linear-gradient(170deg,#0a1c12,#050f09)', '--backdrop': 'rgba(1,5,3,.74)',
+      '--ink': '#e8fff2', '--ink-dim': '#85ad97',
+      '--accent': '#3dff9c', '--accent-2': '#21d4a0',
+      '--accent-soft': 'rgba(61,255,156,.5)', '--accent-weak': 'rgba(61,255,156,.11)',
+      '--accent-ink': '#02271a', '--danger': '#ff6d5a',
+      '--frame-hi': '#142e20', '--frame': '#0c1e14', '--frame-lo': '#071309',
+      '--frame-glow': 'rgba(61,255,156,.15)',
+      '--sq-light-hi': '#16402c', '--sq-light': '#113424', '--sq-light-lo': '#0c281c',
+      '--sq-dark-hi': '#0a2317', '--sq-dark': '#071b11', '--sq-dark-lo': '#04120b',
+      '--grid-line': 'rgba(61,255,156,.14)',
+      '--sqnum-l': 'rgba(3,16,9,.8)', '--sqnum-d': 'rgba(110,240,170,.5)',
+      '--pl-l-1': '#f0fff6', '--pl-l-2': '#c2ecd6', '--pl-l-3': '#8cc4a6',
+      '--pl-l-edge': '#63a583', '--pl-l-glow': 'rgba(61,255,156,.3)',
+      '--pl-d-1': '#2e3b34', '--pl-d-2': '#1a241e', '--pl-d-3': '#0b100d',
+      '--pl-d-edge': '#050806', '--pl-d-glow': 'rgba(61,255,156,.25)',
+    }),
+    T('synth', 'Synthwave', null, {
+      '--bg-image': 'radial-gradient(1000px 600px at 50% 115%, rgba(255,79,216,.2), transparent 60%),radial-gradient(800px 500px at 85% -10%, rgba(255,157,69,.12), transparent 55%),linear-gradient(180deg,#170b2b,#1f1038 55%,#120826)',
+      '--panel': 'rgba(26,14,44,.82)', '--panel-line': 'rgba(255,79,216,.26)',
+      '--modal-bg': 'linear-gradient(170deg,#2a1846,#1a0e2e)', '--backdrop': 'rgba(8,2,16,.74)',
+      '--ink': '#fdeaf7', '--ink-dim': '#bd9fc0',
+      '--accent': '#ff4fd8', '--accent-2': '#ff9d45',
+      '--accent-soft': 'rgba(255,79,216,.5)', '--accent-weak': 'rgba(255,79,216,.13)',
+      '--accent-ink': '#2c0620', '--danger': '#ff5a3c',
+      '--frame-hi': '#3a2657', '--frame': '#271840', '--frame-lo': '#180d29',
+      '--frame-glow': 'rgba(255,79,216,.18)',
+      '--sq-light-hi': '#43305f', '--sq-light': '#362550', '--sq-light-lo': '#2a1c40',
+      '--sq-dark-hi': '#2a1a45', '--sq-dark': '#1f1233', '--sq-dark-lo': '#150b24',
+      '--grid-line': 'rgba(255,79,216,.15)',
+      '--sqnum-l': 'rgba(12,4,24,.8)', '--sqnum-d': 'rgba(255,150,225,.55)',
+      '--pl-l-1': '#fff3fb', '--pl-l-2': '#f0d5ea', '--pl-l-3': '#c9a3d4',
+      '--pl-l-edge': '#a878b8', '--pl-l-glow': 'rgba(255,79,216,.35)',
+      '--pl-d-1': '#4a3a6e', '--pl-d-2': '#31244e', '--pl-d-3': '#1a112e',
+      '--pl-d-edge': '#120a20', '--pl-d-glow': 'rgba(255,157,69,.4)',
+    }),
+    T('vapor', 'Vapor Dreams', null, {
+      '--bg-image': 'radial-gradient(1000px 600px at 15% -10%, rgba(255,154,213,.16), transparent 55%),radial-gradient(900px 560px at 105% 105%, rgba(154,213,255,.14), transparent 55%),linear-gradient(180deg,#241b3d,#332252 55%,#1e1536)',
+      '--panel': 'rgba(38,28,64,.8)', '--panel-line': 'rgba(255,154,213,.24)',
+      '--modal-bg': 'linear-gradient(170deg,#3a2a5e,#271b44)', '--backdrop': 'rgba(10,6,22,.7)',
+      '--ink': '#fdf3fb', '--ink-dim': '#c3aede',
+      '--accent': '#ff9ad5', '--accent-2': '#9ad5ff',
+      '--accent-soft': 'rgba(255,154,213,.55)', '--accent-weak': 'rgba(255,154,213,.13)',
+      '--accent-ink': '#33102a', '--danger': '#ff6d5a',
+      '--frame-hi': '#54427a', '--frame': '#3e3060', '--frame-lo': '#291f44',
+      '--frame-glow': 'rgba(255,154,213,.18)',
+      '--sq-light-hi': '#7c68a3', '--sq-light': '#6d5a94', '--sq-light-lo': '#5d4c82',
+      '--sq-dark-hi': '#4a3a6b', '--sq-dark': '#3c2f5a', '--sq-dark-lo': '#2e2447',
+      '--grid-line': 'rgba(255,154,213,.16)',
+      '--sqnum-l': 'rgba(20,12,40,.75)', '--sqnum-d': 'rgba(255,200,235,.55)',
+      '--pl-l-1': '#fffdf7', '--pl-l-2': '#f2e6f5', '--pl-l-3': '#d4b8e0',
+      '--pl-l-edge': '#b191c4', '--pl-l-glow': 'rgba(255,154,213,.4)',
+      '--pl-d-1': '#3f3158', '--pl-d-2': '#2a2140', '--pl-d-3': '#171126',
+      '--pl-d-edge': '#0e0a1a', '--pl-d-glow': 'rgba(154,213,255,.35)',
+    }),
+    T('solar', 'Solar Storm', null, {
+      '--bg-image': 'radial-gradient(1100px 620px at 50% 120%, rgba(255,90,60,.18), transparent 60%),radial-gradient(800px 500px at 90% -10%, rgba(255,157,69,.1), transparent 55%),linear-gradient(180deg,#0c0502,#160903 55%,#080302)',
+      '--panel': 'rgba(24,12,5,.84)', '--panel-line': 'rgba(255,157,69,.24)',
+      '--modal-bg': 'linear-gradient(170deg,#2a1408,#1a0c04)', '--backdrop': 'rgba(6,2,0,.76)',
+      '--ink': '#fdf0e2', '--ink-dim': '#c4a586',
+      '--accent': '#ff9d45', '--accent-2': '#ff5a3c',
+      '--accent-soft': 'rgba(255,157,69,.5)', '--accent-weak': 'rgba(255,157,69,.12)',
+      '--accent-ink': '#2c1202', '--danger': '#ff5a3c',
+      '--frame-hi': '#4a2c14', '--frame': '#331d0c', '--frame-lo': '#1f1005',
+      '--frame-glow': 'rgba(255,157,69,.18)',
+      '--sq-light-hi': '#55301a', '--sq-light': '#472713', '--sq-light-lo': '#39200e',
+      '--sq-dark-hi': '#2b1608', '--sq-dark': '#1f0f05', '--sq-dark-lo': '#140903',
+      '--grid-line': 'rgba(255,157,69,.15)',
+      '--sqnum-l': 'rgba(16,6,2,.8)', '--sqnum-d': 'rgba(255,190,130,.55)',
+      '--pl-l-1': '#fff4e0', '--pl-l-2': '#f5ddb8', '--pl-l-3': '#d4ac78',
+      '--pl-l-edge': '#b08850', '--pl-l-glow': 'rgba(255,157,69,.35)',
+      '--pl-d-1': '#4a3a30', '--pl-d-2': '#2e221a', '--pl-d-3': '#17100b',
+      '--pl-d-edge': '#0d0805', '--pl-d-glow': 'rgba(255,90,60,.35)',
+    }),
+    T('ice', 'Quantum Ice', null, {
+      '--bg-image': 'radial-gradient(1000px 600px at 15% -10%, rgba(255,255,255,.7), transparent 55%),linear-gradient(180deg,#eef5fa,#d9e8f2 60%,#cbdeeb)',
+      '--panel': 'rgba(255,255,255,.8)', '--panel-line': 'rgba(14,127,168,.28)',
+      '--modal-bg': 'linear-gradient(170deg,#ffffff,#e8f2f8)', '--backdrop': 'rgba(90,120,140,.4)',
+      '--ink': '#16303f', '--ink-dim': '#4f7086',
+      '--accent': '#0b87b8', '--accent-2': '#5a7bd8',
+      '--accent-soft': 'rgba(11,135,184,.45)', '--accent-weak': 'rgba(11,135,184,.1)',
+      '--accent-ink': '#ffffff', '--danger': '#d05a3c',
+      '--frame-hi': '#c2d6e4', '--frame': '#a4bdce', '--frame-lo': '#87a3b6',
+      '--frame-glow': 'rgba(11,135,184,.18)',
+      '--sq-light-hi': '#fbfeff', '--sq-light': '#eef7fb', '--sq-light-lo': '#dcebf4',
+      '--sq-dark-hi': '#9ec2d6', '--sq-dark': '#8ab2c9', '--sq-dark-lo': '#74a0b8',
+      '--grid-line': 'rgba(30,90,120,.12)',
+      '--sqnum-l': 'rgba(20,60,85,.55)', '--sqnum-d': 'rgba(255,255,255,.78)',
+      '--pl-l-1': '#ffffff', '--pl-l-2': '#eef6fa', '--pl-l-3': '#c9dde9',
+      '--pl-l-edge': '#93b5c8', '--pl-l-glow': 'rgba(11,135,184,.15)',
+      '--pl-d-1': '#56788e', '--pl-d-2': '#3a566b', '--pl-d-3': '#22374a',
+      '--pl-d-edge': '#16283a', '--pl-d-glow': 'rgba(90,123,216,.25)',
+    }),
+    T('space', 'Deep Space', null, {
+      '--bg-image': 'radial-gradient(1.2px 1.2px at 12% 22%, rgba(255,255,255,.8), transparent 100%),radial-gradient(1px 1px at 34% 68%, rgba(255,255,255,.6), transparent 100%),radial-gradient(1.4px 1.4px at 58% 12%, rgba(255,255,255,.7), transparent 100%),radial-gradient(1px 1px at 76% 42%, rgba(255,255,255,.55), transparent 100%),radial-gradient(1.2px 1.2px at 88% 78%, rgba(255,255,255,.7), transparent 100%),radial-gradient(1px 1px at 22% 88%, rgba(255,255,255,.5), transparent 100%),radial-gradient(900px 600px at 80% -10%, rgba(157,140,255,.14), transparent 55%),linear-gradient(180deg,#05060f,#0a0c1c 55%,#04050c)',
+      '--panel': 'rgba(14,16,34,.82)', '--panel-line': 'rgba(255,209,102,.22)',
+      '--modal-bg': 'linear-gradient(170deg,#161a36,#0d0f22)', '--backdrop': 'rgba(2,3,10,.76)',
+      '--ink': '#eef0ff', '--ink-dim': '#9aa0c4',
+      '--accent': '#ffd166', '--accent-2': '#9d8cff',
+      '--accent-soft': 'rgba(255,209,102,.5)', '--accent-weak': 'rgba(255,209,102,.11)',
+      '--accent-ink': '#2c1e04', '--danger': '#ff6d5a',
+      '--frame-hi': '#23274a', '--frame': '#171a36', '--frame-lo': '#0d0f22',
+      '--frame-glow': 'rgba(255,209,102,.14)',
+      '--sq-light-hi': '#2e3358', '--sq-light': '#262b4c', '--sq-light-lo': '#1e2240',
+      '--sq-dark-hi': '#1a1e3a', '--sq-dark': '#141730', '--sq-dark-lo': '#0e1122',
+      '--grid-line': 'rgba(255,209,102,.12)',
+      '--sqnum-l': 'rgba(6,8,20,.8)', '--sqnum-d': 'rgba(255,220,150,.5)',
+      '--pl-l-1': '#f5f7ff', '--pl-l-2': '#d8ddf2', '--pl-l-3': '#a9b2d4',
+      '--pl-l-edge': '#7f8ab5', '--pl-l-glow': 'rgba(255,209,102,.3)',
+      '--pl-d-1': '#3a3f5e', '--pl-d-2': '#262a44', '--pl-d-3': '#14162a',
+      '--pl-d-edge': '#0b0c1a', '--pl-d-glow': 'rgba(157,140,255,.4)',
+    }),
+    T('club', 'Midnight Club', null, {
+      '--bg-image': 'radial-gradient(1200px 700px at 50% -10%, #1c4029 0%, #14301f 45%, #0c2013 100%)',
+      '--panel': 'rgba(16,32,22,.82)', '--panel-line': 'rgba(211,169,95,.25)',
+      '--modal-bg': 'linear-gradient(170deg,#1d3527,#122319)', '--backdrop': 'rgba(5,12,8,.68)',
+      '--ink': '#f0e7d3', '--ink-dim': '#b8ad93',
+      '--accent': '#d3a95f', '--accent-2': '#e8cf9a',
+      '--accent-soft': 'rgba(211,169,95,.55)', '--accent-weak': 'rgba(211,169,95,.13)',
+      '--accent-ink': '#241708', '--danger': '#c96a4a',
+      '--frame-hi': '#7a4d26', '--frame': '#4a2c15', '--frame-lo': '#38200e',
+      '--frame-glow': 'rgba(211,169,95,.12)',
+      '--sq-light-hi': '#f0debc', '--sq-light': '#e9d5a7', '--sq-light-lo': '#d9c193',
+      '--sq-dark-hi': '#8a5629', '--sq-dark': '#7c4a24', '--sq-dark-lo': '#6d3f1d',
+      '--grid-line': 'transparent',
+      '--sqnum-l': 'rgba(90,60,25,.5)', '--sqnum-d': 'rgba(240,231,211,.5)',
+      '--pl-l-1': '#fffdf4', '--pl-l-2': '#ecdcb4', '--pl-l-3': '#c6ab7c',
+      '--pl-l-edge': '#a98d5e', '--pl-l-glow': GLOW0,
+      '--pl-d-1': '#6a553f', '--pl-d-2': '#35261a', '--pl-d-3': '#150d07',
+      '--pl-d-edge': '#0c0703', '--pl-d-glow': GLOW0,
+    }),
+    T('walnut', 'Walnut Classic', null, {
+      '--bg-image': 'linear-gradient(180deg,#f3e9d8,#e6d5bc 60%,#dcc9ac)',
+      '--panel': 'rgba(255,252,246,.85)', '--panel-line': 'rgba(165,105,45,.3)',
+      '--modal-bg': 'linear-gradient(170deg,#fffaf2,#f0e4d0)', '--backdrop': 'rgba(60,40,20,.5)',
+      '--ink': '#3a2a18', '--ink-dim': '#7d6850',
+      '--accent': '#a5692d', '--accent-2': '#c98a3e',
+      '--accent-soft': 'rgba(165,105,45,.5)', '--accent-weak': 'rgba(165,105,45,.12)',
+      '--accent-ink': '#ffffff', '--danger': '#b8482e',
+      '--frame-hi': '#5d3a1a', '--frame': '#472b12', '--frame-lo': '#33200c',
+      '--frame-glow': 'rgba(90,55,20,.25)',
+      '--sq-light-hi': '#f5e3bd', '--sq-light': '#eed7ab', '--sq-light-lo': '#e2c795',
+      '--sq-dark-hi': '#96602c', '--sq-dark': '#8a5629', '--sq-dark-lo': '#7a4a22',
+      '--grid-line': 'transparent',
+      '--sqnum-l': 'rgba(90,60,25,.55)', '--sqnum-d': 'rgba(248,236,214,.6)',
+      '--pl-l-1': '#fffdf4', '--pl-l-2': '#ecdcb4', '--pl-l-3': '#c6ab7c',
+      '--pl-l-edge': '#a98d5e', '--pl-l-glow': GLOW0,
+      '--pl-d-1': '#6a553f', '--pl-d-2': '#35261a', '--pl-d-3': '#150d07',
+      '--pl-d-edge': '#0c0703', '--pl-d-glow': GLOW0,
+    }),
+    T('tourney', 'Tournament', null, {
+      '--bg-image': 'linear-gradient(180deg,#eef0e8,#dfe4d4 60%,#d4dbc6)',
+      '--panel': 'rgba(255,255,255,.82)', '--panel-line': 'rgba(46,125,79,.3)',
+      '--modal-bg': 'linear-gradient(170deg,#f8faf4,#e6ecdc)', '--backdrop': 'rgba(40,60,40,.5)',
+      '--ink': '#22301f', '--ink-dim': '#5c6e55',
+      '--accent': '#2e7d4f', '--accent-2': '#67a867',
+      '--accent-soft': 'rgba(46,125,79,.5)', '--accent-weak': 'rgba(46,125,79,.11)',
+      '--accent-ink': '#ffffff', '--danger': '#c05a3a',
+      '--frame-hi': '#2e5238', '--frame': '#24422c', '--frame-lo': '#18301e',
+      '--frame-glow': 'rgba(30,70,40,.25)',
+      '--sq-light-hi': '#f2e0b0', '--sq-light': '#ecd6a0', '--sq-light-lo': '#dfc68c',
+      '--sq-dark-hi': '#4a7a4a', '--sq-dark': '#3f6d3e', '--sq-dark-lo': '#345c34',
+      '--grid-line': 'transparent',
+      '--sqnum-l': 'rgba(40,70,40,.55)', '--sqnum-d': 'rgba(240,240,220,.65)',
+      '--pl-l-1': '#fffdf3', '--pl-l-2': '#f0e6c8', '--pl-l-3': '#cdbf94',
+      '--pl-l-edge': '#ab9c6e', '--pl-l-glow': GLOW0,
+      '--pl-d-1': '#4a4536', '--pl-d-2': '#2a281c', '--pl-d-3': '#14130c',
+      '--pl-d-edge': '#0a0906', '--pl-d-glow': GLOW0,
+    }),
+    T('marble', 'Marble Lux', null, {
+      '--bg-image': 'linear-gradient(180deg,#f2f3f6,#e2e5ea 60%,#d8dce3)',
+      '--panel': 'rgba(255,255,255,.85)', '--panel-line': 'rgba(70,98,138,.25)',
+      '--modal-bg': 'linear-gradient(170deg,#ffffff,#e8ebf0)', '--backdrop': 'rgba(80,90,105,.45)',
+      '--ink': '#262c36', '--ink-dim': '#6a7484',
+      '--accent': '#46628a', '--accent-2': '#8a9ab0',
+      '--accent-soft': 'rgba(70,98,138,.5)', '--accent-weak': 'rgba(70,98,138,.11)',
+      '--accent-ink': '#ffffff', '--danger': '#cc4a3a',
+      '--frame-hi': '#d0d5dc', '--frame': '#b8bfc9', '--frame-lo': '#9aa3b0',
+      '--frame-glow': 'rgba(70,98,138,.2)',
+      '--sq-light-hi': '#fafbfc', '--sq-light': '#f1f3f5', '--sq-light-lo': '#e2e6ea',
+      '--sq-dark-hi': '#6a7686', '--sq-dark': '#5c6672', '--sq-dark-lo': '#4c5664',
+      '--grid-line': 'rgba(90,100,115,.12)',
+      '--sqnum-l': 'rgba(60,70,85,.5)', '--sqnum-d': 'rgba(255,255,255,.7)',
+      '--pl-l-1': '#ffffff', '--pl-l-2': '#f0f2f5', '--pl-l-3': '#cfd4dc',
+      '--pl-l-edge': '#a8b0bc', '--pl-l-glow': GLOW0,
+      '--pl-d-1': '#4a5462', '--pl-d-2': '#323a48', '--pl-d-3': '#1c222c',
+      '--pl-d-edge': '#10141c', '--pl-d-glow': GLOW0,
+    }),
+    T('mono', 'Ivory & Ebony', null, {
+      '--bg-image': 'linear-gradient(180deg,#fafafa,#ececec 60%,#e2e2e2)',
+      '--panel': 'rgba(255,255,255,.9)', '--panel-line': 'rgba(0,0,0,.18)',
+      '--modal-bg': 'linear-gradient(170deg,#ffffff,#eeeeee)', '--backdrop': 'rgba(0,0,0,.5)',
+      '--ink': '#141414', '--ink-dim': '#666666',
+      '--accent': '#141414', '--accent-2': '#555555',
+      '--accent-soft': 'rgba(20,20,20,.55)', '--accent-weak': 'rgba(20,20,20,.08)',
+      '--accent-ink': '#ffffff', '--danger': '#d03a2a',
+      '--frame-hi': '#e0e0e0', '--frame': '#c8c8c8', '--frame-lo': '#a8a8a8',
+      '--frame-glow': 'rgba(0,0,0,.12)',
+      '--sq-light-hi': '#fbfbfb', '--sq-light': '#f2f2f2', '--sq-light-lo': '#e4e4e4',
+      '--sq-dark-hi': '#1c1c1c', '--sq-dark': '#121212', '--sq-dark-lo': '#080808',
+      '--grid-line': 'rgba(0,0,0,.1)',
+      '--sqnum-l': 'rgba(0,0,0,.45)', '--sqnum-d': 'rgba(255,255,255,.6)',
+      '--pl-l-1': '#ffffff', '--pl-l-2': '#f0f0f0', '--pl-l-3': '#c8c8c8',
+      '--pl-l-edge': '#909090', '--pl-l-glow': GLOW0,
+      '--pl-d-1': '#3c3c3c', '--pl-d-2': '#242424', '--pl-d-3': '#0e0e0e',
+      '--pl-d-edge': '#000000', '--pl-d-glow': GLOW0,
+    }),
+    T('sakura', 'Sakura', null, {
+      '--bg-image': 'radial-gradient(1000px 600px at 20% -10%, rgba(255,255,255,.75), transparent 55%),linear-gradient(180deg,#fdf0f3,#f9dce4 60%,#f5d0da)',
+      '--panel': 'rgba(255,250,251,.85)', '--panel-line': 'rgba(212,80,122,.25)',
+      '--modal-bg': 'linear-gradient(170deg,#fff8fa,#f7e3e9)', '--backdrop': 'rgba(90,40,55,.45)',
+      '--ink': '#4a2432', '--ink-dim': '#a06a7c',
+      '--accent': '#d4507a', '--accent-2': '#f08aa8',
+      '--accent-soft': 'rgba(212,80,122,.5)', '--accent-weak': 'rgba(212,80,122,.12)',
+      '--accent-ink': '#ffffff', '--danger': '#cc3a3a',
+      '--frame-hi': '#e8b4c0', '--frame': '#d493a4', '--frame-lo': '#b8748a',
+      '--frame-glow': 'rgba(212,80,122,.2)',
+      '--sq-light-hi': '#fff7f8', '--sq-light': '#fdeef2', '--sq-light-lo': '#f8dde4',
+      '--sq-dark-hi': '#e08aa0', '--sq-dark': '#d97f96', '--sq-dark-lo': '#c96f88',
+      '--grid-line': 'transparent',
+      '--sqnum-l': 'rgba(150,70,95,.55)', '--sqnum-d': 'rgba(255,245,247,.7)',
+      '--pl-l-1': '#ffffff', '--pl-l-2': '#fdf0f2', '--pl-l-3': '#f0ccd6',
+      '--pl-l-edge': '#d4a0b0', '--pl-l-glow': GLOW0,
+      '--pl-d-1': '#7a4a5c', '--pl-d-2': '#57303f', '--pl-d-3': '#331c26',
+      '--pl-d-edge': '#1f0f16', '--pl-d-glow': GLOW0,
+    }),
+    T('arcade', 'Retro Arcade', 'scan', {
+      '--bg-image': 'radial-gradient(1000px 620px at 50% -10%, rgba(57,255,20,.09), transparent 55%),linear-gradient(180deg,#050505,#0a0f0a 55%,#030303)',
+      '--panel': 'rgba(8,18,8,.85)', '--panel-line': 'rgba(57,255,20,.3)',
+      '--modal-bg': 'linear-gradient(170deg,#0c1c0c,#060f06)', '--backdrop': 'rgba(0,6,0,.8)',
+      '--ink': '#c8ffc8', '--ink-dim': '#6fae6f',
+      '--accent': '#39ff14', '--accent-2': '#ffb000',
+      '--accent-soft': 'rgba(57,255,20,.5)', '--accent-weak': 'rgba(57,255,20,.11)',
+      '--accent-ink': '#04240a', '--danger': '#ff5030',
+      '--frame-hi': '#1d3a1d', '--frame': '#122412', '--frame-lo': '#0a140a',
+      '--frame-glow': 'rgba(57,255,20,.2)',
+      '--sq-light-hi': '#1d4d22', '--sq-light': '#17401c', '--sq-light-lo': '#113416',
+      '--sq-dark-hi': '#0c240e', '--sq-dark': '#081a0a', '--sq-dark-lo': '#041006',
+      '--grid-line': 'rgba(57,255,20,.18)',
+      '--sqnum-l': 'rgba(140,255,140,.5)', '--sqnum-d': 'rgba(120,220,120,.45)',
+      '--pl-l-1': '#eaffea', '--pl-l-2': '#b8f0b8', '--pl-l-3': '#78c878',
+      '--pl-l-edge': '#4a9a4a', '--pl-l-glow': 'rgba(57,255,20,.4)',
+      '--pl-d-1': '#6e4a10', '--pl-d-2': '#46300a', '--pl-d-3': '#241804',
+      '--pl-d-edge': '#140c02', '--pl-d-glow': 'rgba(255,176,0,.45)',
+    }),
+  ];
+  if (!THEMES.some((t) => t.id === settings.theme)) settings.theme = 'neon';
+
+  function applyTheme(id) {
+    const t = THEMES.find((x) => x.id === id) || THEMES[0];
+    const root = document.documentElement.style;
+    for (const [k, v] of Object.entries(t.v)) root.setProperty(k, v);
+    document.body.classList.toggle('fx-scan', t.fx === 'scan');
+    const grid = $('themeGrid');
+    if (grid) for (const b of grid.querySelectorAll('button')) b.classList.toggle('active', b.dataset.v === t.id);
+  }
+
 
   const blankStats = () => ({ american: {}, international: {} });
   const stats = Object.assign(blankStats(), loadJSON(STATS_KEY, {}));
@@ -88,17 +394,68 @@
       if (name !== 'illegal' && !settings.sfx.classic) return;
       try {
         switch (name) {
-          case 'select': this.tone(340, 0.05, 'triangle', 0.10); break;
-          case 'move': this.noise(0.06, 0.16, 0, 900); this.tone(190, 0.08, 'triangle', 0.14, 0, 140); break;
-          case 'capture': this.noise(0.09, 0.26, 0, 620); this.tone(120, 0.13, 'sine', 0.28, 0, 68); break;
-          case 'king': this.tone(660, 0.14, 'triangle', 0.18); this.tone(990, 0.2, 'triangle', 0.18, 0.1); break;
-          case 'win': [523, 659, 784, 1047].forEach((f, i) => this.tone(f, 0.18, 'triangle', 0.2, i * 0.13)); break;
-          case 'lose': [392, 330, 262].forEach((f, i) => this.tone(f, 0.22, 'sine', 0.18, i * 0.16)); break;
+          // A wooden piece set down on wood: a soft click, a short noise
+          // "grain" burst and a low body thump, with natural pitch jitter.
+          case 'select': this.tick(0.05); break;
+          case 'move': this.woodKnock(0.16, 1); break;
+          case 'capture':
+            this.woodKnock(0.3, 0.72);
+            this.woodKnock(0.15, 0.55, 0.09); // second knock: piece hits the tray
+            break;
+          case 'king':
+            this.tone(587, 0.16, 'triangle', 0.15);
+            this.tone(587 * 1.007, 0.16, 'sine', 0.1); // warm detune
+            this.tone(880, 0.24, 'triangle', 0.15, 0.11);
+            this.tone(880 * 0.996, 0.24, 'sine', 0.09, 0.11);
+            break;
+          case 'win':
+            [523, 659, 784, 1047].forEach((f, i) => {
+              this.tone(f, 0.2, 'triangle', 0.17, i * 0.13);
+              this.tone(f / 2, 0.22, 'sine', 0.1, i * 0.13);
+            });
+            break;
+          case 'lose':
+            [392, 330, 262].forEach((f, i) => {
+              this.tone(f, 0.24, 'sine', 0.16, i * 0.16);
+              this.tone(f * 1.005, 0.24, 'triangle', 0.07, i * 0.16);
+            });
+            break;
           case 'draw': this.tone(440, 0.2, 'triangle', 0.16); this.tone(440, 0.28, 'triangle', 0.16, 0.24); break;
           case 'illegal': this.tone(110, 0.07, 'square', 0.1); this.tone(100, 0.08, 'square', 0.1, 0.09); break;
           case 'undo': this.tone(300, 0.09, 'triangle', 0.13, 0, 210); break;
         }
       } catch { /* audio is best-effort */ }
+    },
+    // soft ceramic tick for piece selection
+    tick(vol) {
+      const ctx = this.ensure(); if (!ctx) return;
+      this.noiseAt(0.012, (vol || 0.05) * 0.8, 0, 3200, 2);
+      this.toneAt(1900 + Math.random() * 250, 0.02, 'sine', vol || 0.05, 0);
+    },
+    // layered wood knock: noise grain + resonant body + contact click
+    woodKnock(vol, pitch, when) {
+      const ctx = this.ensure(); if (!ctx) return;
+      const j = 0.88 + Math.random() * 0.24; // natural variation
+      const f0 = 170 * pitch * j;
+      this.noiseAt(0.035, vol * 0.75, when || 0, 1250 * pitch * j, 1.1);
+      this.toneAt(f0, 0.1, 'sine', vol, when || 0, f0 * 0.55);
+      this.noiseAt(0.008, vol * 0.5, when || 0, 5200, 0.7);
+    },
+    // like tone/noise but with an explicit start offset & filter Q
+    toneAt(f, dur, type, vol, when, slideTo) { this.tone(f, dur, type, vol, when, slideTo); },
+    noiseAt(dur, vol, when, freq, q) {
+      const ctx = this.ensure(); if (!ctx) return;
+      const t = ctx.currentTime + (when || 0);
+      const len = Math.max(1, (dur * ctx.sampleRate) | 0);
+      const buf = ctx.createBuffer(1, len, ctx.sampleRate);
+      const d = buf.getChannelData(0);
+      for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 1.6);
+      const src = ctx.createBufferSource(); src.buffer = buf;
+      const f = ctx.createBiquadFilter(); f.type = 'bandpass';
+      f.frequency.value = freq || 900; f.Q.value = q || 0.9;
+      const g = ctx.createGain(); g.gain.value = vol || 0.2;
+      src.connect(f); f.connect(g); g.connect(this.out || ctx.destination);
+      src.start(t);
     },
   };
 
@@ -107,7 +464,7 @@
     defs: window.DRAFTI_SFX || {},
     buffers: new Map(),
     decoding: false,
-    CAT_VOL: { majestic: 0.95, comedy: 0.8, voice: 1.0 },
+    CAT_VOL: { majestic: 0.95, comedy: 0.8, voice: 1.0, judge: 1.0 },
     decodeAll() {
       const ctx = FX.ctx;
       if (!ctx || this.decoding) return;
@@ -127,6 +484,7 @@
       if (def.c === 'majestic') return settings.sfx.animals;
       if (def.c === 'comedy') return settings.sfx.comedy;
       if (def.c === 'voice') return settings.sfx.voice;
+      if (def.c === 'judge') return settings.sfx.judge;
       return true;
     },
     play(name, opts) {
@@ -207,6 +565,8 @@
         '    postMessage({ cmd: "verdict", id: d.id,\n' +
         '      delta: played == null || !isFinite(bestScore) ? NaN : bestScore - played,\n' +
         '      playedScore: played == null ? 0 : played,\n' +
+        '      bestOther: isFinite(bestOther) ? bestOther : NaN,\n' +
+        '      preBest: isFinite(bestScore) ? bestScore : NaN,\n' +
         '      onlyMove: roots.length <= 1 });\n' +
         '  }\n' +
         '};';
@@ -432,14 +792,18 @@
   // ---------------- move classification & sound events ----------------
   // Every move gets a headline event. Fast signals run at commit time; a
   // worker-based verdict (blunder / brilliant) may upgrade it shortly after.
-  // rank: 0 none · 1 awkward · 2 blunder · 3 epic blunder · 4 brilliant · 5 majestic · 6 legendary
+  // rank: 0 none · 1 awkward/dubious/missed/accurate · 2 blunder · 3 epic blunder
+  //       · 4 brilliant/trick · 5 majestic/promo · 6 legendary
   const MOVE_EVENTS = {
     none: { rank: 0 },
     awkward: { rank: 1 },
     missed: { rank: 1 },
+    accurate: { rank: 1 },
+    dubious: { rank: 1 },
     blunder: { rank: 2 },
     epic: { rank: 3 },
     brilliant: { rank: 4 },
+    trick: { rank: 4 },
     promo: { rank: 5 },
     majestic: { rank: 5 },
     legendary: { rank: 6 },
@@ -488,7 +852,7 @@
     applyMoveEvent(ev, ply);
   }
 
-  function applyMoveEvent(ev, ply) {
+  function applyMoveEvent(ev, ply, flavor) {
     const def = MOVE_EVENTS[ev] || MOVE_EVENTS.none;
     if (def.rank <= lastEvent.rank && lastEvent.ply === ply) return;
     lastEvent = { rank: def.rank, ply };
@@ -510,13 +874,25 @@
       SFX_BANK.play(Math.random() < 0.6 ? 'wolfwhistle' : 'rimshot', { vol: 0.9 });
       SFX_BANK.play('v_chess', { vol: 0.85 });
       flashLabel('A chess move!', 'majestic');
+    } else if (ev === 'trick') {
+      SFX_BANK.play(Math.random() < 0.5 ? 'wolfwhistle' : 'zip', { vol: 0.85 });
+      const line = ['v_trick', 'v_trap', 'v_crafty'][(Math.random() * 3) | 0];
+      SFX_BANK.play(line, { vol: 0.95 });
+      flashLabel(line === 'v_trap' ? 'What a trap!' : line === 'v_crafty' ? 'Crafty!' : 'Sneaky!', 'judge');
+    } else if (ev === 'accurate') {
+      const only = flavor === 'only';
+      SFX_BANK.play(only ? 'v_only' : ['v_nice', 'v_sharp', 'v_clean'][(Math.random() * 3) | 0], { vol: 0.9 });
+      flashLabel(only ? 'The only move!' : ['Precise.', 'Sharp!', 'Clean.'][(Math.random() * 3) | 0], 'judge');
+    } else if (ev === 'dubious') {
+      SFX_BANK.play(Math.random() < 0.5 ? 'v_hmm' : 'v_curious', { vol: 0.9 });
+      flashLabel('Hmm…', 'judge');
     } else if (ev === 'blunder') {
       SFX_BANK.play('trombone', { vol: 1 });
-      SFX_BANK.play('v_ohno', { vol: 0.9 });
-      flashLabel('Oh no!', 'comedy');
+      SFX_BANK.play(['v_ohno', 'v_why', 'v_sure', 'v_cost'][(Math.random() * 4) | 0], { vol: 0.9 });
+      flashLabel(['Why?!', 'Oh no!'][(Math.random() * 2) | 0], 'comedy');
     } else if (ev === 'epic') {
       SFX_BANK.play('wilhelm', { vol: 1 });
-      SFX_BANK.play('v_wow', { vol: 0.9 });
+      SFX_BANK.play(Math.random() < 0.5 ? 'v_wow' : 'v_why', { vol: 0.9 });
       flashLabel('Disaster!', 'comedy');
       thump();
     } else if (ev === 'missed') {
@@ -541,7 +917,7 @@
     const w = getWorker();
     if (!w) return;
     const id = ++verdictId;
-    pendingVerdict = { id, ply };
+    pendingVerdict = { id, ply, caps: mv.caps.length };
     w.postMessage({
       cmd: 'classify', id, rsId: G.rsId, side, noProgress: preNoProg,
       board: preBoard, playedPath: mv.path.join(),
@@ -557,7 +933,21 @@
     if (res.onlyMove || !isFinite(res.delta)) return;
     if (res.delta >= 420) applyMoveEvent('epic', pv.ply);
     else if (res.delta >= 170) applyMoveEvent('blunder', pv.ply);
+    else if (res.delta >= 70) applyMoveEvent('dubious', pv.ply);
     else if (res.delta <= -120 && res.playedScore > 40) applyMoveEvent('brilliant', pv.ply);
+    else if (res.delta <= 8) {
+      // A quiet move that suddenly leaves the opponent lost: a trap was set.
+      const preBest = res.preBest;
+      if (pv.caps === 0 && res.playedScore >= 190 && isFinite(preBest) && preBest <= 90) {
+        applyMoveEvent('trick', pv.ply);
+        return;
+      }
+      // Praising every accurate move would get old — fire sometimes, and
+      // always when the played move was the only one that holds the game.
+      const onlyWin = isFinite(res.bestOther) && res.bestOther <= res.playedScore - 140;
+      if (onlyWin) applyMoveEvent('accurate', pv.ply, 'only');
+      else if (Math.random() < 0.35 && res.playedScore > -30) applyMoveEvent('accurate', pv.ply);
+    }
   }
 
   // ---------------- move execution ----------------
@@ -844,6 +1234,9 @@
     }
     $('sfxVol').value = Math.round(settings.sfx.master * 100);
     $('sfxVolVal').textContent = Math.round(settings.sfx.master * 100) + '%';
+    for (const b of $('themeGrid').querySelectorAll('button')) {
+      b.classList.toggle('active', b.dataset.v === settings.theme);
+    }
   }
 
   function updateControls() {
@@ -950,10 +1343,34 @@
     // audible confirmation per category
     if (settings.sound) {
       if (key === 'animals') SFX_BANK.play('eagle');
+      else if (key === 'judge') SFX_BANK.play('v_hmm');
       else if (key === 'comedy') SFX_BANK.play('klonk');
       else if (key === 'voice') SFX_BANK.play('v_magnificent');
       else FX.play('select');
     }
+  });
+
+  // theme picker
+  const themeGrid = $('themeGrid');
+  for (const t of THEMES) {
+    const b = document.createElement('button');
+    b.className = 'theme-sw';
+    b.dataset.v = t.id;
+    b.title = t.name;
+    b.style.setProperty('--sw-l', t.v['--sq-light']);
+    b.style.setProperty('--sw-d', t.v['--sq-dark']);
+    b.style.setProperty('--sw-a', t.v['--accent']);
+    b.innerHTML = '<span class="sw-board" aria-hidden="true"></span><span class="sw-name">' + t.name + '</span>';
+    themeGrid.appendChild(b);
+  }
+  themeGrid.addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (!b || b.dataset.v === settings.theme) return;
+    settings.theme = b.dataset.v;
+    saveJSON(SETTINGS_KEY, settings);
+    applyTheme(settings.theme);
+    updateSegs();
+    FX.play('select');
   });
 
   $('goRematch').addEventListener('click', () => { closeModals(); newGame(); });
@@ -978,6 +1395,7 @@
   });
 
   // ---------------- boot ----------------
+  applyTheme(settings.theme);
   newGame();
   try { FX.ensure(); } catch { /* audio starts on first gesture instead */ }
 

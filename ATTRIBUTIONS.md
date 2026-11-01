@@ -28,10 +28,10 @@ Freesound takes were located with the CC0 license filter
 ## Voice lines
 
 All spoken lines ("Ohhh, magnificent!", "That is chess, not checkers!",
-"Oh no. Oh no no no no.", "You had one job!", "All hail the king!", …) were
-generated for DRAFTI with a neural text-to-speech engine (z-ai TTS, voice
-"jam" / "luodo") — original recordings made for this project, no third-party
-material.
+"Why did you do that?!", "What a trap!", "You had one job!",
+"Oh no. Oh no no no no.", "All hail the king!", …) were generated for DRAFTI
+with a neural text-to-speech engine (z-ai TTS, voice "jam") — original
+recordings made for this project, no third-party material.
 
 ## Processing
 
