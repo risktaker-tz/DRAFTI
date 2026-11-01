@@ -5,11 +5,11 @@ sourced meme effect credited below. Samples are embedded in `web/index.html`
 (base64 MP3); the processed source files live in `src/audio/`. This file
 lists the origin and license of each.
 
-The bank holds **218 sounds**: 22 recorded samples, 10 sourced meme effects
-(below), 153 neural-TTS voice lines and 33 original synthesized
-interface/game sounds (plus four more synthesized effects — trap snap,
-refusal buzz, relief chime and the level-up fanfare — generated in-code at
-playback time).
+The bank holds **258 sounds**: 22 recorded samples, 10 sourced meme effects
+(below), 19 sourced animal-comedy & viral-sting samples, 183 neural-TTS
+voice lines and 33 original synthesized interface/game sounds (plus four
+more synthesized effects — trap snap, refusal buzz, relief chime and the
+level-up fanfare — generated in-code at playback time).
 
 ## Meme sound effects (sourced verbatim, identified by their own captions)
 
@@ -30,6 +30,28 @@ cross-checked against the numbered caption cards burned into the video
 frames (01, 02, 03, 04, 06, 08, 10) — no mapping is guessed. These clips are
 short excerpts included for entertainment; the original uploads remain the
 property of their creators, who are credited here and in the in-app bank.
+
+## Animal comedy & viral stings (freesound.org, CC0)
+
+Picked from CC0-filtered freesound searches, trimmed and level-matched to
+the bank. Each entry names the game sound, the freesound sound id and
+uploader.
+
+| Sound in game | Source | Use in the game |
+| --- | --- | --- |
+| `chicken` | freesound.org/s/830091 by MBPL | The doomed side shuffling on, keep-playing patter |
+| `panic` | freesound.org/s/727396 by Mastersoundboy2005 | Alarmed squawk — the engine realises it is trapped |
+| `duck` | freesound.org/s/719115 by OwennewO | Sitting-duck blunders (missed jump alternate) |
+| `meow` | freesound.org/s/110011 by tuberatanka | The cat lays a trap / catches its mouse |
+| `purr` | freesound.org/s/575933 by Buskieboy | A crushing engine, "Purrrfect." |
+| `vineboom` | freesound.org/s/802074 by modusmogulus | Double-capture impact alternate, doom taunts |
+| `bruh` | freesound.org/s/506582 by ivar.nohre | Blunder reaction alternate |
+| `dundundun` | freesound.org/s/411232 by Sean-TE0 | Dramatic bait tease (drama category) |
+| `sadviolin` | freesound.org/s/516652 by szegvari | The doom announcement for a lost position |
+| `cricket` | freesound.org/s/842645 by Breviceps | Crickets during a long think in a dead-quiet position |
+
+All ten were located with the CC0 license filter
+(`license:"Creative Commons 0"`) applied to the search.
 
 ## Cartoon & comedy effects
 
@@ -73,6 +95,14 @@ heavy!" / "Boy, that was heavy!" — wrong-piece blame lines, feast and
 trap-slaughter commentary, capture-count callouts, the AI-vs-AI arena
 announcer and spectator jokes, and the auto-rematch level-up line) were
 generated the same way.
+
+Batch-6 additions (draughts table talk — "Give a man to get a man — that is
+draughts, my friend." and nine more — bait taunts like "Whatever you do, do
+not take that piece.", plan-ruined and lucky lines ("You're lucky this
+time.", "My plan! Ruined!", "Boy, that was some move."), the doom-loop
+taunts ("You are trapped. There is no escape."), narrow-escape callouts,
+crowning hype ("The king has arrived!"), "First blood!" and two more
+heavy-hit lines) were generated the same way, in both voices.
 
 ## Interface & synthesized game sounds
 

@@ -79,26 +79,50 @@ shaming, a heavy-hit voice and a board jolt — with your name in the banner:
   shortcuts, so coaching and takebacks never hide behind a menu. Undo is
   AI-aware: it takes back your move, cancels the machine's reply, and the
   engine re-plans if you roll back past its move.
-- **17 boards, tuned to be readable** — every table was contrast-checked
+- **21 boards, tuned to be readable** — every table was contrast-checked
   (square-vs-square and piece-vs-square) so the checker pattern and both
   piece colours are always distinct: eight futuristic sets (Neon Circuit,
   Hologlass, Cyber Jade, Synthwave, Vapor Dreams, Solar Storm, Deep Space,
   and the glassy neon-lit **Neon Glass**), the light Quantum Ice and Marble
-  Lux, a CRT scanline Retro Arcade, and the classics (Midnight Club, Walnut
-  Classic, Tournament green, stark Ivory & Ebony, Sakura) — plus the
-  ultra-realistic **Walnut Royale**: maple and walnut squares with visible
-  wood grain and turned-wood pieces. A **High visibility** toggle adds
-  hatched dark squares and strong piece rims for colour-blind players and
-  bright rooms, and an **Ambient glow** toggle drifts two soft light fields
-  tinted by each theme's own accents behind the whole page. Your picks are
-  remembered.
+  Lux, a CRT scanline Retro Arcade, the classics (Midnight Club, Walnut
+  Classic, stark Ivory & Ebony, Sakura), the ultra-realistic **Walnut
+  Royale** (maple and walnut squares with visible wood grain and
+  turned-wood pieces) — and four tables replicated from the real equipment:
+  **Tournament Green** (the official green & buff competition board with a
+  walnut frame), **Maple & Rosewood** (the professional club board),
+  **Club Baize** (felt squares under a leather-dark timber frame) and
+  **Travel Magnetic** (the classic rolled tin-edged set). A **High
+  visibility** toggle adds hatched dark squares and strong piece rims for
+  colour-blind players and bright rooms, and an **Ambient glow** toggle
+  drifts two soft light fields tinted by each theme's own accents behind the
+  whole page. Your picks are remembered.
+- **8 piece sets, changeable any time** — the men are no longer tied to the
+  table: **Tournament Red** (smooth white & red resin, the official ACF
+  set), **Turned Wood** (lathe rings on maple & walnut), **Ivory & Jet**
+  (carved bone against polished jet), **Amber Bakelite** (butterscotch
+  swirl against cherry), **Steel & Brass** (machined metal), **Neon Glass**
+  (translucent glowing discs) and **Marble Stone** (veined black on white),
+  or *Follow table* to keep whatever the board ships with. Kings are now
+  two stacked discs, exactly like the real set.
 - **Heavy hits rock the board** — a double capture jolts the table, three or
   more pieces in one trip shake it hard with a red flare, and the boy and
   the girl take turns telling you how heavy it was ("Oof! That was heavy!",
   "Boy, that was heavy!"). Grab a single capture while a bigger feast was
   standing on the board and the judge lands the blame — sad trombone,
-  "Wrong piece!", no sympathy.
-- **200+ reactive sounds** — the game watches everything and reacts:
+  "Wrong piece!", no sympathy. The first capture of the game gets its own
+  "First blood!" sting, and a crowning fires a shockwave ring from the
+  square with "The king has arrived!".
+- **Doom drama: when there is no escape** — the engine checks after every
+  move whether the side to move is beyond saving. The moment a position
+  becomes hopeless the board puts on a red pulsing vignette, the sad violin
+  plays and the verdict is read out: "You are trapped. There is no escape."
+  From then on, while the winner converts and the loser can only keep
+  playing, the table leans in every so often with the full *"Let me tell
+  you something…"* and a taunt ("Nowhere to run. Nowhere to hide."), the
+  doomed side shuffles along to nervous chicken clucks (the engine
+  squawks in full panic when *it* is the one trapped), and climbing back
+  out earns the relief chime and "A narrow escape! Unbelievable!".
+- **260+ reactive sounds** — the game watches everything and reacts:
   - multi-piece jumps get **majestic animal fanfares** — a bald eagle scream
     for a double jump, a lion's roar (plus a board shake) for three or more,
     an elephant trumpet and brass fanfare when a man is crowned, plus
@@ -143,11 +167,25 @@ shaming, a heavy-hit voice and a board jolt — with your name in the banner:
     later…", "Two hours later…". Every clip was located in its source video
     by silence analysis and cross-checked against the caption cards burned
     into the frames (see [ATTRIBUTIONS.md](ATTRIBUTIONS.md));
+  - **animal comedy & viral stings, CC0-sourced** — traps spring with a
+    meow (the cat catches its mouse) or a duck quack on the sitting-duck
+    blunder; a crushing engine purrs ("Purrrfect."); the Vine boom lands on
+    doubles and doom taunts, "BRUH" on blunders, the classic *dun dun
+    duuun* strings up a bait tease, crickets chirp when a dead position
+    meets a long think, and the sad violin opens the doom;
+  - **the AI talks its talk** — while it ponders it drops real draughts
+    patter ("Give a man to get a man — that is draughts, my friend.",
+    "Keep your back row tight.", "The move is mine — and the move is
+    everything."); when it lays poisoned material it purrs out the taunt
+    ("Whatever you do, do not take that piece.", "That piece is poisoned.
+    Go on, try it."); survive its bait and it grudgingly respects you —
+    throw the plan away instead and you get "You're lucky this time.",
+    "Boy, that was some move." or "My plan! RUINED!";
   - **the AI vs AI arena** has its own announcer ("Welcome to the arena! Two
     engines, one board, zero mercy!") and spectator table: thinking jokes
     ("He is thinking so hard, the fans just spun up."), capture hype
     ("OH! Brutal!") and post-match transitions ("What a finish! Roll on the
-    next level!");
+    next level!") — and the full trap and doom drama now plays out here too;
   - **ladder celebrations** — conquering a new best level, three-win streaks
     and giant-killings at grandmaster rungs each get their own callout;
   - **interface sound design** — drawer whooshes, toggle blips, a theme

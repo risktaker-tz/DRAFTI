@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DRAFTI — Checkers, refined</title>
-<meta name="description" content="DRAFTI is an original open-source checkers game: five international rulesets, ten AI levels from Beginner to The Machine, twelve national playing styles, two-player and auto-rematch AI-vs-AI modes, 17 themes, jump-path previews, board-shaking impacts and 200+ reactive sounds, in a single HTML file.">
+<meta name="description" content="DRAFTI is an original open-source checkers game: five international rulesets, ten AI levels from Beginner to The Machine, twelve national playing styles, two-player and auto-rematch AI-vs-AI modes, 21 themes, 8 piece sets, jump-path previews, board-shaking impacts and 240+ reactive sounds, in a single HTML file.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%237c4a24'/%3E%3Crect x='2' y='2' width='13' height='13' fill='%23e9d5a7'/%3E%3Crect x='17' y='17' width='13' height='13' fill='%23e9d5a7'/%3E%3Ccircle cx='22' cy='10' r='4.5' fill='%23191009'/%3E%3Ccircle cx='9' cy='24' r='4.5' fill='%23ecdcb4'/%3E%3C/svg%3E">
 <style>
 /*__STYLES__*/
@@ -183,8 +183,12 @@
     </div>
 
     <div class="card">
-      <h2><span class="h-ico">🎨</span> Boards &amp; themes</h2>
+      <h2><span class="h-ico">🎨</span> Boards, pieces &amp; themes</h2>
       <div class="theme-grid" id="themeGrid"></div>
+      <div class="seg-row" style="margin-top:12px">
+        <span class="seg-label">Pieces — from tournament resin to neon glass</span>
+        <div class="seg-btns wrap-seg" id="segPieces"></div>
+      </div>
       <button class="btn" id="btnHV" title="Stronger piece rims and hatched dark squares — helps with colour-blindness, small screens and bright rooms">
         <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.7 7.6 1 12c1.7 4.4 6 7.5 11 7.5s9.3-3.1 11-7.5c-1.7-4.4-6-7.5-11-7.5zM12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
         High visibility (colour-blind friendly)</button>
@@ -197,7 +201,7 @@
       <button class="btn" id="btnShake" title="The board shakes when a heavy capture lands — double takes a jolt, triples and up rock the table">
         <svg viewBox="0 0 24 24"><path d="M12 3 3 8v2h18V8l-9-5zM5 12h3v6H5zm5.5 0h3v6h-3zM16 12h3v6h-3zM3 19.5h18V22H3z"/></svg>
         Impact shake</button>
-      <p class="setup-note" id="themeNote">17 tables — from neon glass and walnut royale to tournament classic.</p>
+      <p class="setup-note" id="themeNote">21 tables — tournament green &amp; buff, maple &amp; rosewood, club baize, neon glass — and 8 piece sets.</p>
     </div>
 
     <div class="card">
@@ -211,14 +215,14 @@
         <button data-v="animals" title="Majestic animal fanfares for multi-jumps and crowns">🦁 Majestic</button>
         <button data-v="judge" title="The judge: praise, mistakes, tricks, big-brain callouts">🧑‍⚖️ Judge</button>
         <button data-v="drama" title="Trap drama: snaps, stings and callouts when baits are set, sprung, dodged or wasted">🎭 Drama</button>
-        <button data-v="party" title="Party memes: bad-boy shaming for greedy captures, narrator time cards, big laughs">🎉 Party</button>
+        <button data-v="party" title="Party memes: bad-boy shaming for greedy captures, doom-time chickens, ducks, cats, narrator time cards, big laughs">🎉 Party</button>
         <button data-v="comedy" title="Cartoon comedy for blunders">🤡 Comedy</button>
         <button data-v="voice" title="Realistic voice commentary and opponent table talk">🎙️ Voice</button>
         <button data-v="think" title="Heckles while you think, time pressure and clock callouts">⏳ Heckles</button>
         <button data-v="ui" title="Interface sounds: menu, toggles, themes, clock">🎛️ Interface</button>
         <button data-v="classic" title="Classic wooden club sounds">🪵 Classic</button>
       </div>
-      <p class="setup-note">200+ open-license samples, authentic meme effects, synthesized stings &amp; voice lines · credits in ATTRIBUTIONS.md</p>
+      <p class="setup-note">240+ open-license samples, authentic meme effects, animal comedy, synthesized stings &amp; voice lines · credits in ATTRIBUTIONS.md</p>
     </div>
 
     <div class="card history-card">

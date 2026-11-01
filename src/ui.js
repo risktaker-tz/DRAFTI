@@ -60,6 +60,12 @@
       w: { aggr: 1.2, guard: .8, king: 1.6, trade: 1, center: .9 }, chaos: .5 },
   ];
   const styleById = (id) => STYLES.find((s) => s.id === id) || STYLES[0];
+  // every school speaks: an intro line when the game starts and two
+  // in-game catchphrases fired after its captures (24 banked voice lines)
+  for (const s of STYLES) {
+    s.intro = 's_in_' + s.id;
+    s.catch = ['s_' + s.id + '_1', 's_' + s.id + '_2'];
+  }
 
   // Which personality drives the engine currently thinking? `side` is the
   // side the ENGINE is searching for. Hotseat has no engines.
@@ -76,7 +82,7 @@
   function saveJSON(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* private mode etc. */ } }
 
   const settings = Object.assign(
-    { rsId: 'american', mode: 'ai', diff: 'l5', humanSide: IVORY, sound: true, rotate: true, theme: 'neon', clock: 0, speed: 1, hv: false, ambient: true, style: 'classic', styleIvory: 'italian', styleEbony: 'czech', pname: 'UHAKIKA', pname2: 'Challenger', aivaiAuto: true, jumpPaths: true, shake: true },
+    { rsId: 'american', mode: 'ai', diff: 'l5', humanSide: IVORY, sound: true, rotate: true, theme: 'neon', clock: 0, speed: 1, hv: false, ambient: true, style: 'classic', styleIvory: 'italian', styleEbony: 'czech', pname: 'UHAKIKA', pname2: 'Challenger', aivaiAuto: true, jumpPaths: true, shake: true, pieces: 'theme' },
     loadJSON(SETTINGS_KEY, {})
   );
   if (!E.RULESETS[settings.rsId]) settings.rsId = 'american';
@@ -433,6 +439,87 @@
       '--pl-d-1': '#8a6215', '--pl-d-2': '#563d0e', '--pl-d-3': '#301f05',
       '--pl-d-edge': '#140c02', '--pl-d-glow': 'rgba(255,176,0,.45)',
     }),
+    // ---- researched tables: tournament & club standards ----
+    // The ACF tournament set: green & buff 2-inch squares; club tables dress
+    // baize with a wooden frame; pro boards are maple & rosewood; travel sets
+    // are the classic rolled magnetic board.
+    T('greenbuff', 'Tournament Green', 'wood', {
+      '--bg-image': 'linear-gradient(180deg,#f4f1e6,#e9e4d2 60%,#ddd6bf)',
+      '--panel': 'rgba(255,253,246,.85)', '--panel-line': 'rgba(58,98,58,.28)',
+      '--modal-bg': 'linear-gradient(170deg,#fdfbf4,#ece8d6)', '--backdrop': 'rgba(45,60,45,.5)',
+      '--ink': '#26321f', '--ink-dim': '#5f6e52',
+      '--accent': '#3a6e42', '--accent-2': '#7a9a55',
+      '--accent-soft': 'rgba(58,110,66,.5)', '--accent-weak': 'rgba(58,110,66,.1)',
+      '--accent-ink': '#ffffff', '--danger': '#b8482e',
+      '--frame-hi': '#5a3a22', '--frame': '#422a16', '--frame-lo': '#2e1c0d',
+      '--frame-glow': 'rgba(90,58,34,.25)',
+      '--sq-light-hi': '#f4e6ba', '--sq-light': '#eddaa4', '--sq-light-lo': '#e0cb8e',
+      '--sq-dark-hi': '#4d8054', '--sq-dark': '#437348', '--sq-dark-lo': '#38633c',
+      '--grid-line': 'transparent',
+      '--sqnum-l': 'rgba(35,65,40,.55)', '--sqnum-d': 'rgba(245,238,214,.6)',
+      '--pl-l-1': '#ffffff', '--pl-l-2': '#f4efe4', '--pl-l-3': '#d9d2c0',
+      '--pl-l-edge': '#9a927c', '--pl-l-glow': GLOW0,
+      '--pl-d-1': '#c04a42', '--pl-d-2': '#9c3028', '--pl-d-3': '#6e1c16',
+      '--pl-d-edge': '#3d0e0a', '--pl-d-glow': GLOW0,
+    }),
+    T('maplewood', 'Maple & Rosewood', 'wood', {
+      '--bg-image': 'linear-gradient(180deg,#f6ead2,#eddfc0 60%,#e3d2ac)',
+      '--panel': 'rgba(252,246,234,.86)', '--panel-line': 'rgba(122,74,40,.3)',
+      '--modal-bg': 'linear-gradient(170deg,#fdf7ea,#f0e4cc)', '--backdrop': 'rgba(70,45,25,.5)',
+      '--ink': '#3c2a14', '--ink-dim': '#7d6850',
+      '--accent': '#a05a28', '--accent-2': '#c98a3e',
+      '--accent-soft': 'rgba(160,90,40,.5)', '--accent-weak': 'rgba(160,90,40,.11)',
+      '--accent-ink': '#ffffff', '--danger': '#b8482e',
+      '--frame-hi': '#6a4020', '--frame': '#4e2d13', '--frame-lo': '#38200c',
+      '--frame-glow': 'rgba(110,64,32,.25)',
+      '--sq-light-hi': '#f0d6a4', '--sq-light': '#e8c88f', '--sq-light-lo': '#dbb87c',
+      '--sq-dark-hi': '#7c462a', '--sq-dark': '#6e3b23', '--sq-dark-lo': '#5c301a',
+      '--grid-line': 'transparent',
+      '--sqnum-l': 'rgba(90,55,25,.55)', '--sqnum-d': 'rgba(248,238,214,.6)',
+      '--pl-l-1': '#fbf3dd', '--pl-l-2': '#f2e4c2', '--pl-l-3': '#ddc795',
+      '--pl-l-edge': '#a68a55', '--pl-l-glow': GLOW0,
+      '--pl-d-1': '#6b4526', '--pl-d-2': '#472c14', '--pl-d-3': '#241305',
+      '--pl-d-edge': '#140a02', '--pl-d-glow': GLOW0,
+    }),
+    T('baize', 'Club Baize', 'wood', {
+      '--bg-image': 'radial-gradient(1200px 700px at 50% -10%, #233c22 0%, #1a2e19 45%, #102010 100%)',
+      '--panel': 'rgba(20,34,20,.84)', '--panel-line': 'rgba(211,169,95,.26)',
+      '--modal-bg': 'linear-gradient(170deg,#24391f,#16240f)',
+      '--backdrop': 'rgba(4,10,4,.72)',
+      '--ink': '#eee7d0', '--ink-dim': '#a8a887',
+      '--accent': '#d3a95f', '--accent-2': '#e8cf9a',
+      '--accent-soft': 'rgba(211,169,95,.55)', '--accent-weak': 'rgba(211,169,95,.12)',
+      '--accent-ink': '#241708', '--danger': '#c96a4a',
+      '--frame-hi': '#5c3a1e', '--frame': '#422814', '--frame-lo': '#2c190a',
+      '--frame-glow': 'rgba(211,169,95,.14)',
+      '--sq-light-hi': '#6ba473', '--sq-light': '#5f9767', '--sq-light-lo': '#528658',
+      '--sq-dark-hi': '#3c6f45', '--sq-dark': '#33613a', '--sq-dark-lo': '#285230',
+      '--grid-line': 'rgba(240,240,210,.08)',
+      '--sqnum-l': 'rgba(10,25,12,.65)', '--sqnum-d': 'rgba(225,240,215,.5)',
+      '--pl-l-1': '#f8f2dc', '--pl-l-2': '#ecdfb8', '--pl-l-3': '#cdb986',
+      '--pl-l-edge': '#8f7448', '--pl-l-glow': GLOW0,
+      '--pl-d-1': '#7a3a34', '--pl-d-2': '#54201c', '--pl-d-3': '#30100d',
+      '--pl-d-edge': '#180604', '--pl-d-glow': GLOW0,
+    }),
+    T('travel', 'Travel Magnetic', null, {
+      '--bg-image': 'linear-gradient(180deg,#f2ede0,#e6dfcc 60%,#d9d1ba)',
+      '--panel': 'rgba(250,247,238,.86)', '--panel-line': 'rgba(90,90,100,.3)',
+      '--modal-bg': 'linear-gradient(170deg,#fbf9f2,#ebe6d8)', '--backdrop': 'rgba(60,60,70,.45)',
+      '--ink': '#33302a', '--ink-dim': '#6e6a5e',
+      '--accent': '#8a6a34', '--accent-2': '#b09258',
+      '--accent-soft': 'rgba(138,106,52,.5)', '--accent-weak': 'rgba(138,106,52,.1)',
+      '--accent-ink': '#ffffff', '--danger': '#c05a3a',
+      '--frame-hi': '#9aa0a8', '--frame': '#83898f', '--frame-lo': '#6a7076',
+      '--frame-glow': 'rgba(120,126,134,.22)',
+      '--sq-light-hi': '#e6d2a4', '--sq-light': '#ddc796', '--sq-light-lo': '#cfb782',
+      '--sq-dark-hi': '#77694c', '--sq-dark': '#6a5c43', '--sq-dark-lo': '#5a4d36',
+      '--grid-line': 'rgba(80,70,45,.14)',
+      '--sqnum-l': 'rgba(60,50,25,.5)', '--sqnum-d': 'rgba(245,240,220,.6)',
+      '--pl-l-1': '#f6f0da', '--pl-l-2': '#eae0c0', '--pl-l-3': '#d2c49a',
+      '--pl-l-edge': '#96865c', '--pl-l-glow': GLOW0,
+      '--pl-d-1': '#a34430', '--pl-d-2': '#7e2e1e', '--pl-d-3': '#541a10',
+      '--pl-d-edge': '#2c0c06', '--pl-d-glow': GLOW0,
+    }),
   ];
   if (!THEMES.some((t) => t.id === settings.theme)) settings.theme = 'neon';
 
@@ -445,6 +532,31 @@
     document.body.classList.toggle('fx-wood', t.fx === 'wood');
     const grid = $('themeGrid');
     if (grid) for (const b of grid.querySelectorAll('button')) b.classList.toggle('active', b.dataset.v === t.id);
+  }
+
+  // ---------------- piece skins ----------------
+  // The look of the men, independent of the table. Grounded in the real
+  // equipment: the ACF tournament set is smooth red & white 1.25-inch resin;
+  // club sets are turned wood in a light and a dark stain; vintage sets were
+  // butterscotch/cherry bakelite; premium sets come in brass & steel, glass
+  // and stone. 'theme' keeps whatever the chosen table ships with.
+  // `prev` drives the two-dot swatch in the menu.
+  const PIECES = [
+    { id: 'theme',    name: 'Follow table', prev: null },
+    { id: 'tourney',  name: 'Tournament Red',  prev: ['#ffffff', '#a02c24'] },
+    { id: 'woodturn', name: 'Turned Wood',     prev: ['#f0dfb8', '#4e2d13'] },
+    { id: 'ivoryjet', name: 'Ivory & Jet',     prev: ['#f7f0df', '#17171a'] },
+    { id: 'bakelite', name: 'Amber Bakelite',  prev: ['#e8b45a', '#8a1f1a'] },
+    { id: 'steel',    name: 'Steel & Brass',   prev: ['#c8ccd2', '#c9a24a'] },
+    { id: 'glass',    name: 'Neon Glass',      prev: ['#bdf3ff', '#ff5ad2'] },
+    { id: 'stone',    name: 'Marble Stone',    prev: ['#f4f4f2', '#22252b'] },
+  ];
+  if (!PIECES.some((p) => p.id === settings.pieces)) settings.pieces = 'theme';
+
+  function applyPieces(id) {
+    for (const p of PIECES) document.body.classList.toggle('pieces-' + p.id, p.id === id);
+    const seg = $('segPieces');
+    if (seg) for (const b of seg.querySelectorAll('button')) b.classList.toggle('active', b.dataset.v === id);
   }
 
 
@@ -669,6 +781,7 @@
     sel: null, hint: null, lastMove: null,
     aiPaused: false, aiSpeed: settings.speed,
     capStreakSide: 0, capStreak: 0,
+    firstBlood: false,
   };
 
   const posKey = (b, s) => b.join(',') + '|' + s;
@@ -706,7 +819,10 @@
         '  } else if (d.cmd === "classify") {\n' +
         '    const rs = E.RULESETS[d.rsId];\n' +
         '    const res = E.search(rs, new Int8Array(d.board), d.side, d.opts);\n' +
-        '    const roots = res.rootScores || [];\n' +
+        // A single legal move short-circuits the search with no rootScores —
+        // rebuild a one-entry root list so forced moves still get judged.
+        '    const roots = (res.rootScores && res.rootScores.length) ? res.rootScores\n' +
+        '      : (res.best ? [{ m: res.best, score: res.score }] : []);\n' +
         '    let played = null, bestOther = -Infinity, bestScore = -Infinity;\n' +
         '    let playedIsCapture = false, bestCapture = -Infinity;\n' +
         '    for (const r of roots) {\n' +
@@ -893,7 +1009,9 @@
   function createPieceEl(p) {
     const el = document.createElement('div');
     el.className = pieceClasses(p) + ' appear';
-    el.innerHTML = '<div class="body"><div class="ring"></div></div>';
+    // a king is two stacked men, like the real set: an extra disc peeks below
+    el.innerHTML = (Math.abs(p.code) === 2 ? '<div class="stack" aria-hidden="true"></div>' : '') +
+      '<div class="body"><div class="ring"></div></div>';
     positionEl(el, p.sq);
     const n = G.rs.n;
     el.style.width = (100 / n) + '%';
@@ -925,7 +1043,10 @@
   function refreshPiece(p) {
     p.el.className = pieceClasses(p);
     const body = p.el.querySelector('.body');
-    if (Math.abs(p.code) === 2 && !body.querySelector('.crown')) body.insertAdjacentHTML('beforeend', CROWN);
+    if (Math.abs(p.code) === 2) {
+      if (!body.querySelector('.crown')) body.insertAdjacentHTML('beforeend', CROWN);
+      if (!p.el.querySelector('.stack')) p.el.insertAdjacentHTML('afterbegin', '<div class="stack" aria-hidden="true"></div>');
+    }
   }
 
   function removePiece(p) {
@@ -1123,13 +1244,35 @@
     whisperTimer = setTimeout(() => el.classList.remove('run'), 2400);
   }
 
-  const pick = (arr) => arr[(Math.random() * arr.length) | 0];
+  const pick = (arr) => arr && arr.length ? arr[(Math.random() * arr.length) | 0] : null;
 
   function thump() {
     frameEl.classList.remove('thump');
     void frameEl.offsetWidth;
     frameEl.classList.add('thump');
     setTimeout(() => frameEl.classList.remove('thump'), 700);
+  }
+
+  // expanding ring from a square — the crowning shockwave
+  function shockwave(sq) {
+    if (sq == null) return;
+    const n = G.rs.n, r = (sq / n) | 0, c = sq % n;
+    const el = document.createElement('div');
+    el.className = 'shockwave';
+    el.style.left = (c * 100 / n) + '%';
+    el.style.top = (r * 100 / n) + '%';
+    el.style.width = (100 / n) + '%';
+    el.style.height = (100 / n) + '%';
+    piecesEl.appendChild(el);
+    setTimeout(() => el.remove(), 800);
+  }
+
+  // first capture of the game: a small sting that says the blood is up
+  function firstBloodSting() {
+    if (G.firstBlood) return;
+    G.firstBlood = true;
+    SFX_BANK.play('v_first', { vol: 0.95 });
+    flashWhisper('First blood!');
   }
 
   // Instant signals, computed at commit time from data we already have.
@@ -1146,7 +1289,7 @@
       const recapturable = G.legal.some((m) => m.caps.length > 0 && m.caps.includes(end));
       if (recapturable) ev = 'awkward';
     }
-    applyMoveEvent(ev, ply, mv.caps.length);
+    applyMoveEvent(ev, ply, mv.caps.length, mv.path[mv.path.length - 1]);
   }
 
   // impact shake, scaled by how heavy the hit was
@@ -1170,7 +1313,7 @@
   const HEAVY_POOL = ['v_heavy1', 'v_heavy2', 'v_heavy3', 'v_heavy4']; // boy & girl alternate
   const FEAST_POOL = ['v_feast1', 'v_feast2', 'v_slau1', 'v_slau2'];
 
-  function applyMoveEvent(ev, ply, flavor) {
+  function applyMoveEvent(ev, ply, flavor, endSq) {
     const def = MOVE_EVENTS[ev] || MOVE_EVENTS.none;
     if (def.rank <= lastEvent.rank && lastEvent.ply === ply) return;
     lastEvent = { rank: def.rank, ply };
@@ -1185,7 +1328,7 @@
       setTimeout(() => SFX_BANK.play('badboy', { vol: 1 }), 600);
       setTimeout(() => SFX_BANK.play(pick(FEAST_POOL), { vol: 0.95 }), 1550);
     } else if (ev === 'majestic') {
-      SFX_BANK.play(Math.random() < 0.7 ? 'oof' : 'eagle', { vol: 1 }); // "OOF."
+      SFX_BANK.play(pick(['oof', 'oof', 'eagle', 'vineboom']), { vol: 1 }); // "OOF." / the boom
       flashLabel('Double!', 'party');
       shake('shake-m');
       setTimeout(() => SFX_BANK.play('badboy', { vol: 1 }), 550);
@@ -1193,7 +1336,9 @@
     } else if (ev === 'promo') {
       SFX_BANK.play('elephant', { vol: 1 });
       SFX_BANK.play('crown_fanfare', { vol: 0.8 });
-      SFX_BANK.play('v_king', { vol: 0.9 });
+      // the king has arrived: shockwave from the crowned square, hype lines
+      shockwave(endSq);
+      SFX_BANK.play(Math.random() < 0.45 ? pick(['v_king1', 'v_king2']) : 'v_king', { vol: 0.9 });
       flashLabel('Crowned!', 'majestic');
     } else if (ev === 'brilliant') {
       if (ply - lastBlunderPly === 2) lastBlunderPly = -1;
@@ -1201,7 +1346,7 @@
       SFX_BANK.play(Math.random() < 0.5 ? 'v_chess' : 'v_ooh1', { vol: 0.85 });
       flashLabel('A chess move!', 'majestic');
     } else if (ev === 'trick') {
-      SFX_BANK.play(Math.random() < 0.5 ? 'wolfwhistle' : 'zip', { vol: 0.85 });
+      SFX_BANK.play(pick(['wolfwhistle', 'zip', 'meow']), { vol: 0.85 }); // the cat, laying a trap
       const line = ['v_trick', 'v_trap', 'v_crafty'][(Math.random() * 3) | 0];
       SFX_BANK.play(line, { vol: 0.95 });
       flashLabel(line === 'v_trap' ? 'What a trap!' : line === 'v_crafty' ? 'Crafty!' : 'Sneaky!', 'judge');
@@ -1231,7 +1376,7 @@
       flashLabel('Hmm…', 'judge');
     } else if (ev === 'blunder') {
       lastBlunderPly = ply;
-      SFX_BANK.play('trombone', { vol: 1 });
+      SFX_BANK.play(Math.random() < 0.35 ? 'bruh' : 'trombone', { vol: 1 });
       // A long think that ended in a blunder earns the savage callout.
       SFX_BANK.play(longThinkSavage ? pick(SAVAGE_POOL)
         : ['v_ohno', 'v_why', 'v_sure', 'v_cost'][(Math.random() * 4) | 0], { vol: 0.9 });
@@ -1244,7 +1389,7 @@
       flashLabel('Disaster!', 'comedy');
       thump();
     } else if (ev === 'missed') {
-      SFX_BANK.play('whistle', { vol: 1 });
+      SFX_BANK.play(Math.random() < 0.45 ? 'duck' : 'whistle', { vol: 1 }); // a sitting duck
       SFX_BANK.play('v_onejob', { vol: 0.9 });
       flashLabel('You missed the jump!', 'comedy');
     } else if (ev === 'feastmissed') {
@@ -1267,7 +1412,6 @@
   // Runs right after the move; its verdict may upgrade the instant one.
   function requestVerdict(mv, preBoard, side, preNoProg, ply) {
     if (G.over) return;
-    if (G.mode === 'aivai') return; // spectators keep a clean rhythm
     const w = getWorker();
     if (!w) return;
     const id = ++verdictId;
@@ -1281,6 +1425,85 @@
     });
   }
 
+  // ---- doom drama: one side is trapped with no way out -----------------------
+  // The verdict's opponent search (withOpp) reports how the side to move
+  // stands after every move. If that collapses deep below a lost-material
+  // horizon, the position is hopeless: the loser can only keep playing while
+  // the winner converts. Announce it, then — from time to time, on the
+  // winner's converting moves — let the table have its full
+  // "Let me tell you something" moment. Works in every mode.
+  const DOOM_ON = -650;   // side to move is beyond saving
+  const DOOM_OFF = -220;  // climbed back this high: escaped
+  const DOOM_LINES = ['v_doom1', 'v_doom2', 'v_doom3', 'v_doom4', 'v_doom5'];
+  const DOOM_WHISPER = ['No escape.', 'Trapped.', 'It is over.', 'Nowhere to run.'];
+  let doomSide = 0;            // the side that is lost
+  let doomPly = 0;             // ply when doom was declared
+  let lastDoomTaunt = 0;       // cooldown for the "let me tell you something" loop
+  let doomTauntIx = 0;
+
+  function doomStart(side, ply, isHumanDoomed) {
+    if (doomSide === side) return;
+    doomSide = side;
+    doomPly = ply;
+    doomTauntIx = 0;
+    frameEl.classList.add('doomed');
+    if (isHumanDoomed) {
+      // bad news for the player: the sad violin and a straight admission
+      SFX_BANK.play('sadviolin', { vol: 0.95 });
+      SFX_BANK.play(DOOM_LINES[0], { vol: 0.95 });
+      flashLabel('No escape!', 'drama');
+    } else {
+      // the ENGINE is the one trapped: a panicked chicken, pure comedy
+      SFX_BANK.play('panic', { vol: 0.95 });
+      flashLabel('The engine is trapped!', 'party');
+    }
+    lastDoomTaunt = Date.now();
+  }
+
+  function doomEnd(ply) {
+    const was = doomSide;
+    if (!was) return;
+    doomSide = 0;
+    frameEl.classList.remove('doomed');
+    if (ply - doomPly >= 2) { // a real escape, not a one-move wobble
+      FX.play('relief');
+      SFX_BANK.play(pick(['v_esc1', 'v_esc2']), { vol: 0.95 });
+      flashLabel('Narrow escape!', 'judge');
+    }
+  }
+
+  function doomClear() {
+    doomSide = 0;
+    frameEl.classList.remove('doomed');
+  }
+
+  // On the loser's turns: keep-playing patter. On the winner's converting
+  // moves: the full "Let me tell you something", then taunts — paced so it
+  // lands like a running joke, not a broken record.
+  function doomHeartbeat(moverSide, caps) {
+    if (!doomSide || doomSide !== -moverSide) return;
+    const now = Date.now();
+    if (moverSide === doomSide) {
+      // the doomed side shuffles on: soft brood clucks, occasionally the
+      // alarmed squawk — a chicken running around with its head cut off
+      if (Math.random() < 0.3) {
+        setTimeout(() => SFX_BANK.play(Math.random() < 0.3 ? 'panic' : 'chicken', { vol: 0.8 }), 700);
+      }
+      return;
+    }
+    if (now - lastDoomTaunt < 21000) return;
+    lastDoomTaunt = now;
+    const first = doomTauntIx === 0;
+    doomTauntIx++;
+    setTimeout(() => {
+      SFX_BANK.play(first ? 'tellyou' : 'vineboom', { vol: first ? 1 : 0.9 });
+      setTimeout(() => SFX_BANK.play(pick(DOOM_LINES.slice(1)), { vol: 0.95 }), first ? 2300 : 500);
+      flashLabel(pick(['DOUBLE DOOM!', 'No escape!', 'Still trapped!']), 'drama');
+      if (caps > 0) { shake('shake-m'); }
+    }, 420);
+  }
+
+
   // ---- trap drama: reaction bank for baits taken, dodged and wasted ----
   const DRAMA = {
     trap_win:    { sfx: 'trap_snap', lines: ['v_taw1', 'v_taw2', 'v_taw3'], label: ['The trap springs!', 'Snap!', 'Right into it!'], kind: 'majestic' },
@@ -1289,7 +1512,14 @@
     trap_dodge:  { sfx: 'relief',    lines: ['v_tbd1', 'v_tbd2', 'v_tbd3'], label: ['Good read.', 'You dodged it!', 'Not biting.'], kind: 'judge' },
     ai_missed:   { sfx: 'relief',    lines: ['v_aim1', 'v_aim2'], label: ['The trap went unused?!'], kind: 'comedy' },
   };
+  // the engine's table talk when it lays poisoned material on the board
+  const BAIT_POOL = {
+    lines: ['v_bait1', 'v_bait2', 'v_bait3'],
+    say: ['Whatever you do, do not take that piece…', 'That piece is poisoned…',
+      'Take the bait. I am begging you.'],
+  };
   let lastDramaAt = 0;
+  let lastPurrAt = 0;
   function applyDrama(kind, big) {
     const d = DRAMA[kind];
     if (!d) return;
@@ -1300,6 +1530,10 @@
     // a slaughter (3+ off the board) gets its own commentary
     SFX_BANK.play(big ? pick(['v_slau1', 'v_slau2']) : pick(d.lines), { vol: 0.95 });
     flashLabel(pick(d.label), d.kind);
+    // the cat pounces when a trap actually catches its mouse
+    if (kind === 'trap_win' && Math.random() < 0.3) {
+      setTimeout(() => SFX_BANK.play('meow', { vol: 0.85 }), 1300);
+    }
   }
 
   function handleVerdict(res) {
@@ -1309,8 +1543,17 @@
     if (G.over || G.history.length !== pv.ply) return;
     const h = G.history[pv.ply - 1];
 
+    // ---- doom drama, every mode: how does the side to move actually stand?
+    if (res.opp && isFinite(res.opp.bestScore)) {
+      const doomed = -pv.mover;
+      const humanDoomed = G.mode === 'ai' ? doomed === G.humanSide
+        : G.mode === 'hotseat'; // both seats are human — mourn together
+      if (res.opp.bestScore <= DOOM_ON) doomStart(doomed, pv.ply, humanDoomed);
+      else if (doomSide === doomed && res.opp.bestScore >= DOOM_OFF) doomEnd(pv.ply);
+    }
+
     // ---- score-sheet badge (! brilliant · !? inaccurate · ? mistake · ?? blunder)
-    if (h && isFinite(res.delta) && !res.onlyMove) {
+    if (G.mode !== 'aivai' && h && isFinite(res.delta) && !res.onlyMove) {
       if (res.delta >= 420) h.badge = '??';
       else if (res.delta >= 170) h.badge = '?';
       else if (res.delta >= 70) h.badge = '?!';
@@ -1324,14 +1567,37 @@
     // doom: every capture loses. Either way the next ply is the moment of truth.
     if (res.opp && res.opp.bait) {
       pendingTrap = { ply: pv.ply + 1, setter: pv.mover, doom: !!res.opp.doom, badPath: res.opp.capWorstPath };
+      // the engine just laid out poisoned material — it talks its talk
+      if (G.mode === 'ai' && pv.mover !== G.humanSide) {
+        setTimeout(() => {
+          SFX_BANK.play('notify_pop');
+          setTimeout(() => SFX_BANK.play(pick(BAIT_POOL.lines), { vol: 0.95 }), 200);
+          flashWhisper(pick(BAIT_POOL.say));
+        }, 550);
+      }
     }
 
     // ---- the engine set a winning trap… and played somewhere else ----
     if (res.missedWin) {
-      setTimeout(() => applyDrama('ai_missed'), 480);
+      setTimeout(() => {
+        applyDrama('ai_missed');
+        if (Math.random() < 0.5) SFX_BANK.play('v_lucky3', { vol: 0.9 }); // "My plan! Ruined!"
+        else if (Math.random() < 0.4) SFX_BANK.play('duck', { vol: 0.9 });
+      }, 480);
       return;
     }
 
+    // the engine is simply crushing: the cat purrs while it plays
+    if (G.mode === 'ai' && pv.mover !== G.humanSide && isFinite(res.playedScore) &&
+        res.playedScore >= 520 && Date.now() - lastPurrAt > 45000 && Math.random() < 0.4) {
+      lastPurrAt = Date.now();
+      setTimeout(() => {
+        SFX_BANK.play('purr', { vol: 0.9 });
+        flashWhisper('Purrrfect.');
+      }, 700);
+    }
+
+    if (G.mode === 'aivai') return; // spectators skip per-move quality scoring
     if (res.onlyMove || !isFinite(res.delta)) return;
     if (res.delta >= 420) {
       longThinkSavage = lastThinkMs > 20000;
@@ -1414,8 +1680,11 @@
         applyDrama(moverIsEngine ? 'trap_denied' : 'trap_dodge'); // safe capture found
       }
     }
+    // doom drama: the winner converts while the loser keeps playing
+    doomHeartbeat(moverSide, mv.caps.length);
     // capture streaks: consecutive moves (by either side) that capture
     if (mv.caps.length > 0) {
+      firstBloodSting();
       const stM = styleForSide(moverSide);
       if (stM && Math.random() < 0.18) {
         setTimeout(() => SFX_BANK.play(pick(stM.catch), { vol: 0.7 }), 750);
@@ -1504,6 +1773,7 @@
     G.over = true;
     G.result = { winner, reason };
     G.phase = 'over';
+    doomClear();
     recordStats(winner);
   }
 
@@ -1653,6 +1923,8 @@
     G.phase = 'idle'; G.sel = null; G.hint = null; G.lastMove = null;
     lastThinkMs = 0; thinkArmedKey = -1; thinkFired = 0; clockArmedKey = -1;
     pendingTrap = null;
+    G.firstBlood = false;
+    doomClear();
     buildBoard();
     rebuildPieces();
     updateAll();
@@ -1694,6 +1966,8 @@
     G.sel = null; G.hint = null;
     G.capStreak = 0; G.capStreakSide = 0;
     pendingTrap = null;
+    G.firstBlood = G.history.some((h) => h.move.caps.length > 0);
+    doomClear();
     G.legal = E.legalMoves(G.rs, G.board, G.side);
     rebuildPieces();
     FX.play('undo');
@@ -1708,10 +1982,37 @@
     if (G.mode === 'hotseat') return;
     if (G.mode === 'ai' && G.side === G.humanSide) return;
     if (G.mode === 'aivai' && G.aiPaused) return;
+    // ambient table talk: real draughts patter while the computer ponders —
+    // paced so it feels like a chatty opponent, not a broken record
+    if (G.mode === 'ai' && G.history.length >= 2 &&
+        Date.now() - lastTalkAt > 58000 && Math.random() < 0.6) {
+      lastTalkAt = Date.now();
+      const line = TABLE_TALK[(Math.random() * TABLE_TALK.length) | 0];
+      setTimeout(() => {
+        SFX_BANK.play('notify_pop');
+        setTimeout(() => SFX_BANK.play(line.snd, { vol: 0.9 }), 200);
+        flashWhisper(line.say);
+      }, 900);
+    }
     G.phase = 'thinking';
     updateAll();
     runSearch('ai');
   }
+
+  // the words people actually say over the draughts board
+  const TABLE_TALK = [
+    { snd: 'v_tt1',  say: 'Give a man to get a man — that is draughts.' },
+    { snd: 'v_tt2',  say: 'Keep your back row tight…' },
+    { snd: 'v_tt3',  say: 'Patience. Draughts punishes the hasty.' },
+    { snd: 'v_tt4',  say: 'I would not touch that piece if I were you…' },
+    { snd: 'v_tt5',  say: 'Go on. Push it. See what happens.' },
+    { snd: 'v_tt6',  say: 'The move is mine — and the move is everything.' },
+    { snd: 'v_tt7',  say: 'Careful now. One slip and it is over.' },
+    { snd: 'v_tt8',  say: 'You are playing right into my hands…' },
+    { snd: 'v_tt9',  say: 'Hmm. You are better than you look.' },
+    { snd: 'v_tt10', say: 'Let us trade — the endgame loves me.' },
+  ];
+  let lastTalkAt = 0;
 
   function requestHint() {
     if (G.phase !== 'idle' || G.over || !humanTurn() || !G.legal.length) return;
@@ -1857,6 +2158,7 @@
     for (const b of $('themeGrid').querySelectorAll('button')) {
       b.classList.toggle('active', b.dataset.v === settings.theme);
     }
+    set('segPieces', settings.pieces);
   }
 
   function updateControls() {
@@ -2077,6 +2379,27 @@
     SFX_BANK.play('ui_theme');
   });
 
+  // piece-style picker: swatch buttons with a two-dot preview of the men
+  const pieceSeg = $('segPieces');
+  for (const p of PIECES) {
+    const b = document.createElement('button');
+    b.dataset.v = p.id;
+    b.title = p.name;
+    b.className = 'piece-opt';
+    b.innerHTML = p.prev
+      ? '<span class="dot l" style="background:' + p.prev[0] + '"></span>' +
+        '<span class="dot d" style="background:' + p.prev[1] + '"></span>' + p.name
+      : p.name;
+    pieceSeg.appendChild(b);
+  }
+  wireSeg('segPieces', (v) => {
+    settings.pieces = v;
+    saveJSON(SETTINGS_KEY, settings);
+    applyPieces(v);
+    FX.play('move');
+    SFX_BANK.play('ui_theme', { vol: 0.7 });
+  });
+
   // playing-style pickers: the engine's school (computer mode) and, for
   // AI-vs-AI spectating, a personality per side
   for (const gridId of ['segStyle', 'segStyleI', 'segStyleE']) {
@@ -2244,7 +2567,8 @@
       const line = pick(fresh.length ? fresh : tier.lines);
       thinkSaid.add(line);
       if (thinkSaid.size > 12) thinkSaid.delete(thinkSaid.values().next().value);
-      SFX_BANK.play('notify_pop');
+      // a dead-quiet position (tier 3): crickets, sometimes
+      SFX_BANK.play(tier.at === 45000 && Math.random() < 0.4 ? 'cricket' : 'notify_pop');
       setTimeout(() => SFX_BANK.play(line, { vol: 0.95 }), 170);
       flashWhisper(tier.say);
     }
@@ -2252,6 +2576,7 @@
 
   // ---------------- boot ----------------
   applyTheme(settings.theme);
+  applyPieces(settings.pieces);
   document.body.classList.toggle('hv', !!settings.hv);
   document.body.classList.toggle('ambient-off', !settings.ambient);
   newGame();
