@@ -1,0 +1,19 @@
+# web
+node_modules/
+.DS_Store
+
+# android / gradle
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.idea/
+android/*.iml
+android/captures/
+android/gradle-app.setting
+
+# editor
+.idea/
+*.iml
+.vscode/
+*.swp
