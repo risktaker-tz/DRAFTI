@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DRAFTI — Checkers, refined</title>
-<meta name="description" content="DRAFTI is an original open-source checkers game: five international rulesets, ten AI levels from Beginner to The Machine, twelve national playing styles, two-player and AI-vs-AI modes, 17 themes, trap-aware sound drama and 190+ reactive sounds, in a single HTML file.">
+<meta name="description" content="DRAFTI is an original open-source checkers game: five international rulesets, ten AI levels from Beginner to The Machine, twelve national playing styles, two-player and auto-rematch AI-vs-AI modes, 17 themes, jump-path previews, board-shaking impacts and 200+ reactive sounds, in a single HTML file.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%237c4a24'/%3E%3Crect x='2' y='2' width='13' height='13' fill='%23e9d5a7'/%3E%3Crect x='17' y='17' width='13' height='13' fill='%23e9d5a7'/%3E%3Ccircle cx='22' cy='10' r='4.5' fill='%23191009'/%3E%3Ccircle cx='9' cy='24' r='4.5' fill='%23ecdcb4'/%3E%3C/svg%3E">
 <style>
 /*__STYLES__*/
@@ -59,6 +59,7 @@
         <button data-v="2">2×</button>
         <button data-v="4">4×</button>
       </div>
+      <span class="auto-next" id="autoNext" hidden></span>
       <button class="btn" id="btnAivaiNew">
         <svg viewBox="0 0 24 24"><path d="M12 5V2L7 6l5 4V7a6 6 0 1 1-6 6H4a8 8 0 1 0 8-8z"/></svg>
         Restart</button>
@@ -142,6 +143,20 @@
             <button data-v="90">90s</button>
           </div>
         </div>
+        <div class="seg-row" id="rowName">
+          <span class="seg-label">Your name — spoken by the commentary</span>
+          <div class="name-rows">
+            <input type="text" id="nameInput" class="name-input" maxlength="18" placeholder="UHAKIKA" autocomplete="off" spellcheck="false">
+            <span id="name2Wrap"><input type="text" id="name2Input" class="name-input" maxlength="18" placeholder="Challenger" autocomplete="off" spellcheck="false"></span>
+          </div>
+        </div>
+        <div class="seg-row" id="rowAuto">
+          <span class="seg-label">When a game ends</span>
+          <div class="seg-btns" id="segAuto">
+            <button data-v="on">Auto-rematch, next level up</button>
+            <button data-v="off">Stop and review</button>
+          </div>
+        </div>
       </div>
       <p class="setup-note" id="setupNote"></p>
     </div>
@@ -176,6 +191,12 @@
       <button class="btn" id="btnAmbient" title="Slow drifting light glows behind the board — part of every theme's mood">
         <svg viewBox="0 0 24 24"><path d="M12 3q2 3.4 2 6a2 2 0 1 1-4 0q0-2.6 2-6zM5.2 6.4q3.3 1.3 4.9 3.6a2 2 0 1 1-3.3 2.3Q4.9 10 5.2 6.4zM18.8 6.4q.3 3.6-1.6 5.9a2 2 0 1 1-3.3-2.3q1.6-2.3 4.9-3.6zM12 13.5a4.5 4.5 0 0 1 4.5 4.5H7.5a4.5 4.5 0 0 1 4.5-4.5z"/></svg>
         Ambient glow (animated backdrop)</button>
+      <button class="btn" id="btnJump" title="Show every square and victim of the available multi-jumps — numbered landings on selection, warning glows on pieces in danger">
+        <svg viewBox="0 0 24 24"><path d="M4 5h6v2H7.4l3.6 3.6L7.4 14H9v2H4v-5h2v1.6L9.6 9 6 5.4V7H4V5zm10 14v-2h1.6L12 13.4 15.6 10H14V8h6v5h-2v-1.6L14.4 15l3.6 3.6V17h2v2h-6z"/></svg>
+        Show jump paths</button>
+      <button class="btn" id="btnShake" title="The board shakes when a heavy capture lands — double takes a jolt, triples and up rock the table">
+        <svg viewBox="0 0 24 24"><path d="M12 3 3 8v2h18V8l-9-5zM5 12h3v6H5zm5.5 0h3v6h-3zM16 12h3v6h-3zM3 19.5h18V22H3z"/></svg>
+        Impact shake</button>
       <p class="setup-note" id="themeNote">17 tables — from neon glass and walnut royale to tournament classic.</p>
     </div>
 
@@ -190,13 +211,14 @@
         <button data-v="animals" title="Majestic animal fanfares for multi-jumps and crowns">🦁 Majestic</button>
         <button data-v="judge" title="The judge: praise, mistakes, tricks, big-brain callouts">🧑‍⚖️ Judge</button>
         <button data-v="drama" title="Trap drama: snaps, stings and callouts when baits are set, sprung, dodged or wasted">🎭 Drama</button>
+        <button data-v="party" title="Party memes: bad-boy shaming for greedy captures, narrator time cards, big laughs">🎉 Party</button>
         <button data-v="comedy" title="Cartoon comedy for blunders">🤡 Comedy</button>
         <button data-v="voice" title="Realistic voice commentary and opponent table talk">🎙️ Voice</button>
         <button data-v="think" title="Heckles while you think, time pressure and clock callouts">⏳ Heckles</button>
         <button data-v="ui" title="Interface sounds: menu, toggles, themes, clock">🎛️ Interface</button>
         <button data-v="classic" title="Classic wooden club sounds">🪵 Classic</button>
       </div>
-      <p class="setup-note">190+ open-license samples, synthesized effects &amp; voice lines · credits in ATTRIBUTIONS.md</p>
+      <p class="setup-note">200+ open-license samples, authentic meme effects, synthesized stings &amp; voice lines · credits in ATTRIBUTIONS.md</p>
     </div>
 
     <div class="card history-card">

@@ -76,7 +76,7 @@
   function saveJSON(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* private mode etc. */ } }
 
   const settings = Object.assign(
-    { rsId: 'american', mode: 'ai', diff: 'l5', humanSide: IVORY, sound: true, rotate: true, theme: 'neon', clock: 0, speed: 1, hv: false, ambient: true, style: 'classic', styleIvory: 'italian', styleEbony: 'czech' },
+    { rsId: 'american', mode: 'ai', diff: 'l5', humanSide: IVORY, sound: true, rotate: true, theme: 'neon', clock: 0, speed: 1, hv: false, ambient: true, style: 'classic', styleIvory: 'italian', styleEbony: 'czech', pname: 'UHAKIKA', pname2: 'Challenger', aivaiAuto: true, jumpPaths: true, shake: true },
     loadJSON(SETTINGS_KEY, {})
   );
   if (!E.RULESETS[settings.rsId]) settings.rsId = 'american';
@@ -91,9 +91,16 @@
   if (![0, 30, 60, 90].includes(settings.clock)) settings.clock = 0;
   if (![1, 2, 4].includes(settings.speed)) settings.speed = 1;
   settings.sfx = Object.assign(
-    { master: 0.9, animals: true, judge: true, comedy: true, voice: true, classic: true, think: true, ui: true, drama: true },
+    { master: 0.9, animals: true, judge: true, comedy: true, voice: true, classic: true, think: true, ui: true, drama: true, party: true },
     (settings.sfx && typeof settings.sfx === 'object') ? settings.sfx : {}
   );
+  // player names: short, non-empty, one line
+  const cleanName = (v, fb) => {
+    const s = String(v == null ? '' : v).replace(/[\r\n\t]+/g, ' ').trim().slice(0, 18);
+    return s || fb;
+  };
+  settings.pname = cleanName(settings.pname, 'UHAKIKA');
+  settings.pname2 = cleanName(settings.pname2, 'Challenger');
 
   // ---------------- themes ----------------
   // Every theme overrides the CSS custom properties defined in styles.css.
@@ -596,7 +603,7 @@
     defs: window.DRAFTI_SFX || {},
     buffers: new Map(),
     decoding: false,
-    CAT_VOL: { majestic: 0.95, comedy: 0.8, voice: 1.0, judge: 1.0, think: 1.0, ui: 0.6, drama: 0.95 },
+    CAT_VOL: { majestic: 0.95, comedy: 0.8, voice: 1.0, judge: 1.0, think: 1.0, ui: 0.6, drama: 0.95, party: 1.0 },
     decodeAll() {
       const ctx = FX.ctx;
       if (!ctx || this.decoding) return;
@@ -620,6 +627,7 @@
       if (def.c === 'think') return settings.sfx.think;
       if (def.c === 'ui') return settings.sfx.ui;
       if (def.c === 'drama') return settings.sfx.drama;
+      if (def.c === 'party') return settings.sfx.party;
       return true;
     },
     play(name, opts) {
@@ -668,6 +676,12 @@
   const pieceAt = (sq) => G.pieces.find((p) => p.sq === sq);
   const countSide = (s) => { let n = 0; for (let i = 0; i < G.board.length; i++) if (G.board[i] * s > 0) n++; return n; };
   const sideName = (s) => (s === IVORY ? 'Ivory' : 'Ebony');
+  // players are people: show their name where a side would feel impersonal
+  const displayName = (s) => {
+    if (G.mode === 'ai' && s === G.humanSide) return settings.pname;
+    if (G.mode === 'hotseat') return s === IVORY ? settings.pname : settings.pname2;
+    return sideName(s);
+  };
   const humanTurn = () => !G.over && (G.mode === 'hotseat' || G.side === G.humanSide);
 
   function repAdd(k) { G.repMap.set(k, (G.repMap.get(k) || 0) + 1); }
@@ -926,7 +940,52 @@
 
   // ---------------- highlights ----------------
   function clearHighlights() {
-    for (const el of squareEls()) el.classList.remove('sel', 'hop', 'target', 'capture-target', 'last', 'hint');
+    for (const el of squareEls()) {
+      el.classList.remove('sel', 'hop', 'target', 'capture-target', 'last', 'hint', 'landing');
+      el.removeAttribute('data-step');
+    }
+    for (const p of G.pieces) if (p.el) p.el.classList.remove('threat', 'doomed');
+  }
+
+  // jump-path preview: make multi-jumps impossible to miss. Before selection,
+  // every piece that can be eaten this turn wears a warning glow; once a
+  // piece is selected, each candidate route shows numbered landing badges and
+  // the pieces those routes would eat carry a doomed ✕.
+  function markJumpPaths() {
+    if (!settings.jumpPaths || G.over) return;
+    if (!G.sel) {
+      const spect = G.mode === 'aivai';
+      if (!humanTurn() && !spect) return;
+      if (!G.legal.some((m) => m.caps.length > 0)) return;
+      const seen = new Set();
+      for (const m of G.legal) {
+        for (const j of m.caps) {
+          if (seen.has(j)) continue;
+          seen.add(j);
+          const v = pieceAt(j);
+          if (v && v.el) v.el.classList.add('threat');
+        }
+      }
+      return;
+    }
+    if (!humanTurn()) return;
+    const steps = new Map(); // landing square -> earliest hop number
+    const victims = new Set();
+    for (const m of G.sel.cands) {
+      for (let k = 1; k < m.path.length; k++) {
+        const sq = m.path[k];
+        if (!steps.has(sq) || steps.get(sq) > k) steps.set(sq, k);
+      }
+      for (const j of m.caps) victims.add(j);
+    }
+    for (const [sq, k] of steps) {
+      const el = squareEls()[sq];
+      if (el) { el.classList.add('landing'); el.dataset.step = k; }
+    }
+    for (const j of victims) {
+      const v = pieceAt(j);
+      if (v && v.el) v.el.classList.add('doomed');
+    }
   }
 
   function renderHighlights() {
@@ -940,19 +999,21 @@
       mark(G.hint.from, 'hint');
       mark(G.hint.path[1], 'hint');
     }
-    if (!G.sel || !humanTurn()) return;
-    mark(G.sel.from, 'sel');
-    const k = G.sel.partial.length;
-    for (const sq of G.sel.partial) if (sq !== G.sel.from) mark(sq, 'hop');
-    const nexts = new Set();
-    for (const m of G.sel.cands) {
-      if (m.path.length > k && G.sel.partial.every((s, ix) => m.path[ix] === s)) nexts.add(m.path[k]);
+    if (G.sel && humanTurn()) {
+      mark(G.sel.from, 'sel');
+      const k = G.sel.partial.length;
+      for (const sq of G.sel.partial) if (sq !== G.sel.from) mark(sq, 'hop');
+      const nexts = new Set();
+      for (const m of G.sel.cands) {
+        if (m.path.length > k && G.sel.partial.every((s, ix) => m.path[ix] === s)) nexts.add(m.path[k]);
+      }
+      for (const sq of nexts) {
+        const m = G.sel.cands.find((mm) =>
+          mm.path.length > k && mm.path[k] === sq && G.sel.partial.every((s, ix) => mm.path[ix] === s));
+        mark(sq, m && m.caps.length > 0 ? 'capture-target' : 'target');
+      }
     }
-    for (const sq of nexts) {
-      const m = G.sel.cands.find((mm) =>
-        mm.path.length > k && mm.path[k] === sq && G.sel.partial.every((s, ix) => mm.path[ix] === s));
-      mark(sq, m && m.caps.length > 0 ? 'capture-target' : 'target');
-    }
+    markJumpPaths();
   }
 
   // ---------------- selection & input ----------------
@@ -1001,6 +1062,7 @@
     none: { rank: 0 },
     awkward: { rank: 1 },
     missed: { rank: 1 },
+    feastmissed: { rank: 1 },
     accurate: { rank: 1 },
     dubious: { rank: 1 },
     blunder: { rank: 2 },
@@ -1073,17 +1135,40 @@
   // Instant signals, computed at commit time from data we already have.
   function classifySync(mv, moverLegalBefore, ply) {
     let ev = 'none';
+    const maxCaps = moverLegalBefore.reduce((a, m) => Math.max(a, m.caps.length), 0);
     if (mv.caps.length >= 3) ev = 'legendary';
     else if (mv.caps.length === 2) ev = 'majestic';
     else if (mv.promotes) ev = 'promo';
-    else if (mv.caps.length === 0 && moverLegalBefore.some((m) => m.caps.length >= 2)) ev = 'missed';
+    else if (mv.caps.length === 0 && maxCaps >= 2) ev = 'missed';
+    else if (mv.caps.length >= 1 && maxCaps >= 3 && mv.caps.length < maxCaps) ev = 'feastmissed';
     else if (mv.caps.length === 0) {
       const end = mv.path[mv.path.length - 1];
       const recapturable = G.legal.some((m) => m.caps.length > 0 && m.caps.includes(end));
       if (recapturable) ev = 'awkward';
     }
-    applyMoveEvent(ev, ply);
+    applyMoveEvent(ev, ply, mv.caps.length);
   }
+
+  // impact shake, scaled by how heavy the hit was
+  let lastShake = 0;
+  function shake(cls) {
+    if (!settings.shake) return;
+    const now = Date.now();
+    if (now - lastShake < 500) return;
+    lastShake = now;
+    frameEl.classList.remove('shake-m', 'shake-l', 'shake-xl');
+    void frameEl.offsetWidth;
+    frameEl.classList.add(cls);
+    setTimeout(() => frameEl.classList.remove(cls), 850);
+  }
+  function flare() {
+    if (!settings.shake) return;
+    frameEl.classList.add('flare');
+    setTimeout(() => frameEl.classList.remove('flare'), 550);
+  }
+  const COUNT_WORD = { 2: 'Double!', 3: 'Triple!', 4: 'Quadruple!', 5: 'UNBELIEVABLE!' };
+  const HEAVY_POOL = ['v_heavy1', 'v_heavy2', 'v_heavy3', 'v_heavy4']; // boy & girl alternate
+  const FEAST_POOL = ['v_feast1', 'v_feast2', 'v_slau1', 'v_slau2'];
 
   function applyMoveEvent(ev, ply, flavor) {
     const def = MOVE_EVENTS[ev] || MOVE_EVENTS.none;
@@ -1092,13 +1177,19 @@
     if (ev === 'legendary') {
       const roar = ['lion', 'lion_long', 'bear', 'wildroar'][(Math.random() * 4) | 0];
       SFX_BANK.play(roar, { vol: 1 });
-      SFX_BANK.play('v_legendary', { vol: 0.85 });
-      flashLabel('Legendary!', 'majestic');
+      flashLabel(COUNT_WORD[Math.min(5, flavor || 3)] || 'Legendary!', 'party');
+      shake('shake-xl');
+      flare();
       thump();
+      // the table reacts: the greedy shout, then the feast commentary
+      setTimeout(() => SFX_BANK.play('badboy', { vol: 1 }), 600);
+      setTimeout(() => SFX_BANK.play(pick(FEAST_POOL), { vol: 0.95 }), 1550);
     } else if (ev === 'majestic') {
-      SFX_BANK.play('eagle', { vol: 1 });
-      SFX_BANK.play(Math.random() < 0.55 ? 'v_magnificent' : 'v_chess', { vol: 0.8 });
-      flashLabel('Magnificent!', 'majestic');
+      SFX_BANK.play(Math.random() < 0.7 ? 'oof' : 'eagle', { vol: 1 }); // "OOF."
+      flashLabel('Double!', 'party');
+      shake('shake-m');
+      setTimeout(() => SFX_BANK.play('badboy', { vol: 1 }), 550);
+      setTimeout(() => SFX_BANK.play(pick(HEAVY_POOL), { vol: 0.95 }), 1450);
     } else if (ev === 'promo') {
       SFX_BANK.play('elephant', { vol: 1 });
       SFX_BANK.play('crown_fanfare', { vol: 0.8 });
@@ -1106,7 +1197,7 @@
       flashLabel('Crowned!', 'majestic');
     } else if (ev === 'brilliant') {
       if (ply - lastBlunderPly === 2) lastBlunderPly = -1;
-      SFX_BANK.play(Math.random() < 0.6 ? 'wolfwhistle' : 'rimshot', { vol: 0.9 });
+      SFX_BANK.play(pick(['wolfwhistle', 'rimshot', 'animewow']), { vol: 0.9 });
       SFX_BANK.play(Math.random() < 0.5 ? 'v_chess' : 'v_ooh1', { vol: 0.85 });
       flashLabel('A chess move!', 'majestic');
     } else if (ev === 'trick') {
@@ -1147,7 +1238,7 @@
       longThinkSavage = false;
       flashLabel(['Why?!', 'Oh no!'][(Math.random() * 2) | 0], 'comedy');
     } else if (ev === 'epic') {
-      SFX_BANK.play('wilhelm', { vol: 1 });
+      SFX_BANK.play(pick(['omg', 'omg', 'wilhelm', 'ahhscary']), { vol: 1 });
       SFX_BANK.play(lastThinkMs > 20000 ? pick(SAVAGE_POOL)
         : (Math.random() < 0.5 ? 'v_wow' : 'v_why'), { vol: 0.9 });
       flashLabel('Disaster!', 'comedy');
@@ -1156,6 +1247,11 @@
       SFX_BANK.play('whistle', { vol: 1 });
       SFX_BANK.play('v_onejob', { vol: 0.9 });
       flashLabel('You missed the jump!', 'comedy');
+    } else if (ev === 'feastmissed') {
+      // the mover grabbed the wrong piece: a bigger feast was on the board
+      SFX_BANK.play('trombone', { vol: 1 });
+      setTimeout(() => SFX_BANK.play(pick(['v_wrong1', 'v_wrong2', 'v_wrong3', 'v_wrong4']), { vol: 0.95 }), 900);
+      flashLabel('Wrong piece!', 'comedy');
     } else if (ev === 'awkward') {
       const pool = ['ahooga', 'woops', 'banana', 'haha', 'klonk', 'shloop', 'gulp', 'smarts', 'fall', 'scramble', 'zip'];
       SFX_BANK.play(pool[(Math.random() * pool.length) | 0], { vol: 0.85 });
@@ -1194,14 +1290,15 @@
     ai_missed:   { sfx: 'relief',    lines: ['v_aim1', 'v_aim2'], label: ['The trap went unused?!'], kind: 'comedy' },
   };
   let lastDramaAt = 0;
-  function applyDrama(kind) {
+  function applyDrama(kind, big) {
     const d = DRAMA[kind];
     if (!d) return;
     const now = Date.now();
     if (now - lastDramaAt < 2500) return; // never stack drama stings
     lastDramaAt = now;
     FX.play(d.sfx);
-    SFX_BANK.play(pick(d.lines), { vol: 0.95 });
+    // a slaughter (3+ off the board) gets its own commentary
+    SFX_BANK.play(big ? pick(['v_slau1', 'v_slau2']) : pick(d.lines), { vol: 0.95 });
     flashLabel(pick(d.label), d.kind);
   }
 
@@ -1286,6 +1383,10 @@
     }
   }
 
+  let lastSpecAt = 0;
+  const SPEC_THINK = ['v_spec2', 'v_spec3', 'v_spec4', 'v_spec5', 'v_spec6'];
+  const SPEC_HIT = ['v_spec7', 'v_spec8'];
+
   async function executeMove(mv) {
     if (!mv || G.phase !== 'idle') return;
     G.phase = 'animating';
@@ -1297,6 +1398,8 @@
     const moverSide = G.side;
     G.sel = null; G.hint = null;
     updateAll();
+    // a big capture trip gets its build-up call while the hops are airborne
+    if (mv.caps.length >= 3) SFX_BANK.play('tellyou', { vol: 0.95 });
     await animateMove(mv);
     const ply = commitMove(mv);
     // trap drama: the mover either walked into the shot or found the safe way
@@ -1306,7 +1409,7 @@
       const moverIsEngine = G.mode === 'ai' && moverSide !== G.humanSide;
       const tookBadPath = trap.badPath != null && mv.path.join() === trap.badPath;
       if (trap.doom || tookBadPath) {
-        applyDrama(moverIsEngine ? 'trap_win' : 'trap_fail'); // the shot fires
+        applyDrama(moverIsEngine ? 'trap_win' : 'trap_fail', mv.caps.length >= 3); // the shot fires
       } else {
         applyDrama(moverIsEngine ? 'trap_denied' : 'trap_dodge'); // safe capture found
       }
@@ -1316,6 +1419,12 @@
       const stM = styleForSide(moverSide);
       if (stM && Math.random() < 0.18) {
         setTimeout(() => SFX_BANK.play(pick(stM.catch), { vol: 0.7 }), 750);
+      }
+      // spectator hype when the engines land a hit
+      if (G.mode === 'aivai' && mv.caps.length >= 2 && Math.random() < 0.5 &&
+          Date.now() - lastSpecAt > 9000) {
+        lastSpecAt = Date.now();
+        setTimeout(() => SFX_BANK.play(pick(SPEC_HIT), { vol: 0.9 }), 900);
       }
       G.capStreak = G.capStreakSide === moverSide ? G.capStreak + 1 : 1;
       G.capStreakSide = moverSide;
@@ -1329,6 +1438,15 @@
       }
     } else {
       G.capStreak = 0; G.capStreakSide = 0;
+    }
+    // spectator table talk while the engines think
+    if (G.mode === 'aivai' && !G.over && mv.caps.length === 0 &&
+        Math.random() < 0.1 && Date.now() - lastSpecAt > 16000) {
+      lastSpecAt = Date.now();
+      setTimeout(() => {
+        SFX_BANK.play('notify_pop');
+        setTimeout(() => SFX_BANK.play(pick(SPEC_THINK), { vol: 0.9 }), 200);
+      }, 500);
     }
     lastEvent = { rank: -1, ply: -1 };
     if (!G.over) classifySync(mv, preLegal, ply);
@@ -1414,6 +1532,9 @@
       FX.play(r.winner === null ? 'draw' : r.winner === G.humanSide ? 'win' : 'lose');
       SFX_BANK.play(r.winner === null ? 'draw_chime'
         : r.winner === G.humanSide ? 'win_fanfare' : 'lose_womp', { vol: 0.9 });
+      if (r.winner === null && settings.sfx.party) {
+        setTimeout(() => SFX_BANK.play('god', { vol: 0.9 }), 1000); // "…God."
+      }
       if (r.winner === G.humanSide) {
         SFX_BANK.play('achievement', { vol: 0.8 });
         if (Math.random() < 0.35) setTimeout(() => SFX_BANK.play(pick(['v_win2', 'v_win3']), { vol: 0.85 }), 1400);
@@ -1443,21 +1564,75 @@
     } else {
       FX.play(r.winner === null ? 'draw' : 'king');
       SFX_BANK.play(r.winner === null ? 'draw_chime' : 'crown_fanfare', { vol: 0.85 });
+      if (r.winner === null) setTimeout(() => SFX_BANK.play('god', { vol: 0.9 }), 1000);
+      // AI vs AI: the show must go on — commentary then the next bout
+      if (Math.random() < 0.8) setTimeout(() => SFX_BANK.play(pick(['v_spec9', 'v_spec8', 'v_spec7']), { vol: 0.9 }), 1600);
     }
     $('goTitle').textContent = r.winner === null ? 'A draw'
       : (G.mode === 'ai'
         ? (r.winner === G.humanSide ? 'You win' : 'The computer wins')
-        : sideName(r.winner) + ' wins');
+        : displayName(r.winner) + ' wins');
     $('goResult').textContent = r.winner === null ? 'Honours are shared.'
-      : sideName(r.winner) + ' takes the game.';
+      : displayName(r.winner) + ' takes the game.';
     $('goReason').textContent = r.reason || '';
+    // AI vs AI with auto-rematch: no modal — count down into the next level
+    if (G.mode === 'aivai' && settings.aivaiAuto) {
+      scheduleAutoNext();
+      return;
+    }
     setTimeout(() => openModal('modalGameOver'), 650);
+  }
+
+  // ---------------- AI vs AI auto-rematch: next bout, next rung ----------------
+  // The ladder climbs on its own while you spectate: after every game the
+  // stronger rung steps up (wrapping past The Machine), the two schools swap
+  // colours, and a fresh bout starts without anyone touching a button.
+  let autoNextTimer = 0;
+  function cancelAutoNext() {
+    clearTimeout(autoNextTimer);
+    autoNextTimer = 0;
+    const el = $('autoNext');
+    if (el) el.hidden = true;
+  }
+  function scheduleAutoNext() {
+    cancelAutoNext();
+    const el = $('autoNext');
+    if (!el) return;
+    const li = LEVEL_IDS.indexOf(G.diff);
+    const nextId = LEVEL_IDS[(li + 1) % LEVEL_IDS.length];
+    const swapI = settings.styleEbony, swapE = settings.styleIvory; // schools swap colours
+    let left = 6;
+    const announce = () => {
+      el.hidden = false;
+      el.innerHTML = 'Next: <b>' + LEVELS[nextId].name + '</b> · ' +
+        styleById(swapE).flag + ' vs ' + styleById(swapI).flag + ' · ' + left + 's';
+    };
+    const fire = () => {
+      cancelAutoNext();
+      settings.diff = nextId;
+      settings.styleIvory = swapI;
+      settings.styleEbony = swapE;
+      saveJSON(SETTINGS_KEY, settings);
+      G.diff = nextId;
+      FX.play('levelup');
+      flashLabel('Level up: ' + LEVELS[nextId].name + '!', 'party');
+      setTimeout(() => SFX_BANK.play(pick(['v_spec10', 'v_nextup']), { vol: 0.9 }), 500);
+      startNewGameWithFanfare();
+    };
+    announce();
+    const tick = setInterval(() => {
+      left -= 1;
+      if (left <= 0) { clearInterval(tick); fire(); return; }
+      announce();
+    }, 1000);
+    autoNextTimer = tick; // interval id doubles as the cancel handle
   }
 
   // ---------------- game lifecycle ----------------
   function newGame() {
     reqId++; // invalidate any in-flight search
     aiPending = false; hintPending = false;
+    cancelAutoNext();
     G.rs = E.RULESETS[settings.rsId];
     G.rsId = settings.rsId;
     G.mode = settings.mode;
@@ -1487,6 +1662,17 @@
       : G.mode === 'aivai' ? styleById(settings.styleIvory) : null;
     if (greeter && Math.random() < (G.mode === 'aivai' ? 0.3 : 0.45)) {
       setTimeout(() => SFX_BANK.play(greeter.intro, { vol: 0.8 }), 950);
+    }
+    // AI vs AI: the arena announcer opens the show
+    if (G.mode === 'aivai' && Math.random() < 0.75) {
+      setTimeout(() => {
+        SFX_BANK.play('notify_pop');
+        setTimeout(() => {
+          SFX_BANK.play('v_spec1', { vol: 0.9 });
+          flashWhisper(LEVELS[G.diff].name + ' — ' + styleById(settings.styleIvory).name +
+            ' vs ' + styleById(settings.styleEbony).name);
+        }, 200);
+      }, 1250);
     }
   }
 
@@ -1550,7 +1736,7 @@
       dot.className = 'dot ' + (r.winner === IVORY ? 'ivory' : r.winner === EBONY ? 'ebony' : sideDot());
       text.textContent = r.winner === null
         ? 'Draw — ' + (r.reason || '')
-        : sideName(r.winner) + ' wins — ' + (r.reason || '');
+        : displayName(r.winner) + ' wins — ' + (r.reason || '');
       return;
     }
     dot.className = 'dot ' + sideDot();
@@ -1558,13 +1744,13 @@
     if (G.phase === 'thinking') {
       banner.classList.add('thinking');
       text.textContent = hintPending ? 'Looking for a hint' : (G.mode === 'ai' && G.side !== G.humanSide
-        ? 'The computer is thinking' : sideName(G.side) + ' to move' + spect);
+        ? 'The computer is thinking' : displayName(G.side) + ' to move' + spect);
     } else if (G.phase === 'animating') {
-      text.textContent = sideName(-G.side) + ' moves…';
+      text.textContent = displayName(-G.side) + ' moves…';
     } else {
       text.textContent = G.mode === 'ai'
-        ? (G.side === G.humanSide ? 'Your move — ' + sideName(G.side) : sideName(G.side) + ' to move')
-        : sideName(G.side) + ' to move' + spect;
+        ? (G.side === G.humanSide ? 'Your move — ' + settings.pname : displayName(G.side) + ' to move')
+        : displayName(G.side) + ' to move' + spect;
     }
   }
   function sideDot() { return G.side === IVORY ? 'ivory' : 'ebony'; }
@@ -1637,6 +1823,12 @@
     $('rowStyleI').style.display = settings.mode === 'aivai' ? '' : 'none';
     $('rowStyleE').style.display = settings.mode === 'aivai' ? '' : 'none';
     $('rowClock').style.display = settings.mode === 'aivai' ? 'none' : '';
+    $('rowName').style.display = settings.mode === 'aivai' ? 'none' : '';
+    $('name2Wrap').style.display = settings.mode === 'hotseat' ? '' : 'none';
+    $('rowAuto').style.display = settings.mode === 'aivai' ? '' : 'none';
+    set('segAuto', settings.aivaiAuto ? 'on' : 'off');
+    $('nameInput').value = settings.pname;
+    $('name2Input').value = settings.pname2;
     const rs = E.RULESETS[settings.rsId];
     const stNote = settings.mode === 'aivai'
       ? styleById(settings.styleIvory).name + ' vs ' + styleById(settings.styleEbony).name + '.'
@@ -1654,6 +1846,8 @@
     $('btnRotate').classList.toggle('active', settings.mode === 'hotseat' && settings.rotate);
     $('btnHV').classList.toggle('active', !!settings.hv);
     $('btnAmbient').classList.toggle('active', !!settings.ambient);
+    $('btnJump').classList.toggle('active', !!settings.jumpPaths);
+    $('btnShake').classList.toggle('active', !!settings.shake);
     $('btnAivaiPause').textContent = G.aiPaused ? '▶ Resume' : '⏸ Pause';
     for (const b of $('sfxChips').querySelectorAll('button')) {
       b.classList.toggle('active', !!settings.sfx[b.dataset.v]);
@@ -1753,6 +1947,44 @@
     settings.speed = +v; G.aiSpeed = +v;
     saveJSON(SETTINGS_KEY, settings); updateSegs();
   });
+  wireSeg('segAuto', (v) => {
+    settings.aivaiAuto = v === 'on';
+    saveJSON(SETTINGS_KEY, settings);
+    updateSegs();
+    if (!settings.aivaiAuto) cancelAutoNext();
+  });
+
+  // player names: live edits, tidied on commit
+  const wireName = (inputId, key, fb) => {
+    $(inputId).addEventListener('input', () => {
+      settings[key] = $(inputId).value;
+      saveJSON(SETTINGS_KEY, settings);
+      updateBanner();
+    });
+    $(inputId).addEventListener('change', () => {
+      settings[key] = cleanName(settings[key], fb);
+      $(inputId).value = settings[key];
+      saveJSON(SETTINGS_KEY, settings);
+      updateBanner();
+      SFX_BANK.play('ui_save');
+    });
+  };
+  wireName('nameInput', 'pname', 'UHAKIKA');
+  wireName('name2Input', 'pname2', 'Challenger');
+
+  $('btnJump').addEventListener('click', () => {
+    settings.jumpPaths = !settings.jumpPaths;
+    saveJSON(SETTINGS_KEY, settings);
+    updateSegs();
+    renderHighlights();
+    SFX_BANK.play(settings.jumpPaths ? 'ui_toggle_on' : 'ui_toggle_off');
+  });
+  $('btnShake').addEventListener('click', () => {
+    settings.shake = !settings.shake;
+    saveJSON(SETTINGS_KEY, settings);
+    updateSegs();
+    SFX_BANK.play(settings.shake ? 'ui_toggle_on' : 'ui_toggle_off');
+  });
 
   function startNewGameWithFanfare() {
     newGame();
@@ -1775,6 +2007,7 @@
   $('btnStats').addEventListener('click', showStats);
   $('btnAivaiPause').addEventListener('click', () => {
     G.aiPaused = !G.aiPaused;
+    if (G.aiPaused) cancelAutoNext();
     SFX_BANK.play(G.aiPaused ? 'ui_toggle_off' : 'ui_toggle_on');
     updateSegs();
     if (!G.aiPaused) scheduleAI();
@@ -1815,6 +2048,7 @@
         else if (key === 'voice') setTimeout(() => SFX_BANK.play('v_magnificent'), 140);
         else if (key === 'think') setTimeout(() => SFX_BANK.play('t2a'), 140);
         else if (key === 'drama') setTimeout(() => { FX.play('trap_snap'); SFX_BANK.play('v_taw1', { vol: 0.85 }); }, 140);
+        else if (key === 'party') setTimeout(() => SFX_BANK.play('badboy', { vol: 0.95 }), 140);
         else if (key === 'classic') setTimeout(() => FX.play('capture'), 140);
       }
     }
@@ -1942,9 +2176,34 @@
   let clockArmedKey = -1, clockDeadline = 0, lastTickSec = -1;
   const turnKey = () => G.history.length * 2 + (G.side === IVORY ? 0 : 1);
 
+  // narrator time cards while an engine is lost in thought ("a few moments
+  // later…", and at the deep rungs, "two hours later…"). Thresholds are
+  // tuned to the ladder's real budgets: only the top rungs (and slow
+  // spectator games) ever think long enough to hear them.
+  const AI_CARDS = [
+    { at: 2600, snd: 'later_moments', say: 'A few moments later…' },
+    { at: 5200, snd: 'later_hours', say: 'Two hours later…' },
+  ];
+  let aiCardKey = -1, aiCardStart = 0, aiCardFired = 0;
+
   setInterval(() => {
     const k = turnKey();
     const humanActive = humanTurn() && G.phase === 'idle' && !G.over;
+
+    // --- narrator time cards during engine thinks ---
+    const aiThinking = !G.over && G.phase === 'thinking' &&
+      (G.mode === 'aivai' || (G.mode === 'ai' && G.side !== G.humanSide));
+    if (!aiThinking || hintPending) {
+      aiCardKey = -1;
+    } else {
+      if (k !== aiCardKey) { aiCardKey = k; aiCardStart = Date.now(); aiCardFired = 0; }
+      const dt = Date.now() - aiCardStart;
+      while (aiCardFired < AI_CARDS.length && dt >= AI_CARDS[aiCardFired].at) {
+        const card = AI_CARDS[aiCardFired++];
+        SFX_BANK.play(card.snd, { vol: 0.9 });
+        flashWhisper(card.say);
+      }
+    }
 
     // --- move clock ---
     const pill = $('clockPill');
@@ -2004,5 +2263,6 @@
     state: G, tap: onSquareClick, sfx: SFX_BANK, fx: FX, rebuild: rebuildPieces,
     menu: { open: openMenu, close: closeMenu, isOpen: () => drawerOpen },
     workerSource,
+    engine: E, executeMove, showGameOver, settings,
   };
 })();

@@ -7,9 +7,10 @@ everyone; DRAFTI is our own take on them.
 
 ![DRAFTI](docs/screenshot.png)
 
-A double jump earns the eagle and the gold "Magnificent!" treatment:
+A double jump lands the **"Double!"** callout, the *"You are a bad boy!"*
+shaming, a heavy-hit voice and a board jolt — with your name in the banner:
 
-![Magnificent](docs/screenshot-events.png)
+![Double](docs/screenshot-events.png)
 
 ## Features
 
@@ -37,7 +38,18 @@ A double jump earns the eagle and the gold "Magnificent!" treatment:
     board rotation each turn.
   - *AI vs AI* — spectate two engines playing each other, with pause and
     1× / 2× / 4× speed — and each side can follow a **different national
-    school** (Italian Furioso vs Czech Fortress, anyone?).
+    school** (Italian Furioso vs Czech Fortress, anyone?). With
+    **auto-rematch** on, the show never stops: when a game ends the arena
+    announcer calls it, a countdown rolls into the **next level up** with the
+    two schools swapping colours, and a fresh bout starts by itself.
+- **Your name at the table** — you play as **UHAKIKA** by default, and the
+  name is yours to edit in the menu (a second name appears in two-player
+  mode). The turn banner ("Your move — UHAKIKA") and the result banner use
+  it everywhere.
+- **Jump paths you can't miss** — pieces that can be eaten this turn wear a
+  pulsing warning glow; select a piece and every available route shows
+  numbered landing badges (1 → 2 → 3) while the pieces those routes would
+  eat carry a doomed ✕. A toggle in the Tables card turns it off for purists.
 - **Twelve world playing styles** — every opponent is a personality, not just
   a search depth: 🇺🇸 American, 🇬🇧 English positional, 🇮🇹 Italian Furioso,
   🇪🇸 Spanish flank play, 🇨🇿 Czech Fortress, 🇫🇷 French élégance, 🇷🇺 Russian
@@ -80,9 +92,15 @@ A double jump earns the eagle and the gold "Magnificent!" treatment:
   bright rooms, and an **Ambient glow** toggle drifts two soft light fields
   tinted by each theme's own accents behind the whole page. Your picks are
   remembered.
-- **190+ reactive sounds** — the game watches everything and reacts:
+- **Heavy hits rock the board** — a double capture jolts the table, three or
+  more pieces in one trip shake it hard with a red flare, and the boy and
+  the girl take turns telling you how heavy it was ("Oof! That was heavy!",
+  "Boy, that was heavy!"). Grab a single capture while a bigger feast was
+  standing on the board and the judge lands the blame — sad trombone,
+  "Wrong piece!", no sympathy.
+- **200+ reactive sounds** — the game watches everything and reacts:
   - multi-piece jumps get **majestic animal fanfares** — a bald eagle scream
-    for a double jump, a lion's roar (plus a board thump) for three or more,
+    for a double jump, a lion's roar (plus a board shake) for three or more,
     an elephant trumpet and brass fanfare when a man is crowned, plus
     capture-streak impacts ("On a rampage!");
   - **the judge** follows your play: accurate moves earn "Nice move.",
@@ -114,15 +132,30 @@ A double jump earns the eagle and the gold "Magnificent!" treatment:
     introduction and a pair of catchphrases ("Bellissimo! What an attack!",
     "The wall holds.", "Hustle and flow!") that fire when it captures;
   - **trap drama stings** — synthesized metallic snap, refusal buzz and
-    relief chime underline the bait callouts;
+    relief chime underline the bait callouts; a slaughter (three or more off
+    the board from a sprung trap) gets its own commentary;
+  - **party memes, sourced by their own captions** — greedy multi-captures
+    earn the Naija "You are a bad boy!"; the moment a 3+ feast begins you
+    hear "Let me tell you something…"; a three-piece disaster can land an
+    "OH MY GOD" or a scared "AHH! SCARY!"; a brilliant move gets an anime
+    wow; drawn games earn an exasperated "GOD."; and while an engine thinks
+    past 7 or 24 seconds, the narrator floats the time cards — "A few moments
+    later…", "Two hours later…". Every clip was located in its source video
+    by silence analysis and cross-checked against the caption cards burned
+    into the frames (see [ATTRIBUTIONS.md](ATTRIBUTIONS.md));
+  - **the AI vs AI arena** has its own announcer ("Welcome to the arena! Two
+    engines, one board, zero mercy!") and spectator table: thinking jokes
+    ("He is thinking so hard, the fans just spun up."), capture hype
+    ("OH! Brutal!") and post-match transitions ("What a finish! Roll on the
+    next level!");
   - **ladder celebrations** — conquering a new best level, three-win streaks
     and giant-killings at grandmaster rungs each get their own callout;
   - **interface sound design** — drawer whooshes, toggle blips, a theme
     sparkle, a starting gong, undo rewinds, victory fanfares, defeat womps,
     draw chimes and the ticking clock;
-  - every category (majestic / judge / drama / comedy / voice / heckles /
-    interface / classic wooden sounds) can be toggled and volume-mixed in
-    the Sound design panel.
+  - every category (majestic / judge / drama / party / comedy / voice /
+    heckles / interface / classic wooden sounds) can be toggled and
+    volume-mixed in the Sound design panel.
   All samples are open-licensed or synthesized in-house — full credits and
   links in [ATTRIBUTIONS.md](ATTRIBUTIONS.md).
 - **Extras** — undo, full move log with standard score-sheet notation
@@ -171,9 +204,10 @@ ATTRIBUTIONS.md       licenses and credits for every embedded sound
 
 ```bash
 python3 build_web.py          # rebuild web/index.html after editing src/
-node tests/test_engine.js     # 13,000+ assertions: rules, perft, AI, fuzzing
+node tests/test_engine.js     # 36,000+ assertions: rules, perft, AI, styles,
+                              # bait detection, fuzzing
 node tests/crosscheck_movegen.js   # independent second move generator, diffed
-                              # on 24,000+ random positions
+                              # on 26,000+ random positions
 ```
 
 ### How the engine is validated

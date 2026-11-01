@@ -1,13 +1,35 @@
 # Sound & voice attributions
 
-Every sound in DRAFTI is open-licensed or synthesized in-house. Samples are
-embedded in `web/index.html` (base64 MP3); the processed source files live in
-`src/audio/`. This file lists the origin and license of each.
+Every sound in DRAFTI is open-licensed, synthesized in-house, or a short
+sourced meme effect credited below. Samples are embedded in `web/index.html`
+(base64 MP3); the processed source files live in `src/audio/`. This file
+lists the origin and license of each.
 
-The bank holds **182 sounds**: 22 recorded samples (below), 127 neural-TTS
-voice lines and 33 original synthesized interface/game sounds (plus four
-more synthesized effects — trap snap, refusal buzz, relief chime and the
-level-up fanfare — generated in-code at playback time).
+The bank holds **218 sounds**: 22 recorded samples, 10 sourced meme effects
+(below), 153 neural-TTS voice lines and 33 original synthesized
+interface/game sounds (plus four more synthesized effects — trap snap,
+refusal buzz, relief chime and the level-up fanfare — generated in-code at
+playback time).
+
+## Meme sound effects (sourced verbatim, identified by their own captions)
+
+| Sound in game | What it says | Source video | Use in the game |
+| --- | --- | --- | --- |
+| `badboy`, `badboy2` | "You are a bad boy!" | "You Are A Bad Boy - Naija Comedy Sound Effect" by Topinfo_ng — https://www.youtube.com/watch?v=PGLg01Lcw10 | Greedy multi-captures (2+ pieces in one move) |
+| `tellyou` | "Let me tell you something, let me tell you something…" | "Let Me Tell You Something - Meme Sound Effect" by YTSFX — https://www.youtube.com/watch?v=NkOeRRj-04k | The moment a 3+ capture feast begins |
+| `oof` | "OOF" (card 01) | "popular meme sound effects" by Mondal Screen — https://www.youtube.com/shorts/N1BOQ_9laWs | Double-capture impact |
+| `ahhscary` | "AHH! SCARY" (card 02) | same compilation | Disaster-blunder reaction |
+| `animewow` | "ANIME WOW" (card 03) | same compilation | Brilliant-move reaction |
+| `later_moments` | "A few moments later" (card 04) | same compilation | Narrator card during long engine thinks |
+| `omg` | "OH MY GOD" (card 06) | same compilation | Disaster-blunder reaction |
+| `later_hours` | "2 HOURS LATER" (card 08) | same compilation | Narrator card during very long engine thinks |
+| `god` | "GOD." (card 10) | same compilation | Drawn games |
+
+Each segment was located with silence analysis of the source audio and
+cross-checked against the numbered caption cards burned into the video
+frames (01, 02, 03, 04, 06, 08, 10) — no mapping is guessed. These clips are
+short excerpts included for entertainment; the original uploads remain the
+property of their creators, who are credited here and in the in-app bank.
 
 ## Cartoon & comedy effects
 
@@ -45,6 +67,12 @@ Batch-4 additions (trap drama callouts, the twelve national-style
 introductions and catchphrases, difficulty-ladder celebrations, extra
 heckles and verdict lines) were generated the same way, in two voices:
 the judge "jam" and the persona announcer "kazi".
+
+Batch-5 additions (heavy-hit callouts in both voices — "Oof! That was
+heavy!" / "Boy, that was heavy!" — wrong-piece blame lines, feast and
+trap-slaughter commentary, capture-count callouts, the AI-vs-AI arena
+announcer and spectator jokes, and the auto-rematch level-up line) were
+generated the same way.
 
 ## Interface & synthesized game sounds
 
