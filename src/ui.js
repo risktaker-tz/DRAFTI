@@ -1889,7 +1889,8 @@
         countSide(-G.side) >= 2 && Math.random() < 0.35) {
       G.shrimpFired = true;
       setTimeout(() => {
-        SFX_BANK.play(pick(['shrimp1', 'shrimp2']), { vol: 0.95 });
+        SFX_BANK.play(SFX_BANK.defs.shrimp_orig
+          ? 'shrimp_orig' : pick(['shrimp1', 'shrimp2']), { vol: 0.95 });
         flashWhisper('Is this the shrimp one??');
       }, 850);
     }
@@ -2176,7 +2177,8 @@
     el.hidden = false;
     SFX_BANK.play('gong', { vol: 0.9 });
     setTimeout(() => SFX_BANK.play('st_drum1', { vol: 0.75 }), 350);
-    setTimeout(() => SFX_BANK.play(pick(['v_retire1', 'v_retire2']), { vol: 1 }), 1000);
+    setTimeout(() => SFX_BANK.play(SFX_BANK.defs.v_retire_orig
+      ? 'v_retire_orig' : pick(['v_retire1', 'v_retire2']), { vol: 1 }), 1000);
     setTimeout(() => SFX_BANK.play(pick(['st_appl1', 'st_appl2']), { vol: 0.85 }), 2000);
     setTimeout(() => { el.hidden = true; }, 7400);
     return sleep(7400);
