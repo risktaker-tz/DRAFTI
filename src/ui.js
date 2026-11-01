@@ -77,16 +77,29 @@
   const ROSTER = [
     { id: 'simba',   name: 'Simba',   face: '🦁', styleId: 'italian',   blurb: 'The king of the board — attacks like royalty.' },
     { id: 'yanga',   name: 'Yanga',   face: '🥁', styleId: 'brazilian', blurb: 'Pride of the people — plays with rhythm.' },
-    { id: 'twiga',   name: 'Twiga',   face: '🦒', styleId: 'english',   blurb: 'Sees the whole board from up there.' },
-    { id: 'tembo',   name: 'Tembo',   face: '🐘', styleId: 'czech',     blurb: 'Never forgets a trap. Never rushes.' },
-    { id: 'chui',    name: 'Chui',    face: '🐆', styleId: 'kenyan',    blurb: 'Stalks in silence, pounces hard.' },
-    { id: 'duma',    name: 'Duma',    face: '⚡', styleId: 'russian',   blurb: 'Fast, fearless, slightly reckless.' },
-    { id: 'kifaru',  name: 'Kifaru',  face: '🦏', styleId: 'american',  blurb: 'Charges straight through the centre.' },
-    { id: 'nyati',   name: 'Nyati',   face: '🐃', styleId: 'spanish',   blurb: 'Holds the ground and the long diagonal.' },
-    { id: 'fisi',    name: 'Fisi',    face: '🐺', styleId: 'tanzanian', blurb: 'Laughing at your plan — and at ours.' },
-    { id: 'sungura', name: 'Sungura', face: '🐇', styleId: 'french',    blurb: 'Quick, clever, gone before you look.' },
+    { id: 'amani',   name: 'Amani',   face: '',   styleId: 'english',   blurb: 'Calm and patient — sees the whole board.' },
+    { id: 'juma',    name: 'Juma',    face: '',   styleId: 'czech',     blurb: 'Never forgets a trap. Never rushes.' },
+    { id: 'hodari',  name: 'Hodari',  face: '',   styleId: 'kenyan',    blurb: 'Attacks in silence, strikes hard.' },
+    { id: 'haraka',  name: 'Haraka',  face: '⚡', styleId: 'russian',   blurb: 'Fast, fearless, slightly reckless.' },
+    { id: 'tumaini', name: 'Tumaini', face: '',   styleId: 'american',  blurb: 'Straight through the centre, no detours.' },
+    { id: 'baraka',  name: 'Baraka',  face: '',   styleId: 'spanish',   blurb: 'Holds the ground and the long diagonal.' },
+    { id: 'zawadi',  name: 'Zawadi',  face: '',   styleId: 'tanzanian', blurb: 'Smiles at your plan — then breaks it.' },
+    { id: 'chiku',   name: 'Chiku',   face: '',   styleId: 'french',    blurb: 'Quick, clever, gone before you look.' },
   ];
   const rosterById = (id) => ROSTER.find((r) => r.id === id) || ROSTER[0];
+  // every roster name is the crowd's to change: tap a chip in the drawer and
+  // type. Overrides live in their own store so the arena state keeps working.
+  const NAMES_KEY = 'drafti.names.v1';
+  const nameOverrides = loadJSON(NAMES_KEY, {}) || {};
+  for (const k of Object.keys(nameOverrides)) {
+    if (!ROSTER.some((r) => r.id === k)) delete nameOverrides[k];
+  }
+  const saveNames = () => saveJSON(NAMES_KEY, nameOverrides);
+  const aiName = (id) => {
+    const r = rosterById(id);
+    const v = nameOverrides[id];
+    return (typeof v === 'string' && v.trim()) ? v.trim().slice(0, 14) : r.name;
+  };
   const ARENA_KEY = 'drafti.arena.v1';
   // experience: a game played teaches (+2), a win teaches a little more (+3),
   // a defeat teaches the most (+4) — so a beaten AI comes back stronger and
@@ -106,6 +119,7 @@
   if (!Array.isArray(arena.appeared)) arena.appeared = [];
   if (typeof arena.challRounds !== 'number' || arena.challRounds < 0) arena.challRounds = 0;
   if (typeof arena.bouts !== 'number' || arena.bouts < 0) arena.bouts = 0;
+  if (typeof arena.streak !== 'number' || arena.streak < 0) arena.streak = 0;
   if (typeof arena.cycle !== 'number' || arena.cycle < 1) arena.cycle = 1;
   // default first bout: Simba vs Yanga, then the rest in a shuffled queue
   if (!Array.isArray(arena.queue) || !arena.queue.length) {
@@ -117,6 +131,48 @@
     arena.queue = ['yanga'].concat(rest);
   }
   const saveArena = () => saveJSON(ARENA_KEY, arena);
+
+  // the name chips: tap one, type the new name, Enter or blur commits
+  function renderNameGrid() {
+    const grid = $('nameGrid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    for (const r of ROSTER) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'name-chip';
+      b.title = 'Tap to rename';
+      if (r.face) b.appendChild(document.createTextNode(r.face + ' '));
+      b.appendChild(document.createTextNode(aiName(r.id)));
+      b.addEventListener('click', () => {
+        const inp = document.createElement('input');
+        inp.className = 'name-edit';
+        inp.maxLength = 14;
+        inp.value = aiName(r.id);
+        inp.setAttribute('aria-label', 'Rename ' + aiName(r.id));
+        b.replaceWith(inp);
+        inp.focus();
+        inp.select();
+        let done = false;
+        const commit = () => {
+          if (done) return;
+          done = true;
+          const v = inp.value.replace(/[\r\n\t]+/g, ' ').trim().slice(0, 14);
+          if (!v || v === r.name) delete nameOverrides[r.id];
+          else nameOverrides[r.id] = v;
+          saveNames();
+          renderNameGrid();
+          updateAll();
+        };
+        inp.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') inp.blur();
+          else if (e.key === 'Escape') { done = true; renderNameGrid(); }
+        });
+        inp.addEventListener('blur', commit);
+      });
+      grid.appendChild(b);
+    }
+  }
 
   // Which personality drives the engine currently thinking? `side` is the
   // side the ENGINE is searching for. Hotseat has no engines.
@@ -181,7 +237,7 @@
     '--frame-hi': '#1c2f47', '--frame': '#101d30', '--frame-lo': '#0a1422',
     '--frame-glow': 'rgba(58,224,255,.16)',
     '--sq-light-hi': '#3f6f9d', '--sq-light': '#35608c', '--sq-light-lo': '#2b5178',
-    '--sq-dark-hi': '#16293e', '--sq-dark': '#112238', '--sq-dark-lo': '#0c1a2e',
+    '--sq-dark-hi': '#132436', '--sq-dark': '#0d1b2c', '--sq-dark-lo': '#081320',
     '--grid-line': 'rgba(96,205,255,.18)',
     '--sqnum-l': 'rgba(9,20,32,.8)', '--sqnum-d': 'rgba(150,220,255,.75)',
     '--pl-l-1': '#ffffff', '--pl-l-2': '#dbeefa', '--pl-l-3': '#a8c8dd',
@@ -857,7 +913,7 @@
   const displayName = (s) => {
     if (G.mode === 'ai' && s === G.humanSide) return settings.pname;
     if (G.mode === 'hotseat') return s === IVORY ? settings.pname : settings.pname2;
-    if (G.mode === 'aivai' && arenaOn()) return rosterById(s === IVORY ? G.seatIvory : G.seatEbony).name;
+    if (G.mode === 'aivai' && arenaOn()) return aiName(s === IVORY ? G.seatIvory : G.seatEbony);
     return sideName(s);
   };
   // the seat's full tag: name + face + ladder level (arena roster only)
@@ -865,7 +921,7 @@
     if (!(G.mode === 'aivai' && arenaOn())) return displayName(s);
     const id = s === IVORY ? G.seatIvory : G.seatEbony;
     const r = rosterById(id);
-    return r.face + ' ' + r.name + ' · L' + rosterLevel(id);
+    return (r.face ? r.face + ' ' : '') + aiName(id) + ' · L' + rosterLevel(id);
   };
   const humanTurn = () => !G.over && (G.mode === 'hotseat' || G.side === G.humanSide);
 
@@ -1238,7 +1294,11 @@
 
   function trySelect(i) {
     const cands = G.legal.filter((m) => m.from === i);
-    if (!cands.length) { FX.play('illegal'); return; }
+    if (!cands.length) {
+      FX.play('illegal');
+      if (Math.random() < 0.3) setTimeout(() => SFX_BANK.play('st_whis1', { vol: 0.5 }), 320);
+      return;
+    }
     G.sel = { from: i, partial: [i], cands };
     FX.play('select');
     renderHighlights();
@@ -1607,6 +1667,7 @@
     doomTauntIx++;
     setTimeout(() => {
       SFX_BANK.play(first ? 'tellyou' : 'vineboom', { vol: first ? 1 : 0.9 });
+      if (first) setTimeout(() => SFX_BANK.play('st_heart1', { vol: 0.7 }), 2800);
       setTimeout(() => SFX_BANK.play(pick(DOOM_LINES.slice(1)), { vol: 0.95 }), first ? 2300 : 500);
       flashLabel(pick(['DOUBLE DOOM!', 'No escape!', 'Still trapped!']), 'drama');
       if (caps > 0) { shake('shake-m'); }
@@ -1646,6 +1707,10 @@
     // the cat pounces when a trap actually catches its mouse
     if (kind === 'trap_win' && Math.random() < 0.3) {
       setTimeout(() => SFX_BANK.play('meow', { vol: 0.85 }), 1300);
+    }
+    // a bait taken is a blunder in public: the crowd winces
+    if (kind === 'trap_fail' && Math.random() < 0.35) {
+      setTimeout(() => SFX_BANK.play(pick(['st_ooh1', 'st_ooh2']), { vol: 0.7 }), 1100);
     }
   }
 
@@ -1777,6 +1842,7 @@
       p.code = G.side * 2;
       refreshPiece(p);
       FX.play('king');
+      if (Math.random() < 0.55) setTimeout(() => SFX_BANK.play('st_tada1', { vol: 0.6 }), 320);
     }
   }
 
@@ -2041,27 +2107,34 @@
     let ceremony = false, text = '';
     if (winnerSide === EBONY) {
       // the challenger takes the crown; the beaten champion goes to the back
+      arena.streak = 0;
       arena.queue.push(champId);
       arena.queue = arena.queue.filter((id) => id !== challId);
       arena.champion = challId;
       arena.challRounds = 0;
-      text = chall.face + ' ' + chall.name + ' beats ' + champ.name + ' — new champion!';
+      text = (chall.face ? chall.face + ' ' : '') + aiName(challId) + ' beats ' + aiName(champId) + ' — new champion!';
     } else if (winnerSide === IVORY) {
       arena.challRounds++;
+      arena.streak = (arena.streak || 0) + 1;
+      if (arena.streak === 3) {
+        // a title defense hat-trick — give the crowd its airhorn moment
+        setTimeout(() => SFX_BANK.play('st_air1', { vol: 0.8 }), 1600);
+        setTimeout(() => SFX_BANK.play('st_coin1', { vol: 0.6 }), 2500);
+      }
       if (arena.challRounds >= settings.arenaRounds) {
         arena.queue.shift(); // this challenger's rounds are up — next name in
         arena.queue.push(challId);
         arena.challRounds = 0;
-        text = champ.face + ' ' + champ.name + ' holds the board — ' + chall.name + ' steps aside.';
+        text = (champ.face ? champ.face + ' ' : '') + aiName(champId) + ' holds the board — ' + aiName(challId) + ' steps aside.';
       } else {
-        text = chall.face + ' ' + chall.name + ' gets another round (' +
+        text = aiName(challId) + ' gets another round (' +
           (arena.challRounds + 1) + '/' + settings.arenaRounds + ').';
       }
       // the roster has all appeared and the champion still holds the board:
       // the crowd asks the only question left — how can you let that retire?
       if (arena.appeared.length >= ROSTER.length) ceremony = true;
     } else {
-      text = 'A draw — ' + champ.name + ' keeps the board; ' + chall.name + ' goes again.';
+      text = 'A draw — ' + aiName(champId) + ' keeps the board; ' + aiName(challId) + ' goes again.';
     }
     if (manual && winnerSide !== EBONY) {
       // you called time on a deserving champion — the ceremony is the point
@@ -2069,8 +2142,8 @@
     }
     if (ceremony) {
       retireChampionHonors();
-      text = champ.face + ' ' + champ.name + ' retires a champion! Long live ' +
-        rosterById(arena.champion).name + '!';
+      text = (champ.face ? champ.face + ' ' : '') + aiName(champId) + ' retires a champion! Long live ' +
+        aiName(arena.champion) + '!';
     }
     if (arena.appeared.length >= ROSTER.length) {
       // one complete cycle: all ten AIs have played — fresh queue, new cycle
@@ -2095,14 +2168,16 @@
     if (!el) return sleep(6500);
     el.innerHTML = '<div class="cer-card">' +
       '<div class="cer-face">' + r.face + '</div>' +
-      '<div class="cer-name">' + r.name + '</div>' +
+      '<div class="cer-name">' + aiName(champId) + '</div>' +
       '<div class="cer-sub">retires a champion — ' + (arena.wins[r.id] || 0) +
       ' wins, L' + rosterLevel(r.id) + ' of experience</div>' +
       '<div class="cer-quote">"How can you allow the one with that skill to retire?!"</div>' +
       '</div>';
     el.hidden = false;
     SFX_BANK.play('gong', { vol: 0.9 });
-    setTimeout(() => SFX_BANK.play(pick(['v_retire1', 'v_retire2']), { vol: 1 }), 900);
+    setTimeout(() => SFX_BANK.play('st_drum1', { vol: 0.75 }), 350);
+    setTimeout(() => SFX_BANK.play(pick(['v_retire1', 'v_retire2']), { vol: 1 }), 1000);
+    setTimeout(() => SFX_BANK.play(pick(['st_appl1', 'st_appl2']), { vol: 0.85 }), 2000);
     setTimeout(() => { el.hidden = true; }, 7400);
     return sleep(7400);
   }
@@ -2118,15 +2193,21 @@
     cancelAutoNext();
     const el = $('autoNext');
     if (!el) return;
+    const prevChamp = arena.champion;
     const res = applyArenaResult(G.result && G.result.winner ? G.result.winner : 0);
     if (res.text) flashWhisper(res.text);
+    if (res.champion !== prevChamp) {
+      // an upset! the crowd gasps, then roars the new name
+      setTimeout(() => SFX_BANK.play(pick(['st_gasp1', 'st_gasp2']), { vol: 0.85 }), 500);
+      setTimeout(() => SFX_BANK.play('st_crowd1', { vol: 0.7 }), 1400);
+    }
     const beginCountdown = () => {
       const c = rosterById(arena.champion), ch = rosterById(arena.queue[0] || arena.champion);
       let left = 6;
       const announce = () => {
         el.hidden = false;
-        el.innerHTML = 'Next: <b>' + c.face + ' ' + c.name + '</b> vs <b>' +
-          ch.face + ' ' + ch.name + '</b> · cycle ' + arena.cycle + ' · ' + left + 's';
+        el.innerHTML = 'Next: <b>' + (c.face ? c.face + ' ' : '') + aiName(arena.champion) + '</b> vs <b>' +
+          aiName(arena.queue[0] || arena.champion) + '</b> · cycle ' + arena.cycle + ' · ' + left + 's';
       };
       const fire = () => {
         cancelAutoNext();
@@ -2138,6 +2219,7 @@
       const tick = setInterval(() => {
         left -= 1;
         if (left <= 0) { clearInterval(tick); fire(); return; }
+        if (left === 1) SFX_BANK.play('st_riser1', { vol: 0.65 });
         announce();
       }, 1000);
       autoNextTimer = tick; // interval id doubles as the cancel handle
@@ -2320,7 +2402,7 @@
     dot.className = 'dot ' + sideDot();
     const spect = G.mode === 'aivai'
       ? (settings.aivaiAuto
-        ? ' · ' + rosterById(G.seatIvory).name + ' vs ' + rosterById(G.seatEbony).name +
+        ? ' · ' + aiName(G.seatIvory) + ' vs ' + aiName(G.seatEbony) +
           ' · cycle ' + arena.cycle
         : ' · AI vs AI')
       : '';
@@ -2413,6 +2495,8 @@
     $('rowName').style.display = settings.mode === 'aivai' ? 'none' : '';
     $('name2Wrap').style.display = settings.mode === 'hotseat' ? '' : 'none';
     $('rowAuto').style.display = settings.mode === 'aivai' ? '' : 'none';
+    $('rowNames').style.display = settings.mode === 'aivai' ? '' : 'none';
+    renderNameGrid();
     set('segAuto', settings.aivaiAuto ? 'on' : 'off');
     set('segRounds', settings.arenaRounds);
     set('segHumanlike', settings.humanlike ? 'on' : 'off');
@@ -2420,7 +2504,7 @@
       $('arenaNote').textContent = settings.mode !== 'aivai'
         ? 'The arena only runs in AI vs AI mode.'
         : settings.aivaiAuto
-          ? 'Ten Tanzanian AIs rotate: ' + ROSTER.map((r) => r.name).join(', ') +
+          ? 'Ten Tanzanian AIs rotate: ' + ROSTER.map((r) => aiName(r.id)).join(', ') +
             '. The winner keeps the board, a beaten champion is replaced, and every game makes all of them a little smarter (experience → ladder level). A challenger never faces a champion more than two rungs above it, so bouts stay fair. When the whole roster has played and the champion is still standing, it retires — with the ceremony it deserves.'
           : 'Hand-picked engines: pick the two schools yourself. Auto-rematch is off, so the game stops after every bout.';
     }
@@ -2429,9 +2513,9 @@
     const rs = E.RULESETS[settings.rsId];
     const stNote = settings.mode === 'aivai'
       ? (settings.aivaiAuto
-        ? rosterById(G.seatIvory).face + ' ' + rosterById(G.seatIvory).name + ' (' +
+        ? (rosterById(G.seatIvory).face ? rosterById(G.seatIvory).face + ' ' : '') + aiName(G.seatIvory) + ' (' +
           styleById(rosterById(G.seatIvory).styleId).name + ') vs ' +
-          rosterById(G.seatEbony).face + ' ' + rosterById(G.seatEbony).name + ' (' +
+          aiName(G.seatEbony) + ' (' +
           styleById(rosterById(G.seatEbony).styleId).name + ').'
         : styleById(settings.styleIvory).name + ' vs ' + styleById(settings.styleEbony).name + '.')
       : styleById(settings.style).blurb;
