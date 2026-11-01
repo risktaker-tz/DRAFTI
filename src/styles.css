@@ -133,7 +133,7 @@ body.fx-scan::after {
 .dot.ivory { background: radial-gradient(circle at 35% 30%, var(--pl-l-1), var(--pl-l-2) 55%, var(--pl-l-3)); }
 .dot.ebony { background: radial-gradient(circle at 35% 30%, var(--pl-d-1), var(--pl-d-2) 55%, var(--pl-d-3)); }
 .banner .mover { font-weight: 600; color: var(--accent); }
-.banner.thinking .dots::after { content: ''; animation: dots 1.2s steps(4) infinite; }
+.banner.thinking .dot { box-shadow: 0 0 0 1px rgba(0, 0, 0, .35), 0 0 10px var(--accent-soft); }
 @keyframes dots { 0% { content: ''; } 25% { content: '.'; } 50% { content: '..'; } 75% { content: '...'; } }
 
 /* ---------- board ---------- */
@@ -284,6 +284,43 @@ body.fx-scan::after {
 .tray .mini { width: 14px; height: 14px; border-radius: 50%; flex: none; }
 .tray .mini.ebony { background: radial-gradient(circle at 35% 30%, var(--pl-d-1), var(--pl-d-3)); box-shadow: 0 0 6px var(--pl-d-glow); }
 .tray .mini.ivory { background: radial-gradient(circle at 35% 30%, var(--pl-l-1), var(--pl-l-3)); box-shadow: 0 0 6px var(--pl-l-glow); }
+
+/* ---------- flag colours: the arena dresses each side in its flag ---------- */
+/* Custom properties --side-a-* and --side-b-* are written onto <body> by
+/* the arena for the two seats; every rule falls back to the theme's own
+/* piece colours when a seat has no flag (a renamed team, or the arena off).
+/* Backgrounds and borders beat the table fx and piece skins; shadows stay
+/* overridable so wood, glass and high-visibility rim treatments keep working. */
+body.flags-on .dot.ivory { background: var(--side-a-bg, var(--pl-l-1)) !important; }
+body.flags-on .dot.ebony { background: var(--side-b-bg, var(--pl-d-1)) !important; }
+body.flags-on .piece.ivory .body {
+  background: var(--side-a-bg, radial-gradient(circle at 35% 28%, var(--pl-l-1), var(--pl-l-2) 55%, var(--pl-l-3))) !important;
+  border-color: var(--side-a-edge, var(--pl-l-edge)) !important;
+  box-shadow: inset 0 2px 3px rgba(255, 255, 255, .35), inset 0 -4px 6px rgba(0, 0, 0, .3),
+              0 0 8px var(--side-a-glow, var(--pl-l-glow));
+}
+body.flags-on .piece.ebony .body {
+  background: var(--side-b-bg, radial-gradient(circle at 35% 28%, var(--pl-d-1), var(--pl-d-2) 58%, var(--pl-d-3))) !important;
+  border-color: var(--side-b-edge, var(--pl-d-edge)) !important;
+  box-shadow: inset 0 2px 3px rgba(255, 255, 255, .28), inset 0 -4px 6px rgba(0, 0, 0, .42),
+              0 0 8px var(--side-b-glow, var(--pl-d-glow));
+}
+body.flags-on .piece.king.ivory .crown path { fill: var(--side-a-deep, var(--pl-d-2)); stroke: rgba(255, 255, 255, .92); }
+body.flags-on .piece.king.ebony .crown path { fill: var(--side-b-deep, var(--pl-d-2)); stroke: rgba(255, 255, 255, .92); }
+body.flags-on .tray .mini.ebony { background: var(--side-b-bg, var(--pl-d-1)) !important; box-shadow: 0 0 6px var(--side-b-glow, var(--pl-d-glow)) !important; }
+body.flags-on .tray .mini.ivory { background: var(--side-a-bg, var(--pl-l-1)) !important; box-shadow: 0 0 6px var(--side-a-glow, var(--pl-l-glow)) !important; }
+body.flags-on .history .pdot.ivory,
+body.flags-on .ticker .tk .pdot.ivory { background: var(--side-a-bg, var(--pl-l-1)) !important; }
+body.flags-on .history .pdot.ebony,
+body.flags-on .ticker .tk .pdot.ebony { background: var(--side-b-bg, var(--pl-d-1)) !important; }
+
+/* ---------- thinking is visible: counting dots, breathing pieces ---------- */
+.banner.thinking #bannerText::after { content: ''; animation: dots 1.2s steps(4) infinite; }
+.banner.thinking .dot { animation: dotPulse 1.3s ease-in-out infinite; }
+@keyframes dotPulse { 50% { transform: scale(1.32); } }
+body.think-a .piece.ivory .body,
+body.think-b .piece.ebony .body { animation: thinkBreath 1.7s ease-in-out infinite; }
+@keyframes thinkBreath { 50% { filter: brightness(1.16) drop-shadow(0 0 7px var(--accent-soft)); } }
 .tray b { color: var(--ink); font-size: 13px; }
 
 /* ---------- side panel (drawer reuses these card styles) ---------- */

@@ -140,6 +140,104 @@
   }));
   const rosterById = (id) => ROSTER.find((r) => r.id === id) || ROSTER[0];
 
+  // flag colours: every nation's pieces are dressed in the colours of its
+  // own flag — [main, secondary] taken straight off the real thing. The main
+  // colour leads the champion's (ivory) seat, the secondary is the first
+  // fallback when two flags would blur together; the resolver below sorts
+  // out the rest, so Ivory Coast never plays Ecuador in an identical green.
+  const FLAG_COLORS = {
+    TZ:['#1EB53A','#00A3DD'], KE:['#B3202C','#1C7A3C'],
+    UG:['#FDCB0C','#D40000'], RW:['#00A1DE','#FAD201'], BI:['#CE1126','#1EB53A'],
+    SS:['#078930','#DA121A'], SO:['#4189DD','#FFFFFF'], CD:['#007FFF','#F7D618'],
+    ET:['#078930','#FCDD09'], ER:['#12AD2B','#1D84C6'], DJ:['#6AB2E7','#12AD2B'],
+    EG:['#CE1126','#C09300'], LY:['#239E46','#E70013'], TN:['#E70013','#FFFFFF'],
+    DZ:['#006233','#FFFFFF'], MA:['#C1272D','#006233'], SD:['#D21034','#078930'],
+    MR:['#00A95C','#CD2A3E'], ML:['#14B53A','#FCD116'], NE:['#E05206','#0DB02B'],
+    TD:['#002664','#FECB00'], SN:['#00853F','#FDEF42'], GM:['#3A75C4','#3A7728'],
+    GW:['#CE1126','#FCD116'], GN:['#CE1126','#009460'], SL:['#1EB53A','#0072C6'],
+    LR:['#002868','#BF0A30'], CI:['#F77F00','#009E60'], GH:['#CE1126','#006B3F'],
+    TG:['#006A4E','#FFCE00'], BJ:['#008751','#FCD116'], BF:['#EF2B2D','#009E49'],
+    NG:['#008751','#FFFFFF'], CM:['#007A5E','#CE1126'], CF:['#289728','#FFCE00'],
+    GQ:['#3E9A00','#E32118'], GA:['#009E60','#3A75C4'], CG:['#009543','#DC241F'],
+    ST:['#12AD2B','#FFCE00'], AO:['#CC092F','#FFCB00'], ZM:['#198A00','#EF7D00'],
+    ZW:['#319208','#FFD200'], MW:['#339E35','#CE1126'], MZ:['#009639','#FFD100'],
+    NA:['#003580','#009543'], BW:['#75AADB','#1A1A1A'], ZA:['#007A4D','#FFB612'],
+    LS:['#00209F','#009543'], SZ:['#B10C0C','#FFD900'], MG:['#007E3A','#FC3D32'],
+    MU:['#1A206D','#FFD500'], SC:['#003F87','#FCD856'], KM:['#3D8E33','#FFC61E'],
+    CV:['#003893','#CF2027'],
+    AL:['#E41E20','#1A1A1A'], AD:['#10069F','#FEDD00'], AT:['#ED2939','#FFFFFF'],
+    BY:['#CE1720','#007C30'], BE:['#EF3340','#FDDA24'], BA:['#002F6C','#FFCC00'],
+    BG:['#00966E','#D62612'], HR:['#E31E24','#171796'], CY:['#D57800','#FFFFFF'],
+    CZ:['#D7141A','#11457E'], DK:['#C8102E','#FFFFFF'], EE:['#0072CE','#1A1A1A'],
+    FI:['#002F6C','#FFFFFF'], FR:['#002395','#ED2939'], DE:['#DD0000','#FFCE00'],
+    GR:['#0D5EAF','#FFFFFF'], HU:['#CE2939','#477050'], IS:['#02529C','#DC1E35'],
+    IE:['#169B62','#FF883E'], IT:['#008C45','#CD212A'], LV:['#9E3039','#FFFFFF'],
+    LI:['#002B7F','#CE1126'], LT:['#006A44','#FDB913'], LU:['#00A2E1','#EF3340'],
+    MT:['#CF142B','#FFFFFF'], MD:['#0046AE','#FFD200'], MC:['#CE1126','#FFFFFF'],
+    ME:['#C40308','#D4AF37'], NL:['#AE1C28','#21468B'], MK:['#D20000','#FFE600'],
+    NO:['#BA0C2F','#00205B'], PL:['#DC143C','#FFFFFF'], PT:['#046A38','#DA291C'],
+    RO:['#002B7F','#FCD116'], RU:['#0039A6','#D52B1E'], SM:['#5EB6E4','#FFFFFF'],
+    RS:['#0C4076','#C6363C'], SK:['#0B4EA2','#EE1C25'], SI:['#005DA4','#ED1C24'],
+    ES:['#AA151B','#F1BF00'], SE:['#006AA7','#FECC02'], CH:['#DA291C','#FFFFFF'],
+    UA:['#0057B7','#FFD700'], GB:['#012169','#C8102E'],
+    AF:['#007A36','#BE0000'], AM:['#D90012','#F2A800'], AZ:['#00B9E4','#509E2F'],
+    BH:['#CE1126','#FFFFFF'], BD:['#006A4E','#F42A41'], BT:['#FF4E12','#FFD520'],
+    BN:['#F7E017','#C8102E'], KH:['#032EA1','#E00025'], CN:['#EE1C25','#FFDE00'],
+    GE:['#E8112D','#FFFFFF'], IN:['#138808','#FF9933'], ID:['#CE1126','#FFFFFF'],
+    IR:['#239F40','#DA0000'], IQ:['#CE1126','#007A3D'], IL:['#0038B8','#FFFFFF'],
+    JP:['#BC002D','#FFFFFF'], JO:['#CE1126','#007A3D'], KZ:['#00AFCA','#FEC50C'],
+    KW:['#007A3D','#CE1126'], KG:['#E8112D','#FFEF00'], LA:['#002868','#CE1126'],
+    LB:['#ED1C24','#00A651'], MY:['#010066','#CC0001'], MV:['#007E3A','#D21034'],
+    MN:['#015197','#C4272F'], MM:['#34B233','#EA2839'], NP:['#DC143C','#003893'],
+    KP:['#ED1C27','#024FA2'], OM:['#DB161B','#008000'], PK:['#06603A','#FFFFFF'],
+    PH:['#0038A8','#CE1126'], QA:['#8A1538','#FFFFFF'], SA:['#006C35','#FFFFFF'],
+    SG:['#EF3340','#FFFFFF'], KR:['#CD2E3A','#0047A0'], LK:['#8D153A','#FFB700'],
+    PS:['#007A3D','#CE1126'], SY:['#CE1126','#007A3D'], TJ:['#006600','#CC0000'],
+    TH:['#2D2A4A','#A51931'], TL:['#DC241F','#FFC726'], TR:['#E30A17','#FFFFFF'],
+    TM:['#00843D','#C8102E'], AE:['#00732F','#EF3340'], UZ:['#0099B5','#1EB53A'],
+    VN:['#DA251D','#FFFF00'], YE:['#CE1126','#1A1A1A'],
+    AG:['#0072C6','#FCD116'], BS:['#00ABC9','#FAE042'], BB:['#00267F','#FFC726'],
+    BZ:['#003F87','#CE1126'], CA:['#D80621','#FFFFFF'], CR:['#002B7F','#CE1126'],
+    CU:['#002A8F','#CF142B'], DM:['#006B3F','#FCD116'], DO:['#002D62','#CE1126'],
+    SV:['#0F47AF','#FFFFFF'], GD:['#007A5E','#CE1126'], GT:['#4997D0','#FFFFFF'],
+    HT:['#00209F','#D21034'], HN:['#0073CF','#FFFFFF'], JM:['#009B3A','#FED100'],
+    MX:['#006847','#CE1126'], NI:['#0067C6','#FFFFFF'], PA:['#005293','#D21034'],
+    KN:['#009E49','#CE1126'], LC:['#00A0DD','#FCD116'], VC:['#0072C6','#009E49'],
+    TT:['#CE1126','#1A1A1A'], US:['#B22234','#3C3B6E'],
+    AR:['#74ACDF','#F6B40E'], BO:['#007934','#F9E300'], BR:['#009C3B','#FFDF00'],
+    CL:['#0039A6','#D52B1E'], CO:['#FCD116','#003893'], EC:['#034EA2','#FFDD00'],
+    GY:['#009E49','#FCD116'], PY:['#0038A8','#D52B1E'], PE:['#D91023','#FFFFFF'],
+    SR:['#377E3F','#ECC81D'], UY:['#0038A8','#FCD116'], VE:['#00247D','#FFCC00'],
+    AU:['#012169','#E4002B'], FJ:['#68BFE5','#C8102E'], KI:['#CE1126','#003F87'],
+    MH:['#003893','#DD7500'], FM:['#75B2DD','#FFFFFF'], NR:['#002170','#FFB20D'],
+    NZ:['#00247D','#CC142B'], PW:['#4AADD6','#FFDE00'], PG:['#CE1126','#1A1A1A'],
+    WS:['#CE1126','#00247D'], SB:['#215B33','#0051BA'], TO:['#C10000','#FFFFFF'],
+    TV:['#55A4D8','#FFFFFF'], VU:['#009543','#D21034'],
+  };
+  // ---- small colour toolkit: mixing, relative luminance, closeness ----
+  const hexRgb = (h) => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
+  const rgbHex = (r, g, b) => '#' + [r, g, b].map((v) =>
+    Math.max(0, Math.min(255, Math.round(v))).toString(16).padStart(2, '0')).join('');
+  const mixC = (h, to, t) => {
+    const a = hexRgb(h), b = to === '#ffffff' ? [255, 255, 255] : [0, 0, 0];
+    return rgbHex(a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t);
+  };
+  const linC = (v) => { v /= 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); };
+  const lumaC = (h) => { const c = hexRgb(h); return .2126 * linC(c[0]) + .7152 * linC(c[1]) + .0722 * linC(c[2]); };
+  // flags never disappear into the table: too-dark or too-bright mains are
+  // pulled back into a band every board theme can show
+  const clampLuma = (h, lo, hi) => {
+    let c = h;
+    for (let i = 0; i < 14 && lumaC(c) < lo; i++) c = mixC(c, '#ffffff', .14);
+    for (let i = 0; i < 14 && lumaC(c) > hi; i++) c = mixC(c, '#000000', .14);
+    return c;
+  };
+  const colorClose = (h1, h2) => {
+    const a = hexRgb(h1), b = hexRgb(h2);
+    return Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]) + Math.abs(a[2] - b[2]) < 150 &&
+      Math.abs(lumaC(h1) - lumaC(h2)) < .13;
+  };
+
   // every nation's name is the crowd's to change: tap a chip in the drawer
   // and type. Overrides live in their own store so the arena keeps working.
   const NAMES_KEY = 'drafti.names.v1';
@@ -153,10 +251,89 @@
     const v = nameOverrides[id];
     return (typeof v === 'string' && v.trim()) ? v.trim().slice(0, 18) : r.name;
   };
+  // the colour law of the arena: a seat keeps its flag colours only while it
+  // carries its country's name. Rename a nation to anything else and its
+  // pieces return to the classic colours; restoring the name — or pressing
+  // the restore button in The players — brings the flag straight back.
+  const customNamed = (id) => {
+    const v = nameOverrides[id];
+    return typeof v === 'string' && v.trim() && v.trim() !== rosterById(id).name;
+  };
+  // the full piece wardrobe for one main colour: highlight, body, shade,
+  // edge, crown fill, glow and the ready-made radial gradient
+  const sideVarSet = (main) => {
+    const up = mixC(main, '#ffffff', .42), dn = mixC(main, '#000000', .34);
+    return {
+      1: up, 2: main, 3: dn,
+      edge: mixC(main, '#000000', .55),
+      deep: mixC(main, '#000000', .45),
+      glow: 'rgba(' + hexRgb(main).join(',') + ',.5)',
+      bg: 'radial-gradient(circle at 35% 28%, ' + up + ', ' + main + ' 55%, ' + dn + ')',
+    };
+  };
+  // pick each seat's flag colour so the two sides never blur together: the
+  // champion leads with its main, the challenger switches to its secondary
+  // when the mains are near-identical, and as a last resort the two are
+  // pulled apart in lightness. Same-colour flags (Indonesia vs Monaco) end
+  // up red versus white, never red versus red.
+  function flagPalettes() {
+    if (G.mode !== 'aivai' || !settings.aivaiAuto) return [null, null];
+    const pick = (id, side, avoid) => {
+      if (!ROSTER.some((r) => r.id === id) || customNamed(id)) return null;
+      const f = FLAG_COLORS[id];
+      if (!f) return null;
+      const cands = side === IVORY ? [f[0], f[1]] : [f[1], f[0]];
+      const dist = (h) => { const a = hexRgb(h), b = hexRgb(avoid || h);
+        return avoid ? Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]) + Math.abs(a[2] - b[2]) : 1e9; };
+      let c = clampLuma(cands[0], .12, .88);
+      // two greens never make a bout: take the flag's other colour when it
+      // reads clearly more distinct, then split lightness if still close
+      if (avoid && cands[1] && dist(cands[1]) > dist(cands[0]) + 120) c = clampLuma(cands[1], .12, .88);
+      if (avoid && colorClose(c, avoid)) {
+        c = lumaC(c) >= lumaC(avoid)
+          ? clampLuma(mixC(c, '#ffffff', .4), .12, .9)
+          : clampLuma(mixC(c, '#000000', .35), .1, .88);
+      }
+      return c;
+    };
+    const a = pick(G.seatIvory, IVORY, null);
+    const b = pick(G.seatEbony, EBONY, a);
+    return [a ? sideVarSet(a) : null, b ? sideVarSet(b) : null];
+  }
+  // write the palettes onto <body> as --side-a-*/--side-b-* custom
+  // properties; CSS (body.flags-on) paints pieces, dots, trays and dots in
+  // the move log from them, always falling back to the theme when absent
+  function applyFlagPalettes() {
+    const [a, b] = flagPalettes();
+    document.body.classList.toggle('flags-on', !!(a || b));
+    const st = document.body.style;
+    for (const [side, set] of [['a', a], ['b', b]]) {
+      for (const k of ['1', '2', '3', 'edge', 'deep', 'glow', 'bg']) {
+        const name = '--side-' + side + '-' + k;
+        if (set && set[k] != null) st.setProperty(name, set[k]);
+        else st.removeProperty(name);
+      }
+    }
+  }
 
   // ---------------- seasons, experience, the challenge ladder ----------------
   const ARENA_KEY = 'drafti.arena.v2'; // v1 held the old ten-club personas
   const SEASON_LEN = 12;               // bouts per season — then the world steps up
+  // a season is a tournament: five bouts of group stage, then the knockout
+  // carries the champion through quarter-finals and semi-finals to the
+  // grand final. Every step-up is announced as it begins.
+  const SEASON_STAGES = [
+    { first: 0, name: 'group stage' },
+    { first: 5, name: 'quarter-finals' },
+    { first: 9, name: 'semi-finals' },
+    { first: 11, name: 'grand final' },
+  ];
+  const stageOfBout = (boutIx) => {
+    let s = 0;
+    for (let i = 0; i < SEASON_STAGES.length; i++) if (boutIx >= SEASON_STAGES[i].first) s = i;
+    return s;
+  };
+  const ord = (n) => { const s = ['th', 'st', 'nd', 'rd'], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); };
   // experience: a game played teaches (+2), a win teaches a little more (+3),
   // a defeat teaches the most (+4) — so a beaten nation comes back stronger
   // and no one stays on top forever. Five points = one rung on the 1-10
@@ -197,6 +374,10 @@
       arena.queue = ladderQueue(arena.champion);
     }
     arena.appeared = (Array.isArray(arena.appeared) ? arena.appeared : []).filter((id) => ids.has(id));
+    if (!arena.meetings || typeof arena.meetings !== 'object') arena.meetings = {};
+    for (const k of Object.keys(arena.meetings)) {
+      if (typeof arena.meetings[k] !== 'number' || arena.meetings[k] < 0) delete arena.meetings[k];
+    }
     if (!arena.appeared.includes(arena.champion)) arena.appeared.push(arena.champion);
     if (typeof arena.season !== 'number' || arena.season < 1) arena.season = 1;
     if (typeof arena.bouts !== 'number' || arena.bouts < 0 || arena.bouts >= SEASON_LEN) arena.bouts = 0;
@@ -265,6 +446,10 @@
       : '+ all ' + ROSTER.length + ' nations…';
     more.addEventListener('click', () => { namesExpanded = !namesExpanded; renderNameGrid(); });
     grid.appendChild(more);
+    // the way back: one button restores every country name — and with the
+    // names, every nation's flag colours return to the board
+    const rst = $('btnNameReset');
+    if (rst) rst.disabled = !Object.keys(nameOverrides).length;
   }
 
   // Which personality drives the engine currently thinking? `side` is the
@@ -797,6 +982,28 @@
       settings.sfx.master = v;
       if (this.out) this.out.gain.value = v;
     },
+    // the think pulse: a soft, restless tick while anyone — engine, hint or
+    // the arena — is thinking. Quiet enough to sit under the commentary,
+    // alive enough that a long think never feels like the game has died.
+    thinkTimer: 0,
+    thinkStart() {
+      if (this.thinkTimer) return;
+      if (!settings.sound || !settings.sfx.think) return;
+      if (!this.ensure()) return;
+      let n = 0;
+      const beat = () => {
+        if (!settings.sound || !settings.sfx.think) { FX.thinkStop(); return; }
+        n++;
+        const v = 0.02 + Math.random() * 0.012;
+        this.tone(1040 + Math.random() * 340, 0.05, 'sine', v);
+        if (n % 4 === 2) this.tone(430 + Math.random() * 70, 0.1, 'sine', v * 0.8, 0.13);
+      };
+      beat();
+      this.thinkTimer = setInterval(beat, 900 + Math.random() * 300);
+    },
+    thinkStop() {
+      if (this.thinkTimer) { clearInterval(this.thinkTimer); this.thinkTimer = 0; }
+    },
     tone(f, dur, type, vol, when, slideTo) {
       const ctx = this.ensure(); if (!ctx) return;
       const t = ctx.currentTime + (when || 0);
@@ -993,6 +1200,7 @@
     // ladder rung each seat is searching at (champion vs challenger levels)
     seatIvory: arena.champion, seatEbony: arena.queue[0],
     diffIvory: settings.diff, diffEbony: settings.diff,
+    pairKey: null, pairMeets: 0, // how often this matchup has happened before
   };
   // the roster arena is live whenever AI-vs-AI runs with auto-rematch
   const arenaOn = () => G.mode === 'aivai' && settings.aivaiAuto;
@@ -1136,14 +1344,21 @@
     const id = ++reqId;
     thinkStart = Date.now();
     const style = kind === 'hint' ? null : styleForSide(G.side);
+    let opts;
+    if (kind === 'hint') {
+      opts = { budgetMs: 600, maxDepth: 12, jitter: 0 };
+    } else {
+      opts = levelOpts(G.mode === 'aivai'
+        ? (G.side === IVORY ? G.diffIvory : G.diffEbony)
+        : G.diff, style).opts;
+    }
+    // Against a person the computer keeps its thoughts short — the long
+    // deep searches belong to the spectator arena, not to your game.
+    if (G.mode === 'ai') opts.budgetMs = Math.min(opts.budgetMs, 1300);
     const payload = {
       cmd: 'search', id, rsId: G.rsId, side: G.side, noProgress: G.noProg,
       board: G.board,
-      opts: kind === 'hint'
-        ? { budgetMs: 600, maxDepth: 12, jitter: 0 }
-        : levelOpts(G.mode === 'aivai'
-          ? (G.side === IVORY ? G.diffIvory : G.diffEbony)
-          : G.diff, style).opts,
+      opts,
     };
     if (payload.opts.weights) payload.opts.weights.for = G.side;
     aiPending = kind === 'ai'; hintPending = kind === 'hint';
@@ -1184,16 +1399,19 @@
     if (settings.humanlike && (G.mode === 'aivai' || G.mode === 'ai')) {
       const r = Math.random();
       const caps = G.legal.some((m) => m.caps.length > 0);
+      const vsHuman = G.mode === 'ai'; // a person is waiting — no epic stares
       if (G.legal.length <= 2) base = 700 + r * 900;               // forced: snap
       else if (caps && G.legal.length <= 4) base = 900 + r * 1400; // obvious shot
       else if (r < 0.12) base = 500 + r * 900;                     // the quick reply
-      else if (r > 0.88) base = 8000 + r * 9000;                   // the deep think
-      else base = 1600 + Math.random() * 4200;                     // ordinary think
+      else if (r > 0.88) base = (vsHuman ? 2100 : 8000) + r * (vsHuman ? 900 : 9000);
+      else base = vsHuman ? 1200 + Math.random() * 1400 : 1600 + Math.random() * 4200;
       if (G.mode === 'aivai') base /= G.aiSpeed;
+      if (vsHuman) base = Math.min(base, 2600);
     } else {
       base = (G.mode === 'aivai' ? 700 / G.aiSpeed : 450) *
         (0.55 + Math.random() * 1.15) +
         (G.mode === 'aivai' && Math.random() < 0.1 ? (1200 + Math.random() * 3500) / G.aiSpeed : 0);
+      if (G.mode === 'ai') base = Math.min(base, 950);
     }
     const delay = Math.max(0, base - (Date.now() - thinkStart));
     setTimeout(() => {
@@ -2252,7 +2470,9 @@
     guardArena();
     saveArena();
     if (seasonEnd) {
-      text = '🏆 Season ' + arena.season + ' begins — every nation returns one rung stronger.' +
+      const champ2 = rosterById(arena.champion);
+      text = (champ2.face ? champ2.face + ' ' : '') + aiName(arena.champion) +
+        ' advances to Season ' + arena.season + ' — every nation returns one rung stronger.' +
         (text ? ' ' + text : '');
     }
     return { ceremony, text, champion: arena.champion, seasonEnd };
@@ -2312,7 +2532,8 @@
         el.hidden = false;
         el.innerHTML = 'Next: <b>' + (c.face ? c.face + ' ' : '') + aiName(arena.champion) + '</b> vs <b>' +
           (ch.face ? ch.face + ' ' : '') + aiName(arena.queue[0] || arena.champion) + '</b> · Season ' +
-          arena.season + ' · bout ' + (arena.bouts + 1) + '/' + SEASON_LEN + ' · ' + left + 's';
+          arena.season + ' · bout ' + (arena.bouts + 1) + '/' + SEASON_LEN + ' · ' +
+          SEASON_STAGES[stageOfBout(arena.bouts)].name + ' · ' + left + 's';
       };
       const fire = () => {
         cancelAutoNext();
@@ -2377,6 +2598,10 @@
       const hl = Math.min(10, Math.max(rosterLevel(G.seatEbony), cl - 2));
       G.diffIvory = LEVEL_IDS[cl - 1];
       G.diffEbony = LEVEL_IDS[hl - 1];
+      // the game remembers its reunions: how often have these two met?
+      G.pairKey = [G.seatIvory, G.seatEbony].sort().join('|');
+      G.pairMeets = (arena.meetings[G.pairKey] || 0) + 1;
+      arena.meetings[G.pairKey] = G.pairMeets;
       if (!arena.appeared.includes(G.seatIvory)) arena.appeared.push(G.seatIvory);
       if (!arena.appeared.includes(G.seatEbony)) arena.appeared.push(G.seatEbony);
       saveArena();
@@ -2384,6 +2609,7 @@
       G.seatIvory = arena.champion;
       G.seatEbony = ROSTER.find((r) => r.id !== arena.champion).id;
       G.diffIvory = settings.diff; G.diffEbony = settings.diff;
+      G.pairKey = null; G.pairMeets = 0;
     }
     doomClear();
     buildBoard();
@@ -2412,6 +2638,31 @@
               ' vs ' + styleById(settings.styleEbony).name);
         }, 200);
       }, 1250);
+    }
+    // tournament theatre, always announced, never skipped: when a stage
+    // begins the crowd names who advanced into it, and when two nations
+    // meet again the game knows and says so
+    if (G.mode === 'aivai' && settings.aivaiAuto) {
+      const boutIx = arena.bouts;
+      const stage = stageOfBout(boutIx);
+      let meetDelay = 5200;
+      if (boutIx > 0 && stageOfBout(boutIx - 1) !== stage) {
+        const line = displayName(IVORY) + ' advances to the ' + SEASON_STAGES[stage].name + '!';
+        meetDelay = 8400;
+        setTimeout(() => {
+          SFX_BANK.play('crown_fanfare', { vol: 0.9 });
+          setTimeout(() => SFX_BANK.play('st_air1', { vol: 0.8 }), 750);
+          flashLabel(line, 'majestic');
+        }, 4300);
+      }
+      if (G.pairMeets >= 2) {
+        const line = displayName(IVORY) + ' and ' + displayName(EBONY) +
+          ' meet again — the ' + ord(G.pairMeets) + ' time in the arena.';
+        setTimeout(() => {
+          SFX_BANK.play('st_drum1', { vol: 0.8 });
+          flashWhisper(line);
+        }, meetDelay);
+      }
     }
   }
 
@@ -2499,7 +2750,13 @@
   function updateBanner() {
     const dot = $('bannerDot'), text = $('bannerText');
     const banner = $('banner');
-    banner.classList.remove('thinking');
+    // thinking is a state you can see and hear: the banner counts its dots,
+    // the thinking side's pieces breathe, and the think pulse ticks softly
+    const engineThinking = G.phase === 'thinking' && !G.over;
+    banner.classList.toggle('thinking', engineThinking);
+    document.body.classList.toggle('think-a', engineThinking && G.side === IVORY);
+    document.body.classList.toggle('think-b', engineThinking && G.side !== IVORY);
+    if (engineThinking) FX.thinkStart(); else FX.thinkStop();
     if (G.over) {
       const r = G.result;
       dot.className = 'dot ' + (r.winner === IVORY ? 'ivory' : r.winner === EBONY ? 'ebony' : sideDot());
@@ -2512,11 +2769,12 @@
     const spect = G.mode === 'aivai'
       ? (settings.aivaiAuto
         ? ' · ' + aiName(G.seatIvory) + ' vs ' + aiName(G.seatEbony) +
-          ' · Season ' + arena.season + ' · bout ' + (arena.bouts + 1) + '/' + SEASON_LEN
+          ' · Season ' + arena.season + ' · bout ' + (arena.bouts + 1) + '/' + SEASON_LEN +
+          ' · ' + SEASON_STAGES[stageOfBout(arena.bouts)].name +
+          (G.pairMeets >= 2 ? ' · ' + ord(G.pairMeets) + ' meeting' : '')
         : ' · AI vs AI')
       : '';
     if (G.phase === 'thinking') {
-      banner.classList.add('thinking');
       text.textContent = hintPending ? 'Looking for a hint' : (G.mode === 'ai' && G.side !== G.humanSide
         ? 'The computer is thinking' : displayName(G.side) + ' to move' + spect);
     } else if (G.phase === 'animating') {
@@ -2613,8 +2871,8 @@
       $('arenaNote').textContent = settings.mode !== 'aivai'
         ? 'The arena only runs in AI vs AI mode.'
         : settings.aivaiAuto
-          ? ROSTER.length + ' nations rotate through the arena: Tanzania hosts the board and Kenya comes calling first, then East Africa, the rest of Africa, and every nation across Europe, Asia, the Americas and Oceania — open The players to rename any team you like. The winner keeps the board; a beaten champion joins the back of the line, so no nation hogs the schedule. Every ' + SEASON_LEN +
-            ' bouts a season closes and the world returns one rung stronger, and a challenger never faces a champion more than two rungs above it, so bouts stay fair. When every nation has played and the champion still stands, it retires — with the ceremony it deserves.'
+          ? ROSTER.length + ' nations rotate through the arena: Tanzania hosts the board and Kenya comes calling first, then East Africa, the rest of Africa, and every nation across Europe, Asia, the Americas and Oceania — open The players to rename any team you like. Each side\'s pieces wear its flag\'s colours; rename a team to anything else and its pieces return to the classic colours until the country\'s name comes back. The winner keeps the board; a beaten champion joins the back of the line, so no nation hogs the schedule. Every ' + SEASON_LEN +
+            ' bouts a season closes — a full tournament of group stage, quarter-finals, semi-finals and a grand final, each step-up announced — and the world returns one rung stronger. A challenger never faces a champion more than two rungs above it, so bouts stay fair, and when two nations meet again, the game remembers and says so. When every nation has played and the champion still stands, it retires — with the ceremony it deserves.'
           : 'Hand-picked engines: pick the two schools yourself. Auto-rematch is off, so the game stops after every bout.';
     }
     $('nameInput').value = settings.pname;
@@ -2670,6 +2928,7 @@
 
   function updateAll() {
     frameEl.classList.toggle('flip', shouldFlip());
+    applyFlagPalettes();
     updateBanner();
     updateTrays();
     updateHistory();
@@ -2798,6 +3057,16 @@
   wireName('nameInput', 'pname', 'UHAKIKA');
   wireName('name2Input', 'pname2', 'Challenger');
 
+  $('btnNameReset').addEventListener('click', () => {
+    const had = Object.keys(nameOverrides).length > 0;
+    for (const k of Object.keys(nameOverrides)) delete nameOverrides[k];
+    saveNames();
+    renderNameGrid();
+    updateAll();
+    SFX_BANK.play(had ? 'ui_toggle_on' : 'ui_click');
+    if (had) flashWhisper('Every nation has its name back — the flag colours return.');
+  });
+
   $('btnJump').addEventListener('click', () => {
     settings.jumpPaths = !settings.jumpPaths;
     saveJSON(SETTINGS_KEY, settings);
@@ -2841,6 +3110,7 @@
   $('btnSound').addEventListener('click', () => {
     settings.sound = !settings.sound;
     saveJSON(SETTINGS_KEY, settings);
+    if (!settings.sound) FX.thinkStop();
     updateSegs();
     if (settings.sound) FX.play('select');
   });
@@ -3014,6 +3284,7 @@
   // Tier timing only decides WHEN a think reaction may fire; WHICH clip plays
   // always comes off the shared no-repeat think deck below.
   const THINK_TIERS = [
+    { at: 6500, say: 'Take your time…', soft: true },
     { at: 12000, say: 'Still thinking…' },
     { at: 25000, say: 'Any day now…' },
     { at: 45000, say: 'Just agree you lost…' },
@@ -3087,8 +3358,8 @@
   // and the gag sits on a leash (45 s global, three per game, silent at 2×/4×
   // spectator speed) so it can never become a metronome.
   const AI_CARDS = [
-    { at: 4200, say: 'Deep in thought…' },
-    { at: 9500, say: 'Still calculating…' },
+    { at: 3400, say: 'Deep in thought…' },
+    { at: 8500, say: 'Still calculating…' },
   ];
   let aiCardKey = -1, aiCardStart = 0, aiCardFired = 0;
   let lastAiCardAt = 0, aiCardsThisGame = 0; // the gag stays on a leash
@@ -3107,9 +3378,11 @@
       const dt = Date.now() - aiCardStart;
       // A narrator card is a rare gag, not a metronome: the think must be
       // genuinely long for its rung (budget + margin), the gag itself sits on
-      // a 90 s global leash with two per game, and it rests entirely at
+      // a 45 s global leash with three per game, and it rests entirely at
       // 2×/4× spectator speed.
-      const budgetFloor = (LEVELS[G.diff] || LEVELS.l5).budgetMs + 800;
+      const seatLevel = G.mode === 'aivai' ? (G.side === IVORY ? G.diffIvory : G.diffEbony) : G.diff;
+      const budgetFloor = Math.min((LEVELS[seatLevel] || LEVELS.l5).budgetMs,
+        G.mode === 'ai' ? 1300 : 1e9) + 500;
       while (aiCardFired < AI_CARDS.length && dt >= Math.max(AI_CARDS[aiCardFired].at, budgetFloor)) {
         if (G.aiSpeed > 1 || Date.now() - lastAiCardAt < 45000 || aiCardsThisGame >= 3) break;
         const card = AI_CARDS[aiCardFired++];
@@ -3155,6 +3428,12 @@
     const dt = Date.now() - humanThinkStart;
     while (thinkFired < THINK_TIERS.length && dt >= THINK_TIERS[thinkFired].at) {
       const tier = THINK_TIERS[thinkFired++];
+      // the first cue is a gentle nudge, not a voice line — a soft clock tick
+      if (tier.soft) {
+        SFX_BANK.play('clock_tick', { vol: 0.45 });
+        flashWhisper(tier.say);
+        continue;
+      }
       // a dead-quiet position (tier 3): crickets first, sometimes
       if (tier.at === 45000 && Math.random() < 0.3) SFX_BANK.play('cricket');
       setTimeout(() => SFX_BANK.play(thinkSound(), { vol: 0.95 }), 170);
