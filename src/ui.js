@@ -9,6 +9,66 @@
 
   const CROWN = '<svg class="crown" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 18h17l1.4-9.2-5.4 3.6L12 5.2 7.5 12.4 2.1 8.8z" stroke-width="1"/></svg>';
 
+  // ---------------- difficulty ladder ----------------
+  // Ten rungs from first-timer to superhuman. `blunder` is the chance the
+  // engine throws in a deliberately random move, `pool` is how far (in
+  // centipawns) from the best move alternatives stay attractive — together
+  // they make the low rungs human-beatable without making them silly.
+  const LEVELS = {
+    l1: { name: 'Beginner',       budgetMs: 90,   maxDepth: 2,  jitter: 45, blunder: .35, pool: 160 },
+    l2: { name: 'Novice',         budgetMs: 120,  maxDepth: 3,  jitter: 30, blunder: .22, pool: 120 },
+    l3: { name: 'Casual',         budgetMs: 220,  maxDepth: 5,  jitter: 16, blunder: .12, pool: 80 },
+    l4: { name: 'Club',           budgetMs: 320,  maxDepth: 8,  jitter: 9,  blunder: .06, pool: 55 },
+    l5: { name: 'Expert',         budgetMs: 420,  maxDepth: 10, jitter: 6,  blunder: .03, pool: 0 },
+    l6: { name: 'Master',         budgetMs: 700,  maxDepth: 13, jitter: 4,  blunder: .015, pool: 0 },
+    l7: { name: 'Grandmaster',    budgetMs: 1200, maxDepth: 18, jitter: 2,  blunder: 0,   pool: 0 },
+    l8: { name: 'Super GM',       budgetMs: 1800, maxDepth: 22, jitter: 1,  blunder: 0,   pool: 0 },
+    l9: { name: 'World Champion', budgetMs: 2600, maxDepth: 26, jitter: 0,  blunder: 0,   pool: 0 },
+    l10: { name: 'The Machine',   budgetMs: 4200, maxDepth: 30, jitter: 0,  blunder: 0,   pool: 0 },
+  };
+  const LEVEL_IDS = Object.keys(LEVELS);
+
+  // ---------------- world playing styles ----------------
+  // National schools as AI personalities. The `w` weights feed the engine's
+  // evaluator (aggression, back-rank guard, king hunger, willingness to
+  // trade, centre play); `chaos` widens the move pool so loose styles feel
+  // improvisational; the voice lines give every school its own table talk.
+  const STYLES = [
+    { id: 'classic',   flag: '🌎', name: 'Classic',   blurb: 'The balanced all-rounder — solid book play, no favours.',
+      w: { aggr: 1, guard: 1, king: 1, trade: 1, center: 1 }, chaos: .2 },
+    { id: 'american',  flag: '🇺🇸', name: 'American',  blurb: 'Straight-shooting English draughts: structure first, morals later.',
+      w: { aggr: 1.05, guard: 1.05, king: 1, trade: 1, center: 1.05 }, chaos: .25 },
+    { id: 'english',   flag: '🇬🇧', name: 'English',   blurb: 'Positional, patient, suffocating. Wins you with a shrug.',
+      w: { aggr: .85, guard: 1.25, king: .9, trade: 1.05, center: 1.2 }, chaos: .15 },
+    { id: 'italian',   flag: '🇮🇹', name: 'Italian',   blurb: 'Furioso! Sacrifices for attack, and drama by the move.',
+      w: { aggr: 1.6, guard: .8, king: 1.1, trade: 1.15, center: 1.1 }, chaos: .55 },
+    { id: 'spanish',   flag: '🇪🇸', name: 'Spanish',   blurb: 'Flank and king play — the long diagonal is a promise.',
+      w: { aggr: 1.15, guard: 1.05, king: 1.3, trade: .9, center: .85 }, chaos: .35 },
+    { id: 'czech',     flag: '🇨🇿', name: 'Czech',     blurb: 'The Fortress. Fortify, trade down, grind out the endgame.',
+      w: { aggr: .7, guard: 1.5, king: .95, trade: .8, center: 1.05 }, chaos: .1 },
+    { id: 'french',    flag: '🇫🇷', name: 'French',    blurb: 'Élégance above all — central beauty, complications declined.',
+      w: { aggr: .9, guard: 1.1, king: 1.05, trade: .85, center: 1.25 }, chaos: .2 },
+    { id: 'russian',   flag: '🇷🇺', name: 'Russian',   blurb: 'Bold gambits and sharp tactics — the piece is a decoy.',
+      w: { aggr: 1.45, guard: .85, king: 1.2, trade: 1.2, center: 1.05 }, chaos: .6 },
+    { id: 'kenyan',    flag: '🇰🇪', name: 'Kenyan',    blurb: 'The Hustle — fast, fearless trap-setting street checkers.',
+      w: { aggr: 1.7, guard: .7, king: 1.15, trade: 1.3, center: .9 }, chaos: .85 },
+    { id: 'tanzanian', flag: '🇹🇿', name: 'Tanzanian', blurb: 'The Joker — unpredictable, tricky, allergic to routine.',
+      w: { aggr: 1.5, guard: .75, king: 1.25, trade: 1.2, center: .95 }, chaos: 1 },
+    { id: 'brazilian', flag: '🇧🇷', name: 'Brazilian', blurb: 'Samba draughts: rhythm, swings and attacking flair.',
+      w: { aggr: 1.3, guard: .9, king: 1.15, trade: 1.1, center: 1 }, chaos: .6 },
+    { id: 'mongolian', flag: '🇲🇳', name: 'Mongolian', blurb: 'Raider kings — crown early, raid everywhere.',
+      w: { aggr: 1.2, guard: .8, king: 1.6, trade: 1, center: .9 }, chaos: .5 },
+  ];
+  const styleById = (id) => STYLES.find((s) => s.id === id) || STYLES[0];
+
+  // Which personality drives the engine currently thinking? `side` is the
+  // side the ENGINE is searching for. Hotseat has no engines.
+  function styleForSide(side) {
+    if (G.mode === 'ai') return side === G.humanSide ? null : styleById(settings.style);
+    if (G.mode === 'aivai') return styleById(side === IVORY ? settings.styleIvory : settings.styleEbony);
+    return null;
+  }
+
   // ---------------- persistence ----------------
   const SETTINGS_KEY = 'drafti.settings.v1';
   const STATS_KEY = 'drafti.stats.v1';
@@ -16,16 +76,22 @@
   function saveJSON(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* private mode etc. */ } }
 
   const settings = Object.assign(
-    { rsId: 'american', mode: 'ai', diff: 'medium', humanSide: IVORY, sound: true, rotate: true, theme: 'neon', clock: 0, speed: 1, hv: false },
+    { rsId: 'american', mode: 'ai', diff: 'l5', humanSide: IVORY, sound: true, rotate: true, theme: 'neon', clock: 0, speed: 1, hv: false, ambient: true, style: 'classic', styleIvory: 'italian', styleEbony: 'czech' },
     loadJSON(SETTINGS_KEY, {})
   );
   if (!E.RULESETS[settings.rsId]) settings.rsId = 'american';
   if (settings.mode !== 'ai' && settings.mode !== 'hotseat' && settings.mode !== 'aivai') settings.mode = 'ai';
-  if (!['easy', 'medium', 'hard'].includes(settings.diff)) settings.diff = 'medium';
+  // difficulty ladder: migrate the old three strengths onto the new rungs
+  const OLD_DIFF = { easy: 'l2', medium: 'l5', hard: 'l7' };
+  if (OLD_DIFF[settings.diff]) settings.diff = OLD_DIFF[settings.diff];
+  if (!LEVELS[settings.diff]) settings.diff = 'l5';
+  if (!STYLES.some((s) => s.id === settings.style)) settings.style = 'classic';
+  if (!STYLES.some((s) => s.id === settings.styleIvory)) settings.styleIvory = 'italian';
+  if (!STYLES.some((s) => s.id === settings.styleEbony)) settings.styleEbony = 'czech';
   if (![0, 30, 60, 90].includes(settings.clock)) settings.clock = 0;
   if (![1, 2, 4].includes(settings.speed)) settings.speed = 1;
   settings.sfx = Object.assign(
-    { master: 0.9, animals: true, judge: true, comedy: true, voice: true, classic: true, think: true, ui: true },
+    { master: 0.9, animals: true, judge: true, comedy: true, voice: true, classic: true, think: true, ui: true, drama: true },
     (settings.sfx && typeof settings.sfx === 'object') ? settings.sfx : {}
   );
 
@@ -433,7 +499,10 @@
     },
     play(name) {
       if (!settings.sound) return;
-      if (name !== 'illegal' && !settings.sfx.classic) return;
+      const dramaSynth = name === 'trap_snap' || name === 'denied' ||
+        name === 'relief' || name === 'levelup';
+      if (dramaSynth) { if (!settings.sfx.drama) return; }
+      else if (name !== 'illegal' && !settings.sfx.classic) return;
       try {
         switch (name) {
           // A wooden piece set down on wood: a soft click, a short noise
@@ -465,6 +534,27 @@
           case 'draw': this.tone(440, 0.2, 'triangle', 0.16); this.tone(440, 0.28, 'triangle', 0.16, 0.24); break;
           case 'illegal': this.tone(110, 0.07, 'square', 0.1); this.tone(100, 0.08, 'square', 0.1, 0.09); break;
           case 'undo': this.tone(300, 0.09, 'triangle', 0.13, 0, 210); break;
+          // ---- trap drama stings (synthesized, category: drama) ----
+          case 'trap_snap': // metallic snap: the trap closes
+            this.noiseAt(0.05, 0.5, 0, 2400, 2.2);
+            this.tone(1400, 0.09, 'square', 0.16, 0, 320);
+            this.tone(90, 0.16, 'sine', 0.3, 0.02);
+            break;
+          case 'denied': // flat double buzz: the idea is refused
+            this.tone(138, 0.1, 'sawtooth', 0.14);
+            this.tone(138, 0.16, 'sawtooth', 0.14, 0.14);
+            break;
+          case 'relief': // warm major chime: dodged / lucky
+            this.tone(523, 0.14, 'triangle', 0.13);
+            this.tone(659, 0.16, 'triangle', 0.12, 0.09);
+            this.tone(784, 0.22, 'triangle', 0.11, 0.18);
+            break;
+          case 'levelup': // promotion fanfare: beaten a new best level
+            [392, 523, 659, 784, 1047].forEach((f, i) => {
+              this.tone(f, 0.16, 'triangle', 0.15, i * 0.09);
+              this.noiseAt(0.02, 0.12, i * 0.09, 3800, 1.4);
+            });
+            break;
         }
       } catch { /* audio is best-effort */ }
     },
@@ -506,7 +596,7 @@
     defs: window.DRAFTI_SFX || {},
     buffers: new Map(),
     decoding: false,
-    CAT_VOL: { majestic: 0.95, comedy: 0.8, voice: 1.0, judge: 1.0, think: 1.0, ui: 0.6 },
+    CAT_VOL: { majestic: 0.95, comedy: 0.8, voice: 1.0, judge: 1.0, think: 1.0, ui: 0.6, drama: 0.95 },
     decodeAll() {
       const ctx = FX.ctx;
       if (!ctx || this.decoding) return;
@@ -529,10 +619,11 @@
       if (def.c === 'judge') return settings.sfx.judge;
       if (def.c === 'think') return settings.sfx.think;
       if (def.c === 'ui') return settings.sfx.ui;
+      if (def.c === 'drama') return settings.sfx.drama;
       return true;
     },
     play(name, opts) {
-      if (!settings.sound || !this.on(name)) return null;
+      if (!name || !settings.sound || !this.on(name)) return null;
       const ctx = FX.ensure(); if (!ctx) return null;
       this.decodeAll();
       const buf = this.buffers.get(name);
@@ -585,11 +676,11 @@
   // ---------------- AI worker ----------------
   let worker = null, workerBroken = false, reqId = 0, aiPending = false, hintPending = false, thinkStart = 0;
 
-  function getWorker() {
-    if (worker || workerBroken) return worker;
-    try {
-      const src =
-        'const makeEngine = (' + makeEngine.toString() + ');\n' +
+  // The worker source, kept as a named function so tests can spawn the exact
+  // production worker and verify the verdict/trap protocol end to end.
+  function workerSource() {
+    return (
+      'const makeEngine = (' + makeEngine.toString() + ');\n' +
         'const E = makeEngine();\n' +
         'self.onmessage = (e) => {\n' +
         '  const d = e.data;\n' +
@@ -599,23 +690,70 @@
         '    res.id = d.id; res.cmd = "searchResult"; res.ms = Date.now() - t0;\n' +
         '    postMessage(res);\n' +
         '  } else if (d.cmd === "classify") {\n' +
-        '    const res = E.search(E.RULESETS[d.rsId], new Int8Array(d.board), d.side, d.opts);\n' +
+        '    const rs = E.RULESETS[d.rsId];\n' +
+        '    const res = E.search(rs, new Int8Array(d.board), d.side, d.opts);\n' +
         '    const roots = res.rootScores || [];\n' +
         '    let played = null, bestOther = -Infinity, bestScore = -Infinity;\n' +
+        '    let playedIsCapture = false, bestCapture = -Infinity;\n' +
         '    for (const r of roots) {\n' +
         '      const key = r.m.path.join(",");\n' +
-        '      if (key === d.playedPath) played = r.score;\n' +
+        '      if (key === d.playedPath) { played = r.score; playedIsCapture = r.m.caps.length > 0; }\n' +
         '      else if (r.score > bestOther) bestOther = r.score;\n' +
         '      if (r.score > bestScore) bestScore = r.score;\n' +
+        '      if (r.m.caps.length > 0 && r.score > bestCapture) bestCapture = r.score;\n' +
         '    }\n' +
-        '    postMessage({ cmd: "verdict", id: d.id,\n' +
+        '    const out = { cmd: "verdict", id: d.id,\n' +
         '      delta: played == null || !isFinite(bestScore) ? NaN : bestScore - played,\n' +
         '      playedScore: played == null ? 0 : played,\n' +
         '      bestOther: isFinite(bestOther) ? bestOther : NaN,\n' +
         '      preBest: isFinite(bestScore) ? bestScore : NaN,\n' +
-        '      onlyMove: roots.length <= 1 });\n' +
-        '  }\n' +
-        '};';
+        '      onlyMove: roots.length <= 1 };\n' +
+        // A won capture declined: the mover had a capture that scored far above
+        // the quiet move actually played (only meaningful when captures were
+        // optional — a forced capture would have been the played move).
+        '    if (d.detectMissed && !playedIsCapture && isFinite(bestCapture) &&\n' +
+        '        bestCapture - (played == null ? 0 : played) >= 250) {\n' +
+        '      out.missedWin = true;\n' +
+        '    }\n' +
+        // Bait detection: after this move, does the OPPONENT face captures that
+        // are actually bad? Requires that quiet moves exist (otherwise the
+        // capture is forced — a tactic, not a trap). If declining beats taking
+        // by a wide margin, the mover has set a trap.
+        '    if (d.withOpp) {\n' +
+        '      const playedRoot = roots.find((r) => r.m.path.join(",") === d.playedPath);\n' +
+        '      let opp = { bait: false, doom: false, capWorst: NaN, capWorstPath: null, bestScore: NaN };\n' +
+        '      if (playedRoot) {\n' +
+        '        const nb = E.applyMove(rs, new Int8Array(d.board), playedRoot.m, d.side);\n' +
+        '        const o = E.search(rs, nb, -d.side, { budgetMs: 400, maxDepth: 7, jitter: 0, fullRootWindow: true });\n' +
+        '        const oroots = o.rootScores || [];\n' +
+        '        let oBest = -Infinity, oWorstCap = Infinity, oWorstPath = null, anyCap = false;\n' +
+        '        for (const r of oroots) {\n' +
+        '          if (r.score > oBest) oBest = r.score;\n' +
+        '          if (r.m.caps.length > 0) {\n' +
+        '            anyCap = true;\n' +
+        '            if (r.score < oWorstCap) { oWorstCap = r.score; oWorstPath = r.m.path.join(","); }\n' +
+        '          }\n' +
+        '        }\n' +
+        // Captures are mandatory in every ruleset, so a trap is a CHOICE of
+        // captures: a safe one exists (oBest >= -30) while the worst capture
+        // walks into a shot (150+ below best) — or every capture loses (doom).
+        '        const loose = anyCap && isFinite(oBest) && oBest >= -30 && oBest - oWorstCap >= 150;\n' +
+        '        const doom = anyCap && isFinite(oBest) && oBest <= -140;\n' +
+        '        opp = { bait: loose || doom, doom, capWorst: oWorstCap,\n' +
+        '          capWorstPath: oWorstPath, bestScore: oBest };\n' +
+        '      }\n' +
+        '      out.opp = opp;\n' +
+        '    }\n' +
+      '    postMessage(out);\n' +
+      '  }\n' +
+      '};'
+    );
+  }
+
+  function getWorker() {
+    if (worker || workerBroken) return worker;
+    try {
+      const src = workerSource();
       worker = new Worker(URL.createObjectURL(new Blob([src], { type: 'text/javascript' })));
       worker.onmessage = (e) => {
         if (e.data && e.data.cmd === 'verdict') handleVerdict(e.data);
@@ -626,22 +764,31 @@
     return worker;
   }
 
-  const DIFF_OPTS = {
-    easy: { budgetMs: 120, maxDepth: 2, jitter: 30 },
-    medium: { budgetMs: 420, maxDepth: 10, jitter: 6 },
-    hard: { budgetMs: 1200, maxDepth: 24, jitter: 2 },
-  };
+  const DIFF_OPTS = null; // replaced by the LEVELS ladder
+
+  function levelOpts(levelId, style) {
+    const L = LEVELS[levelId] || LEVELS.l5;
+    // Pool-based move picking compares root scores against each other, so it
+    // needs exact per-root values: only the shallow rungs (which have a pool)
+    // pay for the full-window search.
+    const opts = { budgetMs: L.budgetMs, maxDepth: L.maxDepth, jitter: L.jitter,
+      fullRootWindow: L.pool > 0 };
+    if (style) opts.weights = Object.assign({ for: 0 }, style.w); // for: patched by caller
+    return { opts, level: L };
+  }
 
   function runSearch(kind) {
     const id = ++reqId;
     thinkStart = Date.now();
+    const style = kind === 'hint' ? null : styleForSide(G.side);
     const payload = {
       cmd: 'search', id, rsId: G.rsId, side: G.side, noProgress: G.noProg,
       board: G.board,
       opts: kind === 'hint'
         ? { budgetMs: 600, maxDepth: 12, jitter: 0 }
-        : DIFF_OPTS[G.diff] || DIFF_OPTS.medium,
+        : levelOpts(G.diff, style).opts,
     };
+    if (payload.opts.weights) payload.opts.weights.for = G.side;
     aiPending = kind === 'ai'; hintPending = kind === 'hint';
     const w = getWorker();
     if (w) { w.postMessage(payload); return; }
@@ -676,12 +823,20 @@
     const delay = Math.max(0, base - (Date.now() - thinkStart));
     setTimeout(() => {
       if (res.id !== reqId || G.phase !== 'idle') return;
-      if (G.diff === 'easy' && Array.isArray(res.rootScores) && res.rootScores.length > 1) {
-        if (Math.random() < 0.18) { executeMove(G.legal[(Math.random() * G.legal.length) | 0]); return; }
+      // level ladder: weak rungs blunder and wander; styles widen the pool
+      // (pool picking needs exact root scores, so it only runs on the shallow
+      // full-window rungs; deep levels and styles differ through jitter)
+      const L = LEVELS[G.diff] || LEVELS.l5;
+      const style = styleForSide(G.side);
+      if (Array.isArray(res.rootScores) && res.rootScores.length > 1 && L.pool > 0) {
         const top = res.rootScores.reduce((a, b) => (b.score > a ? b.score : a), -Infinity);
-        const pool = res.rootScores.filter((r) => r.score >= top - 90);
-        const pick = pool[(Math.random() * pool.length) | 0];
-        const m2 = G.legal.find((m) => m.path.join() === pick.m.path.join());
+        const margin = L.pool + (style ? style.chaos * 90 : 0);
+        if (L.blunder > 0 && Math.random() < L.blunder) {
+          executeMove(G.legal[(Math.random() * G.legal.length) | 0]); return;
+        }
+        const pool = res.rootScores.filter((r) => r.score >= top - margin);
+        const pickM = pool[(Math.random() * pool.length) | 0];
+        const m2 = G.legal.find((m) => m.path.join() === pickM.m.path.join());
         if (m2) { executeMove(m2); return; }
       }
       executeMove(mv);
@@ -858,6 +1013,7 @@
   };
   let lastEvent = { rank: -1, ply: -1 };
   let pendingVerdict = null;
+  let pendingTrap = null; // { ply, setter, capPath } — a bait waiting to be taken or declined
   let verdictId = 0;
   let labelTimer = 0;
   let whisperTimer = 0;
@@ -865,9 +1021,11 @@
   // post-thought reactions: a long think followed by a great (or awful) move
   const PRAISE_POOL = ['v_bigbrain', 'v_worth', 'v_paidoff', 'v_slowsteady', 'v_genius', 'v_masterpiece'];
   const SAVAGE_POOL = ['v_thought30', 'v_alltime', 'v_nosense'];
+  const COMEBACK_POOL = ['v_come1', 'v_come2'];
   let longThinkSavage = false; // set by the verdict when a long think ended badly
   let lastThinkMs = 0;         // how long the human pondered the move just played
   let lastThinkPraised = -1;   // ply already praised (avoid double rewards)
+  let lastBlunderPly = -1;     // ply of the last blunder — a quick repair earns a comeback callout
 
   function flashLabel(text, kind) {
     const host = $('stage');
@@ -947,8 +1105,9 @@
       SFX_BANK.play('v_king', { vol: 0.9 });
       flashLabel('Crowned!', 'majestic');
     } else if (ev === 'brilliant') {
+      if (ply - lastBlunderPly === 2) lastBlunderPly = -1;
       SFX_BANK.play(Math.random() < 0.6 ? 'wolfwhistle' : 'rimshot', { vol: 0.9 });
-      SFX_BANK.play('v_chess', { vol: 0.85 });
+      SFX_BANK.play(Math.random() < 0.5 ? 'v_chess' : 'v_ooh1', { vol: 0.85 });
       flashLabel('A chess move!', 'majestic');
     } else if (ev === 'trick') {
       SFX_BANK.play(Math.random() < 0.5 ? 'wolfwhistle' : 'zip', { vol: 0.85 });
@@ -964,13 +1123,23 @@
         flashLabel('Worth the wait!', 'majestic');
         return;
       }
+      // a clean move straight after a blunder deserves a comeback nod
+      if (ply - lastBlunderPly === 2 && Math.random() < 0.75) {
+        lastBlunderPly = -1;
+        SFX_BANK.play('relief', { vol: 0.7 });
+        SFX_BANK.play(pick(COMEBACK_POOL), { vol: 0.9 });
+        flashLabel('Repaired!', 'judge');
+        return;
+      }
       const only = flavor === 'only';
-      SFX_BANK.play(only ? 'v_only' : ['v_nice', 'v_sharp', 'v_clean'][(Math.random() * 3) | 0], { vol: 0.9 });
+      SFX_BANK.play(only ? pick(['v_only', 'v_hold1', 'v_hold2'])
+        : ['v_nice', 'v_sharp', 'v_clean'][(Math.random() * 3) | 0], { vol: 0.9 });
       flashLabel(only ? 'The only move!' : ['Precise.', 'Sharp!', 'Clean.'][(Math.random() * 3) | 0], 'judge');
     } else if (ev === 'dubious') {
-      SFX_BANK.play(Math.random() < 0.5 ? 'v_hmm' : 'v_curious', { vol: 0.9 });
+      SFX_BANK.play(pick(['v_hmm', 'v_curious', 'v_inacc1', 'v_inacc2']), { vol: 0.9 });
       flashLabel('Hmm…', 'judge');
     } else if (ev === 'blunder') {
+      lastBlunderPly = ply;
       SFX_BANK.play('trombone', { vol: 1 });
       // A long think that ended in a blunder earns the savage callout.
       SFX_BANK.play(longThinkSavage ? pick(SAVAGE_POOL)
@@ -996,22 +1165,44 @@
     // 'none': the classic wooden move sounds (already playing) carry it
   }
 
-  // Ask the worker to judge the move (blunder / brilliant). Runs ~300 ms
-  // after the move; its verdict may upgrade the instant classification.
+  // Ask the worker to judge the move: quality (blunder / brilliant / badge),
+  // whether the move just SET a trap (the opponent faces captures that lose),
+  // and — for engine moves — whether the engine declined a winning capture.
+  // Runs right after the move; its verdict may upgrade the instant one.
   function requestVerdict(mv, preBoard, side, preNoProg, ply) {
     if (G.over) return;
-    if (G.mode === 'aivai') return; // no humans to judge
-    if (G.mode === 'ai' && side !== G.humanSide) return; // judge humans
-    if (settings.diff === 'easy') return; // easy plays badly on purpose
+    if (G.mode === 'aivai') return; // spectators keep a clean rhythm
     const w = getWorker();
     if (!w) return;
     const id = ++verdictId;
-    pendingVerdict = { id, ply, caps: mv.caps.length };
+    pendingVerdict = { id, ply, caps: mv.caps.length, mover: side };
     w.postMessage({
       cmd: 'classify', id, rsId: G.rsId, side, noProgress: preNoProg,
       board: preBoard, playedPath: mv.path.join(),
+      detectMissed: G.mode === 'ai' && side !== G.humanSide,
+      withOpp: true,
       opts: { budgetMs: 340, maxDepth: 9, jitter: 0 },
     });
+  }
+
+  // ---- trap drama: reaction bank for baits taken, dodged and wasted ----
+  const DRAMA = {
+    trap_win:    { sfx: 'trap_snap', lines: ['v_taw1', 'v_taw2', 'v_taw3'], label: ['The trap springs!', 'Snap!', 'Right into it!'], kind: 'majestic' },
+    trap_fail:   { sfx: 'trap_snap', lines: ['v_tbf1', 'v_tbf2', 'v_tbf3'], label: ['You took the bait!', 'It was a trap!', 'Straight into the trap!'], kind: 'comedy' },
+    trap_denied: { sfx: 'denied',    lines: ['v_tad1', 'v_tad2', 'v_tad3'], label: ['Denied!', 'Not today!', 'Seen through!'], kind: 'judge' },
+    trap_dodge:  { sfx: 'relief',    lines: ['v_tbd1', 'v_tbd2', 'v_tbd3'], label: ['Good read.', 'You dodged it!', 'Not biting.'], kind: 'judge' },
+    ai_missed:   { sfx: 'relief',    lines: ['v_aim1', 'v_aim2'], label: ['The trap went unused?!'], kind: 'comedy' },
+  };
+  let lastDramaAt = 0;
+  function applyDrama(kind) {
+    const d = DRAMA[kind];
+    if (!d) return;
+    const now = Date.now();
+    if (now - lastDramaAt < 2500) return; // never stack drama stings
+    lastDramaAt = now;
+    FX.play(d.sfx);
+    SFX_BANK.play(pick(d.lines), { vol: 0.95 });
+    flashLabel(pick(d.label), d.kind);
   }
 
   function handleVerdict(res) {
@@ -1019,6 +1210,31 @@
     if (!pv || res.id !== pv.id) return;
     pendingVerdict = null;
     if (G.over || G.history.length !== pv.ply) return;
+    const h = G.history[pv.ply - 1];
+
+    // ---- score-sheet badge (! brilliant · !? inaccurate · ? mistake · ?? blunder)
+    if (h && isFinite(res.delta) && !res.onlyMove) {
+      if (res.delta >= 420) h.badge = '??';
+      else if (res.delta >= 170) h.badge = '?';
+      else if (res.delta >= 70) h.badge = '?!';
+      else if (res.delta <= -120 && res.playedScore > 40) h.badge = '!!';
+      else if (res.delta <= 8 && isFinite(res.bestOther) && res.bestOther <= res.playedScore - 140) h.badge = '!';
+      if (h.badge) updateHistory();
+    }
+
+    // ---- this move set a trap: the opponent now faces a capture choice ----
+    // loose: a safe capture exists but the wrong one walks into a shot;
+    // doom: every capture loses. Either way the next ply is the moment of truth.
+    if (res.opp && res.opp.bait) {
+      pendingTrap = { ply: pv.ply + 1, setter: pv.mover, doom: !!res.opp.doom, badPath: res.opp.capWorstPath };
+    }
+
+    // ---- the engine set a winning trap… and played somewhere else ----
+    if (res.missedWin) {
+      setTimeout(() => applyDrama('ai_missed'), 480);
+      return;
+    }
+
     if (res.onlyMove || !isFinite(res.delta)) return;
     if (res.delta >= 420) {
       longThinkSavage = lastThinkMs > 20000;
@@ -1083,8 +1299,24 @@
     updateAll();
     await animateMove(mv);
     const ply = commitMove(mv);
+    // trap drama: the mover either walked into the shot or found the safe way
+    const trap = pendingTrap;
+    pendingTrap = null;
+    if (trap && trap.ply === ply && trap.setter === -moverSide && mv.caps.length > 0) {
+      const moverIsEngine = G.mode === 'ai' && moverSide !== G.humanSide;
+      const tookBadPath = trap.badPath != null && mv.path.join() === trap.badPath;
+      if (trap.doom || tookBadPath) {
+        applyDrama(moverIsEngine ? 'trap_win' : 'trap_fail'); // the shot fires
+      } else {
+        applyDrama(moverIsEngine ? 'trap_denied' : 'trap_dodge'); // safe capture found
+      }
+    }
     // capture streaks: consecutive moves (by either side) that capture
     if (mv.caps.length > 0) {
+      const stM = styleForSide(moverSide);
+      if (stM && Math.random() < 0.18) {
+        setTimeout(() => SFX_BANK.play(pick(stM.catch), { vol: 0.7 }), 750);
+      }
       G.capStreak = G.capStreakSide === moverSide ? G.capStreak + 1 : 1;
       G.capStreakSide = moverSide;
       if (G.capStreak >= 2) {
@@ -1190,6 +1422,24 @@
       }
       const v = r.winner === null ? 'v_draw' : r.winner === G.humanSide ? 'v_win' : 'v_lose';
       setTimeout(() => SFX_BANK.play(v, { vol: 0.9 }), 550);
+      // ladder celebrations: conquering a new best rung, streaks, giant-killing
+      if (r.winner === G.humanSide) {
+        const li = LEVEL_IDS.indexOf(G.diff);
+        const s = statEntry();
+        const prevBest = typeof s.bestLevel === 'number' ? s.bestLevel : -1;
+        if (li > prevBest) {
+          s.bestLevel = li; stats[G.rsId] = s; saveStats();
+          setTimeout(() => {
+            FX.play('levelup');
+            SFX_BANK.play('v_levelup1', { vol: 0.9 });
+            flashWhisper('New best level conquered: ' + LEVELS[G.diff].name + '!');
+          }, 1300);
+        } else if (s.run >= 3) {
+          setTimeout(() => SFX_BANK.play(pick(['v_streak1', 'v_streak2']), { vol: 0.85 }), 1500);
+        } else if (li >= 6 && Math.random() < 0.45) {
+          setTimeout(() => SFX_BANK.play(pick(['v_beatgm1', 'v_beatgm2']), { vol: 0.85 }), 1500);
+        }
+      }
     } else {
       FX.play(r.winner === null ? 'draw' : 'king');
       SFX_BANK.play(r.winner === null ? 'draw_chime' : 'crown_fanfare', { vol: 0.85 });
@@ -1227,10 +1477,17 @@
     G.over = false; G.result = null; G.recorded = false;
     G.phase = 'idle'; G.sel = null; G.hint = null; G.lastMove = null;
     lastThinkMs = 0; thinkArmedKey = -1; thinkFired = 0; clockArmedKey = -1;
+    pendingTrap = null;
     buildBoard();
     rebuildPieces();
     updateAll();
     scheduleAI();
+    // the opponent introduces themselves in their national style
+    const greeter = G.mode === 'ai' ? styleById(settings.style)
+      : G.mode === 'aivai' ? styleById(settings.styleIvory) : null;
+    if (greeter && Math.random() < (G.mode === 'aivai' ? 0.3 : 0.45)) {
+      setTimeout(() => SFX_BANK.play(greeter.intro, { vol: 0.8 }), 950);
+    }
   }
 
   function undo() {
@@ -1250,6 +1507,7 @@
     G.lastMove = G.history.length ? G.history[G.history.length - 1].move : null;
     G.sel = null; G.hint = null;
     G.capStreak = 0; G.capStreakSide = 0;
+    pendingTrap = null;
     G.legal = E.legalMoves(G.rs, G.board, G.side);
     rebuildPieces();
     FX.play('undo');
@@ -1335,7 +1593,9 @@
         html += '<li' + (ix === G.history.length - 1 ? ' class="current"' : '') + '>' +
           '<span class="no">' + (ix + 1) + '.</span>' +
           '<span class="pdot ' + (h.side === IVORY ? 'ivory' : 'ebony') + '"></span>' +
-          '<span>' + h.notation + (h.move.promotes ? ' ♔' : '') + '</span></li>';
+          '<span>' + h.notation + (h.move.promotes ? ' ♔' : '') +
+          (h.badge ? '<span class="badge b-' + h.badge.length + '">' + h.badge + '</span>' : '') +
+          '</span></li>';
       });
       ol.innerHTML = html;
       ol.scrollTop = ol.scrollHeight;
@@ -1351,7 +1611,9 @@
       const cur = G.history.length - recent.length + ix === G.history.length - 1;
       return '<span class="tk' + (cur ? ' current' : '') + '">' +
         '<span class="pdot ' + (h.side === IVORY ? 'ivory' : 'ebony') + '"></span>' +
-        h.notation + (h.move.promotes ? '♔' : '') + '</span>';
+        h.notation + (h.move.promotes ? '♔' : '') +
+        (h.badge ? '<span class="badge b-' + h.badge.length + '">' + h.badge + '</span>' : '') +
+        '</span>';
     }).join('');
     tk.scrollLeft = tk.scrollWidth;
   }
@@ -1366,19 +1628,32 @@
     set('segDiff', settings.diff);
     set('segClock', settings.clock);
     set('segSpeed', G.aiSpeed);
+    set('segStyle', settings.style);
+    set('segStyleI', settings.styleIvory);
+    set('segStyleE', settings.styleEbony);
     $('rowSide').style.display = settings.mode === 'ai' ? '' : 'none';
     $('rowDiff').style.display = settings.mode === 'ai' ? '' : 'none';
+    $('rowStyle').style.display = settings.mode === 'ai' ? '' : 'none';
+    $('rowStyleI').style.display = settings.mode === 'aivai' ? '' : 'none';
+    $('rowStyleE').style.display = settings.mode === 'aivai' ? '' : 'none';
     $('rowClock').style.display = settings.mode === 'aivai' ? 'none' : '';
     const rs = E.RULESETS[settings.rsId];
+    const stNote = settings.mode === 'aivai'
+      ? styleById(settings.styleIvory).name + ' vs ' + styleById(settings.styleEbony).name + '.'
+      : styleById(settings.style).blurb;
     $('setupNote').textContent = settings.mode === 'ai'
-      ? rs.name + ' — ' + sideName(rs.firstSide) + ' opens. You play ' + sideName(settings.humanSide).toLowerCase() + '.'
+      ? rs.name + ' — ' + sideName(rs.firstSide) + ' opens. You play ' + sideName(settings.humanSide).toLowerCase() + '. ' + stNote
       : settings.mode === 'aivai'
-        ? rs.name + ' — ' + sideName(rs.firstSide) + ' opens. Sit back and watch the engines.'
+        ? rs.name + ' — ' + sideName(rs.firstSide) + ' opens. Sit back and watch the engines. ' + stNote
         : rs.name + ' — ' + sideName(rs.firstSide) + ' opens. Pass and play.';
+    $('styleNote').textContent = settings.mode === 'aivai'
+      ? 'Two schools, one board — ' + styleById(settings.styleIvory).blurb
+      : styleById(settings.style).blurb;
     $('btnRotate').style.display = settings.mode === 'hotseat' ? '' : 'none';
     $('btnSound').textContent = settings.sound ? '🔊' : '🔇';
     $('btnRotate').classList.toggle('active', settings.mode === 'hotseat' && settings.rotate);
     $('btnHV').classList.toggle('active', !!settings.hv);
+    $('btnAmbient').classList.toggle('active', !!settings.ambient);
     $('btnAivaiPause').textContent = G.aiPaused ? '▶ Resume' : '⏸ Pause';
     for (const b of $('sfxChips').querySelectorAll('button')) {
       b.classList.toggle('active', !!settings.sfx[b.dataset.v]);
@@ -1433,10 +1708,13 @@
     const rows = Object.keys(E.RULESETS).map((rid) => {
       const s = Object.assign({ p: 0, w: 0, l: 0, d: 0, bestRun: 0 }, stats[rid]);
       const name = E.RULESETS[rid].name;
-      return '<tr><td>' + name + '</td><td>' + s.p + '</td><td>' + s.w + '</td><td>' + s.l + '</td><td>' + s.d + '</td><td>' + s.bestRun + '</td></tr>';
+      const bestLevel = typeof s.bestLevel === 'number' && LEVELS[LEVEL_IDS[s.bestLevel]]
+        ? LEVELS[LEVEL_IDS[s.bestLevel]].name : '—';
+      return '<tr><td>' + name + '</td><td>' + s.p + '</td><td>' + s.w + '</td><td>' + s.l +
+        '</td><td>' + s.d + '</td><td>' + s.bestRun + '</td><td>' + bestLevel + '</td></tr>';
     }).join('');
     $('statsTable').innerHTML =
-      '<tr><th>Ruleset</th><th>Played</th><th>Won</th><th>Lost</th><th>Drawn</th><th>Best run</th></tr>' + rows;
+      '<tr><th>Ruleset</th><th>Played</th><th>Won</th><th>Lost</th><th>Drawn</th><th>Best run</th><th>Highest level beaten</th></tr>' + rows;
     openModal('modalStats');
   }
 
@@ -1536,6 +1814,7 @@
         else if (key === 'comedy') setTimeout(() => SFX_BANK.play('klonk'), 140);
         else if (key === 'voice') setTimeout(() => SFX_BANK.play('v_magnificent'), 140);
         else if (key === 'think') setTimeout(() => SFX_BANK.play('t2a'), 140);
+        else if (key === 'drama') setTimeout(() => { FX.play('trap_snap'); SFX_BANK.play('v_taw1', { vol: 0.85 }); }, 140);
         else if (key === 'classic') setTimeout(() => FX.play('capture'), 140);
       }
     }
@@ -1562,6 +1841,34 @@
     applyTheme(settings.theme);
     updateSegs();
     SFX_BANK.play('ui_theme');
+  });
+
+  // playing-style pickers: the engine's school (computer mode) and, for
+  // AI-vs-AI spectating, a personality per side
+  for (const gridId of ['segStyle', 'segStyleI', 'segStyleE']) {
+    const grid = $(gridId);
+    for (const s of STYLES) {
+      const b = document.createElement('button');
+      b.dataset.v = s.id;
+      b.title = s.flag + ' ' + s.name + ' — ' + s.blurb;
+      b.textContent = s.flag + ' ' + s.name;
+      grid.appendChild(b);
+    }
+  }
+  wireSeg('segStyle', (v) => {
+    settings.style = v; saveJSON(SETTINGS_KEY, settings); updateSegs();
+    SFX_BANK.play(styleById(v).intro, { vol: 0.75 });
+  });
+  wireSeg('segStyleI', (v) => { settings.styleIvory = v; saveJSON(SETTINGS_KEY, settings); updateSegs(); });
+  wireSeg('segStyleE', (v) => { settings.styleEbony = v; saveJSON(SETTINGS_KEY, settings); updateSegs(); });
+
+  // ambient animated background glow
+  $('btnAmbient').addEventListener('click', () => {
+    settings.ambient = !settings.ambient;
+    saveJSON(SETTINGS_KEY, settings);
+    document.body.classList.toggle('ambient-off', !settings.ambient);
+    updateSegs();
+    SFX_BANK.play(settings.ambient ? 'ui_toggle_on' : 'ui_toggle_off');
   });
 
   $('goRematch').addEventListener('click', () => { closeModals(); startNewGameWithFanfare(); });
@@ -1624,11 +1931,11 @@
 
   // ---------------- move clock (human turns) & thinking heckles -------------
   const THINK_TIERS = [
-    { at: 12000, lines: ['t1a', 't1b', 't1c', 't1d'], say: 'Still thinking…' },
-    { at: 25000, lines: ['t2a', 't2b', 't2c', 't2d'], say: 'Any day now…' },
-    { at: 45000, lines: ['t3a', 't3b', 't3c'], say: 'Just agree you lost…' },
-    { at: 75000, lines: ['t4a', 't4b', 't4c'], say: 'Need help?' },
-    { at: 105000, lines: ['t5a', 't5b'], say: 'I age…' },
+    { at: 12000, lines: ['t1a', 't1b', 't1c', 't1d', 't1e'], say: 'Still thinking…' },
+    { at: 25000, lines: ['t2a', 't2b', 't2c', 't2d', 't2e'], say: 'Any day now…' },
+    { at: 45000, lines: ['t3a', 't3b', 't3c', 't3d'], say: 'Just agree you lost…' },
+    { at: 75000, lines: ['t4a', 't4b', 't4c', 't4d'], say: 'Need help?' },
+    { at: 105000, lines: ['t5a', 't5b', 't5c'], say: 'I age…' },
   ];
   const thinkSaid = new Set();
   let thinkArmedKey = -1, humanThinkStart = 0, thinkFired = 0;
@@ -1687,6 +1994,7 @@
   // ---------------- boot ----------------
   applyTheme(settings.theme);
   document.body.classList.toggle('hv', !!settings.hv);
+  document.body.classList.toggle('ambient-off', !settings.ambient);
   newGame();
   try { FX.ensure(); } catch { /* audio starts on first gesture instead */ }
 
@@ -1695,5 +2003,6 @@
   window.__drafti = {
     state: G, tap: onSquareClick, sfx: SFX_BANK, fx: FX, rebuild: rebuildPieces,
     menu: { open: openMenu, close: closeMenu, isOpen: () => drawerOpen },
+    workerSource,
   };
 })();

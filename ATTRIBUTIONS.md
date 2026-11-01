@@ -4,8 +4,10 @@ Every sound in DRAFTI is open-licensed or synthesized in-house. Samples are
 embedded in `web/index.html` (base64 MP3); the processed source files live in
 `src/audio/`. This file lists the origin and license of each.
 
-The bank holds **113 sounds**: 22 recorded samples (below), 58 neural-TTS
-voice lines and 33 original synthesized interface/game sounds.
+The bank holds **182 sounds**: 22 recorded samples (below), 127 neural-TTS
+voice lines and 33 original synthesized interface/game sounds (plus four
+more synthesized effects — trap snap, refusal buzz, relief chime and the
+level-up fanfare — generated in-code at playback time).
 
 ## Cartoon & comedy effects
 
@@ -38,6 +40,11 @@ worth the wait!", "You thought about that for half a minute?!", "On a
 rampage!", …) were generated for DRAFTI with a neural text-to-speech engine
 (z-ai TTS, voice "jam") — original recordings made for this project, no
 third-party material.
+
+Batch-4 additions (trap drama callouts, the twelve national-style
+introductions and catchphrases, difficulty-ladder celebrations, extra
+heckles and verdict lines) were generated the same way, in two voices:
+the judge "jam" and the persona announcer "kazi".
 
 ## Interface & synthesized game sounds
 

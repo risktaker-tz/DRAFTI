@@ -512,5 +512,81 @@ console.log('\n[self-play fuzz (random legal moves)]');
   }
 }
 
+// ------------------------------------------------------- style weights
+console.log('\n[playing-style weights in evaluate]');
+{
+  // an ivory man deep in ebony territory: aggression should boost its value
+  const b = new Int8Array(64);
+  b[idx(A, 2, 1)] = 1; // advanced ivory man
+  const base = E.evaluate(A, b, E.IVORY, 0);
+  const aggr = E.evaluate(A, b, E.IVORY, 0, { for: E.IVORY, aggr: 2 });
+  check('aggression boosts the styled side', aggr > base, `${aggr} !> ${base}`);
+  const other = E.evaluate(A, b, E.IVORY, 0, { for: E.EBONY, aggr: 2 });
+  eq('opponent aggression leaves eval unchanged', other, base);
+
+  // back-rank guard: a home-row man is worth more with guard=2
+  const b2 = new Int8Array(64);
+  b2[idx(A, 7, 6)] = 1;
+  const gBase = E.evaluate(A, b2, E.IVORY, 0);
+  const gHigh = E.evaluate(A, b2, E.IVORY, 0, { for: E.IVORY, guard: 2 });
+  check('guard boosts the home rank', gHigh > gBase, `${gHigh} !> ${gBase}`);
+
+  // trade=1.3 means the styled side values its own material 30% less
+  const b3 = new Int8Array(64);
+  b3[idx(A, 4, 3)] = 1;
+  const mBase = E.evaluate(A, b3, E.IVORY, 0);
+  const mTrade = E.evaluate(A, b3, E.IVORY, 0, { for: E.IVORY, trade: 1.3 });
+  check('trade willingness cheapens own material', Math.abs(mTrade) < Math.abs(mBase),
+    `${mTrade} !< ${mBase}`);
+
+  // kings respond to the king multiplier
+  const b4 = new Int8Array(64);
+  b4[idx(A, 3, 4)] = 2;
+  const kBase = E.evaluate(A, b4, E.IVORY, 0);
+  const kHigh = E.evaluate(A, b4, E.IVORY, 0, { for: E.IVORY, king: 1.5 });
+  check('king multiplier scales king value', kHigh > kBase, `${kHigh} !> ${kBase}`);
+
+  // search honours weights: the aggressive style must still return legal moves
+  const res = E.search(A, E.setupBoard(A), E.EBONY,
+    { budgetMs: 250, maxDepth: 4, weights: { for: E.EBONY, aggr: 1.6, guard: 0.8, king: 1.1, trade: 1.15, center: 1.1 } });
+  check('weighted search returns a legal opening move',
+        E.legalMoves(A, E.setupBoard(A), E.EBONY).some((m) => m.path.join() === res.best.path.join()));
+  check('weighted search completes a depth iteration', res.depth >= 1);
+}
+
+// --------------------------------------- bait (trap) detection building block
+console.log('\n[bait detection — a choice of captures, one walks into a shot]');
+{
+  // American rules, ivory to move. Captures are mandatory, so a trap is a
+  // CHOICE between captures:
+  //   A) (4,3) jumps the ebony bait (3,2) landing on (2,1) — but ebony then
+  //      double-jumps: (1,2)x(3,0) and on through (4,1)x(5,2): ivory -1 man.
+  //   B) (4,1) jumps the same bait landing on (2,3) — ebony cannot recapture
+  //      (the landing square behind is guarded by the ivory man on (3,4)):
+  //      ivory simply wins a man.
+  // The loose-bait signature: safe option >= -30 and best - worstCapture >= 150.
+  const b = new Int8Array(64);
+  b[idx(A, 4, 3)] = 1; b[idx(A, 4, 1)] = 1; b[idx(A, 3, 4)] = 1;
+  b[idx(A, 7, 2)] = 1; b[idx(A, 7, 6)] = 1; // off-stage men keep the material even
+  b[idx(A, 3, 2)] = -1; b[idx(A, 1, 2)] = -1; b[idx(A, 1, 0)] = -1;
+  b[idx(A, 0, 1)] = -1; b[idx(A, 0, 3)] = -1; // block the multi-jump shortcuts
+
+  const res = E.search(A, b, E.IVORY, { budgetMs: 300, maxDepth: 6 });
+  const roots = res.rootScores || [];
+  const caps = roots.filter((r) => r.m.caps.length > 0);
+  check('bait position is a forced capture with two choices', roots.length === 2 && caps.length === 2,
+        JSON.stringify(roots.map((r) => [r.m.path.join(','), r.score])));
+  if (roots.length === 2) {
+    const best = Math.max(...roots.map((r) => r.score));
+    const worstCap = Math.min(...caps.map((r) => r.score));
+    check('the safe capture clearly beats the losing capture', best - worstCap >= 150,
+          `best ${best}, worst capture ${worstCap}`);
+    check('a safe option exists (loose-bait signature)', best >= -30, String(best));
+    const bestPath = roots.find((r) => r.score === best).m.path.join(',');
+    eq('the search plays the winning capture, not the shot',
+       bestPath, [idx(A, 4, 1), idx(A, 2, 3)].join(','));
+  }
+}
+
 console.log(`\n${passed} passed, ${failed} failed`);
 process.exit(failed ? 1 : 0);

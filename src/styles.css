@@ -58,6 +58,27 @@ body {
   min-height: 100vh;
   display: flex; flex-direction: column;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+/* ambient mood: two slow-drifting light glows tinted by the active theme's
+   accents, layered over the static page gradient (toggle: Ambient glow) */
+body::before {
+  content: ''; position: fixed; inset: -12%; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(38% 30% at 24% 16%, color-mix(in srgb, var(--accent) 17%, transparent), transparent 70%),
+    radial-gradient(34% 28% at 79% 84%, color-mix(in srgb, var(--accent-2) 15%, transparent), transparent 70%),
+    radial-gradient(22% 18% at 68% 12%, color-mix(in srgb, var(--accent-2) 9%, transparent), transparent 72%);
+  filter: blur(30px);
+  animation: ambientDrift 26s ease-in-out infinite alternate;
+  opacity: .85;
+}
+body.ambient-off::before { display: none; }
+@keyframes ambientDrift {
+  from { transform: translate3d(-1.6%, -1.2%, 0) scale(1); }
+  to   { transform: translate3d(1.8%, 1.6%, 0) scale(1.07); }
+}
+@media (prefers-reduced-motion: reduce) {
+  body::before { animation: none; }
 }
 /* CRT scanlines for the Retro Arcade theme */
 body.fx-scan::after {
@@ -129,12 +150,20 @@ body.fx-scan::after {
 .sq {
   position: relative; cursor: default;
   box-shadow: inset 0 0 0 1px var(--grid-line);
+  transition: box-shadow .18s ease, filter .18s ease;
 }
-.sq.light { background: linear-gradient(160deg, var(--sq-light-hi), var(--sq-light) 55%, var(--sq-light-lo)); }
+.sq.light {
+  background: linear-gradient(160deg, var(--sq-light-hi), var(--sq-light) 55%, var(--sq-light-lo));
+  box-shadow: inset 0 0 0 1px var(--grid-line), inset 0 1px 0 rgba(255, 255, 255, .09),
+              inset 0 0 14px rgba(255, 255, 255, .045);
+}
 .sq.dark {
   background: linear-gradient(160deg, var(--sq-dark-hi), var(--sq-dark) 55%, var(--sq-dark-lo));
   cursor: pointer;
+  box-shadow: inset 0 0 0 1px var(--grid-line), inset 0 1px 0 rgba(255, 255, 255, .03),
+              inset 0 -6px 14px rgba(0, 0, 0, .18);
 }
+.sq.target, .sq.capture-target, .sq.sel, .sq.hop { filter: brightness(1.12); }
 .sqnum {
   position: absolute; top: 4%; left: 6%; font-size: clamp(7px, 1.2vw, 10px);
   color: var(--sqnum-d); pointer-events: none; font-weight: 600; letter-spacing: .03em;
@@ -191,13 +220,15 @@ body.fx-scan::after {
 .piece.ivory .body {
   background: radial-gradient(circle at 35% 28%, var(--pl-l-1), var(--pl-l-2) 55%, var(--pl-l-3));
   border: 1px solid var(--pl-l-edge);
-  box-shadow: 0 4px 9px rgba(0, 0, 0, .5), inset 0 2px 3px rgba(255, 255, 255, .4),
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .48), 0 1px 2px rgba(0, 0, 0, .5),
+              inset 0 2px 3px rgba(255, 255, 255, .4),
               inset 0 -4px 6px rgba(0, 0, 0, .3), 0 0 16px var(--pl-l-glow);
 }
 .piece.ebony .body {
   background: radial-gradient(circle at 35% 28%, var(--pl-d-1), var(--pl-d-2) 58%, var(--pl-d-3));
   border: 1px solid var(--pl-d-edge);
-  box-shadow: 0 4px 9px rgba(0, 0, 0, .55), inset 0 2px 3px rgba(255, 255, 255, .16),
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .52), 0 1px 2px rgba(0, 0, 0, .55),
+              inset 0 2px 3px rgba(255, 255, 255, .16),
               inset 0 -4px 6px rgba(0, 0, 0, .5), 0 0 16px var(--pl-d-glow);
 }
 .piece .ring {
@@ -227,7 +258,7 @@ body.fx-scan::after {
   border-radius: 5px; padding: 1px 5px; letter-spacing: .06em; margin-left: 2px;
 }
 .qa-bar .btn.active { color: var(--accent); border-color: var(--accent-soft); }
-#btnHV { width: 100%; margin-top: 10px; }
+#btnHV, #btnAmbient { width: 100%; margin-top: 10px; }
 
 /* ---------- captured trays ---------- */
 .trays { display: flex; gap: 14px; width: min(94vw, 70vh, 660px); justify-content: space-between; }
@@ -464,6 +495,11 @@ body.hv .piece.ebony .body {
   text-shadow: 0 0 18px var(--accent-soft), 0 2px 0 rgba(0, 20, 30, .6),
     0 0 44px var(--accent-weak);
 }
+.event-label.drama {
+  color: #ffd28a;
+  text-shadow: 0 0 20px rgba(255, 140, 60, .8), 0 2px 0 rgba(45, 12, 0, .7),
+    0 0 48px rgba(255, 90, 40, .45);
+}
 
 @keyframes labelPop {
   0%   { opacity: 0; transform: translate(-50%, 18px) scale(.45) rotate(-5deg); }
@@ -551,6 +587,15 @@ body.hv .piece.ebony .body {
 .ticker .tk .pdot.ivory { background: radial-gradient(circle at 35% 30%, var(--pl-l-1), var(--pl-l-3)); }
 .ticker .tk .pdot.ebony { background: radial-gradient(circle at 35% 30%, var(--pl-d-1), var(--pl-d-3)); }
 .ticker .empty { font-style: italic; }
+
+/* ---- score-sheet badges (from the engine verdict) ---- */
+.badge {
+  display: inline-block; margin-left: 5px; font-weight: 800; font-size: 11.5px;
+  letter-spacing: .02em; transform: translateY(-1px);
+}
+.badge.b-1 { color: #7ed9a3; }                 /* !  brilliant / only move */
+.badge.b-2 { color: var(--ink-dim); }          /* ?! inaccuracy */
+.badge.b-3, .badge.b-4 { color: var(--danger); font-weight: 800; }  /* ? / ?? */
 
 /* ---------- AI vs AI spectator bar ---------- */
 .aivai-bar {

@@ -28,11 +28,32 @@ A double jump earns the eagle and the gold "Magnificent!" treatment:
 - **Three game modes**
   - *Computer* — negamax with alpha-beta pruning, iterative deepening and a
     transposition table, running in a Web Worker so the board never freezes.
-    Three strengths: Casual, Club, Tough.
+    **Ten levels on one ladder**: Beginner, Novice, Casual, Club, Expert,
+    Master, Grandmaster, Super GM, World Champion and The Machine — the weak
+    rungs blunder and wander like a human novice, the top rungs think for
+    seconds a move and never blink. Your highest conquered level is tracked
+    in the record, with a fanfare the first time you take a new rung.
   - *Two players* — pass-and-play on one device, with optional automatic
     board rotation each turn.
   - *AI vs AI* — spectate two engines playing each other, with pause and
-    1× / 2× / 4× speed.
+    1× / 2× / 4× speed — and each side can follow a **different national
+    school** (Italian Furioso vs Czech Fortress, anyone?).
+- **Twelve world playing styles** — every opponent is a personality, not just
+  a search depth: 🇺🇸 American, 🇬🇧 English positional, 🇮🇹 Italian Furioso,
+  🇪🇸 Spanish flank play, 🇨🇿 Czech Fortress, 🇫🇷 French élégance, 🇷🇺 Russian
+  gambits, 🇰🇪 Kenyan hustle, 🇹🇿 Tanzanian joker, 🇧🇷 Brazilian samba,
+  🇲🇳 Mongolian raider kings, plus the balanced Classic. Each school biases
+  the engine's evaluation — aggression, back-rank guard, king hunger,
+  willingness to trade, centre play — and each has its own table talk: a
+  persona voice introduces it, and its catchphrases drop in when it captures.
+- **Trap drama, both directions** — the engine watches every move for
+  baits: when your quiet move sets a shot and the computer takes the wrong
+  capture, the trap *springs* ("Your trap snapped shut!"); when it picks the
+  safe capture instead you hear "Denied. Not today."; when the computer baits
+  *you*, falling for it lands "You took the bait!" while reading it right
+  earns "Good read."; and when a low-level machine sets a winning trap and
+  then fails to use it, the judge can't believe it either. Snaps, buzzes and
+  relief chimes are synthesized in-code; the callouts are neural voice lines.
 - **Optional move clock** — 30 / 60 / 90 seconds per human move, with ticking
   tension in the last ten seconds and a referee whistle when time expires (a
   legal move is played for you, and the judge has words).
@@ -56,8 +77,10 @@ A double jump earns the eagle and the gold "Magnificent!" treatment:
   ultra-realistic **Walnut Royale**: maple and walnut squares with visible
   wood grain and turned-wood pieces. A **High visibility** toggle adds
   hatched dark squares and strong piece rims for colour-blind players and
-  bright rooms. Your pick is remembered.
-- **113 reactive sounds** — the game watches everything and reacts:
+  bright rooms, and an **Ambient glow** toggle drifts two soft light fields
+  tinted by each theme's own accents behind the whole page. Your picks are
+  remembered.
+- **190+ reactive sounds** — the game watches everything and reacts:
   - multi-piece jumps get **majestic animal fanfares** — a bald eagle scream
     for a double jump, a lion's roar (plus a board thump) for three or more,
     an elephant trumpet and brass fanfare when a man is crowned, plus
@@ -65,8 +88,10 @@ A double jump earns the eagle and the gold "Magnificent!" treatment:
   - **the judge** follows your play: accurate moves earn "Nice move.",
     "Sharp!" or "The only move!" when just one move holds the game; a quiet
     move that quietly springs a winning trap gets a *Sneaky!* reveal;
-    questionable choices get "Hmm. Interesting choice."; real mistakes get
-    the full **"Why did you do that?!"** treatment;
+    questionable choices get "Hmm. Interesting choice." or "A slight
+    wobble."; real mistakes get the full **"Why did you do that?!"**
+    treatment; repair a blunder immediately and the judge nods — "Repaired!
+    Strong recovery.";
   - **think, and the table talks back** — stare at the board for 12, 25, 45,
     75 or 105 seconds and the heckles escalate from a polite "Still thinking?
     Take your time." through "You're losing it, mate." and "Just agree you
@@ -82,18 +107,29 @@ A double jump earns the eagle and the gold "Magnificent!" treatment:
   - miss an available double jump and a slide whistle drops in with
     "You had ONE job!";
   - **realistic voice commentary** ("That is chess, not checkers!",
-    "Unbelievable!", "All hail the king!") generated with neural TTS;
+    "Unbelievable!", "All hail the king!") generated with neural TTS, in two
+    voices — the British judge and the persona announcer who introduces every
+    national style;
+  - **opponent table talk** — each of the twelve schools gets its own
+    introduction and a pair of catchphrases ("Bellissimo! What an attack!",
+    "The wall holds.", "Hustle and flow!") that fire when it captures;
+  - **trap drama stings** — synthesized metallic snap, refusal buzz and
+    relief chime underline the bait callouts;
+  - **ladder celebrations** — conquering a new best level, three-win streaks
+    and giant-killings at grandmaster rungs each get their own callout;
   - **interface sound design** — drawer whooshes, toggle blips, a theme
     sparkle, a starting gong, undo rewinds, victory fanfares, defeat womps,
     draw chimes and the ticking clock;
-  - every category (majestic / judge / comedy / voice / heckles / interface /
-    classic wooden sounds) can be toggled and volume-mixed in the Sound
-    design panel.
+  - every category (majestic / judge / drama / comedy / voice / heckles /
+    interface / classic wooden sounds) can be toggled and volume-mixed in
+    the Sound design panel.
   All samples are open-licensed or synthesized in-house — full credits and
   links in [ATTRIBUTIONS.md](ATTRIBUTIONS.md).
 - **Extras** — undo, full move log with standard score-sheet notation
   (`9-13`, `22x15`, `21x14x5`) plus a live ticker under the board, move
-  hints, per-ruleset win/loss/draw record. No accounts, no trackers, works
+  hints, **engine-verdict badges** on the score sheet (`!!` brilliant,
+  `?!` inaccurate, `?` mistake, `??` blunder), per-ruleset win/loss/draw
+  record with your highest conquered level. No accounts, no trackers, works
   offline.
 
 Two of the new tables — the glassy **Neon Glass** and the ultra-realistic

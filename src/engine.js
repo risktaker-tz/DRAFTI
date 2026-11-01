@@ -268,19 +268,32 @@ function makeEngine() {
   }
 
   // ---- evaluation (positive = good for `side` to move) ------------------------
+  //
+  // `w` (optional) carries a playing-style personality: { for, aggr, guard,
+  // king, trade, center }. The multipliers apply ONLY to pieces owned by
+  // `w.for`, so a styled engine values its own advancement, back-rank guard,
+  // kings, material (via `trade`: higher = happier to give material up) and
+  // central squares differently from the opponent's.
 
-  function evaluate(rs, b, side, jitter) {
+  function evaluate(rs, b, side, jitter, w) {
     const n = rs.n;
+    const mine = w && w.for;
+    const aggr = mine ? (w.aggr || 1) : 1;
+    const guard = mine ? (w.guard || 1) : 1;
+    const kingM = mine ? (w.king || 1) : 1;
+    const trade = mine ? (w.trade || 1) : 1;
+    const centerM = mine ? (w.center || 1) : 1;
     let s = 0;
     for (let i = 0; i < n * n; i++) {
       const code = b[i];
       if (code === 0) continue;
       const sign = code > 0 ? 1 : -1;
+      const styled = sign === mine;
       const isKing = code === 2 || code === -2;
       const r = (i / n) | 0, c = i % n;
       let v;
       if (isKing) {
-        v = rs.kingValue;
+        v = rs.kingValue * (styled ? kingM : 1);
         if (rs.flyingKings) {
           let mob = 0;
           for (const [dr, dc] of DIRS) {
@@ -293,11 +306,11 @@ function makeEngine() {
           v += mob * 4;
         }
       } else {
-        v = rs.manValue;
-        v += (code > 0 ? n - 1 - r : r) * rs.advance;   // progress toward crowning
-        if (r === (code > 0 ? n - 1 : 0)) v += rs.homeGuard; // keep the back rank
+        v = rs.manValue * (styled ? (2 - trade) : 1);
+        v += (code > 0 ? n - 1 - r : r) * rs.advance * (styled ? aggr : 1); // crowning race
+        if (r === (code > 0 ? n - 1 : 0)) v += rs.homeGuard * (styled ? guard : 1);
       }
-      if (r >= 2 && r <= n - 3 && c >= 2 && c <= n - 3) v += rs.center;
+      if (r >= 2 && r <= n - 3 && c >= 2 && c <= n - 3) v += rs.center * (styled ? centerM : 1);
       s += sign * v;
     }
     let e = side === IVORY ? s : -s;
@@ -348,7 +361,7 @@ function makeEngine() {
 
       const moves = legalMoves(rs, b, s);
       if (!moves.length) return -(MATE + depth); // no reply: side to move loses
-      if (depth <= 0) return evaluate(rs, b, s, jitter);
+      if (depth <= 0) return evaluate(rs, b, s, jitter, opts.weights);
 
       const key = hashOf(b, s);
       const e = tt.get(key);
@@ -399,7 +412,11 @@ function makeEngine() {
         const wasMan = board[rm.m.from] === 1 || board[rm.m.from] === -1;
         const nb = applyMove(rs, board, rm.m, side);
         const np = rm.m.caps.length > 0 || wasMan ? 0 : noProgStart + 1;
-        const v = -negamax(nb, -side, depth - 1, -Infinity, -alpha, np);
+        // fullRootWindow: search every root with an open window so ALL root
+        // scores are exact (needed when callers compare roots against each
+        // other — trap/bait analysis), at the cost of root-level pruning.
+        const v = -negamax(nb, -side, depth - 1, -Infinity,
+          opts.fullRootWindow ? Infinity : -alpha, np);
         if (aborted) { abortedIter = true; break; }
         rm.score = v;
         if (v > iterScore) { iterScore = v; iterBest = rm.m; }
