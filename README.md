@@ -1,5 +1,10 @@
 # DRAFTI — checkers, refined
 
+[Play on Vercel](https://drafti-afrika.vercel.app/) · [GitHub Pages](https://risktaker-tz.github.io/DRAFTI/web/)
+
+The Vercel link serves the current blueprint checkpoint. GitHub Pages retains
+its previous release until the remaining blueprint acceptance work is complete.
+
 An **original, open-source checkers game**. DRAFTI is an independent
 implementation of the public-domain game of draughts — no code, assets, or
 data were taken from any commercial app. The rules of checkers belong to
@@ -327,7 +332,7 @@ For environments with Node but no Python, `node scripts/build_web.js` assembles 
 
 Installation now includes 192px and 512px PNG icons and an Apple home-screen icon. The offline worker removes obsolete DRAFTI installation caches when a new worker activates; settings and arena storage are unaffected.
 
-Kenya's main/secondary piece colours now use black/red, consistent with the Wikimedia flag reference: https://commons.wikimedia.org/wiki/File:Flag_of_Kenya.svg . The full 194-nation reference audit remains in progress.
+Kenya's main/secondary piece colours now use black/red, consistent with the Wikimedia flag reference: https://commons.wikimedia.org/wiki/File:Flag_of_Kenya.svg . All 194 source palettes are measured and checked; full visual acceptance remains in progress.
 
 ### Flag verification
 
@@ -335,11 +340,11 @@ Kenya's main/secondary piece colours now use black/red, consistent with the Wiki
 
 The flag resolver is additionally checked against all 37,442 ordered pairings of distinct nations. Its final lightness adjustment now repeats until the existing separation threshold is met, fixing the Kenya/Namibia clash found by that exhaustive check.
 
-Existing audio is protected by `node tests/test_audio_preservation.js`, which compares the embedded clips against the original `b9486e1` bank. Only the four requested original-clip replacements are exempt; processing fixes require a named record and original-file backup. At this checkpoint all 360 existing clips remain byte-for-byte unchanged.
+Existing audio is protected by `node tests/test_audio_preservation.js`, which compares the embedded clips against the original `b9486e1` bank. Only the four requested original-clip replacements are exempt; processing fixes require a named record and original-file backup. Currently 356 old clips remain byte-for-byte unchanged; the four requested slots contain verified originals with reversible backups.
 
 The source-backed flag review also aligned Zimbabwe, Malawi, Mozambique, Botswana, Comoros, Albania, Austria, Bosnia and Herzegovina, Croatia, Estonia, France, Montenegro, North Macedonia, Portugal, Slovenia, Switzerland and Afghanistan with the collected SVG palettes. The nation renaming controls are available in human games when their flag option is enabled.
 
-The audio integrity report now measures every embedded MP3's duration, channel count, sample rate, bitrate and encoded size using `music-metadata`. Existing encoding differences are reported for review, while missing references and duration/size violations fail the audit. The report currently exposes pre-existing violations; it is not an acceptance-pass claim. Existing clips remain unchanged.
+The audio integrity report measures every embedded MP3's duration, channel count, sample rate, bitrate and encoded size using `music-metadata`. Existing encoding differences are reported for review, while missing references and duration/size violations fail the audit. Pre-existing duration/size violations still require correction; this is not an acceptance-pass claim.
 
 The flag-source review additionally aligned Bangladesh, Georgia, Kazakhstan, Kyrgyzstan, Oman and Syria with the collected SVG references. Syria now uses the current green/white flag palette rather than the previous red main colour.
 
@@ -353,9 +358,9 @@ The completed table comparison now uses exact measured source colours for both e
 
 A live browser matrix found and fixed a material override: Neon Glass's ebony gradient previously overrode the nation flag. Flag piece selectors now take precedence over that material rule. All 168 combinations of 21 tables × 8 piece sets retained the Tanzania/Kenya flag backgrounds after the fix. Browser checks also verified High visibility, rename/restore, and the human-game flag toggle in Computer and Two players modes. Evidence and verification limits are recorded in `docs/flags-browser-checks.json`.
 
-The sound reference audit now traces all 130 sample-playback call sites, including named pools, conditional choices, table-talk/drama properties, generated style IDs and the thinking deck. It found 28 nonexistent thinking-deck IDs; these invalid entries were removed, while all 360 real clips remain unchanged. The thinking fallback now selects a known existing cue instead of risking a second missing draw. The audit reports zero missing required IDs and zero unresolved playback expressions; the two explicitly guarded original-clip IDs remain optional until sourced. Existing duration/size violations and full browser sound playback still require completion. Run `node tests/test_sound_references.js` to verify pool-typo detection and that unsupported dynamic lookups fail closed.
+The sound reference audit traces sample-playback call sites, including named pools, conditional choices, table-talk/drama properties, generated style IDs and the thinking deck. It found 28 nonexistent thinking-deck IDs; these invalid entries were removed without removing any real clip. The thinking fallback now selects a known existing cue instead of risking a second missing draw. The audit reports zero missing required IDs and zero unresolved playback expressions. The legacy guarded `shrimp_orig` / `v_retire_orig` names remain optional; the requested originals are installed under the existing shrimp1/2 and v_retire1/2 slots. Existing duration/size violations and full browser sound playback still require completion. Run `node tests/test_sound_references.js` to verify pool-typo detection and that unsupported dynamic lookups fail closed.
 
-`node scripts/audit_audio_sources.js` compares every embedded clip byte-for-byte with its source MP3. All 360 currently match. The report includes hashes for the two narrator time cards and the four requested replacement IDs. The narrator files carry the Mondal Screen compilation credit, whereas the shrimp/retirement files identify themselves as recreations; independent source/cut verification and runtime playback checks remain pending.
+`node scripts/audit_audio_sources.js` compares every embedded clip byte-for-byte with its source MP3. All 362 currently match. The report includes hashes for the two narrator time cards and the four requested replacement IDs. Source verification confirmed both narrator time cards; the requested shrimp and retirement originals are now installed and documented below. Full runtime playback acceptance remains pending.
 
 ### Audio production tools
 
@@ -388,3 +393,11 @@ Every played bout grants +2 XP, plus +3 for a win or +4 for defeat; quarter-fina
 `node tests/test_arena_fairness.js` passes 489 checks. `node scripts/style_balance_sim.js` ran all 132 colour-paired games at level l3: Kenya scored 47.7%; no style crossed the stated multiple-comparison threshold. Full method, results and limits are in `docs/style-balance.md`. This sample does not establish equal playing strength at every level or position. `node scripts/arena_fairness_sim.js` runs three full seasons with the real engine and production search budgets, without presentation delays; final season results remain pending while that longer run completes.
 
 Review also corrected manual roster-off games inheriting unrelated nation flags and stale offline homepage caches. Ceremony callbacks and countdowns are cancelled when a newer game starts; turning off Thinking stops an active rustle immediately, and mute silences already-playing recordings while preserving the chosen volume. Lifecycle, cache-update and sound-control regression checks are in `tests/test_arena_lifecycle.js`, `tests/test_service_worker.js` and `tests/test_thinking_billboard.js`.
+
+### Final-square multi-capture
+
+Select a piece and tap its outlined final landing to play the whole legal capture route. Each jump still animates and sounds, all captures are counted, promotion is preserved, and the complete route is recorded as one move. Step-by-step landing selection remains available; when routes share a destination, choose an intermediate landing to identify your route. This also works when a king circuit returns to its starting square after a route choice.
+
+`node tests/test_capture_destination.js` checks all five rulesets, three-piece captures, promotion, partial routes, invalid destinations, repeated input and shared-endpoint king circuits. Browser proof shows an actual two-piece capture completed by one final-square click: `docs/capture-final-before.jpg`, `docs/capture-final-after.jpg`. The settings drawer also now closes before confirmations, so it cannot cover the New game dialog.
+
+Both build tools now emit portable LF line endings. `node tests/test_build_reproducible.js <python executable>` checks that Python and Node produce byte-identical artifacts within the offline size budget. The deployment hash evidence is in `docs/vercel-checkpoint.json`. The owner approved `drafti-afrika.vercel.app` after Vercel rejected the occupied `drafti.vercel.app` alias.

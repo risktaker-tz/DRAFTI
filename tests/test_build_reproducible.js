@@ -1,0 +1,10 @@
+'use strict';
+const fs=require('fs'),path=require('path'),assert=require('assert'),crypto=require('crypto'),{execFileSync}=require('child_process');
+const root=path.resolve(__dirname,'..'),python=process.argv[2]||'python3';
+execFileSync(process.execPath,['scripts/build_web.js'],{cwd:root});const node=fs.readFileSync(path.join(root,'web/index.html'));
+execFileSync(python,['build_web.py'],{cwd:root});const py=fs.readFileSync(path.join(root,'web/index.html'));
+assert(node.equals(py),'Python and Node builders must emit exactly the same artifact');
+assert(!node.includes(Buffer.from('\r\n')),'Distributed artifact must use portable LF endings');
+assert(node.length<14*1024*1024,'Single-file offline artifact stays under 14 MiB');
+assert(!node.toString('utf8').includes('/*__AUDIO__*/'),'All source tokens must be embedded');
+console.log('Portable build passed: '+node.length+' identical bytes, SHA-256 '+crypto.createHash('sha256').update(node).digest('hex'));

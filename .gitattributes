@@ -2,3 +2,6 @@
 scripts/flag_sources/*.svg -text
 
 scripts/historical-audio/** -text
+
+# The distributed artifact must have the same hash on every host/platform.
+web/index.html text eol=lf

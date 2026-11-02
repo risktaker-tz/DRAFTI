@@ -33,7 +33,9 @@ def main() -> None:
     assert "__STYLES__" not in html and "__ENGINE__" not in html and "__UI__" not in html \
         and "__AUDIO__" not in html
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(html, encoding="utf-8")
+    # Stable bytes on Windows, Linux, GitHub Pages and Vercel.
+    with OUT.open("w", encoding="utf-8", newline="\n") as output:
+        output.write(html)
     print(f"wrote {OUT} ({OUT.stat().st_size:,} bytes)")
 
 

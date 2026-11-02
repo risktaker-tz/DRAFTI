@@ -1612,7 +1612,7 @@
   // ---------------- highlights ----------------
   function clearHighlights() {
     for (const el of squareEls()) {
-      el.classList.remove('sel', 'hop', 'target', 'capture-target', 'last', 'hint', 'landing');
+      el.classList.remove('sel', 'hop', 'target', 'capture-target', 'finish-target', 'last', 'hint', 'landing');
       el.removeAttribute('data-step');
     }
     for (const p of G.pieces) if (p.el) p.el.classList.remove('threat', 'doomed');
@@ -1683,6 +1683,11 @@
           mm.path.length > k && mm.path[k] === sq && G.sel.partial.every((s, ix) => mm.path[ix] === s));
         mark(sq, m && m.caps.length > 0 ? 'capture-target' : 'target');
       }
+      for (const move of G.sel.cands) {
+        if (move.caps.length > 1 && move.path.length > k && G.sel.partial.every((sq, index) => move.path[index] === sq)) {
+          mark(move.path[move.path.length - 1], 'finish-target');
+        }
+      }
     }
     markJumpPaths();
   }
@@ -1709,6 +1714,16 @@
     const code = G.board[i];
     if (!G.sel) {
       if (code * G.side > 0) trySelect(i);
+      return;
+    }
+    // A unique final destination selects the complete legal capture route.
+    // Keep its engine-generated path intact so every hop still animates,
+    // sounds, crowns and enters history exactly as in step-by-step play.
+    const finishes = G.sel.cands.filter(m => m.caps.length > 1 && m.path.length > G.sel.partial.length &&
+      m.path[m.path.length - 1] === i && G.sel.partial.every((sq, index) => m.path[index] === sq));
+    if (finishes.length === 1) { const move = finishes[0]; clearSel(); executeMove(move); return; }
+    if (finishes.length > 1 && i !== G.sel.from && !G.sel.cands.some(m => m.path[G.sel.partial.length] === i)) {
+      flashWhisper('More than one route ends here — choose the next landing to select your route.');
       return;
     }
     if (i === G.sel.from) { clearSel(); return; }
@@ -3075,6 +3090,7 @@
 
   // ---------------- modals ----------------
   function openModal(id) {
+    closeMenu(); // the drawer must not cover confirmation or statistics dialogs
     closeModals();
     $('backdrop').classList.add('show');
     $(id).hidden = false;

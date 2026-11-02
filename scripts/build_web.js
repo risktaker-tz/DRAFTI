@@ -9,6 +9,5 @@ for (const [token, file] of [['STYLES','styles.css'], ['AUDIO','audio.manifest.j
   if (!html.includes(marker)) throw Error('Missing ' + marker);
   html = html.replace(marker, () => read(path.join(root, 'src', file)));
 }
-if (process.platform === 'win32') html = html.replace(/\n/g, '\r\n');
 fs.writeFileSync(path.join(root, 'web/index.html'), html);
 console.log('Built web/index.html:', Buffer.byteLength(html), 'bytes');
