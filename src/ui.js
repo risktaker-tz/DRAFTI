@@ -277,12 +277,12 @@
   // pulled apart in lightness. Same-colour flags (Indonesia vs Monaco) end
   // up red versus white, never red versus red.
   function flagPalettes() {
-    if (G.mode !== 'aivai' || !settings.aivaiAuto) return [null, null];
+    if (G.mode === 'aivai' ? settings.arenaFlags === false : !settings.humanFlags) return [null, null];
     const pick = (id, side, avoid) => {
       if (!ROSTER.some((r) => r.id === id) || customNamed(id)) return null;
       const f = FLAG_COLORS[id];
       if (!f) return null;
-      const cands = side === IVORY ? [f[0], f[1]] : [f[1], f[0]];
+      const cands = [f[0], f[1]];
       const dist = (h) => { const a = hexRgb(h), b = hexRgb(avoid || h);
         return avoid ? Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]) + Math.abs(a[2] - b[2]) : 1e9; };
       let c = clampLuma(cands[0], .12, .88);
@@ -296,8 +296,8 @@
       }
       return c;
     };
-    const a = pick(G.seatIvory, IVORY, null);
-    const b = pick(G.seatEbony, EBONY, a);
+    const a = pick(G.mode === "aivai" ? G.seatIvory : presentation.nationIvory, IVORY, null);
+    const b = pick(G.mode === "aivai" ? G.seatEbony : presentation.nationEbony, EBONY, a);
     return [a ? sideVarSet(a) : null, b ? sideVarSet(b) : null];
   }
   // write the palettes onto <body> as --side-a-*/--side-b-* custom
@@ -499,6 +499,9 @@
   settings.pname2 = cleanName(settings.pname2, 'Challenger');
   if (![1, 2, 3, 4, 5].includes(settings.arenaRounds)) settings.arenaRounds = 1;
   settings.humanlike = !!settings.humanlike;
+
+  const PRESENTATION_KEY = 'drafti.presentation.v1';
+  const presentation = Object.assign({ nationIvory: 'TZ', nationEbony: 'KE', stream: false }, loadJSON(PRESENTATION_KEY, {}));
 
   // ---------------- themes ----------------
   // Every theme overrides the CSS custom properties defined in styles.css.
@@ -1128,6 +1131,8 @@
   const SFX_BANK = {
     defs: window.DRAFTI_SFX || {},
     buffers: new Map(),
+    recent: [],
+    lastPlayed: new Map(),
     decoding: false,
     CAT_VOL: { majestic: 0.95, comedy: 0.8, voice: 1.0, judge: 1.0, think: 1.0, ui: 0.6, drama: 0.95, party: 1.0 },
     decodeAll() {
@@ -1157,11 +1162,20 @@
       return true;
     },
     play(name, opts) {
-      if (!name || !settings.sound || !this.on(name)) return null;
+      if (!name || !settings.sound) return null;
+      if (['move','capture','select','king','illegal','undo','levelup','relief','trap_snap'].includes(name) && !this.defs[name]) return FX.play(name);
+      if (!this.on(name)) return null;
       const ctx = FX.ensure(); if (!ctx) return null;
       this.decodeAll();
       const buf = this.buffers.get(name);
       if (!buf) return null;
+      const now = performance.now();
+      const cooldown = this.defs[name].c === "ui" ? 150 : 8000;
+      if (now - (this.lastPlayed.get(name) || -Infinity) < cooldown) return null;
+      if (this.defs[name].c !== "ui" && this.recent.slice(-5).includes(name)) return null;
+      this.lastPlayed.set(name, now);
+      this.recent.push(name);
+      if (this.recent.length > 20) this.recent.shift();
       const def = this.defs[name] || {};
       const cat = def.c || 'comedy';
       const vol = ((opts && opts.vol != null ? opts.vol : 1) *
@@ -2412,6 +2426,10 @@
       arena.xp[id] += winnerId === null ? 2 : (id === winnerId ? 3 : 4);
       if (id === winnerId) arena.wins[id]++;
     }
+    if (winnerId) {
+      const stageBonus = arena.bouts >= 11 ? 5 : arena.bouts >= 9 ? 3 : arena.bouts >= 5 ? 2 : 0;
+      arena.xp[winnerId] += stageBonus + (winnerSide === IVORY ? 1 : 0);
+    }
     const champ = rosterById(champId), chall = rosterById(challId);
     let ceremony = false, text = '';
     if (winnerSide === EBONY) {
@@ -2465,6 +2483,11 @@
     if (arena.bouts >= SEASON_LEN) {
       arena.bouts = 0;
       arena.season++;
+      // Rotate opening honours among nations that have waited longest.
+      const unseen = arena.queue.filter(id => !arena.appeared.includes(id));
+      const candidates = unseen.length ? unseen : arena.queue;
+      const opener = candidates[(Math.random() * candidates.length) | 0];
+      if (opener) arena.queue = [opener, ...arena.queue.filter(id => id !== opener)];
       seasonEnd = true;
     }
     guardArena();
@@ -3056,6 +3079,44 @@
   };
   wireName('nameInput', 'pname', 'UHAKIKA');
   wireName('name2Input', 'pname2', 'Challenger');
+
+
+  const nationOptions = ROSTER.map(r => '<option value="' + r.id + '">' + r.name + '</option>').join('');
+  for (const [id, key] of [['nationIvory', 'nationIvory'], ['nationEbony', 'nationEbony']]) {
+    $(id).innerHTML = nationOptions;
+    $(id).value = presentation[key];
+    $(id).addEventListener('change', () => {
+      presentation[key] = $(id).value;
+      saveJSON(PRESENTATION_KEY, presentation);
+      applyFlagPalettes();
+      SFX_BANK.play('ui_save');
+    });
+  }
+  function syncPresentation() {
+    $('humanFlags').checked = !!settings.humanFlags;
+    $('arenaFlags').checked = settings.arenaFlags !== false;
+    $('streamView').checked = !!presentation.stream;
+    document.body.classList.toggle('stream-view', !!presentation.stream);
+  }
+  for (const id of ['humanFlags', 'arenaFlags']) $(id).addEventListener('change', () => {
+    settings[id] = $(id).checked;
+    saveJSON(SETTINGS_KEY, settings);
+    applyFlagPalettes();
+    SFX_BANK.play('ui_save');
+  });
+  $('streamView').addEventListener('change', () => {
+    presentation.stream = $('streamView').checked;
+    saveJSON(PRESENTATION_KEY, presentation);
+    syncPresentation();
+    SFX_BANK.play('ui_save');
+  });
+  $('btnFullscreen').addEventListener('click', async () => {
+    try {
+      if (document.fullscreenElement) await document.exitFullscreen();
+      else await document.documentElement.requestFullscreen();
+    } catch { flashWhisper('Use your browser’s full-screen option on this device.'); }
+  });
+  syncPresentation();
 
   $('btnNameReset').addEventListener('click', () => {
     const had = Object.keys(nameOverrides).length > 0;

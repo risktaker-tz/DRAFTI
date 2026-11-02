@@ -1003,3 +1003,13 @@ body.pieces-stone .piece.ebony .body {
   background: #0a1322; border: 1px solid var(--accent); border-radius: 999px;
   color: var(--ink); font-size: 12px; padding: 5px 11px; width: 104px; outline: none; font-family: var(--sans);
 }
+
+/* Broadcast controls preserve the board and every existing action. */
+.presentation-options { display: grid; gap: 12px; }
+.presentation-options label { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.presentation-options select { max-width: 100%; padding: 8px; color: var(--ink); background: var(--panel); border: 1px solid var(--panel-line); border-radius: 8px; }
+body.stream-view .banner { font-size: clamp(18px, 2.4vw, 28px); }
+body.stream-view .ticker { font-size: 16px; }
+/* Independent inline/block sizing prevents flex distortion of the disc. */
+.piece .body { width: 78%; height: auto; aspect-ratio: 1; flex: 0 0 78%; }
+.piece .body::after { content: ''; position: absolute; inset: 9%; border-radius: 50%; pointer-events: none; background: repeating-radial-gradient(circle, transparent 0 8%, rgba(0,0,0,.16) 9% 10%, rgba(255,255,255,.18) 11% 12%); box-shadow: inset 0 2px 2px rgba(255,255,255,.35), inset 0 -2px 3px rgba(0,0,0,.3); }

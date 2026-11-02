@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "DRAFTI — Checkers, refined",
+  "short_name": "DRAFTI",
+  "description": "Offline checkers and the world arena",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#191009",
+  "theme_color": "#7c4a24",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

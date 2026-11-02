@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#7c4a24">
 <title>DRAFTI — Checkers, refined</title>
 <meta name="description" content="DRAFTI is an original open-source checkers game: five international rulesets, ten AI levels from Beginner to The Machine, twelve national playing styles, and an AI-vs-AI world arena of 194 national teams — Tanzania hosts, Kenya challenges first, then East Africa, all of Africa and every continent — with seasons, winner-stays rotation, experience-based skill, retirement ceremonies and human-like pacing, plus two-player mode, 21 themes, 8 piece sets and 330+ reactive sounds, in a single HTML file.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%237c4a24'/%3E%3Crect x='2' y='2' width='13' height='13' fill='%23e9d5a7'/%3E%3Crect x='17' y='17' width='13' height='13' fill='%23e9d5a7'/%3E%3Ccircle cx='22' cy='10' r='4.5' fill='%23191009'/%3E%3Ccircle cx='9' cy='24' r='4.5' fill='%23ecdcb4'/%3E%3C/svg%3E">
@@ -1013,6 +1015,16 @@ body.pieces-stone .piece.ebony .body {
   color: var(--ink); font-size: 12px; padding: 5px 11px; width: 104px; outline: none; font-family: var(--sans);
 }
 
+/* Broadcast controls preserve the board and every existing action. */
+.presentation-options { display: grid; gap: 12px; }
+.presentation-options label { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.presentation-options select { max-width: 100%; padding: 8px; color: var(--ink); background: var(--panel); border: 1px solid var(--panel-line); border-radius: 8px; }
+body.stream-view .banner { font-size: clamp(18px, 2.4vw, 28px); }
+body.stream-view .ticker { font-size: 16px; }
+/* Independent inline/block sizing prevents flex distortion of the disc. */
+.piece .body { width: 78%; height: auto; aspect-ratio: 1; flex: 0 0 78%; }
+.piece .body::after { content: ''; position: absolute; inset: 9%; border-radius: 50%; pointer-events: none; background: repeating-radial-gradient(circle, transparent 0 8%, rgba(0,0,0,.16) 9% 10%, rgba(255,255,255,.18) 11% 12%); box-shadow: inset 0 2px 2px rgba(255,255,255,.35), inset 0 -2px 3px rgba(0,0,0,.3); }
+
 </style>
 </head>
 <body>
@@ -1194,6 +1206,16 @@ body.pieces-stone .piece.ebony .body {
             <input type="text" id="nameInput" class="name-input" maxlength="18" placeholder="UHAKIKA" autocomplete="off" spellcheck="false">
             <span id="name2Wrap"><input type="text" id="name2Input" class="name-input" maxlength="18" placeholder="Challenger" autocomplete="off" spellcheck="false"></span>
           </div>
+        </div>
+        <div class="seg-row presentation-options">
+          <span class="seg-label">Nation colours &amp; broadcast</span>
+          <label><input type="checkbox" id="humanFlags"> Flag colours in human games</label>
+          <label><input type="checkbox" id="arenaFlags"> Flag colours in the arena</label>
+          <label>Ivory nation <select id="nationIvory" aria-label="Ivory nation"></select></label>
+          <label>Ebony nation <select id="nationEbony" aria-label="Ebony nation"></select></label>
+          <label><input type="checkbox" id="streamView"> Livestream view — larger commentary and score</label>
+          <button class="btn" id="btnFullscreen">Full screen</button>
+          <p class="hint">Capture this window in your streaming app. Menu and sound controls remain available.</p>
         </div>
         <div class="seg-row" id="rowNames">
           <span class="seg-label">The nations — tap a team to rename it. A renamed team plays in the classic piece colours until its country name (or the restore button) returns</span>
@@ -2420,12 +2442,12 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
   // pulled apart in lightness. Same-colour flags (Indonesia vs Monaco) end
   // up red versus white, never red versus red.
   function flagPalettes() {
-    if (G.mode !== 'aivai' || !settings.aivaiAuto) return [null, null];
+    if (G.mode === 'aivai' ? settings.arenaFlags === false : !settings.humanFlags) return [null, null];
     const pick = (id, side, avoid) => {
       if (!ROSTER.some((r) => r.id === id) || customNamed(id)) return null;
       const f = FLAG_COLORS[id];
       if (!f) return null;
-      const cands = side === IVORY ? [f[0], f[1]] : [f[1], f[0]];
+      const cands = [f[0], f[1]];
       const dist = (h) => { const a = hexRgb(h), b = hexRgb(avoid || h);
         return avoid ? Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]) + Math.abs(a[2] - b[2]) : 1e9; };
       let c = clampLuma(cands[0], .12, .88);
@@ -2439,8 +2461,8 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
       }
       return c;
     };
-    const a = pick(G.seatIvory, IVORY, null);
-    const b = pick(G.seatEbony, EBONY, a);
+    const a = pick(G.mode === "aivai" ? G.seatIvory : presentation.nationIvory, IVORY, null);
+    const b = pick(G.mode === "aivai" ? G.seatEbony : presentation.nationEbony, EBONY, a);
     return [a ? sideVarSet(a) : null, b ? sideVarSet(b) : null];
   }
   // write the palettes onto <body> as --side-a-*/--side-b-* custom
@@ -2642,6 +2664,9 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
   settings.pname2 = cleanName(settings.pname2, 'Challenger');
   if (![1, 2, 3, 4, 5].includes(settings.arenaRounds)) settings.arenaRounds = 1;
   settings.humanlike = !!settings.humanlike;
+
+  const PRESENTATION_KEY = 'drafti.presentation.v1';
+  const presentation = Object.assign({ nationIvory: 'TZ', nationEbony: 'KE', stream: false }, loadJSON(PRESENTATION_KEY, {}));
 
   // ---------------- themes ----------------
   // Every theme overrides the CSS custom properties defined in styles.css.
@@ -3271,6 +3296,8 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
   const SFX_BANK = {
     defs: window.DRAFTI_SFX || {},
     buffers: new Map(),
+    recent: [],
+    lastPlayed: new Map(),
     decoding: false,
     CAT_VOL: { majestic: 0.95, comedy: 0.8, voice: 1.0, judge: 1.0, think: 1.0, ui: 0.6, drama: 0.95, party: 1.0 },
     decodeAll() {
@@ -3300,11 +3327,20 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
       return true;
     },
     play(name, opts) {
-      if (!name || !settings.sound || !this.on(name)) return null;
+      if (!name || !settings.sound) return null;
+      if (['move','capture','select','king','illegal','undo','levelup','relief','trap_snap'].includes(name) && !this.defs[name]) return FX.play(name);
+      if (!this.on(name)) return null;
       const ctx = FX.ensure(); if (!ctx) return null;
       this.decodeAll();
       const buf = this.buffers.get(name);
       if (!buf) return null;
+      const now = performance.now();
+      const cooldown = this.defs[name].c === "ui" ? 150 : 8000;
+      if (now - (this.lastPlayed.get(name) || -Infinity) < cooldown) return null;
+      if (this.defs[name].c !== "ui" && this.recent.slice(-5).includes(name)) return null;
+      this.lastPlayed.set(name, now);
+      this.recent.push(name);
+      if (this.recent.length > 20) this.recent.shift();
       const def = this.defs[name] || {};
       const cat = def.c || 'comedy';
       const vol = ((opts && opts.vol != null ? opts.vol : 1) *
@@ -4555,6 +4591,10 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
       arena.xp[id] += winnerId === null ? 2 : (id === winnerId ? 3 : 4);
       if (id === winnerId) arena.wins[id]++;
     }
+    if (winnerId) {
+      const stageBonus = arena.bouts >= 11 ? 5 : arena.bouts >= 9 ? 3 : arena.bouts >= 5 ? 2 : 0;
+      arena.xp[winnerId] += stageBonus + (winnerSide === IVORY ? 1 : 0);
+    }
     const champ = rosterById(champId), chall = rosterById(challId);
     let ceremony = false, text = '';
     if (winnerSide === EBONY) {
@@ -4608,6 +4648,11 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
     if (arena.bouts >= SEASON_LEN) {
       arena.bouts = 0;
       arena.season++;
+      // Rotate opening honours among nations that have waited longest.
+      const unseen = arena.queue.filter(id => !arena.appeared.includes(id));
+      const candidates = unseen.length ? unseen : arena.queue;
+      const opener = candidates[(Math.random() * candidates.length) | 0];
+      if (opener) arena.queue = [opener, ...arena.queue.filter(id => id !== opener)];
       seasonEnd = true;
     }
     guardArena();
@@ -5200,6 +5245,44 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
   wireName('nameInput', 'pname', 'UHAKIKA');
   wireName('name2Input', 'pname2', 'Challenger');
 
+
+  const nationOptions = ROSTER.map(r => '<option value="' + r.id + '">' + r.name + '</option>').join('');
+  for (const [id, key] of [['nationIvory', 'nationIvory'], ['nationEbony', 'nationEbony']]) {
+    $(id).innerHTML = nationOptions;
+    $(id).value = presentation[key];
+    $(id).addEventListener('change', () => {
+      presentation[key] = $(id).value;
+      saveJSON(PRESENTATION_KEY, presentation);
+      applyFlagPalettes();
+      SFX_BANK.play('ui_save');
+    });
+  }
+  function syncPresentation() {
+    $('humanFlags').checked = !!settings.humanFlags;
+    $('arenaFlags').checked = settings.arenaFlags !== false;
+    $('streamView').checked = !!presentation.stream;
+    document.body.classList.toggle('stream-view', !!presentation.stream);
+  }
+  for (const id of ['humanFlags', 'arenaFlags']) $(id).addEventListener('change', () => {
+    settings[id] = $(id).checked;
+    saveJSON(SETTINGS_KEY, settings);
+    applyFlagPalettes();
+    SFX_BANK.play('ui_save');
+  });
+  $('streamView').addEventListener('change', () => {
+    presentation.stream = $('streamView').checked;
+    saveJSON(PRESENTATION_KEY, presentation);
+    syncPresentation();
+    SFX_BANK.play('ui_save');
+  });
+  $('btnFullscreen').addEventListener('click', async () => {
+    try {
+      if (document.fullscreenElement) await document.exitFullscreen();
+      else await document.documentElement.requestFullscreen();
+    } catch { flashWhisper('Use your browser’s full-screen option on this device.'); }
+  });
+  syncPresentation();
+
   $('btnNameReset').addEventListener('click', () => {
     const had = Object.keys(nameOverrides).length > 0;
     for (const k of Object.keys(nameOverrides)) delete nameOverrides[k];
@@ -5603,6 +5686,11 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
   };
 })();
 
+</script>
+<script>
+if (location.protocol === 'https:' || location.hostname === 'localhost') {
+  navigator.serviceWorker?.register('./sw.js').catch(console.warn);
+}
 </script>
 </body>
 </html>

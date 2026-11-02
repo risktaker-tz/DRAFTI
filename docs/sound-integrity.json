@@ -1,0 +1,22 @@
+{
+  "clips": 360,
+  "categories": {
+    "ui": 33,
+    "party": 21,
+    "comedy": 16,
+    "majestic": 6,
+    "drama": 29,
+    "voice": 118,
+    "think": 106,
+    "judge": 31
+  },
+  "directReferences": 70,
+  "missing": [],
+  "oversized": [
+    {
+      "id": "v_spec1",
+      "bytes": 75928
+    }
+  ],
+  "limitations": "Static direct-reference and encoded-size audit only; pooled references, duration and playback require further verification."
+}

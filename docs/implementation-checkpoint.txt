@@ -1,0 +1,7 @@
+Implementation checkpoint, 2 November 2026
+
+Implemented locally: initial install manifest and offline worker; Vercel static configuration; optional human-mode flags and arena classic-colour control; nation selectors; main-colour-first clash resolution; circular grooved disc geometry; livestream preference and fullscreen control; new-season opening draw from waiting nations; knockout and retention bonus experience; sample repeat suppression; synthesized-sound fallback for sample-bank calls; portable Node build and initial sound audit.
+
+Verified: current engine suite 37752 passed / zero failed (randomized count varies); independent crosscheck clean. Browser verified human flags, livestream preference and square disc bounds (42.3125 by 42.3125 at inspected viewport).
+
+Still required: authoritative 194-flag reference and render sheet; original-clip sourcing attempts; audio duration/dynamic-pool audit and full mode playthroughs; 100 new sounds and reproducible voice pipeline; complete sound director; fairness and style simulations; full event effects and theme contrast checks; mobile installation/device verification and PNG install icons; deployment and host hashes. Existing audio v_spec1 exceeds 60 KB (75928 bytes), recorded by the audit. No deployment or push performed.

@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#7c4a24">
 <title>DRAFTI — Checkers, refined</title>
 <meta name="description" content="DRAFTI is an original open-source checkers game: five international rulesets, ten AI levels from Beginner to The Machine, twelve national playing styles, and an AI-vs-AI world arena of 194 national teams — Tanzania hosts, Kenya challenges first, then East Africa, all of Africa and every continent — with seasons, winner-stays rotation, experience-based skill, retirement ceremonies and human-like pacing, plus two-player mode, 21 themes, 8 piece sets and 330+ reactive sounds, in a single HTML file.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%237c4a24'/%3E%3Crect x='2' y='2' width='13' height='13' fill='%23e9d5a7'/%3E%3Crect x='17' y='17' width='13' height='13' fill='%23e9d5a7'/%3E%3Ccircle cx='22' cy='10' r='4.5' fill='%23191009'/%3E%3Ccircle cx='9' cy='24' r='4.5' fill='%23ecdcb4'/%3E%3C/svg%3E">
@@ -190,6 +192,16 @@
             <span id="name2Wrap"><input type="text" id="name2Input" class="name-input" maxlength="18" placeholder="Challenger" autocomplete="off" spellcheck="false"></span>
           </div>
         </div>
+        <div class="seg-row presentation-options">
+          <span class="seg-label">Nation colours &amp; broadcast</span>
+          <label><input type="checkbox" id="humanFlags"> Flag colours in human games</label>
+          <label><input type="checkbox" id="arenaFlags"> Flag colours in the arena</label>
+          <label>Ivory nation <select id="nationIvory" aria-label="Ivory nation"></select></label>
+          <label>Ebony nation <select id="nationEbony" aria-label="Ebony nation"></select></label>
+          <label><input type="checkbox" id="streamView"> Livestream view — larger commentary and score</label>
+          <button class="btn" id="btnFullscreen">Full screen</button>
+          <p class="hint">Capture this window in your streaming app. Menu and sound controls remain available.</p>
+        </div>
         <div class="seg-row" id="rowNames">
           <span class="seg-label">The nations — tap a team to rename it. A renamed team plays in the classic piece colours until its country name (or the restore button) returns</span>
           <div class="name-grid" id="nameGrid"></div>
@@ -324,6 +336,11 @@
 </script>
 <script>
 /*__UI__*/
+</script>
+<script>
+if (location.protocol === 'https:' || location.hostname === 'localhost') {
+  navigator.serviceWorker?.register('./sw.js').catch(console.warn);
+}
 </script>
 </body>
 </html>

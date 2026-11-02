@@ -314,3 +314,13 @@ AI and two-player modes. Open it in Android Studio and let Gradle sync — see
 
 MIT — see [LICENSE](LICENSE). The game of checkers belongs to the public
 domain; this implementation is ours, and it can be yours too.
+
+### Install on desktop or mobile
+
+Open the hosted game in a browser and choose Install app (Chrome/Edge on desktop or Android), or Share → Add to Home Screen on iPhone/iPad. After the first online visit the installed game can load offline. Installation requires HTTPS; the standalone HTML still plays directly from disk.
+
+### Presentation controls
+
+The players card includes optional flag colours in human games, separate arena flag control, two nation selectors, a remembered livestream view, and full screen. Flag palettes use each nation’s main colour first and resolve clashes using the secondary. Discs retain their circular geometry across cell sizes. New-season opening honours are drawn from waiting nations; knockout wins and title retention award extra experience. Sample playback now suppresses rapid repeats.
+
+For environments with Node but no Python, `node scripts/build_web.js` assembles the same single-file game.
