@@ -8,9 +8,9 @@ retirement and skill-only excerpts are documented in ATTRIBUTIONS.md.
 The former TTS v_retire1/2 files are preserved unchanged in backups/.
 
 Shrimp: the exact Short https://youtube.com/shorts/mvUVrweNvsQ has also
-been downloaded locally. Its source audio/video are staged for speech
-boundary verification. shrimp1/2 remain the existing recreations until
-the original cuts are verified; no substitute provenance is claimed.
+been downloaded locally. Verified original cuts now fill shrimp1/2, with
+the old recreations preserved in backups/. These are two framings of one
+original question, not separate takes. See docs/shrimp-source-verification.md.
 
 Use scripts/voice_proc.py to process a new verified cut without replacing
 existing output by default. Register metadata in scripts/audio_catalog.json
@@ -19,3 +19,9 @@ an explicit --allow-update ID and an original backup in sfx_swap/backups/.
 Then run python build_web.py, the sound integrity audit and preservation test.
 The older swap.sh helper is retained as historical tooling; the catalog-based
 pipeline above is the current verified path for embedding new clips.
+
+SHRIMP UPDATE 2026-11-02: the exact mvUVrweNvsQ source was obtained locally.
+shrimp1 and shrimp2 now contain the original question, with two honest framings
+of its single take. They are not TTS or two separate performances. See
+../docs/shrimp-source-verification.md and ../scripts/install_shrimp_originals.py.
+The old recreations remain in backups/; only the requested slots changed.

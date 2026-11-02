@@ -31,18 +31,17 @@ frames (01, 02, 03, 04, 06, 08, 10) — no mapping is guessed. These clips are
 short excerpts included for entertainment; the original uploads remain the
 property of their creators, who are credited here and in the in-app bank.
 
-## Meme moments — in-house voiced recreations
+## Meme moments — historical in-house voiced recreations
 
-Two requested moments come from YouTube Shorts this project's build sandbox
-could not download (the uploader-bot wall blocks automated access). Rather
-than fake a claim to the original audio, the lines are voiced in-house with
-the TTS engine and are clearly labeled here. If you can save the original
-audio, drop the mp3 files into `src/audio/` under the names below and rebuild
-(`python3 build_web.py`) — see `sfx_swap/README.txt`.
+The original build sandbox could not download these two requested Shorts.
+Both exact sources were subsequently obtained on the owner's Windows machine
+and the requested originals are now installed. The historical TTS versions
+remain unchanged under `sfx_swap/backups/` for a reversible swap. See the
+verified source sections below and `sfx_swap/README.txt`.
 
 | Sound in game | What it says (recreation) | Wanted source clip | Use in the game |
 | --- | --- | --- | --- |
-| `shrimp1`, `shrimp2` | "Wait — is this the shrimp one?!" | "Is this the shrimp one??" horse/equestrian short — https://youtube.com/shorts/mvUVrweNvsQ | The last-shrimp moment: your final piece is about to be devoured |
+| `shrimp1`, `shrimp2` | Historical TTS fallbacks, now backed up; replaced by the original question and question-plus-Anyway framings below | https://youtube.com/shorts/mvUVrweNvsQ | Reversible fallback only |
 | `v_retire1`, `v_retire2` | Historical TTS fallback, preserved under `sfx_swap/backups/`; replaced by the verified originals below on 2026-11-02 | https://youtube.com/shorts/KBVNiOAnHiA | Reversible fallback only |
 
 ## Animal comedy & viral stings (freesound.org, CC0)
@@ -166,3 +165,7 @@ The narrator recordings later_moments and later_hours were independently matched
 ## Procedural thinking rustle
 
 `FX.breathe` in `src/ui.js` generates original filtered random grain with a smooth sine-squared envelope, introduced for sparse, quiet long-thought ambience. It uses no recording or external sample; covered by this repository’s MIT license. Existing credited `sparkle`, `v_ooh1` and `v_chess` recordings also accompany safe captures that break material equality, under their existing category controls and provenance. No source recordings were replaced for these changes.
+
+## Original shrimp question — obtained 2026-11-02
+
+Source: https://youtube.com/shorts/mvUVrweNvsQ . Original rights remain with the source creator; these short credited meme excerpts are not CC0 or recreated voices. `shrimp1.mp3` uses source 11.105–12.570 s (question alone, 1.465 s); `shrimp2.mp3` uses 11.105–13.150 s (the same question plus “Anyway”, 2.045 s). Only one original question occurs; the slots are different framings of that same take. Both play at natural speed. The downloaded transcription report, source hash, processing measurements and exact boundaries are in `docs/shrimp-source-verification.md` and `docs/shrimp-original-cuts.json`. Historical recreations are preserved under `sfx_swap/backups/`.

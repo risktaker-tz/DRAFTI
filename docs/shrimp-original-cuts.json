@@ -1,0 +1,24 @@
+{
+  "source": "https://youtube.com/shorts/mvUVrweNvsQ",
+  "sourceWavSha256": "e4e81189738e74655c30462b80aac7234f6f4fa05f180bda3c39a453b9a9fc83",
+  "takeCount": 1,
+  "note": "Two framings of the same original question; no fabricated second take.",
+  "cuts": {
+    "shrimp1": {
+      "sourceStart": 11.105,
+      "sourceEnd": 12.57,
+      "seconds": 1.465,
+      "peakDbFS": -1.555,
+      "bytes": 11015,
+      "sha256": "e134137d10f2345ea82ffe2788c6fe2366251cfcf139be088c960d28399069ba"
+    },
+    "shrimp2": {
+      "sourceStart": 11.105,
+      "sourceEnd": 13.15,
+      "seconds": 2.045,
+      "peakDbFS": -1.555,
+      "bytes": 15038,
+      "sha256": "9231c8477662795755435c072cccda890630f214c35b84ba7441857064efc426"
+    }
+  }
+}

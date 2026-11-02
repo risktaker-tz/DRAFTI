@@ -2258,7 +2258,7 @@
       G.shrimpFired = true;
       setTimeout(() => {
         SFX_BANK.play(SFX_BANK.defs.shrimp_orig
-          ? 'shrimp_orig' : pick(['shrimp1', 'shrimp2']), { vol: 0.95 });
+          ? 'shrimp_orig' : pick(['shrimp1', 'shrimp2']), { vol: 0.85, rate: 1 });
         flashWhisper('Is this the shrimp one??');
       }, 850);
     }

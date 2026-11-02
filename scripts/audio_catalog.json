@@ -345,11 +345,19 @@
   },
   "shrimp1": {
     "c": "party",
-    "b": "DRAFTI voiced recreation of a viral clip (originals: see ATTRIBUTIONS.md / sfx_swap)"
+    "b": "Original shrimp question (youtube.com/shorts/mvUVrweNvsQ) 11.105-12.57s",
+    "durationSec": 1.465,
+    "voice": "original",
+    "mood": "bemused",
+    "family": "shrimp-original"
   },
   "shrimp2": {
     "c": "party",
-    "b": "DRAFTI voiced recreation of a viral clip (originals: see ATTRIBUTIONS.md / sfx_swap)"
+    "b": "Original shrimp question (youtube.com/shorts/mvUVrweNvsQ) 11.105-13.15s",
+    "durationSec": 2.045,
+    "voice": "original",
+    "mood": "bemused",
+    "family": "shrimp-original"
   },
   "smarts": {
     "c": "comedy",
