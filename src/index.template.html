@@ -33,9 +33,20 @@
 <main class="layout">
   <section class="stage" id="stage">
     <div class="banner" id="banner">
-      <span class="dot ivory" id="bannerDot"></span>
-      <span id="bannerText">Loading…</span>
-      <span class="clock-pill" id="clockPill" hidden></span>
+      <div class="billboard-cell billboard-status">
+        <span class="billboard-label">At the table</span>
+        <div class="billboard-turn"><span class="dot ivory" id="bannerDot"></span><span id="bannerText" role="status" aria-live="polite">Loading…</span></div>
+        <span class="clock-pill" id="clockPill" hidden></span>
+      </div>
+      <div class="billboard-cell billboard-match">
+        <span class="billboard-label">Matchup</span>
+        <div class="billboard-versus"><span id="bannerIvory">Ivory</span><span class="billboard-vs">VS</span><span id="bannerEbony">Ebony</span></div>
+      </div>
+      <div class="billboard-cell billboard-event">
+        <span class="billboard-label" id="bannerEventLabel">Game</span>
+        <span id="bannerContext">Checkers</span>
+        <span id="bannerDetail" class="billboard-detail"></span>
+      </div>
     </div>
     <div class="board-frame" id="boardFrame">
       <div class="board-inner">
@@ -275,7 +286,7 @@
         <button data-v="party" title="Party memes: bad-boy shaming for greedy captures, doom-time chickens, ducks, cats, narrator time cards, big laughs">🎉 Party</button>
         <button data-v="comedy" title="Cartoon comedy for blunders">🤡 Comedy</button>
         <button data-v="voice" title="Realistic voice commentary and opponent table talk">🎙️ Voice</button>
-        <button data-v="think" title="Thinking sounds: the soft think pulse, narrator time cards during long engine thinks, heckles while you think, clock callouts">⏳ Thinking</button>
+        <button data-v="think" title="Thinking sounds: sparse natural piece rustles, narrator time cards during long engine thinks, heckles while you think, clock callouts">⏳ Thinking</button>
         <button data-v="ui" title="Interface sounds: menu, toggles, themes, clock">🎛️ Interface</button>
         <button data-v="classic" title="Classic wooden club sounds">🪵 Classic</button>
       </div>

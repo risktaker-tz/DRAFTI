@@ -130,13 +130,25 @@ body.fx-scan::after {
 
 /* ---------- turn banner ---------- */
 .banner {
-  display: flex; align-items: center; gap: 10px;
-  font-size: 15px; letter-spacing: .04em; color: var(--ink);
-  background: var(--panel-opaque); border: 1px solid var(--panel-line);
-  padding: 9px 18px; border-radius: 999px;
-  height: 40px; max-width: min(94vw, 660px);
+  display: grid; grid-template-columns: 1fr 1.35fr 1fr;
+  font-size: 13px; letter-spacing: .01em; color: var(--ink);
+  background: linear-gradient(120deg, var(--accent-weak), transparent 55%), var(--panel-opaque);
+  border: 1px solid var(--panel-line); border-top: 2px solid var(--accent-soft);
+  padding: 0; border-radius: 12px;
+  min-height: 88px; width: min(94vw, 70vh, 660px);
   box-shadow: 0 4px 18px rgba(0, 0, 0, .35), 0 0 22px var(--accent-weak);
 }
+.billboard-cell { min-width: 0; padding: 12px; display: flex; flex-direction: column; justify-content: center; gap: 7px; }
+.billboard-cell + .billboard-cell { border-left: 1px solid var(--panel-line); }
+.billboard-label { font-size: 9px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-dim); }
+.billboard-turn { display: flex; align-items: center; gap: 7px; min-width: 0; }
+.billboard-versus { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 7px; font-weight: 700; }
+.billboard-versus > span:not(.billboard-vs), #bannerContext, .billboard-detail { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+#bannerEbony { text-align: right; }
+.billboard-vs { color: var(--accent); font-size: 9px; letter-spacing: .1em; }
+.billboard-detail { color: var(--ink-dim); font-size: 10px; }
+.billboard-status { position: relative; padding-bottom: 28px; }
+#banner .clock-pill { position: absolute; bottom: 7px; left: 12px; margin: 0; font-size: 10px; padding: 1px 6px; }
 #bannerText {
   min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
 }
@@ -811,7 +823,12 @@ body.hv .piece.ebony .body {
   .brand-tag { display: none; }
   /* phones: no giant blurred layer, no frost anywhere — crisp and fast */
   body::before { filter: none; opacity: .5; }
-  .banner { font-size: 13px; padding: 8px 14px; height: 36px; }
+  .banner { font-size: 11px; grid-template-columns: 1fr 1.15fr; min-height: 118px; }
+  .billboard-cell { padding: 10px; }
+  .billboard-status { padding-bottom: 26px; }
+  .billboard-event { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: flex-start; border-left: 0 !important; border-top: 1px solid var(--panel-line); }
+  .billboard-event .billboard-label { flex: none; }
+  .billboard-detail { margin-left: auto; }
   .tray { height: 34px; font-size: 11.5px; padding: 6px 10px; }
 }
 
@@ -1021,7 +1038,7 @@ body.pieces-stone .piece.ebony .body {
 .presentation-options { display: grid; gap: 12px; }
 .presentation-options label { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 .presentation-options select { max-width: 100%; padding: 8px; color: var(--ink); background: var(--panel); border: 1px solid var(--panel-line); border-radius: 8px; }
-body.stream-view .banner { font-size: clamp(18px, 2.4vw, 28px); }
+body.stream-view .banner { font-size: clamp(13px, 1.5vw, 18px); }
 body.stream-view .ticker { font-size: 16px; }
 /* Independent inline/block sizing prevents flex distortion of the disc. */
 .piece .body { width: 78%; height: auto; aspect-ratio: 1; flex: 0 0 78%; }
@@ -1048,9 +1065,20 @@ body.stream-view .ticker { font-size: 16px; }
 <main class="layout">
   <section class="stage" id="stage">
     <div class="banner" id="banner">
-      <span class="dot ivory" id="bannerDot"></span>
-      <span id="bannerText">Loading…</span>
-      <span class="clock-pill" id="clockPill" hidden></span>
+      <div class="billboard-cell billboard-status">
+        <span class="billboard-label">At the table</span>
+        <div class="billboard-turn"><span class="dot ivory" id="bannerDot"></span><span id="bannerText" role="status" aria-live="polite">Loading…</span></div>
+        <span class="clock-pill" id="clockPill" hidden></span>
+      </div>
+      <div class="billboard-cell billboard-match">
+        <span class="billboard-label">Matchup</span>
+        <div class="billboard-versus"><span id="bannerIvory">Ivory</span><span class="billboard-vs">VS</span><span id="bannerEbony">Ebony</span></div>
+      </div>
+      <div class="billboard-cell billboard-event">
+        <span class="billboard-label" id="bannerEventLabel">Game</span>
+        <span id="bannerContext">Checkers</span>
+        <span id="bannerDetail" class="billboard-detail"></span>
+      </div>
     </div>
     <div class="board-frame" id="boardFrame">
       <div class="board-inner">
@@ -1290,7 +1318,7 @@ body.stream-view .ticker { font-size: 16px; }
         <button data-v="party" title="Party memes: bad-boy shaming for greedy captures, doom-time chickens, ducks, cats, narrator time cards, big laughs">🎉 Party</button>
         <button data-v="comedy" title="Cartoon comedy for blunders">🤡 Comedy</button>
         <button data-v="voice" title="Realistic voice commentary and opponent table talk">🎙️ Voice</button>
-        <button data-v="think" title="Thinking sounds: the soft think pulse, narrator time cards during long engine thinks, heckles while you think, clock callouts">⏳ Thinking</button>
+        <button data-v="think" title="Thinking sounds: sparse natural piece rustles, narrator time cards during long engine thinks, heckles while you think, clock callouts">⏳ Thinking</button>
         <button data-v="ui" title="Interface sounds: menu, toggles, themes, clock">🎛️ Interface</button>
         <button data-v="classic" title="Classic wooden club sounds">🪵 Classic</button>
       </div>
@@ -2792,27 +2820,43 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
       settings.sfx.master = v;
       if (this.out) this.out.gain.value = v;
     },
-    // the think pulse: a soft, restless tick while anyone — engine, hint or
-    // the arena — is thinking. Quiet enough to sit under the commentary,
-    // alive enough that a long think never feels like the game has died.
+    // A sparse, softly enveloped grain rustle accompanies long thoughts.
+    // Short searches stay silent; there is no metronome under the pieces.
     thinkTimer: 0,
+    thinkSource: null,
+    breathe() {
+      if (!settings.sound || !settings.sfx.think || SFX_BANK.sceneLockUntil > performance.now()) return;
+      const ctx = this.ensure(); if (!ctx) return;
+      const duration = 1.4, len = Math.ceil(duration * ctx.sampleRate);
+      const buffer = ctx.createBuffer(1, len, ctx.sampleRate), data = buffer.getChannelData(0);
+      let grain = 0;
+      for (let i = 0; i < len; i++) {
+        grain = .96 * grain + .04 * (Math.random() * 2 - 1);
+        data[i] = grain * Math.pow(Math.sin(Math.PI * i / (len - 1)), 2);
+      }
+      const source = ctx.createBufferSource(), filter = ctx.createBiquadFilter(), gain = ctx.createGain();
+      source.buffer = buffer; filter.type = 'lowpass'; filter.frequency.value = 640;
+      gain.gain.value = .035;
+      source.connect(filter); filter.connect(gain); gain.connect(this.out || ctx.destination);
+      this.thinkSource = source;
+      source.onended = () => { source.disconnect(); filter.disconnect(); gain.disconnect();
+        if (this.thinkSource === source) this.thinkSource = null; };
+      source.start();
+    },
     thinkStart() {
       if (this.thinkTimer) return;
       if (!settings.sound || !settings.sfx.think) return;
       if (!this.ensure()) return;
-      let n = 0;
       const beat = () => {
         if (!settings.sound || !settings.sfx.think) { FX.thinkStop(); return; }
-        n++;
-        const v = 0.02 + Math.random() * 0.012;
-        this.tone(1040 + Math.random() * 340, 0.05, 'sine', v);
-        if (n % 4 === 2) this.tone(430 + Math.random() * 70, 0.1, 'sine', v * 0.8, 0.13);
+        this.breathe();
+        this.thinkTimer = setTimeout(beat, 9500 + Math.random() * 4500);
       };
-      beat();
-      this.thinkTimer = setInterval(beat, 900 + Math.random() * 300);
+      this.thinkTimer = setTimeout(beat, 6000);
     },
     thinkStop() {
-      if (this.thinkTimer) { clearInterval(this.thinkTimer); this.thinkTimer = 0; }
+      if (this.thinkTimer) { clearTimeout(this.thinkTimer); this.thinkTimer = 0; }
+      if (this.thinkSource) { this.thinkSource.stop(); this.thinkSource = null; }
     },
     tone(f, dur, type, vol, when, slideTo) {
       const ctx = this.ensure(); if (!ctx) return;
@@ -3476,6 +3520,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
     missed: { rank: 1 },
     feastmissed: { rank: 1 },
     accurate: { rank: 1 },
+    advantage: { rank: 1 },
     dubious: { rank: 1 },
     blunder: { rank: 2 },
     epic: { rank: 3 },
@@ -3577,6 +3622,8 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
     if (mv.caps.length >= 3) ev = 'legendary';
     else if (mv.caps.length === 2) ev = 'majestic';
     else if (mv.promotes) ev = 'promo';
+    else if (mv.caps.length === 1 && countSide(moverSide) - countSide(-moverSide) === 1 &&
+        !G.legal.some(m => m.caps.includes(mv.path[mv.path.length - 1]))) ev = 'advantage';
     else if (!engineMover && mv.caps.length === 0 && maxCaps >= 2) ev = 'missed';
     else if (!engineMover && mv.caps.length >= 1 && maxCaps >= 3 && mv.caps.length < maxCaps) ev = 'feastmissed';
     else if (mv.caps.length === 0) {
@@ -3609,6 +3656,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
   const FEAST_POOL = ['v_feast1', 'v_feast2', 'v_slau1', 'v_slau2'];
 
   let lastSkillOriginalAt = -Infinity;
+  let lastAdvantageAt = -Infinity;
   function applyMoveEvent(ev, ply, flavor, endSq) {
     const def = MOVE_EVENTS[ev] || MOVE_EVENTS.none;
     if (def.rank <= lastEvent.rank && lastEvent.ply === ply) return;
@@ -3636,6 +3684,15 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
       shockwave(endSq);
       SFX_BANK.play(Math.random() < 0.45 ? pick(['v_king1', 'v_king2']) : 'v_king', { vol: 0.9 });
       flashLabel('Crowned!', 'majestic');
+    } else if (ev === 'advantage') {
+      // A safe single capture breaks material equality. Either seat can earn
+      // the spotlight; a forced recapture never gets premature praise.
+      if (performance.now() - lastAdvantageAt < 22000) return;
+      lastAdvantageAt = performance.now();
+      SFX_BANK.play('sparkle', { vol: .5 });
+      SFX_BANK.play(pick(['v_ooh1', 'v_chess']), { vol: .68 });
+      flashLabel('Takes the edge!', 'majestic');
+      shockwave(endSq);
     } else if (ev === 'brilliant') {
       if (ply - lastBlunderPly === 2) lastBlunderPly = -1;
       SFX_BANK.play(pick(['wolfwhistle', 'rimshot', 'animewow']), { vol: 0.9 });
@@ -4599,8 +4656,20 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
   function updateBanner() {
     const dot = $('bannerDot'), text = $('bannerText');
     const banner = $('banner');
-    // thinking is a state you can see and hear: the banner counts its dots,
-    // the thinking side's pieces breathe, and the think pulse ticks softly
+    // Matchup and event information stay in fixed cells while turn status changes.
+    for (const [id, value] of [['bannerIvory', displayName(IVORY)], ['bannerEbony', displayName(EBONY)]]) {
+      $(id).textContent = value; $(id).title = value;
+    }
+    const tournament = G.mode === 'aivai' && settings.aivaiAuto;
+    $('bannerEventLabel').textContent = tournament ? 'Season ' + arena.season : 'Game';
+    const context = tournament
+      ? SEASON_STAGES[stageOfBout(arena.bouts)].name
+      : G.mode === 'aivai' ? 'AI vs AI' : G.mode === 'ai' ? 'Vs Computer' : 'Two players';
+    const detail = tournament
+      ? 'Bout ' + (arena.bouts + 1) + '/' + SEASON_LEN + (G.pairMeets >= 2 ? ' · ' + ord(G.pairMeets) + ' meeting' : '')
+      : G.rs.name;
+    $('bannerContext').textContent = context; $('bannerContext').title = context;
+    $('bannerDetail').textContent = detail; $('bannerDetail').title = detail;
     const engineThinking = G.phase === 'thinking' && !G.over;
     banner.classList.toggle('thinking', engineThinking);
     document.body.classList.toggle('think-a', engineThinking && G.side === IVORY);
@@ -4610,29 +4679,24 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
       const r = G.result;
       dot.className = 'dot ' + (r.winner === IVORY ? 'ivory' : r.winner === EBONY ? 'ebony' : sideDot());
       text.textContent = r.winner === null
-        ? 'Draw — ' + (r.reason || '')
-        : displayName(r.winner) + ' wins — ' + (r.reason || '');
+        ? 'Draw' : displayName(r.winner) + ' wins';
+      $('bannerContext').textContent = r.reason || context;
+      $('bannerContext').title = r.reason || context;
+      text.title = text.textContent;
       return;
     }
     dot.className = 'dot ' + sideDot();
-    const spect = G.mode === 'aivai'
-      ? (settings.aivaiAuto
-        ? ' · ' + aiName(G.seatIvory) + ' vs ' + aiName(G.seatEbony) +
-          ' · Season ' + arena.season + ' · bout ' + (arena.bouts + 1) + '/' + SEASON_LEN +
-          ' · ' + SEASON_STAGES[stageOfBout(arena.bouts)].name +
-          (G.pairMeets >= 2 ? ' · ' + ord(G.pairMeets) + ' meeting' : '')
-        : ' · AI vs AI')
-      : '';
     if (G.phase === 'thinking') {
       text.textContent = hintPending ? 'Looking for a hint' : (G.mode === 'ai' && G.side !== G.humanSide
-        ? 'The computer is thinking' : displayName(G.side) + ' to move' + spect);
+        ? 'Thinking…' : 'Thinking — ' + displayName(G.side));
     } else if (G.phase === 'animating') {
-      text.textContent = displayName(-G.side) + ' moves…';
+      text.textContent = 'Moving — ' + displayName(-G.side);
     } else {
       text.textContent = G.mode === 'ai'
-        ? (G.side === G.humanSide ? 'Your move — ' + settings.pname : displayName(G.side) + ' to move')
-        : displayName(G.side) + ' to move' + spect;
+        ? (G.side === G.humanSide ? 'Your move' : 'To move — ' + displayName(G.side))
+        : 'To move — ' + displayName(G.side);
     }
+    text.title = text.textContent;
   }
   function sideDot() { return G.side === IVORY ? 'ivory' : 'ebony'; }
 
@@ -5311,9 +5375,8 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
     const dt = Date.now() - humanThinkStart;
     while (thinkFired < THINK_TIERS.length && dt >= THINK_TIERS[thinkFired].at) {
       const tier = THINK_TIERS[thinkFired++];
-      // the first cue is a gentle nudge, not a voice line — a soft clock tick
+      // A visual nudge, without an idle clock tick.
       if (tier.soft) {
-        SFX_BANK.play('clock_tick', { vol: 0.45 });
         flashWhisper(tier.say);
         continue;
       }

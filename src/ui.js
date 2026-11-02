@@ -988,27 +988,43 @@
       settings.sfx.master = v;
       if (this.out) this.out.gain.value = v;
     },
-    // the think pulse: a soft, restless tick while anyone — engine, hint or
-    // the arena — is thinking. Quiet enough to sit under the commentary,
-    // alive enough that a long think never feels like the game has died.
+    // A sparse, softly enveloped grain rustle accompanies long thoughts.
+    // Short searches stay silent; there is no metronome under the pieces.
     thinkTimer: 0,
+    thinkSource: null,
+    breathe() {
+      if (!settings.sound || !settings.sfx.think || SFX_BANK.sceneLockUntil > performance.now()) return;
+      const ctx = this.ensure(); if (!ctx) return;
+      const duration = 1.4, len = Math.ceil(duration * ctx.sampleRate);
+      const buffer = ctx.createBuffer(1, len, ctx.sampleRate), data = buffer.getChannelData(0);
+      let grain = 0;
+      for (let i = 0; i < len; i++) {
+        grain = .96 * grain + .04 * (Math.random() * 2 - 1);
+        data[i] = grain * Math.pow(Math.sin(Math.PI * i / (len - 1)), 2);
+      }
+      const source = ctx.createBufferSource(), filter = ctx.createBiquadFilter(), gain = ctx.createGain();
+      source.buffer = buffer; filter.type = 'lowpass'; filter.frequency.value = 640;
+      gain.gain.value = .035;
+      source.connect(filter); filter.connect(gain); gain.connect(this.out || ctx.destination);
+      this.thinkSource = source;
+      source.onended = () => { source.disconnect(); filter.disconnect(); gain.disconnect();
+        if (this.thinkSource === source) this.thinkSource = null; };
+      source.start();
+    },
     thinkStart() {
       if (this.thinkTimer) return;
       if (!settings.sound || !settings.sfx.think) return;
       if (!this.ensure()) return;
-      let n = 0;
       const beat = () => {
         if (!settings.sound || !settings.sfx.think) { FX.thinkStop(); return; }
-        n++;
-        const v = 0.02 + Math.random() * 0.012;
-        this.tone(1040 + Math.random() * 340, 0.05, 'sine', v);
-        if (n % 4 === 2) this.tone(430 + Math.random() * 70, 0.1, 'sine', v * 0.8, 0.13);
+        this.breathe();
+        this.thinkTimer = setTimeout(beat, 9500 + Math.random() * 4500);
       };
-      beat();
-      this.thinkTimer = setInterval(beat, 900 + Math.random() * 300);
+      this.thinkTimer = setTimeout(beat, 6000);
     },
     thinkStop() {
-      if (this.thinkTimer) { clearInterval(this.thinkTimer); this.thinkTimer = 0; }
+      if (this.thinkTimer) { clearTimeout(this.thinkTimer); this.thinkTimer = 0; }
+      if (this.thinkSource) { this.thinkSource.stop(); this.thinkSource = null; }
     },
     tone(f, dur, type, vol, when, slideTo) {
       const ctx = this.ensure(); if (!ctx) return;
@@ -1672,6 +1688,7 @@
     missed: { rank: 1 },
     feastmissed: { rank: 1 },
     accurate: { rank: 1 },
+    advantage: { rank: 1 },
     dubious: { rank: 1 },
     blunder: { rank: 2 },
     epic: { rank: 3 },
@@ -1773,6 +1790,8 @@
     if (mv.caps.length >= 3) ev = 'legendary';
     else if (mv.caps.length === 2) ev = 'majestic';
     else if (mv.promotes) ev = 'promo';
+    else if (mv.caps.length === 1 && countSide(moverSide) - countSide(-moverSide) === 1 &&
+        !G.legal.some(m => m.caps.includes(mv.path[mv.path.length - 1]))) ev = 'advantage';
     else if (!engineMover && mv.caps.length === 0 && maxCaps >= 2) ev = 'missed';
     else if (!engineMover && mv.caps.length >= 1 && maxCaps >= 3 && mv.caps.length < maxCaps) ev = 'feastmissed';
     else if (mv.caps.length === 0) {
@@ -1805,6 +1824,7 @@
   const FEAST_POOL = ['v_feast1', 'v_feast2', 'v_slau1', 'v_slau2'];
 
   let lastSkillOriginalAt = -Infinity;
+  let lastAdvantageAt = -Infinity;
   function applyMoveEvent(ev, ply, flavor, endSq) {
     const def = MOVE_EVENTS[ev] || MOVE_EVENTS.none;
     if (def.rank <= lastEvent.rank && lastEvent.ply === ply) return;
@@ -1832,6 +1852,15 @@
       shockwave(endSq);
       SFX_BANK.play(Math.random() < 0.45 ? pick(['v_king1', 'v_king2']) : 'v_king', { vol: 0.9 });
       flashLabel('Crowned!', 'majestic');
+    } else if (ev === 'advantage') {
+      // A safe single capture breaks material equality. Either seat can earn
+      // the spotlight; a forced recapture never gets premature praise.
+      if (performance.now() - lastAdvantageAt < 22000) return;
+      lastAdvantageAt = performance.now();
+      SFX_BANK.play('sparkle', { vol: .5 });
+      SFX_BANK.play(pick(['v_ooh1', 'v_chess']), { vol: .68 });
+      flashLabel('Takes the edge!', 'majestic');
+      shockwave(endSq);
     } else if (ev === 'brilliant') {
       if (ply - lastBlunderPly === 2) lastBlunderPly = -1;
       SFX_BANK.play(pick(['wolfwhistle', 'rimshot', 'animewow']), { vol: 0.9 });
@@ -2795,8 +2824,20 @@
   function updateBanner() {
     const dot = $('bannerDot'), text = $('bannerText');
     const banner = $('banner');
-    // thinking is a state you can see and hear: the banner counts its dots,
-    // the thinking side's pieces breathe, and the think pulse ticks softly
+    // Matchup and event information stay in fixed cells while turn status changes.
+    for (const [id, value] of [['bannerIvory', displayName(IVORY)], ['bannerEbony', displayName(EBONY)]]) {
+      $(id).textContent = value; $(id).title = value;
+    }
+    const tournament = G.mode === 'aivai' && settings.aivaiAuto;
+    $('bannerEventLabel').textContent = tournament ? 'Season ' + arena.season : 'Game';
+    const context = tournament
+      ? SEASON_STAGES[stageOfBout(arena.bouts)].name
+      : G.mode === 'aivai' ? 'AI vs AI' : G.mode === 'ai' ? 'Vs Computer' : 'Two players';
+    const detail = tournament
+      ? 'Bout ' + (arena.bouts + 1) + '/' + SEASON_LEN + (G.pairMeets >= 2 ? ' · ' + ord(G.pairMeets) + ' meeting' : '')
+      : G.rs.name;
+    $('bannerContext').textContent = context; $('bannerContext').title = context;
+    $('bannerDetail').textContent = detail; $('bannerDetail').title = detail;
     const engineThinking = G.phase === 'thinking' && !G.over;
     banner.classList.toggle('thinking', engineThinking);
     document.body.classList.toggle('think-a', engineThinking && G.side === IVORY);
@@ -2806,29 +2847,24 @@
       const r = G.result;
       dot.className = 'dot ' + (r.winner === IVORY ? 'ivory' : r.winner === EBONY ? 'ebony' : sideDot());
       text.textContent = r.winner === null
-        ? 'Draw — ' + (r.reason || '')
-        : displayName(r.winner) + ' wins — ' + (r.reason || '');
+        ? 'Draw' : displayName(r.winner) + ' wins';
+      $('bannerContext').textContent = r.reason || context;
+      $('bannerContext').title = r.reason || context;
+      text.title = text.textContent;
       return;
     }
     dot.className = 'dot ' + sideDot();
-    const spect = G.mode === 'aivai'
-      ? (settings.aivaiAuto
-        ? ' · ' + aiName(G.seatIvory) + ' vs ' + aiName(G.seatEbony) +
-          ' · Season ' + arena.season + ' · bout ' + (arena.bouts + 1) + '/' + SEASON_LEN +
-          ' · ' + SEASON_STAGES[stageOfBout(arena.bouts)].name +
-          (G.pairMeets >= 2 ? ' · ' + ord(G.pairMeets) + ' meeting' : '')
-        : ' · AI vs AI')
-      : '';
     if (G.phase === 'thinking') {
       text.textContent = hintPending ? 'Looking for a hint' : (G.mode === 'ai' && G.side !== G.humanSide
-        ? 'The computer is thinking' : displayName(G.side) + ' to move' + spect);
+        ? 'Thinking…' : 'Thinking — ' + displayName(G.side));
     } else if (G.phase === 'animating') {
-      text.textContent = displayName(-G.side) + ' moves…';
+      text.textContent = 'Moving — ' + displayName(-G.side);
     } else {
       text.textContent = G.mode === 'ai'
-        ? (G.side === G.humanSide ? 'Your move — ' + settings.pname : displayName(G.side) + ' to move')
-        : displayName(G.side) + ' to move' + spect;
+        ? (G.side === G.humanSide ? 'Your move' : 'To move — ' + displayName(G.side))
+        : 'To move — ' + displayName(G.side);
     }
+    text.title = text.textContent;
   }
   function sideDot() { return G.side === IVORY ? 'ivory' : 'ebony'; }
 
@@ -3507,9 +3543,8 @@
     const dt = Date.now() - humanThinkStart;
     while (thinkFired < THINK_TIERS.length && dt >= THINK_TIERS[thinkFired].at) {
       const tier = THINK_TIERS[thinkFired++];
-      // the first cue is a gentle nudge, not a voice line — a soft clock tick
+      // A visual nudge, without an idle clock tick.
       if (tier.soft) {
-        SFX_BANK.play('clock_tick', { vol: 0.45 });
         flashWhisper(tier.say);
         continue;
       }

@@ -1,0 +1,38 @@
+'use strict';
+const fs = require('fs'), vm = require('vm'), assert = require('assert');
+const ui = fs.readFileSync(require('path').join(__dirname, '../src/ui.js'), 'utf8');
+const timers = [], cleared = [], settings = {sound:true,sfx:{think:true},aivaiAuto:true,pname:'Player'};
+const c = {settings, performance:{now:()=>100}, SFX_BANK:{sceneLockUntil:0}, Math,
+  setTimeout:(fn,ms)=>{timers.push({fn,ms});return timers.length;}, clearTimeout:id=>cleared.push(id)};
+vm.createContext(c);
+vm.runInContext('const FX = {' + ui.slice(ui.indexOf('    thinkTimer: 0,'),ui.indexOf('    tone(f, dur,')) + '}; this.fx=FX;',c);
+let breaths=0, stops=0; c.fx.ensure=()=>true; c.fx.breathe=()=>breaths++;
+c.fx.thinkStart(); assert.equal(breaths,0); assert.equal(timers[0].ms,6000);
+c.fx.thinkStart(); assert.equal(timers.length,1,'Repeated renders cannot duplicate thinking loops');
+timers[0].fn(); assert.equal(breaths,1); assert(timers[1].ms>=9500&&timers[1].ms<=14000);
+c.fx.thinkSource={stop:()=>stops++}; c.fx.thinkStop(); assert.equal(stops,1); assert.equal(c.fx.thinkTimer,0);
+settings.sound=false;c.fx.thinkStart();assert.equal(timers.length,2);
+settings.sound=true;settings.sfx.think=false;c.fx.thinkStart();assert.equal(timers.length,2);
+const elements = {}, el=id=>elements[id]||(elements[id]={classList:{toggle(){}},textContent:'',title:''});
+Object.assign(c, {$:el, document:{body:{classList:{toggle(){}}}},IVORY:1,EBONY:-1,hintPending:false,
+  displayName:s=>s===1?'Tanzania':'Kenya', sideDot:()=> 'ivory', arena:{season:3,bouts:8},
+  SEASON_LEN:12,SEASON_STAGES:[{name:'Semi-finals'}],stageOfBout:()=>0,ord:n=>n+'th',
+  G:{mode:'aivai',side:1,phase:'idle',over:false,pairMeets:4,rs:{name:'Canadian'}}});
+c.FX=c.fx;
+vm.runInContext(ui.slice(ui.indexOf('  function updateBanner()'),ui.indexOf('  function sideDot()'))+'this.render=updateBanner;',c);
+c.render();assert.equal(el('bannerIvory').textContent,'Tanzania');assert.equal(el('bannerEbony').textContent,'Kenya');
+assert.equal(el('bannerContext').textContent,'Semi-finals');assert.equal(el('bannerDetail').textContent,'Bout 9/12 · 4th meeting');
+c.G.phase='thinking';c.render();assert.equal(el('bannerText').textContent,'Thinking — Tanzania');
+assert.equal(el('bannerIvory').textContent,'Tanzania','Matchup remains independent of thinking status');
+c.G.over=true;c.G.result={winner:-1,reason:'No legal moves'};c.render();assert.equal(el('bannerText').textContent,'Kenya wins');assert.equal(el('bannerContext').textContent,'No legal moves');
+c.G.over=false;c.G.mode='ai';c.G.humanSide=1;c.G.phase='idle';c.render();assert.equal(el('bannerText').textContent,'Your move');assert.equal(el('bannerDetail').textContent,'Canadian');
+c.G.mode='human';c.render();assert.equal(el('bannerContext').textContent,'Two players');
+assert(!/tier\.soft\)\s*\{\s*SFX_BANK\.play\('clock_tick'/.test(ui),'Idle nudge must remain silent');
+let classified;
+Object.assign(c,{countSide:s=>s===1?5:4,applyMoveEvent:ev=>classified=ev});
+vm.runInContext(ui.slice(ui.indexOf('  function classifySync('),ui.indexOf('  // impact shake,'))+'this.classify=classifySync;',c);
+const capture={caps:[8],path:[1,17],promotes:false}; c.G.legal=[{caps:[]}];
+c.classify(capture,[capture],4,1);assert.equal(classified,'advantage');
+c.G.legal=[{caps:[17]}];c.classify(capture,[capture],4,1);assert.equal(classified,'none','Recapturable pieces earn no premature advantage praise');
+c.countSide=s=>s===-1?5:4;c.G.legal=[];c.classify(capture,[capture],4,-1);assert.equal(classified,'advantage','Opponent earns identical situational spotlight');
+console.log('Thinking and billboard checks passed: delayed sparse cues, cleanup, mute/toggle, stable matchup and all game states');

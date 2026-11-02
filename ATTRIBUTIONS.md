@@ -162,3 +162,7 @@ Source: https://youtube.com/shorts/KBVNiOAnHiA . The original Museveni speech wa
 All are mono 22050 Hz, retain natural speech timing, and have decoded peaks between −1.50 and −1.56 dBFS. The first two replaced only their explicitly requested TTS recreations; both old MP3s are backed up unchanged under sfx_swap/backups/. No unrelated clip was replaced.
 
 The narrator recordings later_moments and later_hours were independently matched against the freshly downloaded original compilation (https://youtube.com/shorts/N1BOQ_9laWs): normalized waveform correlations 0.987310 and 0.992551. See docs/narrator-original-comparison.json. Their existing bytes are preserved.
+
+## Procedural thinking rustle
+
+`FX.breathe` in `src/ui.js` generates original filtered random grain with a smooth sine-squared envelope, introduced for sparse, quiet long-thought ambience. It uses no recording or external sample; covered by this repository’s MIT license. Existing credited `sparkle`, `v_ooh1` and `v_chess` recordings also accompany safe captures that break material equality, under their existing category controls and provenance. No source recordings were replaced for these changes.
