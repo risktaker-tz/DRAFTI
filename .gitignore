@@ -17,3 +17,5 @@ android/gradle-app.setting
 *.iml
 .vscode/
 *.swp
+
+scripts/tooling/node_modules/
