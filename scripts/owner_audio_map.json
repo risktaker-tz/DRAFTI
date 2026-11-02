@@ -11,112 +11,310 @@
   },
   "clips": {
     "munch_mmm": {
-      "cut": [0.205, 0.525], "category": "comedy", "mood": "savouring", "family": "shrimp-original",
-      "event": "capture_own_feast", "phase": "move", "priority": "low",
-      "cooldownSec": 90, "chancePerEvent": 0.15, "maxPerGame": 3,
-      "notes": "Mouth hum 'Mmm'; occasional savoring after own capture; never idle/looped."
+      "cut": [
+        0.205,
+        0.525
+      ],
+      "category": "comedy",
+      "mood": "savouring",
+      "family": "shrimp-original",
+      "event": "capture_own_feast",
+      "phase": "move",
+      "priority": "low",
+      "cooldownSec": 90,
+      "chancePerEvent": 0.15,
+      "maxPerGame": 3,
+      "notes": "Mouth hum 'Mmm'; occasional savoring after own capture; never idle/looped.",
+      "spoken": true
     },
     "laugh_baby_short": {
-      "cut": [0.415, 1.925], "category": "comedy", "mood": "amused", "family": "baby-laugh",
-      "event": "human_blunder_flagrant", "phase": "move", "priority": "low",
-      "cooldownSec": 300, "chancePerEvent": 0.08, "maxPerGame": 1,
-      "notes": "STRICT: only a genuinely silly human move; never routine mocking; never on forced/only-move losses; alternate framing laugh_baby_full shares this quota."
+      "cut": [
+        0.415,
+        1.925
+      ],
+      "category": "comedy",
+      "mood": "amused",
+      "family": "baby-laugh",
+      "event": "human_blunder_flagrant",
+      "phase": "move",
+      "priority": "low",
+      "cooldownSec": 300,
+      "chancePerEvent": 0.08,
+      "maxPerGame": 1,
+      "notes": "STRICT: only a genuinely silly human move; never routine mocking; never on forced/only-move losses; alternate framing laugh_baby_full shares this quota.",
+      "spoken": true
     },
     "laugh_baby_full": {
-      "cut": [2.905, 6.325], "category": "comedy", "mood": "hilarious", "family": "baby-laugh",
-      "event": "human_blunder_flagrant", "phase": "move", "priority": "low",
-      "cooldownSec": 300, "chancePerEvent": 0.08, "maxPerGame": 1,
-      "notes": "Same take, fuller phrase; shares the single laugh_baby quota with laugh_baby_short."
+      "cut": [
+        2.905,
+        6.325
+      ],
+      "category": "comedy",
+      "mood": "hilarious",
+      "family": "baby-laugh",
+      "event": "human_blunder_flagrant",
+      "phase": "move",
+      "priority": "low",
+      "cooldownSec": 300,
+      "chancePerEvent": 0.08,
+      "maxPerGame": 1,
+      "notes": "Same take, fuller phrase; shares the single laugh_baby quota with laugh_baby_short.",
+      "spoken": true
     },
     "susp_hit_boom": {
-      "cut": [0.465, 0.975], "category": "drama", "mood": "omen", "family": "suspense-pack",
-      "event": "trap_spring", "phase": "move", "priority": "medium",
-      "cooldownSec": 120, "chancePerEvent": 0.3, "maxPerGame": 3,
-      "notes": "Low boom; momentary, never looped."
+      "cut": [
+        0.465,
+        0.975
+      ],
+      "category": "drama",
+      "mood": "omen",
+      "family": "suspense-pack",
+      "event": "trap_spring",
+      "phase": "move",
+      "priority": "medium",
+      "cooldownSec": 120,
+      "chancePerEvent": 0.3,
+      "maxPerGame": 3,
+      "notes": "Low boom; momentary, never looped.",
+      "spoken": false
     },
     "susp_drone_deep": {
-      "cut": [2.075, 4.745], "category": "drama", "mood": "dread", "family": "suspense-pack",
-      "event": "long_think_tension", "phase": "think", "priority": "low",
-      "cooldownSec": 180, "chancePerEvent": 0.12, "maxPerGame": 2,
-      "notes": "Deep ominous drone for genuinely long thinks; must never become an idle ticking loop."
+      "cut": [
+        2.075,
+        4.745
+      ],
+      "category": "drama",
+      "mood": "dread",
+      "family": "suspense-pack",
+      "event": "long_think_tension",
+      "phase": "think",
+      "priority": "low",
+      "cooldownSec": 180,
+      "chancePerEvent": 0.12,
+      "maxPerGame": 2,
+      "notes": "Deep ominous drone for genuinely long thinks; must never become an idle ticking loop.",
+      "spoken": false
     },
     "susp_sting_mid": {
-      "cut": [5.565, 6.315], "category": "drama", "mood": "alert", "family": "suspense-pack",
-      "event": "trap_hint_warning", "phase": "move", "priority": "medium",
-      "cooldownSec": 120, "chancePerEvent": 0.25, "maxPerGame": 3,
-      "notes": "Sharp metallic alert."
+      "cut": [
+        5.565,
+        6.315
+      ],
+      "category": "drama",
+      "mood": "alert",
+      "family": "suspense-pack",
+      "event": "trap_hint_warning",
+      "phase": "move",
+      "priority": "medium",
+      "cooldownSec": 120,
+      "chancePerEvent": 0.25,
+      "maxPerGame": 3,
+      "notes": "Sharp metallic alert.",
+      "spoken": false
     },
     "susp_drone_creep": {
-      "cut": [7.595, 8.805], "category": "drama", "mood": "creeping", "family": "suspense-pack",
-      "event": "endgame_danger", "phase": "game", "priority": "low",
-      "cooldownSec": 240, "chancePerEvent": 0.2, "maxPerGame": 2,
-      "notes": "Creeping bass for creeping endgame danger."
+      "cut": [
+        7.595,
+        8.805
+      ],
+      "category": "drama",
+      "mood": "creeping",
+      "family": "suspense-pack",
+      "event": "endgame_danger",
+      "phase": "game",
+      "priority": "low",
+      "cooldownSec": 240,
+      "chancePerEvent": 0.2,
+      "maxPerGame": 2,
+      "notes": "Creeping bass for creeping endgame danger.",
+      "spoken": false
     },
     "susp_burst": {
-      "cut": [9.775, 10.885], "category": "drama", "mood": "spike", "family": "suspense-pack",
-      "event": "material_loss_sudden", "phase": "move", "priority": "medium",
-      "cooldownSec": 120, "chancePerEvent": 0.25, "maxPerGame": 3,
-      "notes": "Sudden burst for an abrupt material swing."
+      "cut": [
+        9.775,
+        10.885
+      ],
+      "category": "drama",
+      "mood": "spike",
+      "family": "suspense-pack",
+      "event": "material_loss_sudden",
+      "phase": "move",
+      "priority": "medium",
+      "cooldownSec": 120,
+      "chancePerEvent": 0.25,
+      "maxPerGame": 3,
+      "notes": "Sudden burst for an abrupt material swing.",
+      "spoken": false
     },
     "susp_build": {
-      "cut": [11.685, 14.335], "category": "drama", "mood": "rising", "family": "suspense-pack",
-      "event": "endgame_buildup", "phase": "game", "priority": "low",
-      "cooldownSec": 240, "chancePerEvent": 0.2, "maxPerGame": 2,
-      "notes": "Rising tension into the endgame."
+      "cut": [
+        11.685,
+        14.335
+      ],
+      "category": "drama",
+      "mood": "rising",
+      "family": "suspense-pack",
+      "event": "endgame_buildup",
+      "phase": "game",
+      "priority": "low",
+      "cooldownSec": 240,
+      "chancePerEvent": 0.2,
+      "maxPerGame": 2,
+      "notes": "Rising tension into the endgame.",
+      "spoken": false
     },
     "ah_scream": {
-      "cut": [0.035, 0.355], "category": "comedy", "mood": "shocked", "family": "nigerian-comedy",
-      "event": "blunder_shock_small", "phase": "move", "priority": "low",
-      "cooldownSec": 120, "chancePerEvent": 0.2, "maxPerGame": 3,
-      "notes": "Short comic 'AHH!'; smaller scale than pregnant_shock."
+      "cut": [
+        0.035,
+        0.355
+      ],
+      "category": "comedy",
+      "mood": "shocked",
+      "family": "nigerian-comedy",
+      "event": "blunder_shock_small",
+      "phase": "move",
+      "priority": "low",
+      "cooldownSec": 120,
+      "chancePerEvent": 0.2,
+      "maxPerGame": 3,
+      "notes": "Short comic 'AHH!'; smaller scale than pregnant_shock.",
+      "spoken": true
     },
     "comic_hit": {
-      "cut": [1.115, 1.675], "category": "comedy", "mood": "punchline", "family": "nigerian-comedy",
-      "event": "punchline_after_humiliation", "phase": "move", "priority": "low",
-      "cooldownSec": 60, "chancePerEvent": 0.3, "maxPerGame": 4,
-      "notes": "Bright percussive punchline accent."
+      "cut": [
+        1.115,
+        1.675
+      ],
+      "category": "comedy",
+      "mood": "punchline",
+      "family": "nigerian-comedy",
+      "event": "punchline_after_humiliation",
+      "phase": "move",
+      "priority": "low",
+      "cooldownSec": 60,
+      "chancePerEvent": 0.3,
+      "maxPerGame": 4,
+      "notes": "Bright percussive punchline accent.",
+      "spoken": false
     },
     "mwah_kisses": {
-      "cut": [6.385, 9.8], "category": "comedy", "mood": "cloying", "family": "nigerian-comedy",
-      "event": "engine_self_flattery_gag", "phase": "move", "priority": "low",
-      "cooldownSec": 180, "chancePerEvent": 0.15, "maxPerGame": 2,
-      "notes": "Repeated comic mouth-kiss sounds; over-affectionate gag; excerpt of the 6.385-10.515 pattern."
+      "cut": [
+        6.385,
+        9.8
+      ],
+      "category": "comedy",
+      "mood": "cloying",
+      "family": "nigerian-comedy",
+      "event": "engine_self_flattery_gag",
+      "phase": "move",
+      "priority": "low",
+      "cooldownSec": 180,
+      "chancePerEvent": 0.15,
+      "maxPerGame": 2,
+      "notes": "Repeated comic mouth-kiss sounds; over-affectionate gag; excerpt of the 6.385-10.515 pattern.",
+      "spoken": true
     },
     "sorry_dontcry": {
-      "cut": [7.52, 10.2], "category": "voice", "mood": "consoling", "family": "nigerian-compilation",
-      "event": "consolation_after_heavy_loss", "phase": "move", "priority": "low",
-      "cooldownSec": 180, "chancePerEvent": 0.25, "maxPerGame": 2,
-      "notes": "Verbal consolation 'Oh, sorry, sorry, sorry, don't cry.' after a heavy human loss."
+      "cut": [
+        7.52,
+        10.2
+      ],
+      "category": "voice",
+      "mood": "consoling",
+      "family": "nigerian-compilation",
+      "event": "consolation_after_heavy_loss",
+      "phase": "move",
+      "priority": "low",
+      "cooldownSec": 180,
+      "chancePerEvent": 0.25,
+      "maxPerGame": 2,
+      "notes": "Verbal consolation 'Oh, sorry, sorry, sorry, don't cry.' after a heavy human loss.",
+      "spoken": true
     },
     "dont_cry": {
-      "cut": [21.0, 21.78], "category": "voice", "mood": "consoling", "family": "nigerian-compilation",
-      "event": "consolation_short_tag", "phase": "move", "priority": "low",
-      "cooldownSec": 180, "chancePerEvent": 0.25, "maxPerGame": 2,
-      "notes": "Short 'Don't cry.' tag; shares the consolation quota with sorry_dontcry."
+      "cut": [
+        21.0,
+        21.78
+      ],
+      "category": "voice",
+      "mood": "consoling",
+      "family": "nigerian-compilation",
+      "event": "consolation_short_tag",
+      "phase": "move",
+      "priority": "low",
+      "cooldownSec": 180,
+      "chancePerEvent": 0.25,
+      "maxPerGame": 2,
+      "notes": "Short 'Don't cry.' tag; shares the consolation quota with sorry_dontcry.",
+      "spoken": true
     },
     "g0_bass_sting": {
-      "cut": [26.5, 29.9], "category": "drama", "mood": "ominous", "family": "nigerian-compilation",
-      "event": "wahala_moment", "phase": "move", "priority": "low",
-      "cooldownSec": 120, "chancePerEvent": 0.2, "maxPerGame": 2,
-      "notes": "Sustained comedic ominous bass sting (excerpt of the 26.145-32.105 sustained sting); momentary, never looped."
+      "cut": [
+        26.5,
+        29.9
+      ],
+      "category": "drama",
+      "mood": "ominous",
+      "family": "nigerian-compilation",
+      "event": "wahala_moment",
+      "phase": "move",
+      "priority": "low",
+      "cooldownSec": 120,
+      "chancePerEvent": 0.2,
+      "maxPerGame": 2,
+      "notes": "Sustained comedic ominous bass sting (excerpt of the 26.145-32.105 sustained sting); momentary, never looped.",
+      "spoken": false
     },
     "comic_hit_bright": {
-      "cut": [32.945, 33.655], "category": "comedy", "mood": "punchline", "family": "nigerian-compilation",
-      "event": "punchline_after_humiliation", "phase": "move", "priority": "low",
-      "cooldownSec": 60, "chancePerEvent": 0.3, "maxPerGame": 4,
-      "notes": "Distinct bright hit (corr 0.06 vs comic_hit); shares the punchline pool."
+      "cut": [
+        32.945,
+        33.655
+      ],
+      "category": "comedy",
+      "mood": "punchline",
+      "family": "nigerian-compilation",
+      "event": "punchline_after_humiliation",
+      "phase": "move",
+      "priority": "low",
+      "cooldownSec": 60,
+      "chancePerEvent": 0.3,
+      "maxPerGame": 4,
+      "notes": "Distinct bright hit (corr 0.06 vs comic_hit); shares the punchline pool.",
+      "spoken": false
     },
     "pregnant_shock": {
-      "cut": [48.425, 49.585], "category": "comedy", "mood": "astounded", "family": "nigerian-compilation",
-      "event": "astonish_event", "phase": "move", "priority": "medium",
-      "cooldownSec": 240, "chancePerEvent": 0.2, "maxPerGame": 2,
-      "notes": "Comic 'PREGNANT?!' exclamation for huge surprises (e.g. promotion reveal); wording stable across two ASR models."
+      "cut": [
+        48.425,
+        49.585
+      ],
+      "category": "comedy",
+      "mood": "astounded",
+      "family": "nigerian-compilation",
+      "event": "astonish_event",
+      "phase": "move",
+      "priority": "medium",
+      "cooldownSec": 240,
+      "chancePerEvent": 0.2,
+      "maxPerGame": 2,
+      "notes": "Comic 'PREGNANT?!' exclamation for huge surprises (e.g. promotion reveal); wording stable across two ASR models.",
+      "spoken": true
     },
     "g0_deep_wah": {
-      "cut": [53.615, 56.145], "category": "drama", "mood": "ominous", "family": "nigerian-compilation",
-      "event": "deep_wahala_sting", "phase": "move", "priority": "low",
-      "cooldownSec": 120, "chancePerEvent": 0.2, "maxPerGame": 2,
-      "notes": "Deep comedic sting, distinct color from g0_bass_sting."
+      "cut": [
+        53.615,
+        56.145
+      ],
+      "category": "drama",
+      "mood": "ominous",
+      "family": "nigerian-compilation",
+      "event": "deep_wahala_sting",
+      "phase": "move",
+      "priority": "low",
+      "cooldownSec": 120,
+      "chancePerEvent": 0.2,
+      "maxPerGame": 2,
+      "notes": "Deep comedic sting, distinct color from g0_bass_sting.",
+      "spoken": false
     }
   },
   "sharedQuotas": {
@@ -125,10 +323,25 @@
     "punchline": "comic_hit + comic_hit_bright together: max 4 per game, 60 s cooldown"
   },
   "excluded": [
-    {"source": "g0cRfVqV04Q 34.555-35.235, 35.755-36.795, 37.585-38.855, 39.925-41.865, 42.455-43.925", "reason": "Pidgin phrases whose exact words whisper small and medium could not agree on; excluded rather than risk embedding unverifiable or insulting speech"},
-    {"source": "g0cRfVqV04Q 66.985-68.985", "reason": "'Thanks for watching!' outro, not a game effect"},
-    {"source": "AKozkV3MeWE 15.045-21.065", "reason": "6.02 s combined sting; cannot be split honestly within the 3.5 s limit"},
-    {"source": "fkRNoM2f9GM 11.145-15.675", "reason": "Shimmer-noise wash, loop-risk (owner: no noisy loops)"},
-    {"source": "fkRNoM2f9GM 2.255-5.895 and g0cRfVqV04Q 44.415-48.035", "reason": "Laughter would need mid-laugh trimming to fit 3.5 s and duplicates the baby-laugh reaction; skipped to keep curation genuine"}
+    {
+      "source": "g0cRfVqV04Q 34.555-35.235, 35.755-36.795, 37.585-38.855, 39.925-41.865, 42.455-43.925",
+      "reason": "Pidgin phrases whose exact words whisper small and medium could not agree on; excluded rather than risk embedding unverifiable or insulting speech"
+    },
+    {
+      "source": "g0cRfVqV04Q 66.985-68.985",
+      "reason": "'Thanks for watching!' outro, not a game effect"
+    },
+    {
+      "source": "AKozkV3MeWE 15.045-21.065",
+      "reason": "6.02 s combined sting; cannot be split honestly within the 3.5 s limit"
+    },
+    {
+      "source": "fkRNoM2f9GM 11.145-15.675",
+      "reason": "Shimmer-noise wash, loop-risk (owner: no noisy loops)"
+    },
+    {
+      "source": "fkRNoM2f9GM 2.255-5.895 and g0cRfVqV04Q 44.415-48.035",
+      "reason": "Laughter would need mid-laugh trimming to fit 3.5 s and duplicates the baby-laugh reaction; skipped to keep curation genuine"
+    }
   ]
 }

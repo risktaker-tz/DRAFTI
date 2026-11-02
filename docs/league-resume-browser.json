@@ -1,0 +1,283 @@
+{
+  "before": {
+    "bout": "Bout 1/12 · 7th meeting",
+    "pieces": [
+      {
+        "king": false,
+        "left": "12.5%",
+        "side": "b",
+        "top": "0%"
+      },
+      {
+        "king": false,
+        "left": "37.5%",
+        "side": "b",
+        "top": "0%"
+      },
+      {
+        "king": false,
+        "left": "62.5%",
+        "side": "b",
+        "top": "0%"
+      },
+      {
+        "king": false,
+        "left": "87.5%",
+        "side": "b",
+        "top": "0%"
+      },
+      {
+        "king": false,
+        "left": "0%",
+        "side": "b",
+        "top": "12.5%"
+      },
+      {
+        "king": false,
+        "left": "25%",
+        "side": "b",
+        "top": "12.5%"
+      },
+      {
+        "king": false,
+        "left": "75%",
+        "side": "b",
+        "top": "37.5%"
+      },
+      {
+        "king": false,
+        "left": "75%",
+        "side": "b",
+        "top": "12.5%"
+      },
+      {
+        "king": false,
+        "left": "12.5%",
+        "side": "b",
+        "top": "25%"
+      },
+      {
+        "king": false,
+        "left": "37.5%",
+        "side": "b",
+        "top": "25%"
+      },
+      {
+        "king": false,
+        "left": "87.5%",
+        "side": "b",
+        "top": "25%"
+      },
+      {
+        "king": false,
+        "left": "0%",
+        "side": "a",
+        "top": "62.5%"
+      },
+      {
+        "king": false,
+        "left": "25%",
+        "side": "a",
+        "top": "62.5%"
+      },
+      {
+        "king": false,
+        "left": "50%",
+        "side": "a",
+        "top": "62.5%"
+      },
+      {
+        "king": false,
+        "left": "12.5%",
+        "side": "a",
+        "top": "75%"
+      },
+      {
+        "king": false,
+        "left": "37.5%",
+        "side": "a",
+        "top": "75%"
+      },
+      {
+        "king": false,
+        "left": "62.5%",
+        "side": "a",
+        "top": "75%"
+      },
+      {
+        "king": false,
+        "left": "87.5%",
+        "side": "a",
+        "top": "75%"
+      },
+      {
+        "king": false,
+        "left": "0%",
+        "side": "a",
+        "top": "87.5%"
+      },
+      {
+        "king": false,
+        "left": "25%",
+        "side": "a",
+        "top": "87.5%"
+      },
+      {
+        "king": false,
+        "left": "50%",
+        "side": "a",
+        "top": "87.5%"
+      },
+      {
+        "king": false,
+        "left": "75%",
+        "side": "a",
+        "top": "87.5%"
+      }
+    ],
+    "ticker": "24-2011-1620x117x16"
+  },
+  "after": {
+    "bout": "Bout 1/12 · 7th meeting",
+    "pieces": [
+      {
+        "king": false,
+        "left": "12.5%",
+        "side": "b",
+        "top": "0%"
+      },
+      {
+        "king": false,
+        "left": "37.5%",
+        "side": "b",
+        "top": "0%"
+      },
+      {
+        "king": false,
+        "left": "62.5%",
+        "side": "b",
+        "top": "0%"
+      },
+      {
+        "king": false,
+        "left": "87.5%",
+        "side": "b",
+        "top": "0%"
+      },
+      {
+        "king": false,
+        "left": "0%",
+        "side": "b",
+        "top": "12.5%"
+      },
+      {
+        "king": false,
+        "left": "25%",
+        "side": "b",
+        "top": "12.5%"
+      },
+      {
+        "king": false,
+        "left": "75%",
+        "side": "b",
+        "top": "12.5%"
+      },
+      {
+        "king": false,
+        "left": "12.5%",
+        "side": "b",
+        "top": "25%"
+      },
+      {
+        "king": false,
+        "left": "37.5%",
+        "side": "b",
+        "top": "25%"
+      },
+      {
+        "king": false,
+        "left": "87.5%",
+        "side": "b",
+        "top": "25%"
+      },
+      {
+        "king": false,
+        "left": "75%",
+        "side": "b",
+        "top": "37.5%"
+      },
+      {
+        "king": false,
+        "left": "0%",
+        "side": "a",
+        "top": "62.5%"
+      },
+      {
+        "king": false,
+        "left": "25%",
+        "side": "a",
+        "top": "62.5%"
+      },
+      {
+        "king": false,
+        "left": "50%",
+        "side": "a",
+        "top": "62.5%"
+      },
+      {
+        "king": false,
+        "left": "12.5%",
+        "side": "a",
+        "top": "75%"
+      },
+      {
+        "king": false,
+        "left": "37.5%",
+        "side": "a",
+        "top": "75%"
+      },
+      {
+        "king": false,
+        "left": "62.5%",
+        "side": "a",
+        "top": "75%"
+      },
+      {
+        "king": false,
+        "left": "87.5%",
+        "side": "a",
+        "top": "75%"
+      },
+      {
+        "king": false,
+        "left": "0%",
+        "side": "a",
+        "top": "87.5%"
+      },
+      {
+        "king": false,
+        "left": "25%",
+        "side": "a",
+        "top": "87.5%"
+      },
+      {
+        "king": false,
+        "left": "50%",
+        "side": "a",
+        "top": "87.5%"
+      },
+      {
+        "king": false,
+        "left": "75%",
+        "side": "a",
+        "top": "87.5%"
+      }
+    ],
+    "ticker": "24-2011-1620x117x16"
+  },
+  "comparison": "Piece order is normalized because rebuilding DOM elements changes order.",
+  "samePosition": true,
+  "sameMoves": true,
+  "sameBout": true,
+  "pausedAfterReload": true
+}

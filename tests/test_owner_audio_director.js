@@ -15,7 +15,7 @@ for(const [id,meta] of Object.entries(map.clips)){
 }
 let now=100000,plays=[];
 const fakeMath=Object.create(Math);fakeMath.random=()=>0;
-const c={window:definitions.window,settings:{sound:true},G:{over:false,aiSpeed:1},performance:{now:()=>now},Math:fakeMath};
+const c={window:definitions.window,settings:{sound:true},G:{over:false,aiSpeed:1,mode:'aivai'},performance:{now:()=>now},Math:fakeMath};
 vm.runInNewContext('this.bank={'+ui.slice(ui.indexOf('    defs: window.DRAFTI_SFX'),ui.indexOf('    decoding: false,'))+'};',c);
 const d=c.bank;d.sceneLockUntil=0;d.on=()=>true;d.buffers=new Map(Object.keys(bank).map(id=>[id,{}]));d.play=id=>{plays.push(id);return {};};
 assert(!d.directOwner('human_blunder_flagrant',{human:false,delta:500}));
@@ -27,6 +27,7 @@ d.resetGame();assert(d.directOwner('human_blunder_flagrant',{human:true,delta:50
 d.resetGame();now+=20000;assert(!d.directOwner('human_blunder_flagrant',{human:true,delta:500}),'Five-minute laugh cooldown survives a new game');
 now+=400000;d.sceneLockUntil=now+1000;assert(!d.directOwner('capture_own_feast'));d.sceneLockUntil=0;
 c.G.aiSpeed=2;assert(!d.directOwner('capture_own_feast'));c.G.aiSpeed=1;
+c.G.aiSpeed=4;c.G.mode='ai';assert(d.directOwner('material_loss_sudden'),'Persisted arena speed does not suppress normal-speed human-game reactions');c.G.mode='aivai';c.G.aiSpeed=1;now+=20000;
 d.on=()=>false;assert(!d.directOwner('capture_own_feast'));d.on=()=>true;
 assert(d.directOwner('capture_own_feast'));assert(!d.directOwner('material_loss_sudden'),'Global rest prevents adjacent memes');
 for(let i=0;i<4;i++){d.defs['fixture_'+i]={event:'landing'};d.buffers.set('fixture_'+i,{});}

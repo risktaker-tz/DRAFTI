@@ -207,6 +207,13 @@
     <div class="card">
       <h2><span class="sec-no">03</span><span class="h-ico">🏷</span> The players</h2>
       <div class="seg">
+        <div class="presentation-options">
+          <label>Local player <select id="playerProfile" aria-label="Local player"></select></label>
+          <div class="profile-create"><input id="newPlayerName" class="name-input" maxlength="18" placeholder="New player name" aria-label="New player name"><button id="btnPlayerCreate" class="btn">Add player</button></div>
+          <p class="hint">Each player keeps a separate league, season, nation experience and personal record on this device. Arena matches resume where you left them.</p>
+          <button id="btnLeagueReset" class="btn">Reset this player’s league</button>
+          <button id="btnSavedLeague" class="btn" hidden>Reload saved league</button>
+        </div>
         <div class="seg-row" id="rowName">
           <span class="seg-label">Your name — spoken by the commentary</span>
           <div class="name-rows">

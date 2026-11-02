@@ -13,4 +13,7 @@ c.physicalBurst(piece,'capture',-1);assert.equal(trays[1],'trayBottom');
 c.physicalBurst(piece,'victory',1);assert.equal(added[2].children.length,14);
 for(const t of timers){assert(t.ms<=1100);t.fn();}assert(added.every(e=>e.removed),'Transient particles clean themselves up');
 reduced=true;c.physicalBurst(piece,'capture',1);assert.equal(added.length,3,'Reduced motion creates no particles or flights');
+c.doomSide=1;c.frameEl={dataset:{doomSide:'1'},classList:{remove(){}}};
+vm.runInNewContext(ui.slice(ui.indexOf('  function doomClear()'),ui.indexOf('  // On the loser',ui.indexOf('  function doomClear()'))),c);
+c.doomClear();assert.equal(c.doomSide,0);assert(!('doomSide' in c.frameEl.dataset),'Undo and game-end cleanup remove the ember condition');
 console.log('Physical effects passed: both capture trays, bounded particles, victory burst, cleanup and reduced-motion silence');

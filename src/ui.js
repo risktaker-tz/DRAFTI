@@ -1,6 +1,109 @@
 'use strict';
 /* DRAFTI web UI — game state, rendering, input, animation, AI worker, extras. */
+// Local players own independent progress; the established keys remain mirrors
+// of the active player for older builds. Presentation preferences stay shared.
+function createPlayerProgressStore(storage) {
+  const key = 'drafti.players.v1';
+  const routed = ['drafti.arena.v2','drafti.arena-progress.v1','drafti.stats.v1','drafti.match.v1','drafti.learning.v1'];
+  const copy = value => JSON.parse(JSON.stringify(value));
+  const read = name => { try { const text = storage && storage.getItem(name); return text ? JSON.parse(text) : null; } catch { return null; } };
+  let data = read(key);
+  const protectedSave = !!data && (data.schema !== 1 || !Array.isArray(data.players) || !data.players.length);
+  if (!data || data.schema !== 1 || !Array.isArray(data.players) || !data.players.length) {
+    const values = {};
+    for (const name of routed) { const value = read(name); if (value && typeof value === 'object') values[name] = value; }
+    const prefs = read('drafti.settings.v1') || {};
+    data = { schema: 1, active: 'player-1', next: 2,
+      players: [{ id: 'player-1', name: String(prefs.pname || 'Uhakika').trim().slice(0,28) || 'Uhakika', values }] };
+  }
+  data.players = data.players.filter(player => player && typeof player.id === 'string' && typeof player.name === 'string' && player.values && typeof player.values === 'object');
+  if (!data.players.length) data.players.push({id:'player-1',name:'Uhakika',values:{}});
+  if (!data.players.some(player => player.id === data.active)) data.active = data.players[0].id;
+  const active = () => data.players.find(player => player.id === data.active);
+  const dirty=new Map(),created=new Set(),baseline=new Map();let activeChanged=false,lastFailure='';
+  const baselines=()=>{baseline.clear();for(const player of data.players)for(const name of routed)baseline.set(player.id+'|'+name,JSON.stringify(player.values[name]));};baselines();
+  const mark=name=>{if(!dirty.has(data.active))dirty.set(data.active,new Set());dirty.get(data.active).add(name);};
+  const persist = () => {
+    try {
+      if(!storage || protectedSave){lastFailure='storage';return false;}
+      const raw=storage.getItem(key),latest=raw?JSON.parse(raw):null,localActive=data.active;
+      if(latest && (latest.schema!==1 || !Array.isArray(latest.players))){lastFailure='storage';return false;}
+      let merged=copy(data);
+      if(latest && latest.schema===1 && Array.isArray(latest.players)){
+        merged=copy(latest);
+        for(const local of data.players){
+          let remote=merged.players.find(player=>player.id===local.id);
+          if(!remote){merged.players.push(copy(local));continue;}
+          for(const name of dirty.get(local.id)||[]){
+            const remoteText=JSON.stringify(remote.values[name]),localText=JSON.stringify(local.values[name]);
+            if(remoteText!==baseline.get(local.id+'|'+name)&&remoteText!==localText){lastFailure='conflict';return false;}
+            if(Object.prototype.hasOwnProperty.call(local.values,name))remote.values[name]=copy(local.values[name]);else delete remote.values[name];
+          }
+        }
+        if(activeChanged)merged.active=localActive;
+        merged.next=Math.max(data.next||2,merged.next||2);
+      }
+      storage.setItem(key,JSON.stringify(merged));data=merged;data.active=localActive;
+      for(const [id,names] of dirty)for(const name of names)baseline.set(id+'|'+name,JSON.stringify(data.players.find(player=>player.id===id)?.values[name]));
+      for(const id of created)for(const name of routed)baseline.set(id+'|'+name,JSON.stringify(data.players.find(player=>player.id===id)?.values[name]));
+      dirty.clear();created.clear();activeChanged=false;lastFailure='';return true;
+    }catch{lastFailure='storage';return false;}
+  };
+  const mirror = () => {
+    try { if (storage && !protectedSave) for (const name of routed) storage.setItem(name,JSON.stringify(active().values[name] ?? null)); } catch { /* canonical player save remains intact */ }
+  };
+  return {
+    key, routes: name => routed.includes(name),
+    list: () => data.players.map(player => ({id:player.id,name:player.name})),
+    active: () => ({id:active().id,name:active().name}),
+    lastError: () => lastFailure,
+    refresh() {
+      const latest=read(key);if(!latest || latest.schema!==1 || !Array.isArray(latest.players))return false;
+      data=latest;dirty.clear();created.clear();activeChanged=false;lastFailure='';baselines();return true;
+    },
+    load(name,fallback) {
+      if(!dirty.get(data.active)?.has(name))baseline.set(data.active+'|'+name,JSON.stringify(active().values[name]));
+      return Object.prototype.hasOwnProperty.call(active().values,name) ? copy(active().values[name]) : fallback;
+    },
+    save(name,value) {
+      if (!routed.includes(name)) return false;
+      return this.saveBundle({[name]:value});
+    },
+    saveBundle(values) {
+      for (const [name,value] of Object.entries(values)) {
+        if (!routed.includes(name)) throw new Error('Unknown progress key');
+        mark(name);
+        active().values[name] = copy(value);
+      }
+      const saved = persist();
+      try { if (saved && storage && !protectedSave) for (const [name,value] of Object.entries(values)) storage.setItem(name,JSON.stringify(value)); } catch {}
+      return saved;
+    },
+    switchTo(id) {
+      if (!data.players.some(player => player.id === id)) return false;
+      data.active = id;activeChanged=true;const saved = persist();if(saved)mirror();return saved;
+    },
+    create(name) {
+      name = String(name || '').trim().replace(/\s+/g,' ').slice(0,28);
+      const latest=read(key),others=latest&&latest.schema===1&&Array.isArray(latest.players)?latest.players:[];
+      const all=new Map([...others,...data.players].map(player=>[player.id,player]));
+      if (!name || all.size >= 12 || [...all.values()].some(player => player.name.toLowerCase() === name.toLowerCase())) return null;
+      const next = Math.max(2,Number.isSafeInteger(data.next) ? data.next : data.players.length + 1);
+      const id='player-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,10);data.next=next+1;
+      data.players.push({id,name,values:{}});data.active=id;created.add(id);activeChanged=true;if(persist())mirror();return id;
+    },
+    resetLeague() {
+      for (const name of ['drafti.arena.v2','drafti.arena-progress.v1','drafti.match.v1','drafti.learning.v1']) {mark(name);delete active().values[name];}
+      const saved=persist();if(saved)mirror();return saved;
+    },
+    persist,
+  };
+}
 (function () {
+  let playerProgress;
+  try { playerProgress = createPlayerProgressStore(localStorage); }
+  catch { playerProgress = createPlayerProgressStore(null); }
+  playerProgress.persist();
   const E = makeEngine();
   const IVORY = E.IVORY, EBONY = E.EBONY;
   const HOP_MS = 200;
@@ -369,6 +472,8 @@
   // ids from older saves, duplicates, an emptied queue, a challenger that
   // mirrors the champion (the bug that once seated Simba against Simba).
   function guardArena() {
+    if(!arena.xp || typeof arena.xp!=='object')arena.xp={};
+    if(!arena.wins || typeof arena.wins!=='object')arena.wins={};
     const ids = new Set(ROSTER.map((r) => r.id));
     if (!ids.has(arena.champion)) arena.champion = ROSTER[0].id;
     const seen = new Set();
@@ -513,8 +618,23 @@
   // ---------------- persistence ----------------
   const SETTINGS_KEY = 'drafti.settings.v1';
   const STATS_KEY = 'drafti.stats.v1';
-  function loadJSON(k, fb) { try { const v = JSON.parse(localStorage.getItem(k)); return v && typeof v === 'object' ? v : fb; } catch { return fb; } }
-  function saveJSON(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* private mode etc. */ } }
+  function loadJSON(k, fb) {
+    if (['drafti.arena.v2','drafti.arena-progress.v1','drafti.stats.v1','drafti.match.v1','drafti.learning.v1'].includes(k)) return playerProgress.load(k,fb);
+    try { const v = JSON.parse(localStorage.getItem(k)); return v && typeof v === 'object' ? v : fb; } catch { return fb; }
+  }
+  function saveJSON(k, v) {
+    if (playerProgress.routes(k)) {
+      const saved=k === 'drafti.arena.v2' && G.over && G.mode === 'aivai'
+        ? playerProgress.saveBundle({[k]:v,'drafti.match.v1':null}) : playerProgress.save(k,v);
+      if(!saved && playerProgress.lastError()==='conflict' && !G.progressConflict){
+        G.progressConflict=true;G.aiPaused=true;gameEpoch++;reqId++;aiPending=false;hintPending=false;
+        if(worker){worker.terminate();worker=null;}FX.thinkStop();
+        flashWhisper('This player’s progress changed in another game. Use Reload saved league in The players to continue.');
+      }
+      return;
+    }
+    try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* private mode etc. */ }
+  }
 
   const settings = Object.assign(
     { rsId: 'american', mode: 'ai', diff: 'l5', humanSide: IVORY, sound: true, rotate: true, theme: 'neon', clock: 0, speed: 1, hv: false, ambient: true, style: 'classic', styleIvory: 'italian', styleEbony: 'czech', pname: 'Uhakika', pname2: 'Usiogope', aivaiAuto: true, jumpPaths: true, shake: true, pieces: 'theme', arenaRounds: 1, humanlike: false },
@@ -1225,6 +1345,7 @@
       const now = performance.now();
       this.queue = this.queue.filter(item => item.epoch === this.audioEpoch && now - item.at < 3500);
       this.queue.sort((a,b) => b.priority - a.priority);
+      if ([...this.activeSources.values()].some(active => active.spoken)) return;
       const next = this.queue.shift();
       if (next) this.play(next.name, { ...next.opts, queued: true });
     },
@@ -1251,7 +1372,7 @@
     },
     directOwner(event, context) {
       context = context || {};
-      if (!settings.sound || G.over || G.aiSpeed > 1 || performance.now() < this.sceneLockUntil) return null;
+      if (!settings.sound || G.over || G.mode === 'aivai' && G.aiSpeed > 1 || performance.now() < this.sceneLockUntil) return null;
       if (event === 'human_blunder_flagrant' && (!context.human || context.forced || context.delta < 420)) return null;
       const now = performance.now();
       if (now - this.lastOwnerAt < 18000) return null;
@@ -1321,10 +1442,10 @@
       const priority = opts && opts.sceneOwner === 'ceremony' ? 100
         : ({ majestic: 70, voice: 60, judge: 60, drama: 50, party: 40, comedy: 35, ui: 20, think: 10 }[category] || 30);
       const voice = this.defs[name].voice || (window.DRAFTI_VOICES || {})[name];
-      const spoken = !!voice || category === 'voice' || category === 'judge' ||
+      const spoken = this.ownerMap[name]?.spoken === false ? false : !!voice || category === 'voice' || category === 'judge' ||
         ['later_moments','later_hours','tellyou','bruh','god','badboy','shrimp1','shrimp2'].includes(name);
       for (const active of this.activeSources.values()) {
-        if (spoken && active.spoken && active.priority >= priority) {
+        if (spoken && active.spoken && (priority < 100 || active.priority === 100)) {
           if (!(opts && (opts.queued || opts.queue === false)) && !this.queue.some(item => item.name === name)) {
             this.queue.push({ name, opts, priority, at: now, epoch: this.audioEpoch });
             this.queue.sort((a,b) => b.priority - a.priority); this.queue.length = Math.min(this.queue.length, 3);
@@ -1416,13 +1537,14 @@
     const r = rosterById(id);
     return (r.face ? r.face + ' ' : '') + aiName(id) + ' · L' + rosterLevel(id);
   };
-  const humanTurn = () => !G.over && (G.mode === 'hotseat' || G.side === G.humanSide);
+  const humanTurn = () => !G.over && !G.progressConflict && (G.mode === 'hotseat' || G.side === G.humanSide);
 
   function repAdd(k) { G.repMap.set(k, (G.repMap.get(k) || 0) + 1); }
   function repRemove(k) { const v = (G.repMap.get(k) || 0) - 1; if (v <= 0) G.repMap.delete(k); else G.repMap.set(k, v); }
 
   // ---------------- AI worker ----------------
   let worker = null, workerBroken = false, reqId = 0, aiPending = false, hintPending = false, thinkStart = 0;
+  let gameEpoch = 0;
 
   // The worker source, kept as a named function so tests can spawn the exact
   // production worker and verify the verdict/trap protocol end to end.
@@ -1551,6 +1673,7 @@
       G.phase = 'idle'; FX.thinkStop();
       updateAll(); scheduleAI();
     } else updateAll();
+    saveCurrentMatch();
   }
   function arenaPressureOpts(opts) {
     if (G.mode === 'aivai' && settings.aivaiAuto) {
@@ -2240,6 +2363,7 @@
   function doomClear() {
     doomSide = 0;
     frameEl.classList.remove('doomed');
+    delete frameEl.dataset.doomSide;
   }
 
   // On the loser's turns: keep-playing patter. On the winner's converting
@@ -2442,20 +2566,22 @@
     document.body.appendChild(effect);
     setTimeout(() => effect.remove(), 1100);
   }
-  async function animateMove(mv) {
+  async function animateMove(mv, epoch) {
+    const generation = epoch == null ? gameEpoch : epoch, moverSide = G.side;
     const p = pieceAt(mv.from);
     if (!p) return;
     p.el.classList.add('lifted');
     if (mv.path.length === 2 && !mv.caps.length) SFX_BANK.effect('slide', { vol: .13 });
     if (Math.abs(p.code) === 2 && !mv.caps.length) SFX_BANK.effect('king_glint', { vol: .12 });
     for (let k = 1; k < mv.path.length; k++) {
+      if(generation !== gameEpoch)return false;
       const to = mv.path[k];
       p.sq = to;
       positionEl(p.el, to);
       const capIdx = mv.caps[k - 1];
       if (capIdx !== undefined) {
         const victim = pieceAt(capIdx);
-        if (victim) setTimeout(() => { if (victim.el) { physicalBurst(victim.el, 'capture', G.side); victim.el.classList.add('captured'); } }, 90);
+        if (victim) setTimeout(() => { if (generation === gameEpoch && victim.el) { physicalBurst(victim.el, 'capture', moverSide); victim.el.classList.add('captured'); } }, 90);
         FX.play('capture');
         SFX_BANK.effect(k === mv.path.length - 1 ? 'impact' : 'jump', { vol: k === mv.path.length - 1 ? .32 : .17 + k * .025 });
       } else {
@@ -2463,6 +2589,7 @@
         SFX_BANK.effect('landing', { vol: .16 });
       }
       await sleep(mv.caps.length >= 3 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches ? HOP_MS * 1.25 : HOP_MS);
+      if(generation !== gameEpoch)return false;
     }
     p.el.classList.remove('lifted');
     if (mv.promotes) {
@@ -2470,7 +2597,7 @@
       refreshPiece(p);
       p.el.classList.add('crowning');
       frameEl.classList.add(G.side === IVORY ? 'coronation-a' : 'coronation-b');
-      setTimeout(() => { p.el.classList.remove('crowning'); frameEl.classList.remove('coronation-a', 'coronation-b'); }, 1100);
+      setTimeout(() => { if(generation === gameEpoch){p.el.classList.remove('crowning');frameEl.classList.remove('coronation-a', 'coronation-b');} }, 1100);
       FX.play('king');
       SFX_BANK.effect('crown', { vol: .38 });
       if (Math.random() < 0.55) setTimeout(() => SFX_BANK.play('st_tada1', { vol: 0.6 }), 320);
@@ -2482,7 +2609,8 @@
   const SPEC_HIT = ['v_spec7', 'v_spec8'];
 
   async function executeMove(mv) {
-    if (!mv || G.phase !== 'idle') return;
+    if (!mv || G.phase !== 'idle' || G.progressConflict) return;
+    const generation = gameEpoch;
     G.phase = 'animating';
     const moverIsHuman = humanTurn();
     if (moverIsHuman) lastThinkMs = thinkArmedKey === turnKey() ? Date.now() - humanThinkStart : 0;
@@ -2498,7 +2626,8 @@
       lastFeastCallAt = Date.now();
       SFX_BANK.play('tellyou', { vol: 0.95 });
     }
-    await animateMove(mv);
+    await animateMove(mv, generation);
+    if(generation !== gameEpoch)return;
     const ply = commitMove(mv);
     if (mv.caps.length >= 3) SFX_BANK.effect('feast', { vol: .4 });
     if (mv.caps.length >= 3) SFX_BANK.directOwner('capture_own_feast');
@@ -2597,6 +2726,7 @@
     G.side = -side;
     G.legal = E.legalMoves(G.rs, G.board, G.side);
     repAdd(posKey(G.board, G.side));
+    saveCurrentMatch();
     return G.history.length;
   }
 
@@ -2845,7 +2975,7 @@
   let ceremonyEpoch = 0, ceremonyVoice = null;
   function cancelCeremony() {
     ceremonyEpoch++;
-    if (ceremonyVoice) { try { ceremonyVoice.stop(); } catch {} ceremonyVoice = null; }
+    if (ceremonyVoice) { SFX_BANK.activeSources.delete(ceremonyVoice); try { ceremonyVoice.stop(); } catch {} ceremonyVoice = null; }
     SFX_BANK.sceneLockUntil = 0;
     const element = $('ceremony'); if (element) element.hidden = true;
   }
@@ -2941,7 +3071,65 @@
   }
 
   // ---------------- game lifecycle ----------------
+  const MATCH_KEY = 'drafti.match.v1';
+  function saveCurrentMatch() {
+    if (!arenaOn() || !G.board || G.over || G.progressConflict) return;
+    saveJSON(MATCH_KEY, { schema: 1, rsId: G.rsId, diff: settings.diff, side: G.side, noProg: G.noProg,
+      season: arena.season, bout: arena.bouts,
+      board: Array.from(G.board), history: G.history.map(h => ({...h,boardBefore:Array.from(h.boardBefore)})),
+      repetition: [...G.repMap], seatIvory: G.seatIvory, seatEbony: G.seatEbony,
+      diffIvory: G.diffIvory, diffEbony: G.diffEbony, pairKey: G.pairKey, pairMeets: G.pairMeets,
+      lastMove: G.lastMove, aiPaused: G.aiPaused, firstStrike: G.firstStrike });
+  }
+  function restoreLeaguePosition(saved) {
+    const rs = saved && E.RULESETS[saved.rsId];
+    if (!saved || saved.schema !== 1 || !rs || !Array.isArray(saved.history) || saved.history.length > 2000 ||
+        !Array.isArray(saved.board) || saved.board.length !== rs.n*rs.n) return null;
+    let board=E.setupBoard(rs),side=rs.firstSide,noProg=0;
+    const history=[],repMap=new Map(),sqn=E.squareNumbers(rs);
+    const visit=()=>{const key=board.join(',')+'|'+side;repMap.set(key,(repMap.get(key)||0)+1);};visit();
+    for(const item of saved.history){
+      if(!item || !item.move || !Array.isArray(item.move.path))return null;
+      const move=E.legalMoves(rs,board,side).find(m=>m.from===item.move.from&&m.path.join(',')===item.move.path.join(','));
+      if(!move)return null;
+      history.push({notation:E.moveToNotation(rs,sqn,move),side,move,boardBefore:board.slice(),noProgBefore:noProg});
+      noProg=E.nextNoProgress(rs,board,move,side,noProg);board=E.applyMove(rs,board,move,side);side=-side;visit();
+    }
+    if(side!==saved.side || !saved.board.every((p,i)=>p===board[i]))return null;
+    return {rs,sqn,board,side,noProg,history,repMap};
+  }
+  function resumeLeagueMatch() {
+    if (settings.mode !== 'aivai' || !settings.aivaiAuto) return false;
+    const saved = loadJSON(MATCH_KEY,null), rs = saved && E.RULESETS[saved.rsId];
+    const ids = new Set(ROSTER.map(r=>r.id));
+    if (!saved || saved.schema !== 1 || !rs || !Array.isArray(saved.board) || saved.board.length !== rs.n*rs.n ||
+        !saved.board.every(p=>Number.isInteger(p)&&Math.abs(p)<=2) || ![IVORY,EBONY].includes(saved.side) ||
+        !ids.has(saved.seatIvory) || !ids.has(saved.seatEbony) || saved.seatIvory === saved.seatEbony ||
+        !LEVELS[saved.diffIvory] || !LEVELS[saved.diffEbony] ||
+        ![saved.seatIvory,saved.seatEbony].includes(arena.champion) || ![saved.seatIvory,saved.seatEbony].includes(arena.queue[0]) ||
+        saved.season != null && saved.season !== arena.season || saved.bout != null && saved.bout !== arena.bouts ||
+        !Array.isArray(saved.history) || saved.history.length > 2000 || !Array.isArray(saved.repetition)) return false;
+    const position=restoreLeaguePosition(saved);if(!position)return false;
+    gameEpoch++;
+    reqId++;aiPending=false;hintPending=false;cancelAutoNext();
+    SFX_BANK.resetGame();doomClear();
+    settings.rsId=saved.rsId;if(LEVELS[saved.diff])settings.diff=saved.diff;
+    Object.assign(G,{rs,rsId:saved.rsId,sqn:E.squareNumbers(rs),mode:'aivai',diff:settings.diff,
+      seatIvory:saved.seatIvory,seatEbony:saved.seatEbony,diffIvory:saved.diffIvory,diffEbony:saved.diffEbony,
+      pairKey:saved.pairKey,pairMeets:saved.pairMeets||1,lastMove:saved.lastMove,firstStrike:!!saved.firstStrike,
+      phase:'idle',over:false,result:null,recorded:false,sel:null,hint:null,aiPaused:!!saved.aiPaused,aiSpeed:settings.speed,progressConflict:false,
+      capStreak:0,capStreakSide:0,shrimpFired:false});
+    Object.assign(G,position);G.lastMove=G.history.length?G.history.at(-1).move:null;
+    G.firstStrike=G.history.some(h=>h.move.caps.length);
+    G.legal=E.legalMoves(rs,G.board,G.side);overShown=false;
+    frameEl.classList.remove('victory-a','victory-b','coronation-a','coronation-b');
+    buildBoard();rebuildPieces();checkGameEnd();updateAll();
+    if(G.over)showGameOver();else scheduleAI();
+    return true;
+  }
   function newGame() {
+    gameEpoch++;
+    G.progressConflict=false;
     SFX_BANK.resetGame();
     frameEl.classList.remove('victory-a', 'victory-b', 'coronation-a', 'coronation-b');
     delete frameEl.dataset.doomSide;
@@ -2989,6 +3177,7 @@
     buildBoard();
     rebuildPieces();
     updateAll();
+    saveCurrentMatch();
     scheduleAI();
     // the host introduces themselves: their national school speaks first
     const greeter = G.mode === 'ai' ? styleById(settings.style)
@@ -3073,7 +3262,7 @@
   }
 
   function scheduleAI() {
-    if (G.over || G.phase !== 'idle') return;
+    if (G.over || G.phase !== 'idle' || G.progressConflict) return;
     if (G.mode === 'hotseat') return;
     if (G.mode === 'ai' && G.side === G.humanSide) return;
     if (G.mode === 'aivai' && G.aiPaused) return;
@@ -3300,6 +3489,7 @@
   }
 
   function updateControls() {
+    $('btnSavedLeague').hidden=!G.progressConflict;
     $('btnUndo').disabled = !G.history.length || G.phase === 'animating' || G.phase === 'over' || G.mode === 'aivai';
     $('btnHint').disabled = !humanTurn() || G.phase !== 'idle' || !G.legal.length;
     $('btnRotate').disabled = settings.mode !== 'hotseat';
@@ -3338,6 +3528,7 @@
   }
   function confirmIfNeeded(fn) {
     if (G.history.length >= 2 && !G.over) {
+      $('cfTitle').textContent='Start a new game?';$('cfText').textContent='The current game will be abandoned.';$('cfYes').textContent='New game';
       openModal('modalConfirm');
       pendingConfirm = fn;
     } else fn();
@@ -3359,6 +3550,51 @@
   }
 
   // ---------------- controls wiring ----------------
+  function renderPlayerProfiles() {
+    const select=$('playerProfile');if(!select)return;
+    const players=playerProgress.list(),signature=JSON.stringify([playerProgress.active().id,players]);
+    if(select.dataset.signature===signature)return;
+    select.replaceChildren();
+    for(const player of players){const option=document.createElement('option');option.value=player.id;option.textContent=player.name;select.appendChild(option);}
+    select.value=playerProgress.active().id;select.dataset.signature=signature;
+  }
+  function loadActivePlayer() {
+    gameEpoch++;
+    reqId++;aiPending=false;hintPending=false;cancelAutoNext();
+    if(worker){worker.terminate();worker=null;}workerBroken=false;
+    arena=loadJSON(ARENA_KEY,null)||{champion:'TZ',queue:ladderQueue('TZ'),appeared:[],season:1,bouts:0,xp:{},wins:{},streak:0,challRounds:0};
+    guardArena();
+    for(const key of Object.keys(arenaProgress))delete arenaProgress[key];
+    Object.assign(arenaProgress,loadJSON(ARENA_PROGRESS_KEY,{})||{});
+    if(!arenaProgress.bonusXp || typeof arenaProgress.bonusXp!=='object')arenaProgress.bonusXp={};
+    for(const key of Object.keys(stats))delete stats[key];Object.assign(stats,loadJSON(STATS_KEY,{})||{});
+    arenaProgressSignature='';settings.pname=cleanName(playerProgress.active().name,'Uhakika');saveJSON(SETTINGS_KEY,settings);
+    if(!resumeLeagueMatch())newGame();renderPlayerProfiles();
+  }
+  $('playerProfile').addEventListener('change',()=>{
+    const target=$('playerProfile').value;
+    if(G.progressConflict)playerProgress.refresh();else saveCurrentMatch();
+    const saved=playerProgress.switchTo(target);loadActivePlayer();
+    if(!saved)flashWhisper('Player switched for this session; this device could not save the change.');
+  });
+  $('btnPlayerCreate').addEventListener('click',()=>{
+    const name=cleanName($('newPlayerName').value,'');
+    if(!name){flashWhisper('Enter a player name first.');return;}
+    saveCurrentMatch();const id=playerProgress.create(name);
+    if(!id){flashWhisper('Use a different player name; up to twelve local players can be saved.');return;}
+    $('newPlayerName').value='';loadActivePlayer();
+    if(!playerProgress.persist())flashWhisper('This player is available now, but this device could not save the profile.');
+  });
+  $('btnLeagueReset').addEventListener('click',()=>{
+    $('cfTitle').textContent='Reset this player’s league?';
+    $('cfText').textContent='Restart '+playerProgress.active().name+'’s league, nation experience and saved arena match. Personal records, other players and appearance stay intact.';
+    $('cfYes').textContent='Reset league';
+    pendingConfirm=()=>{playerProgress.resetLeague();loadActivePlayer();};openModal('modalConfirm');
+  });
+  $('btnSavedLeague').addEventListener('click',()=>{
+    const id=playerProgress.active().id;playerProgress.refresh();playerProgress.switchTo(id);loadActivePlayer();
+  });
+  renderPlayerProfiles();
   function wireSeg(id, apply) {
     $(id).addEventListener('click', (e) => {
       const b = e.target.closest('button');
@@ -3374,7 +3610,7 @@
   });
   wireSeg('segMode', (v) => {
     if (v === settings.mode) return;
-    confirmIfNeeded(() => { settings.mode = v; saveJSON(SETTINGS_KEY, settings); newGame(); });
+    confirmIfNeeded(() => { settings.mode = v; saveJSON(SETTINGS_KEY, settings); if(!resumeLeagueMatch())newGame(); });
   });
   wireSeg('segSide', (v) => {
     const s = +v;
@@ -3528,6 +3764,7 @@
     if (G.aiPaused) cancelAutoNext();
     SFX_BANK.play(G.aiPaused ? 'ui_toggle_off' : 'ui_toggle_on');
     updateSegs();
+    saveCurrentMatch();
     if (!G.aiPaused) scheduleAI();
   });
   $('btnSound').addEventListener('click', () => {
@@ -3888,7 +4125,7 @@
   applyPieces(settings.pieces);
   document.body.classList.toggle('hv', !!settings.hv);
   document.body.classList.toggle('ambient-off', !settings.ambient);
-  newGame();
+  if(!resumeLeagueMatch())newGame();
   try { FX.ensure(); } catch { /* audio starts on first gesture instead */ }
 
   // Minimal test hook: lets automated tests drive the real input path and

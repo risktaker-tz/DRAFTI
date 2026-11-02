@@ -12,9 +12,10 @@ h.settings.diff='l10';assert(h.api.ROSTER.every(r=>h.api.rosterLevel(r.id)===10)
 let stopped=0,scheduled=0,updated=0;const board=[1,-1,0];
 const c={LEVELS:h.api.LEVELS,LEVEL_IDS:h.api.LEVEL_IDS,settings:{diff:'l1',aivaiAuto:false},G:{mode:'ai',phase:'thinking',over:false,diff:'l1',board},
   arenaSeatLevels:()=>[8,9],SETTINGS_KEY:'settings',saveJSON(){},reqId:4,aiPending:true,hintPending:false,
-  worker:{terminate:()=>stopped++},humanTurn:()=>false,FX:{thinkStop(){}},updateAll:()=>updated++,scheduleAI:()=>scheduled++};
+  worker:{terminate:()=>stopped++},humanTurn:()=>false,FX:{thinkStop(){}},updateAll:()=>updated++,scheduleAI:()=>scheduled++,saveCurrentMatch:()=>{c.matchSaved=true;}};
 vm.runInNewContext(ui.slice(ui.indexOf('  function changeDifficulty('),ui.indexOf('  function arenaPressureOpts(')),c);
 c.changeDifficulty('l9');assert.equal(c.G.diff,'l9');assert.equal(c.settings.diff,'l9');assert.equal(c.reqId,5);assert.equal(stopped,1);assert.equal(scheduled,1);assert.strictEqual(c.G.board,board,'Changing strength preserves the actual game position');
+assert(c.matchSaved,'A strength change is included in the resumable match immediately');
 Object.assign(c.G,{mode:'aivai',phase:'idle'});c.settings.aivaiAuto=true;c.changeDifficulty('l8');assert.equal(c.G.diffIvory,'l8');assert.equal(c.G.diffEbony,'l9');
 c.humanTurn=()=>true;c.G.phase='idle';const priorRequest=c.reqId;c.changeDifficulty('l9');assert.equal(c.reqId,priorRequest+1,'Arena presentation delay replaces pending old-strength search even on the default human-side seat');
 c.G.phase='animating';const before=c.reqId;c.changeDifficulty('l10');assert.equal(c.reqId,before,'An active capture animation is not interrupted');
