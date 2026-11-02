@@ -338,3 +338,7 @@ The flag resolver is additionally checked against all 37,442 ordered pairings of
 Existing audio is protected by `node tests/test_audio_preservation.js`, which compares the embedded clips against the original `b9486e1` bank. Only the four requested original-clip replacements are exempt; processing fixes require a named record and original-file backup. At this checkpoint all 360 existing clips remain byte-for-byte unchanged.
 
 The source-backed flag review also aligned Zimbabwe, Malawi, Mozambique, Botswana, Comoros, Albania, Austria, Bosnia and Herzegovina, Croatia, Estonia, France, Montenegro, North Macedonia, Portugal, Slovenia, Switzerland and Afghanistan with the collected SVG palettes. The nation renaming controls are available in human games when their flag option is enabled.
+
+The audio integrity report now measures every embedded MP3's duration, channel count, sample rate, bitrate and encoded size using `music-metadata`. Existing encoding differences are reported for review, while missing references and duration/size violations fail the audit. The report currently exposes pre-existing violations; it is not an acceptance-pass claim. Existing clips remain unchanged.
+
+The flag-source review additionally aligned Bangladesh, Georgia, Kazakhstan, Kyrgyzstan, Oman and Syria with the collected SVG references. Syria now uses the current green/white flag palette rather than the previous red main colour.

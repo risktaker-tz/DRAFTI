@@ -5,7 +5,7 @@ const sharp = require('./tooling/node_modules/sharp');
 const root = path.resolve(__dirname, '..');
 const ui = fs.readFileSync(path.join(root, 'src/ui.js'), 'utf8');
 const nations = vm.runInNewContext(ui.match(/const NATION_DATA = (\[[\s\S]*?\n  \]);/)[1]);
-const names = {CD:'Democratic Republic of the Congo',CG:'Republic of the Congo',CI:'Ivory Coast',CF:'Central African Republic',GQ:'Equatorial Guinea',ST:'São Tomé and Príncipe',CV:'Cape Verde',BA:'Bosnia and Herzegovina',CZ:'the Czech Republic',GB:'the United Kingdom',US:'the United States',AE:'the United Arab Emirates',DO:'the Dominican Republic',KN:'Saint Kitts and Nevis',LC:'Saint Lucia',VC:'Saint Vincent and the Grenadines',MH:'the Marshall Islands',FM:'the Federated States of Micronesia',PH:'the Philippines',GM:'The Gambia',NL:'the Netherlands',SB:'the Solomon Islands'};
+const names = {AG:'Antigua and Barbuda',CD:'Democratic Republic of the Congo',CG:'Republic of the Congo',CI:'Ivory Coast',CF:'Central African Republic',GQ:'Equatorial Guinea',ST:'São Tomé and Príncipe',CV:'Cape Verde',BA:'Bosnia and Herzegovina',CZ:'the Czech Republic',GB:'the United Kingdom',US:'the United States',AE:'the United Arab Emirates',DO:'the Dominican Republic',KN:'Saint Kitts and Nevis',LC:'Saint Lucia',VC:'Saint Vincent and the Grenadines',MH:'the Marshall Islands',FM:'the Federated States of Micronesia',PH:'the Philippines',GM:'The Gambia',NL:'the Netherlands',SB:'the Solomon Islands'};
 const cache = path.join(root, 'scripts/flag_sources');
 fs.mkdirSync(cache, {recursive:true});
 async function run() {
