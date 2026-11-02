@@ -43,7 +43,7 @@ audio, drop the mp3 files into `src/audio/` under the names below and rebuild
 | Sound in game | What it says (recreation) | Wanted source clip | Use in the game |
 | --- | --- | --- | --- |
 | `shrimp1`, `shrimp2` | "Wait — is this the shrimp one?!" | "Is this the shrimp one??" horse/equestrian short — https://youtube.com/shorts/mvUVrweNvsQ | The last-shrimp moment: your final piece is about to be devoured |
-| `v_retire1`, `v_retire2` | "How can you allow the one with that skill to retire?!" (0-15 s moment of the clip, recreated) | "How can you allow the one with that skill to retire" — https://youtube.com/shorts/KBVNiOAnHiA | The retirement ceremony for a retiring champion |
+| `v_retire1`, `v_retire2` | Historical TTS fallback, preserved under `sfx_swap/backups/`; replaced by the verified originals below on 2026-11-02 | https://youtube.com/shorts/KBVNiOAnHiA | Reversible fallback only |
 
 ## Animal comedy & viral stings (freesound.org, CC0)
 
@@ -147,3 +147,18 @@ project workspace for the processing pipeline.
 DRAFTI's code is MIT. The embedded audio keeps its original licenses (CC0 /
 public domain / CC BY as listed above); the CC BY items require attribution,
 which this file provides. If you redistribute the game, keep this file.
+
+## Original retirement and skill excerpts — obtained 2026-11-02
+
+Source: https://youtube.com/shorts/KBVNiOAnHiA . The original Museveni speech was downloaded successfully from the exact requested Short on the owner’s Windows machine. Its English source captions are retained in docs/retirement-source-captions.vtt, with a source frame for visual verification. Original rights remain with the source creator; these are credited short sourced excerpts under the same meme-excerpt policy used above, not CC0 or TTS.
+
+| File | Source interval | Processed duration | Game use |
+|---|---|---|---|
+| v_retire1.mp3 | 0.30–5.80 s | 5.84 s including retained padding | Natural full retirement sentence |
+| v_retire2.mp3 | 0.00–15.00 s | Exactly 15.00 s decoded | Major retirement ceremonies, expressly approved by the owner; 32 kbps keeps the clip below 60 KiB |
+| v_retire_short.mp3 | 11.70–14.70 s | 3.34 s including padding | Short retirement variation |
+| skill_original.mp3 | 2.10–4.20 s | 2.44 s including padding | Rare engine-verified brilliant moves; 90-second cooldown |
+
+All are mono 22050 Hz, retain natural speech timing, and have decoded peaks between −1.50 and −1.56 dBFS. The first two replaced only their explicitly requested TTS recreations; both old MP3s are backed up unchanged under sfx_swap/backups/. No unrelated clip was replaced.
+
+The narrator recordings later_moments and later_hours were independently matched against the freshly downloaded original compilation (https://youtube.com/shorts/N1BOQ_9laWs): normalized waveform correlations 0.987310 and 0.992551. See docs/narrator-original-comparison.json. Their existing bytes are preserved.

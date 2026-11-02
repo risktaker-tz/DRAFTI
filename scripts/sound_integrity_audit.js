@@ -12,6 +12,7 @@ const categories = {};
 const oversized = [];
 const encoding = [];
 const durations = [];
+const limits = JSON.parse(fs.readFileSync(path.join(root, 'scripts/audio_limits.json'), 'utf8'));
 const { parseBuffer } = require('./tooling/node_modules/music-metadata/lib/index.js');
 (async () => {
 for (const [id, clip] of Object.entries(bank)) {
@@ -20,10 +21,10 @@ for (const [id, clip] of Object.entries(bank)) {
   const buffer = Buffer.from(clip.d.split(',')[1], 'base64');
   const bytes = buffer.length;
   const {format} = await parseBuffer(buffer, {mimeType:'audio/mpeg'}, {duration:true});
-  if (!Number.isFinite(format.duration) || format.duration > 6.1) durations.push({id,seconds:format.duration});
+  if (!Number.isFinite(format.duration) || format.duration > (limits.overrides[id]?.maxSeconds || limits.defaultMaxSeconds)) durations.push({id,seconds:format.duration});
   if (format.sampleRate !== 22050 || format.numberOfChannels !== 1 || format.bitrate > 56500) encoding.push({id,sampleRate:format.sampleRate,channels:format.numberOfChannels,bitrate:format.bitrate});
   if (bytes > 61440) oversized.push({id, bytes});
 }
-console.log(JSON.stringify({clips: Object.keys(bank).length, categories, directReferences: direct.length, playbackCallSites: referenceMap.sites.length, uniqueReferencedIds: referenceMap.references.length, optionalOriginalIds: referenceMap.optional, unresolvedExpressions: referenceMap.unresolved, missing, oversized, durations, encoding, limitations: 'All clips measured for duration, encoding and size. Reference analysis covers literal calls, pooled IDs, conditional choices, style-generated IDs and thinking decks. Browser playback still requires verification.'}, null, 2));
+console.log(JSON.stringify({clips: Object.keys(bank).length, categories, directReferences: direct.length, playbackCallSites: referenceMap.sites.length, uniqueReferencedIds: referenceMap.references.length, optionalOriginalIds: referenceMap.optional, approvedDurationOverrides: limits.overrides, unresolvedExpressions: referenceMap.unresolved, missing, oversized, durations, encoding, limitations: 'All clips measured for duration, encoding and size. Reference analysis covers literal calls, pooled IDs, conditional choices, style-generated IDs and thinking decks. Browser playback still requires verification.'}, null, 2));
 if (missing.length || referenceMap.unresolved.length || oversized.length || durations.length) process.exitCode = 1;
 })().catch(error => { console.error(error); process.exitCode = 1; });

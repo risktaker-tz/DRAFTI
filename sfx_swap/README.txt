@@ -1,26 +1,21 @@
-Swap in the exact original meme clips
-=====================================
+DRAFTI original-clip status (2026-11-02)
 
-Two moments in DRAFTI use in-house voice RECREATIONS of viral clips (the
-sandbox this game was built in could not download from YouTube):
+Retirement: the exact original Short https://youtube.com/shorts/KBVNiOAnHiA
+was downloaded successfully on the owner's Windows machine. v_retire1.mp3
+now contains the natural sentence; v_retire2.mp3 contains the original
+first 15 seconds, as explicitly requested by the owner. Additional short
+retirement and skill-only excerpts are documented in ATTRIBUTIONS.md.
+The former TTS v_retire1/2 files are preserved unchanged in backups/.
 
-  shrimp1.mp3 / shrimp2.mp3   — "Is this the shrimp one??"
-    wanted moment: your last piece is about to be devoured
-    source: https://youtube.com/shorts/mvUVrweNvsQ
+Shrimp: the exact Short https://youtube.com/shorts/mvUVrweNvsQ has also
+been downloaded locally. Its source audio/video are staged for speech
+boundary verification. shrimp1/2 remain the existing recreations until
+the original cuts are verified; no substitute provenance is claimed.
 
-  v_retire1.mp3 / v_retire2.mp3 — "How can you allow the one with that
-    skill to retire?!"  (the retirement ceremony, 0-15 s of the clip)
-    source: https://youtube.com/shorts/KBVNiOAnHiA
-
-To use the EXACT original audio instead:
-
-  1. Download the audio of those two Shorts (any downloader you like).
-  2. Convert to mp3, mono, 56 kbps, 22050 Hz, e.g. with ffmpeg:
-       ffmpeg -i clip.m4a -ac 1 -ar 22050 -b:a 56k v_retire1.mp3
-     (keep the exact file names shown above)
-  3. Copy the files into src/audio/ (replacing the recreations).
-  4. Rebuild the single-file game:
-       python3 build_web.py
-     The rebuilt web/index.html now carries the original clips.
-
-Keep this folder's copies if you want to switch back.
+Use scripts/voice_proc.py to process a new verified cut without replacing
+existing output by default. Register metadata in scripts/audio_catalog.json
+and embed with scripts/build_sfx_manifest.py. Existing entry updates need
+an explicit --allow-update ID and an original backup in sfx_swap/backups/.
+Then run python build_web.py, the sound integrity audit and preservation test.
+The older swap.sh helper is retained as historical tooling; the catalog-based
+pipeline above is the current verified path for embedding new clips.

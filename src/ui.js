@@ -1137,6 +1137,7 @@
     recent: [],
     lastPlayed: new Map(),
     decoding: false,
+    sceneLockUntil: 0,
     CAT_VOL: { majestic: 0.95, comedy: 0.8, voice: 1.0, judge: 1.0, think: 1.0, ui: 0.6, drama: 0.95, party: 1.0 },
     decodeAll() {
       const ctx = FX.ctx;
@@ -1173,6 +1174,7 @@
       const buf = this.buffers.get(name);
       if (!buf) return null;
       const now = performance.now();
+      if (now < this.sceneLockUntil && this.defs[name].c !== 'ui' && !(opts && opts.sceneOwner === 'ceremony')) return null;
       const cooldown = this.defs[name].c === "ui" ? 150 : 8000;
       if (now - (this.lastPlayed.get(name) || -Infinity) < cooldown) return null;
       if (this.defs[name].c !== "ui" && this.recent.slice(-5).includes(name)) return null;
@@ -1189,7 +1191,8 @@
       const g = ctx.createGain();
       g.gain.value = Math.max(0.0001, Math.min(1.2, vol));
       src.connect(g); g.connect(FX.out || ctx.destination);
-      src.start();
+      if (opts && opts.maxDuration) src.start(0, 0, Math.min(opts.maxDuration, buf.duration));
+      else src.start();
       return src;
     },
   };
@@ -1801,6 +1804,7 @@
   const HEAVY_POOL = ['v_heavy1', 'v_heavy2', 'v_heavy3', 'v_heavy4']; // boy & girl alternate
   const FEAST_POOL = ['v_feast1', 'v_feast2', 'v_slau1', 'v_slau2'];
 
+  let lastSkillOriginalAt = -Infinity;
   function applyMoveEvent(ev, ply, flavor, endSq) {
     const def = MOVE_EVENTS[ev] || MOVE_EVENTS.none;
     if (def.rank <= lastEvent.rank && lastEvent.ply === ply) return;
@@ -1831,8 +1835,15 @@
     } else if (ev === 'brilliant') {
       if (ply - lastBlunderPly === 2) lastBlunderPly = -1;
       SFX_BANK.play(pick(['wolfwhistle', 'rimshot', 'animewow']), { vol: 0.9 });
-      SFX_BANK.play(Math.random() < 0.5 ? 'v_chess' : 'v_ooh1', { vol: 0.85 });
-      flashLabel('A chess move!', 'majestic');
+      const skillMoment = performance.now() - lastSkillOriginalAt > 90000 && Math.random() < .28;
+      const skillVoice = skillMoment && SFX_BANK.play('skill_original', { vol: .85, rate: 1 });
+      if (skillVoice) {
+        lastSkillOriginalAt = performance.now();
+        flashLabel('The only one who has got that skill!', 'majestic');
+      } else {
+        SFX_BANK.play(Math.random() < 0.5 ? 'v_chess' : 'v_ooh1', { vol: 0.85 });
+        flashLabel('A chess move!', 'majestic');
+      }
     } else if (ev === 'trick') {
       SFX_BANK.play(pick(['wolfwhistle', 'zip', 'meow']), { vol: 0.85 }); // the cat, laying a trap
       const line = ['v_trick', 'v_trap', 'v_crafty'][(Math.random() * 3) | 0];
@@ -2506,6 +2517,7 @@
 
   // the retirement ceremony: the winner's name takes the centre of the board
   // while the crowd asks how anyone could let that skill retire
+  const RETIREMENT_DECK = makeDeck(['v_retire1', 'v_retire2', 'v_retire_short']);
   function showCeremony(champId) {
     const r = rosterById(champId);
     const el = $('ceremony');
@@ -2520,11 +2532,18 @@
     el.hidden = false;
     SFX_BANK.play('gong', { vol: 0.9 });
     setTimeout(() => SFX_BANK.play('st_drum1', { vol: 0.75 }), 350);
-    setTimeout(() => SFX_BANK.play(SFX_BANK.defs.v_retire_orig
-      ? 'v_retire_orig' : pick(['v_retire1', 'v_retire2']), { vol: 1 }), 1000);
-    setTimeout(() => SFX_BANK.play(pick(['st_appl1', 'st_appl2']), { vol: 0.85 }), 2000);
-    setTimeout(() => { el.hidden = true; }, 7400);
-    return sleep(7400);
+    const major = (arena.wins[r.id] || 0) >= 5;
+    const retirementClip = SFX_BANK.defs.v_retire_orig ? 'v_retire_orig'
+      : major ? RETIREMENT_DECK() : pick(['v_retire1', 'v_retire_short']);
+    const voiceMs = Math.min(15, (SFX_BANK.defs[retirementClip] || {}).durationSec || (SFX_BANK.buffers && SFX_BANK.buffers.get(retirementClip) || {}).duration || 5.84) * 1000;
+    const ceremonyMs = Math.max(7400, voiceMs + 2400);
+    setTimeout(() => {
+      const voice = SFX_BANK.play(retirementClip, { vol: 1, rate: 1, maxDuration: 15, sceneOwner: 'ceremony' });
+      if (voice) SFX_BANK.sceneLockUntil = performance.now() + voiceMs + 100;
+    }, 1000);
+    setTimeout(() => SFX_BANK.play(pick(['st_appl1', 'st_appl2']), { vol: 0.85 }), voiceMs + 1250);
+    setTimeout(() => { el.hidden = true; }, ceremonyMs);
+    return sleep(ceremonyMs);
   }
 
   let autoNextTimer = 0;

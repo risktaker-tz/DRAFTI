@@ -27,3 +27,5 @@ scripts/research_media/
 scripts/tooling/pyenv/
 
 scripts/tooling/asr-models/
+
+scripts/tooling/onnx-models/

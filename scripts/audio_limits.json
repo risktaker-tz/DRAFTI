@@ -1,0 +1,10 @@
+{
+  "defaultMaxSeconds": 6.1,
+  "overrides": {
+    "v_retire2": {
+      "maxSeconds": 15.1,
+      "decodedSeconds": 15,
+      "reason": "Owner explicitly requested the full original first 15 seconds for major ceremonies. The 0.1s metadata allowance covers MP3 frame padding; playback is capped at 15 seconds."
+    }
+  }
+}

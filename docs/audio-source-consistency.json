@@ -1,5 +1,5 @@
 {
-  "clips": 360,
+  "clips": 362,
   "missingSourceFiles": [],
   "manifestSourceMismatches": [],
   "selectedClips": [
@@ -25,13 +25,13 @@
     },
     {
       "id": "v_retire1",
-      "credit": "DRAFTI voiced recreation of a viral clip (originals: see ATTRIBUTIONS.md / sfx_swap)",
-      "sha256": "1316ccb9cc3a4ede09b22e481d9328f3df63595f4dbecbd70ff87d166c323f96"
+      "credit": "Original Museveni retirement excerpt (youtube.com/shorts/KBVNiOAnHiA) 0.30-5.80s",
+      "sha256": "eba7c49b2a98c57ae0ebaa15896d05cfe09b31043d04d246a115afc02ffb17b8"
     },
     {
       "id": "v_retire2",
-      "credit": "DRAFTI voiced recreation of a viral clip (originals: see ATTRIBUTIONS.md / sfx_swap)",
-      "sha256": "3700b1dbade9e73910ebcfd61f41dc477d2dcb65dfe93a31d2aa2ab064c6950d"
+      "credit": "Original Museveni retirement excerpt (youtube.com/shorts/KBVNiOAnHiA) first 15s",
+      "sha256": "52b870e01595588b358ebcc278a14167c2c1c123ef0531b6a28f2bd1a675a706"
     }
   ],
   "limitation": "Byte equality proves which source file is embedded. It does not independently prove provenance or playback reachability."

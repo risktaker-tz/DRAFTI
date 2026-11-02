@@ -1177,11 +1177,17 @@
   },
   "v_retire1": {
     "c": "voice",
-    "b": "DRAFTI voiced recreation of a viral clip (originals: see ATTRIBUTIONS.md / sfx_swap)"
+    "b": "Original Museveni retirement excerpt (youtube.com/shorts/KBVNiOAnHiA) 0.30-5.80s",
+    "durationSec": 5.84,
+    "voice": "original",
+    "mood": "tribute"
   },
   "v_retire2": {
     "c": "voice",
-    "b": "DRAFTI voiced recreation of a viral clip (originals: see ATTRIBUTIONS.md / sfx_swap)"
+    "b": "Original Museveni retirement excerpt (youtube.com/shorts/KBVNiOAnHiA) first 15s",
+    "durationSec": 15,
+    "voice": "original",
+    "mood": "tribute"
   },
   "v_sharp": {
     "c": "judge",
@@ -1438,5 +1444,25 @@
   "zip": {
     "c": "comedy",
     "b": "The Best of Warner Bros. Sound FX (CC0)"
+  },
+  "v_retire_short": {
+    "c": "voice",
+    "b": "Original Museveni retirement excerpt (youtube.com/shorts/KBVNiOAnHiA) 11.70-14.70s",
+    "durationSec": 3.34,
+    "voice": "original",
+    "mood": "tribute",
+    "source": "https://youtube.com/shorts/KBVNiOAnHiA",
+    "license": "Short sourced excerpt; original rights retained by the source creator, see ATTRIBUTIONS.md",
+    "use": "Short retirement ceremony question"
+  },
+  "skill_original": {
+    "c": "judge",
+    "b": "Original Museveni retirement excerpt (youtube.com/shorts/KBVNiOAnHiA) 2.10-4.20s",
+    "durationSec": 2.44,
+    "voice": "original",
+    "mood": "admiration",
+    "source": "https://youtube.com/shorts/KBVNiOAnHiA",
+    "license": "Short sourced excerpt; original rights retained by the source creator, see ATTRIBUTIONS.md",
+    "use": "Rare engine-verified strong moves"
   }
 }

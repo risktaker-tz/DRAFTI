@@ -29,6 +29,7 @@ function collectSoundReferences(source) {
   if(n.type==='CallExpression'){
    if(n.callee.name==='thinkSound'||n.callee.name==='THINK_DECK')return values({type:'Identifier',name:'THINK_POOL'},seen);
    if(['pick','makeDeck'].includes(n.callee.name))return values(n.arguments[0],seen);
+   if(vars.has(n.callee.name))return values({type:'Identifier',name:n.callee.name},seen);
    if(n.callee.type==='MemberExpression'){
     if(property(n.callee)==='concat')return union([values(n.callee.object,seen),...n.arguments.map(x=>values(x,seen))]);
     if(property(n.callee)==='slice')return values(n.callee.object,seen);

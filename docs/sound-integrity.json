@@ -1,22 +1,29 @@
 {
-  "clips": 360,
+  "clips": 362,
   "categories": {
     "ui": 33,
     "party": 21,
     "comedy": 16,
     "majestic": 6,
     "drama": 29,
-    "voice": 118,
+    "voice": 119,
     "think": 106,
-    "judge": 31
+    "judge": 32
   },
-  "directReferences": 70,
-  "playbackCallSites": 130,
-  "uniqueReferencedIds": 337,
+  "directReferences": 71,
+  "playbackCallSites": 131,
+  "uniqueReferencedIds": 339,
   "optionalOriginalIds": [
     "shrimp_orig",
     "v_retire_orig"
   ],
+  "approvedDurationOverrides": {
+    "v_retire2": {
+      "maxSeconds": 15.1,
+      "decodedSeconds": 15,
+      "reason": "Owner explicitly requested the full original first 15 seconds for major ceremonies. The 0.1s metadata allowance covers MP3 frame padding; playback is capped at 15 seconds."
+    }
+  },
   "unresolvedExpressions": [],
   "missing": [],
   "oversized": [
@@ -69,10 +76,6 @@
     {
       "id": "th_h18",
       "seconds": 6.191020408163265
-    },
-    {
-      "id": "v_retire1",
-      "seconds": 7.706122448979592
     },
     {
       "id": "v_slau2",

@@ -1,0 +1,18 @@
+{
+  "source": "https://youtube.com/shorts/N1BOQ_9laWs",
+  "method": "Normalized waveform cross-correlation against an independently downloaded compilation; mono 22050 Hz decode, no speech replacement.",
+  "clips": [
+    {
+      "id": "later_moments",
+      "sourceStartSeconds": 7.5586,
+      "normalizedCorrelation": 0.98731,
+      "clipSeconds": 2.76
+    },
+    {
+      "id": "later_hours",
+      "sourceStartSeconds": 13.3586,
+      "normalizedCorrelation": 0.992551,
+      "clipSeconds": 1.72
+    }
+  ]
+}
