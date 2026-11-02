@@ -1,0 +1,84 @@
+#!/usr/bin/env python3
+"""Embed the processed sounds as base64 data URIs -> src/audio.manifest.js.
+
+window.DRAFTI_SFX = { name: {c: category, b: short credit, d: dataURI} }
+Credits are kept short inline; full license details live in ATTRIBUTIONS.md.
+"""
+import base64
+import json
+import pathlib
+
+AUDIO = pathlib.Path('/home/z/my-project/download/DRAFTI/src/audio')
+OUT = pathlib.Path('/home/z/my-project/download/DRAFTI/src/audio.manifest.js')
+
+FS = lambda sid, user: f"sound {sid} by {user}, freesound.org (CC0)"
+WB = "The Best of Warner Bros. Sound FX (CC0)"
+RL = "Red Library (CC0)"
+HB = "Hanna-Barbera Sound FX (CC BY 3.0)"
+TT = "DRAFTI voice line (TTS)"
+
+CREDITS = {
+    'lion': FS(567803, 'iut_Paris8'),
+    'lion_long': FS(469123, 'Manim8'),
+    'eagle': FS(392212, 'jjwallace'),
+    'elephant': RL,
+    'bear': RL,
+    'wildroar': WB,
+    'trombone': HB,
+    'wilhelm': 'Wilhelm scream (public domain)',
+    'whistle': WB,
+    'ahooga': RL,
+    'haha': WB,
+    'banana': WB,
+    'woops': WB,
+    'klonk': WB,
+    'rimshot': 'rimshot (public domain)',
+    'wolfwhistle': RL,
+    'shloop': WB,
+    'zip': WB,
+    'gulp': WB,
+    'smarts': WB,
+    'fall': WB,
+    'scramble': HB,
+    'v_magnificent': TT, 'v_chess': TT, 'v_legendary': TT, 'v_onejob': TT,
+    'v_ohno': TT, 'v_wow': TT, 'v_king': TT, 'v_win': TT, 'v_lose': TT,
+    'v_draw': TT, 'v_awkward': TT,
+    'v_nice': TT, 'v_sharp': TT, 'v_clean': TT, 'v_why': TT, 'v_sure': TT,
+    'v_curious': TT, 'v_hmm': TT, 'v_cost': TT, 'v_trick': TT, 'v_trap': TT,
+    'v_crafty': TT, 'v_only': TT,
+}
+
+CATEGORY = {
+    **{k: 'majestic' for k in ('lion', 'lion_long', 'eagle', 'elephant', 'bear', 'wildroar')},
+    **{k: 'comedy' for k in ('trombone', 'wilhelm', 'whistle', 'ahooga', 'haha', 'banana',
+                             'woops', 'klonk', 'rimshot', 'wolfwhistle', 'shloop', 'zip',
+                             'gulp', 'smarts', 'fall', 'scramble')},
+    **{k: 'voice' for k in ('v_magnificent', 'v_chess', 'v_legendary', 'v_onejob', 'v_ohno',
+                            'v_wow', 'v_king', 'v_win', 'v_lose', 'v_draw', 'v_awkward')},
+    **{k: 'judge' for k in ('v_nice', 'v_sharp', 'v_clean', 'v_why', 'v_sure', 'v_curious',
+                            'v_hmm', 'v_cost', 'v_trick', 'v_trap', 'v_crafty', 'v_only')},
+}
+
+
+def main() -> None:
+    lines = [
+        '/* DRAFTI sound bank — short open-license samples embedded as data URIs.',
+        '   Category c: majestic | comedy | voice | judge. Credits b: short form.',
+        '   Full license details: ATTRIBUTIONS.md in the repository. */',
+        'window.DRAFTI_SFX = {',
+    ]
+    total = 0
+    for f in sorted(AUDIO.glob('*.mp3')):
+        name = f.stem
+        data = f.read_bytes()
+        total += len(data)
+        uri = 'data:audio/mpeg;base64,' + base64.b64encode(data).decode()
+        lines.append(
+            f"  {name}: {{ c: '{CATEGORY[name]}', b: '{CREDITS[name]}', d: '{uri}' }},")
+    lines.append('};')
+    OUT.write_text('\n'.join(lines) + '\n')
+    print(f'wrote {OUT} ({OUT.stat().st_size // 1024} KB, {total // 1024} KB of mp3)')
+
+
+if __name__ == '__main__':
+    main()

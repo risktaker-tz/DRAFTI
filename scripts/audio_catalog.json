@@ -1,0 +1,1442 @@
+{
+  "achievement": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "ahhscary": {
+    "c": "party",
+    "b": "\"popular meme sound effects\" compilation - Mondal Screen (youtube.com/shorts/N1BOQ_9laWs)"
+  },
+  "ahooga": {
+    "c": "comedy",
+    "b": "Red Library (CC0)"
+  },
+  "alarm": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "animewow": {
+    "c": "party",
+    "b": "\"popular meme sound effects\" compilation - Mondal Screen (youtube.com/shorts/N1BOQ_9laWs)"
+  },
+  "badboy": {
+    "c": "party",
+    "b": "\"You Are A Bad Boy\" Naija comedy effect - Topinfo_ng (youtube.com/watch?v=PGLg01Lcw10)"
+  },
+  "badboy2": {
+    "c": "party",
+    "b": "\"You Are A Bad Boy\" Naija comedy effect - Topinfo_ng (youtube.com/watch?v=PGLg01Lcw10)"
+  },
+  "banana": {
+    "c": "comedy",
+    "b": "The Best of Warner Bros. Sound FX (CC0)"
+  },
+  "bear": {
+    "c": "majestic",
+    "b": "Red Library (CC0)"
+  },
+  "bruh": {
+    "c": "party",
+    "b": "sound 506582 by ivar.nohre, freesound.org (CC0)"
+  },
+  "chicken": {
+    "c": "party",
+    "b": "sound 830091 by MBPL, freesound.org (CC0)"
+  },
+  "clock_tick": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "clock_tock": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "coin": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "cricket": {
+    "c": "party",
+    "b": "sound 842645 by Breviceps, freesound.org (CC0)"
+  },
+  "crown_fanfare": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "downer": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "draw_chime": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "drumroll": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "duck": {
+    "c": "party",
+    "b": "sound 719115 by OwennewO, freesound.org (CC0)"
+  },
+  "dundundun": {
+    "c": "drama",
+    "b": "sound 411232 by Sean-TE0, freesound.org (CC0)"
+  },
+  "eagle": {
+    "c": "majestic",
+    "b": "sound 392212 by jjwallace, freesound.org (CC0)"
+  },
+  "elephant": {
+    "c": "majestic",
+    "b": "Red Library (CC0)"
+  },
+  "fall": {
+    "c": "comedy",
+    "b": "The Best of Warner Bros. Sound FX (CC0)"
+  },
+  "god": {
+    "c": "party",
+    "b": "\"popular meme sound effects\" compilation - Mondal Screen (youtube.com/shorts/N1BOQ_9laWs)"
+  },
+  "gong": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "gulp": {
+    "c": "comedy",
+    "b": "The Best of Warner Bros. Sound FX (CC0)"
+  },
+  "haha": {
+    "c": "comedy",
+    "b": "The Best of Warner Bros. Sound FX (CC0)"
+  },
+  "heartbeat": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "klonk": {
+    "c": "comedy",
+    "b": "The Best of Warner Bros. Sound FX (CC0)"
+  },
+  "laser": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "later_hours": {
+    "c": "party",
+    "b": "\"popular meme sound effects\" compilation - Mondal Screen (youtube.com/shorts/N1BOQ_9laWs)"
+  },
+  "later_moments": {
+    "c": "party",
+    "b": "\"popular meme sound effects\" compilation - Mondal Screen (youtube.com/shorts/N1BOQ_9laWs)"
+  },
+  "lion": {
+    "c": "majestic",
+    "b": "sound 567803 by iut_Paris8, freesound.org (CC0)"
+  },
+  "lion_long": {
+    "c": "majestic",
+    "b": "sound 469123 by Manim8, freesound.org (CC0)"
+  },
+  "lose_womp": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "meow": {
+    "c": "party",
+    "b": "sound 110011 by tuberatanka, freesound.org (CC0)"
+  },
+  "notify_pop": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "omg": {
+    "c": "party",
+    "b": "\"popular meme sound effects\" compilation - Mondal Screen (youtube.com/shorts/N1BOQ_9laWs)"
+  },
+  "oof": {
+    "c": "party",
+    "b": "\"popular meme sound effects\" compilation - Mondal Screen (youtube.com/shorts/N1BOQ_9laWs)"
+  },
+  "panic": {
+    "c": "party",
+    "b": "sound 727396 by Mastersoundboy2005, freesound.org (CC0)"
+  },
+  "pickup": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "powerup": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "purr": {
+    "c": "party",
+    "b": "sound 575933 by Buskieboy, freesound.org (CC0)"
+  },
+  "putdown": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "rimshot": {
+    "c": "comedy",
+    "b": "rimshot (public domain)"
+  },
+  "riser": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "s_american_1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_american_2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_brazilian_1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_brazilian_2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_classic_1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_classic_2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_czech_1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_czech_2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_english_1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_english_2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_french_1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_french_2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_in_american": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_in_brazilian": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_in_classic": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_in_czech": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_in_english": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_in_french": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_in_italian": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_in_kenyan": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_in_mongolian": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_in_russian": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_in_spanish": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_in_tanzanian": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_italian_1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_italian_2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_kenyan_1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_kenyan_2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_mongolian_1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_mongolian_2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_russian_1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_russian_2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_spanish_1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_spanish_2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_tanzanian_1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "s_tanzanian_2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "sadviolin": {
+    "c": "party",
+    "b": "sound 516652 by szegvari, freesound.org (CC0)"
+  },
+  "scramble": {
+    "c": "comedy",
+    "b": "Hanna-Barbera Sound FX (CC BY 3.0)"
+  },
+  "shloop": {
+    "c": "comedy",
+    "b": "The Best of Warner Bros. Sound FX (CC0)"
+  },
+  "shrimp1": {
+    "c": "party",
+    "b": "DRAFTI voiced recreation of a viral clip (originals: see ATTRIBUTIONS.md / sfx_swap)"
+  },
+  "shrimp2": {
+    "c": "party",
+    "b": "DRAFTI voiced recreation of a viral clip (originals: see ATTRIBUTIONS.md / sfx_swap)"
+  },
+  "smarts": {
+    "c": "comedy",
+    "b": "The Best of Warner Bros. Sound FX (CC0)"
+  },
+  "sparkle": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "st_air1": {
+    "c": "drama",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "st_appl1": {
+    "c": "drama",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "st_appl2": {
+    "c": "drama",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "st_coin1": {
+    "c": "drama",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "st_crowd1": {
+    "c": "drama",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "st_drum1": {
+    "c": "drama",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "st_gasp1": {
+    "c": "drama",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "st_gasp2": {
+    "c": "drama",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "st_heart1": {
+    "c": "drama",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "st_ooh1": {
+    "c": "drama",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "st_ooh2": {
+    "c": "drama",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "st_riser1": {
+    "c": "drama",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "st_tada1": {
+    "c": "drama",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "st_whis1": {
+    "c": "drama",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "streak_big": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "streak_hit": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "t1a": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "t1b": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "t1c": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "t1d": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "t1e": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "t2a": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "t2b": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "t2c": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "t2d": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "t2e": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "t3a": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "t3b": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "t3c": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "t3d": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "t4a": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "t4b": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "t4c": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "t4d": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "t5a": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "t5b": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "t5c": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "tellyou": {
+    "c": "party",
+    "b": "\"Let Me Tell You Something\" meme effect - YTSFX (youtube.com/watch?v=NkOeRRj-04k)"
+  },
+  "th_c1": {
+    "c": "think",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "th_f1": {
+    "c": "think",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "th_g1": {
+    "c": "think",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "th_g2": {
+    "c": "think",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "th_h01": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_h02": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_h03": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_h04": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_h05": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_h06": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_h07": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_h08": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_h09": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_h10": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_h11": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_h12": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_h13": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_h14": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_h15": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_h16": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_h17": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_h18": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_h19": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_h20": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_m1": {
+    "c": "think",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "th_m2": {
+    "c": "think",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "th_m3": {
+    "c": "think",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "th_m4": {
+    "c": "think",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "th_m5": {
+    "c": "think",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "th_m6": {
+    "c": "think",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "th_n01": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n01b": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n02": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n02b": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n03": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n03b": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n04": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n04b": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n05": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n05b": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n06": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n06b": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n07": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n07b": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n08": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n08b": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n09": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n09b": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n10": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n10b": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n11": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n11b": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n12": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n13": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n13b": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n14": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n14b": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n15": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n15b": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n16": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n16b": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n17": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n17b": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n18": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n19": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n20": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n21": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n22": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n23": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_n24": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "th_o1": {
+    "c": "think",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "th_o2": {
+    "c": "think",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "th_o3": {
+    "c": "think",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "th_o4": {
+    "c": "think",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "th_p1": {
+    "c": "think",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "th_p2": {
+    "c": "think",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "th_p3": {
+    "c": "think",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "th_s1": {
+    "c": "think",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "th_t1": {
+    "c": "think",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "th_t2": {
+    "c": "think",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "th_t3": {
+    "c": "think",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "th_t4": {
+    "c": "think",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "th_t5": {
+    "c": "think",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "th_t6": {
+    "c": "think",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "trombone": {
+    "c": "comedy",
+    "b": "Hanna-Barbera Sound FX (CC BY 3.0)"
+  },
+  "ui_back": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "ui_click": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "ui_close": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "ui_error": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "ui_open": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "ui_save": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "ui_slide": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "ui_theme": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "ui_toggle_off": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "ui_toggle_on": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "v_aim1": {
+    "c": "drama",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_aim2": {
+    "c": "drama",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_alltime": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_awkward": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_bait1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_bait2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_bait3": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_beatgm1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_beatgm2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_bigbrain": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_chess": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_clean": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_come1": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_come2": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_cost": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_crafty": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_curious": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_doom1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_doom2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_doom3": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_doom4": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_doom5": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_double": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_draw": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_esc1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_esc2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_feast1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_feast2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_first": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_gasp1": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_genius": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_heavy1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_heavy2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_heavy3": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_heavy4": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_hint": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_hmm": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_hold1": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_hold2": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_hurt": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_inacc1": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_inacc2": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_king": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_king1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_king2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_legendary": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_levelup1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_levelup2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_lose": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_lose2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_lose3": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_lucky1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_lucky2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_lucky3": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_lucky4": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_lucky5": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_magnificent": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_masterpiece": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_mercy": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_new": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_nextup": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_nice": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_nosense": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_ohno": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_onejob": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_only": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_ooh1": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_paidoff": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_quad": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_rampage": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_rampage2": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_retire1": {
+    "c": "voice",
+    "b": "DRAFTI voiced recreation of a viral clip (originals: see ATTRIBUTIONS.md / sfx_swap)"
+  },
+  "v_retire2": {
+    "c": "voice",
+    "b": "DRAFTI voiced recreation of a viral clip (originals: see ATTRIBUTIONS.md / sfx_swap)"
+  },
+  "v_sharp": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_slau1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_slau2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_slowsteady": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_spec1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_spec10": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_spec2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_spec3": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_spec4": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_spec5": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_spec6": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_spec7": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_spec8": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_spec9": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_streak1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_streak2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_sure": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_tad1": {
+    "c": "drama",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_tad2": {
+    "c": "drama",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_tad3": {
+    "c": "drama",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_taw1": {
+    "c": "drama",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_taw2": {
+    "c": "drama",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_taw3": {
+    "c": "drama",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_tbd1": {
+    "c": "drama",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_tbd2": {
+    "c": "drama",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_tbd3": {
+    "c": "drama",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_tbf1": {
+    "c": "drama",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_tbf2": {
+    "c": "drama",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_tbf3": {
+    "c": "drama",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_thought30": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_time": {
+    "c": "think",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_trap": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_trick": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_triple": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_tt1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_tt10": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_tt2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_tt3": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_tt4": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_tt5": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_tt6": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_tt7": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_tt8": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_tt9": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_undo": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_why": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_win": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_win2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_win3": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_worth": {
+    "c": "judge",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_wow": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_wrong1": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_wrong2": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_wrong3": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "v_wrong4": {
+    "c": "voice",
+    "b": "DRAFTI voice line (TTS)"
+  },
+  "vineboom": {
+    "c": "party",
+    "b": "sound 802074 by modusmogulus, freesound.org (CC0)"
+  },
+  "whistle": {
+    "c": "comedy",
+    "b": "The Best of Warner Bros. Sound FX (CC0)"
+  },
+  "whistle_ref": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "wildroar": {
+    "c": "majestic",
+    "b": "The Best of Warner Bros. Sound FX (CC0)"
+  },
+  "wilhelm": {
+    "c": "comedy",
+    "b": "Wilhelm scream (public domain)"
+  },
+  "win_fanfare": {
+    "c": "ui",
+    "b": "DRAFTI synthesized UI/game sound (original, no source)"
+  },
+  "wolfwhistle": {
+    "c": "comedy",
+    "b": "Red Library (CC0)"
+  },
+  "woops": {
+    "c": "comedy",
+    "b": "The Best of Warner Bros. Sound FX (CC0)"
+  },
+  "zip": {
+    "c": "comedy",
+    "b": "The Best of Warner Bros. Sound FX (CC0)"
+  }
+}

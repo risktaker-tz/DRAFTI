@@ -1,2 +1,4 @@
 # Preserve downloaded research bytes so their SHA-256 checksums survive checkout.
 scripts/flag_sources/*.svg -text
+
+scripts/historical-audio/** -text

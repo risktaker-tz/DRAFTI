@@ -19,3 +19,11 @@ android/gradle-app.setting
 *.swp
 
 scripts/tooling/node_modules/
+
+scripts/tooling/bin/
+scripts/research_media/
+**/__pycache__/
+
+scripts/tooling/pyenv/
+
+scripts/tooling/asr-models/

@@ -1,0 +1,544 @@
+{
+ "voice": [
+  {
+   "name": "awkward",
+   "spoken_s": 3.4,
+   "out_s": 3.72,
+   "kept_pct": 99.5,
+   "bytes": 26557
+  },
+  {
+   "name": "chess",
+   "spoken_s": 3.54,
+   "out_s": 3.88,
+   "kept_pct": 100.0,
+   "bytes": 27654
+  },
+  {
+   "name": "clean",
+   "spoken_s": 3.3,
+   "out_s": 3.64,
+   "kept_pct": 100.0,
+   "bytes": 26008
+  },
+  {
+   "name": "cost",
+   "spoken_s": 2.14,
+   "out_s": 2.46,
+   "kept_pct": 99.2,
+   "bytes": 17780
+  },
+  {
+   "name": "crafty",
+   "spoken_s": 3.88,
+   "out_s": 4.16,
+   "kept_pct": 98.6,
+   "bytes": 29666
+  },
+  {
+   "name": "curious",
+   "spoken_s": 1.7,
+   "out_s": 2.02,
+   "kept_pct": 99.0,
+   "bytes": 14671
+  },
+  {
+   "name": "draw",
+   "spoken_s": 1.8,
+   "out_s": 2.14,
+   "kept_pct": 100.0,
+   "bytes": 15403
+  },
+  {
+   "name": "hmm",
+   "spoken_s": 3.18,
+   "out_s": 3.52,
+   "kept_pct": 100.0,
+   "bytes": 25094
+  },
+  {
+   "name": "king",
+   "spoken_s": 1.4,
+   "out_s": 1.7,
+   "kept_pct": 97.7,
+   "bytes": 12477
+  },
+  {
+   "name": "legendary",
+   "spoken_s": 1.62,
+   "out_s": 1.96,
+   "kept_pct": 100.0,
+   "bytes": 14306
+  },
+  {
+   "name": "lose",
+   "spoken_s": 2.48,
+   "out_s": 2.8,
+   "kept_pct": 99.3,
+   "bytes": 20157
+  },
+  {
+   "name": "magnificent",
+   "spoken_s": 2.64,
+   "out_s": 2.98,
+   "kept_pct": 100.0,
+   "bytes": 21437
+  },
+  {
+   "name": "nice",
+   "spoken_s": 0.82,
+   "out_s": 1.1,
+   "kept_pct": 94.8,
+   "bytes": 8271
+  },
+  {
+   "name": "ohno",
+   "spoken_s": 3.3,
+   "out_s": 3.62,
+   "kept_pct": 99.5,
+   "bytes": 25826
+  },
+  {
+   "name": "onejob",
+   "spoken_s": 1.36,
+   "out_s": 1.7,
+   "kept_pct": 100.0,
+   "bytes": 12477
+  },
+  {
+   "name": "only",
+   "spoken_s": 4.5,
+   "out_s": 4.84,
+   "kept_pct": 100.0,
+   "bytes": 34420
+  },
+  {
+   "name": "sharp",
+   "spoken_s": 1.48,
+   "out_s": 1.82,
+   "kept_pct": 100.0,
+   "bytes": 13208
+  },
+  {
+   "name": "sure",
+   "spoken_s": 1.46,
+   "out_s": 1.78,
+   "kept_pct": 98.9,
+   "bytes": 13026
+  },
+  {
+   "name": "t1a",
+   "spoken_s": 2.7,
+   "out_s": 2.98,
+   "kept_pct": 98.0,
+   "bytes": 21437
+  },
+  {
+   "name": "t1b",
+   "spoken_s": 4.5,
+   "out_s": 4.84,
+   "kept_pct": 100.0,
+   "bytes": 34420
+  },
+  {
+   "name": "t1c",
+   "spoken_s": 2.32,
+   "out_s": 2.64,
+   "kept_pct": 99.2,
+   "bytes": 19060
+  },
+  {
+   "name": "t1d",
+   "spoken_s": 2.76,
+   "out_s": 3.1,
+   "kept_pct": 100.0,
+   "bytes": 22168
+  },
+  {
+   "name": "t2a",
+   "spoken_s": 1.52,
+   "out_s": 1.82,
+   "kept_pct": 97.8,
+   "bytes": 13208
+  },
+  {
+   "name": "t2b",
+   "spoken_s": 2.36,
+   "out_s": 2.62,
+   "kept_pct": 97.0,
+   "bytes": 18877
+  },
+  {
+   "name": "t2c",
+   "spoken_s": 1.92,
+   "out_s": 2.26,
+   "kept_pct": 100.0,
+   "bytes": 16317
+  },
+  {
+   "name": "t2d",
+   "spoken_s": 2.46,
+   "out_s": 2.8,
+   "kept_pct": 100.0,
+   "bytes": 20157
+  },
+  {
+   "name": "t3a",
+   "spoken_s": 2.2,
+   "out_s": 2.52,
+   "kept_pct": 99.2,
+   "bytes": 18146
+  },
+  {
+   "name": "t3b",
+   "spoken_s": 4.44,
+   "out_s": 4.78,
+   "kept_pct": 100.0,
+   "bytes": 33871
+  },
+  {
+   "name": "t3c",
+   "spoken_s": 1.64,
+   "out_s": 1.96,
+   "kept_pct": 99.0,
+   "bytes": 14306
+  },
+  {
+   "name": "t4a",
+   "spoken_s": 2.06,
+   "out_s": 2.4,
+   "kept_pct": 100.0,
+   "bytes": 17231
+  },
+  {
+   "name": "t4b",
+   "spoken_s": 5.86,
+   "out_s": 6.14,
+   "kept_pct": 99.0,
+   "bytes": 43563
+  },
+  {
+   "name": "t4c",
+   "spoken_s": 2.18,
+   "out_s": 2.5,
+   "kept_pct": 99.2,
+   "bytes": 17963
+  },
+  {
+   "name": "t5a",
+   "spoken_s": 1.88,
+   "out_s": 2.22,
+   "kept_pct": 100.0,
+   "bytes": 15951
+  },
+  {
+   "name": "t5b",
+   "spoken_s": 2.44,
+   "out_s": 2.78,
+   "kept_pct": 100.0,
+   "bytes": 19974
+  },
+  {
+   "name": "trap",
+   "spoken_s": 0.98,
+   "out_s": 1.3,
+   "kept_pct": 98.5,
+   "bytes": 9551
+  },
+  {
+   "name": "trick",
+   "spoken_s": 4.34,
+   "out_s": 4.68,
+   "kept_pct": 100.0,
+   "bytes": 33323
+  },
+  {
+   "name": "v_alltime",
+   "spoken_s": 3.24,
+   "out_s": 3.58,
+   "kept_pct": 100.0,
+   "bytes": 25643
+  },
+  {
+   "name": "v_bigbrain",
+   "spoken_s": 1.08,
+   "out_s": 1.4,
+   "kept_pct": 98.6,
+   "bytes": 10283
+  },
+  {
+   "name": "v_genius",
+   "spoken_s": 3.22,
+   "out_s": 3.56,
+   "kept_pct": 100.0,
+   "bytes": 25460
+  },
+  {
+   "name": "v_hint",
+   "spoken_s": 1.96,
+   "out_s": 2.28,
+   "kept_pct": 99.1,
+   "bytes": 16500
+  },
+  {
+   "name": "v_lose2",
+   "spoken_s": 2.0,
+   "out_s": 2.34,
+   "kept_pct": 100.0,
+   "bytes": 16866
+  },
+  {
+   "name": "v_lose3",
+   "spoken_s": 3.92,
+   "out_s": 4.26,
+   "kept_pct": 100.0,
+   "bytes": 30397
+  },
+  {
+   "name": "v_masterpiece",
+   "spoken_s": 2.58,
+   "out_s": 2.82,
+   "kept_pct": 96.6,
+   "bytes": 20157
+  },
+  {
+   "name": "v_new",
+   "spoken_s": 2.2,
+   "out_s": 2.54,
+   "kept_pct": 100.0,
+   "bytes": 18328
+  },
+  {
+   "name": "v_nosense",
+   "spoken_s": 3.14,
+   "out_s": 3.48,
+   "kept_pct": 100.0,
+   "bytes": 24911
+  },
+  {
+   "name": "v_paidoff",
+   "spoken_s": 2.1,
+   "out_s": 2.4,
+   "kept_pct": 98.4,
+   "bytes": 17231
+  },
+  {
+   "name": "v_rampage",
+   "spoken_s": 1.5,
+   "out_s": 1.82,
+   "kept_pct": 98.9,
+   "bytes": 13208
+  },
+  {
+   "name": "v_rampage2",
+   "spoken_s": 0.6,
+   "out_s": 0.94,
+   "kept_pct": 100.0,
+   "bytes": 6991
+  },
+  {
+   "name": "v_slowsteady",
+   "spoken_s": 2.78,
+   "out_s": 3.08,
+   "kept_pct": 98.7,
+   "bytes": 21986
+  },
+  {
+   "name": "v_thought30",
+   "spoken_s": 5.02,
+   "out_s": 5.34,
+   "kept_pct": 99.6,
+   "bytes": 37894
+  },
+  {
+   "name": "v_time",
+   "spoken_s": 0.66,
+   "out_s": 0.96,
+   "kept_pct": 96.0,
+   "bytes": 7174
+  },
+  {
+   "name": "v_undo",
+   "spoken_s": 1.08,
+   "out_s": 1.34,
+   "kept_pct": 94.4,
+   "bytes": 9917
+  },
+  {
+   "name": "v_win2",
+   "spoken_s": 2.78,
+   "out_s": 3.08,
+   "kept_pct": 98.7,
+   "bytes": 21986
+  },
+  {
+   "name": "v_win3",
+   "spoken_s": 2.36,
+   "out_s": 2.68,
+   "kept_pct": 99.3,
+   "bytes": 19243
+  },
+  {
+   "name": "v_worth",
+   "spoken_s": 3.0,
+   "out_s": 3.26,
+   "kept_pct": 97.6,
+   "bytes": 23266
+  },
+  {
+   "name": "why",
+   "spoken_s": 1.44,
+   "out_s": 1.72,
+   "kept_pct": 96.6,
+   "bytes": 12477
+  },
+  {
+   "name": "win",
+   "spoken_s": 2.1,
+   "out_s": 2.38,
+   "kept_pct": 97.5,
+   "bytes": 17231
+  },
+  {
+   "name": "wow",
+   "spoken_s": 1.36,
+   "out_s": 1.66,
+   "kept_pct": 97.6,
+   "bytes": 12111
+  }
+ ],
+ "synth": {
+  "ui_open": {
+   "bytes": 2968,
+   "out_s": 0.3
+  },
+  "ui_close": {
+   "bytes": 2550,
+   "out_s": 0.26
+  },
+  "ui_back": {
+   "bytes": 1923,
+   "out_s": 0.16
+  },
+  "ui_click": {
+   "bytes": 878,
+   "out_s": 0.04
+  },
+  "ui_toggle_on": {
+   "bytes": 3804,
+   "out_s": 0.4
+  },
+  "ui_toggle_off": {
+   "bytes": 3804,
+   "out_s": 0.4
+  },
+  "ui_save": {
+   "bytes": 6312,
+   "out_s": 0.73
+  },
+  "ui_theme": {
+   "bytes": 5058,
+   "out_s": 0.57
+  },
+  "ui_error": {
+   "bytes": 3595,
+   "out_s": 0.37
+  },
+  "ui_slide": {
+   "bytes": 2132,
+   "out_s": 0.2
+  },
+  "clock_tick": {
+   "bytes": 878,
+   "out_s": 0.03
+  },
+  "clock_tock": {
+   "bytes": 878,
+   "out_s": 0.03
+  },
+  "alarm": {
+   "bytes": 4640,
+   "out_s": 0.5
+  },
+  "whistle_ref": {
+   "bytes": 6521,
+   "out_s": 0.75
+  },
+  "notify_pop": {
+   "bytes": 1296,
+   "out_s": 0.09
+  },
+  "heartbeat": {
+   "bytes": 3386,
+   "out_s": 0.36
+  },
+  "pickup": {
+   "bytes": 1296,
+   "out_s": 0.08
+  },
+  "putdown": {
+   "bytes": 1087,
+   "out_s": 0.07
+  },
+  "crown_fanfare": {
+   "bytes": 7566,
+   "out_s": 0.88
+  },
+  "win_fanfare": {
+   "bytes": 10492,
+   "out_s": 1.24
+  },
+  "lose_womp": {
+   "bytes": 5058,
+   "out_s": 0.55
+  },
+  "draw_chime": {
+   "bytes": 6730,
+   "out_s": 0.77
+  },
+  "gong": {
+   "bytes": 19687,
+   "out_s": 2.4
+  },
+  "drumroll": {
+   "bytes": 7775,
+   "out_s": 0.9
+  },
+  "sparkle": {
+   "bytes": 4640,
+   "out_s": 0.5
+  },
+  "riser": {
+   "bytes": 8611,
+   "out_s": 1.0
+  },
+  "downer": {
+   "bytes": 5267,
+   "out_s": 0.6
+  },
+  "laser": {
+   "bytes": 1923,
+   "out_s": 0.16
+  },
+  "coin": {
+   "bytes": 3386,
+   "out_s": 0.36
+  },
+  "powerup": {
+   "bytes": 4640,
+   "out_s": 0.52
+  },
+  "achievement": {
+   "bytes": 7357,
+   "out_s": 0.85
+  },
+  "streak_hit": {
+   "bytes": 2341,
+   "out_s": 0.22
+  },
+  "streak_big": {
+   "bytes": 4640,
+   "out_s": 0.5
+  }
+ }
+}

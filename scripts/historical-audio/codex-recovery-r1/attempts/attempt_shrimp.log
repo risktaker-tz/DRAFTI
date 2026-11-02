@@ -1,0 +1,32 @@
+[debug] Command-line config: ['--no-playlist', '--verbose', '-f', 'bestaudio/best', '-o', 'shrimp.%(ext)s', 'https://youtube.com/shorts/mvUVrweNvsQ']
+[debug] Encodings: locale utf-8, fs utf-8, pref utf-8, out utf-8 (No ANSI), error utf-8 (No ANSI), screen utf-8 (No ANSI)
+[debug] yt-dlp version stable@2026.10.26 from yt-dlp/yt-dlp [c91f8de0b] (pip)
+[debug] Python 3.12.16 (CPython x86_64 64bit) - Linux-5.10.134-013.15.kangaroo.al8.x86_64-x86_64-with-glibc2.41 (OpenSSL 3.5.9 29 Sep 2026, glibc 2.41)
+[debug] exe versions: ffmpeg 7.1.5-0 (setts), ffprobe 7.1.5-0
+[debug] Optional libraries: brotli-1.2.0, certifi-2026.02.25, mutagen-1.47.0, pycrypto-3.23.0, requests-2.32.5, secretstorage-3.5.0, sqlite3-3.53.1, urllib3-2.6.3, websockets-16.0
+[debug] JS runtimes: none
+[debug] Proxy map: {}
+[debug] Request Handlers: urllib, requests, websockets
+[debug] Plugin directories: none
+[debug] Loaded 1747 extractors
+[debug] [youtube] [pot] PO Token Providers: none
+[debug] [youtube] [pot] PO Token Cache Providers: memory
+[debug] [youtube] [pot] PO Token Cache Spec Providers: webpo
+[debug] [youtube] [jsc] JS Challenge Providers: bun (unavailable), deno (unavailable), node (unavailable), quickjs (unavailable)
+[youtube] Extracting URL: https://youtube.com/shorts/mvUVrweNvsQ
+[youtube] mvUVrweNvsQ: Downloading webpage
+WARNING: [youtube] mvUVrweNvsQ: Unable to download webpage: HTTP Error 429: Too Many Requests (caused by <HTTPError 429: Too Many Requests>)
+[youtube] mvUVrweNvsQ: Downloading initial data API JSON
+WARNING: [youtube] No supported JavaScript runtime could be found. Only deno is enabled by default; to use another runtime add  --js-runtimes RUNTIME[:PATH]  to your command/config. YouTube extraction without a JS runtime has been deprecated, and some formats may be missing. See  https://github.com/yt-dlp/yt-dlp/wiki/EJS  for details on installing one
+[youtube] mvUVrweNvsQ: Downloading visionos player API JSON
+[debug] [youtube] mvUVrweNvsQ: visionos player response playability status: LOGIN_REQUIRED
+WARNING: [youtube] No title found in player responses; falling back to title from initial data. Other metadata may also be missing
+ERROR: [youtube] mvUVrweNvsQ: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+  File "/home/z/.venv/lib/python3.12/site-packages/yt_dlp/extractor/common.py", line 764, in extract
+    ie_result = self._real_extract(url)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/z/.venv/lib/python3.12/site-packages/yt_dlp/extractor/youtube/_video.py", line 4083, in _real_extract
+    self.raise_no_formats(reason, expected=True)
+  File "/home/z/.venv/lib/python3.12/site-packages/yt_dlp/extractor/common.py", line 1271, in raise_no_formats
+    raise ExtractorError(msg, expected=expected, video_id=video_id)
+
