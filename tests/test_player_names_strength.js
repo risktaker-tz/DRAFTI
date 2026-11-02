@@ -16,6 +16,7 @@ const c={LEVELS:h.api.LEVELS,LEVEL_IDS:h.api.LEVEL_IDS,settings:{diff:'l1',aivai
 vm.runInNewContext(ui.slice(ui.indexOf('  function changeDifficulty('),ui.indexOf('  function arenaPressureOpts(')),c);
 c.changeDifficulty('l9');assert.equal(c.G.diff,'l9');assert.equal(c.settings.diff,'l9');assert.equal(c.reqId,5);assert.equal(stopped,1);assert.equal(scheduled,1);assert.strictEqual(c.G.board,board,'Changing strength preserves the actual game position');
 Object.assign(c.G,{mode:'aivai',phase:'idle'});c.settings.aivaiAuto=true;c.changeDifficulty('l8');assert.equal(c.G.diffIvory,'l8');assert.equal(c.G.diffEbony,'l9');
+c.humanTurn=()=>true;c.G.phase='idle';const priorRequest=c.reqId;c.changeDifficulty('l9');assert.equal(c.reqId,priorRequest+1,'Arena presentation delay replaces pending old-strength search even on the default human-side seat');
 c.G.phase='animating';const before=c.reqId;c.changeDifficulty('l10');assert.equal(c.reqId,before,'An active capture animation is not interrupted');
 c.changeDifficulty('not-a-level');assert.equal(c.settings.diff,'l10','Invalid rungs cannot corrupt settings');
 assert(updated>=3);

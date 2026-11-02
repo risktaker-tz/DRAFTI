@@ -17,8 +17,9 @@ const elements = {}, el=id=>elements[id]||(elements[id]={classList:{toggle(){}},
 Object.assign(c, {$:el, document:{body:{classList:{toggle(){}}}},IVORY:1,EBONY:-1,hintPending:false,
   displayName:s=>s===1?'Tanzania':'Kenya', sideDot:()=> 'ivory', arena:{season:3,bouts:8},
   SEASON_LEN:12,SEASON_STAGES:[{name:'Semi-finals'}],stageOfBout:()=>0,ord:n=>n+'th',
-  G:{mode:'aivai',side:1,phase:'idle',over:false,pairMeets:4,rs:{name:'Canadian'}}});
+  G:{mode:'aivai',side:1,phase:'idle',over:false,pairMeets:4,rs:{name:'Canadian'},board:[],history:[],legal:[]}});
 c.FX=c.fx;
+vm.runInContext(ui.slice(ui.indexOf('  function lowMaterialLimit('),ui.indexOf('  function checkGameEnd(')),c);
 vm.runInContext(ui.slice(ui.indexOf('  function updateBanner()'),ui.indexOf('  function sideDot()'))+'this.render=updateBanner;',c);
 c.render();assert.equal(el('bannerIvory').textContent,'Tanzania');assert.equal(el('bannerEbony').textContent,'Kenya');
 assert.equal(el('bannerContext').textContent,'Semi-finals');assert.equal(el('bannerDetail').textContent,'Bout 9/12 · 4th meeting');

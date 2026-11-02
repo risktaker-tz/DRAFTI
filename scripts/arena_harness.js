@@ -3,12 +3,12 @@
 // their rules. The DOM, sound and persistence boundaries are harmless stubs.
 const fs=require('fs'),path=require('path'),vm=require('vm');
 const ui=fs.readFileSync(path.join(__dirname,'../src/ui.js'),'utf8');
-function createHarness(seed=0xD4AF71){
+function createHarness(seed=0xD4AF71,savedSettings={}){
   let rng=seed>>>0;
   const math=Object.create(Math);math.random=()=>{rng=(Math.imul(rng,1664525)+1013904223)>>>0;return rng/4294967296;};
   const saves={};
   const context={IVORY:1,EBONY:-1,Math:math,
-    settings:{arenaRounds:1,aivaiAuto:true},G:{mode:'aivai'},
+    settings:Object.assign({arenaRounds:1,aivaiAuto:true},savedSettings),G:{mode:'aivai'},
     loadJSON:(_key,fallback)=>fallback,saveJSON:(key,value)=>{saves[key]=JSON.parse(JSON.stringify(value));},
     setTimeout:()=>0,SFX_BANK:{play(){}},console};
   vm.createContext(context);

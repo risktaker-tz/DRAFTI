@@ -966,10 +966,20 @@
   ];
   if (!THEMES.some((t) => t.id === settings.theme)) settings.theme = 'neon';
 
+  function billboardPalette(theme) {
+    const parts = theme['--panel'].match(/[\d.]+/g);
+    const bg = rgbHex(+parts[0], +parts[1], +parts[2]);
+    const contrast = (a, b) => (Math.max(lumaC(a), lumaC(b)) + .05) / (Math.min(lumaC(a), lumaC(b)) + .05);
+    const fallback = contrast('#ffffff', bg) >= contrast('#000000', bg) ? '#ffffff' : '#000000';
+    const readable = c => /^#[\da-f]{6}$/i.test(c) && contrast(c, bg) >= 4.5 ? c : fallback;
+    return { '--billboard-bg': bg, '--billboard-ink': readable(theme['--ink']),
+      '--billboard-dim': readable(theme['--ink-dim']), '--billboard-accent': readable(theme['--accent']) };
+  }
   function applyTheme(id) {
     const t = THEMES.find((x) => x.id === id) || THEMES[0];
     const root = document.documentElement.style;
     for (const [k, v] of Object.entries(t.v)) root.setProperty(k, v);
+    for (const [k, v] of Object.entries(billboardPalette(t.v))) root.setProperty(k, v);
     document.body.classList.toggle('fx-scan', t.fx === 'scan');
     document.body.classList.toggle('fx-glass', t.fx === 'glass');
     document.body.classList.toggle('fx-wood', t.fx === 'wood');
@@ -1436,7 +1446,8 @@
       G.diffIvory = levelId; G.diffEbony = levelId;
     }
     saveJSON(SETTINGS_KEY, settings);
-    if (!G.over && (G.phase === 'thinking' || G.phase === 'idle' && !humanTurn())) {
+    if (!G.over && (G.phase === 'thinking' || G.phase === 'idle' &&
+      (G.mode === 'aivai' || G.mode === 'ai' && G.side !== G.humanSide))) {
       reqId++; aiPending = false; hintPending = false;
       if (worker) { worker.terminate(); worker = null; }
       G.phase = 'idle'; FX.thinkStop();
@@ -1758,10 +1769,33 @@
     else { G.sel.cands = next; FX.play('select'); renderHighlights(); }
   }
 
-  boardEl.addEventListener('pointerdown', (e) => {
-    const sq = e.target.closest('.sq');
-    if (sq) onSquareClick(+sq.dataset.i);
-  });
+  function installBoardGestures(element, onTap) {
+    let gesture = null;
+    const cancel = () => { gesture = null; };
+    element.addEventListener('pointerdown', event => {
+      // A second finger is a zoom/gesture, never a move command.
+      if (event.isPrimary === false || event.button !== 0) { cancel(); return; }
+      const square = event.target.closest('.sq');
+      if (!square || !element.contains(square)) return;
+      gesture = { pointer: event.pointerId, square: +square.dataset.i, x: event.clientX, y: event.clientY };
+      if (element.setPointerCapture) element.setPointerCapture(event.pointerId);
+    });
+    element.addEventListener('pointermove', event => {
+      if (gesture && event.pointerId === gesture.pointer &&
+          Math.hypot(event.clientX - gesture.x, event.clientY - gesture.y) > 10) cancel();
+    });
+    element.addEventListener('pointerup', event => {
+      const tap = gesture; cancel();
+      if (!tap || event.pointerId !== tap.pointer ||
+          Math.hypot(event.clientX - tap.x, event.clientY - tap.y) > 10) return;
+      const square = document.elementFromPoint(event.clientX, event.clientY)?.closest('.sq');
+      if (square && element.contains(square) && +square.dataset.i === tap.square) onTap(tap.square);
+    });
+    element.addEventListener('pointercancel', cancel);
+    element.addEventListener('lostpointercapture', cancel);
+    return cancel;
+  }
+  installBoardGestures(boardEl, onSquareClick);
 
   // ---------------- move classification & sound events ----------------
   // Every move gets a headline event. Fast signals run at commit time; a
@@ -2420,6 +2454,25 @@
     return G.history.length;
   }
 
+  function lowMaterialLimit(board) {
+    let a = 0, b = 0, ak = false, bk = false;
+    for (const p of board) { if (p > 0) { a++; ak ||= p === 2; } else if (p < 0) { b++; bk ||= p === -2; } }
+    if (!a || !b) return 0;
+    if (a <= 2 && b <= 2) return 2;
+    return a <= 3 && b <= 3 && ak && bk ? 10 : 0;
+  }
+  function lowMaterialCountdown(board, history, legal) {
+    const limit = lowMaterialLimit(board);
+    if (!limit) return null;
+    let elapsed = 0;
+    for (let i = history.length - 1; i >= 0; i--) {
+      const h = history[i];
+      if (h.move.caps.length || h.move.promotes || lowMaterialLimit(h.boardBefore) !== limit) break;
+      elapsed++;
+    }
+    const scoringNext = legal.some(m => m.caps.length || m.promotes);
+    return { limit, remaining: Math.max(0, limit - elapsed), scoringNext };
+  }
   function checkGameEnd() {
     const opp = G.side;
     if (!G.legal.length) {
@@ -2432,6 +2485,10 @@
         : 'Forty moves per side without a capture or man move.');
     } else if ((G.repMap.get(posKey(G.board, G.side)) || 0) >= 3) {
       setOver(null, 'The same position occurred three times.');
+    } else {
+      const countdown = lowMaterialCountdown(G.board, G.history, G.legal);
+      if (countdown && countdown.remaining === 0 && !countdown.scoringNext)
+        setOver(null, 'Low-material draw after ' + countdown.limit + ' moves without a capture or crowning.');
     }
   }
 
@@ -2530,7 +2587,7 @@
   // bouts stay even). When the whole world has appeared and the reigning
   // champion wins again, the crowd calls for the retirement ceremony:
   // "How can you allow the one with that skill to retire?!"
-  let manualRetire = false;
+  let manualRetire = !!settings.retireEvents;
   // honored exit: the champion leaves the board to applause; the next name
   // takes the crown; a finished ladder reshuffles the queue
   function retireChampionHonors() {
@@ -2548,7 +2605,6 @@
   function applyArenaResult(winnerSide) { // IVORY / EBONY / 0 = draw
     const champId = arena.champion, challId = G.seatIvory === champId ? G.seatEbony : G.seatIvory;
     const manual = manualRetire;
-    manualRetire = false;
     const winnerId = winnerSide === IVORY ? G.seatIvory : winnerSide === EBONY ? G.seatEbony : null;
     const seats = champId === challId ? [champId] : [champId, challId];
     for (const id of seats) {
@@ -2922,9 +2978,11 @@
     const context = tournament
       ? SEASON_STAGES[stageOfBout(arena.bouts)].name
       : G.mode === 'aivai' ? 'AI vs AI' : G.mode === 'ai' ? 'Vs Computer' : 'Two players';
-    const detail = tournament
+    let detail = tournament
       ? 'Bout ' + (arena.bouts + 1) + '/' + SEASON_LEN + (G.pairMeets >= 2 ? ' · ' + ord(G.pairMeets) + ' meeting' : '')
       : G.rs.name;
+    const ending = lowMaterialCountdown(G.board, G.history, G.legal);
+    if (ending && !G.over) detail = ending.scoringNext ? 'Draw countdown · scoring chance' : 'Draw in ' + ending.remaining + ' moves';
     $('bannerContext').textContent = context; $('bannerContext').title = context;
     $('bannerDetail').textContent = detail; $('bannerDetail').title = detail;
     const engineThinking = G.phase === 'thinking' && !G.over;
@@ -3091,6 +3149,8 @@
     $('aivaiBar').hidden = settings.mode !== 'aivai';
     $('btnRetire').disabled = !(G.mode === 'aivai' && settings.aivaiAuto);
     $('btnRetire').classList.toggle('active', manualRetire);
+    $('btnRetire').setAttribute('aria-pressed', String(manualRetire));
+    $('btnRetire').textContent = manualRetire ? '🎖 Retirement on' : '🎖 Retirement off';
     $('qaBar').style.display = settings.mode === 'aivai' ? 'none' : '';
     $('qaHint').disabled = $('btnHint').disabled;
     $('qaUndo').disabled = $('btnUndo').disabled;
@@ -3198,17 +3258,12 @@
 
   $('btnRetire').addEventListener('click', () => {
     if (!arenaOn()) return;
-    if (G.over) {
-      // between bouts: retire the champion right now, then a fresh bout
-      showCeremony(arena.champion).then(() => {
-        retireChampionHonors();
-        startNewGameWithFanfare();
-      });
-      return;
-    }
-    manualRetire = true;
+    manualRetire = !manualRetire;
+    settings.retireEvents = manualRetire;
+    saveJSON(SETTINGS_KEY, settings);
+    updateControls();
     SFX_BANK.play('notify_pop');
-    flashWhisper(rosterById(arena.champion).name + ' will retire after this game — with full honors.');
+    flashWhisper(manualRetire ? 'Retirement announcements stay on for qualifying results until switched off.' : 'Automatic retirement announcements switched off.');
   });
 
   // player names: live edits, tidied on commit

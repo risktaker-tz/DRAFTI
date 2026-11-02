@@ -22,7 +22,7 @@ shaming, a heavy-hit voice and a board jolt — with your name in the banner:
 - **Five international rulesets**
   - *American Checkers* (English draughts, 8×8) — dark side opens, men capture
     forward only, kings step one square, crowning a man ends the move.
-  - *Brazilian Draughts* (8×8) — international rules on the smaller board.
+  - *International 8×8 · Brazilian Draughts* — international rules on the smaller board, retaining the existing Brazilian rules and saved selection.
   - *Russian Draughts* (Shashki, 8×8) — captures are mandatory but there is no
     majority rule, and a man crowned mid-capture **continues the same move as
     a flying king**.
@@ -111,7 +111,7 @@ shaming, a heavy-hit voice and a board jolt — with your name in the banner:
   Hologlass, Cyber Jade, Synthwave, Vapor Dreams, Solar Storm, Deep Space,
   and the glassy neon-lit **Neon Glass**), the light Quantum Ice and Marble
   Lux, a CRT scanline Retro Arcade, the classics (Midnight Club, Walnut
-  Classic, stark Ivory & Ebony, Sakura), the ultra-realistic **Walnut
+  Classic, stark Porcelain & Obsidian, Sakura), the ultra-realistic **Walnut
   Royale** (maple and walnut squares with visible wood grain and
   turned-wood pieces) — and four tables replicated from the real equipment:
   **Tournament Green** (the official green & buff competition board with a
@@ -124,7 +124,7 @@ shaming, a heavy-hit voice and a board jolt — with your name in the banner:
   whole page. Your picks are remembered.
 - **8 piece sets, changeable any time** — the men are no longer tied to the
   table: **Tournament Red** (smooth white & red resin, the official ACF
-  set), **Turned Wood** (lathe rings on maple & walnut), **Ivory & Jet**
+  set), **Turned Wood** (lathe rings on maple & walnut), **Porcelain & Jet**
   (carved bone against polished jet), **Amber Bakelite** (butterscotch
   swirl against cherry), **Steel & Brass** (machined metal), **Neon Glass**
   (translucent glowing discs) and **Marble Stone** (veined black on white),
@@ -407,3 +407,13 @@ Both build tools now emit portable LF line endings. `node tests/test_build_repro
 Player-side labels now read Uhakika and Usiogope throughout the controls, status, setup notes and nation selectors. Existing custom player names and nation names remain; only the shipped UHAKIKA/Challenger defaults migrate to Uhakika/Usiogope. The same monochrome board and pale piece set retain their saved identifiers, now described as Porcelain & Obsidian and Porcelain & Jet.
 
 The strength selector is available in AI vs AI as well as computer mode. Its rung is the common starting strength for every nation, then experience and seasons raise earned strength to the shared level-10 ceiling. Changing strength updates the actual active engines immediately, replacing an older pending search without changing the board or interrupting a capture animation. Previously the selector updated settings while the running match could keep its older difficulty. `node tests/test_player_names_strength.js` verifies default migration, custom-name preservation, equal national baselines, growth and replacement of an in-flight search. Persistent mistake learning and separate local-player league profiles remain work in progress; they are not claimed as complete by these strength fixes.
+
+The playing screen now uses the short DRAFTI brand without the tagline or footer notice. About/license text is collapsed behind a small accessible ? at the very bottom of the menu. The board, billboard, capture trays and move ticker share one responsive width: the smallest of viewport width minus 16 px, 76% of stable viewport height and 780 px, compared with the previous 94%/70%/660 px cap. Reduced outer spacing gives the board more room while preserving every control and game feature. The installed app is also named simply DRAFTI.
+
+Mobile board input now commits on pointer release after a genuine tap. Movement beyond 10 CSS pixels, including a swipe that returns to its starting point, cancels the pending input. Multi-touch, native pan/pinch cancellation, lost pointer capture and releases onto another square also cancel it. The page blocks sideways overscroll while the board allows vertical panning and pinch zoom. Tests are in `tests/test_board_gestures.js`; mouse clicks and final-square captures use the same guarded input path.
+
+Horizontal stability is enforced through page overflow and board-only gesture handling. The game does not install an edge-swipe/back/exit interceptor or prevent default gestures globally; device/system navigation remains outside game input handling.
+
+Owner-requested quick endgames apply in every mode: at most two pieces per player starts a two-turn countdown; at most three per player with a king on each side starts a ten-turn countdown. One move means one player's complete turn, including an entire capture sequence. A capture or crowning restarts the count, and a capture/crowning available on the next turn postpones the draw. Wins and the existing repetition/inactivity rules retain priority. The billboard shows the countdown. This is a DRAFTI house rule, not a change to official engine move generation.
+
+The retirement button is now a remembered on/off control: qualifying reigning champions receive the ceremony until it is disabled. Challenger victories do not retire the defeated champion as a winner. Billboard text uses opaque theme-matched panels with at least 4.5:1 contrast for primary, secondary and accent text across all 21 palettes. `node tests/test_endgame_billboard_retirement.js` verifies the countdown boundaries, scoring protection, successive retirements, toggle persistence and palette contrast.

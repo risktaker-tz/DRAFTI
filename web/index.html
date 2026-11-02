@@ -7,7 +7,7 @@
 <link rel="apple-touch-icon" href="./icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#7c4a24">
-<title>DRAFTI — Checkers, refined</title>
+<title>DRAFTI</title>
 <meta name="description" content="DRAFTI is an original open-source checkers game: five international rulesets, ten AI levels from Beginner to The Machine, twelve national playing styles, and an AI-vs-AI world arena of 194 national teams — Tanzania hosts, Kenya challenges first, then East Africa, all of Africa and every continent — with seasons, winner-stays rotation, experience-based skill, retirement ceremonies and human-like pacing, plus two-player mode, 21 themes, 8 piece sets and 330+ reactive sounds, in a single HTML file.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%237c4a24'/%3E%3Crect x='2' y='2' width='13' height='13' fill='%23e9d5a7'/%3E%3Crect x='17' y='17' width='13' height='13' fill='%23e9d5a7'/%3E%3Ccircle cx='22' cy='10' r='4.5' fill='%23191009'/%3E%3Ccircle cx='9' cy='24' r='4.5' fill='%23ecdcb4'/%3E%3C/svg%3E">
 <style>
@@ -64,7 +64,9 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; }
+html, body { height: 100%; width: 100%; }
+html { overflow-x: hidden; }
+@supports (overflow-x: clip) { html, html body { overflow-x: clip; } }
 body {
   font-family: var(--sans);
   color: var(--ink);
@@ -117,36 +119,37 @@ body.fx-scan::after {
   -webkit-background-clip: text; background-clip: text; color: transparent;
   filter: drop-shadow(0 0 12px var(--accent-soft));
 }
-.brand-tag { font-size: 12.5px; color: var(--ink-dim); letter-spacing: .1em; }
 .topbar-right { display: flex; align-items: center; gap: 10px; }
 
 /* ---------- layout: the game owns the page; settings live in the drawer ---- */
 .layout {
+  --board-span: min(calc(100vw - 16px), 76vh, 780px);
   flex: 1; width: 100%; max-width: 980px; margin: 0 auto;
   display: flex; justify-content: center;
-  padding: 18px 22px 26px; align-items: flex-start;
+  padding: 14px 12px 18px; align-items: flex-start;
 }
-.stage { display: flex; flex-direction: column; align-items: center; gap: 13px; min-width: 0; width: 100%; }
+@supports (height: 100svh) { .layout { --board-span: min(calc(100vw - 16px), 76svh, 780px); } }
+.stage { display: flex; flex-direction: column; align-items: center; gap: 12px; min-width: 0; width: 100%; }
 
 /* ---------- turn banner ---------- */
 .banner {
   display: grid; grid-template-columns: 1fr 1.35fr 1fr;
-  font-size: 13px; letter-spacing: .01em; color: var(--ink);
-  background: linear-gradient(120deg, var(--accent-weak), transparent 55%), var(--panel-opaque);
+  font-size: 13px; letter-spacing: .01em; color: var(--billboard-ink, var(--ink));
+  background: var(--billboard-bg, #0d1626);
   border: 1px solid var(--panel-line); border-top: 2px solid var(--accent-soft);
   padding: 0; border-radius: 12px;
-  min-height: 88px; width: min(94vw, 70vh, 660px);
+  min-height: 88px; width: var(--board-span);
   box-shadow: 0 4px 18px rgba(0, 0, 0, .35), 0 0 22px var(--accent-weak);
 }
 .billboard-cell { min-width: 0; padding: 12px; display: flex; flex-direction: column; justify-content: center; gap: 7px; }
 .billboard-cell + .billboard-cell { border-left: 1px solid var(--panel-line); }
-.billboard-label { font-size: 9px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-dim); }
+.billboard-label { font-size: 9px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--billboard-dim, var(--ink-dim)); }
 .billboard-turn { display: flex; align-items: center; gap: 7px; min-width: 0; }
 .billboard-versus { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 7px; font-weight: 700; }
 .billboard-versus > span:not(.billboard-vs), #bannerContext, .billboard-detail { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
 #bannerEbony { text-align: right; }
-.billboard-vs { color: var(--accent); font-size: 9px; letter-spacing: .1em; }
-.billboard-detail { color: var(--ink-dim); font-size: 10px; }
+.billboard-vs { color: var(--billboard-accent, var(--accent)); font-size: 9px; letter-spacing: .1em; }
+.billboard-detail { color: var(--billboard-dim, var(--ink-dim)); font-size: 10px; }
 .billboard-status { position: relative; padding-bottom: 28px; }
 #banner .clock-pill { position: absolute; bottom: 7px; left: 12px; margin: 0; font-size: 10px; padding: 1px 6px; }
 #bannerText {
@@ -163,7 +166,9 @@ body.fx-scan::after {
 
 /* ---------- board ---------- */
 .board-frame {
-  position: relative; width: min(94vw, 70vh, 660px); aspect-ratio: 1;
+  touch-action: pan-y pinch-zoom;
+  -webkit-user-select: none; user-select: none; -webkit-touch-callout: none;
+  position: relative; width: var(--board-span); aspect-ratio: 1;
   border-radius: 18px; padding: 16px;
   background: linear-gradient(150deg, var(--frame-hi), var(--frame) 55%, var(--frame-lo));
   border: 1px solid var(--panel-line);
@@ -300,7 +305,7 @@ body.fx-scan::after {
 #btnHV, #btnAmbient { width: 100%; margin-top: 10px; }
 
 /* ---------- captured trays ---------- */
-.trays { display: flex; gap: 14px; width: min(94vw, 70vh, 660px); justify-content: space-between; }
+.trays { display: flex; gap: 14px; width: var(--board-span); justify-content: space-between; }
 .tray {
   display: flex; align-items: center; gap: 8px;
   background: var(--panel-opaque); border: 1px solid var(--panel-line);
@@ -476,13 +481,6 @@ body.think-b .piece.ebony .body { animation: thinkBreath 1.7s ease-in-out infini
 .modal th { color: var(--accent); font-weight: 600; font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; }
 .modal td:first-child, .modal th:first-child { text-align: left; }
 .modal .big-result { font-size: 15px; color: var(--ink); margin-bottom: 4px; }
-
-/* ---------- footer ---------- */
-footer {
-  text-align: center; padding: 12px 20px 20px; font-size: 11.5px; color: var(--ink-dim);
-  letter-spacing: .05em; opacity: .75;
-}
-footer a { color: var(--accent-soft); text-decoration: none; }
 
 /* board flip: counter-rotate piece bodies and square numbers so they stay upright */
 .flip .piece .body { transform: rotate(180deg); }
@@ -729,7 +727,7 @@ body.hv .piece.ebony .body {
 
 /* ---------- move ticker under the board ---------- */
 .ticker {
-  width: min(94vw, 70vh, 660px);
+  width: var(--board-span);
   display: flex; align-items: center; gap: 4px; overflow: hidden;
   background: var(--panel-opaque); border: 1px solid var(--panel-line);
   border-radius: 10px; padding: 7px 12px; height: 34px;
@@ -821,7 +819,6 @@ body.hv .piece.ebony .body {
 
 @media (max-width: 560px) {
   .drawer { width: 100vw; }
-  .brand-tag { display: none; }
   /* phones: no giant blurred layer, no frost anywhere — crisp and fast */
   body::before { filter: none; opacity: .5; }
   .banner { font-size: 11px; grid-template-columns: 1fr 1.15fr; min-height: 118px; }
@@ -1045,6 +1042,10 @@ body.pieces-stone .piece.ebony .body {
 .arena-progress th, .arena-progress td { padding: 8px; text-align: right; border-bottom: 1px solid var(--panel-line); }
 .arena-progress th:first-child, .arena-progress td:first-child { text-align: left; }
 .arena-progress th { font-size: 10px; color: var(--ink-dim); }
+.about-game { margin-top: 16px; }
+.about-game summary { display: grid; place-items: center; width: 32px; height: 32px; list-style: none; border: 1px solid var(--panel-line); border-radius: 50%; color: var(--ink-dim); cursor: pointer; font-weight: 700; }
+.about-game summary::-webkit-details-marker { display: none; }
+.about-game summary:hover, .about-game summary:focus-visible { color: var(--accent); border-color: var(--accent); }
 .presentation-options label { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 .presentation-options select { max-width: 100%; padding: 8px; color: var(--ink); background: var(--panel); border: 1px solid var(--panel-line); border-radius: 8px; }
 body.stream-view .banner { font-size: clamp(13px, 1.5vw, 18px); }
@@ -1061,7 +1062,6 @@ body.stream-view .ticker { font-size: 16px; }
   <div class="brand">
     <svg class="brand-logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#7c4a24"/><rect x="2" y="2" width="13" height="13" fill="#e9d5a7"/><rect x="17" y="17" width="13" height="13" fill="#e9d5a7"/><circle cx="22" cy="10" r="4.5" fill="#191009"/><circle cx="9" cy="24" r="4.5" fill="#ecdcb4"/></svg>
     <span class="brand-name">DRAFTI</span>
-    <span class="brand-tag">checkers, refined</span>
   </div>
   <div class="topbar-right">
     <button class="btn icon-btn" id="btnSound" title="Toggle sound" aria-label="Toggle sound"></button>
@@ -1117,7 +1117,7 @@ body.stream-view .ticker { font-size: 16px; }
         <button data-v="4">4×</button>
       </div>
       <span class="auto-next" id="autoNext" hidden></span>
-      <button class="btn" id="btnRetire" title="Retire the reigning champion after this game — with full honors and the ceremony they deserve">🎖 Retire</button>
+      <button class="btn" id="btnRetire" aria-pressed="false" title="Keep retirement announcements enabled for qualifying results; click again to switch off">🎖 Retirement off</button>
       <button class="btn" id="btnAivaiNew">
         <svg viewBox="0 0 24 24"><path d="M12 5V2L7 6l5 4V7a6 6 0 1 1-6 6H4a8 8 0 1 0 8-8z"/></svg>
         Restart</button>
@@ -1143,7 +1143,7 @@ body.stream-view .ticker { font-size: 16px; }
           <span class="seg-label">Rules</span>
           <div class="seg-btns wrap-seg" id="segRules">
             <button data-v="american">American 8×8</button>
-            <button data-v="brazilian">Brazilian 8×8</button>
+            <button data-v="brazilian" title="International rules on an 8×8 board, also called Brazilian draughts">International 8×8 · Brazilian</button>
             <button data-v="russian">Russian 8×8</button>
             <button data-v="international">International 10×10</button>
             <button data-v="canadian">Canadian 12×12</button>
@@ -1350,7 +1350,7 @@ body.stream-view .ticker { font-size: 16px; }
       <ol class="history" id="history"></ol>
     </div>
 
-    <p class="drawer-foot-note">Settings apply instantly. Everything stays on this device — no accounts, no trackers.</p>
+    <details class="about-game"><summary aria-label="About DRAFTI and licenses" title="About DRAFTI">?</summary><p class="setup-note">DRAFTI is an original open-source implementation of public-domain checkers. MIT license. No trackers or accounts; plays offline. Settings stay on this device. Sound credits are documented in ATTRIBUTIONS.md.</p></details>
   </div>
 
   <div class="drawer-foot">
@@ -1388,10 +1388,6 @@ body.stream-view .ticker { font-size: 16px; }
     </div>
   </div>
 </div>
-
-<footer>
-  DRAFTI — an original, open-source implementation of the public-domain game of checkers · MIT license · no trackers, no accounts, plays offline
-</footer>
 
 <script>
 /* DRAFTI embedded sound bank. Full sources and licenses: ATTRIBUTIONS.md. */
@@ -2818,10 +2814,20 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
   ];
   if (!THEMES.some((t) => t.id === settings.theme)) settings.theme = 'neon';
 
+  function billboardPalette(theme) {
+    const parts = theme['--panel'].match(/[\d.]+/g);
+    const bg = rgbHex(+parts[0], +parts[1], +parts[2]);
+    const contrast = (a, b) => (Math.max(lumaC(a), lumaC(b)) + .05) / (Math.min(lumaC(a), lumaC(b)) + .05);
+    const fallback = contrast('#ffffff', bg) >= contrast('#000000', bg) ? '#ffffff' : '#000000';
+    const readable = c => /^#[\da-f]{6}$/i.test(c) && contrast(c, bg) >= 4.5 ? c : fallback;
+    return { '--billboard-bg': bg, '--billboard-ink': readable(theme['--ink']),
+      '--billboard-dim': readable(theme['--ink-dim']), '--billboard-accent': readable(theme['--accent']) };
+  }
   function applyTheme(id) {
     const t = THEMES.find((x) => x.id === id) || THEMES[0];
     const root = document.documentElement.style;
     for (const [k, v] of Object.entries(t.v)) root.setProperty(k, v);
+    for (const [k, v] of Object.entries(billboardPalette(t.v))) root.setProperty(k, v);
     document.body.classList.toggle('fx-scan', t.fx === 'scan');
     document.body.classList.toggle('fx-glass', t.fx === 'glass');
     document.body.classList.toggle('fx-wood', t.fx === 'wood');
@@ -3288,7 +3294,8 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
       G.diffIvory = levelId; G.diffEbony = levelId;
     }
     saveJSON(SETTINGS_KEY, settings);
-    if (!G.over && (G.phase === 'thinking' || G.phase === 'idle' && !humanTurn())) {
+    if (!G.over && (G.phase === 'thinking' || G.phase === 'idle' &&
+      (G.mode === 'aivai' || G.mode === 'ai' && G.side !== G.humanSide))) {
       reqId++; aiPending = false; hintPending = false;
       if (worker) { worker.terminate(); worker = null; }
       G.phase = 'idle'; FX.thinkStop();
@@ -3610,10 +3617,33 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
     else { G.sel.cands = next; FX.play('select'); renderHighlights(); }
   }
 
-  boardEl.addEventListener('pointerdown', (e) => {
-    const sq = e.target.closest('.sq');
-    if (sq) onSquareClick(+sq.dataset.i);
-  });
+  function installBoardGestures(element, onTap) {
+    let gesture = null;
+    const cancel = () => { gesture = null; };
+    element.addEventListener('pointerdown', event => {
+      // A second finger is a zoom/gesture, never a move command.
+      if (event.isPrimary === false || event.button !== 0) { cancel(); return; }
+      const square = event.target.closest('.sq');
+      if (!square || !element.contains(square)) return;
+      gesture = { pointer: event.pointerId, square: +square.dataset.i, x: event.clientX, y: event.clientY };
+      if (element.setPointerCapture) element.setPointerCapture(event.pointerId);
+    });
+    element.addEventListener('pointermove', event => {
+      if (gesture && event.pointerId === gesture.pointer &&
+          Math.hypot(event.clientX - gesture.x, event.clientY - gesture.y) > 10) cancel();
+    });
+    element.addEventListener('pointerup', event => {
+      const tap = gesture; cancel();
+      if (!tap || event.pointerId !== tap.pointer ||
+          Math.hypot(event.clientX - tap.x, event.clientY - tap.y) > 10) return;
+      const square = document.elementFromPoint(event.clientX, event.clientY)?.closest('.sq');
+      if (square && element.contains(square) && +square.dataset.i === tap.square) onTap(tap.square);
+    });
+    element.addEventListener('pointercancel', cancel);
+    element.addEventListener('lostpointercapture', cancel);
+    return cancel;
+  }
+  installBoardGestures(boardEl, onSquareClick);
 
   // ---------------- move classification & sound events ----------------
   // Every move gets a headline event. Fast signals run at commit time; a
@@ -4272,6 +4302,25 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
     return G.history.length;
   }
 
+  function lowMaterialLimit(board) {
+    let a = 0, b = 0, ak = false, bk = false;
+    for (const p of board) { if (p > 0) { a++; ak ||= p === 2; } else if (p < 0) { b++; bk ||= p === -2; } }
+    if (!a || !b) return 0;
+    if (a <= 2 && b <= 2) return 2;
+    return a <= 3 && b <= 3 && ak && bk ? 10 : 0;
+  }
+  function lowMaterialCountdown(board, history, legal) {
+    const limit = lowMaterialLimit(board);
+    if (!limit) return null;
+    let elapsed = 0;
+    for (let i = history.length - 1; i >= 0; i--) {
+      const h = history[i];
+      if (h.move.caps.length || h.move.promotes || lowMaterialLimit(h.boardBefore) !== limit) break;
+      elapsed++;
+    }
+    const scoringNext = legal.some(m => m.caps.length || m.promotes);
+    return { limit, remaining: Math.max(0, limit - elapsed), scoringNext };
+  }
   function checkGameEnd() {
     const opp = G.side;
     if (!G.legal.length) {
@@ -4284,6 +4333,10 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
         : 'Forty moves per side without a capture or man move.');
     } else if ((G.repMap.get(posKey(G.board, G.side)) || 0) >= 3) {
       setOver(null, 'The same position occurred three times.');
+    } else {
+      const countdown = lowMaterialCountdown(G.board, G.history, G.legal);
+      if (countdown && countdown.remaining === 0 && !countdown.scoringNext)
+        setOver(null, 'Low-material draw after ' + countdown.limit + ' moves without a capture or crowning.');
     }
   }
 
@@ -4382,7 +4435,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
   // bouts stay even). When the whole world has appeared and the reigning
   // champion wins again, the crowd calls for the retirement ceremony:
   // "How can you allow the one with that skill to retire?!"
-  let manualRetire = false;
+  let manualRetire = !!settings.retireEvents;
   // honored exit: the champion leaves the board to applause; the next name
   // takes the crown; a finished ladder reshuffles the queue
   function retireChampionHonors() {
@@ -4400,7 +4453,6 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
   function applyArenaResult(winnerSide) { // IVORY / EBONY / 0 = draw
     const champId = arena.champion, challId = G.seatIvory === champId ? G.seatEbony : G.seatIvory;
     const manual = manualRetire;
-    manualRetire = false;
     const winnerId = winnerSide === IVORY ? G.seatIvory : winnerSide === EBONY ? G.seatEbony : null;
     const seats = champId === challId ? [champId] : [champId, challId];
     for (const id of seats) {
@@ -4774,9 +4826,11 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
     const context = tournament
       ? SEASON_STAGES[stageOfBout(arena.bouts)].name
       : G.mode === 'aivai' ? 'AI vs AI' : G.mode === 'ai' ? 'Vs Computer' : 'Two players';
-    const detail = tournament
+    let detail = tournament
       ? 'Bout ' + (arena.bouts + 1) + '/' + SEASON_LEN + (G.pairMeets >= 2 ? ' · ' + ord(G.pairMeets) + ' meeting' : '')
       : G.rs.name;
+    const ending = lowMaterialCountdown(G.board, G.history, G.legal);
+    if (ending && !G.over) detail = ending.scoringNext ? 'Draw countdown · scoring chance' : 'Draw in ' + ending.remaining + ' moves';
     $('bannerContext').textContent = context; $('bannerContext').title = context;
     $('bannerDetail').textContent = detail; $('bannerDetail').title = detail;
     const engineThinking = G.phase === 'thinking' && !G.over;
@@ -4943,6 +4997,8 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
     $('aivaiBar').hidden = settings.mode !== 'aivai';
     $('btnRetire').disabled = !(G.mode === 'aivai' && settings.aivaiAuto);
     $('btnRetire').classList.toggle('active', manualRetire);
+    $('btnRetire').setAttribute('aria-pressed', String(manualRetire));
+    $('btnRetire').textContent = manualRetire ? '🎖 Retirement on' : '🎖 Retirement off';
     $('qaBar').style.display = settings.mode === 'aivai' ? 'none' : '';
     $('qaHint').disabled = $('btnHint').disabled;
     $('qaUndo').disabled = $('btnUndo').disabled;
@@ -5050,17 +5106,12 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
 
   $('btnRetire').addEventListener('click', () => {
     if (!arenaOn()) return;
-    if (G.over) {
-      // between bouts: retire the champion right now, then a fresh bout
-      showCeremony(arena.champion).then(() => {
-        retireChampionHonors();
-        startNewGameWithFanfare();
-      });
-      return;
-    }
-    manualRetire = true;
+    manualRetire = !manualRetire;
+    settings.retireEvents = manualRetire;
+    saveJSON(SETTINGS_KEY, settings);
+    updateControls();
     SFX_BANK.play('notify_pop');
-    flashWhisper(rosterById(arena.champion).name + ' will retire after this game — with full honors.');
+    flashWhisper(manualRetire ? 'Retirement announcements stay on for qualifying results until switched off.' : 'Automatic retirement announcements switched off.');
   });
 
   // player names: live edits, tidied on commit

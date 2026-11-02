@@ -1,0 +1,18 @@
+'use strict';
+const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('assert');
+const ui=fs.readFileSync(path.join(__dirname,'../src/ui.js'),'utf8'),handlers={},taps=[];
+let release=17;const square={dataset:{i:'17'},closest(){return this;}};
+const element={contains:()=>true,setPointerCapture(){},addEventListener:(name,fn)=>handlers[name]=fn};
+const c={Math,document:{elementFromPoint:()=>release===null?null:release===17?square:{dataset:{i:String(release)},closest(){return this;}}}};
+vm.runInNewContext(ui.slice(ui.indexOf('  function installBoardGestures('),ui.indexOf('  installBoardGestures(boardEl')),c);c.installBoardGestures(element,i=>taps.push(i));
+const event=(extra={})=>({target:square,pointerId:1,isPrimary:true,button:0,pointerType:'touch',clientX:100,clientY:100,...extra});
+handlers.pointerdown(event());assert.equal(taps.length,0,'Finger-down cannot select or move a piece');handlers.pointerup(event({clientX:103,clientY:102}));assert.deepEqual(taps,[17],'Ordinary finger jitter remains a tap');
+handlers.pointerdown(event());handlers.pointermove(event({clientX:140}));handlers.pointerup(event({clientX:100}));assert.equal(taps.length,1,'Swipe out and back is still cancelled');
+handlers.pointerdown(event());handlers.pointerup(event({clientY:125}));assert.equal(taps.length,1,'Release displacement cancels even without delivered move events');
+handlers.pointerdown(event());handlers.pointercancel(event());handlers.pointerup(event());assert.equal(taps.length,1,'Native scroll/pinch cancellation cannot become a tap');
+handlers.pointerdown(event());handlers.pointerdown(event({pointerId:2,isPrimary:false}));handlers.pointerup(event());assert.equal(taps.length,1,'Two-finger zoom cannot make a move');
+handlers.pointerdown(event());release=19;handlers.pointerup(event());assert.equal(taps.length,1,'Release over another square cannot make an unintended move');
+release=17;handlers.pointerdown(event());handlers.lostpointercapture(event());handlers.pointerup(event());assert.equal(taps.length,1,'Lost capture cancels the pending input');
+handlers.pointerdown(event({button:2,pointerType:'mouse'}));handlers.pointerup(event({button:2,pointerType:'mouse'}));assert.equal(taps.length,1,'Right-click remains non-playing input');
+handlers.pointerdown(event({pointerType:'mouse'}));handlers.pointerup(event({pointerType:'mouse'}));assert.equal(taps.length,2,'Normal mouse click works through the same safe path');
+console.log('Board gestures passed: release-only taps, jitter, swipes, out-and-back drags, native cancellation, pinch, wrong square and mouse controls');

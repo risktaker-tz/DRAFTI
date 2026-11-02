@@ -1,7 +1,7 @@
 'use strict';
 const fs=require('fs'),vm=require('vm'),path=require('path'),assert=require('assert');
 const E=require('../src/engine')(),ui=fs.readFileSync(path.join(__dirname,'../src/ui.js'),'utf8');
-const source=ui.slice(ui.indexOf('  function clearSel()'),ui.indexOf("  boardEl.addEventListener('pointerdown'"));
+const source=ui.slice(ui.indexOf('  function clearSel()'),ui.indexOf('  function installBoardGestures('));
 function input(rs,board,legal){
   const committed=[],sounds=[],messages=[];
   const G={rs,board,side:1,mode:'hotseat',phase:'idle',sel:null,legal};
