@@ -160,27 +160,27 @@
     NG:['#008751','#FFFFFF'], CM:['#007A5E','#CE1126'], CF:['#289728','#FFCE00'],
     GQ:['#3E9A00','#E32118'], GA:['#009E60','#3A75C4'], CG:['#009543','#DC241F'],
     ST:['#12AD2B','#FFCE00'], AO:['#CC092F','#FFCB00'], ZM:['#147F55','#F99815'],
-    ZW:['#319208','#FFD200'], MW:['#339E35','#CE1126'], MZ:['#009639','#FFD100'],
-    NA:['#003580','#009543'], BW:['#75AADB','#1A1A1A'], ZA:['#007A4D','#FFB612'],
+    ZW:['#006400','#FFD200'], MW:['#008C51','#C7361E'], MZ:['#007168','#FCE100'],
+    NA:['#003580','#009543'], BW:['#6DA9D2','#000000'], ZA:['#007A4D','#FFB612'],
     LS:['#00209F','#009543'], SZ:['#B10C0C','#FFD900'], MG:['#007E3A','#FC3D32'],
-    MU:['#1A206D','#FFD500'], SC:['#003F87','#FCD856'], KM:['#3D8E33','#FFC61E'],
+    MU:['#1A206D','#FFD500'], SC:['#003F87','#FCD856'], KM:['#009639','#FFD100'],
     CV:['#003893','#CF2027'],
-    AL:['#E41E20','#1A1A1A'], AD:['#10069F','#FEDD00'], AT:['#ED2939','#FFFFFF'],
-    BY:['#CE1720','#007C30'], BE:['#EF3340','#FDDA24'], BA:['#002F6C','#FFCC00'],
-    BG:['#00966E','#D62612'], HR:['#E31E24','#171796'], CY:['#D57800','#FFFFFF'],
-    CZ:['#D7141A','#11457E'], DK:['#C8102E','#FFFFFF'], EE:['#0072CE','#1A1A1A'],
-    FI:['#002F6C','#FFFFFF'], FR:['#002395','#ED2939'], DE:['#DD0000','#FFCE00'],
+    AL:['#FF0000','#000000'], AD:['#10069F','#FEDD00'], AT:['#C8102E','#FFFFFF'],
+    BY:['#CE1720','#007C30'], BE:['#EF3340','#FDDA24'], BA:['#002395','#FECB00'],
+    BG:['#00966E','#D62612'], HR:['#FF0000','#171796'], CY:['#D57800','#FFFFFF'],
+    CZ:['#D7141A','#11457E'], DK:['#C8102E','#FFFFFF'], EE:['#0072CE','#000000'],
+    FI:['#002F6C','#FFFFFF'], FR:['#002654','#CE1126'], DE:['#DD0000','#FFCE00'],
     GR:['#0D5EAF','#FFFFFF'], HU:['#CE2939','#477050'], IS:['#02529C','#DC1E35'],
     IE:['#169B62','#FF883E'], IT:['#008C45','#CD212A'], LV:['#9E3039','#FFFFFF'],
     LI:['#002B7F','#CE1126'], LT:['#006A44','#FDB913'], LU:['#00A2E1','#EF3340'],
     MT:['#CF142B','#FFFFFF'], MD:['#0046AE','#FFD200'], MC:['#CE1126','#FFFFFF'],
-    ME:['#C40308','#D4AF37'], NL:['#AE1C28','#21468B'], MK:['#D20000','#FFE600'],
-    NO:['#BA0C2F','#00205B'], PL:['#DC143C','#FFFFFF'], PT:['#046A38','#DA291C'],
+    ME:['#E30000','#FFC000'], NL:['#AE1C28','#21468B'], MK:['#D82126','#F8E92E'],
+    NO:['#BA0C2F','#00205B'], PL:['#DC143C','#FFFFFF'], PT:['#006600','#FF0000'],
     RO:['#002B7F','#FCD116'], RU:['#0039A6','#D52B1E'], SM:['#5EB6E4','#FFFFFF'],
-    RS:['#0C4076','#C6363C'], SK:['#0B4EA2','#EE1C25'], SI:['#005DA4','#ED1C24'],
-    ES:['#AA151B','#F1BF00'], SE:['#006AA7','#FECC02'], CH:['#DA291C','#FFFFFF'],
+    RS:['#0C4076','#C6363C'], SK:['#0B4EA2','#EE1C25'], SI:['#0000FF','#FF0000'],
+    ES:['#AA151B','#F1BF00'], SE:['#006AA7','#FECC02'], CH:['#FF0000','#FFFFFF'],
     UA:['#0057B7','#FFD700'], GB:['#012169','#C8102E'],
-    AF:['#007A36','#BE0000'], AM:['#D90012','#F2A800'], AZ:['#00B9E4','#509E2F'],
+    AF:['#000000','#FFFFFF'], AM:['#D90012','#F2A800'], AZ:['#00B9E4','#509E2F'],
     BH:['#CE1126','#FFFFFF'], BD:['#006A4E','#F42A41'], BT:['#FF4E12','#FFD520'],
     BN:['#F7E017','#C8102E'], KH:['#032EA1','#E00025'], CN:['#EE1C25','#FFDE00'],
     GE:['#E8112D','#FFFFFF'], IN:['#138808','#FF9933'], ID:['#CE1126','#FFFFFF'],
@@ -2888,7 +2888,7 @@
     $('rowName').style.display = settings.mode === 'aivai' ? 'none' : '';
     $('name2Wrap').style.display = settings.mode === 'hotseat' ? '' : 'none';
     $('rowAuto').style.display = settings.mode === 'aivai' ? '' : 'none';
-    $('rowNames').style.display = settings.mode === 'aivai' ? '' : 'none';
+    $('rowNames').style.display = settings.mode === 'aivai' || settings.humanFlags ? '' : 'none';
     renderNameGrid();
     set('segAuto', settings.aivaiAuto ? 'on' : 'off');
     set('segRounds', settings.arenaRounds);
@@ -3104,6 +3104,7 @@
   for (const id of ['humanFlags', 'arenaFlags']) $(id).addEventListener('change', () => {
     settings[id] = $(id).checked;
     saveJSON(SETTINGS_KEY, settings);
+    updateSegs();
     applyFlagPalettes();
     SFX_BANK.play('ui_save');
   });

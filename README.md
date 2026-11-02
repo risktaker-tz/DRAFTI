@@ -334,3 +334,7 @@ Kenya's main/secondary piece colours now use black/red, consistent with the Wiki
 `node tests/test_flags.js` checks production palette logic across all 194 nations, including crown contrast, the named clash pairs, rename/restore behaviour and mode toggles. Crowns now choose a contrasting light or dark emblem; secondary flag colours are selected only when main colours clash. The dark-colour visibility floor preserves black flags more faithfully. Burundi, Eritrea, Gambia and Zambia palettes have been aligned with the collected Wikimedia SVG reference colours.
 
 The flag resolver is additionally checked against all 37,442 ordered pairings of distinct nations. Its final lightness adjustment now repeats until the existing separation threshold is met, fixing the Kenya/Namibia clash found by that exhaustive check.
+
+Existing audio is protected by `node tests/test_audio_preservation.js`, which compares the embedded clips against the original `b9486e1` bank. Only the four requested original-clip replacements are exempt; processing fixes require a named record and original-file backup. At this checkpoint all 360 existing clips remain byte-for-byte unchanged.
+
+The source-backed flag review also aligned Zimbabwe, Malawi, Mozambique, Botswana, Comoros, Albania, Austria, Bosnia and Herzegovina, Croatia, Estonia, France, Montenegro, North Macedonia, Portugal, Slovenia, Switzerland and Afghanistan with the collected SVG palettes. The nation renaming controls are available in human games when their flag option is enabled.
