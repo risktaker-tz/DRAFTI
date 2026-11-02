@@ -1,0 +1,1080 @@
+[
+  {
+    "code": "UG",
+    "country": "Uganda",
+    "previous": [
+      "#FDCB0C",
+      "#D40000"
+    ],
+    "chosen": [
+      "#FCDC04",
+      "#D90000"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Uganda.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "RW",
+    "country": "Rwanda",
+    "previous": [
+      "#00A1DE",
+      "#FAD201"
+    ],
+    "chosen": [
+      "#00A3E0",
+      "#FAD201"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Rwanda.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "SS",
+    "country": "South Sudan",
+    "previous": [
+      "#078930",
+      "#DA121A"
+    ],
+    "chosen": [
+      "#00914C",
+      "#E22028"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_South_Sudan.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "SO",
+    "country": "Somalia",
+    "previous": [
+      "#4189DD",
+      "#FFFFFF"
+    ],
+    "chosen": [
+      "#418FDE",
+      "#FFFFFF"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Somalia.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "EG",
+    "country": "Egypt",
+    "previous": [
+      "#CE1126",
+      "#C09300"
+    ],
+    "chosen": [
+      "#C8102E",
+      "#FFCD00"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Egypt.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "DZ",
+    "country": "Algeria",
+    "previous": [
+      "#006233",
+      "#FFFFFF"
+    ],
+    "chosen": [
+      "#006633",
+      "#FFFFFF"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Algeria.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "SD",
+    "country": "Sudan",
+    "previous": [
+      "#D21034",
+      "#078930"
+    ],
+    "chosen": [
+      "#D21034",
+      "#007229"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Sudan.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "MR",
+    "country": "Mauritania",
+    "previous": [
+      "#00A95C",
+      "#CD2A3E"
+    ],
+    "chosen": [
+      "#00A95C",
+      "#D01C1F"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Mauritania.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "LR",
+    "country": "Liberia",
+    "previous": [
+      "#002868",
+      "#BF0A30"
+    ],
+    "chosen": [
+      "#00205B",
+      "#BF0A30"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Liberia.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "CI",
+    "country": "Côte d’Ivoire",
+    "previous": [
+      "#F77F00",
+      "#009E60"
+    ],
+    "chosen": [
+      "#FF8200",
+      "#009A44"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Ivory_Coast.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "CG",
+    "country": "Congo",
+    "previous": [
+      "#009543",
+      "#DC241F"
+    ],
+    "chosen": [
+      "#009739",
+      "#DC241F"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Republic_of_the_Congo.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "ST",
+    "country": "São Tomé",
+    "previous": [
+      "#12AD2B",
+      "#FFCE00"
+    ],
+    "chosen": [
+      "#009739",
+      "#FFD100"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_S%C3%A3o_Tom%C3%A9_and_Pr%C3%ADncipe.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "NA",
+    "country": "Namibia",
+    "previous": [
+      "#003580",
+      "#009543"
+    ],
+    "chosen": [
+      "#002F6C",
+      "#009A44"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Namibia.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "ZA",
+    "country": "South Africa",
+    "previous": [
+      "#007A4D",
+      "#FFB612"
+    ],
+    "chosen": [
+      "#007749",
+      "#FFB81C"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_South_Africa.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "LS",
+    "country": "Lesotho",
+    "previous": [
+      "#00209F",
+      "#009543"
+    ],
+    "chosen": [
+      "#001489",
+      "#009A44"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Lesotho.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "MG",
+    "country": "Madagascar",
+    "previous": [
+      "#007E3A",
+      "#FC3D32"
+    ],
+    "chosen": [
+      "#00843D",
+      "#F9423A"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Madagascar.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "MU",
+    "country": "Mauritius",
+    "previous": [
+      "#1A206D",
+      "#FFD500"
+    ],
+    "chosen": [
+      "#2D3359",
+      "#F7B718"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Mauritius.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "SC",
+    "country": "Seychelles",
+    "previous": [
+      "#003F87",
+      "#FCD856"
+    ],
+    "chosen": [
+      "#002F6C",
+      "#FED141"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Seychelles.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "BE",
+    "country": "Belgium",
+    "previous": [
+      "#EF3340",
+      "#FDDA24"
+    ],
+    "chosen": [
+      "#EF3340",
+      "#FDDA25"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Belgium.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "CY",
+    "country": "Cyprus",
+    "previous": [
+      "#D57800",
+      "#FFFFFF"
+    ],
+    "chosen": [
+      "#D67900",
+      "#FFFFFF"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Cyprus.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "IT",
+    "country": "Italy",
+    "previous": [
+      "#008C45",
+      "#CD212A"
+    ],
+    "chosen": [
+      "#009246",
+      "#CE2B37"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Italy.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "LV",
+    "country": "Latvia",
+    "previous": [
+      "#9E3039",
+      "#FFFFFF"
+    ],
+    "chosen": [
+      "#9D2235",
+      "#FFFFFF"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Latvia.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "LU",
+    "country": "Luxembourg",
+    "previous": [
+      "#00A2E1",
+      "#EF3340"
+    ],
+    "chosen": [
+      "#00A3E0",
+      "#EF3340"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Luxembourg.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "SK",
+    "country": "Slovakia",
+    "previous": [
+      "#0B4EA2",
+      "#EE1C25"
+    ],
+    "chosen": [
+      "#254AA5",
+      "#ED1C24"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Slovakia.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "ES",
+    "country": "Spain",
+    "previous": [
+      "#AA151B",
+      "#F1BF00"
+    ],
+    "chosen": [
+      "#AD1519",
+      "#FABD00"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Spain.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "SE",
+    "country": "Sweden",
+    "previous": [
+      "#006AA7",
+      "#FECC02"
+    ],
+    "chosen": [
+      "#005293",
+      "#FECB00"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Sweden.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "AZ",
+    "country": "Azerbaijan",
+    "previous": [
+      "#00B9E4",
+      "#509E2F"
+    ],
+    "chosen": [
+      "#00B5E2",
+      "#509E2F"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Azerbaijan.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "BH",
+    "country": "Bahrain",
+    "previous": [
+      "#CE1126",
+      "#FFFFFF"
+    ],
+    "chosen": [
+      "#DA291C",
+      "#FFFFFF"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Bahrain.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "BT",
+    "country": "Bhutan",
+    "previous": [
+      "#FF4E12",
+      "#FFD520"
+    ],
+    "chosen": [
+      "#FF671F",
+      "#FFCD00"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Bhutan.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "BN",
+    "country": "Brunei",
+    "previous": [
+      "#F7E017",
+      "#C8102E"
+    ],
+    "chosen": [
+      "#F7E017",
+      "#CF1126"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Brunei.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "CN",
+    "country": "China",
+    "previous": [
+      "#EE1C25",
+      "#FFDE00"
+    ],
+    "chosen": [
+      "#EE1C25",
+      "#FFFF00"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_China.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "IN",
+    "country": "India",
+    "previous": [
+      "#138808",
+      "#FF9933"
+    ],
+    "chosen": [
+      "#046A38",
+      "#FF6820"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_India.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "ID",
+    "country": "Indonesia",
+    "previous": [
+      "#CE1126",
+      "#FFFFFF"
+    ],
+    "chosen": [
+      "#FF0000",
+      "#FFFFFF"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Indonesia.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "IQ",
+    "country": "Iraq",
+    "previous": [
+      "#CE1126",
+      "#007A3D"
+    ],
+    "chosen": [
+      "#CD1125",
+      "#017B3D"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Iraq.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "LB",
+    "country": "Lebanon",
+    "previous": [
+      "#ED1C24",
+      "#00A651"
+    ],
+    "chosen": [
+      "#D31624",
+      "#008C3E"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Lebanon.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "MY",
+    "country": "Malaysia",
+    "previous": [
+      "#010066",
+      "#CC0001"
+    ],
+    "chosen": [
+      "#000066",
+      "#CC0000"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Malaysia.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "MN",
+    "country": "Mongolia",
+    "previous": [
+      "#015197",
+      "#C4272F"
+    ],
+    "chosen": [
+      "#0066B2",
+      "#DA2031"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Mongolia.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "KP",
+    "country": "North Korea",
+    "previous": [
+      "#ED1C27",
+      "#024FA2"
+    ],
+    "chosen": [
+      "#EC1D25",
+      "#034DA2"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_North_Korea.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "PK",
+    "country": "Pakistan",
+    "previous": [
+      "#06603A",
+      "#FFFFFF"
+    ],
+    "chosen": [
+      "#01411C",
+      "#FFFFFF"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Pakistan.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "SA",
+    "country": "Saudi Arabia",
+    "previous": [
+      "#006C35",
+      "#FFFFFF"
+    ],
+    "chosen": [
+      "#005430",
+      "#FFFFFF"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Saudi_Arabia.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "SG",
+    "country": "Singapore",
+    "previous": [
+      "#EF3340",
+      "#FFFFFF"
+    ],
+    "chosen": [
+      "#ED2939",
+      "#FFFFFF"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Singapore.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "LK",
+    "country": "Sri Lanka",
+    "previous": [
+      "#8D153A",
+      "#FFB700"
+    ],
+    "chosen": [
+      "#8D153A",
+      "#FFBE29"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Sri_Lanka.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "PS",
+    "country": "Palestine",
+    "previous": [
+      "#007A3D",
+      "#CE1126"
+    ],
+    "chosen": [
+      "#009639",
+      "#ED2E38"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Palestine.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "TJ",
+    "country": "Tajikistan",
+    "previous": [
+      "#006600",
+      "#CC0000"
+    ],
+    "chosen": [
+      "#197B30",
+      "#DC161D"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Tajikistan.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "TL",
+    "country": "Timor-Leste",
+    "previous": [
+      "#DC241F",
+      "#FFC726"
+    ],
+    "chosen": [
+      "#DA291C",
+      "#FFC72C"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Timor-Leste.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "TM",
+    "country": "Turkmenistan",
+    "previous": [
+      "#00843D",
+      "#C8102E"
+    ],
+    "chosen": [
+      "#00843D",
+      "#D22630"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Turkmenistan.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "AE",
+    "country": "UAE",
+    "previous": [
+      "#00732F",
+      "#EF3340"
+    ],
+    "chosen": [
+      "#00843D",
+      "#C8102E"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_United_Arab_Emirates.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "YE",
+    "country": "Yemen",
+    "previous": [
+      "#CE1126",
+      "#1A1A1A"
+    ],
+    "chosen": [
+      "#CE1126",
+      "#000000"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Yemen.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "BS",
+    "country": "Bahamas",
+    "previous": [
+      "#00ABC9",
+      "#FAE042"
+    ],
+    "chosen": [
+      "#00778B",
+      "#FFC72C"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Bahamas.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "BB",
+    "country": "Barbados",
+    "previous": [
+      "#00267F",
+      "#FFC726"
+    ],
+    "chosen": [
+      "#1F367C",
+      "#F3B100"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Barbados.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "BZ",
+    "country": "Belize",
+    "previous": [
+      "#003F87",
+      "#CE1126"
+    ],
+    "chosen": [
+      "#171696",
+      "#D90F19"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Belize.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "CA",
+    "country": "Canada",
+    "previous": [
+      "#D80621",
+      "#FFFFFF"
+    ],
+    "chosen": [
+      "#FF0000",
+      "#FFFFFF"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Canada.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "CR",
+    "country": "Costa Rica",
+    "previous": [
+      "#002B7F",
+      "#CE1126"
+    ],
+    "chosen": [
+      "#001489",
+      "#DA291C"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Costa_Rica.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "CU",
+    "country": "Cuba",
+    "previous": [
+      "#002A8F",
+      "#CF142B"
+    ],
+    "chosen": [
+      "#002A8F",
+      "#CB1515"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Cuba.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "DM",
+    "country": "Dominica",
+    "previous": [
+      "#006B3F",
+      "#FCD116"
+    ],
+    "chosen": [
+      "#046A38",
+      "#FFCD00"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Dominica.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "SV",
+    "country": "El Salvador",
+    "previous": [
+      "#0F47AF",
+      "#FFFFFF"
+    ],
+    "chosen": [
+      "#0047AB",
+      "#FFFFFF"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_El_Salvador.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "HN",
+    "country": "Honduras",
+    "previous": [
+      "#0073CF",
+      "#FFFFFF"
+    ],
+    "chosen": [
+      "#0D3B99",
+      "#FFFFFF"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Honduras.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "JM",
+    "country": "Jamaica",
+    "previous": [
+      "#009B3A",
+      "#FED100"
+    ],
+    "chosen": [
+      "#007749",
+      "#FFB81C"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Jamaica.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "PA",
+    "country": "Panama",
+    "previous": [
+      "#005293",
+      "#D21034"
+    ],
+    "chosen": [
+      "#072357",
+      "#DA121A"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Panama.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "KN",
+    "country": "St Kitts & Nevis",
+    "previous": [
+      "#009E49",
+      "#CE1126"
+    ],
+    "chosen": [
+      "#009739",
+      "#C8102E"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Saint_Kitts_and_Nevis.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "LC",
+    "country": "St Lucia",
+    "previous": [
+      "#00A0DD",
+      "#FCD116"
+    ],
+    "chosen": [
+      "#66CCFF",
+      "#FCD116"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Saint_Lucia.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "VC",
+    "country": "St Vincent",
+    "previous": [
+      "#0072C6",
+      "#009E49"
+    ],
+    "chosen": [
+      "#002674",
+      "#007C2E"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Saint_Vincent_and_the_Grenadines.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "TT",
+    "country": "Trinidad & Tobago",
+    "previous": [
+      "#CE1126",
+      "#1A1A1A"
+    ],
+    "chosen": [
+      "#DA1A35",
+      "#000000"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Trinidad_and_Tobago.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "US",
+    "country": "United States",
+    "previous": [
+      "#B22234",
+      "#3C3B6E"
+    ],
+    "chosen": [
+      "#B31942",
+      "#0A3161"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_United_States.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "BR",
+    "country": "Brazil",
+    "previous": [
+      "#009C3B",
+      "#FFDF00"
+    ],
+    "chosen": [
+      "#009440",
+      "#FFCB00"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Brazil.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "CL",
+    "country": "Chile",
+    "previous": [
+      "#0039A6",
+      "#D52B1E"
+    ],
+    "chosen": [
+      "#0032A0",
+      "#DA291C"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Chile.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "CO",
+    "country": "Colombia",
+    "previous": [
+      "#FCD116",
+      "#003893"
+    ],
+    "chosen": [
+      "#FFCD00",
+      "#003087"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Colombia.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "GY",
+    "country": "Guyana",
+    "previous": [
+      "#009E49",
+      "#FCD116"
+    ],
+    "chosen": [
+      "#2A936A",
+      "#FFC20E"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Guyana.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "AU",
+    "country": "Australia",
+    "previous": [
+      "#012169",
+      "#E4002B"
+    ],
+    "chosen": [
+      "#00008B",
+      "#FF0000"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Australia.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "FJ",
+    "country": "Fiji",
+    "previous": [
+      "#68BFE5",
+      "#C8102E"
+    ],
+    "chosen": [
+      "#62B5E5",
+      "#C8102E"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Fiji.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "KI",
+    "country": "Kiribati",
+    "previous": [
+      "#CE1126",
+      "#003F87"
+    ],
+    "chosen": [
+      "#C81010",
+      "#183070"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Kiribati.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "NR",
+    "country": "Nauru",
+    "previous": [
+      "#002170",
+      "#FFB20D"
+    ],
+    "chosen": [
+      "#012169",
+      "#FFC72C"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Nauru.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "NZ",
+    "country": "New Zealand",
+    "previous": [
+      "#00247D",
+      "#CC142B"
+    ],
+    "chosen": [
+      "#012169",
+      "#C8102E"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_New_Zealand.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "PW",
+    "country": "Palau",
+    "previous": [
+      "#4AADD6",
+      "#FFDE00"
+    ],
+    "chosen": [
+      "#0099FF",
+      "#FFFF00"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Palau.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "PG",
+    "country": "Papua New Guinea",
+    "previous": [
+      "#CE1126",
+      "#1A1A1A"
+    ],
+    "chosen": [
+      "#C8102E",
+      "#000000"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Papua_New_Guinea.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "WS",
+    "country": "Samoa",
+    "previous": [
+      "#CE1126",
+      "#00247D"
+    ],
+    "chosen": [
+      "#CE1126",
+      "#002B7F"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Samoa.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  },
+  {
+    "code": "TV",
+    "country": "Tuvalu",
+    "previous": [
+      "#55A4D8",
+      "#FFFFFF"
+    ],
+    "chosen": [
+      "#009CDE",
+      "#FFFFFF"
+    ],
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Tuvalu.svg",
+    "reason": "Preserve the existing main/secondary colour roles using exact colours measured from the referenced flag SVG."
+  }
+]
