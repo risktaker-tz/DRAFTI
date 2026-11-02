@@ -1,0 +1,138 @@
+[
+  {
+    "id": "s_in_american",
+    "originalSeconds": 6.98,
+    "firstActive": 0.029342403628117915,
+    "lastActive": 6.98,
+    "speechSpanWithPadding": 7.290657596371882,
+    "nearSilentBlockSeconds": 2.6
+  },
+  {
+    "id": "s_in_classic",
+    "originalSeconds": 6.62,
+    "firstActive": 0.06612244897959184,
+    "lastActive": 6.570748299319728,
+    "speechSpanWithPadding": 6.844625850340136,
+    "nearSilentBlockSeconds": 1.54
+  },
+  {
+    "id": "s_in_czech",
+    "originalSeconds": 6.7,
+    "firstActive": 0.03705215419501134,
+    "lastActive": 6.676598639455782,
+    "speechSpanWithPadding": 6.979546485260771,
+    "nearSilentBlockSeconds": 1.86
+  },
+  {
+    "id": "s_in_english",
+    "originalSeconds": 7.4,
+    "firstActive": 0.1294331065759637,
+    "lastActive": 7.337233560090703,
+    "speechSpanWithPadding": 7.547800453514739,
+    "nearSilentBlockSeconds": 1.8800000000000001
+  },
+  {
+    "id": "s_in_french",
+    "originalSeconds": 7.12,
+    "firstActive": 0.004988662131519274,
+    "lastActive": 7.12,
+    "speechSpanWithPadding": 7.455011337868481,
+    "nearSilentBlockSeconds": 1.3800000000000001
+  },
+  {
+    "id": "s_in_italian",
+    "originalSeconds": 8.38,
+    "firstActive": 0.09383219954648526,
+    "lastActive": 8.333650793650794,
+    "speechSpanWithPadding": 8.579818594104308,
+    "nearSilentBlockSeconds": 2.38
+  },
+  {
+    "id": "s_in_kenyan",
+    "originalSeconds": 7.86,
+    "firstActive": 0.026848072562358275,
+    "lastActive": 7.859954648526077,
+    "speechSpanWithPadding": 8.173106575963718,
+    "nearSilentBlockSeconds": 2.1
+  },
+  {
+    "id": "s_in_mongolian",
+    "originalSeconds": 7.38,
+    "firstActive": 0.048027210884353744,
+    "lastActive": 7.378639455782313,
+    "speechSpanWithPadding": 7.670612244897959,
+    "nearSilentBlockSeconds": 0.92
+  },
+  {
+    "id": "t4b",
+    "originalSeconds": 6.14,
+    "firstActive": 0.09374149659863945,
+    "lastActive": 6.016190476190476,
+    "speechSpanWithPadding": 6.262448979591837,
+    "nearSilentBlockSeconds": 1.56
+  },
+  {
+    "id": "th_h02",
+    "originalSeconds": 6.176009070294785,
+    "firstActive": 0.0,
+    "lastActive": 6.176009070294785,
+    "speechSpanWithPadding": 6.516009070294785,
+    "nearSilentBlockSeconds": 2.54
+  },
+  {
+    "id": "th_h18",
+    "originalSeconds": 6.118321995464853,
+    "firstActive": 0.0,
+    "lastActive": 6.118321995464853,
+    "speechSpanWithPadding": 6.4583219954648525,
+    "nearSilentBlockSeconds": 1.78
+  },
+  {
+    "id": "v_slau2",
+    "originalSeconds": 6.22,
+    "firstActive": 0.07514739229024943,
+    "lastActive": 6.195646258503402,
+    "speechSpanWithPadding": 6.460498866213152,
+    "nearSilentBlockSeconds": 1.6
+  },
+  {
+    "id": "v_spec1",
+    "originalSeconds": 10.78,
+    "firstActive": 0.061587301587301586,
+    "lastActive": 10.69501133786848,
+    "speechSpanWithPadding": 10.973424036281179,
+    "nearSilentBlockSeconds": 2.52
+  },
+  {
+    "id": "v_spec3",
+    "originalSeconds": 6.24,
+    "firstActive": 0.09052154195011337,
+    "lastActive": 6.1,
+    "speechSpanWithPadding": 6.349478458049886,
+    "nearSilentBlockSeconds": 1.68
+  },
+  {
+    "id": "v_tt2",
+    "originalSeconds": 6.4,
+    "firstActive": 0.06970521541950113,
+    "lastActive": 6.324716553287982,
+    "speechSpanWithPadding": 6.59501133786848,
+    "nearSilentBlockSeconds": 1.7
+  },
+  {
+    "id": "v_tt6",
+    "originalSeconds": 6.78,
+    "firstActive": 0.09197278911564626,
+    "lastActive": 6.6965079365079365,
+    "speechSpanWithPadding": 6.9445351473922905,
+    "nearSilentBlockSeconds": 2.46
+  },
+  {
+    "id": "v_tt8",
+    "originalSeconds": 6.14,
+    "firstActive": 0.059365079365079364,
+    "lastActive": 6.133786848072562,
+    "speechSpanWithPadding": 6.4144217687074825,
+    "nearSilentBlockSeconds": 0.8200000000000001
+  }
+]

@@ -5,11 +5,11 @@ sourced meme effect credited below. Samples are embedded in `web/index.html`
 (base64 MP3); the processed source files live in `src/audio/`. This file
 lists the origin and license of each.
 
-The bank holds **330+ sounds**: 22 recorded samples, 10 sourced meme effects
-(below), 19 sourced animal-comedy & viral-sting samples, 183 neural-TTS
-voice lines and 33 original synthesized interface/game sounds (plus four
-more synthesized effects — trap snap, refusal buzz, relief chime and the
-level-up fanfare — generated in-code at playback time).
+The bank holds **380 sounds**: recorded samples, sourced meme effects and
+original excerpts (below), neural-TTS voice lines, and original synthesized
+interface/game sounds (plus four more synthesized effects — trap snap,
+refusal buzz, relief chime and the level-up fanfare — generated in-code at
+playback time). Per-sound provenance is recorded in `scripts/audio_catalog.json`.
 
 ## Meme sound effects (sourced verbatim, identified by their own captions)
 
@@ -174,4 +174,85 @@ Playback controls: mute now fades the master output even during a long original 
 
 Final-square capture selection reuses the existing full move animation and its per-hop capture sounds. No recordings are replaced or shortened by this input shortcut.
 
-The Uhakika/Usiogope player-label and strength changes preserve every sound recording. Existing original retirement, shrimp and narrator samples remain unchanged.
+## Owner handoff sourced effects — added 2026-11-02
+
+Five additional sources were supplied by the owner as verified local downloads
+(handoff ZIP SHA-256 e8bfb069fbea08eedb54d4f700f40b428563c400dd4042850bc4a9f0d5be9925;
+per-file hashes verified against SHA256SUMS.json and recorded in
+docs/owner-audio-cuts.json). Uploader "no copyright" titles are treated as
+UNVERIFIED: these are short credited excerpts, not CC0. Eighteen curated cuts
+were installed additively through `scripts/install_owner_audio_cuts.py`
+(SHA-pinned sources, measured boundaries, speech-guarded processing: mono
+22050 Hz, ≤56 kbps, decoded peaks −1.51…−1.74 dBFS, ≤60 KiB, all ≤3.42 s,
+natural timing preserved — no pitch or tempo changes, no fabricated takes).
+Raw full recordings stay out of git (`scripts/research_media/` is ignored).
+Deliberately excluded: six Pidgin phrases whose exact words two independent
+transcription models could not agree on, the compilation's "Thanks for
+watching!" outro, a 6.02-second combined sting that cannot be split honestly
+within 3.5 s, a shimmer-noise wash (loop-risk), and mid-laugh trims. The
+existing 362 recordings are byte-for-byte unchanged. Event wiring is NOT
+claimed: the uses below are suggestions pending the shared sound director
+integration (`scripts/owner_audio_map.json`).
+
+| Clip | Source | Exact cut | Content (evidence) | Suggested use |
+|---|---|---|---|---|
+| `munch_mmm` | youtube.com/shorts/mvUVrweNvsQ | 0.205–0.525 s | Mouth hum "Mmm" (ASR + energy map) | Occasional capture/feast savoring |
+| `laugh_baby_short` | youtube.com/shorts/kW2NDCIpnW0 | 0.415–1.925 s | First baby-giggle burst | Rare silly-human-move reaction (≤1/game, ≥5 min cooldown) |
+| `laugh_baby_full` | youtube.com/shorts/kW2NDCIpnW0 | 2.905–6.325 s | Full baby laugh (same take, distinct phrase) | Same, alternate framing |
+| `susp_hit_boom` | youtube.com/shorts/AKozkV3MeWE | 0.465–0.975 s | Low boom/hit (31 ms attack) | Trap spring |
+| `susp_drone_deep` | youtube.com/shorts/AKozkV3MeWE | 2.075–4.745 s | Deep ominous drone (95% low band) | Long-think tension |
+| `susp_sting_mid` | youtube.com/shorts/AKozkV3MeWE | 5.565–6.315 s | Mid metallic sting | Sharp alert |
+| `susp_drone_creep` | youtube.com/shorts/AKozkV3MeWE | 7.595–8.805 s | Creeping low drone (slow attack) | Endgame danger |
+| `susp_burst` | youtube.com/shorts/AKozkV3MeWE | 9.775–10.885 s | Sudden mid burst | Sudden material loss |
+| `susp_build` | youtube.com/shorts/AKozkV3MeWE | 11.685–14.335 s | Rising tension build | Endgame build-up |
+| `ah_scream` | youtube.com/shorts/fkRNoM2f9GM | 0.035–0.355 s | Comic "AHH!" scream (ASR) | Small comic shock |
+| `comic_hit` | youtube.com/shorts/fkRNoM2f9GM | 1.115–1.675 s | Bright percussive comedy hit | Punchline accent |
+| `mwah_kisses` | youtube.com/shorts/fkRNoM2f9GM | 6.385–9.800 s | Repeated comic mouth-kiss "mwah" sounds (ASR) | Over-affectionate gag |
+| `sorry_dontcry` | youtu.be/g0cRfVqV04Q | 7.520–10.200 s | "Oh, sorry, sorry, sorry, don't cry." (word timestamps) | Consolation after a heavy loss |
+| `dont_cry` | youtu.be/g0cRfVqV04Q | 21.000–21.780 s | "Don't cry." (word timestamps) | Short sympathy tag |
+| `g0_bass_sting` | youtu.be/g0cRfVqV04Q | 26.500–29.900 s | Sustained ominous bass sting (excerpt of 26.145–32.105 s) | Wahala moment |
+| `comic_hit_bright` | youtu.be/g0cRfVqV04Q | 32.945–33.655 s | Bright comedy hit (distinct recording from `comic_hit`, waveform corr 0.06) | Punchline accent, alternate color |
+| `pregnant_shock` | youtu.be/g0cRfVqV04Q | 48.425–49.585 s | Comic "PREGNANT?!" exclamation (stable across two ASR models) | Huge comic surprise |
+| `g0_deep_wah` | youtu.be/g0cRfVqV04Q | 53.615–56.145 s | Deep comedic sting (distinct from `g0_bass_sting`, corr −0.006) | Deep wahala sting |
+
+Exact bytes, durations, peaks and SHA-256 per clip: `docs/owner-audio-cuts.json`.
+
+# DRAFTI original physical and event effects
+
+124 additive, nonverbal procedural performances. Four variants per family use different articulation, modal decay, excitation or musical phrases. They do not imitate speech or claim sampled-instrument provenance. Existing recordings are retained.
+
+Source: [reproducible synthesizer](https://github.com/risktaker-tz/DRAFTI/blob/codex/blueprint-release/scripts/make_physical_sfx.py). License: repository MIT LICENSE. Processing: mono 22050 Hz MP3 at 56 kbps; measured decoded peaks do not exceed -1.5 dBFS. Peak-matching reports and hashes: docs/physical-audio-generation.json.
+
+| Event | Files | Category |
+| --- | --- | --- |
+| bell | fx_bell_1, fx_bell_2, fx_bell_3, fx_bell_4 | drama |
+| boing | fx_boing_1, fx_boing_2, fx_boing_3, fx_boing_4 | comedy |
+| coin | fx_coin_1, fx_coin_2, fx_coin_3, fx_coin_4 | party |
+| countdown | fx_countdown_1, fx_countdown_2, fx_countdown_3, fx_countdown_4 | ui |
+| crown | fx_crown_1, fx_crown_2, fx_crown_3, fx_crown_4 | majestic |
+| defeat | fx_defeat_1, fx_defeat_2, fx_defeat_3, fx_defeat_4 | drama |
+| draw | fx_draw_1, fx_draw_2, fx_draw_3, fx_draw_4 | ui |
+| drawer | fx_drawer_1, fx_drawer_2, fx_drawer_3, fx_drawer_4 | ui |
+| feast | fx_feast_1, fx_feast_2, fx_feast_3, fx_feast_4 | majestic |
+| gong | fx_gong_1, fx_gong_2, fx_gong_3, fx_gong_4 | drama |
+| impact | fx_impact_1, fx_impact_2, fx_impact_3, fx_impact_4 | majestic |
+| jump | fx_jump_1, fx_jump_2, fx_jump_3, fx_jump_4 | ui |
+| king_glint | fx_king_glint_1, fx_king_glint_2, fx_king_glint_3, fx_king_glint_4 | ui |
+| landing | fx_landing_1, fx_landing_2, fx_landing_3, fx_landing_4 | ui |
+| oneup | fx_oneup_1, fx_oneup_2, fx_oneup_3, fx_oneup_4 | party |
+| popper | fx_popper_1, fx_popper_2, fx_popper_3, fx_popper_4 | party |
+| retention | fx_retention_1, fx_retention_2, fx_retention_3, fx_retention_4 | party |
+| reunion | fx_reunion_1, fx_reunion_2, fx_reunion_3, fx_reunion_4 | drama |
+| rimshot | fx_rimshot_1, fx_rimshot_2, fx_rimshot_3, fx_rimshot_4 | comedy |
+| roll | fx_roll_1, fx_roll_2, fx_roll_3, fx_roll_4 | drama |
+| slide | fx_slide_1, fx_slide_2, fx_slide_3, fx_slide_4 | ui |
+| stage_final | fx_stage_final_1, fx_stage_final_2, fx_stage_final_3, fx_stage_final_4 | majestic |
+| stage_group | fx_stage_group_1, fx_stage_group_2, fx_stage_group_3, fx_stage_group_4 | drama |
+| stage_quarter | fx_stage_quarter_1, fx_stage_quarter_2, fx_stage_quarter_3, fx_stage_quarter_4 | drama |
+| stage_semi | fx_stage_semi_1, fx_stage_semi_2, fx_stage_semi_3, fx_stage_semi_4 | drama |
+| theme | fx_theme_1, fx_theme_2, fx_theme_3, fx_theme_4 | ui |
+| toggle | fx_toggle_1, fx_toggle_2, fx_toggle_3, fx_toggle_4 | ui |
+| trophy | fx_trophy_1, fx_trophy_2, fx_trophy_3, fx_trophy_4 | party |
+| victory | fx_victory_1, fx_victory_2, fx_victory_3, fx_victory_4 | party |
+| whistle | fx_whistle_1, fx_whistle_2, fx_whistle_3, fx_whistle_4 | comedy |
+| zip | fx_zip_1, fx_zip_2, fx_zip_3, fx_zip_4 | comedy |

@@ -9,5 +9,12 @@ for (const [token, file] of [['STYLES','styles.css'], ['AUDIO','audio.manifest.j
   if (!html.includes(marker)) throw Error('Missing ' + marker);
   html = html.replace(marker, () => read(path.join(root, 'src', file)));
 }
-fs.writeFileSync(path.join(root, 'web/index.html'), html);
+const output=path.join(root,'web/index.html'),temporary=output+'.'+process.pid+'.tmp';
+fs.writeFileSync(temporary,html);
+try {
+  for(let attempt=0;;attempt++){
+    try {fs.renameSync(temporary,output);break;}
+    catch(error){if(attempt>=19)throw error;Atomics.wait(new Int32Array(new SharedArrayBuffer(4)),0,0,100);}
+  }
+} finally {if(fs.existsSync(temporary))fs.unlinkSync(temporary);}
 console.log('Built web/index.html:', Buffer.byteLength(html), 'bytes');

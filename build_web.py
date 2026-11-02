@@ -7,7 +7,7 @@ web/index.html.
 
 Usage: python3 build_web.py   (from the repository root, or anywhere)
 """
-import pathlib
+import os, pathlib, time
 
 ROOT = pathlib.Path(__file__).resolve().parent
 SRC = ROOT / "src"
@@ -34,8 +34,19 @@ def main() -> None:
         and "__AUDIO__" not in html
     OUT.parent.mkdir(parents=True, exist_ok=True)
     # Stable bytes on Windows, Linux, GitHub Pages and Vercel.
-    with OUT.open("w", encoding="utf-8", newline="\n") as output:
-        output.write(html)
+    temporary=OUT.with_name(OUT.name+f'.{os.getpid()}.tmp')
+    try:
+        with temporary.open("w", encoding="utf-8", newline="\n") as output:
+            output.write(html)
+        for attempt in range(20):
+            try:
+                temporary.replace(OUT)
+                break
+            except OSError:
+                if attempt==19: raise
+                time.sleep(.1)
+    finally:
+        temporary.unlink(missing_ok=True)
     print(f"wrote {OUT} ({OUT.stat().st_size:,} bytes)")
 
 

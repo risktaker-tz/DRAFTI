@@ -1,0 +1,258 @@
+{
+  "date": "2026-11-02",
+  "maxSeconds": 3.5,
+  "sources": {
+    "mvUVrweNvsQ": {
+      "url": "https://youtube.com/shorts/mvUVrweNvsQ",
+      "title": "Is this the shrimp one?? #horse #shorts #equestrian #takis #pony #horsehumor #funnyanimals",
+      "wavSha256": "e4e81189738e74655c30462b80aac7234f6f4fa05f180bda3c39a453b9a9fc83",
+      "license": "Short sourced excerpt for meme/commentary use; original rights retained by the source creator. The uploader's 'no copyright' title is treated as UNVERIFIED; this is not CC0. See ATTRIBUTIONS.md."
+    },
+    "kW2NDCIpnW0": {
+      "url": "https://www.youtube.com/shorts/kW2NDCIpnW0",
+      "title": "baby laughing meme sound effect",
+      "uploader": "BreakTheGame",
+      "wavSha256": "d318104c7e1d9eb0356a5aa4794c8733d86cbfb9d6c01d6c53db2df790834b9a",
+      "license": "Short sourced excerpt for meme/commentary use; original rights retained by the source creator. The uploader's 'no copyright' title is treated as UNVERIFIED; this is not CC0. See ATTRIBUTIONS.md."
+    },
+    "AKozkV3MeWE": {
+      "url": "https://www.youtube.com/shorts/AKozkV3MeWE",
+      "title": "5 + Suspense Sound Effects No Copyright (Free To Use For Video Editing)",
+      "uploader": "Sound Effects Treasure",
+      "wavSha256": "759cd45ebf1279391028218645397425100cadfa4391487f09506744540d4eab",
+      "license": "Short sourced excerpt for meme/commentary use; original rights retained by the source creator. The uploader's 'no copyright' title is treated as UNVERIFIED; this is not CC0. See ATTRIBUTIONS.md."
+    },
+    "fkRNoM2f9GM": {
+      "url": "https://www.youtube.com/shorts/fkRNoM2f9GM",
+      "title": "Top 5 Nigerian funny sounds #Nigerianfunnysounds",
+      "uploader": "Mondal Screen",
+      "wavSha256": "a98eab74561593b551ea23463a244d6beac9ebd64460103616bba35cbc8e7644",
+      "license": "Short sourced excerpt for meme/commentary use; original rights retained by the source creator. The uploader's 'no copyright' title is treated as UNVERIFIED; this is not CC0. See ATTRIBUTIONS.md."
+    },
+    "g0cRfVqV04Q": {
+      "url": "https://youtu.be/g0cRfVqV04Q",
+      "title": "NIGERIAN POPULAR COMEDY SOUND EFFECTS",
+      "uploader": "OG Smitth Comedian",
+      "wavSha256": "810ab5c8696a58b2c33cdf810bbff06715a5c57e041ed33fe2b8c1529da8e1d2",
+      "license": "Short sourced excerpt for meme/commentary use; original rights retained by the source creator. The uploader's 'no copyright' title is treated as UNVERIFIED; this is not CC0. See ATTRIBUTIONS.md."
+    }
+  },
+  "cuts": {
+    "munch_mmm": {
+      "label": "Mouth hum \"Mmm\" (transcribed, energy-bounded)",
+      "source": "https://youtube.com/shorts/mvUVrweNvsQ",
+      "sourceId": "mvUVrweNvsQ",
+      "sourceStart": 0.205,
+      "sourceEnd": 0.525,
+      "extraction": "complete effect",
+      "seconds": 0.32,
+      "peakDbFS": -1.513,
+      "bytes": 2968,
+      "sha256": "fb257e8c1aea37f4809980089bc9728ea003d04b7dbb8f0158268f493c900a0c"
+    },
+    "laugh_baby_short": {
+      "label": "First baby-giggle burst",
+      "source": "https://www.youtube.com/shorts/kW2NDCIpnW0",
+      "sourceId": "kW2NDCIpnW0",
+      "sourceStart": 0.415,
+      "sourceEnd": 1.925,
+      "extraction": "complete burst",
+      "seconds": 1.51,
+      "peakDbFS": -1.562,
+      "bytes": 11197,
+      "sha256": "0084f68546a79e87974061fd7b92dfe5aac2f4ab2098d79c1dcb4eda5ee7b70b"
+    },
+    "laugh_baby_full": {
+      "label": "Full baby laugh",
+      "source": "https://www.youtube.com/shorts/kW2NDCIpnW0",
+      "sourceId": "kW2NDCIpnW0",
+      "sourceStart": 2.905,
+      "sourceEnd": 6.325,
+      "extraction": "complete burst",
+      "seconds": 3.42,
+      "peakDbFS": -1.622,
+      "bytes": 24546,
+      "sha256": "855e839cc2db3ba53a4a4d3f25666bf48859ac633ab2283026bec17daccdc873"
+    },
+    "susp_hit_boom": {
+      "label": "Suspense pack: low boom/hit (attack 31 ms)",
+      "source": "https://www.youtube.com/shorts/AKozkV3MeWE",
+      "sourceId": "AKozkV3MeWE",
+      "sourceStart": 0.465,
+      "sourceEnd": 0.975,
+      "extraction": "complete effect",
+      "seconds": 0.51,
+      "peakDbFS": -1.581,
+      "bytes": 4248,
+      "sha256": "388120dea90a4b80f5610335185e6e111cf4e4dfd9570eb2d79a25e104fd0673"
+    },
+    "susp_drone_deep": {
+      "label": "Suspense pack: deep ominous drone (95% low band)",
+      "source": "https://www.youtube.com/shorts/AKozkV3MeWE",
+      "sourceId": "AKozkV3MeWE",
+      "sourceStart": 2.075,
+      "sourceEnd": 4.745,
+      "extraction": "complete effect",
+      "seconds": 2.67,
+      "peakDbFS": -1.578,
+      "bytes": 19426,
+      "sha256": "3d69337e7ab045427207913448b5315be2bbfc4350889814782f1ee188dc4414"
+    },
+    "susp_sting_mid": {
+      "label": "Suspense pack: mid metallic sting",
+      "source": "https://www.youtube.com/shorts/AKozkV3MeWE",
+      "sourceId": "AKozkV3MeWE",
+      "sourceStart": 5.565,
+      "sourceEnd": 6.315,
+      "extraction": "complete effect",
+      "seconds": 0.75,
+      "peakDbFS": -1.742,
+      "bytes": 5894,
+      "sha256": "639fddd36ea348ce9e858f5307018634fcb955280735aabbfbd7709762ac3d1c"
+    },
+    "susp_drone_creep": {
+      "label": "Suspense pack: creeping low drone (slow 738 ms attack)",
+      "source": "https://www.youtube.com/shorts/AKozkV3MeWE",
+      "sourceId": "AKozkV3MeWE",
+      "sourceStart": 7.595,
+      "sourceEnd": 8.805,
+      "extraction": "complete effect",
+      "seconds": 1.21,
+      "peakDbFS": -1.574,
+      "bytes": 9186,
+      "sha256": "95d125cf72cd9002c319cc3fb7adc20e5c7029e39e5e773000faa925bbcc2ada"
+    },
+    "susp_burst": {
+      "label": "Suspense pack: sudden mid burst",
+      "source": "https://www.youtube.com/shorts/AKozkV3MeWE",
+      "sourceId": "AKozkV3MeWE",
+      "sourceStart": 9.775,
+      "sourceEnd": 10.885,
+      "extraction": "complete effect",
+      "seconds": 1.11,
+      "peakDbFS": -1.73,
+      "bytes": 8454,
+      "sha256": "6aa1a593b1c16441840cde8bd76552ac214bfd69700912efc06a642348d3a347"
+    },
+    "susp_build": {
+      "label": "Suspense pack: rising tension build",
+      "source": "https://www.youtube.com/shorts/AKozkV3MeWE",
+      "sourceId": "AKozkV3MeWE",
+      "sourceStart": 11.685,
+      "sourceEnd": 14.335,
+      "extraction": "complete effect",
+      "seconds": 2.65,
+      "peakDbFS": -1.561,
+      "bytes": 19243,
+      "sha256": "cfa24f1430e07d8cc6feab06dd5e9972059ffa02cc1874560bf9296e136bf148"
+    },
+    "ah_scream": {
+      "label": "Comic \"AHH!\" scream (transcribed)",
+      "source": "https://www.youtube.com/shorts/fkRNoM2f9GM",
+      "sourceId": "fkRNoM2f9GM",
+      "sourceStart": 0.035,
+      "sourceEnd": 0.355,
+      "extraction": "complete effect",
+      "seconds": 0.32,
+      "peakDbFS": -1.662,
+      "bytes": 2968,
+      "sha256": "814fc1bdf809c7f31e4646c84e45d3b8528524b03c9a3fe534a9f2a9fc94841d"
+    },
+    "comic_hit": {
+      "label": "Bright percussive comedy hit",
+      "source": "https://www.youtube.com/shorts/fkRNoM2f9GM",
+      "sourceId": "fkRNoM2f9GM",
+      "sourceStart": 1.115,
+      "sourceEnd": 1.675,
+      "extraction": "complete effect",
+      "seconds": 0.56,
+      "peakDbFS": -1.568,
+      "bytes": 4614,
+      "sha256": "2d3f6dc9d787c99a559667c2cd702b4fd7f63323c5490ce2cc2b4021c4ab23f8"
+    },
+    "mwah_kisses": {
+      "label": "Repeated comic mouth-kiss \"mwah\" sounds (medium-model transcription)",
+      "source": "https://www.youtube.com/shorts/fkRNoM2f9GM",
+      "sourceId": "fkRNoM2f9GM",
+      "sourceStart": 6.385,
+      "sourceEnd": 9.8,
+      "extraction": "excerpt of the 6.385-10.515 repeated pattern, cut at an energy dip",
+      "seconds": 3.415,
+      "peakDbFS": -1.576,
+      "bytes": 24546,
+      "sha256": "d97c5289351d84c29c1c21795832dc494ed6d031a3a271db48990e5fe47f14b7"
+    },
+    "sorry_dontcry": {
+      "label": "Voice: \"Oh, sorry, sorry, sorry, don't cry.\" (word timestamps 7.58-10.14)",
+      "source": "https://youtu.be/g0cRfVqV04Q",
+      "sourceId": "g0cRfVqV04Q",
+      "sourceStart": 7.52,
+      "sourceEnd": 10.2,
+      "extraction": "phrase window incl. natural onset/tail",
+      "seconds": 2.68,
+      "peakDbFS": -1.513,
+      "bytes": 19426,
+      "sha256": "22d54298be7c3157d0c1498f37c9e4d3000a9206cd069025cae5e685afe9ec8e"
+    },
+    "dont_cry": {
+      "label": "Voice: \"Don't cry.\" (word timestamps 21.04-21.72)",
+      "source": "https://youtu.be/g0cRfVqV04Q",
+      "sourceId": "g0cRfVqV04Q",
+      "sourceStart": 21.0,
+      "sourceEnd": 21.78,
+      "extraction": "phrase window incl. natural onset/tail",
+      "seconds": 0.78,
+      "peakDbFS": -1.556,
+      "bytes": 6077,
+      "sha256": "7b72520f8f81b03e9c67cbef2cf79c2c87a9107fb7296a9b8bfdb915bec7c9ce"
+    },
+    "g0_bass_sting": {
+      "label": "Sustained comedic ominous bass sting (centroid 380 Hz)",
+      "source": "https://youtu.be/g0cRfVqV04Q",
+      "sourceId": "g0cRfVqV04Q",
+      "sourceStart": 26.5,
+      "sourceEnd": 29.9,
+      "extraction": "excerpt of the 26.145-32.105 sustained sting",
+      "seconds": 3.4,
+      "peakDbFS": -1.525,
+      "bytes": 24546,
+      "sha256": "4016564a320fa0d47ad485779f5c223ea418a7739d128b14f13504a1d5e2db6b"
+    },
+    "comic_hit_bright": {
+      "label": "Bright comedy hit (distinct recording from comic_hit, corr 0.06)",
+      "source": "https://youtu.be/g0cRfVqV04Q",
+      "sourceId": "g0cRfVqV04Q",
+      "sourceStart": 32.945,
+      "sourceEnd": 33.655,
+      "extraction": "complete effect",
+      "seconds": 0.71,
+      "peakDbFS": -1.631,
+      "bytes": 5711,
+      "sha256": "413b1eddcf8381b66546da7ba4660bc3d44c9981537d787151f7fe6b6738e6ad"
+    },
+    "pregnant_shock": {
+      "label": "Comic exclamation \"PREGNANT?!\" (stable across whisper small+medium)",
+      "source": "https://youtu.be/g0cRfVqV04Q",
+      "sourceId": "g0cRfVqV04Q",
+      "sourceStart": 48.425,
+      "sourceEnd": 49.585,
+      "extraction": "phrase window incl. natural onset/tail",
+      "seconds": 1.16,
+      "peakDbFS": -1.601,
+      "bytes": 8820,
+      "sha256": "73811357de34244759ed79385d6b5e757096ccd55f98a315f2415c1d1ed62e2b"
+    },
+    "g0_deep_wah": {
+      "label": "Deep comedic sting (centroid 173 Hz, distinct from g0_bass_sting, corr -0.006)",
+      "source": "https://youtu.be/g0cRfVqV04Q",
+      "sourceId": "g0cRfVqV04Q",
+      "sourceStart": 53.615,
+      "sourceEnd": 56.145,
+      "extraction": "complete effect",
+      "seconds": 2.53,
+      "peakDbFS": -1.567,
+      "bytes": 18328,
+      "sha256": "7e5d03acca3f144c02fe7182d13924fb95cc693d28b6bc5491e80088391c9ccd"
+    }
+  }
+}

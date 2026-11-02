@@ -32,7 +32,7 @@ assert(!/tier\.soft\)\s*\{\s*SFX_BANK\.play\('clock_tick'/.test(ui),'Idle nudge 
 let chipHandler,chipStops=0;
 const controls={settings:{sound:false,sfx:{think:true}},FX:{thinkStop:()=>chipStops++},SETTINGS_KEY:'test',saveJSON(){},updateSegs(){},
   $:()=>({addEventListener:(_event,fn)=>chipHandler=fn})};
-vm.runInNewContext(ui.slice(ui.indexOf("  $('sfxChips').addEventListener"),ui.indexOf('  // theme picker')),controls);
+vm.runInNewContext(ui.slice(ui.indexOf("  $('sfxChips').addEventListener"),ui.indexOf('  // Deliberate previews')),controls);
 chipHandler({target:{closest:()=>({dataset:{v:'think'}})}});assert.equal(chipStops,1,'Thinking chip stops an active rustle immediately');
 const mixCalls=[],mixContext={settings:{sound:false,sfx:{master:.9}}};
 vm.runInNewContext('this.mix={'+ui.slice(ui.indexOf('    setMaster(v)'),ui.indexOf('    // A sparse,'))+'};',mixContext);

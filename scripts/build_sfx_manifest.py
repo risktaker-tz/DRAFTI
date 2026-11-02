@@ -28,6 +28,14 @@ def main():
             changed.append(name)
         bank[name]=definition
     output='/* DRAFTI embedded sound bank. Full sources and licenses: ATTRIBUTIONS.md. */\nwindow.DRAFTI_SFX = '+json.dumps(bank,ensure_ascii=False,separators=(',',':'))+';\n'
+    owner_map=json.loads((ROOT/'scripts/owner_audio_map.json').read_text(encoding='utf8'))
+    if set(owner_map['clips'])-set(bank): raise ValueError('Owner event map references missing audio')
+    output+='window.DRAFTI_OWNER_AUDIO = '+json.dumps(owner_map,ensure_ascii=False,separators=(',',':'))+';\n'
+    voices={}
+    for line in (ROOT/'scripts/voice_lines.md').read_text(encoding='utf8').splitlines():
+        fields=[field.strip() for field in line.split('|')]
+        if len(fields)>=4 and fields[2] in ('jam','kazi'): voices[fields[1]]=fields[2]
+    output+='window.DRAFTI_VOICES = '+json.dumps(voices,separators=(',',':'))+';\n'
     if args.write: (ROOT/'src/audio.manifest.js').write_text(output,encoding='utf8')
     print(f'{len(bank)} clips verified; updates: {changed}; '+('manifest written' if args.write else 'validation only'))
 if __name__=='__main__': main()

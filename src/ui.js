@@ -1210,6 +1210,74 @@
     buffers: new Map(),
     recent: [],
     lastPlayed: new Map(),
+    ownerMap: (window.DRAFTI_OWNER_AUDIO || {}).clips || {},
+    ownerCounts: new Map(),
+    ownerFamilyAt: new Map(),
+    ownerFamilyCounts: new Map(),
+    lastOwnerAt: -Infinity,
+    eventHistory: new Map(),
+    eventAt: new Map(),
+    activeSources: new Map(),
+    lastNarratorVoice: null,
+    queue: [],
+    audioEpoch: 0,
+    drainQueue() {
+      const now = performance.now();
+      this.queue = this.queue.filter(item => item.epoch === this.audioEpoch && now - item.at < 3500);
+      this.queue.sort((a,b) => b.priority - a.priority);
+      const next = this.queue.shift();
+      if (next) this.play(next.name, { ...next.opts, queued: true });
+    },
+    effect(event, opts) {
+      opts = opts || {};
+      const now = performance.now(), rest = ['landing','jump','impact','slide','king_glint'].includes(event) ? 120 : event === 'countdown' ? 700 : 1200;
+      if (now - (this.eventAt.get(event) ?? -Infinity) < rest) return null;
+      const history = this.eventHistory.get(event) || [];
+      const pool = Object.keys(this.defs).filter(id => this.defs[id].event === event && this.on(id) && this.buffers.has(id) && !history.slice(-3).includes(id));
+      if (!pool.length) return null;
+      const id = pool[(Math.random() * pool.length) | 0];
+      const source = this.play(id, { vol: opts.vol ?? .42, rate: 1 });
+      if (source) { this.eventAt.set(event, now); history.push(id); this.eventHistory.set(event, history.slice(-8)); }
+      return source;
+    },
+    audition(id) {
+      if (!this.ownerMap[id]) return null;
+      return this.play(id, { vol: .5, rate: 1 });
+    },
+    resetGame() {
+      this.ownerCounts.clear(); this.ownerFamilyCounts.clear(); this.queue.length = 0; this.audioEpoch++;
+      for (const source of this.activeSources.keys()) { try { source.stop(); } catch {} }
+      this.activeSources.clear();
+    },
+    directOwner(event, context) {
+      context = context || {};
+      if (!settings.sound || G.over || G.aiSpeed > 1 || performance.now() < this.sceneLockUntil) return null;
+      if (event === 'human_blunder_flagrant' && (!context.human || context.forced || context.delta < 420)) return null;
+      const now = performance.now();
+      if (now - this.lastOwnerAt < 18000) return null;
+      const eligible = Object.entries(this.ownerMap).filter(([id, m]) => {
+        if (m.event !== event || !this.on(id) || !this.buffers.has(id)) return false;
+        const family = id.startsWith('laugh_baby') ? 'baby-laugh'
+          : ['sorry_dontcry', 'dont_cry'].includes(id) ? 'consolation'
+          : ['comic_hit', 'comic_hit_bright'].includes(id) ? 'punchline' : id;
+        return (this.ownerFamilyCounts.get(family) || 0) < m.maxPerGame &&
+          now - (this.ownerFamilyAt.get(family) ?? -Infinity) >= m.cooldownSec * 1000 &&
+          !this.recent.slice(-8).includes(id);
+      });
+      if (!eligible.length) return null;
+      const [id, meta] = eligible[(Math.random() * eligible.length) | 0];
+      if (Math.random() >= meta.chancePerEvent) return null;
+      const source = this.play(id, { vol: .58, rate: 1, queue: false });
+      if (!source) return null;
+      const family = id.startsWith('laugh_baby') ? 'baby-laugh'
+        : ['sorry_dontcry', 'dont_cry'].includes(id) ? 'consolation'
+        : ['comic_hit', 'comic_hit_bright'].includes(id) ? 'punchline' : id;
+      this.ownerFamilyAt.set(family, now);
+      this.ownerFamilyCounts.set(family, (this.ownerFamilyCounts.get(family) || 0) + 1);
+      this.ownerCounts.set(id, (this.ownerCounts.get(id) || 0) + 1);
+      this.lastOwnerAt = now;
+      return source;
+    },
     decoding: false,
     sceneLockUntil: 0,
     CAT_VOL: { majestic: 0.95, comedy: 0.8, voice: 1.0, judge: 1.0, think: 1.0, ui: 0.6, drama: 0.95, party: 1.0 },
@@ -1249,6 +1317,25 @@
       if (!buf) return null;
       const now = performance.now();
       if (now < this.sceneLockUntil && this.defs[name].c !== 'ui' && !(opts && opts.sceneOwner === 'ceremony')) return null;
+      const category = this.defs[name].c;
+      const priority = opts && opts.sceneOwner === 'ceremony' ? 100
+        : ({ majestic: 70, voice: 60, judge: 60, drama: 50, party: 40, comedy: 35, ui: 20, think: 10 }[category] || 30);
+      const voice = this.defs[name].voice || (window.DRAFTI_VOICES || {})[name];
+      const spoken = !!voice || category === 'voice' || category === 'judge' ||
+        ['later_moments','later_hours','tellyou','bruh','god','badboy','shrimp1','shrimp2'].includes(name);
+      for (const active of this.activeSources.values()) {
+        if (spoken && active.spoken && active.priority >= priority) {
+          if (!(opts && (opts.queued || opts.queue === false)) && !this.queue.some(item => item.name === name)) {
+            this.queue.push({ name, opts, priority, at: now, epoch: this.audioEpoch });
+            this.queue.sort((a,b) => b.priority - a.priority); this.queue.length = Math.min(this.queue.length, 3);
+          }
+          return null;
+        }
+        if (category === 'think' && active.priority > priority) return null;
+      }
+      // Narrator cards alternate the two authored voices; ceremonial originals
+      // and tactical verdicts retain their exact, context-specific recordings.
+      if (category === 'think' && ['jam','kazi'].includes(voice) && voice === this.lastNarratorVoice) return null;
       const cooldown = this.defs[name].c === "ui" ? 150 : 8000;
       if (now - (this.lastPlayed.get(name) || -Infinity) < cooldown) return null;
       if (this.defs[name].c !== "ui" && this.recent.slice(-5).includes(name)) return null;
@@ -1261,12 +1348,23 @@
         (this.CAT_VOL[cat] || 0.8));
       const src = ctx.createBufferSource();
       src.buffer = buf;
-      src.playbackRate.value = (opts && opts.rate) || (0.96 + Math.random() * 0.08);
+      src.playbackRate.value = (opts && opts.rate) || (spoken ? 1 : 0.96 + Math.random() * 0.08);
       const g = ctx.createGain();
       g.gain.value = Math.max(0.0001, Math.min(1.2, vol));
       src.connect(g); g.connect(FX.out || ctx.destination);
+      for (const [source, active] of this.activeSources) {
+        if (active.priority < priority && (active.ambient || priority === 100)) {
+          try { source.stop(); } catch {}
+          this.activeSources.delete(source);
+        }
+      }
+      this.activeSources.set(src, { priority, spoken, ambient: category === 'think' });
+      src.onended = () => { this.activeSources.delete(src); src.disconnect(); g.disconnect(); this.drainQueue(); };
+      if (category === 'think' && ['jam','kazi'].includes(voice)) this.lastNarratorVoice = voice;
       if (opts && opts.maxDuration) src.start(0, 0, Math.min(opts.maxDuration, buf.duration));
       else src.start();
+      if (new URLSearchParams(location.search).has('audio-audit'))
+        console.info('[DRAFTI audio]', JSON.stringify({ id: name, category, priority, phase: G.phase, at: Math.round(now) }));
       return src;
     },
   };
@@ -1289,7 +1387,7 @@
     sel: null, hint: null, lastMove: null,
     aiPaused: false, aiSpeed: settings.speed,
     capStreakSide: 0, capStreak: 0,
-    firstBlood: false,
+    firstStrike: false,
     // arena roster seats: which AI sits on each colour this game, and the
     // ladder rung each seat is searching at (champion vs challenger levels)
     seatIvory: arena.champion, seatEbony: arena.queue[0],
@@ -1892,12 +1990,20 @@
     setTimeout(() => el.remove(), 800);
   }
 
-  // first capture of the game: a small sting that says the blood is up
-  function firstBloodSting() {
-    if (G.firstBlood) return;
-    G.firstBlood = true;
-    SFX_BANK.play('v_first', { vol: 0.95 });
-    flashWhisper('First blood!');
+  const FIRST_STRIKE_CUES = [
+    { label: 'First strike!', snd: 'v_sharp' },
+    { label: 'Opening capture!', snd: 'v_clean' },
+    { label: 'Off the mark!', snd: 'v_nice' },
+  ];
+  const FIRST_STRIKE_DECK = makeDeck(FIRST_STRIKE_CUES);
+  // The first capture, once per game; preserve the original tactical trigger.
+  function firstCaptureSting() {
+    if (G.firstStrike) return;
+    G.firstStrike = true;
+    const cue = FIRST_STRIKE_DECK();
+    SFX_BANK.play(cue.snd, { vol: 0.75 });
+    SFX_BANK.effect('coin', { vol: .22 });
+    flashWhisper(cue.label);
   }
 
   // Instant signals, computed at commit time from data we already have.
@@ -2104,6 +2210,7 @@
     doomTauntIx = 0;
     doomTauntCount = 0;
     frameEl.classList.add('doomed');
+    frameEl.dataset.doomSide = side;
     if (isHumanDoomed) {
       // bad news for the player: the sad violin and a straight admission
       SFX_BANK.play('sadviolin', { vol: 0.95 });
@@ -2122,6 +2229,7 @@
     if (!was) return;
     doomSide = 0;
     frameEl.classList.remove('doomed');
+    delete frameEl.dataset.doomSide;
     if (ply - doomPly >= 2) { // a real escape, not a one-move wobble
       FX.play('relief');
       SFX_BANK.play(pick(['v_esc1', 'v_esc2']), { vol: 0.95 });
@@ -2208,6 +2316,8 @@
     pendingVerdict = null;
     if (G.over || G.history.length !== pv.ply) return;
     const h = G.history[pv.ply - 1];
+    if (isFinite(res.delta) && res.delta >= 420 && !res.onlyMove && h && G.history.length > 4)
+      SFX_BANK.directOwner('human_blunder_flagrant', { human: G.mode === 'hotseat' || G.mode === 'ai' && pv.mover === G.humanSide, forced: res.onlyMove, delta: res.delta });
 
     // ---- doom drama, every mode: how does the side to move actually stand?
     if (res.opp && isFinite(res.opp.bestScore)) {
@@ -2307,10 +2417,37 @@
   }
 
   // ---------------- move execution ----------------
+  function physicalBurst(element, kind, side) {
+    if (!element || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const rect = element.getBoundingClientRect();
+    const effect = document.createElement('div'); effect.className = 'physical-burst ' + kind;
+    effect.setAttribute('aria-hidden', 'true');
+    effect.style.left = (rect.left + rect.width / 2) + 'px';
+    effect.style.top = (rect.top + rect.height / 2) + 'px';
+    for (let i = 0; i < (kind === 'victory' ? 14 : 7); i++) {
+      const bit = document.createElement('i'), angle = i * 2.39996;
+      bit.style.setProperty('--dx', Math.cos(angle) * (kind === 'victory' ? 110 : 28) + 'px');
+      bit.style.setProperty('--dy', Math.sin(angle) * (kind === 'victory' ? 90 : 28) - 15 + 'px');
+      bit.style.setProperty('--spin', (i * 71) + 'deg'); effect.appendChild(bit);
+    }
+    if (kind === 'capture') {
+      const tray = $(side === IVORY ? 'trayTop' : 'trayBottom').getBoundingClientRect();
+      const mini = document.createElement('b'); mini.className = 'tray-flight';
+      const surface = element.querySelector && element.querySelector('.body');
+      if (surface) { const paint = getComputedStyle(surface); mini.style.background = paint.background; mini.style.border = '1px solid ' + paint.borderColor; }
+      mini.style.setProperty('--dx', tray.left + tray.width * .8 - rect.left - rect.width / 2 + 'px');
+      mini.style.setProperty('--dy', tray.top + tray.height / 2 - rect.top - rect.height / 2 + 'px');
+      effect.appendChild(mini);
+    }
+    document.body.appendChild(effect);
+    setTimeout(() => effect.remove(), 1100);
+  }
   async function animateMove(mv) {
     const p = pieceAt(mv.from);
     if (!p) return;
     p.el.classList.add('lifted');
+    if (mv.path.length === 2 && !mv.caps.length) SFX_BANK.effect('slide', { vol: .13 });
+    if (Math.abs(p.code) === 2 && !mv.caps.length) SFX_BANK.effect('king_glint', { vol: .12 });
     for (let k = 1; k < mv.path.length; k++) {
       const to = mv.path[k];
       p.sq = to;
@@ -2318,18 +2455,24 @@
       const capIdx = mv.caps[k - 1];
       if (capIdx !== undefined) {
         const victim = pieceAt(capIdx);
-        if (victim) setTimeout(() => { if (victim.el) victim.el.classList.add('captured'); }, 90);
+        if (victim) setTimeout(() => { if (victim.el) { physicalBurst(victim.el, 'capture', G.side); victim.el.classList.add('captured'); } }, 90);
         FX.play('capture');
+        SFX_BANK.effect(k === mv.path.length - 1 ? 'impact' : 'jump', { vol: k === mv.path.length - 1 ? .32 : .17 + k * .025 });
       } else {
         FX.play('move');
+        SFX_BANK.effect('landing', { vol: .16 });
       }
-      await sleep(HOP_MS);
+      await sleep(mv.caps.length >= 3 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches ? HOP_MS * 1.25 : HOP_MS);
     }
     p.el.classList.remove('lifted');
     if (mv.promotes) {
       p.code = G.side * 2;
       refreshPiece(p);
+      p.el.classList.add('crowning');
+      frameEl.classList.add(G.side === IVORY ? 'coronation-a' : 'coronation-b');
+      setTimeout(() => { p.el.classList.remove('crowning'); frameEl.classList.remove('coronation-a', 'coronation-b'); }, 1100);
       FX.play('king');
+      SFX_BANK.effect('crown', { vol: .38 });
       if (Math.random() < 0.55) setTimeout(() => SFX_BANK.play('st_tada1', { vol: 0.6 }), 320);
     }
   }
@@ -2357,6 +2500,9 @@
     }
     await animateMove(mv);
     const ply = commitMove(mv);
+    if (mv.caps.length >= 3) SFX_BANK.effect('feast', { vol: .4 });
+    if (mv.caps.length >= 3) SFX_BANK.directOwner('capture_own_feast');
+    else if (mv.caps.length >= 2) SFX_BANK.directOwner('material_loss_sudden');
     // trap drama: the mover either walked into the shot or found the safe way
     const trap = pendingTrap;
     pendingTrap = null;
@@ -2384,7 +2530,7 @@
     }
     // capture streaks: consecutive moves (by either side) that capture
     if (mv.caps.length > 0) {
-      firstBloodSting();
+      firstCaptureSting();
       const stM = styleForSide(moverSide);
       if (stM && Math.random() < 0.18) {
         setTimeout(() => SFX_BANK.play(pick(stM.catch), { vol: 0.7 }), 750);
@@ -2494,6 +2640,11 @@
 
   function setOver(winner, reason) {
     G.over = true;
+    SFX_BANK.effect(winner === null ? 'draw' : G.mode === 'ai' && winner !== G.humanSide ? 'defeat' : 'victory', { vol: .38 });
+    if (winner !== null) {
+      frameEl.classList.add(winner === IVORY ? 'victory-a' : 'victory-b');
+      physicalBurst(frameEl, 'victory', winner);
+    }
     G.result = { winner, reason };
     G.phase = 'over';
     doomClear();
@@ -2791,6 +2942,10 @@
 
   // ---------------- game lifecycle ----------------
   function newGame() {
+    SFX_BANK.resetGame();
+    frameEl.classList.remove('victory-a', 'victory-b', 'coronation-a', 'coronation-b');
+    delete frameEl.dataset.doomSide;
+    for (const effect of document.querySelectorAll('.physical-burst')) effect.remove();
     reqId++; // invalidate any in-flight search
     aiPending = false; hintPending = false;
     cancelAutoNext();
@@ -2815,7 +2970,7 @@
     lastThinkMs = 0; thinkArmedKey = -1; thinkFired = 0; clockArmedKey = -1;
     pendingTrap = null;
     aiCardsThisGame = 0; // the narrator's quota resets with every fresh game
-    G.firstBlood = false;
+    G.firstStrike = false;
     G.shrimpFired = false;
     // arena seats: the champion hosts on ivory, the challenger sits ebony;
     // guardArena() has already sworn the queue holds nothing but other
@@ -2864,6 +3019,7 @@
     if (G.mode === 'aivai' && settings.aivaiAuto) {
       const boutIx = arena.bouts;
       const stage = stageOfBout(boutIx);
+      SFX_BANK.effect(['stage_group','stage_quarter','stage_semi','stage_final'][stage], { vol: .26 });
       let meetDelay = 5200;
       if (boutIx > 0 && stageOfBout(boutIx - 1) !== stage) {
         const line = aiName(arena.champion) + ' advances to the ' + SEASON_STAGES[stage].name + '!';
@@ -2879,6 +3035,7 @@
           ' meet again — the ' + ord(G.pairMeets) + ' time in the arena.';
         setTimeout(() => {
           SFX_BANK.play('st_drum1', { vol: 0.8 });
+          SFX_BANK.effect('reunion', { vol: .25 });
           flashWhisper(line);
         }, meetDelay);
       }
@@ -2903,7 +3060,7 @@
     G.sel = null; G.hint = null;
     G.capStreak = 0; G.capStreakSide = 0;
     pendingTrap = null;
-    G.firstBlood = G.history.some((h) => h.move.caps.length > 0);
+    G.firstStrike = G.history.some((h) => h.move.caps.length > 0);
     doomClear();
     G.legal = E.legalMoves(G.rs, G.board, G.side);
     rebuildPieces();
@@ -3418,6 +3575,27 @@
     }
   });
 
+  // Deliberate previews are separate from automatic gameplay reactions.
+  const paletteLabels = { stage_group: 'Group stage', stage_quarter: 'Quarter-final', stage_semi: 'Semi-final',
+    stage_final: 'Grand final', king_glint: 'King shimmer', retention: 'Title defence', oneup: 'One up',
+    laugh_baby_short: 'Baby giggle', laugh_baby_full: 'Baby laughter', munch_mmm: 'Chewing · mmm',
+    sorry_dontcry: 'Sorry, don’t cry', dont_cry: 'Don’t cry', pregnant_shock: 'Surprised exclamation' };
+  const paletteTitle = id => paletteLabels[id] || id.replace(/_/g, ' ').replace(/^./, c => c.toUpperCase());
+  for (const event of [...new Set(Object.values(SFX_BANK.defs).map(d => d.event).filter(Boolean))]) {
+    const button = document.createElement('button'); button.className = 'btn'; button.dataset.event = event;
+    button.textContent = paletteTitle(event); $('sfxPalette').appendChild(button);
+  }
+  for (const id of Object.keys(SFX_BANK.ownerMap)) {
+    const button = document.createElement('button'); button.className = 'btn'; button.dataset.clip = id;
+    button.textContent = paletteTitle(id); $('sfxOriginals').appendChild(button);
+  }
+  for (const grid of [$('sfxPalette'), $('sfxOriginals')]) grid.addEventListener('click', event => {
+    const button = event.target.closest('button'); if (!button) return;
+    FX.ensure(); SFX_BANK.decodeAll();
+    const sound = button.dataset.event ? SFX_BANK.effect(button.dataset.event, { vol: .42 }) : SFX_BANK.audition(button.dataset.clip);
+    $('sfxPreviewStatus').textContent = !settings.sound ? 'Sound is muted.' : sound ? 'Playing: ' + button.textContent : 'Choose another sound, or check its category switch.';
+  });
+
   // theme picker
   const themeGrid = $('themeGrid');
   for (const t of THEMES) {
@@ -3439,6 +3617,7 @@
     applyTheme(settings.theme);
     updateSegs();
     SFX_BANK.play('ui_theme');
+    SFX_BANK.effect('theme', { vol: .18 });
   });
 
   // piece-style picker: swatch buttons with a two-dot preview of the men
@@ -3516,6 +3695,7 @@
     drawer.setAttribute('aria-hidden', 'false');
     $('btnMenu').setAttribute('aria-expanded', 'true');
     SFX_BANK.play('ui_open');
+    SFX_BANK.effect('drawer', { vol: .12 });
   }
   function closeMenu() {
     if (!drawerOpen) return;
