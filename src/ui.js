@@ -146,7 +146,7 @@
   // fallback when two flags would blur together; the resolver below sorts
   // out the rest, so Ivory Coast never plays Ecuador in an identical green.
   const FLAG_COLORS = {
-    TZ:['#1EB53A','#00A3DD'], KE:['#B3202C','#1C7A3C'],
+    TZ:['#1EB53A','#00A3DD'], KE:['#000000','#BB0000'],
     UG:['#FDCB0C','#D40000'], RW:['#00A1DE','#FAD201'], BI:['#CE1126','#1EB53A'],
     SS:['#078930','#DA121A'], SO:['#4189DD','#FFFFFF'], CD:['#007FFF','#F7D618'],
     ET:['#078930','#FCDD09'], ER:['#12AD2B','#1D84C6'], DJ:['#6AB2E7','#12AD2B'],
