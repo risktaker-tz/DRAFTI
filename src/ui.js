@@ -343,7 +343,7 @@
   // and no one stays on top forever. Five points = one rung on the 1-10
   // ladder, and each new season every nation climbs one more rung.
   const rosterLevel = (id) =>
-    Math.min(10, Math.max(1, 1 + Math.floor((arena.xp[id] || 0) / 5) + (arena.season - 1)));
+    Math.min(10, Math.max(1, (LEVEL_IDS.indexOf(settings.diff) + 1 || 1) + Math.floor((arena.xp[id] || 0) / 5) + (arena.season - 1)));
   // the challenge ladder, in the order the world comes calling: the rivalry
   // first, then East Africa, Africa, and the continents beyond — shuffled
   // inside each band so the visit order never goes stale
@@ -420,7 +420,7 @@
   let arenaProgressSignature = '';
   function renderArenaProgress() {
     const tbody = $('arenaProgressRows'); if (!tbody) return;
-    const signature = JSON.stringify([arena.season, arena.xp, arena.wins, arenaProgress.bonusXp, nameOverrides]);
+    const signature = JSON.stringify([arena.season, settings.diff, arena.xp, arena.wins, arenaProgress.bonusXp, nameOverrides]);
     if (signature === arenaProgressSignature) return;
     arenaProgressSignature = signature;
     tbody.replaceChildren();
@@ -433,7 +433,7 @@
       fragment.appendChild(row);
     }
     tbody.appendChild(fragment);
-    $('arenaProgressCaption').textContent = 'Season ' + arena.season + ' · ' + ROSTER.length + ' nations · event bonuses tracked from this update';
+    $('arenaProgressCaption').textContent = 'Season ' + arena.season + ' · starting strength ' + (LEVEL_IDS.indexOf(settings.diff) + 1 || 1) + ' · ' + ROSTER.length + ' nations · event bonuses tracked from this update';
   }
 
   // the name chips: tap one, type the new name, Enter or blur commits. The
@@ -517,7 +517,7 @@
   function saveJSON(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* private mode etc. */ } }
 
   const settings = Object.assign(
-    { rsId: 'american', mode: 'ai', diff: 'l5', humanSide: IVORY, sound: true, rotate: true, theme: 'neon', clock: 0, speed: 1, hv: false, ambient: true, style: 'classic', styleIvory: 'italian', styleEbony: 'czech', pname: 'UHAKIKA', pname2: 'Challenger', aivaiAuto: true, jumpPaths: true, shake: true, pieces: 'theme', arenaRounds: 1, humanlike: false },
+    { rsId: 'american', mode: 'ai', diff: 'l5', humanSide: IVORY, sound: true, rotate: true, theme: 'neon', clock: 0, speed: 1, hv: false, ambient: true, style: 'classic', styleIvory: 'italian', styleEbony: 'czech', pname: 'Uhakika', pname2: 'Usiogope', aivaiAuto: true, jumpPaths: true, shake: true, pieces: 'theme', arenaRounds: 1, humanlike: false },
     loadJSON(SETTINGS_KEY, {})
   );
   if (!E.RULESETS[settings.rsId]) settings.rsId = 'american';
@@ -540,8 +540,11 @@
     const s = String(v == null ? '' : v).replace(/[\r\n\t]+/g, ' ').trim().slice(0, 18);
     return s || fb;
   };
-  settings.pname = cleanName(settings.pname, 'UHAKIKA');
-  settings.pname2 = cleanName(settings.pname2, 'Challenger');
+  // Migrate only the old shipped defaults; custom names remain the player's.
+  if (settings.pname === 'UHAKIKA') settings.pname = 'Uhakika';
+  if (settings.pname2 === 'Challenger') settings.pname2 = 'Usiogope';
+  settings.pname = cleanName(settings.pname, 'Uhakika');
+  settings.pname2 = cleanName(settings.pname2, 'Usiogope');
   if (![1, 2, 3, 4, 5].includes(settings.arenaRounds)) settings.arenaRounds = 1;
   settings.humanlike = !!settings.humanlike;
 
@@ -822,7 +825,7 @@
       '--pl-d-1': '#4a5462', '--pl-d-2': '#323a48', '--pl-d-3': '#1c222c',
       '--pl-d-edge': '#10141c', '--pl-d-glow': GLOW0,
     }),
-    T('mono', 'Ivory & Ebony', null, {
+    T('mono', 'Porcelain & Obsidian', null, {
       '--bg-image': 'linear-gradient(180deg,#fafafa,#ececec 60%,#e2e2e2)',
       '--panel': 'rgba(255,255,255,.9)', '--panel-line': 'rgba(0,0,0,.18)',
       '--modal-bg': 'linear-gradient(170deg,#ffffff,#eeeeee)', '--backdrop': 'rgba(0,0,0,.5)',
@@ -985,7 +988,7 @@
     { id: 'theme',    name: 'Follow table', prev: null },
     { id: 'tourney',  name: 'Tournament Red',  prev: ['#ffffff', '#a02c24'] },
     { id: 'woodturn', name: 'Turned Wood',     prev: ['#f0dfb8', '#4e2d13'] },
-    { id: 'ivoryjet', name: 'Ivory & Jet',     prev: ['#f7f0df', '#17171a'] },
+    { id: 'ivoryjet', name: 'Porcelain & Jet', prev: ['#f7f0df', '#17171a'] },
     { id: 'bakelite', name: 'Amber Bakelite',  prev: ['#e8b45a', '#8a1f1a'] },
     { id: 'steel',    name: 'Steel & Brass',   prev: ['#c8ccd2', '#c9a24a'] },
     { id: 'glass',    name: 'Neon Glass',      prev: ['#bdf3ff', '#ff5ad2'] },
@@ -1290,7 +1293,7 @@
   const boardAt = (i) => G.board[i];
   const pieceAt = (sq) => G.pieces.find((p) => p.sq === sq);
   const countSide = (s) => { let n = 0; for (let i = 0; i < G.board.length; i++) if (G.board[i] * s > 0) n++; return n; };
-  const sideName = (s) => (s === IVORY ? 'Ivory' : 'Ebony');
+  const sideName = (s) => (s === IVORY ? 'Uhakika' : 'Usiogope');
   // players are people: show their name where a side would feel impersonal
   const displayName = (s) => {
     if (G.mode === 'ai' && s === G.humanSide) return settings.pname;
@@ -1423,6 +1426,23 @@
   }
   const searchLevelForSide = () => G.mode === 'aivai'
     ? (G.side === IVORY ? G.diffIvory : G.diffEbony) : G.diff;
+  function changeDifficulty(levelId) {
+    if (!LEVELS[levelId]) return;
+    settings.diff = levelId; G.diff = levelId;
+    if (G.mode === 'aivai' && settings.aivaiAuto) {
+      const levels = arenaSeatLevels(G.seatIvory, G.seatEbony);
+      G.diffIvory = LEVEL_IDS[levels[0] - 1]; G.diffEbony = LEVEL_IDS[levels[1] - 1];
+    } else {
+      G.diffIvory = levelId; G.diffEbony = levelId;
+    }
+    saveJSON(SETTINGS_KEY, settings);
+    if (!G.over && (G.phase === 'thinking' || G.phase === 'idle' && !humanTurn())) {
+      reqId++; aiPending = false; hintPending = false;
+      if (worker) { worker.terminate(); worker = null; }
+      G.phase = 'idle'; FX.thinkStop();
+      updateAll(); scheduleAI();
+    } else updateAll();
+  }
   function arenaPressureOpts(opts) {
     if (G.mode === 'aivai' && settings.aivaiAuto) {
       opts.budgetMs = Math.min(5250, Math.round(opts.budgetMs * (1 + .08 * stageOfBout(arena.bouts))));
@@ -2404,7 +2424,7 @@
     const opp = G.side;
     if (!G.legal.length) {
       setOver(-opp, countSide(opp) === 0
-        ? 'Every ' + sideName(opp).toLowerCase() + ' piece has been captured.'
+        ? 'Every ' + sideName(opp) + ' piece has been captured.'
         : sideName(opp) + ' has no legal move.');
     } else if (G.noProg >= G.rs.drawPlies) {
       setOver(null, G.rs.flyingKings
@@ -3001,7 +3021,7 @@
     set('segStyleI', settings.styleIvory);
     set('segStyleE', settings.styleEbony);
     $('rowSide').style.display = settings.mode === 'ai' ? '' : 'none';
-    $('rowDiff').style.display = settings.mode === 'ai' ? '' : 'none';
+    $('rowDiff').style.display = settings.mode !== 'hotseat' ? '' : 'none';
     $('rowStyle').style.display = settings.mode === 'ai' ? '' : 'none';
     const arenaOnSetting = settings.mode === 'aivai' && settings.aivaiAuto;
     $('rowStyleI').style.display = settings.mode === 'aivai' && !settings.aivaiAuto ? '' : 'none';
@@ -3038,7 +3058,7 @@
         : styleById(settings.styleIvory).name + ' vs ' + styleById(settings.styleEbony).name + '.')
       : styleById(settings.style).blurb;
     $('setupNote').textContent = settings.mode === 'ai'
-      ? rs.name + ' — ' + sideName(rs.firstSide) + ' opens. You play ' + sideName(settings.humanSide).toLowerCase() + '. ' + stNote
+      ? rs.name + ' — ' + sideName(rs.firstSide) + ' opens. You play ' + sideName(settings.humanSide) + '. ' + stNote
       : settings.mode === 'aivai'
         ? rs.name + ' — ' + sideName(rs.firstSide) + ' opens. Sit back and watch the engines. ' + stNote
         : rs.name + ' — ' + sideName(rs.firstSide) + ' opens. Pass and play.';
@@ -3145,7 +3165,7 @@
     confirmIfNeeded(() => { settings.humanSide = s; saveJSON(SETTINGS_KEY, settings); newGame(); });
   });
   wireSeg('segDiff', (v) => {
-    settings.diff = v; saveJSON(SETTINGS_KEY, settings); updateSegs();
+    changeDifficulty(v);
   });
   wireSeg('segClock', (v) => {
     settings.clock = +v; saveJSON(SETTINGS_KEY, settings);

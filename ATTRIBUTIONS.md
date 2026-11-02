@@ -173,3 +173,5 @@ Source: https://youtube.com/shorts/mvUVrweNvsQ . Original rights remain with the
 Playback controls: mute now fades the master output even during a long original passage, preserving the selected volume for unmute. Cancelling an arena ceremony also cancels its pending audio, overlay and next-game continuation. These control fixes change no credited recording.
 
 Final-square capture selection reuses the existing full move animation and its per-hop capture sounds. No recordings are replaced or shortened by this input shortcut.
+
+The Uhakika/Usiogope player-label and strength changes preserve every sound recording. Existing original retirement, shrimp and narrator samples remain unchanged.
