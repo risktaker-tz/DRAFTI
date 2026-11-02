@@ -1,0 +1,1669 @@
+{
+  "references": [
+    "achievement",
+    "ahhscary",
+    "ahooga",
+    "alarm",
+    "animewow",
+    "badboy",
+    "banana",
+    "bear",
+    "bruh",
+    "chicken",
+    "clock_tick",
+    "clock_tock",
+    "cricket",
+    "crown_fanfare",
+    "draw_chime",
+    "duck",
+    "eagle",
+    "elephant",
+    "fall",
+    "god",
+    "gong",
+    "gulp",
+    "haha",
+    "klonk",
+    "later_hours",
+    "later_moments",
+    "lion",
+    "lion_long",
+    "lose_womp",
+    "meow",
+    "notify_pop",
+    "omg",
+    "oof",
+    "panic",
+    "purr",
+    "relief",
+    "rimshot",
+    "s_american_1",
+    "s_american_2",
+    "s_brazilian_1",
+    "s_brazilian_2",
+    "s_classic_1",
+    "s_classic_2",
+    "s_czech_1",
+    "s_czech_2",
+    "s_english_1",
+    "s_english_2",
+    "s_french_1",
+    "s_french_2",
+    "s_in_american",
+    "s_in_brazilian",
+    "s_in_classic",
+    "s_in_czech",
+    "s_in_english",
+    "s_in_french",
+    "s_in_italian",
+    "s_in_kenyan",
+    "s_in_mongolian",
+    "s_in_russian",
+    "s_in_spanish",
+    "s_in_tanzanian",
+    "s_italian_1",
+    "s_italian_2",
+    "s_kenyan_1",
+    "s_kenyan_2",
+    "s_mongolian_1",
+    "s_mongolian_2",
+    "s_russian_1",
+    "s_russian_2",
+    "s_spanish_1",
+    "s_spanish_2",
+    "s_tanzanian_1",
+    "s_tanzanian_2",
+    "sadviolin",
+    "scramble",
+    "shloop",
+    "shrimp1",
+    "shrimp2",
+    "shrimp_orig",
+    "smarts",
+    "sparkle",
+    "st_air1",
+    "st_appl1",
+    "st_appl2",
+    "st_coin1",
+    "st_crowd1",
+    "st_drum1",
+    "st_gasp1",
+    "st_gasp2",
+    "st_heart1",
+    "st_ooh1",
+    "st_ooh2",
+    "st_riser1",
+    "st_tada1",
+    "st_whis1",
+    "streak_big",
+    "streak_hit",
+    "t1a",
+    "t1b",
+    "t1c",
+    "t1d",
+    "t1e",
+    "t2a",
+    "t2b",
+    "t2c",
+    "t2d",
+    "t2e",
+    "t3a",
+    "t3b",
+    "t3c",
+    "t3d",
+    "t4a",
+    "t4b",
+    "t4c",
+    "t4d",
+    "t5a",
+    "t5b",
+    "t5c",
+    "tellyou",
+    "th_c1",
+    "th_f1",
+    "th_g1",
+    "th_g2",
+    "th_h01",
+    "th_h02",
+    "th_h03",
+    "th_h04",
+    "th_h05",
+    "th_h06",
+    "th_h07",
+    "th_h08",
+    "th_h09",
+    "th_h10",
+    "th_h11",
+    "th_h12",
+    "th_h13",
+    "th_h14",
+    "th_h15",
+    "th_h16",
+    "th_h17",
+    "th_h18",
+    "th_h19",
+    "th_h20",
+    "th_m1",
+    "th_m2",
+    "th_m3",
+    "th_m4",
+    "th_m5",
+    "th_m6",
+    "th_n01",
+    "th_n01b",
+    "th_n02",
+    "th_n02b",
+    "th_n03",
+    "th_n03b",
+    "th_n04",
+    "th_n04b",
+    "th_n05",
+    "th_n05b",
+    "th_n06",
+    "th_n06b",
+    "th_n07",
+    "th_n07b",
+    "th_n08",
+    "th_n08b",
+    "th_n09",
+    "th_n09b",
+    "th_n10",
+    "th_n10b",
+    "th_n11",
+    "th_n11b",
+    "th_n12",
+    "th_n13",
+    "th_n13b",
+    "th_n14",
+    "th_n14b",
+    "th_n15",
+    "th_n15b",
+    "th_n16",
+    "th_n16b",
+    "th_n17",
+    "th_n17b",
+    "th_n18",
+    "th_n19",
+    "th_n20",
+    "th_n21",
+    "th_n22",
+    "th_n23",
+    "th_n24",
+    "th_o1",
+    "th_o2",
+    "th_o3",
+    "th_o4",
+    "th_p1",
+    "th_p2",
+    "th_p3",
+    "th_s1",
+    "th_t1",
+    "th_t2",
+    "th_t3",
+    "th_t4",
+    "th_t5",
+    "th_t6",
+    "trombone",
+    "ui_click",
+    "ui_close",
+    "ui_open",
+    "ui_save",
+    "ui_theme",
+    "ui_toggle_off",
+    "ui_toggle_on",
+    "v_aim1",
+    "v_aim2",
+    "v_alltime",
+    "v_awkward",
+    "v_bait1",
+    "v_bait2",
+    "v_bait3",
+    "v_beatgm1",
+    "v_beatgm2",
+    "v_bigbrain",
+    "v_chess",
+    "v_clean",
+    "v_come1",
+    "v_come2",
+    "v_cost",
+    "v_crafty",
+    "v_curious",
+    "v_doom1",
+    "v_doom2",
+    "v_doom3",
+    "v_doom4",
+    "v_doom5",
+    "v_draw",
+    "v_esc1",
+    "v_esc2",
+    "v_feast1",
+    "v_feast2",
+    "v_first",
+    "v_genius",
+    "v_heavy1",
+    "v_heavy2",
+    "v_heavy3",
+    "v_heavy4",
+    "v_hint",
+    "v_hmm",
+    "v_hold1",
+    "v_hold2",
+    "v_inacc1",
+    "v_inacc2",
+    "v_king",
+    "v_king1",
+    "v_king2",
+    "v_levelup1",
+    "v_lose",
+    "v_lose2",
+    "v_lose3",
+    "v_lucky3",
+    "v_magnificent",
+    "v_masterpiece",
+    "v_new",
+    "v_nextup",
+    "v_nice",
+    "v_nosense",
+    "v_ohno",
+    "v_onejob",
+    "v_only",
+    "v_ooh1",
+    "v_paidoff",
+    "v_rampage",
+    "v_rampage2",
+    "v_retire1",
+    "v_retire2",
+    "v_retire_orig",
+    "v_sharp",
+    "v_slau1",
+    "v_slau2",
+    "v_slowsteady",
+    "v_spec1",
+    "v_spec10",
+    "v_spec2",
+    "v_spec3",
+    "v_spec4",
+    "v_spec5",
+    "v_spec6",
+    "v_spec7",
+    "v_spec8",
+    "v_spec9",
+    "v_streak1",
+    "v_streak2",
+    "v_sure",
+    "v_tad1",
+    "v_tad2",
+    "v_tad3",
+    "v_taw1",
+    "v_taw2",
+    "v_taw3",
+    "v_tbd1",
+    "v_tbd2",
+    "v_tbd3",
+    "v_tbf1",
+    "v_tbf2",
+    "v_tbf3",
+    "v_thought30",
+    "v_time",
+    "v_trap",
+    "v_trick",
+    "v_tt1",
+    "v_tt10",
+    "v_tt2",
+    "v_tt3",
+    "v_tt4",
+    "v_tt5",
+    "v_tt6",
+    "v_tt7",
+    "v_tt8",
+    "v_tt9",
+    "v_undo",
+    "v_why",
+    "v_win",
+    "v_win2",
+    "v_win3",
+    "v_worth",
+    "v_wow",
+    "v_wrong1",
+    "v_wrong2",
+    "v_wrong3",
+    "v_wrong4",
+    "vineboom",
+    "whistle",
+    "whistle_ref",
+    "wildroar",
+    "wilhelm",
+    "win_fanfare",
+    "wolfwhistle",
+    "woops",
+    "zip"
+  ],
+  "optional": [
+    "shrimp_orig",
+    "v_retire_orig"
+  ],
+  "unresolved": [],
+  "sites": [
+    {
+      "line": 1406,
+      "expression": "'v_hint'",
+      "ids": [
+        "v_hint"
+      ]
+    },
+    {
+      "line": 1627,
+      "expression": "'st_whis1'",
+      "ids": [
+        "st_whis1"
+      ]
+    },
+    {
+      "line": 1759,
+      "expression": "'v_first'",
+      "ids": [
+        "v_first"
+      ]
+    },
+    {
+      "line": 1810,
+      "expression": "roar",
+      "ids": [
+        "lion",
+        "lion_long",
+        "bear",
+        "wildroar"
+      ]
+    },
+    {
+      "line": 1816,
+      "expression": "'badboy'",
+      "ids": [
+        "badboy"
+      ]
+    },
+    {
+      "line": 1817,
+      "expression": "pick(FEAST_POOL)",
+      "ids": [
+        "v_feast1",
+        "v_feast2",
+        "v_slau1",
+        "v_slau2"
+      ]
+    },
+    {
+      "line": 1819,
+      "expression": "pick(['oof', 'oof', 'eagle', 'vineboom'])",
+      "ids": [
+        "oof",
+        "eagle",
+        "vineboom"
+      ]
+    },
+    {
+      "line": 1822,
+      "expression": "'badboy'",
+      "ids": [
+        "badboy"
+      ]
+    },
+    {
+      "line": 1823,
+      "expression": "pick(HEAVY_POOL)",
+      "ids": [
+        "v_heavy1",
+        "v_heavy2",
+        "v_heavy3",
+        "v_heavy4"
+      ]
+    },
+    {
+      "line": 1825,
+      "expression": "'elephant'",
+      "ids": [
+        "elephant"
+      ]
+    },
+    {
+      "line": 1826,
+      "expression": "'crown_fanfare'",
+      "ids": [
+        "crown_fanfare"
+      ]
+    },
+    {
+      "line": 1829,
+      "expression": "Math.random() < 0.45 ? pick(['v_king1', 'v_king2']) : 'v_king'",
+      "ids": [
+        "v_king1",
+        "v_king2",
+        "v_king"
+      ]
+    },
+    {
+      "line": 1833,
+      "expression": "pick(['wolfwhistle', 'rimshot', 'animewow'])",
+      "ids": [
+        "wolfwhistle",
+        "rimshot",
+        "animewow"
+      ]
+    },
+    {
+      "line": 1834,
+      "expression": "Math.random() < 0.5 ? 'v_chess' : 'v_ooh1'",
+      "ids": [
+        "v_chess",
+        "v_ooh1"
+      ]
+    },
+    {
+      "line": 1837,
+      "expression": "pick(['wolfwhistle', 'zip', 'meow'])",
+      "ids": [
+        "wolfwhistle",
+        "zip",
+        "meow"
+      ]
+    },
+    {
+      "line": 1839,
+      "expression": "line",
+      "ids": [
+        "v_trick",
+        "v_trap",
+        "v_crafty"
+      ]
+    },
+    {
+      "line": 1845,
+      "expression": "'sparkle'",
+      "ids": [
+        "sparkle"
+      ]
+    },
+    {
+      "line": 1846,
+      "expression": "pick(PRAISE_POOL)",
+      "ids": [
+        "v_bigbrain",
+        "v_worth",
+        "v_paidoff",
+        "v_slowsteady",
+        "v_genius",
+        "v_masterpiece"
+      ]
+    },
+    {
+      "line": 1853,
+      "expression": "'relief'",
+      "ids": [
+        "relief"
+      ]
+    },
+    {
+      "line": 1854,
+      "expression": "pick(COMEBACK_POOL)",
+      "ids": [
+        "v_come1",
+        "v_come2"
+      ]
+    },
+    {
+      "line": 1859,
+      "expression": "only ? pick(['v_only', 'v_hold1', 'v_hold2'])\r\n        : ['v_nice', 'v_sharp', 'v_clean'][(Math.random() * 3) | 0]",
+      "ids": [
+        "v_only",
+        "v_hold1",
+        "v_hold2",
+        "v_nice",
+        "v_sharp",
+        "v_clean"
+      ]
+    },
+    {
+      "line": 1863,
+      "expression": "pick(['v_hmm', 'v_curious', 'v_inacc1', 'v_inacc2'])",
+      "ids": [
+        "v_hmm",
+        "v_curious",
+        "v_inacc1",
+        "v_inacc2"
+      ]
+    },
+    {
+      "line": 1869,
+      "expression": "'woops'",
+      "ids": [
+        "woops"
+      ]
+    },
+    {
+      "line": 1871,
+      "expression": "Math.random() < 0.35 ? 'bruh' : 'trombone'",
+      "ids": [
+        "bruh",
+        "trombone"
+      ]
+    },
+    {
+      "line": 1873,
+      "expression": "longThinkSavage ? pick(SAVAGE_POOL)\r\n        : ['v_ohno', 'v_why', 'v_sure', 'v_cost'][(Math.random() * 4) | 0]",
+      "ids": [
+        "v_thought30",
+        "v_alltime",
+        "v_nosense",
+        "v_ohno",
+        "v_why",
+        "v_sure",
+        "v_cost"
+      ]
+    },
+    {
+      "line": 1878,
+      "expression": "'omg'",
+      "ids": [
+        "omg"
+      ]
+    },
+    {
+      "line": 1880,
+      "expression": "pick(['omg', 'omg', 'wilhelm', 'ahhscary'])",
+      "ids": [
+        "omg",
+        "wilhelm",
+        "ahhscary"
+      ]
+    },
+    {
+      "line": 1881,
+      "expression": "lastThinkMs > 20000 ? pick(SAVAGE_POOL)\r\n        : (Math.random() < 0.5 ? 'v_wow' : 'v_why')",
+      "ids": [
+        "v_thought30",
+        "v_alltime",
+        "v_nosense",
+        "v_wow",
+        "v_why"
+      ]
+    },
+    {
+      "line": 1886,
+      "expression": "Math.random() < 0.45 ? 'duck' : 'whistle'",
+      "ids": [
+        "duck",
+        "whistle"
+      ]
+    },
+    {
+      "line": 1887,
+      "expression": "'v_onejob'",
+      "ids": [
+        "v_onejob"
+      ]
+    },
+    {
+      "line": 1891,
+      "expression": "'trombone'",
+      "ids": [
+        "trombone"
+      ]
+    },
+    {
+      "line": 1892,
+      "expression": "pick(['v_wrong1', 'v_wrong2', 'v_wrong3', 'v_wrong4'])",
+      "ids": [
+        "v_wrong1",
+        "v_wrong2",
+        "v_wrong3",
+        "v_wrong4"
+      ]
+    },
+    {
+      "line": 1896,
+      "expression": "pool[(Math.random() * pool.length) | 0]",
+      "ids": [
+        "ahooga",
+        "woops",
+        "banana",
+        "haha",
+        "klonk",
+        "shloop",
+        "gulp",
+        "smarts",
+        "fall",
+        "scramble",
+        "zip"
+      ]
+    },
+    {
+      "line": 1897,
+      "expression": "'v_awkward'",
+      "ids": [
+        "v_awkward"
+      ]
+    },
+    {
+      "line": 1949,
+      "expression": "'sadviolin'",
+      "ids": [
+        "sadviolin"
+      ]
+    },
+    {
+      "line": 1950,
+      "expression": "DOOM_LINES[0]",
+      "ids": [
+        "v_doom1",
+        "v_doom2",
+        "v_doom3",
+        "v_doom4",
+        "v_doom5"
+      ]
+    },
+    {
+      "line": 1954,
+      "expression": "'panic'",
+      "ids": [
+        "panic"
+      ]
+    },
+    {
+      "line": 1967,
+      "expression": "pick(['v_esc1', 'v_esc2'])",
+      "ids": [
+        "v_esc1",
+        "v_esc2"
+      ]
+    },
+    {
+      "line": 1987,
+      "expression": "Math.random() < 0.2 ? 'panic' : 'chicken'",
+      "ids": [
+        "panic",
+        "chicken"
+      ]
+    },
+    {
+      "line": 1997,
+      "expression": "first ? 'tellyou' : 'vineboom'",
+      "ids": [
+        "tellyou",
+        "vineboom"
+      ]
+    },
+    {
+      "line": 1998,
+      "expression": "'st_heart1'",
+      "ids": [
+        "st_heart1"
+      ]
+    },
+    {
+      "line": 1999,
+      "expression": "pick(DOOM_LINES.slice(1))",
+      "ids": [
+        "v_doom1",
+        "v_doom2",
+        "v_doom3",
+        "v_doom4",
+        "v_doom5"
+      ]
+    },
+    {
+      "line": 2033,
+      "expression": "big ? pick(['v_slau1', 'v_slau2']) : pick(d.lines)",
+      "ids": [
+        "v_slau1",
+        "v_slau2",
+        "v_taw1",
+        "v_taw2",
+        "v_taw3",
+        "v_tbf1",
+        "v_tbf2",
+        "v_tbf3",
+        "v_tad1",
+        "v_tad2",
+        "v_tad3",
+        "v_tbd1",
+        "v_tbd2",
+        "v_tbd3",
+        "v_aim1",
+        "v_aim2",
+        "v_bait1",
+        "v_bait2",
+        "v_bait3"
+      ]
+    },
+    {
+      "line": 2037,
+      "expression": "'meow'",
+      "ids": [
+        "meow"
+      ]
+    },
+    {
+      "line": 2041,
+      "expression": "pick(['st_ooh1', 'st_ooh2'])",
+      "ids": [
+        "st_ooh1",
+        "st_ooh2"
+      ]
+    },
+    {
+      "line": 2089,
+      "expression": "'notify_pop'",
+      "ids": [
+        "notify_pop"
+      ]
+    },
+    {
+      "line": 2090,
+      "expression": "pick(BAIT_POOL.lines)",
+      "ids": [
+        "v_taw1",
+        "v_taw2",
+        "v_taw3",
+        "v_tbf1",
+        "v_tbf2",
+        "v_tbf3",
+        "v_tad1",
+        "v_tad2",
+        "v_tad3",
+        "v_tbd1",
+        "v_tbd2",
+        "v_tbd3",
+        "v_aim1",
+        "v_aim2",
+        "v_bait1",
+        "v_bait2",
+        "v_bait3"
+      ]
+    },
+    {
+      "line": 2103,
+      "expression": "'v_lucky3'",
+      "ids": [
+        "v_lucky3"
+      ]
+    },
+    {
+      "line": 2104,
+      "expression": "'duck'",
+      "ids": [
+        "duck"
+      ]
+    },
+    {
+      "line": 2115,
+      "expression": "'purr'",
+      "ids": [
+        "purr"
+      ]
+    },
+    {
+      "line": 2173,
+      "expression": "'st_tada1'",
+      "ids": [
+        "st_tada1"
+      ]
+    },
+    {
+      "line": 2196,
+      "expression": "'tellyou'",
+      "ids": [
+        "tellyou"
+      ]
+    },
+    {
+      "line": 2220,
+      "expression": "SFX_BANK.defs.shrimp_orig\r\n          ? 'shrimp_orig' : pick(['shrimp1', 'shrimp2'])",
+      "ids": [
+        "shrimp_orig",
+        "shrimp1",
+        "shrimp2"
+      ]
+    },
+    {
+      "line": 2230,
+      "expression": "pick(stM.catch)",
+      "ids": [
+        "s_classic_1",
+        "s_classic_2",
+        "s_american_1",
+        "s_american_2",
+        "s_english_1",
+        "s_english_2",
+        "s_italian_1",
+        "s_italian_2",
+        "s_spanish_1",
+        "s_spanish_2",
+        "s_czech_1",
+        "s_czech_2",
+        "s_french_1",
+        "s_french_2",
+        "s_russian_1",
+        "s_russian_2",
+        "s_kenyan_1",
+        "s_kenyan_2",
+        "s_tanzanian_1",
+        "s_tanzanian_2",
+        "s_brazilian_1",
+        "s_brazilian_2",
+        "s_mongolian_1",
+        "s_mongolian_2"
+      ]
+    },
+    {
+      "line": 2236,
+      "expression": "pick(SPEC_HIT)",
+      "ids": [
+        "v_spec7",
+        "v_spec8"
+      ]
+    },
+    {
+      "line": 2243,
+      "expression": "big ? 'streak_big' : 'streak_hit'",
+      "ids": [
+        "streak_big",
+        "streak_hit"
+      ]
+    },
+    {
+      "line": 2244,
+      "expression": "big ? 'v_rampage2' : 'v_rampage'",
+      "ids": [
+        "v_rampage2",
+        "v_rampage"
+      ]
+    },
+    {
+      "line": 2256,
+      "expression": "'notify_pop'",
+      "ids": [
+        "notify_pop"
+      ]
+    },
+    {
+      "line": 2257,
+      "expression": "pick(SPEC_THINK)",
+      "ids": [
+        "v_spec2",
+        "v_spec3",
+        "v_spec4",
+        "v_spec5",
+        "v_spec6"
+      ]
+    },
+    {
+      "line": 2345,
+      "expression": "r.winner === null ? 'draw_chime'\r\n        : r.winner === G.humanSide ? 'win_fanfare' : 'lose_womp'",
+      "ids": [
+        "draw_chime",
+        "win_fanfare",
+        "lose_womp"
+      ]
+    },
+    {
+      "line": 2348,
+      "expression": "'god'",
+      "ids": [
+        "god"
+      ]
+    },
+    {
+      "line": 2351,
+      "expression": "'achievement'",
+      "ids": [
+        "achievement"
+      ]
+    },
+    {
+      "line": 2352,
+      "expression": "pick(['v_win2', 'v_win3'])",
+      "ids": [
+        "v_win2",
+        "v_win3"
+      ]
+    },
+    {
+      "line": 2354,
+      "expression": "pick(['v_lose2', 'v_lose3'])",
+      "ids": [
+        "v_lose2",
+        "v_lose3"
+      ]
+    },
+    {
+      "line": 2357,
+      "expression": "v",
+      "ids": [
+        "v_draw",
+        "v_win",
+        "v_lose"
+      ]
+    },
+    {
+      "line": 2367,
+      "expression": "'v_levelup1'",
+      "ids": [
+        "v_levelup1"
+      ]
+    },
+    {
+      "line": 2371,
+      "expression": "pick(['v_streak1', 'v_streak2'])",
+      "ids": [
+        "v_streak1",
+        "v_streak2"
+      ]
+    },
+    {
+      "line": 2373,
+      "expression": "pick(['v_beatgm1', 'v_beatgm2'])",
+      "ids": [
+        "v_beatgm1",
+        "v_beatgm2"
+      ]
+    },
+    {
+      "line": 2378,
+      "expression": "r.winner === null ? 'draw_chime' : 'crown_fanfare'",
+      "ids": [
+        "draw_chime",
+        "crown_fanfare"
+      ]
+    },
+    {
+      "line": 2379,
+      "expression": "'god'",
+      "ids": [
+        "god"
+      ]
+    },
+    {
+      "line": 2381,
+      "expression": "pick(['v_spec9', 'v_spec8', 'v_spec7'])",
+      "ids": [
+        "v_spec9",
+        "v_spec8",
+        "v_spec7"
+      ]
+    },
+    {
+      "line": 2451,
+      "expression": "'st_air1'",
+      "ids": [
+        "st_air1"
+      ]
+    },
+    {
+      "line": 2452,
+      "expression": "'st_coin1'",
+      "ids": [
+        "st_coin1"
+      ]
+    },
+    {
+      "line": 2521,
+      "expression": "'gong'",
+      "ids": [
+        "gong"
+      ]
+    },
+    {
+      "line": 2522,
+      "expression": "'st_drum1'",
+      "ids": [
+        "st_drum1"
+      ]
+    },
+    {
+      "line": 2523,
+      "expression": "SFX_BANK.defs.v_retire_orig\r\n      ? 'v_retire_orig' : pick(['v_retire1', 'v_retire2'])",
+      "ids": [
+        "v_retire_orig",
+        "v_retire1",
+        "v_retire2"
+      ]
+    },
+    {
+      "line": 2525,
+      "expression": "pick(['st_appl1', 'st_appl2'])",
+      "ids": [
+        "st_appl1",
+        "st_appl2"
+      ]
+    },
+    {
+      "line": 2546,
+      "expression": "pick(['st_gasp1', 'st_gasp2'])",
+      "ids": [
+        "st_gasp1",
+        "st_gasp2"
+      ]
+    },
+    {
+      "line": 2547,
+      "expression": "'st_crowd1'",
+      "ids": [
+        "st_crowd1"
+      ]
+    },
+    {
+      "line": 2551,
+      "expression": "'gong'",
+      "ids": [
+        "gong"
+      ]
+    },
+    {
+      "line": 2552,
+      "expression": "pick(['st_air1', 'st_crowd1'])",
+      "ids": [
+        "st_air1",
+        "st_crowd1"
+      ]
+    },
+    {
+      "line": 2567,
+      "expression": "pick(['v_spec10', 'v_nextup'])",
+      "ids": [
+        "v_spec10",
+        "v_nextup"
+      ]
+    },
+    {
+      "line": 2574,
+      "expression": "'st_riser1'",
+      "ids": [
+        "st_riser1"
+      ]
+    },
+    {
+      "line": 2651,
+      "expression": "greeter.intro",
+      "ids": [
+        "s_in_classic",
+        "s_in_american",
+        "s_in_english",
+        "s_in_italian",
+        "s_in_spanish",
+        "s_in_czech",
+        "s_in_french",
+        "s_in_russian",
+        "s_in_kenyan",
+        "s_in_tanzanian",
+        "s_in_brazilian",
+        "s_in_mongolian"
+      ]
+    },
+    {
+      "line": 2656,
+      "expression": "'notify_pop'",
+      "ids": [
+        "notify_pop"
+      ]
+    },
+    {
+      "line": 2658,
+      "expression": "'v_spec1'",
+      "ids": [
+        "v_spec1"
+      ]
+    },
+    {
+      "line": 2679,
+      "expression": "'crown_fanfare'",
+      "ids": [
+        "crown_fanfare"
+      ]
+    },
+    {
+      "line": 2680,
+      "expression": "'st_air1'",
+      "ids": [
+        "st_air1"
+      ]
+    },
+    {
+      "line": 2688,
+      "expression": "'st_drum1'",
+      "ids": [
+        "st_drum1"
+      ]
+    },
+    {
+      "line": 2718,
+      "expression": "'v_undo'",
+      "ids": [
+        "v_undo"
+      ]
+    },
+    {
+      "line": 2737,
+      "expression": "'notify_pop'",
+      "ids": [
+        "notify_pop"
+      ]
+    },
+    {
+      "line": 2738,
+      "expression": "line.snd",
+      "ids": [
+        "v_tt1",
+        "v_tt2",
+        "v_tt3",
+        "v_tt4",
+        "v_tt5",
+        "v_tt6",
+        "v_tt7",
+        "v_tt8",
+        "v_tt9",
+        "v_tt10"
+      ]
+    },
+    {
+      "line": 3003,
+      "expression": "'ui_click'",
+      "ids": [
+        "ui_click"
+      ]
+    },
+    {
+      "line": 3043,
+      "expression": "'ui_toggle_on'",
+      "ids": [
+        "ui_toggle_on"
+      ]
+    },
+    {
+      "line": 3049,
+      "expression": "settings.humanlike ? 'ui_toggle_on' : 'ui_toggle_off'",
+      "ids": [
+        "ui_toggle_on",
+        "ui_toggle_off"
+      ]
+    },
+    {
+      "line": 3064,
+      "expression": "'notify_pop'",
+      "ids": [
+        "notify_pop"
+      ]
+    },
+    {
+      "line": 3080,
+      "expression": "'ui_save'",
+      "ids": [
+        "ui_save"
+      ]
+    },
+    {
+      "line": 3095,
+      "expression": "'ui_save'",
+      "ids": [
+        "ui_save"
+      ]
+    },
+    {
+      "line": 3109,
+      "expression": "'ui_save'",
+      "ids": [
+        "ui_save"
+      ]
+    },
+    {
+      "line": 3115,
+      "expression": "'ui_save'",
+      "ids": [
+        "ui_save"
+      ]
+    },
+    {
+      "line": 3131,
+      "expression": "had ? 'ui_toggle_on' : 'ui_click'",
+      "ids": [
+        "ui_toggle_on",
+        "ui_click"
+      ]
+    },
+    {
+      "line": 3140,
+      "expression": "settings.jumpPaths ? 'ui_toggle_on' : 'ui_toggle_off'",
+      "ids": [
+        "ui_toggle_on",
+        "ui_toggle_off"
+      ]
+    },
+    {
+      "line": 3146,
+      "expression": "settings.shake ? 'ui_toggle_on' : 'ui_toggle_off'",
+      "ids": [
+        "ui_toggle_on",
+        "ui_toggle_off"
+      ]
+    },
+    {
+      "line": 3151,
+      "expression": "'gong'",
+      "ids": [
+        "gong"
+      ]
+    },
+    {
+      "line": 3152,
+      "expression": "'v_new'",
+      "ids": [
+        "v_new"
+      ]
+    },
+    {
+      "line": 3165,
+      "expression": "settings.hv ? 'ui_toggle_on' : 'ui_toggle_off'",
+      "ids": [
+        "ui_toggle_on",
+        "ui_toggle_off"
+      ]
+    },
+    {
+      "line": 3171,
+      "expression": "G.aiPaused ? 'ui_toggle_off' : 'ui_toggle_on'",
+      "ids": [
+        "ui_toggle_off",
+        "ui_toggle_on"
+      ]
+    },
+    {
+      "line": 3204,
+      "expression": "settings.sfx[key] ? 'ui_toggle_on' : 'ui_toggle_off'",
+      "ids": [
+        "ui_toggle_on",
+        "ui_toggle_off"
+      ]
+    },
+    {
+      "line": 3206,
+      "expression": "'eagle'",
+      "ids": [
+        "eagle"
+      ]
+    },
+    {
+      "line": 3207,
+      "expression": "'v_hmm'",
+      "ids": [
+        "v_hmm"
+      ]
+    },
+    {
+      "line": 3208,
+      "expression": "'klonk'",
+      "ids": [
+        "klonk"
+      ]
+    },
+    {
+      "line": 3209,
+      "expression": "'v_magnificent'",
+      "ids": [
+        "v_magnificent"
+      ]
+    },
+    {
+      "line": 3210,
+      "expression": "'t2a'",
+      "ids": [
+        "t2a"
+      ]
+    },
+    {
+      "line": 3211,
+      "expression": "'v_taw1'",
+      "ids": [
+        "v_taw1"
+      ]
+    },
+    {
+      "line": 3212,
+      "expression": "'badboy'",
+      "ids": [
+        "badboy"
+      ]
+    },
+    {
+      "line": 3238,
+      "expression": "'ui_theme'",
+      "ids": [
+        "ui_theme"
+      ]
+    },
+    {
+      "line": 3259,
+      "expression": "'ui_theme'",
+      "ids": [
+        "ui_theme"
+      ]
+    },
+    {
+      "line": 3276,
+      "expression": "styleById(v).intro",
+      "ids": [
+        "s_in_classic",
+        "s_in_american",
+        "s_in_english",
+        "s_in_italian",
+        "s_in_spanish",
+        "s_in_czech",
+        "s_in_french",
+        "s_in_russian",
+        "s_in_kenyan",
+        "s_in_tanzanian",
+        "s_in_brazilian",
+        "s_in_mongolian"
+      ]
+    },
+    {
+      "line": 3287,
+      "expression": "settings.ambient ? 'ui_toggle_on' : 'ui_toggle_off'",
+      "ids": [
+        "ui_toggle_on",
+        "ui_toggle_off"
+      ]
+    },
+    {
+      "line": 3315,
+      "expression": "'ui_open'",
+      "ids": [
+        "ui_open"
+      ]
+    },
+    {
+      "line": 3324,
+      "expression": "'ui_close'",
+      "ids": [
+        "ui_close"
+      ]
+    },
+    {
+      "line": 3329,
+      "expression": "'ui_save'",
+      "ids": [
+        "ui_save"
+      ]
+    },
+    {
+      "line": 3451,
+      "expression": "thinkSound()",
+      "ids": [
+        "th_n01",
+        "th_n02",
+        "th_n03",
+        "th_n04",
+        "th_n05",
+        "th_n06",
+        "th_n07",
+        "th_n08",
+        "th_n09",
+        "th_n10",
+        "th_n11",
+        "th_n12",
+        "th_n13",
+        "th_n14",
+        "th_n15",
+        "th_n16",
+        "th_n17",
+        "th_n18",
+        "th_n19",
+        "th_n20",
+        "th_n21",
+        "th_n22",
+        "th_n23",
+        "th_n24",
+        "th_n01b",
+        "th_n02b",
+        "th_n03b",
+        "th_n04b",
+        "th_n05b",
+        "th_n06b",
+        "th_n07b",
+        "th_n08b",
+        "th_n09b",
+        "th_n10b",
+        "th_n11b",
+        "th_n13b",
+        "th_n14b",
+        "th_n15b",
+        "th_n16b",
+        "th_n17b",
+        "th_h01",
+        "th_h02",
+        "th_h03",
+        "th_h04",
+        "th_h05",
+        "th_h06",
+        "th_h07",
+        "th_h08",
+        "th_h09",
+        "th_h10",
+        "th_h11",
+        "th_h12",
+        "th_h13",
+        "th_h14",
+        "th_h15",
+        "th_h16",
+        "th_h17",
+        "th_h18",
+        "th_h19",
+        "th_h20",
+        "t1a",
+        "t1b",
+        "t1c",
+        "t1d",
+        "t1e",
+        "t2a",
+        "t2b",
+        "t2c",
+        "t2d",
+        "t2e",
+        "t3a",
+        "t3b",
+        "t3c",
+        "t3d",
+        "t4a",
+        "t4b",
+        "t4c",
+        "t4d",
+        "t5a",
+        "t5b",
+        "t5c",
+        "v_time",
+        "later_moments",
+        "later_hours",
+        "th_m1",
+        "th_m2",
+        "th_m3",
+        "th_m4",
+        "th_m5",
+        "th_m6",
+        "th_g1",
+        "th_g2",
+        "th_p1",
+        "th_p2",
+        "th_p3",
+        "th_o1",
+        "th_o2",
+        "th_o3",
+        "th_o4",
+        "th_t1",
+        "th_t2",
+        "th_t3",
+        "th_t4",
+        "th_t5",
+        "th_t6",
+        "th_c1",
+        "th_f1",
+        "th_s1",
+        "notify_pop"
+      ]
+    },
+    {
+      "line": 3471,
+      "expression": "'clock_tick'",
+      "ids": [
+        "clock_tick"
+      ]
+    },
+    {
+      "line": 3472,
+      "expression": "'clock_tock'",
+      "ids": [
+        "clock_tock"
+      ]
+    },
+    {
+      "line": 3476,
+      "expression": "'whistle_ref'",
+      "ids": [
+        "whistle_ref"
+      ]
+    },
+    {
+      "line": 3477,
+      "expression": "'alarm'",
+      "ids": [
+        "alarm"
+      ]
+    },
+    {
+      "line": 3493,
+      "expression": "'clock_tick'",
+      "ids": [
+        "clock_tick"
+      ]
+    },
+    {
+      "line": 3498,
+      "expression": "'cricket'",
+      "ids": [
+        "cricket"
+      ]
+    },
+    {
+      "line": 3499,
+      "expression": "thinkSound()",
+      "ids": [
+        "th_n01",
+        "th_n02",
+        "th_n03",
+        "th_n04",
+        "th_n05",
+        "th_n06",
+        "th_n07",
+        "th_n08",
+        "th_n09",
+        "th_n10",
+        "th_n11",
+        "th_n12",
+        "th_n13",
+        "th_n14",
+        "th_n15",
+        "th_n16",
+        "th_n17",
+        "th_n18",
+        "th_n19",
+        "th_n20",
+        "th_n21",
+        "th_n22",
+        "th_n23",
+        "th_n24",
+        "th_n01b",
+        "th_n02b",
+        "th_n03b",
+        "th_n04b",
+        "th_n05b",
+        "th_n06b",
+        "th_n07b",
+        "th_n08b",
+        "th_n09b",
+        "th_n10b",
+        "th_n11b",
+        "th_n13b",
+        "th_n14b",
+        "th_n15b",
+        "th_n16b",
+        "th_n17b",
+        "th_h01",
+        "th_h02",
+        "th_h03",
+        "th_h04",
+        "th_h05",
+        "th_h06",
+        "th_h07",
+        "th_h08",
+        "th_h09",
+        "th_h10",
+        "th_h11",
+        "th_h12",
+        "th_h13",
+        "th_h14",
+        "th_h15",
+        "th_h16",
+        "th_h17",
+        "th_h18",
+        "th_h19",
+        "th_h20",
+        "t1a",
+        "t1b",
+        "t1c",
+        "t1d",
+        "t1e",
+        "t2a",
+        "t2b",
+        "t2c",
+        "t2d",
+        "t2e",
+        "t3a",
+        "t3b",
+        "t3c",
+        "t3d",
+        "t4a",
+        "t4b",
+        "t4c",
+        "t4d",
+        "t5a",
+        "t5b",
+        "t5c",
+        "v_time",
+        "later_moments",
+        "later_hours",
+        "th_m1",
+        "th_m2",
+        "th_m3",
+        "th_m4",
+        "th_m5",
+        "th_m6",
+        "th_g1",
+        "th_g2",
+        "th_p1",
+        "th_p2",
+        "th_p3",
+        "th_o1",
+        "th_o2",
+        "th_o3",
+        "th_o4",
+        "th_t1",
+        "th_t2",
+        "th_t3",
+        "th_t4",
+        "th_t5",
+        "th_t6",
+        "th_c1",
+        "th_f1",
+        "th_s1",
+        "notify_pop"
+      ]
+    }
+  ]
+}

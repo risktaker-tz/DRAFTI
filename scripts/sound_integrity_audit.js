@@ -6,7 +6,8 @@ vm.runInNewContext(fs.readFileSync(path.join(root, 'src/audio.manifest.js'), 'ut
 const bank = sandbox.window.DRAFTI_SFX;
 const ui = fs.readFileSync(path.join(root, 'src/ui.js'), 'utf8');
 const direct = [...ui.matchAll(/SFX_BANK\.play\(\s*['"]([^'"]+)['"]/g)].map(m => m[1]);
-const missing = [...new Set(direct)].filter(id => !bank[id] && !['move','capture','select','king','illegal','undo','levelup','relief','trap_snap'].includes(id));
+const referenceMap = require('./sound_references').collectSoundReferences(ui);
+const missing = referenceMap.references.filter(id => !bank[id] && !referenceMap.optional.includes(id) && !['move','capture','select','king','illegal','undo','levelup','relief','trap_snap','denied'].includes(id));
 const categories = {};
 const oversized = [];
 const encoding = [];
@@ -23,6 +24,6 @@ for (const [id, clip] of Object.entries(bank)) {
   if (format.sampleRate !== 22050 || format.numberOfChannels !== 1 || format.bitrate > 56500) encoding.push({id,sampleRate:format.sampleRate,channels:format.numberOfChannels,bitrate:format.bitrate});
   if (bytes > 61440) oversized.push({id, bytes});
 }
-console.log(JSON.stringify({clips: Object.keys(bank).length, categories, directReferences: direct.length, missing, oversized, durations, encoding, limitations: 'All clips measured for duration, encoding and size. Static references currently cover direct literal calls; dynamic pools and browser playback still require verification.'}, null, 2));
-if (missing.length || oversized.length || durations.length) process.exitCode = 1;
+console.log(JSON.stringify({clips: Object.keys(bank).length, categories, directReferences: direct.length, playbackCallSites: referenceMap.sites.length, uniqueReferencedIds: referenceMap.references.length, optionalOriginalIds: referenceMap.optional, unresolvedExpressions: referenceMap.unresolved, missing, oversized, durations, encoding, limitations: 'All clips measured for duration, encoding and size. Reference analysis covers literal calls, pooled IDs, conditional choices, style-generated IDs and thinking decks. Browser playback still requires verification.'}, null, 2));
+if (missing.length || referenceMap.unresolved.length || oversized.length || durations.length) process.exitCode = 1;
 })().catch(error => { console.error(error); process.exitCode = 1; });

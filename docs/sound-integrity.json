@@ -11,6 +11,13 @@
     "judge": 31
   },
   "directReferences": 70,
+  "playbackCallSites": 130,
+  "uniqueReferencedIds": 337,
+  "optionalOriginalIds": [
+    "shrimp_orig",
+    "v_retire_orig"
+  ],
+  "unresolvedExpressions": [],
   "missing": [],
   "oversized": [
     {
@@ -1882,5 +1889,5 @@
       "bitrate": 56000
     }
   ],
-  "limitations": "All clips measured for duration, encoding and size. Static references currently cover direct literal calls; dynamic pools and browser playback still require verification."
+  "limitations": "All clips measured for duration, encoding and size. Reference analysis covers literal calls, pooled IDs, conditional choices, style-generated IDs and thinking decks. Browser playback still requires verification."
 }

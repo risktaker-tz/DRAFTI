@@ -3391,29 +3391,24 @@
      'th_n15', 'th_n16', 'th_n17', 'th_n18', 'th_n19', 'th_n20', 'th_n21',
      'th_n22', 'th_n23', 'th_n24',
      'th_n01b', 'th_n02b', 'th_n03b', 'th_n04b', 'th_n05b', 'th_n06b', 'th_n07b',
-     'th_n08b', 'th_n09b', 'th_n10b', 'th_n11b', 'th_n12b', 'th_n13b', 'th_n14b',
-     'th_n15b', 'th_n16b', 'th_n17b', 'th_n18b', 'th_n19b', 'th_n20b', 'th_n21b',
-     'th_n22b', 'th_n23b', 'th_n24b',
-     'th_h01', 'th_h02', 'th_h03', 'th_h04', 'th_h05', 'th_h06', 'th_h07',
+     'th_n08b', 'th_n09b', 'th_n10b', 'th_n11b', 'th_n13b', 'th_n14b',
+     'th_n15b', 'th_n16b', 'th_n17b', 'th_h01', 'th_h02', 'th_h03', 'th_h04', 'th_h05', 'th_h06', 'th_h07',
      'th_h08', 'th_h09', 'th_h10', 'th_h11', 'th_h12', 'th_h13', 'th_h14',
      'th_h15', 'th_h16', 'th_h17', 'th_h18', 'th_h19', 'th_h20',
-     'th_h01b', 'th_h02b', 'th_h03b', 'th_h04b', 'th_h05b', 'th_h06b', 'th_h07b',
-     'th_h08b', 'th_h09b', 'th_h10b', 'th_h11b', 'th_h12b', 'th_h13b', 'th_h14b',
-     'th_h15b', 'th_h16b', 'th_h17b', 'th_h18b', 'th_h19b', 'th_h20b',
      't1a', 't1b', 't1c', 't1d', 't1e', 't2a', 't2b', 't2c', 't2d', 't2e',
      't3a', 't3b', 't3c', 't3d', 't4a', 't4b', 't4c', 't4d', 't5a', 't5b', 't5c', 'v_time',
      'later_moments', 'later_hours',
      'th_m1', 'th_m2', 'th_m3', 'th_m4', 'th_m5', 'th_m6',
      'th_g1', 'th_g2', 'th_p1', 'th_p2', 'th_p3', 'th_o1', 'th_o2', 'th_o3', 'th_o4',
      'th_t1', 'th_t2', 'th_t3', 'th_t4', 'th_t5', 'th_t6', 'th_c1', 'th_f1', 'th_s1'],
-    (SFX_BANK && SFX_BANK.has && SFX_BANK.has('th_n01')) ? [] : ['notify_pop']
+    SFX_BANK.defs.th_n01 ? [] : ['notify_pop']
   );
   const THINK_DECK = makeDeck(THINK_POOL);
   // draw for a thinking moment; if a clip is not in the bank yet (voices are
-  // generated in batches), redraw once so the moment is never silent
+  // generated in batches), fall back to a real interface cue
   const thinkSound = () => {
     let id = THINK_DECK();
-    if (!SFX_BANK.defs[id]) id = THINK_DECK();
+    if (!SFX_BANK.defs[id]) id = 'notify_pop';
     return id;
   };
 

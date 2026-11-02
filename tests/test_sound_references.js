@@ -1,0 +1,13 @@
+'use strict';
+const fs=require('fs'),path=require('path'),assert=require('assert');
+const {collectSoundReferences}=require('../scripts/sound_references');
+const source=fs.readFileSync(path.join(__dirname,'../src/ui.js'),'utf8');
+const production=collectSoundReferences(source);
+assert.equal(production.unresolved.length,0,'All current playback expressions must be traced');
+for(const id of ['later_moments','later_hours','s_in_kenyan','s_czech_2','v_win','v_draw','v_tbd1'])assert(production.references.includes(id),'Missing traced sound '+id);
+assert(production.optional.includes('shrimp_orig')&&production.optional.includes('v_retire_orig'),'Original-file guards remain optional');
+const typo=collectSoundReferences(source.replace("'v_bigbrain'","'audit_missing_pool_clip'"));
+assert(typo.references.includes('audit_missing_pool_clip'),'A typo in a named pool must be exposed');
+const unknown=collectSoundReferences(source+'\nSFX_BANK.play(externalLookup());');
+assert(unknown.unresolved.some(site=>site.expression==='externalLookup()'),'Unsupported dynamic lookup must fail closed');
+console.log('Sound reference tracing: literal, named pool, generated style, conditional, optional and unsupported-expression checks passed');
