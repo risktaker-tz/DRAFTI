@@ -1,0 +1,3693 @@
+{
+  "references": 194,
+  "totalNations": 194,
+  "note": "Nearest source colour is review evidence, not an automatic replacement rule. Small emblems may not appear among dominant colours.",
+  "rows": [
+    {
+      "code": "TZ",
+      "country": "Tanzania",
+      "selected": [
+        "#1EB53A",
+        "#00A3DD"
+      ],
+      "nearest": [
+        {
+          "hex": "#1EB53A",
+          "distance": 0
+        },
+        {
+          "hex": "#00A3DD",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Tanzania.svg"
+    },
+    {
+      "code": "KE",
+      "country": "Kenya",
+      "selected": [
+        "#000000",
+        "#BB0000"
+      ],
+      "nearest": [
+        {
+          "hex": "#000000",
+          "distance": 0
+        },
+        {
+          "hex": "#BB0000",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Kenya.svg"
+    },
+    {
+      "code": "UG",
+      "country": "Uganda",
+      "selected": [
+        "#FDCB0C",
+        "#D40000"
+      ],
+      "nearest": [
+        {
+          "hex": "#FCDC04",
+          "distance": 19
+        },
+        {
+          "hex": "#D90000",
+          "distance": 5
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Uganda.svg"
+    },
+    {
+      "code": "RW",
+      "country": "Rwanda",
+      "selected": [
+        "#00A1DE",
+        "#FAD201"
+      ],
+      "nearest": [
+        {
+          "hex": "#00A3E0",
+          "distance": 3
+        },
+        {
+          "hex": "#FAD201",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Rwanda.svg"
+    },
+    {
+      "code": "BI",
+      "country": "Burundi",
+      "selected": [
+        "#C8102E",
+        "#43B02A"
+      ],
+      "nearest": [
+        {
+          "hex": "#C8102E",
+          "distance": 0
+        },
+        {
+          "hex": "#43B02A",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Burundi.svg"
+    },
+    {
+      "code": "SS",
+      "country": "South Sudan",
+      "selected": [
+        "#078930",
+        "#DA121A"
+      ],
+      "nearest": [
+        {
+          "hex": "#00914C",
+          "distance": 30
+        },
+        {
+          "hex": "#E22028",
+          "distance": 21
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_South_Sudan.svg"
+    },
+    {
+      "code": "SO",
+      "country": "Somalia",
+      "selected": [
+        "#4189DD",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#418FDE",
+          "distance": 6
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Somalia.svg"
+    },
+    {
+      "code": "CD",
+      "country": "DR Congo",
+      "selected": [
+        "#007FFF",
+        "#F7D618"
+      ],
+      "nearest": [
+        {
+          "hex": "#007FFF",
+          "distance": 0
+        },
+        {
+          "hex": "#F7D618",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Democratic_Republic_of_the_Congo.svg"
+    },
+    {
+      "code": "ET",
+      "country": "Ethiopia",
+      "selected": [
+        "#078930",
+        "#FCDD09"
+      ],
+      "nearest": [
+        {
+          "hex": "#078930",
+          "distance": 0
+        },
+        {
+          "hex": "#FCDD09",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Ethiopia.svg"
+    },
+    {
+      "code": "ER",
+      "country": "Eritrea",
+      "selected": [
+        "#43B02A",
+        "#418FDE"
+      ],
+      "nearest": [
+        {
+          "hex": "#43B02A",
+          "distance": 0
+        },
+        {
+          "hex": "#418FDE",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Eritrea.svg"
+    },
+    {
+      "code": "DJ",
+      "country": "Djibouti",
+      "selected": [
+        "#6AB2E7",
+        "#12AD2B"
+      ],
+      "nearest": [
+        {
+          "hex": "#6AB2E7",
+          "distance": 0
+        },
+        {
+          "hex": "#12AD2B",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Djibouti.svg"
+    },
+    {
+      "code": "EG",
+      "country": "Egypt",
+      "selected": [
+        "#CE1126",
+        "#C09300"
+      ],
+      "nearest": [
+        {
+          "hex": "#C8102E",
+          "distance": 10
+        },
+        {
+          "hex": "#FFCD00",
+          "distance": 86
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Egypt.svg"
+    },
+    {
+      "code": "LY",
+      "country": "Libya",
+      "selected": [
+        "#239E46",
+        "#E70013"
+      ],
+      "nearest": [
+        {
+          "hex": "#239E46",
+          "distance": 0
+        },
+        {
+          "hex": "#E70013",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Libya.svg"
+    },
+    {
+      "code": "TN",
+      "country": "Tunisia",
+      "selected": [
+        "#E70013",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#E70013",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Tunisia.svg"
+    },
+    {
+      "code": "DZ",
+      "country": "Algeria",
+      "selected": [
+        "#006233",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#006633",
+          "distance": 4
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Algeria.svg"
+    },
+    {
+      "code": "MA",
+      "country": "Morocco",
+      "selected": [
+        "#C1272D",
+        "#006233"
+      ],
+      "nearest": [
+        {
+          "hex": "#C1272D",
+          "distance": 0
+        },
+        {
+          "hex": "#006233",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Morocco.svg"
+    },
+    {
+      "code": "SD",
+      "country": "Sudan",
+      "selected": [
+        "#D21034",
+        "#078930"
+      ],
+      "nearest": [
+        {
+          "hex": "#D21034",
+          "distance": 0
+        },
+        {
+          "hex": "#007229",
+          "distance": 25
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Sudan.svg"
+    },
+    {
+      "code": "MR",
+      "country": "Mauritania",
+      "selected": [
+        "#00A95C",
+        "#CD2A3E"
+      ],
+      "nearest": [
+        {
+          "hex": "#00A95C",
+          "distance": 0
+        },
+        {
+          "hex": "#D01C1F",
+          "distance": 34
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Mauritania.svg"
+    },
+    {
+      "code": "ML",
+      "country": "Mali",
+      "selected": [
+        "#14B53A",
+        "#FCD116"
+      ],
+      "nearest": [
+        {
+          "hex": "#14B53A",
+          "distance": 0
+        },
+        {
+          "hex": "#FCD116",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Mali.svg"
+    },
+    {
+      "code": "NE",
+      "country": "Niger",
+      "selected": [
+        "#E05206",
+        "#0DB02B"
+      ],
+      "nearest": [
+        {
+          "hex": "#E05206",
+          "distance": 0
+        },
+        {
+          "hex": "#0DB02B",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Niger.svg"
+    },
+    {
+      "code": "TD",
+      "country": "Chad",
+      "selected": [
+        "#002664",
+        "#FECB00"
+      ],
+      "nearest": [
+        {
+          "hex": "#002664",
+          "distance": 0
+        },
+        {
+          "hex": "#FECB00",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Chad.svg"
+    },
+    {
+      "code": "SN",
+      "country": "Senegal",
+      "selected": [
+        "#00853F",
+        "#FDEF42"
+      ],
+      "nearest": [
+        {
+          "hex": "#00853F",
+          "distance": 0
+        },
+        {
+          "hex": "#FDEF42",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Senegal.svg"
+    },
+    {
+      "code": "GM",
+      "country": "Gambia",
+      "selected": [
+        "#CE1126",
+        "#3A7728"
+      ],
+      "nearest": [
+        {
+          "hex": "#CE1126",
+          "distance": 0
+        },
+        {
+          "hex": "#3A7728",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_The_Gambia.svg"
+    },
+    {
+      "code": "GW",
+      "country": "Guinea-Bissau",
+      "selected": [
+        "#CE1126",
+        "#FCD116"
+      ],
+      "nearest": [
+        {
+          "hex": "#CE1126",
+          "distance": 0
+        },
+        {
+          "hex": "#FCD116",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Guinea-Bissau.svg"
+    },
+    {
+      "code": "GN",
+      "country": "Guinea",
+      "selected": [
+        "#CE1126",
+        "#009460"
+      ],
+      "nearest": [
+        {
+          "hex": "#CE1126",
+          "distance": 0
+        },
+        {
+          "hex": "#009460",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Guinea.svg"
+    },
+    {
+      "code": "SL",
+      "country": "Sierra Leone",
+      "selected": [
+        "#1EB53A",
+        "#0072C6"
+      ],
+      "nearest": [
+        {
+          "hex": "#1EB53A",
+          "distance": 0
+        },
+        {
+          "hex": "#0072C6",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Sierra_Leone.svg"
+    },
+    {
+      "code": "LR",
+      "country": "Liberia",
+      "selected": [
+        "#002868",
+        "#BF0A30"
+      ],
+      "nearest": [
+        {
+          "hex": "#00205B",
+          "distance": 15
+        },
+        {
+          "hex": "#BF0A30",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Liberia.svg"
+    },
+    {
+      "code": "CI",
+      "country": "Côte d’Ivoire",
+      "selected": [
+        "#F77F00",
+        "#009E60"
+      ],
+      "nearest": [
+        {
+          "hex": "#FF8200",
+          "distance": 9
+        },
+        {
+          "hex": "#009A44",
+          "distance": 28
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Ivory_Coast.svg"
+    },
+    {
+      "code": "GH",
+      "country": "Ghana",
+      "selected": [
+        "#CE1126",
+        "#006B3F"
+      ],
+      "nearest": [
+        {
+          "hex": "#CE1126",
+          "distance": 0
+        },
+        {
+          "hex": "#006B3F",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Ghana.svg"
+    },
+    {
+      "code": "TG",
+      "country": "Togo",
+      "selected": [
+        "#006A4E",
+        "#FFCE00"
+      ],
+      "nearest": [
+        {
+          "hex": "#006A4E",
+          "distance": 0
+        },
+        {
+          "hex": "#FFCE00",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Togo.svg"
+    },
+    {
+      "code": "BJ",
+      "country": "Benin",
+      "selected": [
+        "#008751",
+        "#FCD116"
+      ],
+      "nearest": [
+        {
+          "hex": "#008751",
+          "distance": 0
+        },
+        {
+          "hex": "#FCD116",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Benin.svg"
+    },
+    {
+      "code": "BF",
+      "country": "Burkina Faso",
+      "selected": [
+        "#EF2B2D",
+        "#009E49"
+      ],
+      "nearest": [
+        {
+          "hex": "#EF2B2D",
+          "distance": 0
+        },
+        {
+          "hex": "#009E49",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Burkina_Faso.svg"
+    },
+    {
+      "code": "NG",
+      "country": "Nigeria",
+      "selected": [
+        "#008751",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#008751",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Nigeria.svg"
+    },
+    {
+      "code": "CM",
+      "country": "Cameroon",
+      "selected": [
+        "#007A5E",
+        "#CE1126"
+      ],
+      "nearest": [
+        {
+          "hex": "#007A5E",
+          "distance": 0
+        },
+        {
+          "hex": "#CE1126",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Cameroon.svg"
+    },
+    {
+      "code": "CF",
+      "country": "Central Africa",
+      "selected": [
+        "#289728",
+        "#FFCE00"
+      ],
+      "nearest": [
+        {
+          "hex": "#289728",
+          "distance": 0
+        },
+        {
+          "hex": "#FFCE00",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Central_African_Republic.svg"
+    },
+    {
+      "code": "GQ",
+      "country": "Eq. Guinea",
+      "selected": [
+        "#3E9A00",
+        "#E32118"
+      ],
+      "nearest": [
+        {
+          "hex": "#3E9A00",
+          "distance": 0
+        },
+        {
+          "hex": "#E32118",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Equatorial_Guinea.svg"
+    },
+    {
+      "code": "GA",
+      "country": "Gabon",
+      "selected": [
+        "#009E60",
+        "#3A75C4"
+      ],
+      "nearest": [
+        {
+          "hex": "#009E60",
+          "distance": 0
+        },
+        {
+          "hex": "#3A75C4",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Gabon.svg"
+    },
+    {
+      "code": "CG",
+      "country": "Congo",
+      "selected": [
+        "#009543",
+        "#DC241F"
+      ],
+      "nearest": [
+        {
+          "hex": "#009739",
+          "distance": 10
+        },
+        {
+          "hex": "#DC241F",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Republic_of_the_Congo.svg"
+    },
+    {
+      "code": "ST",
+      "country": "São Tomé",
+      "selected": [
+        "#12AD2B",
+        "#FFCE00"
+      ],
+      "nearest": [
+        {
+          "hex": "#009739",
+          "distance": 32
+        },
+        {
+          "hex": "#FFD100",
+          "distance": 3
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_S%C3%A3o_Tom%C3%A9_and_Pr%C3%ADncipe.svg"
+    },
+    {
+      "code": "AO",
+      "country": "Angola",
+      "selected": [
+        "#CC092F",
+        "#FFCB00"
+      ],
+      "nearest": [
+        {
+          "hex": "#CC092F",
+          "distance": 0
+        },
+        {
+          "hex": "#FFCB00",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Angola.svg"
+    },
+    {
+      "code": "ZM",
+      "country": "Zambia",
+      "selected": [
+        "#147F55",
+        "#F99815"
+      ],
+      "nearest": [
+        {
+          "hex": "#147F55",
+          "distance": 0
+        },
+        {
+          "hex": "#F99815",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Zambia.svg"
+    },
+    {
+      "code": "ZW",
+      "country": "Zimbabwe",
+      "selected": [
+        "#006400",
+        "#FFD200"
+      ],
+      "nearest": [
+        {
+          "hex": "#006400",
+          "distance": 0
+        },
+        {
+          "hex": "#FFD200",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Zimbabwe.svg"
+    },
+    {
+      "code": "MW",
+      "country": "Malawi",
+      "selected": [
+        "#008C51",
+        "#C7361E"
+      ],
+      "nearest": [
+        {
+          "hex": "#008C51",
+          "distance": 0
+        },
+        {
+          "hex": "#C7361E",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Malawi.svg"
+    },
+    {
+      "code": "MZ",
+      "country": "Mozambique",
+      "selected": [
+        "#007168",
+        "#FCE100"
+      ],
+      "nearest": [
+        {
+          "hex": "#007168",
+          "distance": 0
+        },
+        {
+          "hex": "#FCE100",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Mozambique.svg"
+    },
+    {
+      "code": "NA",
+      "country": "Namibia",
+      "selected": [
+        "#003580",
+        "#009543"
+      ],
+      "nearest": [
+        {
+          "hex": "#002F6C",
+          "distance": 21
+        },
+        {
+          "hex": "#009A44",
+          "distance": 5
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Namibia.svg"
+    },
+    {
+      "code": "BW",
+      "country": "Botswana",
+      "selected": [
+        "#6DA9D2",
+        "#000000"
+      ],
+      "nearest": [
+        {
+          "hex": "#6DA9D2",
+          "distance": 0
+        },
+        {
+          "hex": "#000000",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Botswana.svg"
+    },
+    {
+      "code": "ZA",
+      "country": "South Africa",
+      "selected": [
+        "#007A4D",
+        "#FFB612"
+      ],
+      "nearest": [
+        {
+          "hex": "#007749",
+          "distance": 5
+        },
+        {
+          "hex": "#FFB81C",
+          "distance": 10
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_South_Africa.svg"
+    },
+    {
+      "code": "LS",
+      "country": "Lesotho",
+      "selected": [
+        "#00209F",
+        "#009543"
+      ],
+      "nearest": [
+        {
+          "hex": "#001489",
+          "distance": 25
+        },
+        {
+          "hex": "#009A44",
+          "distance": 5
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Lesotho.svg"
+    },
+    {
+      "code": "SZ",
+      "country": "Eswatini",
+      "selected": [
+        "#B10C0C",
+        "#FFD900"
+      ],
+      "nearest": [
+        {
+          "hex": "#B10C0C",
+          "distance": 0
+        },
+        {
+          "hex": "#FFD900",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Eswatini.svg"
+    },
+    {
+      "code": "MG",
+      "country": "Madagascar",
+      "selected": [
+        "#007E3A",
+        "#FC3D32"
+      ],
+      "nearest": [
+        {
+          "hex": "#00843D",
+          "distance": 7
+        },
+        {
+          "hex": "#F9423A",
+          "distance": 10
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Madagascar.svg"
+    },
+    {
+      "code": "MU",
+      "country": "Mauritius",
+      "selected": [
+        "#1A206D",
+        "#FFD500"
+      ],
+      "nearest": [
+        {
+          "hex": "#2D3359",
+          "distance": 33
+        },
+        {
+          "hex": "#F7B718",
+          "distance": 39
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Mauritius.svg"
+    },
+    {
+      "code": "SC",
+      "country": "Seychelles",
+      "selected": [
+        "#003F87",
+        "#FCD856"
+      ],
+      "nearest": [
+        {
+          "hex": "#002F6C",
+          "distance": 31
+        },
+        {
+          "hex": "#FED141",
+          "distance": 22
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Seychelles.svg"
+    },
+    {
+      "code": "KM",
+      "country": "Comoros",
+      "selected": [
+        "#009639",
+        "#FFD100"
+      ],
+      "nearest": [
+        {
+          "hex": "#009639",
+          "distance": 0
+        },
+        {
+          "hex": "#FFD100",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Comoros.svg"
+    },
+    {
+      "code": "CV",
+      "country": "Cabo Verde",
+      "selected": [
+        "#003893",
+        "#CF2027"
+      ],
+      "nearest": [
+        {
+          "hex": "#003893",
+          "distance": 0
+        },
+        {
+          "hex": "#CF2027",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Cape_Verde.svg"
+    },
+    {
+      "code": "AL",
+      "country": "Albania",
+      "selected": [
+        "#FF0000",
+        "#000000"
+      ],
+      "nearest": [
+        {
+          "hex": "#FF0000",
+          "distance": 0
+        },
+        {
+          "hex": "#000000",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Albania.svg"
+    },
+    {
+      "code": "AD",
+      "country": "Andorra",
+      "selected": [
+        "#10069F",
+        "#FEDD00"
+      ],
+      "nearest": [
+        {
+          "hex": "#10069F",
+          "distance": 0
+        },
+        {
+          "hex": "#FEDD00",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Andorra.svg"
+    },
+    {
+      "code": "AT",
+      "country": "Austria",
+      "selected": [
+        "#C8102E",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#C8102E",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Austria.svg"
+    },
+    {
+      "code": "BY",
+      "country": "Belarus",
+      "selected": [
+        "#CE1720",
+        "#007C30"
+      ],
+      "nearest": [
+        {
+          "hex": "#CE1720",
+          "distance": 0
+        },
+        {
+          "hex": "#007C30",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Belarus.svg"
+    },
+    {
+      "code": "BE",
+      "country": "Belgium",
+      "selected": [
+        "#EF3340",
+        "#FDDA24"
+      ],
+      "nearest": [
+        {
+          "hex": "#EF3340",
+          "distance": 0
+        },
+        {
+          "hex": "#FDDA25",
+          "distance": 1
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Belgium.svg"
+    },
+    {
+      "code": "BA",
+      "country": "Bosnia & Herz.",
+      "selected": [
+        "#002395",
+        "#FECB00"
+      ],
+      "nearest": [
+        {
+          "hex": "#002395",
+          "distance": 0
+        },
+        {
+          "hex": "#FECB00",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Bosnia_and_Herzegovina.svg"
+    },
+    {
+      "code": "BG",
+      "country": "Bulgaria",
+      "selected": [
+        "#00966E",
+        "#D62612"
+      ],
+      "nearest": [
+        {
+          "hex": "#00966E",
+          "distance": 0
+        },
+        {
+          "hex": "#D62612",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Bulgaria.svg"
+    },
+    {
+      "code": "HR",
+      "country": "Croatia",
+      "selected": [
+        "#FF0000",
+        "#171796"
+      ],
+      "nearest": [
+        {
+          "hex": "#FF0000",
+          "distance": 0
+        },
+        {
+          "hex": "#171796",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Croatia.svg"
+    },
+    {
+      "code": "CY",
+      "country": "Cyprus",
+      "selected": [
+        "#D57800",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#D67900",
+          "distance": 1
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Cyprus.svg"
+    },
+    {
+      "code": "CZ",
+      "country": "Czechia",
+      "selected": [
+        "#D7141A",
+        "#11457E"
+      ],
+      "nearest": [
+        {
+          "hex": "#D7141A",
+          "distance": 0
+        },
+        {
+          "hex": "#11457E",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Czech_Republic.svg"
+    },
+    {
+      "code": "DK",
+      "country": "Denmark",
+      "selected": [
+        "#C8102E",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#C8102E",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Denmark.svg"
+    },
+    {
+      "code": "EE",
+      "country": "Estonia",
+      "selected": [
+        "#0072CE",
+        "#000000"
+      ],
+      "nearest": [
+        {
+          "hex": "#0072CE",
+          "distance": 0
+        },
+        {
+          "hex": "#000000",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Estonia.svg"
+    },
+    {
+      "code": "FI",
+      "country": "Finland",
+      "selected": [
+        "#002F6C",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#002F6C",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Finland.svg"
+    },
+    {
+      "code": "FR",
+      "country": "France",
+      "selected": [
+        "#002654",
+        "#CE1126"
+      ],
+      "nearest": [
+        {
+          "hex": "#002654",
+          "distance": 0
+        },
+        {
+          "hex": "#CE1126",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_France.svg"
+    },
+    {
+      "code": "DE",
+      "country": "Germany",
+      "selected": [
+        "#DD0000",
+        "#FFCE00"
+      ],
+      "nearest": [
+        {
+          "hex": "#DD0000",
+          "distance": 0
+        },
+        {
+          "hex": "#FFCE00",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Germany.svg"
+    },
+    {
+      "code": "GR",
+      "country": "Greece",
+      "selected": [
+        "#0D5EAF",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#0D5EAF",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Greece.svg"
+    },
+    {
+      "code": "HU",
+      "country": "Hungary",
+      "selected": [
+        "#CE2939",
+        "#477050"
+      ],
+      "nearest": [
+        {
+          "hex": "#CE2939",
+          "distance": 0
+        },
+        {
+          "hex": "#477050",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Hungary.svg"
+    },
+    {
+      "code": "IS",
+      "country": "Iceland",
+      "selected": [
+        "#02529C",
+        "#DC1E35"
+      ],
+      "nearest": [
+        {
+          "hex": "#02529C",
+          "distance": 0
+        },
+        {
+          "hex": "#DC1E35",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Iceland.svg"
+    },
+    {
+      "code": "IE",
+      "country": "Ireland",
+      "selected": [
+        "#169B62",
+        "#FF883E"
+      ],
+      "nearest": [
+        {
+          "hex": "#169B62",
+          "distance": 0
+        },
+        {
+          "hex": "#FF883E",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Ireland.svg"
+    },
+    {
+      "code": "IT",
+      "country": "Italy",
+      "selected": [
+        "#008C45",
+        "#CD212A"
+      ],
+      "nearest": [
+        {
+          "hex": "#009246",
+          "distance": 6
+        },
+        {
+          "hex": "#CE2B37",
+          "distance": 16
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Italy.svg"
+    },
+    {
+      "code": "LV",
+      "country": "Latvia",
+      "selected": [
+        "#9E3039",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#9D2235",
+          "distance": 15
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Latvia.svg"
+    },
+    {
+      "code": "LI",
+      "country": "Liechtenstein",
+      "selected": [
+        "#002B7F",
+        "#CE1126"
+      ],
+      "nearest": [
+        {
+          "hex": "#002B7F",
+          "distance": 0
+        },
+        {
+          "hex": "#CE1126",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Liechtenstein.svg"
+    },
+    {
+      "code": "LT",
+      "country": "Lithuania",
+      "selected": [
+        "#006A44",
+        "#FDB913"
+      ],
+      "nearest": [
+        {
+          "hex": "#006A44",
+          "distance": 0
+        },
+        {
+          "hex": "#FDB913",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Lithuania.svg"
+    },
+    {
+      "code": "LU",
+      "country": "Luxembourg",
+      "selected": [
+        "#00A2E1",
+        "#EF3340"
+      ],
+      "nearest": [
+        {
+          "hex": "#00A3E0",
+          "distance": 1
+        },
+        {
+          "hex": "#EF3340",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Luxembourg.svg"
+    },
+    {
+      "code": "MT",
+      "country": "Malta",
+      "selected": [
+        "#CF142B",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#CF142B",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Malta.svg"
+    },
+    {
+      "code": "MD",
+      "country": "Moldova",
+      "selected": [
+        "#0046AE",
+        "#FFD200"
+      ],
+      "nearest": [
+        {
+          "hex": "#0046AE",
+          "distance": 0
+        },
+        {
+          "hex": "#FFD200",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Moldova.svg"
+    },
+    {
+      "code": "MC",
+      "country": "Monaco",
+      "selected": [
+        "#CE1126",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#CE1126",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Monaco.svg"
+    },
+    {
+      "code": "ME",
+      "country": "Montenegro",
+      "selected": [
+        "#E30000",
+        "#FFC000"
+      ],
+      "nearest": [
+        {
+          "hex": "#E30000",
+          "distance": 0
+        },
+        {
+          "hex": "#FFC000",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Montenegro.svg"
+    },
+    {
+      "code": "NL",
+      "country": "Netherlands",
+      "selected": [
+        "#AE1C28",
+        "#21468B"
+      ],
+      "nearest": [
+        {
+          "hex": "#AE1C28",
+          "distance": 0
+        },
+        {
+          "hex": "#21468B",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Netherlands.svg"
+    },
+    {
+      "code": "MK",
+      "country": "North Macedonia",
+      "selected": [
+        "#D82126",
+        "#F8E92E"
+      ],
+      "nearest": [
+        {
+          "hex": "#D82126",
+          "distance": 0
+        },
+        {
+          "hex": "#F8E92E",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_North_Macedonia.svg"
+    },
+    {
+      "code": "NO",
+      "country": "Norway",
+      "selected": [
+        "#BA0C2F",
+        "#00205B"
+      ],
+      "nearest": [
+        {
+          "hex": "#BA0C2F",
+          "distance": 0
+        },
+        {
+          "hex": "#00205B",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Norway.svg"
+    },
+    {
+      "code": "PL",
+      "country": "Poland",
+      "selected": [
+        "#DC143C",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#DC143C",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Poland.svg"
+    },
+    {
+      "code": "PT",
+      "country": "Portugal",
+      "selected": [
+        "#006600",
+        "#FF0000"
+      ],
+      "nearest": [
+        {
+          "hex": "#006600",
+          "distance": 0
+        },
+        {
+          "hex": "#FF0000",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Portugal.svg"
+    },
+    {
+      "code": "RO",
+      "country": "Romania",
+      "selected": [
+        "#002B7F",
+        "#FCD116"
+      ],
+      "nearest": [
+        {
+          "hex": "#002B7F",
+          "distance": 0
+        },
+        {
+          "hex": "#FCD116",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Romania.svg"
+    },
+    {
+      "code": "RU",
+      "country": "Russia",
+      "selected": [
+        "#0039A6",
+        "#D52B1E"
+      ],
+      "nearest": [
+        {
+          "hex": "#0039A6",
+          "distance": 0
+        },
+        {
+          "hex": "#D52B1E",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Russia.svg"
+    },
+    {
+      "code": "SM",
+      "country": "San Marino",
+      "selected": [
+        "#5EB6E4",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#5EB6E4",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_San_Marino.svg"
+    },
+    {
+      "code": "RS",
+      "country": "Serbia",
+      "selected": [
+        "#0C4076",
+        "#C6363C"
+      ],
+      "nearest": [
+        {
+          "hex": "#0C4076",
+          "distance": 0
+        },
+        {
+          "hex": "#C6363C",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Serbia.svg"
+    },
+    {
+      "code": "SK",
+      "country": "Slovakia",
+      "selected": [
+        "#0B4EA2",
+        "#EE1C25"
+      ],
+      "nearest": [
+        {
+          "hex": "#254AA5",
+          "distance": 26
+        },
+        {
+          "hex": "#ED1C24",
+          "distance": 1
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Slovakia.svg"
+    },
+    {
+      "code": "SI",
+      "country": "Slovenia",
+      "selected": [
+        "#0000FF",
+        "#FF0000"
+      ],
+      "nearest": [
+        {
+          "hex": "#0000FF",
+          "distance": 0
+        },
+        {
+          "hex": "#FF0000",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Slovenia.svg"
+    },
+    {
+      "code": "ES",
+      "country": "Spain",
+      "selected": [
+        "#AA151B",
+        "#F1BF00"
+      ],
+      "nearest": [
+        {
+          "hex": "#AD1519",
+          "distance": 4
+        },
+        {
+          "hex": "#FABD00",
+          "distance": 9
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Spain.svg"
+    },
+    {
+      "code": "SE",
+      "country": "Sweden",
+      "selected": [
+        "#006AA7",
+        "#FECC02"
+      ],
+      "nearest": [
+        {
+          "hex": "#005293",
+          "distance": 31
+        },
+        {
+          "hex": "#FECB00",
+          "distance": 2
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Sweden.svg"
+    },
+    {
+      "code": "CH",
+      "country": "Switzerland",
+      "selected": [
+        "#FF0000",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#FF0000",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Switzerland.svg"
+    },
+    {
+      "code": "UA",
+      "country": "Ukraine",
+      "selected": [
+        "#0057B7",
+        "#FFD700"
+      ],
+      "nearest": [
+        {
+          "hex": "#0057B7",
+          "distance": 0
+        },
+        {
+          "hex": "#FFD700",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Ukraine.svg"
+    },
+    {
+      "code": "GB",
+      "country": "United Kingdom",
+      "selected": [
+        "#012169",
+        "#C8102E"
+      ],
+      "nearest": [
+        {
+          "hex": "#012169",
+          "distance": 0
+        },
+        {
+          "hex": "#C8102E",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_United_Kingdom.svg"
+    },
+    {
+      "code": "AF",
+      "country": "Afghanistan",
+      "selected": [
+        "#000000",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#000000",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Afghanistan.svg"
+    },
+    {
+      "code": "AM",
+      "country": "Armenia",
+      "selected": [
+        "#D90012",
+        "#F2A800"
+      ],
+      "nearest": [
+        {
+          "hex": "#D90012",
+          "distance": 0
+        },
+        {
+          "hex": "#F2A800",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Armenia.svg"
+    },
+    {
+      "code": "AZ",
+      "country": "Azerbaijan",
+      "selected": [
+        "#00B9E4",
+        "#509E2F"
+      ],
+      "nearest": [
+        {
+          "hex": "#00B5E2",
+          "distance": 4
+        },
+        {
+          "hex": "#509E2F",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Azerbaijan.svg"
+    },
+    {
+      "code": "BH",
+      "country": "Bahrain",
+      "selected": [
+        "#CE1126",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#DA291C",
+          "distance": 29
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Bahrain.svg"
+    },
+    {
+      "code": "BD",
+      "country": "Bangladesh",
+      "selected": [
+        "#006747",
+        "#DA291C"
+      ],
+      "nearest": [
+        {
+          "hex": "#006747",
+          "distance": 0
+        },
+        {
+          "hex": "#DA291C",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Bangladesh.svg"
+    },
+    {
+      "code": "BT",
+      "country": "Bhutan",
+      "selected": [
+        "#FF4E12",
+        "#FFD520"
+      ],
+      "nearest": [
+        {
+          "hex": "#FF671F",
+          "distance": 28
+        },
+        {
+          "hex": "#FFCD00",
+          "distance": 33
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Bhutan.svg"
+    },
+    {
+      "code": "BN",
+      "country": "Brunei",
+      "selected": [
+        "#F7E017",
+        "#C8102E"
+      ],
+      "nearest": [
+        {
+          "hex": "#F7E017",
+          "distance": 0
+        },
+        {
+          "hex": "#CF1126",
+          "distance": 11
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Brunei.svg"
+    },
+    {
+      "code": "KH",
+      "country": "Cambodia",
+      "selected": [
+        "#032EA1",
+        "#E00025"
+      ],
+      "nearest": [
+        {
+          "hex": "#032EA1",
+          "distance": 0
+        },
+        {
+          "hex": "#E00025",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Cambodia.svg"
+    },
+    {
+      "code": "CN",
+      "country": "China",
+      "selected": [
+        "#EE1C25",
+        "#FFDE00"
+      ],
+      "nearest": [
+        {
+          "hex": "#EE1C25",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFF00",
+          "distance": 33
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_China.svg"
+    },
+    {
+      "code": "GE",
+      "country": "Georgia",
+      "selected": [
+        "#FF0000",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#FF0000",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Georgia.svg"
+    },
+    {
+      "code": "IN",
+      "country": "India",
+      "selected": [
+        "#138808",
+        "#FF9933"
+      ],
+      "nearest": [
+        {
+          "hex": "#046A38",
+          "distance": 59
+        },
+        {
+          "hex": "#FF6820",
+          "distance": 53
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_India.svg"
+    },
+    {
+      "code": "ID",
+      "country": "Indonesia",
+      "selected": [
+        "#CE1126",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#FF0000",
+          "distance": 64
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Indonesia.svg"
+    },
+    {
+      "code": "IR",
+      "country": "Iran",
+      "selected": [
+        "#239F40",
+        "#DA0000"
+      ],
+      "nearest": [
+        {
+          "hex": "#239F40",
+          "distance": 0
+        },
+        {
+          "hex": "#DA0000",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Iran.svg"
+    },
+    {
+      "code": "IQ",
+      "country": "Iraq",
+      "selected": [
+        "#CE1126",
+        "#007A3D"
+      ],
+      "nearest": [
+        {
+          "hex": "#CD1125",
+          "distance": 1
+        },
+        {
+          "hex": "#017B3D",
+          "distance": 1
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Iraq.svg"
+    },
+    {
+      "code": "IL",
+      "country": "Israel",
+      "selected": [
+        "#0038B8",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#0038B8",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Israel.svg"
+    },
+    {
+      "code": "JP",
+      "country": "Japan",
+      "selected": [
+        "#BC002D",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#BC002D",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Japan.svg"
+    },
+    {
+      "code": "JO",
+      "country": "Jordan",
+      "selected": [
+        "#CE1126",
+        "#007A3D"
+      ],
+      "nearest": [
+        {
+          "hex": "#CE1126",
+          "distance": 0
+        },
+        {
+          "hex": "#007A3D",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Jordan.svg"
+    },
+    {
+      "code": "KZ",
+      "country": "Kazakhstan",
+      "selected": [
+        "#00ABC2",
+        "#FFEC2D"
+      ],
+      "nearest": [
+        {
+          "hex": "#00ABC2",
+          "distance": 0
+        },
+        {
+          "hex": "#FFEC2D",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Kazakhstan.svg"
+    },
+    {
+      "code": "KW",
+      "country": "Kuwait",
+      "selected": [
+        "#007A3D",
+        "#CE1126"
+      ],
+      "nearest": [
+        {
+          "hex": "#007A3D",
+          "distance": 0
+        },
+        {
+          "hex": "#CE1126",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Kuwait.svg"
+    },
+    {
+      "code": "KG",
+      "country": "Kyrgyzstan",
+      "selected": [
+        "#FF0000",
+        "#FFFF00"
+      ],
+      "nearest": [
+        {
+          "hex": "#FF0000",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFF00",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Kyrgyzstan.svg"
+    },
+    {
+      "code": "LA",
+      "country": "Laos",
+      "selected": [
+        "#002868",
+        "#CE1126"
+      ],
+      "nearest": [
+        {
+          "hex": "#002868",
+          "distance": 0
+        },
+        {
+          "hex": "#CE1126",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Laos.svg"
+    },
+    {
+      "code": "LB",
+      "country": "Lebanon",
+      "selected": [
+        "#ED1C24",
+        "#00A651"
+      ],
+      "nearest": [
+        {
+          "hex": "#D31624",
+          "distance": 27
+        },
+        {
+          "hex": "#008C3E",
+          "distance": 32
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Lebanon.svg"
+    },
+    {
+      "code": "MY",
+      "country": "Malaysia",
+      "selected": [
+        "#010066",
+        "#CC0001"
+      ],
+      "nearest": [
+        {
+          "hex": "#000066",
+          "distance": 1
+        },
+        {
+          "hex": "#CC0000",
+          "distance": 1
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Malaysia.svg"
+    },
+    {
+      "code": "MV",
+      "country": "Maldives",
+      "selected": [
+        "#007E3A",
+        "#D21034"
+      ],
+      "nearest": [
+        {
+          "hex": "#007E3A",
+          "distance": 0
+        },
+        {
+          "hex": "#D21034",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Maldives.svg"
+    },
+    {
+      "code": "MN",
+      "country": "Mongolia",
+      "selected": [
+        "#015197",
+        "#C4272F"
+      ],
+      "nearest": [
+        {
+          "hex": "#0066B2",
+          "distance": 34
+        },
+        {
+          "hex": "#DA2031",
+          "distance": 23
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Mongolia.svg"
+    },
+    {
+      "code": "MM",
+      "country": "Myanmar",
+      "selected": [
+        "#34B233",
+        "#EA2839"
+      ],
+      "nearest": [
+        {
+          "hex": "#34B233",
+          "distance": 0
+        },
+        {
+          "hex": "#EA2839",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Myanmar.svg"
+    },
+    {
+      "code": "NP",
+      "country": "Nepal",
+      "selected": [
+        "#DC143C",
+        "#003893"
+      ],
+      "nearest": [
+        {
+          "hex": "#DC143C",
+          "distance": 0
+        },
+        {
+          "hex": "#003893",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Nepal.svg"
+    },
+    {
+      "code": "KP",
+      "country": "North Korea",
+      "selected": [
+        "#ED1C27",
+        "#024FA2"
+      ],
+      "nearest": [
+        {
+          "hex": "#EC1D25",
+          "distance": 2
+        },
+        {
+          "hex": "#034DA2",
+          "distance": 2
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_North_Korea.svg"
+    },
+    {
+      "code": "OM",
+      "country": "Oman",
+      "selected": [
+        "#DF1A23",
+        "#007E3C"
+      ],
+      "nearest": [
+        {
+          "hex": "#DF1A23",
+          "distance": 0
+        },
+        {
+          "hex": "#007E3C",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Oman.svg"
+    },
+    {
+      "code": "PK",
+      "country": "Pakistan",
+      "selected": [
+        "#06603A",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#01411C",
+          "distance": 43
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Pakistan.svg"
+    },
+    {
+      "code": "PH",
+      "country": "Philippines",
+      "selected": [
+        "#0038A8",
+        "#CE1126"
+      ],
+      "nearest": [
+        {
+          "hex": "#0038A8",
+          "distance": 0
+        },
+        {
+          "hex": "#CE1126",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Philippines.svg"
+    },
+    {
+      "code": "QA",
+      "country": "Qatar",
+      "selected": [
+        "#8A1538",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#8A1538",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Qatar.svg"
+    },
+    {
+      "code": "SA",
+      "country": "Saudi Arabia",
+      "selected": [
+        "#006C35",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#005430",
+          "distance": 25
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Saudi_Arabia.svg"
+    },
+    {
+      "code": "SG",
+      "country": "Singapore",
+      "selected": [
+        "#EF3340",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#ED2939",
+          "distance": 12
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Singapore.svg"
+    },
+    {
+      "code": "KR",
+      "country": "South Korea",
+      "selected": [
+        "#CD2E3A",
+        "#0047A0"
+      ],
+      "nearest": [
+        {
+          "hex": "#CD2E3A",
+          "distance": 0
+        },
+        {
+          "hex": "#0047A0",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_South_Korea.svg"
+    },
+    {
+      "code": "LK",
+      "country": "Sri Lanka",
+      "selected": [
+        "#8D153A",
+        "#FFB700"
+      ],
+      "nearest": [
+        {
+          "hex": "#8D153A",
+          "distance": 0
+        },
+        {
+          "hex": "#FFBE29",
+          "distance": 42
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Sri_Lanka.svg"
+    },
+    {
+      "code": "PS",
+      "country": "Palestine",
+      "selected": [
+        "#007A3D",
+        "#CE1126"
+      ],
+      "nearest": [
+        {
+          "hex": "#009639",
+          "distance": 28
+        },
+        {
+          "hex": "#ED2E38",
+          "distance": 46
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Palestine.svg"
+    },
+    {
+      "code": "SY",
+      "country": "Syria",
+      "selected": [
+        "#007A3D",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#007A3D",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Syria.svg"
+    },
+    {
+      "code": "TJ",
+      "country": "Tajikistan",
+      "selected": [
+        "#006600",
+        "#CC0000"
+      ],
+      "nearest": [
+        {
+          "hex": "#197B30",
+          "distance": 58
+        },
+        {
+          "hex": "#DC161D",
+          "distance": 40
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Tajikistan.svg"
+    },
+    {
+      "code": "TH",
+      "country": "Thailand",
+      "selected": [
+        "#2D2A4A",
+        "#A51931"
+      ],
+      "nearest": [
+        {
+          "hex": "#2D2A4A",
+          "distance": 0
+        },
+        {
+          "hex": "#A51931",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Thailand.svg"
+    },
+    {
+      "code": "TL",
+      "country": "Timor-Leste",
+      "selected": [
+        "#DC241F",
+        "#FFC726"
+      ],
+      "nearest": [
+        {
+          "hex": "#DA291C",
+          "distance": 6
+        },
+        {
+          "hex": "#FFC72C",
+          "distance": 6
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Timor-Leste.svg"
+    },
+    {
+      "code": "TR",
+      "country": "Turkey",
+      "selected": [
+        "#E30A17",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#E30A17",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Turkey.svg"
+    },
+    {
+      "code": "TM",
+      "country": "Turkmenistan",
+      "selected": [
+        "#00843D",
+        "#C8102E"
+      ],
+      "nearest": [
+        {
+          "hex": "#00843D",
+          "distance": 0
+        },
+        {
+          "hex": "#D22630",
+          "distance": 24
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Turkmenistan.svg"
+    },
+    {
+      "code": "AE",
+      "country": "UAE",
+      "selected": [
+        "#00732F",
+        "#EF3340"
+      ],
+      "nearest": [
+        {
+          "hex": "#00843D",
+          "distance": 22
+        },
+        {
+          "hex": "#C8102E",
+          "distance": 55
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_United_Arab_Emirates.svg"
+    },
+    {
+      "code": "UZ",
+      "country": "Uzbekistan",
+      "selected": [
+        "#0099B5",
+        "#1EB53A"
+      ],
+      "nearest": [
+        {
+          "hex": "#0099B5",
+          "distance": 0
+        },
+        {
+          "hex": "#1EB53A",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Uzbekistan.svg"
+    },
+    {
+      "code": "VN",
+      "country": "Vietnam",
+      "selected": [
+        "#DA251D",
+        "#FFFF00"
+      ],
+      "nearest": [
+        {
+          "hex": "#DA251D",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFF00",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Vietnam.svg"
+    },
+    {
+      "code": "YE",
+      "country": "Yemen",
+      "selected": [
+        "#CE1126",
+        "#1A1A1A"
+      ],
+      "nearest": [
+        {
+          "hex": "#CE1126",
+          "distance": 0
+        },
+        {
+          "hex": "#000000",
+          "distance": 45
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Yemen.svg"
+    },
+    {
+      "code": "AG",
+      "country": "Antigua & Barbuda",
+      "selected": [
+        "#0072C6",
+        "#FCD116"
+      ],
+      "nearest": [
+        {
+          "hex": "#0072C6",
+          "distance": 0
+        },
+        {
+          "hex": "#FCD116",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Antigua_and_Barbuda.svg"
+    },
+    {
+      "code": "BS",
+      "country": "Bahamas",
+      "selected": [
+        "#00ABC9",
+        "#FAE042"
+      ],
+      "nearest": [
+        {
+          "hex": "#00778B",
+          "distance": 81
+        },
+        {
+          "hex": "#FFC72C",
+          "distance": 34
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Bahamas.svg"
+    },
+    {
+      "code": "BB",
+      "country": "Barbados",
+      "selected": [
+        "#00267F",
+        "#FFC726"
+      ],
+      "nearest": [
+        {
+          "hex": "#1F367C",
+          "distance": 35
+        },
+        {
+          "hex": "#F3B100",
+          "distance": 46
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Barbados.svg"
+    },
+    {
+      "code": "BZ",
+      "country": "Belize",
+      "selected": [
+        "#003F87",
+        "#CE1126"
+      ],
+      "nearest": [
+        {
+          "hex": "#171696",
+          "distance": 49
+        },
+        {
+          "hex": "#D90F19",
+          "distance": 17
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Belize.svg"
+    },
+    {
+      "code": "CA",
+      "country": "Canada",
+      "selected": [
+        "#D80621",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#FF0000",
+          "distance": 51
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Canada.svg"
+    },
+    {
+      "code": "CR",
+      "country": "Costa Rica",
+      "selected": [
+        "#002B7F",
+        "#CE1126"
+      ],
+      "nearest": [
+        {
+          "hex": "#001489",
+          "distance": 25
+        },
+        {
+          "hex": "#DA291C",
+          "distance": 29
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Costa_Rica.svg"
+    },
+    {
+      "code": "CU",
+      "country": "Cuba",
+      "selected": [
+        "#002A8F",
+        "#CF142B"
+      ],
+      "nearest": [
+        {
+          "hex": "#002A8F",
+          "distance": 0
+        },
+        {
+          "hex": "#CB1515",
+          "distance": 22
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Cuba.svg"
+    },
+    {
+      "code": "DM",
+      "country": "Dominica",
+      "selected": [
+        "#006B3F",
+        "#FCD116"
+      ],
+      "nearest": [
+        {
+          "hex": "#046A38",
+          "distance": 8
+        },
+        {
+          "hex": "#FFCD00",
+          "distance": 23
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Dominica.svg"
+    },
+    {
+      "code": "DO",
+      "country": "Dom. Republic",
+      "selected": [
+        "#002D62",
+        "#CE1126"
+      ],
+      "nearest": [
+        {
+          "hex": "#002D62",
+          "distance": 0
+        },
+        {
+          "hex": "#CE1126",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Dominican_Republic.svg"
+    },
+    {
+      "code": "SV",
+      "country": "El Salvador",
+      "selected": [
+        "#0F47AF",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#0047AB",
+          "distance": 16
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_El_Salvador.svg"
+    },
+    {
+      "code": "GD",
+      "country": "Grenada",
+      "selected": [
+        "#007A5E",
+        "#CE1126"
+      ],
+      "nearest": [
+        {
+          "hex": "#007A5E",
+          "distance": 0
+        },
+        {
+          "hex": "#CE1126",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Grenada.svg"
+    },
+    {
+      "code": "GT",
+      "country": "Guatemala",
+      "selected": [
+        "#4997D0",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#4997D0",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Guatemala.svg"
+    },
+    {
+      "code": "HT",
+      "country": "Haiti",
+      "selected": [
+        "#00209F",
+        "#D21034"
+      ],
+      "nearest": [
+        {
+          "hex": "#00209F",
+          "distance": 0
+        },
+        {
+          "hex": "#D21034",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Haiti.svg"
+    },
+    {
+      "code": "HN",
+      "country": "Honduras",
+      "selected": [
+        "#0073CF",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#0D3B99",
+          "distance": 79
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Honduras.svg"
+    },
+    {
+      "code": "JM",
+      "country": "Jamaica",
+      "selected": [
+        "#009B3A",
+        "#FED100"
+      ],
+      "nearest": [
+        {
+          "hex": "#007749",
+          "distance": 39
+        },
+        {
+          "hex": "#FFB81C",
+          "distance": 38
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Jamaica.svg"
+    },
+    {
+      "code": "MX",
+      "country": "Mexico",
+      "selected": [
+        "#006847",
+        "#CE1126"
+      ],
+      "nearest": [
+        {
+          "hex": "#006847",
+          "distance": 0
+        },
+        {
+          "hex": "#CE1126",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Mexico.svg"
+    },
+    {
+      "code": "NI",
+      "country": "Nicaragua",
+      "selected": [
+        "#0067C6",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#0067C6",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Nicaragua.svg"
+    },
+    {
+      "code": "PA",
+      "country": "Panama",
+      "selected": [
+        "#005293",
+        "#D21034"
+      ],
+      "nearest": [
+        {
+          "hex": "#072357",
+          "distance": 77
+        },
+        {
+          "hex": "#DA121A",
+          "distance": 27
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Panama.svg"
+    },
+    {
+      "code": "KN",
+      "country": "St Kitts & Nevis",
+      "selected": [
+        "#009E49",
+        "#CE1126"
+      ],
+      "nearest": [
+        {
+          "hex": "#009739",
+          "distance": 17
+        },
+        {
+          "hex": "#C8102E",
+          "distance": 10
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Saint_Kitts_and_Nevis.svg"
+    },
+    {
+      "code": "LC",
+      "country": "St Lucia",
+      "selected": [
+        "#00A0DD",
+        "#FCD116"
+      ],
+      "nearest": [
+        {
+          "hex": "#66CCFF",
+          "distance": 116
+        },
+        {
+          "hex": "#FCD116",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Saint_Lucia.svg"
+    },
+    {
+      "code": "VC",
+      "country": "St Vincent",
+      "selected": [
+        "#0072C6",
+        "#009E49"
+      ],
+      "nearest": [
+        {
+          "hex": "#002674",
+          "distance": 112
+        },
+        {
+          "hex": "#007C2E",
+          "distance": 43
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Saint_Vincent_and_the_Grenadines.svg"
+    },
+    {
+      "code": "TT",
+      "country": "Trinidad & Tobago",
+      "selected": [
+        "#CE1126",
+        "#1A1A1A"
+      ],
+      "nearest": [
+        {
+          "hex": "#DA1A35",
+          "distance": 21
+        },
+        {
+          "hex": "#000000",
+          "distance": 45
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Trinidad_and_Tobago.svg"
+    },
+    {
+      "code": "US",
+      "country": "United States",
+      "selected": [
+        "#B22234",
+        "#3C3B6E"
+      ],
+      "nearest": [
+        {
+          "hex": "#B31942",
+          "distance": 17
+        },
+        {
+          "hex": "#0A3161",
+          "distance": 53
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_United_States.svg"
+    },
+    {
+      "code": "AR",
+      "country": "Argentina",
+      "selected": [
+        "#74ACDF",
+        "#F6B40E"
+      ],
+      "nearest": [
+        {
+          "hex": "#74ACDF",
+          "distance": 0
+        },
+        {
+          "hex": "#F6B40E",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Argentina.svg"
+    },
+    {
+      "code": "BO",
+      "country": "Bolivia",
+      "selected": [
+        "#007934",
+        "#F9E300"
+      ],
+      "nearest": [
+        {
+          "hex": "#007934",
+          "distance": 0
+        },
+        {
+          "hex": "#F9E300",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Bolivia.svg"
+    },
+    {
+      "code": "BR",
+      "country": "Brazil",
+      "selected": [
+        "#009C3B",
+        "#FFDF00"
+      ],
+      "nearest": [
+        {
+          "hex": "#009440",
+          "distance": 9
+        },
+        {
+          "hex": "#FFCB00",
+          "distance": 20
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Brazil.svg"
+    },
+    {
+      "code": "CL",
+      "country": "Chile",
+      "selected": [
+        "#0039A6",
+        "#D52B1E"
+      ],
+      "nearest": [
+        {
+          "hex": "#0032A0",
+          "distance": 9
+        },
+        {
+          "hex": "#DA291C",
+          "distance": 6
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Chile.svg"
+    },
+    {
+      "code": "CO",
+      "country": "Colombia",
+      "selected": [
+        "#FCD116",
+        "#003893"
+      ],
+      "nearest": [
+        {
+          "hex": "#FFCD00",
+          "distance": 23
+        },
+        {
+          "hex": "#003087",
+          "distance": 14
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Colombia.svg"
+    },
+    {
+      "code": "EC",
+      "country": "Ecuador",
+      "selected": [
+        "#034EA2",
+        "#FFDD00"
+      ],
+      "nearest": [
+        {
+          "hex": "#034EA2",
+          "distance": 0
+        },
+        {
+          "hex": "#FFDD00",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Ecuador.svg"
+    },
+    {
+      "code": "GY",
+      "country": "Guyana",
+      "selected": [
+        "#009E49",
+        "#FCD116"
+      ],
+      "nearest": [
+        {
+          "hex": "#2A936A",
+          "distance": 55
+        },
+        {
+          "hex": "#FFC20E",
+          "distance": 17
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Guyana.svg"
+    },
+    {
+      "code": "PY",
+      "country": "Paraguay",
+      "selected": [
+        "#0038A8",
+        "#D52B1E"
+      ],
+      "nearest": [
+        {
+          "hex": "#0038A8",
+          "distance": 0
+        },
+        {
+          "hex": "#D52B1E",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Paraguay.svg"
+    },
+    {
+      "code": "PE",
+      "country": "Peru",
+      "selected": [
+        "#D91023",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#D91023",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Peru.svg"
+    },
+    {
+      "code": "SR",
+      "country": "Suriname",
+      "selected": [
+        "#377E3F",
+        "#ECC81D"
+      ],
+      "nearest": [
+        {
+          "hex": "#377E3F",
+          "distance": 0
+        },
+        {
+          "hex": "#ECC81D",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Suriname.svg"
+    },
+    {
+      "code": "UY",
+      "country": "Uruguay",
+      "selected": [
+        "#0038A8",
+        "#FCD116"
+      ],
+      "nearest": [
+        {
+          "hex": "#0038A8",
+          "distance": 0
+        },
+        {
+          "hex": "#FCD116",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Uruguay.svg"
+    },
+    {
+      "code": "VE",
+      "country": "Venezuela",
+      "selected": [
+        "#00247D",
+        "#FFCC00"
+      ],
+      "nearest": [
+        {
+          "hex": "#00247D",
+          "distance": 0
+        },
+        {
+          "hex": "#FFCC00",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Venezuela.svg"
+    },
+    {
+      "code": "AU",
+      "country": "Australia",
+      "selected": [
+        "#012169",
+        "#E4002B"
+      ],
+      "nearest": [
+        {
+          "hex": "#00008B",
+          "distance": 47
+        },
+        {
+          "hex": "#FF0000",
+          "distance": 51
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Australia.svg"
+    },
+    {
+      "code": "FJ",
+      "country": "Fiji",
+      "selected": [
+        "#68BFE5",
+        "#C8102E"
+      ],
+      "nearest": [
+        {
+          "hex": "#62B5E5",
+          "distance": 12
+        },
+        {
+          "hex": "#C8102E",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Fiji.svg"
+    },
+    {
+      "code": "KI",
+      "country": "Kiribati",
+      "selected": [
+        "#CE1126",
+        "#003F87"
+      ],
+      "nearest": [
+        {
+          "hex": "#C81010",
+          "distance": 23
+        },
+        {
+          "hex": "#183070",
+          "distance": 36
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Kiribati.svg"
+    },
+    {
+      "code": "MH",
+      "country": "Marshall Is.",
+      "selected": [
+        "#003893",
+        "#DD7500"
+      ],
+      "nearest": [
+        {
+          "hex": "#003893",
+          "distance": 0
+        },
+        {
+          "hex": "#DD7500",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Marshall_Islands.svg"
+    },
+    {
+      "code": "FM",
+      "country": "Micronesia",
+      "selected": [
+        "#75B2DD",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#75B2DD",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Federated_States_of_Micronesia.svg"
+    },
+    {
+      "code": "NR",
+      "country": "Nauru",
+      "selected": [
+        "#002170",
+        "#FFB20D"
+      ],
+      "nearest": [
+        {
+          "hex": "#012169",
+          "distance": 7
+        },
+        {
+          "hex": "#FFC72C",
+          "distance": 37
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Nauru.svg"
+    },
+    {
+      "code": "NZ",
+      "country": "New Zealand",
+      "selected": [
+        "#00247D",
+        "#CC142B"
+      ],
+      "nearest": [
+        {
+          "hex": "#012169",
+          "distance": 20
+        },
+        {
+          "hex": "#C8102E",
+          "distance": 6
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_New_Zealand.svg"
+    },
+    {
+      "code": "PW",
+      "country": "Palau",
+      "selected": [
+        "#4AADD6",
+        "#FFDE00"
+      ],
+      "nearest": [
+        {
+          "hex": "#0099FF",
+          "distance": 87
+        },
+        {
+          "hex": "#FFFF00",
+          "distance": 33
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Palau.svg"
+    },
+    {
+      "code": "PG",
+      "country": "Papua New Guinea",
+      "selected": [
+        "#CE1126",
+        "#1A1A1A"
+      ],
+      "nearest": [
+        {
+          "hex": "#C8102E",
+          "distance": 10
+        },
+        {
+          "hex": "#000000",
+          "distance": 45
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Papua_New_Guinea.svg"
+    },
+    {
+      "code": "WS",
+      "country": "Samoa",
+      "selected": [
+        "#CE1126",
+        "#00247D"
+      ],
+      "nearest": [
+        {
+          "hex": "#CE1126",
+          "distance": 0
+        },
+        {
+          "hex": "#002B7F",
+          "distance": 7
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Samoa.svg"
+    },
+    {
+      "code": "SB",
+      "country": "Solomon Is.",
+      "selected": [
+        "#215B33",
+        "#0051BA"
+      ],
+      "nearest": [
+        {
+          "hex": "#215B33",
+          "distance": 0
+        },
+        {
+          "hex": "#0051BA",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Solomon_Islands.svg"
+    },
+    {
+      "code": "TO",
+      "country": "Tonga",
+      "selected": [
+        "#C10000",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#C10000",
+          "distance": 0
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Tonga.svg"
+    },
+    {
+      "code": "TV",
+      "country": "Tuvalu",
+      "selected": [
+        "#55A4D8",
+        "#FFFFFF"
+      ],
+      "nearest": [
+        {
+          "hex": "#009CDE",
+          "distance": 86
+        },
+        {
+          "hex": "#FFFFFF",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Tuvalu.svg"
+    },
+    {
+      "code": "VU",
+      "country": "Vanuatu",
+      "selected": [
+        "#009543",
+        "#D21034"
+      ],
+      "nearest": [
+        {
+          "hex": "#009543",
+          "distance": 0
+        },
+        {
+          "hex": "#D21034",
+          "distance": 0
+        }
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Vanuatu.svg"
+    }
+  ]
+}

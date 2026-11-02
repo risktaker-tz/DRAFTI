@@ -1,0 +1,4198 @@
+{
+  "_comment": "Dominant colours measured from Wikimedia Commons SVG flag files. Ordered by raster area; not automatically selected as piece colours. Each entry includes its source URL.",
+  "entries": [
+    {
+      "code": "TZ",
+      "country": "Tanzania",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Tanzania.svg",
+      "svgSha256": "88760e4ce561a916b6cb71688301e6bb07844843833ce63b18974916d2a6d0c1",
+      "colours": [
+        {
+          "hex": "#000000",
+          "areaPercent": 29.6
+        },
+        {
+          "hex": "#1EB53A",
+          "areaPercent": 29
+        },
+        {
+          "hex": "#00A3DD",
+          "areaPercent": 29
+        },
+        {
+          "hex": "#FCD116",
+          "areaPercent": 11.6
+        }
+      ]
+    },
+    {
+      "code": "KE",
+      "country": "Kenya",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Kenya.svg",
+      "svgSha256": "4e750d2b4aba128580e40052630883aee27419dcbd87ea44a4ede609e7c42a1b",
+      "colours": [
+        {
+          "hex": "#000000",
+          "areaPercent": 30.1
+        },
+        {
+          "hex": "#BB0000",
+          "areaPercent": 29.8
+        },
+        {
+          "hex": "#006600",
+          "areaPercent": 28.9
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 10.5
+        }
+      ]
+    },
+    {
+      "code": "UG",
+      "country": "Uganda",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Uganda.svg",
+      "svgSha256": "3b2508f07d951809da7988321172c27d97a244499713e57e691111df4e9ecb64",
+      "colours": [
+        {
+          "hex": "#FCDC04",
+          "areaPercent": 33.4
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 31.2
+        },
+        {
+          "hex": "#D90000",
+          "areaPercent": 31
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 3.8
+        }
+      ]
+    },
+    {
+      "code": "RW",
+      "country": "Rwanda",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Rwanda.svg",
+      "svgSha256": "4b2b50d1a73c4889b13721f23bfe597fd61962c14952d062e504acaa734d6792",
+      "colours": [
+        {
+          "hex": "#00A3E0",
+          "areaPercent": 48
+        },
+        {
+          "hex": "#FAD201",
+          "areaPercent": 25
+        },
+        {
+          "hex": "#20603D",
+          "areaPercent": 25
+        },
+        {
+          "hex": "#E5BE01",
+          "areaPercent": 1.2
+        }
+      ]
+    },
+    {
+      "code": "BI",
+      "country": "Burundi",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Burundi.svg",
+      "svgSha256": "6beb4b95b91709e09ea4fc0ed7f72fcc1567ff21dfaf28ce0b8234eccfc0a2af",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 34.1
+        },
+        {
+          "hex": "#43B02A",
+          "areaPercent": 33.9
+        },
+        {
+          "hex": "#C8102E",
+          "areaPercent": 30.3
+        }
+      ]
+    },
+    {
+      "code": "SS",
+      "country": "South Sudan",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_South_Sudan.svg",
+      "svgSha256": "40337cecf575fed94a7840765de29af7a51c9ff8fb6bec6a31b3fb014acb3dfa",
+      "colours": [
+        {
+          "hex": "#00914C",
+          "areaPercent": 25.9
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 25.9
+        },
+        {
+          "hex": "#00B6F2",
+          "areaPercent": 19.8
+        },
+        {
+          "hex": "#E22028",
+          "areaPercent": 18.6
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 7.2
+        },
+        {
+          "hex": "#FFE51A",
+          "areaPercent": 1.4
+        }
+      ]
+    },
+    {
+      "code": "SO",
+      "country": "Somalia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Somalia.svg",
+      "svgSha256": "dcae884cb3f44354da055e01d5163f8f356314e68b5328b9ac01f7c15ce10f90",
+      "colours": [
+        {
+          "hex": "#418FDE",
+          "areaPercent": 95.6
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 4.2
+        }
+      ]
+    },
+    {
+      "code": "CD",
+      "country": "DR Congo",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Democratic_Republic_of_the_Congo.svg",
+      "svgSha256": "c862865e11e9bac140fa7d4a3b99c131bfedc98e178d747ac3fe8a0341dd3945",
+      "colours": [
+        {
+          "hex": "#007FFF",
+          "areaPercent": 66.7
+        },
+        {
+          "hex": "#CE1021",
+          "areaPercent": 19.7
+        },
+        {
+          "hex": "#F7D618",
+          "areaPercent": 11.6
+        }
+      ]
+    },
+    {
+      "code": "ET",
+      "country": "Ethiopia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Ethiopia.svg",
+      "svgSha256": "f1feaa7f773dfaf2e95787788922d4e4c768170fb3764860a26ec548a2acbd05",
+      "colours": [
+        {
+          "hex": "#078930",
+          "areaPercent": 29.9
+        },
+        {
+          "hex": "#DA121A",
+          "areaPercent": 29.8
+        },
+        {
+          "hex": "#FCDD09",
+          "areaPercent": 24.3
+        },
+        {
+          "hex": "#0F47AF",
+          "areaPercent": 13.6
+        },
+        {
+          "hex": "#1048AE",
+          "areaPercent": 0.5
+        }
+      ]
+    },
+    {
+      "code": "ER",
+      "country": "Eritrea",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Eritrea.svg",
+      "svgSha256": "71b773bfa5b33e52eb020c7eff52736532aded5b354d01ff5b13d5f528251c08",
+      "colours": [
+        {
+          "hex": "#E4002B",
+          "areaPercent": 43.7
+        },
+        {
+          "hex": "#43B02A",
+          "areaPercent": 24.9
+        },
+        {
+          "hex": "#418FDE",
+          "areaPercent": 24.9
+        },
+        {
+          "hex": "#FFC72C",
+          "areaPercent": 4.2
+        },
+        {
+          "hex": "#FFC82C",
+          "areaPercent": 0.7
+        }
+      ]
+    },
+    {
+      "code": "DJ",
+      "country": "Djibouti",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Djibouti.svg",
+      "svgSha256": "3c59dd181f5701aebb4c1602ae39430932a1075ee1d23d3aaea221c3ed45584f",
+      "colours": [
+        {
+          "hex": "#12AD2B",
+          "areaPercent": 35.5
+        },
+        {
+          "hex": "#6AB2E7",
+          "areaPercent": 35.5
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 27.2
+        },
+        {
+          "hex": "#D7141A",
+          "areaPercent": 1.4
+        }
+      ]
+    },
+    {
+      "code": "EG",
+      "country": "Egypt",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Egypt.svg",
+      "svgSha256": "a285f98d7a785979ed8c74652506dc180055f1035d4812e2eaf442c8eb3096e0",
+      "colours": [
+        {
+          "hex": "#C8102E",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 30.8
+        },
+        {
+          "hex": "#FFCD00",
+          "areaPercent": 1.2
+        }
+      ]
+    },
+    {
+      "code": "LY",
+      "country": "Libya",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Libya.svg",
+      "svgSha256": "f2a61cb08640dbdf133f21e02c69b89fe601ec415bb9785e6cdad492ff47987a",
+      "colours": [
+        {
+          "hex": "#000000",
+          "areaPercent": 48.7
+        },
+        {
+          "hex": "#E70013",
+          "areaPercent": 25
+        },
+        {
+          "hex": "#239E46",
+          "areaPercent": 25
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 1
+        }
+      ]
+    },
+    {
+      "code": "TN",
+      "country": "Tunisia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Tunisia.svg",
+      "svgSha256": "0e8dd5d1b2a821a2669b3e7569db96681d86194e396682953e658ca018eb5e19",
+      "colours": [
+        {
+          "hex": "#E70013",
+          "areaPercent": 90.3
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 9.1
+        }
+      ]
+    },
+    {
+      "code": "DZ",
+      "country": "Algeria",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Algeria.svg",
+      "svgSha256": "35fe9924da28ee1efefce8c62f18d88fb890c1fbb247040d92291eb89bcd83d7",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 47.8
+        },
+        {
+          "hex": "#006633",
+          "areaPercent": 46
+        },
+        {
+          "hex": "#D21034",
+          "areaPercent": 5.8
+        }
+      ]
+    },
+    {
+      "code": "MA",
+      "country": "Morocco",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Morocco.svg",
+      "svgSha256": "576f97976dfd505c002d39b34eeef0f95f29e6396e26870b0a3887d7bb8e42b4",
+      "colours": [
+        {
+          "hex": "#C1272D",
+          "areaPercent": 96.7
+        },
+        {
+          "hex": "#006233",
+          "areaPercent": 2.8
+        }
+      ]
+    },
+    {
+      "code": "SD",
+      "country": "Sudan",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Sudan.svg",
+      "svgSha256": "1f7504f8d4b352eb1726d81a563212c650a8d316d67c97c6167b96895ffa703d",
+      "colours": [
+        {
+          "hex": "#000000",
+          "areaPercent": 29.6
+        },
+        {
+          "hex": "#D21034",
+          "areaPercent": 29.6
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 24.1
+        },
+        {
+          "hex": "#007229",
+          "areaPercent": 16.6
+        }
+      ]
+    },
+    {
+      "code": "MR",
+      "country": "Mauritania",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Mauritania.svg",
+      "svgSha256": "fd715836861147eb68371fb8eface9938a5a74e392fb993ff6342ec0a57a5caf",
+      "colours": [
+        {
+          "hex": "#00A95C",
+          "areaPercent": 54.5
+        },
+        {
+          "hex": "#D01C1F",
+          "areaPercent": 40
+        },
+        {
+          "hex": "#FFD700",
+          "areaPercent": 5
+        }
+      ]
+    },
+    {
+      "code": "ML",
+      "country": "Mali",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Mali.svg",
+      "svgSha256": "ae9516c41b4bb5385e047fc66da8e0e3e3b9360a5850c36d4b5c21950be3853c",
+      "colours": [
+        {
+          "hex": "#14B53A",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FCD116",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#CE1126",
+          "areaPercent": 33.3
+        }
+      ]
+    },
+    {
+      "code": "NE",
+      "country": "Niger",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Niger.svg",
+      "svgSha256": "841f8f45796be4e970b29b790eb198bd666335c03393147d2a1e7838c37ee2ce",
+      "colours": [
+        {
+          "hex": "#E05206",
+          "areaPercent": 38.1
+        },
+        {
+          "hex": "#0DB02B",
+          "areaPercent": 32.9
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 27.4
+        }
+      ]
+    },
+    {
+      "code": "TD",
+      "country": "Chad",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Chad.svg",
+      "svgSha256": "46d9a786225c476c021be32564d43497ec48d654694379969ac86d4aec8cf8a0",
+      "colours": [
+        {
+          "hex": "#002664",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FECB00",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#C60C30",
+          "areaPercent": 33.3
+        }
+      ]
+    },
+    {
+      "code": "SN",
+      "country": "Senegal",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Senegal.svg",
+      "svgSha256": "c9fb30d11cf7e230ee44d5cf663b7dce52a11c58798155b37fabec4158441497",
+      "colours": [
+        {
+          "hex": "#00853F",
+          "areaPercent": 35.3
+        },
+        {
+          "hex": "#E31B23",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FDEF42",
+          "areaPercent": 31.2
+        }
+      ]
+    },
+    {
+      "code": "GM",
+      "country": "Gambia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_The_Gambia.svg",
+      "svgSha256": "1f95fb77a8b0965a07052d4dd19f18a0114a962194da8e9a1adb75d135c6ddda",
+      "colours": [
+        {
+          "hex": "#CE1126",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#3A7728",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#0C1C8C",
+          "areaPercent": 22.1
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 10.8
+        }
+      ]
+    },
+    {
+      "code": "GW",
+      "country": "Guinea-Bissau",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Guinea-Bissau.svg",
+      "svgSha256": "198766a42c30435f0683a57cdfc5c3948d8ce1d011950a4a7f587bfae185057f",
+      "colours": [
+        {
+          "hex": "#FCD116",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#009E49",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#CE1126",
+          "areaPercent": 31.6
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 1.5
+        }
+      ]
+    },
+    {
+      "code": "GN",
+      "country": "Guinea",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Guinea.svg",
+      "svgSha256": "4932e18d832d6a781bc00400b69136cc9406234d3800e1e66ea809550a84b423",
+      "colours": [
+        {
+          "hex": "#CE1126",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FCD116",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#009460",
+          "areaPercent": 33.3
+        }
+      ]
+    },
+    {
+      "code": "SL",
+      "country": "Sierra Leone",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Sierra_Leone.svg",
+      "svgSha256": "21d7e0663d2b8e1d455a0e1456c63dfbb273becdacbf7c1fa0e22d915f136cf4",
+      "colours": [
+        {
+          "hex": "#1EB53A",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#0072C6",
+          "areaPercent": 33.3
+        }
+      ]
+    },
+    {
+      "code": "LR",
+      "country": "Liberia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Liberia.svg",
+      "svgSha256": "278a8dc3053e743c55c46314226cce30a92e0d83aa47406a7f70df8c43aed3a7",
+      "colours": [
+        {
+          "hex": "#BF0A30",
+          "areaPercent": 46.9
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 41.3
+        },
+        {
+          "hex": "#00205B",
+          "areaPercent": 9.6
+        }
+      ]
+    },
+    {
+      "code": "CI",
+      "country": "Côte d’Ivoire",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Ivory_Coast.svg",
+      "svgSha256": "86101b1e1c4f9fe1caea981d5f81994c9939c005aef3d7af8c3a1c2620132736",
+      "colours": [
+        {
+          "hex": "#FF8200",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#009A44",
+          "areaPercent": 33.3
+        }
+      ]
+    },
+    {
+      "code": "GH",
+      "country": "Ghana",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Ghana.svg",
+      "svgSha256": "777bffbb84309fece123a7f27fdf2c566556b829440a7919d5a9d813d5dc1122",
+      "colours": [
+        {
+          "hex": "#CE1126",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#006B3F",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FCD116",
+          "areaPercent": 30.7
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 2.4
+        }
+      ]
+    },
+    {
+      "code": "TG",
+      "country": "Togo",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Togo.svg",
+      "svgSha256": "f31b0ce8ca32d59d1d9b9e0f9a0e86820c5f3efc219658f3ca60555d35e651e5",
+      "colours": [
+        {
+          "hex": "#006A4E",
+          "areaPercent": 45.1
+        },
+        {
+          "hex": "#FFCE00",
+          "areaPercent": 32.6
+        },
+        {
+          "hex": "#D21034",
+          "areaPercent": 19.5
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 2.4
+        }
+      ]
+    },
+    {
+      "code": "BJ",
+      "country": "Benin",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Benin.svg",
+      "svgSha256": "03e7fd78282d719338630eaf2301fa9c9dbcbf57a9639a20e8fbb43353409569",
+      "colours": [
+        {
+          "hex": "#008751",
+          "areaPercent": 40
+        },
+        {
+          "hex": "#FCD116",
+          "areaPercent": 30
+        },
+        {
+          "hex": "#E8112D",
+          "areaPercent": 30
+        }
+      ]
+    },
+    {
+      "code": "BF",
+      "country": "Burkina Faso",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Burkina_Faso.svg",
+      "svgSha256": "ab95314190d43acb0825c7e05b4419b070cad6907d36e4e60903da590ddabb56",
+      "colours": [
+        {
+          "hex": "#009E49",
+          "areaPercent": 49
+        },
+        {
+          "hex": "#EF2B2D",
+          "areaPercent": 48.8
+        },
+        {
+          "hex": "#FCD116",
+          "areaPercent": 2
+        }
+      ]
+    },
+    {
+      "code": "NG",
+      "country": "Nigeria",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Nigeria.svg",
+      "svgSha256": "29a8a7fff1ca574873f953e086753bb2f90be55c3efac5c91f829b1a1c6c01be",
+      "colours": [
+        {
+          "hex": "#008751",
+          "areaPercent": 66.4
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 33.1
+        }
+      ]
+    },
+    {
+      "code": "CM",
+      "country": "Cameroon",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Cameroon.svg",
+      "svgSha256": "858909de3843d2a3755820310e57ebac2a442fba116f2dcda35e14659eff153e",
+      "colours": [
+        {
+          "hex": "#FCD116",
+          "areaPercent": 34.6
+        },
+        {
+          "hex": "#007A5E",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#CE1126",
+          "areaPercent": 32
+        }
+      ]
+    },
+    {
+      "code": "CF",
+      "country": "Central Africa",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Central_African_Republic.svg",
+      "svgSha256": "b42b5c220c98ac1df77995372a963f11d7e28205348d17fae9617c657e10892e",
+      "colours": [
+        {
+          "hex": "#FFCE00",
+          "areaPercent": 21.7
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 20.8
+        },
+        {
+          "hex": "#289728",
+          "areaPercent": 20.8
+        },
+        {
+          "hex": "#003082",
+          "areaPercent": 19.8
+        },
+        {
+          "hex": "#D21034",
+          "areaPercent": 16.7
+        }
+      ]
+    },
+    {
+      "code": "GQ",
+      "country": "Eq. Guinea",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Equatorial_Guinea.svg",
+      "svgSha256": "88d8921155c8d8d664afc4a417b3947643d51428cff237dcd43c9d0a366af653",
+      "colours": [
+        {
+          "hex": "#E32118",
+          "areaPercent": 30.5
+        },
+        {
+          "hex": "#3E9A00",
+          "areaPercent": 30.5
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 23.6
+        },
+        {
+          "hex": "#0073CE",
+          "areaPercent": 12.4
+        },
+        {
+          "hex": "#DDDDDD",
+          "areaPercent": 1.5
+        }
+      ]
+    },
+    {
+      "code": "GA",
+      "country": "Gabon",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Gabon.svg",
+      "svgSha256": "43e2be0bceff86a5e9611d197478256416e2ed1b106b9df24651d553bc87b41f",
+      "colours": [
+        {
+          "hex": "#009E60",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#3A75C4",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FCD116",
+          "areaPercent": 33.1
+        }
+      ]
+    },
+    {
+      "code": "CG",
+      "country": "Congo",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Republic_of_the_Congo.svg",
+      "svgSha256": "79b0117de76bf4ba824f21dc1320584d9f74337b2290e4ac1c12eefd72820c5c",
+      "colours": [
+        {
+          "hex": "#009739",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#DC241F",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FFD100",
+          "areaPercent": 33.2
+        }
+      ]
+    },
+    {
+      "code": "ST",
+      "country": "São Tomé",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_S%C3%A3o_Tom%C3%A9_and_Pr%C3%ADncipe.svg",
+      "svgSha256": "4bf0fca47d1233993f79f9489c2a18ced26e577ff137b3a54500188ebd81b0a7",
+      "colours": [
+        {
+          "hex": "#009739",
+          "areaPercent": 52.9
+        },
+        {
+          "hex": "#FFD100",
+          "areaPercent": 30.5
+        },
+        {
+          "hex": "#EF3340",
+          "areaPercent": 12.4
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 3.1
+        }
+      ]
+    },
+    {
+      "code": "AO",
+      "country": "Angola",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Angola.svg",
+      "svgSha256": "c1b3fb116d39434b4426bae3b90c2162ff5aa257a585eaf8535ae8412776dc33",
+      "colours": [
+        {
+          "hex": "#CC092F",
+          "areaPercent": 48.1
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 47.2
+        },
+        {
+          "hex": "#FFCB00",
+          "areaPercent": 4.1
+        }
+      ]
+    },
+    {
+      "code": "ZM",
+      "country": "Zambia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Zambia.svg",
+      "svgSha256": "5a49c51dc87ec82838e3aadd45ac525cb4e0e7b85c4006c221e389a4125e6d56",
+      "colours": [
+        {
+          "hex": "#147F55",
+          "areaPercent": 74.3
+        },
+        {
+          "hex": "#F99815",
+          "areaPercent": 9
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 7.6
+        },
+        {
+          "hex": "#D40829",
+          "areaPercent": 7.6
+        }
+      ]
+    },
+    {
+      "code": "ZW",
+      "country": "Zimbabwe",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Zimbabwe.svg",
+      "svgSha256": "81548edd2e9340b07f67219b2185ececb93466e4e4da96cbea3e61f0dca65067",
+      "colours": [
+        {
+          "hex": "#006400",
+          "areaPercent": 26.4
+        },
+        {
+          "hex": "#FFD200",
+          "areaPercent": 24.5
+        },
+        {
+          "hex": "#D40000",
+          "areaPercent": 22
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 13.5
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 11.4
+        }
+      ]
+    },
+    {
+      "code": "MW",
+      "country": "Malawi",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Malawi.svg",
+      "svgSha256": "2d982e9605bf72b7ecaa7d286b4f0c17fe1914aba83c393a40af57e323d2914c",
+      "colours": [
+        {
+          "hex": "#C7361E",
+          "areaPercent": 38.4
+        },
+        {
+          "hex": "#008C51",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 27.4
+        }
+      ]
+    },
+    {
+      "code": "MZ",
+      "country": "Mozambique",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Mozambique.svg",
+      "svgSha256": "391e69a4674df584930d705369103aed29cbfb338572894aac1278cd53715bdd",
+      "colours": [
+        {
+          "hex": "#FCE100",
+          "areaPercent": 28.5
+        },
+        {
+          "hex": "#007168",
+          "areaPercent": 26.9
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 20.9
+        },
+        {
+          "hex": "#D21034",
+          "areaPercent": 17.6
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 5.1
+        }
+      ]
+    },
+    {
+      "code": "NA",
+      "country": "Namibia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Namibia.svg",
+      "svgSha256": "33c2a98ecf5a8e2ed5890dfcc4a6f4f5c0ce3ee2173a783fca0fbe0be25462b2",
+      "colours": [
+        {
+          "hex": "#009A44",
+          "areaPercent": 31.8
+        },
+        {
+          "hex": "#002F6C",
+          "areaPercent": 28.9
+        },
+        {
+          "hex": "#C8102E",
+          "areaPercent": 27.5
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 7.9
+        },
+        {
+          "hex": "#FFCD00",
+          "areaPercent": 2.6
+        }
+      ]
+    },
+    {
+      "code": "BW",
+      "country": "Botswana",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Botswana.svg",
+      "svgSha256": "c0972de37f5576412afc642138f479c8d843e82ffa8d96024c529bab30ba4676",
+      "colours": [
+        {
+          "hex": "#6DA9D2",
+          "areaPercent": 75
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 16.7
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 8.3
+        }
+      ]
+    },
+    {
+      "code": "ZA",
+      "country": "South Africa",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_South_Africa.svg",
+      "svgSha256": "90a3147fd9e2f81d659d247d7aa518b138901f73505bd72c1e6668178f749815",
+      "colours": [
+        {
+          "hex": "#007749",
+          "areaPercent": 31
+        },
+        {
+          "hex": "#E03C31",
+          "areaPercent": 21.1
+        },
+        {
+          "hex": "#001489",
+          "areaPercent": 21
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 12
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 8.9
+        },
+        {
+          "hex": "#FFB81C",
+          "areaPercent": 5.2
+        }
+      ]
+    },
+    {
+      "code": "LS",
+      "country": "Lesotho",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Lesotho.svg",
+      "svgSha256": "5a7712cdaafa9b729531d9429f2eff4cc9d73542dd853b45d1239431478287cb",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 36.5
+        },
+        {
+          "hex": "#001489",
+          "areaPercent": 30
+        },
+        {
+          "hex": "#009A44",
+          "areaPercent": 30
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 3.1
+        }
+      ]
+    },
+    {
+      "code": "SZ",
+      "country": "Eswatini",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Eswatini.svg",
+      "svgSha256": "ff1aba207b351f7c045037ba506c62aeb493c489742e58a59982a72af44e5c4e",
+      "colours": [
+        {
+          "hex": "#3E5EB9",
+          "areaPercent": 37.5
+        },
+        {
+          "hex": "#B10C0C",
+          "areaPercent": 32.7
+        },
+        {
+          "hex": "#FFD900",
+          "areaPercent": 13.3
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 6.4
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 6.2
+        },
+        {
+          "hex": "#3D5DA7",
+          "areaPercent": 1.7
+        }
+      ]
+    },
+    {
+      "code": "MG",
+      "country": "Madagascar",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Madagascar.svg",
+      "svgSha256": "a302a82027fb4c1739350e49505791537ed26a3b6326558b09bdc87dcf2b6cb8",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#F9423A",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#00843D",
+          "areaPercent": 33.3
+        }
+      ]
+    },
+    {
+      "code": "MU",
+      "country": "Mauritius",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Mauritius.svg",
+      "svgSha256": "37ba98746c41bd488e49afc59ce98312a5bfa91be289cbcca5827c0a7a7c4e6d",
+      "colours": [
+        {
+          "hex": "#D01C1F",
+          "areaPercent": 25
+        },
+        {
+          "hex": "#2D3359",
+          "areaPercent": 25
+        },
+        {
+          "hex": "#F7B718",
+          "areaPercent": 25
+        },
+        {
+          "hex": "#008658",
+          "areaPercent": 25
+        }
+      ]
+    },
+    {
+      "code": "SC",
+      "country": "Seychelles",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Seychelles.svg",
+      "svgSha256": "b55c102d24e3963a45a4c24243c00032381e88cf42c9b2fa49062d7abb202321",
+      "colours": [
+        {
+          "hex": "#D22730",
+          "areaPercent": 33
+        },
+        {
+          "hex": "#002F6C",
+          "areaPercent": 16.6
+        },
+        {
+          "hex": "#007A33",
+          "areaPercent": 16.6
+        },
+        {
+          "hex": "#FED141",
+          "areaPercent": 16.5
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 16.5
+        }
+      ]
+    },
+    {
+      "code": "KM",
+      "country": "Comoros",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Comoros.svg",
+      "svgSha256": "0ffec041c6beb361c09810fac90016894c475049f956675af45ae90340a69d2c",
+      "colours": [
+        {
+          "hex": "#003DA5",
+          "areaPercent": 21.9
+        },
+        {
+          "hex": "#FFD100",
+          "areaPercent": 21.8
+        },
+        {
+          "hex": "#009639",
+          "areaPercent": 20.9
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 18.8
+        },
+        {
+          "hex": "#EF3340",
+          "areaPercent": 15.6
+        }
+      ]
+    },
+    {
+      "code": "CV",
+      "country": "Cabo Verde",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Cape_Verde.svg",
+      "svgSha256": "e3de5ee7895233b4e2a785ee30edca34e75be2d64a398e6494f423b3b1368327",
+      "colours": [
+        {
+          "hex": "#003893",
+          "areaPercent": 73.9
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 16
+        },
+        {
+          "hex": "#CF2027",
+          "areaPercent": 8.3
+        },
+        {
+          "hex": "#F7D116",
+          "areaPercent": 1.1
+        }
+      ]
+    },
+    {
+      "code": "AL",
+      "country": "Albania",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Albania.svg",
+      "svgSha256": "3f241fb4f5393daf4a9098fd1486c8e801216ffe698ff8f7601f33968761100d",
+      "colours": [
+        {
+          "hex": "#FF0000",
+          "areaPercent": 87
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 11.4
+        }
+      ]
+    },
+    {
+      "code": "AD",
+      "country": "Andorra",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Andorra.svg",
+      "svgSha256": "643c49d312ca388a2b128b41c560d18851a9d06c8f835d096ec867fb11657867",
+      "colours": [
+        {
+          "hex": "#10069F",
+          "areaPercent": 31.9
+        },
+        {
+          "hex": "#D50032",
+          "areaPercent": 31.9
+        },
+        {
+          "hex": "#FEDD00",
+          "areaPercent": 27
+        },
+        {
+          "hex": "#C6AA76",
+          "areaPercent": 2.9
+        },
+        {
+          "hex": "#DA291C",
+          "areaPercent": 1.2
+        },
+        {
+          "hex": "#C9AE79",
+          "areaPercent": 0.7
+        },
+        {
+          "hex": "#C4A774",
+          "areaPercent": 0.6
+        }
+      ]
+    },
+    {
+      "code": "AT",
+      "country": "Austria",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Austria.svg",
+      "svgSha256": "82b0a6991dc9716e9aaae39f1237cceccff16278ebde18cc9b681c2b63d72fef",
+      "colours": [
+        {
+          "hex": "#C8102E",
+          "areaPercent": 66.7
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 33.3
+        }
+      ]
+    },
+    {
+      "code": "BY",
+      "country": "Belarus",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Belarus.svg",
+      "svgSha256": "d4bf35a695071ec004a06a29c3d012d672030bf9257c7e79c511a4c2b3d7e6c4",
+      "colours": [
+        {
+          "hex": "#CE1720",
+          "areaPercent": 63.3
+        },
+        {
+          "hex": "#007C30",
+          "areaPercent": 29.4
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 4.1
+        },
+        {
+          "hex": "#CE1922",
+          "areaPercent": 0.9
+        }
+      ]
+    },
+    {
+      "code": "BE",
+      "country": "Belgium",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Belgium.svg",
+      "svgSha256": "95933c385c9e72479ec7e63f6cbca50d07695fd2e41fab334ea549c20b234fd1",
+      "colours": [
+        {
+          "hex": "#000000",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FDDA25",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#EF3340",
+          "areaPercent": 33.3
+        }
+      ]
+    },
+    {
+      "code": "BA",
+      "country": "Bosnia & Herz.",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Bosnia_and_Herzegovina.svg",
+      "svgSha256": "2b379399e315c3df92a104a08b9e14d1f66169dfee0fc2213794baa1c233b75c",
+      "colours": [
+        {
+          "hex": "#002395",
+          "areaPercent": 70.1
+        },
+        {
+          "hex": "#FECB00",
+          "areaPercent": 24.8
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 3.7
+        }
+      ]
+    },
+    {
+      "code": "BG",
+      "country": "Bulgaria",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Bulgaria.svg",
+      "svgSha256": "9c023198075538da242eeb7c16192d6aed8757e4e954ed974822c24637e4cc7f",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#00966E",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#D62612",
+          "areaPercent": 33.3
+        }
+      ]
+    },
+    {
+      "code": "HR",
+      "country": "Croatia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Croatia.svg",
+      "svgSha256": "220af373c5701c4f4c09a6e1765305f571442940a3c921bd2daac483761b2a8f",
+      "colours": [
+        {
+          "hex": "#FF0000",
+          "areaPercent": 33.8
+        },
+        {
+          "hex": "#171796",
+          "areaPercent": 32.7
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 30.5
+        },
+        {
+          "hex": "#0093DD",
+          "areaPercent": 1
+        }
+      ]
+    },
+    {
+      "code": "CY",
+      "country": "Cyprus",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Cyprus.svg",
+      "svgSha256": "6b7eb910db8e80c07b15c12875b3aab1e08882904461de46f7cde9711b683c5e",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 86.5
+        },
+        {
+          "hex": "#D67900",
+          "areaPercent": 11
+        },
+        {
+          "hex": "#4D5B2D",
+          "areaPercent": 1.5
+        }
+      ]
+    },
+    {
+      "code": "CZ",
+      "country": "Czechia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Czech_Republic.svg",
+      "svgSha256": "b68e2109de7e1ead469214b96e3c9ee8b69a7e6e4e6ac1096998500ab7b02d1c",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 37.4
+        },
+        {
+          "hex": "#D7141A",
+          "areaPercent": 37.4
+        },
+        {
+          "hex": "#11457E",
+          "areaPercent": 24.9
+        }
+      ]
+    },
+    {
+      "code": "DK",
+      "country": "Denmark",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Denmark.svg",
+      "svgSha256": "f27c3fa734ea66c662061219e8cc21f886cf36f798f822fca27e55c84afe8648",
+      "colours": [
+        {
+          "hex": "#C8102E",
+          "areaPercent": 75.6
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 23.4
+        }
+      ]
+    },
+    {
+      "code": "EE",
+      "country": "Estonia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Estonia.svg",
+      "svgSha256": "2ec2c11b0dc6c410a21bb1275930ee5403ffde4084b6733a3847a7027290119d",
+      "colours": [
+        {
+          "hex": "#0072CE",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 33.3
+        }
+      ]
+    },
+    {
+      "code": "FI",
+      "country": "Finland",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Finland.svg",
+      "svgSha256": "644a2d69b1a97f4e71b4a8341916a321ef9b2666774d3e12a7c0d95f56e7f2b3",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 60.1
+        },
+        {
+          "hex": "#002F6C",
+          "areaPercent": 39.1
+        }
+      ]
+    },
+    {
+      "code": "FR",
+      "country": "France",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_France.svg",
+      "svgSha256": "e949902c7677422d88137d385b9edbe91323470c7933824cc968aca3965fc37c",
+      "colours": [
+        {
+          "hex": "#002654",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#CE1126",
+          "areaPercent": 33.3
+        }
+      ]
+    },
+    {
+      "code": "DE",
+      "country": "Germany",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Germany.svg",
+      "svgSha256": "44a4580e94ae11037b8983e43e37a220e72f884217dba5b33a94309db2dcd88b",
+      "colours": [
+        {
+          "hex": "#000000",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#DD0000",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FFCE00",
+          "areaPercent": 33.3
+        }
+      ]
+    },
+    {
+      "code": "GR",
+      "country": "Greece",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Greece.svg",
+      "svgSha256": "d65b82614f0cd167a767abfda1abc1ef99e87ef48e5755f3d33e4526e3cad365",
+      "colours": [
+        {
+          "hex": "#0D5EAF",
+          "areaPercent": 55.8
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 43
+        },
+        {
+          "hex": "#AFCAE5",
+          "areaPercent": 0.7
+        }
+      ]
+    },
+    {
+      "code": "HU",
+      "country": "Hungary",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Hungary.svg",
+      "svgSha256": "2e52f26ef457b26f2b9c7716ba3e0b86ddbcd952052e04da38123a2c2ffbd870",
+      "colours": [
+        {
+          "hex": "#CE2939",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#477050",
+          "areaPercent": 33.3
+        }
+      ]
+    },
+    {
+      "code": "IS",
+      "country": "Iceland",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Iceland.svg",
+      "svgSha256": "225f2c249cb0ae48bb954cc768c49f3f7143ae6150c0a44f58cedbb6a9a995b4",
+      "colours": [
+        {
+          "hex": "#02529C",
+          "areaPercent": 65
+        },
+        {
+          "hex": "#DC1E35",
+          "areaPercent": 17.9
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 15.6
+        }
+      ]
+    },
+    {
+      "code": "IE",
+      "country": "Ireland",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Ireland.svg",
+      "svgSha256": "96c46e68d8588fd10d30bcb3ff7b9ab4ffb08c41902aa5455c99722bce676e69",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#169B62",
+          "areaPercent": 33.2
+        },
+        {
+          "hex": "#FF883E",
+          "areaPercent": 33.2
+        }
+      ]
+    },
+    {
+      "code": "IT",
+      "country": "Italy",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Italy.svg",
+      "svgSha256": "c939e50605c5a08df1aaf19818f74d2919a9d3c3b7aa7cd90520b8bfc9c5dddc",
+      "colours": [
+        {
+          "hex": "#009246",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#CE2B37",
+          "areaPercent": 33.3
+        }
+      ]
+    },
+    {
+      "code": "LV",
+      "country": "Latvia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Latvia.svg",
+      "svgSha256": "cf4a4e4291180ebb8c4af4970a3f74a6bd9693eed357c032be210c8d36f94b7b",
+      "colours": [
+        {
+          "hex": "#9D2235",
+          "areaPercent": 80
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 20
+        }
+      ]
+    },
+    {
+      "code": "LI",
+      "country": "Liechtenstein",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Liechtenstein.svg",
+      "svgSha256": "b103062879cf21eafa60bbeb78f9974b26a656d49285eee9792c3fb4662478d1",
+      "colours": [
+        {
+          "hex": "#CE1126",
+          "areaPercent": 50
+        },
+        {
+          "hex": "#002B7F",
+          "areaPercent": 46.5
+        },
+        {
+          "hex": "#FFD83D",
+          "areaPercent": 1
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 0.9
+        }
+      ]
+    },
+    {
+      "code": "LT",
+      "country": "Lithuania",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Lithuania.svg",
+      "svgSha256": "9743f780184a60fc75a312b34151ff1a2699e0bf0d456eb91dcbae0472b4d566",
+      "colours": [
+        {
+          "hex": "#FDB913",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#006A44",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#C1272D",
+          "areaPercent": 33.3
+        }
+      ]
+    },
+    {
+      "code": "LU",
+      "country": "Luxembourg",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Luxembourg.svg",
+      "svgSha256": "57c7d95e31cbb37cc41072b7c4c6149cc2286b37758c908e8335a4a7449cdf5e",
+      "colours": [
+        {
+          "hex": "#EF3340",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#00A3E0",
+          "areaPercent": 33.3
+        }
+      ]
+    },
+    {
+      "code": "MT",
+      "country": "Malta",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Malta.svg",
+      "svgSha256": "a5c2eee915ed72695afcc7898018bf57c41e62c9b7b964e8de8bbbec9e895d2d",
+      "colours": [
+        {
+          "hex": "#CF142B",
+          "areaPercent": 50.2
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 48.8
+        }
+      ]
+    },
+    {
+      "code": "MD",
+      "country": "Moldova",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Moldova.svg",
+      "svgSha256": "267604cb305206bdcc7856d49dab197ea4b1515fd4d200c29cdbdb07045055c8",
+      "colours": [
+        {
+          "hex": "#CC092F",
+          "areaPercent": 33.8
+        },
+        {
+          "hex": "#0046AE",
+          "areaPercent": 33.6
+        },
+        {
+          "hex": "#FFD200",
+          "areaPercent": 25.9
+        },
+        {
+          "hex": "#B07E5B",
+          "areaPercent": 1.4
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 1.2
+        }
+      ]
+    },
+    {
+      "code": "MC",
+      "country": "Monaco",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Monaco.svg",
+      "svgSha256": "28d1941e74f7b9e235ad7b5ad740cbb33d6564394b8efa2cbd6a8701504b68af",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 50
+        },
+        {
+          "hex": "#CE1126",
+          "areaPercent": 49.8
+        }
+      ]
+    },
+    {
+      "code": "ME",
+      "country": "Montenegro",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Montenegro.svg",
+      "svgSha256": "53761b966181c55a3c3853292cb55705ff4d9879f9b59f06601bd29d846a3bf6",
+      "colours": [
+        {
+          "hex": "#E30000",
+          "areaPercent": 75.2
+        },
+        {
+          "hex": "#FFC000",
+          "areaPercent": 19.1
+        },
+        {
+          "hex": "#D17624",
+          "areaPercent": 0.8
+        },
+        {
+          "hex": "#EDA30E",
+          "areaPercent": 0.5
+        },
+        {
+          "hex": "#0071BC",
+          "areaPercent": 0.5
+        }
+      ]
+    },
+    {
+      "code": "NL",
+      "country": "Netherlands",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Netherlands.svg",
+      "svgSha256": "9c2a624a9ca5a82940d8902a7b818230d7bc2efde991837d6f78bc78c1b27110",
+      "colours": [
+        {
+          "hex": "#AE1C28",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#21468B",
+          "areaPercent": 33.3
+        }
+      ]
+    },
+    {
+      "code": "MK",
+      "country": "North Macedonia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_North_Macedonia.svg",
+      "svgSha256": "f9a526edefb4278f21377c34e090de0f7c790800c9f4b1007007bf64d0064a1d",
+      "colours": [
+        {
+          "hex": "#D82126",
+          "areaPercent": 66.6
+        },
+        {
+          "hex": "#F8E92E",
+          "areaPercent": 31.2
+        }
+      ]
+    },
+    {
+      "code": "NO",
+      "country": "Norway",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Norway.svg",
+      "svgSha256": "be906b906b9063a909154d9bae757ef6aa5927c67f678200d4e846101b1adc09",
+      "colours": [
+        {
+          "hex": "#BA0C2F",
+          "areaPercent": 60.5
+        },
+        {
+          "hex": "#00205B",
+          "areaPercent": 19.9
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 17.3
+        }
+      ]
+    },
+    {
+      "code": "PL",
+      "country": "Poland",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Poland.svg",
+      "svgSha256": "c6a5131abfd6eede2c632b5b042e658266676fd072295acd4eaa6debd53755af",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 50
+        },
+        {
+          "hex": "#DC143C",
+          "areaPercent": 50
+        }
+      ]
+    },
+    {
+      "code": "PT",
+      "country": "Portugal",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Portugal.svg",
+      "svgSha256": "20ddeda8a3c2960f6d8d7cf88cec827aad537143431a0828e789f55d0cd923ce",
+      "colours": [
+        {
+          "hex": "#FF0000",
+          "areaPercent": 56.7
+        },
+        {
+          "hex": "#006600",
+          "areaPercent": 34.4
+        },
+        {
+          "hex": "#FFFF00",
+          "areaPercent": 2.9
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 1.8
+        }
+      ]
+    },
+    {
+      "code": "RO",
+      "country": "Romania",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Romania.svg",
+      "svgSha256": "57e1c4d27feec8e7a459e2dc522b9e6ec3eec996d9504733a9a17d9b4fce3026",
+      "colours": [
+        {
+          "hex": "#002B7F",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FCD116",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#CE1126",
+          "areaPercent": 33.3
+        }
+      ]
+    },
+    {
+      "code": "RU",
+      "country": "Russia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Russia.svg",
+      "svgSha256": "eb1dbd977fdb824dcae7767ce9ec3a023e41158e81b5f524772609ddcb622025",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#0039A6",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#D52B1E",
+          "areaPercent": 33.3
+        }
+      ]
+    },
+    {
+      "code": "SM",
+      "country": "San Marino",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_San_Marino.svg",
+      "svgSha256": "050539f131fb13e8d0bf192a5130f4a08866fc71762f409c6656806b23a19be4",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 44.7
+        },
+        {
+          "hex": "#5EB6E4",
+          "areaPercent": 43.3
+        },
+        {
+          "hex": "#658D5C",
+          "areaPercent": 1.3
+        },
+        {
+          "hex": "#A0CFEB",
+          "areaPercent": 0.8
+        },
+        {
+          "hex": "#F1BF31",
+          "areaPercent": 0.8
+        },
+        {
+          "hex": "#D99F31",
+          "areaPercent": 0.7
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 0.5
+        }
+      ]
+    },
+    {
+      "code": "RS",
+      "country": "Serbia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Serbia.svg",
+      "svgSha256": "e0a8bff6ee5445d6676a788c3761b412275688196abdd4bd149d74d6c723040c",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 35.4
+        },
+        {
+          "hex": "#C6363C",
+          "areaPercent": 34
+        },
+        {
+          "hex": "#0C4076",
+          "areaPercent": 25
+        },
+        {
+          "hex": "#EDB92E",
+          "areaPercent": 1.1
+        }
+      ]
+    },
+    {
+      "code": "SK",
+      "country": "Slovakia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Slovakia.svg",
+      "svgSha256": "de60b8f1ba41a4985756b81d42f52d0b52bf61a54f2260b674412f3d2f358577",
+      "colours": [
+        {
+          "hex": "#ED1C24",
+          "areaPercent": 39
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 33.7
+        },
+        {
+          "hex": "#254AA5",
+          "areaPercent": 26.7
+        }
+      ]
+    },
+    {
+      "code": "SI",
+      "country": "Slovenia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Slovenia.svg",
+      "svgSha256": "aa4fda18694f1e60c937933eebd752cc3ed0701652f0dfca84677c3267b26db9",
+      "colours": [
+        {
+          "hex": "#0000FF",
+          "areaPercent": 33.7
+        },
+        {
+          "hex": "#FF0000",
+          "areaPercent": 33.6
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 32.3
+        }
+      ]
+    },
+    {
+      "code": "ES",
+      "country": "Spain",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Spain.svg",
+      "svgSha256": "af0b860424a9bd6af63dce070d7f7cb4c7b490c6269fc1cd4f35c45679a20500",
+      "colours": [
+        {
+          "hex": "#AD1519",
+          "areaPercent": 50
+        },
+        {
+          "hex": "#FABD00",
+          "areaPercent": 43.8
+        },
+        {
+          "hex": "#B50027",
+          "areaPercent": 1.4
+        },
+        {
+          "hex": "#B2B2B2",
+          "areaPercent": 0.9
+        },
+        {
+          "hex": "#9F7E00",
+          "areaPercent": 0.6
+        }
+      ]
+    },
+    {
+      "code": "SE",
+      "country": "Sweden",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Sweden.svg",
+      "svgSha256": "350fa9d5023de2ed2fd7fd0f9d0de04e25551d6154aab859949bb7c81543f10b",
+      "colours": [
+        {
+          "hex": "#005293",
+          "areaPercent": 70
+        },
+        {
+          "hex": "#FECB00",
+          "areaPercent": 30
+        }
+      ]
+    },
+    {
+      "code": "CH",
+      "country": "Switzerland",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Switzerland.svg",
+      "svgSha256": "900a0befb655721c1b52b5ec2754f2f553f52b230443aaf016cc224e6a0707ce",
+      "colours": [
+        {
+          "hex": "#FF0000",
+          "areaPercent": 79.8
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 19.6
+        }
+      ]
+    },
+    {
+      "code": "UA",
+      "country": "Ukraine",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Ukraine.svg",
+      "svgSha256": "77e3eb29bbc7d4bae51f2e959d4ef4656eb1e34484cf772b4081a22f4af5256b",
+      "colours": [
+        {
+          "hex": "#0057B7",
+          "areaPercent": 50
+        },
+        {
+          "hex": "#FFD700",
+          "areaPercent": 50
+        }
+      ]
+    },
+    {
+      "code": "GB",
+      "country": "United Kingdom",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_United_Kingdom.svg",
+      "svgSha256": "b93bb15033d6c2219f290121d40c0a741765bd4b077ebcf5a5b0d917ff725a28",
+      "colours": [
+        {
+          "hex": "#C8102E",
+          "areaPercent": 38.5
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 34.4
+        },
+        {
+          "hex": "#012169",
+          "areaPercent": 25
+        }
+      ]
+    },
+    {
+      "code": "AF",
+      "country": "Afghanistan",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Afghanistan.svg",
+      "svgSha256": "fc326ebb964d9a50e31984495d1cf94f810a8af2ecaac5615001358404a389be",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 87.7
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 8.7
+        }
+      ]
+    },
+    {
+      "code": "AM",
+      "country": "Armenia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Armenia.svg",
+      "svgSha256": "1eb2190d967efac59bb4f18f699b465f76dc3128593011e59243450cd593f846",
+      "colours": [
+        {
+          "hex": "#D90012",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#0033A0",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#F2A800",
+          "areaPercent": 33.3
+        }
+      ]
+    },
+    {
+      "code": "AZ",
+      "country": "Azerbaijan",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Azerbaijan.svg",
+      "svgSha256": "f16a9688b22090aaeac332332410a67ce073b9556bc9192771231ad713d5dacd",
+      "colours": [
+        {
+          "hex": "#00B5E2",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#509E2F",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#EF3340",
+          "areaPercent": 31.5
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 1.5
+        }
+      ]
+    },
+    {
+      "code": "BH",
+      "country": "Bahrain",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Bahrain.svg",
+      "svgSha256": "bfa65642e5dc9b67c3c5570dc48711f83a02dd865a251514a7243df7a5d73b24",
+      "colours": [
+        {
+          "hex": "#DA291C",
+          "areaPercent": 67.3
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 32.3
+        }
+      ]
+    },
+    {
+      "code": "BD",
+      "country": "Bangladesh",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Bangladesh.svg",
+      "svgSha256": "453b90fee62df5770d9610e8ba99e047f63f986a027cc071f2a90d79c8012150",
+      "colours": [
+        {
+          "hex": "#006747",
+          "areaPercent": 78.8
+        },
+        {
+          "hex": "#DA291C",
+          "areaPercent": 20.7
+        }
+      ]
+    },
+    {
+      "code": "BT",
+      "country": "Bhutan",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Bhutan.svg",
+      "svgSha256": "bfbf299f9ee043d6fcc11c12cfe2dede242579b948f93a38d3c2e0ba4ebab383",
+      "colours": [
+        {
+          "hex": "#FFCD00",
+          "areaPercent": 43.6
+        },
+        {
+          "hex": "#FF671F",
+          "areaPercent": 40.4
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 11
+        },
+        {
+          "hex": "#959595",
+          "areaPercent": 0.7
+        },
+        {
+          "hex": "#F6F6F6",
+          "areaPercent": 0.5
+        }
+      ]
+    },
+    {
+      "code": "BN",
+      "country": "Brunei",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Brunei.svg",
+      "svgSha256": "11c704ce4271bcbddd1c372cb6dd457a278c51ce7db7ad98ab5f5c5517695dd6",
+      "colours": [
+        {
+          "hex": "#F7E017",
+          "areaPercent": 54.1
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 21.2
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 17.3
+        },
+        {
+          "hex": "#CF1126",
+          "areaPercent": 4.5
+        }
+      ]
+    },
+    {
+      "code": "KH",
+      "country": "Cambodia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Cambodia.svg",
+      "svgSha256": "d3e7df02fdb48d08e6784f4c3eead2c026fe458a8cdea8d09c78cded471eac35",
+      "colours": [
+        {
+          "hex": "#032EA1",
+          "areaPercent": 50
+        },
+        {
+          "hex": "#E00025",
+          "areaPercent": 39.5
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 5.9
+        }
+      ]
+    },
+    {
+      "code": "CN",
+      "country": "China",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_China.svg",
+      "svgSha256": "5fce7409cd290e6b3c5ecd09c0d2c400ae459e3d59c6c0539793ac0e803d0179",
+      "colours": [
+        {
+          "hex": "#EE1C25",
+          "areaPercent": 97.4
+        },
+        {
+          "hex": "#FFFF00",
+          "areaPercent": 2.3
+        }
+      ]
+    },
+    {
+      "code": "GE",
+      "country": "Georgia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Georgia.svg",
+      "svgSha256": "0be14c9858af6deb6b913b42a091ee99b01405accc89acce3b88446422b2c951",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 63.7
+        },
+        {
+          "hex": "#FF0000",
+          "areaPercent": 35.9
+        }
+      ]
+    },
+    {
+      "code": "IN",
+      "country": "India",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_India.svg",
+      "svgSha256": "95d7239707482165fbc0f685d5f493633639f16771c1fef9701f7ee66dcdf343",
+      "colours": [
+        {
+          "hex": "#FF6820",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#046A38",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 30.4
+        },
+        {
+          "hex": "#07038D",
+          "areaPercent": 1.8
+        }
+      ]
+    },
+    {
+      "code": "ID",
+      "country": "Indonesia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Indonesia.svg",
+      "svgSha256": "2ab57d2d418baba7b0ff55729435d0c780ca52a98b754f92d44e96cd1399dae5",
+      "colours": [
+        {
+          "hex": "#FF0000",
+          "areaPercent": 50
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 50
+        }
+      ]
+    },
+    {
+      "code": "IR",
+      "country": "Iran",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Iran.svg",
+      "svgSha256": "c1d6eb64f7060fb362ad8efd0205cdd37c7443fa1f009b9882feede56022009c",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 36
+        },
+        {
+          "hex": "#DA0000",
+          "areaPercent": 30.5
+        },
+        {
+          "hex": "#239F40",
+          "areaPercent": 29.4
+        }
+      ]
+    },
+    {
+      "code": "IQ",
+      "country": "Iraq",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Iraq.svg",
+      "svgSha256": "2a3ac265b9efcfb0b8761b753b8dba85b63af329deed39dc7a363e61dad70667",
+      "colours": [
+        {
+          "hex": "#CD1125",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 30.7
+        },
+        {
+          "hex": "#017B3D",
+          "areaPercent": 2.2
+        }
+      ]
+    },
+    {
+      "code": "IL",
+      "country": "Israel",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Israel.svg",
+      "svgSha256": "a5732410968d238f8a506a455bd7be7fea2908d0abcf638020fbe7b58bd4ad2f",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 63.4
+        },
+        {
+          "hex": "#0038B8",
+          "areaPercent": 33.8
+        },
+        {
+          "hex": "#0035B7",
+          "areaPercent": 0.7
+        },
+        {
+          "hex": "#305DC5",
+          "areaPercent": 0.5
+        },
+        {
+          "hex": "#E7ECF9",
+          "areaPercent": 0.5
+        }
+      ]
+    },
+    {
+      "code": "JP",
+      "country": "Japan",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Japan.svg",
+      "svgSha256": "35e785339e19d1ec1987cb9c3d8e66fc97f29a287db0b0b590b8dfdd96d4766b",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 81
+        },
+        {
+          "hex": "#BC002D",
+          "areaPercent": 18.7
+        }
+      ]
+    },
+    {
+      "code": "JO",
+      "country": "Jordan",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Jordan.svg",
+      "svgSha256": "7a044c4d0f995a5dafe157e4554e4b9bc5e77ab303c6a04685999cc1930f79dc",
+      "colours": [
+        {
+          "hex": "#000000",
+          "areaPercent": 27.7
+        },
+        {
+          "hex": "#007A3D",
+          "areaPercent": 27.7
+        },
+        {
+          "hex": "#CE1126",
+          "areaPercent": 24.4
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 19.7
+        }
+      ]
+    },
+    {
+      "code": "KZ",
+      "country": "Kazakhstan",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Kazakhstan.svg",
+      "svgSha256": "bcf331e5a92785976aabe77aeac25de912e97d4e20557c521359e1033d1450af",
+      "colours": [
+        {
+          "hex": "#00ABC2",
+          "areaPercent": 89.6
+        },
+        {
+          "hex": "#FFEC2D",
+          "areaPercent": 6.6
+        },
+        {
+          "hex": "#FFEF26",
+          "areaPercent": 0.6
+        }
+      ]
+    },
+    {
+      "code": "KW",
+      "country": "Kuwait",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Kuwait.svg",
+      "svgSha256": "b550075b6f53c591fabdcd505be66c5085dff0168edd9a96c6b3c1d939e8bcbb",
+      "colours": [
+        {
+          "hex": "#CE1126",
+          "areaPercent": 29.1
+        },
+        {
+          "hex": "#007A3D",
+          "areaPercent": 29.1
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 25
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 16.6
+        }
+      ]
+    },
+    {
+      "code": "KG",
+      "country": "Kyrgyzstan",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Kyrgyzstan.svg",
+      "svgSha256": "d6baff517bb0b83b0a6e8b8e650534b8420da5940dd758646e239e7429f7e29e",
+      "colours": [
+        {
+          "hex": "#FF0000",
+          "areaPercent": 91
+        },
+        {
+          "hex": "#FFFF00",
+          "areaPercent": 6.4
+        }
+      ]
+    },
+    {
+      "code": "LA",
+      "country": "Laos",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Laos.svg",
+      "svgSha256": "4d8b2ffd9f0565f534f6cafb6c389b31d538465ae8fefc72a42797959884b44a",
+      "colours": [
+        {
+          "hex": "#CE1126",
+          "areaPercent": 50
+        },
+        {
+          "hex": "#002868",
+          "areaPercent": 41.5
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 8.3
+        }
+      ]
+    },
+    {
+      "code": "LB",
+      "country": "Lebanon",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Lebanon.svg",
+      "svgSha256": "ad184d36e7183828aecb2b3e6d05a92d454a4f01d478e38ce8c7db78d83e913c",
+      "colours": [
+        {
+          "hex": "#D31624",
+          "areaPercent": 50
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 42.9
+        },
+        {
+          "hex": "#008C3E",
+          "areaPercent": 6.5
+        }
+      ]
+    },
+    {
+      "code": "MY",
+      "country": "Malaysia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Malaysia.svg",
+      "svgSha256": "53b0aa224ba67a2d32be58aab6eb2e4395ac3df66e62692ac83a30bc296ee3a2",
+      "colours": [
+        {
+          "hex": "#CC0000",
+          "areaPercent": 34.8
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 34.8
+        },
+        {
+          "hex": "#000066",
+          "areaPercent": 24.1
+        },
+        {
+          "hex": "#FFCC00",
+          "areaPercent": 3.5
+        }
+      ]
+    },
+    {
+      "code": "MV",
+      "country": "Maldives",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Maldives.svg",
+      "svgSha256": "45f64c4eecbda57c8f419eb222be5c5e64b03f721fc171db01a408144da332c0",
+      "colours": [
+        {
+          "hex": "#D21034",
+          "areaPercent": 66.7
+        },
+        {
+          "hex": "#007E3A",
+          "areaPercent": 31.9
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 1.3
+        }
+      ]
+    },
+    {
+      "code": "MN",
+      "country": "Mongolia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Mongolia.svg",
+      "svgSha256": "b7ccaa99a79fe613cb0a8953ef2f49b25f5e56c5c2b05b5725627ff01d60af6f",
+      "colours": [
+        {
+          "hex": "#DA2031",
+          "areaPercent": 59.7
+        },
+        {
+          "hex": "#0066B2",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FFD300",
+          "areaPercent": 6.2
+        }
+      ]
+    },
+    {
+      "code": "MM",
+      "country": "Myanmar",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Myanmar.svg",
+      "svgSha256": "b96625d297f111bf6f588251780f972d3f6e3b1f663831c164bd35e93a06ba2a",
+      "colours": [
+        {
+          "hex": "#FECB00",
+          "areaPercent": 32.7
+        },
+        {
+          "hex": "#EA2839",
+          "areaPercent": 31.3
+        },
+        {
+          "hex": "#34B233",
+          "areaPercent": 25.6
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 10
+        }
+      ]
+    },
+    {
+      "code": "NP",
+      "country": "Nepal",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Nepal.svg",
+      "svgSha256": "98b33ea847a3f6e6f21c777423acc9d80512a85f858d967ceaf56d206c10be1e",
+      "colours": [
+        {
+          "hex": "#DC143C",
+          "areaPercent": 61.2
+        },
+        {
+          "hex": "#003893",
+          "areaPercent": 20.4
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 13.4
+        },
+        {
+          "hex": "#003792",
+          "areaPercent": 1
+        },
+        {
+          "hex": "#003A99",
+          "areaPercent": 0.9
+        }
+      ]
+    },
+    {
+      "code": "KP",
+      "country": "North Korea",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_North_Korea.svg",
+      "svgSha256": "0facdb3b7f4028e3ab0ce5457983ff62b22e77177e896cf472654ae6b2f9ebeb",
+      "colours": [
+        {
+          "hex": "#EC1D25",
+          "areaPercent": 55.3
+        },
+        {
+          "hex": "#034DA2",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 10.4
+        }
+      ]
+    },
+    {
+      "code": "OM",
+      "country": "Oman",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Oman.svg",
+      "svgSha256": "e41feb614c8cdb8ae60fe69384e148882485ec63d8670f0ace874d9022a63410",
+      "colours": [
+        {
+          "hex": "#DF1A23",
+          "areaPercent": 53.8
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 22.5
+        },
+        {
+          "hex": "#007E3C",
+          "areaPercent": 22.2
+        }
+      ]
+    },
+    {
+      "code": "PK",
+      "country": "Pakistan",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Pakistan.svg",
+      "svgSha256": "d6ace20003ef4172b2cb2f090614f06602fb139a900cd1c65c4f8cc17367bc37",
+      "colours": [
+        {
+          "hex": "#01411C",
+          "areaPercent": 68.5
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 31.1
+        }
+      ]
+    },
+    {
+      "code": "PH",
+      "country": "Philippines",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Philippines.svg",
+      "svgSha256": "b0010e0b5f5945506e98b76f3469faf964c1ce30de75673186d303f9112b5454",
+      "colours": [
+        {
+          "hex": "#CE1126",
+          "areaPercent": 39.1
+        },
+        {
+          "hex": "#0038A8",
+          "areaPercent": 39
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 17.5
+        },
+        {
+          "hex": "#FCD116",
+          "areaPercent": 2.9
+        }
+      ]
+    },
+    {
+      "code": "QA",
+      "country": "Qatar",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Qatar.svg",
+      "svgSha256": "92a082037fa252496f22e40bd52909678dec793fb31fcb8e9c4abd73b154f613",
+      "colours": [
+        {
+          "hex": "#8A1538",
+          "areaPercent": 66.4
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 33.2
+        }
+      ]
+    },
+    {
+      "code": "SA",
+      "country": "Saudi Arabia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Saudi_Arabia.svg",
+      "svgSha256": "b0b36326e3e5b74624ee8b5de8273ea00f7bbe9b5ba0da6250cbe7b3c637505e",
+      "colours": [
+        {
+          "hex": "#005430",
+          "areaPercent": 94.2
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 3.6
+        }
+      ]
+    },
+    {
+      "code": "SG",
+      "country": "Singapore",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Singapore.svg",
+      "svgSha256": "261a4507c08c834e8e335ae147bde951010d92ef05330ff39f0d0eb713d2f617",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 52.6
+        },
+        {
+          "hex": "#ED2939",
+          "areaPercent": 47.1
+        }
+      ]
+    },
+    {
+      "code": "KR",
+      "country": "South Korea",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_South_Korea.svg",
+      "svgSha256": "d8ec2a77a317c28617cbd5e7114c3ec9697120670e343ede5ee5bd0b1b4cd110",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 78.3
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 7.4
+        },
+        {
+          "hex": "#CD2E3A",
+          "areaPercent": 6.4
+        },
+        {
+          "hex": "#0047A0",
+          "areaPercent": 6.4
+        }
+      ]
+    },
+    {
+      "code": "LK",
+      "country": "Sri Lanka",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Sri_Lanka.svg",
+      "svgSha256": "eea9217df822c4b9a50001821453f73cb45d61df96086cec87cb4a2be2e066fd",
+      "colours": [
+        {
+          "hex": "#FFBE29",
+          "areaPercent": 42.4
+        },
+        {
+          "hex": "#8D153A",
+          "areaPercent": 31.1
+        },
+        {
+          "hex": "#00534E",
+          "areaPercent": 10.4
+        },
+        {
+          "hex": "#EB7400",
+          "areaPercent": 10.4
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 1
+        }
+      ]
+    },
+    {
+      "code": "PS",
+      "country": "Palestine",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Palestine.svg",
+      "svgSha256": "df299146faffa45913ac8677931f4a5cd94b60fc99e39a51eb9ef922ca6da182",
+      "colours": [
+        {
+          "hex": "#000000",
+          "areaPercent": 29.6
+        },
+        {
+          "hex": "#009639",
+          "areaPercent": 29.6
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 24.1
+        },
+        {
+          "hex": "#ED2E38",
+          "areaPercent": 16.6
+        }
+      ]
+    },
+    {
+      "code": "SY",
+      "country": "Syria",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Syria.svg",
+      "svgSha256": "60bdbf2beb6d61fb03084ba177891215def2d7c8dee74e4fff11b0f3dc6594df",
+      "colours": [
+        {
+          "hex": "#007A3D",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 28.8
+        },
+        {
+          "hex": "#CE1126",
+          "areaPercent": 4.1
+        }
+      ]
+    },
+    {
+      "code": "TJ",
+      "country": "Tajikistan",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Tajikistan.svg",
+      "svgSha256": "46508117e00c52476ba18463dfeefeb8ede13c2daaa4227cc886ca9bdd40def3",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 40.8
+        },
+        {
+          "hex": "#DC161D",
+          "areaPercent": 28.5
+        },
+        {
+          "hex": "#197B30",
+          "areaPercent": 28.5
+        },
+        {
+          "hex": "#F7BF00",
+          "areaPercent": 1.1
+        }
+      ]
+    },
+    {
+      "code": "TH",
+      "country": "Thailand",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Thailand.svg",
+      "svgSha256": "f137bb494e00c3c29e9d03fbf4d15c2650d82f2a8f02cf51341f6a4557117db9",
+      "colours": [
+        {
+          "hex": "#A51931",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#F4F5F8",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#2D2A4A",
+          "areaPercent": 33.3
+        }
+      ]
+    },
+    {
+      "code": "TL",
+      "country": "Timor-Leste",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Timor-Leste.svg",
+      "svgSha256": "086a0f322643bef67059a6b64be35c788aef86a9941f6640b220255e7180ae93",
+      "colours": [
+        {
+          "hex": "#DA291C",
+          "areaPercent": 74.7
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 15
+        },
+        {
+          "hex": "#FFC72C",
+          "areaPercent": 7.9
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 1.5
+        }
+      ]
+    },
+    {
+      "code": "TR",
+      "country": "Turkey",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Turkey.svg",
+      "svgSha256": "5a47e932cdb371d9708d8c9a209d3acfd006cdd3ee7dd38ae44df6180e170e90",
+      "colours": [
+        {
+          "hex": "#E30A17",
+          "areaPercent": 93.7
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 5.8
+        }
+      ]
+    },
+    {
+      "code": "TM",
+      "country": "Turkmenistan",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Turkmenistan.svg",
+      "svgSha256": "f0bf471d0f3070cd1ece9c66ccb7bfc5e86e32072b657e9a3a426a624dd72510",
+      "colours": [
+        {
+          "hex": "#00843D",
+          "areaPercent": 82.7
+        },
+        {
+          "hex": "#D22630",
+          "areaPercent": 8.3
+        },
+        {
+          "hex": "#FFC72C",
+          "areaPercent": 2.4
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 1.3
+        }
+      ]
+    },
+    {
+      "code": "AE",
+      "country": "UAE",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_United_Arab_Emirates.svg",
+      "svgSha256": "2eb3d53df8f3f845dfafff448fb165647c8e3ed2b2f08296af1080fece92ad35",
+      "colours": [
+        {
+          "hex": "#00843D",
+          "areaPercent": 25
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 25
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 25
+        },
+        {
+          "hex": "#C8102E",
+          "areaPercent": 24.8
+        }
+      ]
+    },
+    {
+      "code": "UZ",
+      "country": "Uzbekistan",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Uzbekistan.svg",
+      "svgSha256": "705caaf4443808659ac4d6c5eb7b428f27d30aaabd4205e1158ebf4dcefce723",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 32.4
+        },
+        {
+          "hex": "#1EB53A",
+          "areaPercent": 31.9
+        },
+        {
+          "hex": "#0099B5",
+          "areaPercent": 30.7
+        },
+        {
+          "hex": "#CE1126",
+          "areaPercent": 3.8
+        }
+      ]
+    },
+    {
+      "code": "VN",
+      "country": "Vietnam",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Vietnam.svg",
+      "svgSha256": "fdf5d9056a0545a28e27040b0d0a9f7610a17f3e540f6be7057ea5ce6da071fe",
+      "colours": [
+        {
+          "hex": "#DA251D",
+          "areaPercent": 93.1
+        },
+        {
+          "hex": "#FFFF00",
+          "areaPercent": 6.6
+        }
+      ]
+    },
+    {
+      "code": "YE",
+      "country": "Yemen",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Yemen.svg",
+      "svgSha256": "a92f3989182049dc218f7698c45d8cdfc64e6f945c71f20a9d188dd01698df2d",
+      "colours": [
+        {
+          "hex": "#CE1126",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 33.3
+        }
+      ]
+    },
+    {
+      "code": "AG",
+      "country": "Antigua & Barbuda",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Antigua_and_Barbuda.svg",
+      "svgSha256": "93e3952fcf5eab35b82dda0d850288b1889a77eead213f6ffcdb06bdfe51171f",
+      "colours": [
+        {
+          "hex": "#CE1126",
+          "areaPercent": 49.8
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 25.6
+        },
+        {
+          "hex": "#0072C6",
+          "areaPercent": 10.8
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 7.5
+        },
+        {
+          "hex": "#FCD116",
+          "areaPercent": 5.3
+        }
+      ]
+    },
+    {
+      "code": "BS",
+      "country": "Bahamas",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Bahamas.svg",
+      "svgSha256": "6d4af8fbc02510698da025adad4b03f73085e1b9a50ad48928cb4b6807cfcba3",
+      "colours": [
+        {
+          "hex": "#00778B",
+          "areaPercent": 56.9
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 21.5
+        },
+        {
+          "hex": "#FFC72C",
+          "areaPercent": 21.2
+        }
+      ]
+    },
+    {
+      "code": "BB",
+      "country": "Barbados",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Barbados.svg",
+      "svgSha256": "85ba0b3ff5f7b7a296aa4c41914f82ff70b6be9822e19c75d5ed0b2746496ff6",
+      "colours": [
+        {
+          "hex": "#1F367C",
+          "areaPercent": 66.7
+        },
+        {
+          "hex": "#F3B100",
+          "areaPercent": 29.3
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 3.7
+        }
+      ]
+    },
+    {
+      "code": "BZ",
+      "country": "Belize",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Belize.svg",
+      "svgSha256": "52374851127cb3c3f6cd646079ea2ec97d8d04e910ab1f335bb85027d0235ae0",
+      "colours": [
+        {
+          "hex": "#171696",
+          "areaPercent": 63.7
+        },
+        {
+          "hex": "#D90F19",
+          "areaPercent": 20
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 7.2
+        },
+        {
+          "hex": "#338A00",
+          "areaPercent": 1.9
+        }
+      ]
+    },
+    {
+      "code": "CA",
+      "country": "Canada",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Canada.svg",
+      "svgSha256": "95b9eb0eaa176454215088c005a07df3df7564093b9f1d6475bb1fd61a16bb10",
+      "colours": [
+        {
+          "hex": "#FF0000",
+          "areaPercent": 63.2
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 35.8
+        }
+      ]
+    },
+    {
+      "code": "CR",
+      "country": "Costa Rica",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Costa_Rica.svg",
+      "svgSha256": "fe4927d79e735bd7765cba91830b28c7e2aacc316365f5d8d2cea3f1e75167ac",
+      "colours": [
+        {
+          "hex": "#001489",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#DA291C",
+          "areaPercent": 33.3
+        }
+      ]
+    },
+    {
+      "code": "CU",
+      "country": "Cuba",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Cuba.svg",
+      "svgSha256": "40bf19be4756ad71ee67f889b6c3880ac2114a105c608c9453d89a6064558886",
+      "colours": [
+        {
+          "hex": "#002A8F",
+          "areaPercent": 48.7
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 31
+        },
+        {
+          "hex": "#CB1515",
+          "areaPercent": 19.9
+        }
+      ]
+    },
+    {
+      "code": "DM",
+      "country": "Dominica",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Dominica.svg",
+      "svgSha256": "2b4ef1688f9b154efc8d2018089da54758e5dad6adeb75059fe213c4209fe2e8",
+      "colours": [
+        {
+          "hex": "#046A38",
+          "areaPercent": 64.9
+        },
+        {
+          "hex": "#FFCD00",
+          "areaPercent": 8.4
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 8.4
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 8.2
+        },
+        {
+          "hex": "#D50032",
+          "areaPercent": 7.2
+        }
+      ]
+    },
+    {
+      "code": "DO",
+      "country": "Dom. Republic",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Dominican_Republic.svg",
+      "svgSha256": "abf70de3568a7ea4c502cf1d9972a8a7dc00ce05358eacc2336aff7851de3240",
+      "colours": [
+        {
+          "hex": "#CE1126",
+          "areaPercent": 34.9
+        },
+        {
+          "hex": "#002D62",
+          "areaPercent": 34.9
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 28.9
+        }
+      ]
+    },
+    {
+      "code": "SV",
+      "country": "El Salvador",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_El_Salvador.svg",
+      "svgSha256": "20bf4c3b91d2ec2a08e60f90797db1a45efd59601bd9036ffd4a55477d5e5f6f",
+      "colours": [
+        {
+          "hex": "#0047AB",
+          "areaPercent": 66.6
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 30.7
+        }
+      ]
+    },
+    {
+      "code": "GD",
+      "country": "Grenada",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Grenada.svg",
+      "svgSha256": "a2068c160dddaf85e5ac16423100c50d1970990a7468f3e81eed2d11426c689a",
+      "colours": [
+        {
+          "hex": "#CE1126",
+          "areaPercent": 39.6
+        },
+        {
+          "hex": "#FCD116",
+          "areaPercent": 30.5
+        },
+        {
+          "hex": "#007A5E",
+          "areaPercent": 27.9
+        }
+      ]
+    },
+    {
+      "code": "GT",
+      "country": "Guatemala",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Guatemala.svg",
+      "svgSha256": "46f3b0c5a8db682596b47c2bb786c6f5a40f8b785b9d19572cb2040b3bdfe21a",
+      "colours": [
+        {
+          "hex": "#4997D0",
+          "areaPercent": 66.4
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 30
+        }
+      ]
+    },
+    {
+      "code": "HT",
+      "country": "Haiti",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Haiti.svg",
+      "svgSha256": "3512c10d45823289a610da6477788847578e6ea9b70328bcc25e0d4cbef42dcb",
+      "colours": [
+        {
+          "hex": "#00209F",
+          "areaPercent": 42.8
+        },
+        {
+          "hex": "#D21034",
+          "areaPercent": 42
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 8.3
+        },
+        {
+          "hex": "#016A16",
+          "areaPercent": 1.9
+        }
+      ]
+    },
+    {
+      "code": "HN",
+      "country": "Honduras",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Honduras.svg",
+      "svgSha256": "9b16a4626ae4f9a4f352b8ab1083643ada57eb3b92b5bc265ca4db4c47f3f772",
+      "colours": [
+        {
+          "hex": "#0D3B99",
+          "areaPercent": 67.3
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 32.3
+        }
+      ]
+    },
+    {
+      "code": "JM",
+      "country": "Jamaica",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Jamaica.svg",
+      "svgSha256": "ebad0857b427c3b40fbba25b83c30d1019b2bfb185fe434a45394abdaba86636",
+      "colours": [
+        {
+          "hex": "#FFB81C",
+          "areaPercent": 33.2
+        },
+        {
+          "hex": "#007749",
+          "areaPercent": 32.9
+        },
+        {
+          "hex": "#2D2926",
+          "areaPercent": 32.8
+        }
+      ]
+    },
+    {
+      "code": "MX",
+      "country": "Mexico",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Mexico.svg",
+      "svgSha256": "bcfebaa9d94827919e65c5414e4ee35a076f89520a1b57d75e0949e1ca81c3b9",
+      "colours": [
+        {
+          "hex": "#CE1126",
+          "areaPercent": 33.2
+        },
+        {
+          "hex": "#006847",
+          "areaPercent": 33.1
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 28.4
+        }
+      ]
+    },
+    {
+      "code": "NI",
+      "country": "Nicaragua",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Nicaragua.svg",
+      "svgSha256": "fdb152e6dcb6090b662d14d41c6c04edb3ecc4368c0825b8cf49eb87e5a5f3e5",
+      "colours": [
+        {
+          "hex": "#0067C6",
+          "areaPercent": 66.7
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 31.6
+        }
+      ]
+    },
+    {
+      "code": "PA",
+      "country": "Panama",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Panama.svg",
+      "svgSha256": "464fc8f974b506c5a8353899dba96d68154f2f991a5a9319f68184be86c31556",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 47
+        },
+        {
+          "hex": "#DA121A",
+          "areaPercent": 26.4
+        },
+        {
+          "hex": "#072357",
+          "areaPercent": 26.4
+        }
+      ]
+    },
+    {
+      "code": "KN",
+      "country": "St Kitts & Nevis",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Saint_Kitts_and_Nevis.svg",
+      "svgSha256": "c1b62da9d8c296b824f6ec45839f983f865ae2e1e04dbe873ee915d8bd06430b",
+      "colours": [
+        {
+          "hex": "#000000",
+          "areaPercent": 29.5
+        },
+        {
+          "hex": "#C8102E",
+          "areaPercent": 27.9
+        },
+        {
+          "hex": "#009739",
+          "areaPercent": 27.8
+        },
+        {
+          "hex": "#FFCD00",
+          "areaPercent": 10.9
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 2.8
+        }
+      ]
+    },
+    {
+      "code": "LC",
+      "country": "St Lucia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Saint_Lucia.svg",
+      "svgSha256": "79d6eec40542439c9e1c848f6c607209a1b8e7c36cb973267df69a6a3c612e74",
+      "colours": [
+        {
+          "hex": "#66CCFF",
+          "areaPercent": 86
+        },
+        {
+          "hex": "#FCD116",
+          "areaPercent": 6.7
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 3.5
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 2.9
+        }
+      ]
+    },
+    {
+      "code": "VC",
+      "country": "St Vincent",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Saint_Vincent_and_the_Grenadines.svg",
+      "svgSha256": "91dd575f767f29bfb5a1ffa8fb9771413edb03449ab77eafe900ea675d66c6bf",
+      "colours": [
+        {
+          "hex": "#FCD022",
+          "areaPercent": 43.7
+        },
+        {
+          "hex": "#007C2E",
+          "areaPercent": 30.9
+        },
+        {
+          "hex": "#002674",
+          "areaPercent": 25
+        }
+      ]
+    },
+    {
+      "code": "TT",
+      "country": "Trinidad & Tobago",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Trinidad_and_Tobago.svg",
+      "svgSha256": "71f6d39d7ea27b3201321eec6a22b3529f9ba96d2acd59e440c6484873121baa",
+      "colours": [
+        {
+          "hex": "#DA1A35",
+          "areaPercent": 69
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 20.2
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 9.8
+        }
+      ]
+    },
+    {
+      "code": "US",
+      "country": "United States",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_United_States.svg",
+      "svgSha256": "48f0d3e4a7bf2d5c0c8d09cd975696acb2f3af601aaca80c537933ad9ec166ec",
+      "colours": [
+        {
+          "hex": "#B31942",
+          "areaPercent": 40.4
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 38
+        },
+        {
+          "hex": "#0A3161",
+          "areaPercent": 17.2
+        },
+        {
+          "hex": "#042C5D",
+          "areaPercent": 0.6
+        }
+      ]
+    },
+    {
+      "code": "AR",
+      "country": "Argentina",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Argentina.svg",
+      "svgSha256": "dafb5bc6543c59249be9c7dec2298eaeaa1fe7805a62754990315cc6db93b2f3",
+      "colours": [
+        {
+          "hex": "#74ACDF",
+          "areaPercent": 66.7
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 30.8
+        },
+        {
+          "hex": "#F6B40E",
+          "areaPercent": 0.6
+        }
+      ]
+    },
+    {
+      "code": "BO",
+      "country": "Bolivia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Bolivia.svg",
+      "svgSha256": "714854e37084cc25c195efdd14d5392a8c64ea03128f7fa858b7677e83a5556e",
+      "colours": [
+        {
+          "hex": "#D52B1E",
+          "areaPercent": 33.2
+        },
+        {
+          "hex": "#007934",
+          "areaPercent": 32.8
+        },
+        {
+          "hex": "#F9E300",
+          "areaPercent": 32.4
+        }
+      ]
+    },
+    {
+      "code": "BR",
+      "country": "Brazil",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Brazil.svg",
+      "svgSha256": "041479c6a955990d32c8e45b7283afcd62eacc3592eba9bbf0162299ad77ff01",
+      "colours": [
+        {
+          "hex": "#009440",
+          "areaPercent": 68.4
+        },
+        {
+          "hex": "#FFCB00",
+          "areaPercent": 17.3
+        },
+        {
+          "hex": "#302681",
+          "areaPercent": 11.6
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 0.8
+        }
+      ]
+    },
+    {
+      "code": "CL",
+      "country": "Chile",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Chile.svg",
+      "svgSha256": "ca4d50dcf36926c82f02b895975f351a639b0aa1b91bb6ef776f4f07f225cc34",
+      "colours": [
+        {
+          "hex": "#DA291C",
+          "areaPercent": 50
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 34.4
+        },
+        {
+          "hex": "#0032A0",
+          "areaPercent": 15.4
+        }
+      ]
+    },
+    {
+      "code": "CO",
+      "country": "Colombia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Colombia.svg",
+      "svgSha256": "85fd47e9d0c91d088b196609e0cb49424950d30084f31c80a44fbac18b7a377b",
+      "colours": [
+        {
+          "hex": "#FFCD00",
+          "areaPercent": 50
+        },
+        {
+          "hex": "#003087",
+          "areaPercent": 25
+        },
+        {
+          "hex": "#C8102E",
+          "areaPercent": 25
+        }
+      ]
+    },
+    {
+      "code": "EC",
+      "country": "Ecuador",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Ecuador.svg",
+      "svgSha256": "b6579b12e0f49555d608ee7a59e82aa932d4481af439f936bf1009e115f2d20e",
+      "colours": [
+        {
+          "hex": "#FFDD00",
+          "areaPercent": 47.1
+        },
+        {
+          "hex": "#ED1C24",
+          "areaPercent": 25.6
+        },
+        {
+          "hex": "#034EA2",
+          "areaPercent": 21.4
+        },
+        {
+          "hex": "#452C25",
+          "areaPercent": 0.6
+        }
+      ]
+    },
+    {
+      "code": "GY",
+      "country": "Guyana",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Guyana.svg",
+      "svgSha256": "680182ee72c03b97bf3d51650f8f0f85ef56365344d62a10b33397fbe7d11d8d",
+      "colours": [
+        {
+          "hex": "#2A936A",
+          "areaPercent": 49.8
+        },
+        {
+          "hex": "#BE1E2D",
+          "areaPercent": 21.1
+        },
+        {
+          "hex": "#FFC20E",
+          "areaPercent": 18.2
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 6.1
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 3.5
+        }
+      ]
+    },
+    {
+      "code": "PY",
+      "country": "Paraguay",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Paraguay.svg",
+      "svgSha256": "f564b33791a5612195cbbb8e58d4d7ba4235cecc9778111404bb3758bd144441",
+      "colours": [
+        {
+          "hex": "#D52B1E",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#0038A8",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 31.9
+        }
+      ]
+    },
+    {
+      "code": "PE",
+      "country": "Peru",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Peru.svg",
+      "svgSha256": "4358cec747829a0009dac86055e74e60b05e6eb57eba5f7bc30da2c88168a7f2",
+      "colours": [
+        {
+          "hex": "#D91023",
+          "areaPercent": 66.7
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 33.3
+        }
+      ]
+    },
+    {
+      "code": "SR",
+      "country": "Suriname",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Suriname.svg",
+      "svgSha256": "1dc6655865009e3a89ad49b18ed9e76bb6b723722ea254bb38e78b2f52484f83",
+      "colours": [
+        {
+          "hex": "#377E3F",
+          "areaPercent": 40
+        },
+        {
+          "hex": "#B40A2D",
+          "areaPercent": 36.9
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 20
+        },
+        {
+          "hex": "#ECC81D",
+          "areaPercent": 2.9
+        }
+      ]
+    },
+    {
+      "code": "UY",
+      "country": "Uruguay",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Uruguay.svg",
+      "svgSha256": "34b6a6675698eaadafdafffbf9d3cfa72761b893e49659e3a0e8523f5b7fc1f7",
+      "colours": [
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 58.3
+        },
+        {
+          "hex": "#0038A8",
+          "areaPercent": 35.6
+        },
+        {
+          "hex": "#7B3F00",
+          "areaPercent": 2.3
+        },
+        {
+          "hex": "#FCD116",
+          "areaPercent": 1.5
+        },
+        {
+          "hex": "#547AC5",
+          "areaPercent": 0.7
+        }
+      ]
+    },
+    {
+      "code": "VE",
+      "country": "Venezuela",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Venezuela.svg",
+      "svgSha256": "facdf9d3992996b00daa7cd1749d2f583528f7bcc9c4b4c88bc7b9cd16f2712c",
+      "colours": [
+        {
+          "hex": "#FFCC00",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#CF142B",
+          "areaPercent": 33.3
+        },
+        {
+          "hex": "#00247D",
+          "areaPercent": 32
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 1
+        }
+      ]
+    },
+    {
+      "code": "AU",
+      "country": "Australia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Australia.svg",
+      "svgSha256": "8ccf95cf3507e88d10aa57a1e3b3853d72933c6784e6f67fe3cd3bf12ea68a4d",
+      "colours": [
+        {
+          "hex": "#00008B",
+          "areaPercent": 78.4
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 10.8
+        },
+        {
+          "hex": "#FF0000",
+          "areaPercent": 9.1
+        }
+      ]
+    },
+    {
+      "code": "FJ",
+      "country": "Fiji",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Fiji.svg",
+      "svgSha256": "e2c0c872c02b315510c6923a7913d1783accabab0ea1eef103a3f23165af320f",
+      "colours": [
+        {
+          "hex": "#62B5E5",
+          "areaPercent": 65
+        },
+        {
+          "hex": "#C8102E",
+          "areaPercent": 11.5
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 10.9
+        },
+        {
+          "hex": "#012169",
+          "areaPercent": 6.8
+        },
+        {
+          "hex": "#FEDD00",
+          "areaPercent": 0.7
+        },
+        {
+          "hex": "#C70D2C",
+          "areaPercent": 0.5
+        }
+      ]
+    },
+    {
+      "code": "KI",
+      "country": "Kiribati",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Kiribati.svg",
+      "svgSha256": "7db26b40dad690b394ef5f49defb506194567ee966cb14aa2ab2956b71687f48",
+      "colours": [
+        {
+          "hex": "#C81010",
+          "areaPercent": 44.1
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 24
+        },
+        {
+          "hex": "#183070",
+          "areaPercent": 22.7
+        },
+        {
+          "hex": "#F8D000",
+          "areaPercent": 5.1
+        },
+        {
+          "hex": "#F7CF00",
+          "areaPercent": 0.5
+        }
+      ]
+    },
+    {
+      "code": "MH",
+      "country": "Marshall Is.",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Marshall_Islands.svg",
+      "svgSha256": "36253e5f47caa0830e65cbc36c26f9fe2f8d78a3e22bb020fede6bd43fc2f258",
+      "colours": [
+        {
+          "hex": "#003893",
+          "areaPercent": 73.6
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 13.7
+        },
+        {
+          "hex": "#DD7500",
+          "areaPercent": 10.3
+        },
+        {
+          "hex": "#003692",
+          "areaPercent": 0.6
+        }
+      ]
+    },
+    {
+      "code": "FM",
+      "country": "Micronesia",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Federated_States_of_Micronesia.svg",
+      "svgSha256": "1b77fbb8bdd4d4a11a8b3f020728844f7fbd75e2e9b844f56eabc98d09f95313",
+      "colours": [
+        {
+          "hex": "#75B2DD",
+          "areaPercent": 97.4
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 2.2
+        }
+      ]
+    },
+    {
+      "code": "NR",
+      "country": "Nauru",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Nauru.svg",
+      "svgSha256": "473c54044f8e2c935c6e2110a57affb44c3625be75702558b621340a39c6a0d6",
+      "colours": [
+        {
+          "hex": "#012169",
+          "areaPercent": 89.2
+        },
+        {
+          "hex": "#FFC72C",
+          "areaPercent": 8.3
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 2
+        }
+      ]
+    },
+    {
+      "code": "NZ",
+      "country": "New Zealand",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_New_Zealand.svg",
+      "svgSha256": "e4b1bc62d8283cbefc000b9538d6cb58019b18651bb9e0818ccaffa9ed8716f1",
+      "colours": [
+        {
+          "hex": "#012169",
+          "areaPercent": 79.9
+        },
+        {
+          "hex": "#C8102E",
+          "areaPercent": 9.2
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 8.6
+        }
+      ]
+    },
+    {
+      "code": "PW",
+      "country": "Palau",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Palau.svg",
+      "svgSha256": "d6d41e2af2a4e4ae67e673f7a1f8677353485a7476f9998e2223af4112bab919",
+      "colours": [
+        {
+          "hex": "#0099FF",
+          "areaPercent": 82.1
+        },
+        {
+          "hex": "#FFFF00",
+          "areaPercent": 17.5
+        }
+      ]
+    },
+    {
+      "code": "PG",
+      "country": "Papua New Guinea",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Papua_New_Guinea.svg",
+      "svgSha256": "6ee1b87f3ea1eb7f1a12bda84304e82c5588d3223649b63410c953edffa4a3cb",
+      "colours": [
+        {
+          "hex": "#000000",
+          "areaPercent": 48
+        },
+        {
+          "hex": "#C8102E",
+          "areaPercent": 43.6
+        },
+        {
+          "hex": "#FFCD00",
+          "areaPercent": 5.3
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 1.5
+        }
+      ]
+    },
+    {
+      "code": "WS",
+      "country": "Samoa",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Samoa.svg",
+      "svgSha256": "3b7f004e35c7de0075a76901afafe33f1e7f8cebe5dbbe15b40eee48c155f527",
+      "colours": [
+        {
+          "hex": "#CE1126",
+          "areaPercent": 74.9
+        },
+        {
+          "hex": "#002B7F",
+          "areaPercent": 23.8
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 0.8
+        }
+      ]
+    },
+    {
+      "code": "SB",
+      "country": "Solomon Is.",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Solomon_Islands.svg",
+      "svgSha256": "c893758e4935ab9be6b17bcfd8722d8c279b89c2a64e3d269a403e2b50fee878",
+      "colours": [
+        {
+          "hex": "#215B33",
+          "areaPercent": 45
+        },
+        {
+          "hex": "#0051BA",
+          "areaPercent": 41.8
+        },
+        {
+          "hex": "#FCD116",
+          "areaPercent": 9.5
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 2.6
+        }
+      ]
+    },
+    {
+      "code": "TO",
+      "country": "Tonga",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Tonga.svg",
+      "svgSha256": "2a85421fae36d0a6e29fe93faf97a96087f023887ac033b0cbd2b2073cccd26a",
+      "colours": [
+        {
+          "hex": "#C10000",
+          "areaPercent": 83
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 16.8
+        }
+      ]
+    },
+    {
+      "code": "TV",
+      "country": "Tuvalu",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Tuvalu.svg",
+      "svgSha256": "837c091d5749eedb3637f5fd6d796d66b4e960b91df0c84f3ff21b50da313bb5",
+      "colours": [
+        {
+          "hex": "#009CDE",
+          "areaPercent": 70.7
+        },
+        {
+          "hex": "#C8102E",
+          "areaPercent": 8.8
+        },
+        {
+          "hex": "#FFFFFF",
+          "areaPercent": 8.1
+        },
+        {
+          "hex": "#012169",
+          "areaPercent": 6.8
+        },
+        {
+          "hex": "#FEDD00",
+          "areaPercent": 3.5
+        }
+      ]
+    },
+    {
+      "code": "VU",
+      "country": "Vanuatu",
+      "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Vanuatu.svg",
+      "svgSha256": "dda80df857425b07d5d227e11e34e9b4d8ca55b23221f84ee4dfbdccc33865e4",
+      "colours": [
+        {
+          "hex": "#009543",
+          "areaPercent": 31.2
+        },
+        {
+          "hex": "#D21034",
+          "areaPercent": 31.2
+        },
+        {
+          "hex": "#000000",
+          "areaPercent": 26.3
+        },
+        {
+          "hex": "#FDCE12",
+          "areaPercent": 9.7
+        }
+      ]
+    }
+  ],
+  "failures": []
+}

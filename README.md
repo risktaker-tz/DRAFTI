@@ -342,3 +342,9 @@ The source-backed flag review also aligned Zimbabwe, Malawi, Mozambique, Botswan
 The audio integrity report now measures every embedded MP3's duration, channel count, sample rate, bitrate and encoded size using `music-metadata`. Existing encoding differences are reported for review, while missing references and duration/size violations fail the audit. The report currently exposes pre-existing violations; it is not an acceptance-pass claim. Existing clips remain unchanged.
 
 The flag-source review additionally aligned Bangladesh, Georgia, Kazakhstan, Kyrgyzstan, Oman and Syria with the collected SVG references. Syria now uses the current green/white flag palette rather than the previous red main colour.
+
+### Reproducible flag reference
+
+`scripts/flag_reference.json` now records all 194 roster nations, ordered dominant colours measured from their Wikimedia SVGs, source-page URLs and SHA-256 checksums. The exact downloaded files are kept under `scripts/flag_sources/` for reproducibility; they are development research assets and are not loaded by the game. Sampling excludes transparent pixels and uses 720×480 resolution to retain fine flag details.
+
+Run `node tests/test_flag_reference.js` to verify complete roster coverage, source checksums and colour coverage. Run `node scripts/audit_flag_palettes.js` for the palette comparison and `node scripts/render_flags_audit.js` to recreate `docs/flags-audit.png` and the Markdown table. The contact sheet includes the reference flag alongside each selected pair. Full visual acceptance and remaining palette review are still pending.
