@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-02",
+  "host": "http://localhost:8080/",
+  "method": "Built-in browser UI actions and read-only computed-style inspection",
+  "pair": ["TZ", "KE"],
+  "themeMaterialMatrix": {"themes": 21, "pieceSets": 8, "combinations": 168, "distinctFlagPalettePairs": 1, "passed": true},
+  "regressionFound": "Neon Glass ebony background overrode the flag palette because its later important selector had equal specificity",
+  "fix": "Flag piece background and border selectors now include the pieces container, taking precedence over material selectors",
+  "highVisibilityPreservesFlagBackgrounds": true,
+  "renameKenyaRemovesEbonyFlagOnly": true,
+  "restoreNamesReturnsKenyaFlag": true,
+  "twoPlayerFlagToggleOnAndOff": true,
+  "computerFlagToggleOn": true,
+  "limits": "This matrix verifies computed backgrounds for Tanzania/Kenya, not all nations on every material. Capture trays, ticker dots, crowns and the named clash pairs still require the full visual acceptance pass. Screenshots for final visual acceptance remain pending."
+}
