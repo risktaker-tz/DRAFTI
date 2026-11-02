@@ -256,3 +256,22 @@ Source: [reproducible synthesizer](https://github.com/risktaker-tz/DRAFTI/blob/c
 | victory | fx_victory_1, fx_victory_2, fx_victory_3, fx_victory_4 | party |
 | whistle | fx_whistle_1, fx_whistle_2, fx_whistle_3, fx_whistle_4 | comedy |
 | zip | fx_zip_1, fx_zip_2, fx_zip_3, fx_zip_4 | comedy |
+
+## Live streamer voices — in-house TTS, added 2026-11-02
+
+The three live-streamer modes (Female / Male / Funny, all OFF by default and
+mutually exclusive in the Sound design menu) add forty original commentary
+lines generated in-house with the project's TTS tooling: the Female mode uses
+the tongtong voice, the Male mode the jam voice, and the Funny mode generates
+nothing at all — it reuses the app's own judge voice plus already-credited
+funny reactions already listed above. Every line is original DRAFTI content
+drafted from the researched phrasebook in `docs/streamer-phrasebook.md`
+(1110 researched phrases with sources), spoken by in-house TTS, processed
+through the standard speech-guarded pipeline (mono 22050 Hz, ≤56 kbps,
+decoded peaks ≤ −1.5 dBFS, ≤60 KiB), and catalogued per clip with source,
+license, use, mood, family, role and event metadata in
+`scripts/audio_catalog.json`. No third-party recording, no cloned voice and
+no existing clip was replaced; the modes play only in place of a covered
+event's spoken reaction, never on top of one, and every cooldown, quota and
+category control of the existing sound design still applies. Existing
+clips are byte-for-byte unchanged.

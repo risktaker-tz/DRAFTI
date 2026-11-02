@@ -637,9 +637,10 @@ function createPlayerProgressStore(storage) {
   }
 
   const settings = Object.assign(
-    { rsId: 'american', mode: 'ai', diff: 'l5', humanSide: IVORY, sound: true, rotate: true, theme: 'neon', clock: 0, speed: 1, hv: false, ambient: true, style: 'classic', styleIvory: 'italian', styleEbony: 'czech', pname: 'Uhakika', pname2: 'Usiogope', aivaiAuto: true, jumpPaths: true, shake: true, pieces: 'theme', arenaRounds: 1, humanlike: false },
+    { rsId: 'american', mode: 'ai', diff: 'l5', humanSide: IVORY, sound: true, rotate: true, theme: 'neon', clock: 0, speed: 1, hv: false, ambient: true, style: 'classic', styleIvory: 'italian', styleEbony: 'czech', pname: 'Uhakika', pname2: 'Usiogope', aivaiAuto: true, jumpPaths: true, shake: true, pieces: 'theme', arenaRounds: 1, humanlike: false, streamer: 'off' },
     loadJSON(SETTINGS_KEY, {})
   );
+  if (settings.streamer !== 'female' && settings.streamer !== 'male' && settings.streamer !== 'funny') settings.streamer = 'off';
   if (!E.RULESETS[settings.rsId]) settings.rsId = 'american';
   if (settings.mode !== 'ai' && settings.mode !== 'hotseat' && settings.mode !== 'aivai') settings.mode = 'ai';
   // difficulty ladder: migrate the old three strengths onto the new rungs
@@ -1193,9 +1194,11 @@ function createPlayerProgressStore(storage) {
       if (this.thinkTimer) return;
       if (!settings.sound || !settings.sfx.think) return;
       if (!this.ensure()) return;
+      let beats = 0;
       const beat = () => {
         if (!settings.sound || !settings.sfx.think) { FX.thinkStop(); return; }
         this.breathe();
+        if (++beats === 2) STREAMER.say('long_think');
         this.thinkTimer = setTimeout(beat, 9500 + Math.random() * 4500);
       };
       this.thinkTimer = setTimeout(beat, 6000);
@@ -2056,6 +2059,124 @@ function createPlayerProgressStore(storage) {
   let lastThinkPraised = -1;   // ply already praised (avoid double rewards)
   let lastBlunderPly = -1;     // ply of the last blunder — a quick repair earns a comeback callout
 
+  // ---- live streamer commentary (Female / Male / Funny) -------------------
+  // Three mutually exclusive streamer modes, every one of them OFF by
+  // default. With all modes off this object never plays anything, so the
+  // existing sound design behaves exactly as before. When a mode is on it
+  // only ever takes over the spoken reaction of an event it covers — never
+  // doubling a voice — and it drops (never queues, never interrupts) when
+  // another voice is talking, when a ceremony scene-locks the bank, when
+  // its Voice category chip is off, or when its own per-role cooldown,
+  // per-game quota or chance gate says no. Line sources: the researched
+  // phrasebook in docs/streamer-phrasebook.md; Funny mode reuses the app's
+  // own judge voice and already-credited funny reactions only.
+  const STREAMER = {
+    ROLES: {
+      greeting:    { chance: .85, cooldown: 300000, perGame: 1 },
+      cta:         { chance: .75, cooldown: 300000, perGame: 1 },
+      praise:      { chance: .3,  cooldown: 60000,  perGame: 3 },
+      great:       { chance: .45, cooldown: 90000,  perGame: 2 },
+      capture:     { chance: .35, cooldown: 30000,  perGame: 4 },
+      feast:       { chance: .6,  cooldown: 30000,  perGame: 3 },
+      crowning:    { chance: .5,  cooldown: 30000,  perGame: 3 },
+      trap_set:    { chance: .4,  cooldown: 60000,  perGame: 2 },
+      trap_spring: { chance: .55, cooldown: 60000,  perGame: 2 },
+      blunder_own: { chance: .45, cooldown: 45000,  perGame: 3 },
+      blunder_opp: { chance: .4,  cooldown: 45000,  perGame: 2 },
+      streak:      { chance: .6,  cooldown: 90000,  perGame: 2 },
+      comeback:    { chance: .6,  cooldown: 90000,  perGame: 2 },
+      victory:     { chance: .9,  cooldown: 5000,   perGame: 1 },
+      defeat:      { chance: .9,  cooldown: 5000,   perGame: 1 },
+      long_think:  { chance: .35, cooldown: 240000, perGame: 2 },
+      outro:       { chance: 1,   cooldown: 60000,  perGame: 1 },
+    },
+    POOLS: {
+      female: {
+        greeting: ['sf_greet1', 'sf_greet2'],
+        cta: ['sf_cta1', 'sf_cta2', 'sf_cta3'],
+        praise: ['sf_good'], great: ['sf_great'], capture: ['sf_capture'],
+        feast: ['sf_feast'], crowning: ['sf_crown'], trap_set: ['sf_trap'],
+        trap_spring: ['sf_trapspring'], blunder_own: ['sf_blunder'],
+        blunder_opp: ['sf_gift'], streak: ['sf_streak'], comeback: ['sf_comeback'],
+        victory: ['sf_win'], defeat: ['sf_lose'], long_think: ['sf_think'],
+        outro: ['sf_outro'],
+      },
+      male: {
+        greeting: ['sm_greet1', 'sm_greet2'],
+        cta: ['sm_cta1', 'sm_cta2', 'sm_cta3'],
+        praise: ['sm_good'], great: ['sm_great'], capture: ['sm_capture'],
+        feast: ['sm_feast'], crowning: ['sm_crown'], trap_set: ['sm_trap'],
+        trap_spring: ['sm_trapspring'], blunder_own: ['sm_blunder'],
+        blunder_opp: ['sm_gift'], streak: ['sm_streak'], comeback: ['sm_comeback'],
+        victory: ['sm_win'], defeat: ['sm_lose'], long_think: ['sm_think'],
+        outro: ['sm_outro'],
+      },
+      // the app's own voice and already-credited reactions only
+      funny: {
+        greeting: ['tellyou', 'v_nextup'],
+        cta: ['tellyou'],
+        praise: ['v_nice', 'rimshot', 'animewow'],
+        great: ['omg', 'wilhelm', 'animewow'],
+        capture: ['oof', 'klonk', 'gulp'],
+        feast: ['badboy', 'badboy2', 'tellyou'],
+        crowning: ['god', 'banana', 'wolfwhistle'],
+        trap_set: ['meow', 'duck'],
+        trap_spring: ['vineboom', 'wilhelm', 'ah_scream', 'fall'],
+        blunder_own: ['woops', 'bruh', 'lose_womp', 'sadviolin'],
+        blunder_opp: ['haha', 'vineboom', 'chicken', 'duck'],
+        streak: ['wildroar', 'eagle', 'streak_big'],
+        comeback: ['dundundun', 'v_lucky1', 'v_lucky2'],
+        victory: ['wildroar', 'omg', 'badboy'],
+        defeat: ['sadviolin', 'cricket', 'lose_womp'],
+        long_think: ['cricket', 'later_hours'],
+        outro: ['later_moments', 'later_hours'],
+      },
+    },
+    at: new Map(), count: new Map(), games: 0, busyUntil: 0, lastLine: '', cue: { snd: 'v_nice', dur: 2.5 },
+    reset() { this.count.clear(); this.games++; },
+    openGame() {
+      // first move of a game: greet the chat, or every third game make the
+      // engagement call (like / share / follow) instead
+      if (this.games % 3 === 2) this.say('cta');
+      else this.say('greeting');
+    },
+    canPlay(role, opts) {
+      const mode = settings.streamer;
+      if (mode !== 'female' && mode !== 'male' && mode !== 'funny') return false;
+      const conf = this.ROLES[role];
+      const pool = (this.POOLS[mode] || {})[role];
+      if (!conf || !pool || !pool.length) return false;
+      if (!settings.sound || !settings.sfx.voice) return false;
+      const now = performance.now();
+      if (now < this.busyUntil) return false;
+      if (SFX_BANK.sceneLockUntil > now && !(opts && opts.ceremony)) return false;
+      for (const active of SFX_BANK.activeSources.values()) {
+        if (active.spoken) return false; // never talk over another voice
+      }
+      if (now - (this.at.get(role) ?? -Infinity) < conf.cooldown) return false;
+      const key = mode + ':' + role;
+      if ((this.count.get(key) || 0) >= conf.perGame) return false;
+      if (Math.random() > conf.chance) return false;
+      const fresh = pool.filter((id) => id !== this.lastLine && SFX_BANK.buffers.has(id) && SFX_BANK.defs[id]);
+      if (!fresh.length) return false;
+      const id = fresh[(Math.random() * fresh.length) | 0];
+      this.cue = { snd: id, dur: SFX_BANK.defs[id].durationSec || 2.5 };
+      return true;
+    },
+    say(role, opts) {
+      if (!this.canPlay(role, opts)) return false;
+      const now = performance.now();
+      this.at.set(role, now);
+      const key = settings.streamer + ':' + role;
+      this.count.set(key, (this.count.get(key) || 0) + 1);
+      this.lastLine = this.cue.snd;
+      const src = SFX_BANK.play(this.cue.snd, { vol: .95, rate: 1 });
+      if (src) this.busyUntil = now + Math.min(6500, (this.cue.dur * 1000) + 400);
+      return true;
+    },
+  };
+
+
   function flashLabel(text, kind) {
     const host = $('stage');
     if (!host) return;
@@ -2175,6 +2296,7 @@ function createPlayerProgressStore(storage) {
   let lastSkillOriginalAt = -Infinity;
   let lastAdvantageAt = -Infinity;
   function applyMoveEvent(ev, ply, flavor, endSq) {
+    if (G.history.length <= 1) STREAMER.openGame();
     const def = MOVE_EVENTS[ev] || MOVE_EVENTS.none;
     if (def.rank <= lastEvent.rank && lastEvent.ply === ply) return;
     lastEvent = { rank: def.rank, ply };
@@ -2187,19 +2309,19 @@ function createPlayerProgressStore(storage) {
       thump();
       // the table reacts: the greedy shout, then the feast commentary
       setTimeout(() => SFX_BANK.play('badboy', { vol: 1 }), 600);
-      setTimeout(() => SFX_BANK.play(pick(FEAST_POOL), { vol: 0.95 }), 1550);
+      setTimeout(() => { if (!STREAMER.say('feast')) SFX_BANK.play(pick(FEAST_POOL), { vol: 0.95 }); }, 1550);
     } else if (ev === 'majestic') {
       SFX_BANK.play(pick(['oof', 'oof', 'eagle', 'vineboom']), { vol: 1 }); // "OOF." / the boom
       flashLabel('Double!', 'party');
       shake('shake-m');
       setTimeout(() => SFX_BANK.play('badboy', { vol: 1 }), 550);
-      setTimeout(() => SFX_BANK.play(pick(HEAVY_POOL), { vol: 0.95 }), 1450);
+      setTimeout(() => { if (!STREAMER.say('capture')) SFX_BANK.play(pick(HEAVY_POOL), { vol: 0.95 }); }, 1450);
     } else if (ev === 'promo') {
       SFX_BANK.play('elephant', { vol: 1 });
       SFX_BANK.play('crown_fanfare', { vol: 0.8 });
       // the king has arrived: shockwave from the crowned square, hype lines
       shockwave(endSq);
-      SFX_BANK.play(Math.random() < 0.45 ? pick(['v_king1', 'v_king2']) : 'v_king', { vol: 0.9 });
+      if (!STREAMER.say('crowning')) SFX_BANK.play(Math.random() < 0.45 ? pick(['v_king1', 'v_king2']) : 'v_king', { vol: 0.9 });
       flashLabel('Crowned!', 'majestic');
     } else if (ev === 'advantage') {
       // A safe single capture breaks material equality. Either seat can earn
@@ -2207,7 +2329,7 @@ function createPlayerProgressStore(storage) {
       if (performance.now() - lastAdvantageAt < 22000) return;
       lastAdvantageAt = performance.now();
       SFX_BANK.play('sparkle', { vol: .5 });
-      SFX_BANK.play(pick(['v_ooh1', 'v_chess']), { vol: .68 });
+      if (!STREAMER.say('capture')) SFX_BANK.play(pick(['v_ooh1', 'v_chess']), { vol: .68 });
       flashLabel('Takes the edge!', 'majestic');
       shockwave(endSq);
     } else if (ev === 'brilliant') {
@@ -2224,15 +2346,15 @@ function createPlayerProgressStore(storage) {
       }
     } else if (ev === 'trick') {
       SFX_BANK.play(pick(['wolfwhistle', 'zip', 'meow']), { vol: 0.85 }); // the cat, laying a trap
-      const line = ['v_trick', 'v_trap', 'v_crafty'][(Math.random() * 3) | 0];
-      SFX_BANK.play(line, { vol: 0.95 });
+      const line = STREAMER.say('trap_set') ? null : ['v_trick', 'v_trap', 'v_crafty'][(Math.random() * 3) | 0];
+      if (line) SFX_BANK.play(line, { vol: 0.95 });
       flashLabel(line === 'v_trap' ? 'What a trap!' : line === 'v_crafty' ? 'Crafty!' : 'Sneaky!', 'judge');
     } else if (ev === 'accurate') {
       // A long think that paid off gets the special praise treatment instead.
       if (lastThinkMs > 12000 && lastThinkPraised !== ply) {
         lastThinkPraised = ply;
         SFX_BANK.play('sparkle', { vol: 0.9 });
-        SFX_BANK.play(pick(PRAISE_POOL), { vol: 0.95 });
+        if (!STREAMER.say('great')) SFX_BANK.play(pick(PRAISE_POOL), { vol: 0.95 });
         flashLabel('Worth the wait!', 'majestic');
         return;
       }
@@ -2240,12 +2362,12 @@ function createPlayerProgressStore(storage) {
       if (ply - lastBlunderPly === 2 && Math.random() < 0.75) {
         lastBlunderPly = -1;
         SFX_BANK.play('relief', { vol: 0.7 });
-        SFX_BANK.play(pick(COMEBACK_POOL), { vol: 0.9 });
+        if (!STREAMER.say('comeback')) SFX_BANK.play(pick(COMEBACK_POOL), { vol: 0.9 });
         flashLabel('Repaired!', 'judge');
         return;
       }
       const only = flavor === 'only';
-      SFX_BANK.play(only ? pick(['v_only', 'v_hold1', 'v_hold2'])
+      if (!STREAMER.say('praise')) SFX_BANK.play(only ? pick(['v_only', 'v_hold1', 'v_hold2'])
         : ['v_nice', 'v_sharp', 'v_clean'][(Math.random() * 3) | 0], { vol: 0.9 });
       flashLabel(only ? 'The only move!' : ['Precise.', 'Sharp!', 'Clean.'][(Math.random() * 3) | 0], 'judge');
     } else if (ev === 'dubious') {
@@ -2259,31 +2381,37 @@ function createPlayerProgressStore(storage) {
       lastQualityPly = ply;
       SFX_BANK.play(Math.random() < 0.35 ? 'bruh' : 'trombone', { vol: 1 });
       // A long think that ended in a blunder earns the savage callout.
-      SFX_BANK.play(longThinkSavage ? pick(SAVAGE_POOL)
-        : ['v_ohno', 'v_why', 'v_sure', 'v_cost'][(Math.random() * 4) | 0], { vol: 0.9 });
+      const moverHuman = (G.history[ply - 1] || {}).side === G.humanSide || G.mode !== 'ai';
+      if (!STREAMER.say(moverHuman ? 'blunder_own' : 'blunder_opp')) {
+        SFX_BANK.play(longThinkSavage ? pick(SAVAGE_POOL)
+          : ['v_ohno', 'v_why', 'v_sure', 'v_cost'][(Math.random() * 4) | 0], { vol: 0.9 });
+      }
       longThinkSavage = false;
       flashLabel(['Why?!', 'Oh no!'][(Math.random() * 2) | 0], 'comedy');
     } else if (ev === 'epic') {
       if (ply - lastQualityPly <= 1) { lastQualityPly = ply; SFX_BANK.play('omg', { vol: 0.65 }); return; }
       lastQualityPly = ply;
       SFX_BANK.play(pick(['omg', 'omg', 'wilhelm', 'ahhscary']), { vol: 1 });
-      SFX_BANK.play(lastThinkMs > 20000 ? pick(SAVAGE_POOL)
-        : (Math.random() < 0.5 ? 'v_wow' : 'v_why'), { vol: 0.9 });
+      const epicHuman = (G.history[ply - 1] || {}).side === G.humanSide || G.mode !== 'ai';
+      if (!STREAMER.say(epicHuman ? 'blunder_own' : 'blunder_opp')) {
+        SFX_BANK.play(lastThinkMs > 20000 ? pick(SAVAGE_POOL)
+          : (Math.random() < 0.5 ? 'v_wow' : 'v_why'), { vol: 0.9 });
+      }
       flashLabel('Disaster!', 'comedy');
       thump();
     } else if (ev === 'missed') {
       SFX_BANK.play(Math.random() < 0.45 ? 'duck' : 'whistle', { vol: 1 }); // a sitting duck
-      SFX_BANK.play('v_onejob', { vol: 0.9 });
+      if (!STREAMER.say('blunder_own')) SFX_BANK.play('v_onejob', { vol: 0.9 });
       flashLabel('You missed the jump!', 'comedy');
     } else if (ev === 'feastmissed') {
       // the mover grabbed the wrong piece: a bigger feast was on the board
       SFX_BANK.play('trombone', { vol: 1 });
-      setTimeout(() => SFX_BANK.play(pick(['v_wrong1', 'v_wrong2', 'v_wrong3', 'v_wrong4']), { vol: 0.95 }), 900);
+      setTimeout(() => { if (!STREAMER.say('blunder_own')) SFX_BANK.play(pick(['v_wrong1', 'v_wrong2', 'v_wrong3', 'v_wrong4']), { vol: 0.95 }); }, 900);
       flashLabel('Wrong piece!', 'comedy');
     } else if (ev === 'awkward') {
       const pool = ['ahooga', 'woops', 'banana', 'haha', 'klonk', 'shloop', 'gulp', 'smarts', 'fall', 'scramble', 'zip'];
       SFX_BANK.play(pool[(Math.random() * pool.length) | 0], { vol: 0.85 });
-      if (Math.random() < 0.6) SFX_BANK.play('v_awkward', { vol: 0.75 });
+      if (Math.random() < 0.6 && !STREAMER.say('blunder_own')) SFX_BANK.play('v_awkward', { vol: 0.75 });
       flashLabel('Uh… oh', 'comedy');
     }
     // 'none': the classic wooden move sounds (already playing) carry it
@@ -2676,7 +2804,10 @@ function createPlayerProgressStore(storage) {
         const big = G.capStreak >= 3;
         setTimeout(() => {
           SFX_BANK.play(big ? 'streak_big' : 'streak_hit', { vol: 0.9 });
-          if (Math.random() < (big ? 0.9 : 0.5)) SFX_BANK.play(big ? 'v_rampage2' : 'v_rampage', { vol: 0.9 });
+          const rampage = Math.random() < (big ? 0.9 : 0.5);
+          if (rampage && STREAMER.say('streak')) {
+            // the streamer voice replaces the rampage callout, never doubles it
+          } else if (rampage) SFX_BANK.play(big ? 'v_rampage2' : 'v_rampage', { vol: 0.9 });
           flashWhisper(big ? 'Unstoppable!' : 'On a rampage!');
         }, 620);
       }
@@ -2813,9 +2944,9 @@ function createPlayerProgressStore(storage) {
       }
       if (r.winner === G.humanSide) {
         SFX_BANK.play('achievement', { vol: 0.8 });
-        if (Math.random() < 0.35) setTimeout(() => SFX_BANK.play(pick(['v_win2', 'v_win3']), { vol: 0.85 }), 1400);
+        if (Math.random() < 0.35) setTimeout(() => { if (!STREAMER.say('victory')) SFX_BANK.play(pick(['v_win2', 'v_win3']), { vol: 0.85 }); }, 1400);
       } else if (r.winner !== null && Math.random() < 0.35) {
-        setTimeout(() => SFX_BANK.play(pick(['v_lose2', 'v_lose3']), { vol: 0.85 }), 1400);
+        setTimeout(() => { if (!STREAMER.say('defeat')) SFX_BANK.play(pick(['v_lose2', 'v_lose3']), { vol: 0.85 }); }, 1400);
       }
       const v = r.winner === null ? 'v_draw' : r.winner === G.humanSide ? 'v_win' : 'v_lose';
       setTimeout(() => SFX_BANK.play(v, { vol: 0.9 }), 550);
@@ -3131,6 +3262,7 @@ function createPlayerProgressStore(storage) {
     gameEpoch++;
     G.progressConflict=false;
     SFX_BANK.resetGame();
+    STREAMER.reset();
     frameEl.classList.remove('victory-a', 'victory-b', 'coronation-a', 'coronation-b');
     delete frameEl.dataset.doomSide;
     for (const effect of document.querySelectorAll('.physical-burst')) effect.remove();
@@ -3424,6 +3556,7 @@ function createPlayerProgressStore(storage) {
     set('segStyle', settings.style);
     set('segStyleI', settings.styleIvory);
     set('segStyleE', settings.styleEbony);
+    set('segStreamer', settings.streamer);
     $('rowSide').style.display = settings.mode === 'ai' ? '' : 'none';
     $('rowDiff').style.display = settings.mode !== 'hotseat' ? '' : 'none';
     $('rowStyle').style.display = settings.mode === 'ai' ? '' : 'none';
@@ -3611,6 +3744,17 @@ function createPlayerProgressStore(storage) {
   wireSeg('segMode', (v) => {
     if (v === settings.mode) return;
     confirmIfNeeded(() => { settings.mode = v; saveJSON(SETTINGS_KEY, settings); if(!resumeLeagueMatch())newGame(); });
+  });
+  wireSeg('segStreamer', (v) => {
+    if (v === settings.streamer) return;
+    settings.streamer = v;
+    saveJSON(SETTINGS_KEY, settings);
+    updateSegs();
+    STREAMER.reset(); // a mode switch starts a fresh commentary session
+    if (settings.sound && settings.sfx.voice && v !== 'off') {
+      const hello = v === 'female' ? 'sf_greet1' : v === 'male' ? 'sm_greet1' : 'tellyou';
+      SFX_BANK.play(hello, { vol: .9 });
+    }
   });
   wireSeg('segSide', (v) => {
     const s = +v;
@@ -3816,7 +3960,13 @@ function createPlayerProgressStore(storage) {
   const paletteLabels = { stage_group: 'Group stage', stage_quarter: 'Quarter-final', stage_semi: 'Semi-final',
     stage_final: 'Grand final', king_glint: 'King shimmer', retention: 'Title defence', oneup: 'One up',
     laugh_baby_short: 'Baby giggle', laugh_baby_full: 'Baby laughter', munch_mmm: 'Chewing · mmm',
-    sorry_dontcry: 'Sorry, don’t cry', dont_cry: 'Don’t cry', pregnant_shock: 'Surprised exclamation' };
+    sorry_dontcry: 'Sorry, don’t cry', dont_cry: 'Don’t cry', pregnant_shock: 'Surprised exclamation',
+    stream_greeting: 'Streamer: welcome', stream_cta: 'Streamer: like & share', stream_praise: 'Streamer: nice move',
+    stream_great: 'Streamer: brilliant!', stream_capture: 'Streamer: capture', stream_feast: 'Streamer: double jump!',
+    stream_blunder: 'Streamer: oh no', stream_gift: 'Streamer: a gift!', stream_trap: 'Streamer: trap warning',
+    stream_trap_spring: 'Streamer: trap springs!', stream_crown: 'Streamer: kinged!', stream_streak: 'Streamer: on fire',
+    stream_comeback: 'Streamer: comeback!', stream_victory: 'Streamer: victory!', stream_defeat: 'Streamer: so close',
+    stream_think: 'Streamer: while it thinks', stream_outro: 'Streamer: sign-off' };
   const paletteTitle = id => paletteLabels[id] || id.replace(/_/g, ' ').replace(/^./, c => c.toUpperCase());
   for (const event of [...new Set(Object.values(SFX_BANK.defs).map(d => d.event).filter(Boolean))]) {
     const button = document.createElement('button'); button.className = 'btn'; button.dataset.event = event;
