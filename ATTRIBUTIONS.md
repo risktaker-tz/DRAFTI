@@ -5,11 +5,11 @@ sourced meme effect credited below. Samples are embedded in `web/index.html`
 (base64 MP3); the processed source files live in `src/audio/`. This file
 lists the origin and license of each.
 
-The bank holds **330+ sounds**: 22 recorded samples, 10 sourced meme effects
-(below), 19 sourced animal-comedy & viral-sting samples, 183 neural-TTS
-voice lines and 33 original synthesized interface/game sounds (plus four
-more synthesized effects — trap snap, refusal buzz, relief chime and the
-level-up fanfare — generated in-code at playback time).
+The bank holds **380 sounds**: recorded samples, sourced meme effects and
+original excerpts (below), neural-TTS voice lines, and original synthesized
+interface/game sounds (plus four more synthesized effects — trap snap,
+refusal buzz, relief chime and the level-up fanfare — generated in-code at
+playback time). Per-sound provenance is recorded in `scripts/audio_catalog.json`.
 
 ## Meme sound effects (sourced verbatim, identified by their own captions)
 
@@ -173,3 +173,46 @@ Source: https://youtube.com/shorts/mvUVrweNvsQ . Original rights remain with the
 Playback controls: mute now fades the master output even during a long original passage, preserving the selected volume for unmute. Cancelling an arena ceremony also cancels its pending audio, overlay and next-game continuation. These control fixes change no credited recording.
 
 Final-square capture selection reuses the existing full move animation and its per-hop capture sounds. No recordings are replaced or shortened by this input shortcut.
+
+## Owner handoff sourced effects — added 2026-11-02
+
+Five additional sources were supplied by the owner as verified local downloads
+(handoff ZIP SHA-256 e8bfb069fbea08eedb54d4f700f40b428563c400dd4042850bc4a9f0d5be9925;
+per-file hashes verified against SHA256SUMS.json and recorded in
+docs/owner-audio-cuts.json). Uploader "no copyright" titles are treated as
+UNVERIFIED: these are short credited excerpts, not CC0. Eighteen curated cuts
+were installed additively through `scripts/install_owner_audio_cuts.py`
+(SHA-pinned sources, measured boundaries, speech-guarded processing: mono
+22050 Hz, ≤56 kbps, decoded peaks −1.51…−1.74 dBFS, ≤60 KiB, all ≤3.42 s,
+natural timing preserved — no pitch or tempo changes, no fabricated takes).
+Raw full recordings stay out of git (`scripts/research_media/` is ignored).
+Deliberately excluded: six Pidgin phrases whose exact words two independent
+transcription models could not agree on, the compilation's "Thanks for
+watching!" outro, a 6.02-second combined sting that cannot be split honestly
+within 3.5 s, a shimmer-noise wash (loop-risk), and mid-laugh trims. The
+existing 362 recordings are byte-for-byte unchanged. Event wiring is NOT
+claimed: the uses below are suggestions pending the shared sound director
+integration (`scripts/owner_audio_map.json`).
+
+| Clip | Source | Exact cut | Content (evidence) | Suggested use |
+|---|---|---|---|---|
+| `munch_mmm` | youtube.com/shorts/mvUVrweNvsQ | 0.205–0.525 s | Mouth hum "Mmm" (ASR + energy map) | Occasional capture/feast savoring |
+| `laugh_baby_short` | youtube.com/shorts/kW2NDCIpnW0 | 0.415–1.925 s | First baby-giggle burst | Rare silly-human-move reaction (≤1/game, ≥5 min cooldown) |
+| `laugh_baby_full` | youtube.com/shorts/kW2NDCIpnW0 | 2.905–6.325 s | Full baby laugh (same take, distinct phrase) | Same, alternate framing |
+| `susp_hit_boom` | youtube.com/shorts/AKozkV3MeWE | 0.465–0.975 s | Low boom/hit (31 ms attack) | Trap spring |
+| `susp_drone_deep` | youtube.com/shorts/AKozkV3MeWE | 2.075–4.745 s | Deep ominous drone (95% low band) | Long-think tension |
+| `susp_sting_mid` | youtube.com/shorts/AKozkV3MeWE | 5.565–6.315 s | Mid metallic sting | Sharp alert |
+| `susp_drone_creep` | youtube.com/shorts/AKozkV3MeWE | 7.595–8.805 s | Creeping low drone (slow attack) | Endgame danger |
+| `susp_burst` | youtube.com/shorts/AKozkV3MeWE | 9.775–10.885 s | Sudden mid burst | Sudden material loss |
+| `susp_build` | youtube.com/shorts/AKozkV3MeWE | 11.685–14.335 s | Rising tension build | Endgame build-up |
+| `ah_scream` | youtube.com/shorts/fkRNoM2f9GM | 0.035–0.355 s | Comic "AHH!" scream (ASR) | Small comic shock |
+| `comic_hit` | youtube.com/shorts/fkRNoM2f9GM | 1.115–1.675 s | Bright percussive comedy hit | Punchline accent |
+| `mwah_kisses` | youtube.com/shorts/fkRNoM2f9GM | 6.385–9.800 s | Repeated comic mouth-kiss "mwah" sounds (ASR) | Over-affectionate gag |
+| `sorry_dontcry` | youtu.be/g0cRfVqV04Q | 7.520–10.200 s | "Oh, sorry, sorry, sorry, don't cry." (word timestamps) | Consolation after a heavy loss |
+| `dont_cry` | youtu.be/g0cRfVqV04Q | 21.000–21.780 s | "Don't cry." (word timestamps) | Short sympathy tag |
+| `g0_bass_sting` | youtu.be/g0cRfVqV04Q | 26.500–29.900 s | Sustained ominous bass sting (excerpt of 26.145–32.105 s) | Wahala moment |
+| `comic_hit_bright` | youtu.be/g0cRfVqV04Q | 32.945–33.655 s | Bright comedy hit (distinct recording from `comic_hit`, waveform corr 0.06) | Punchline accent, alternate color |
+| `pregnant_shock` | youtu.be/g0cRfVqV04Q | 48.425–49.585 s | Comic "PREGNANT?!" exclamation (stable across two ASR models) | Huge comic surprise |
+| `g0_deep_wah` | youtu.be/g0cRfVqV04Q | 53.615–56.145 s | Deep comedic sting (distinct from `g0_bass_sting`, corr −0.006) | Deep wahala sting |
+
+Exact bytes, durations, peaks and SHA-256 per clip: `docs/owner-audio-cuts.json`.

@@ -1472,5 +1472,203 @@
     "source": "https://youtube.com/shorts/KBVNiOAnHiA",
     "license": "Short sourced excerpt; original rights retained by the source creator, see ATTRIBUTIONS.md",
     "use": "Rare engine-verified strong moves"
+  },
+  "munch_mmm": {
+    "c": "comedy",
+    "b": "Original cut 0.205-0.525s of https://youtube.com/shorts/mvUVrweNvsQ (Mouth hum \"Mmm\" (transcribed, energy-bounded))",
+    "durationSec": 0.32,
+    "voice": "original",
+    "mood": "savouring",
+    "family": "shrimp-original",
+    "source": "https://youtube.com/shorts/mvUVrweNvsQ",
+    "license": "Short sourced excerpt for meme/commentary use; original rights retained by the source creator. The uploader's 'no copyright' title is treated as UNVERIFIED; this is not CC0. See ATTRIBUTIONS.md.",
+    "use": "Mouth hum \"Mmm\" (transcribed, energy-bounded)"
+  },
+  "laugh_baby_short": {
+    "c": "comedy",
+    "b": "Original cut 0.415-1.925s of https://www.youtube.com/shorts/kW2NDCIpnW0 (First baby-giggle burst)",
+    "durationSec": 1.51,
+    "voice": "original",
+    "mood": "amused",
+    "family": "baby-laugh",
+    "source": "https://www.youtube.com/shorts/kW2NDCIpnW0",
+    "license": "Short sourced excerpt for meme/commentary use; original rights retained by the source creator. The uploader's 'no copyright' title is treated as UNVERIFIED; this is not CC0. See ATTRIBUTIONS.md.",
+    "use": "First baby-giggle burst"
+  },
+  "laugh_baby_full": {
+    "c": "comedy",
+    "b": "Original cut 2.905-6.325s of https://www.youtube.com/shorts/kW2NDCIpnW0 (Full baby laugh)",
+    "durationSec": 3.42,
+    "voice": "original",
+    "mood": "hilarious",
+    "family": "baby-laugh",
+    "source": "https://www.youtube.com/shorts/kW2NDCIpnW0",
+    "license": "Short sourced excerpt for meme/commentary use; original rights retained by the source creator. The uploader's 'no copyright' title is treated as UNVERIFIED; this is not CC0. See ATTRIBUTIONS.md.",
+    "use": "Full baby laugh"
+  },
+  "susp_hit_boom": {
+    "c": "drama",
+    "b": "Original cut 0.465-0.975s of https://www.youtube.com/shorts/AKozkV3MeWE (Suspense pack: low boom/hit (attack 31 ms))",
+    "durationSec": 0.51,
+    "voice": "original",
+    "mood": "omen",
+    "family": "suspense-pack",
+    "source": "https://www.youtube.com/shorts/AKozkV3MeWE",
+    "license": "Short sourced excerpt for meme/commentary use; original rights retained by the source creator. The uploader's 'no copyright' title is treated as UNVERIFIED; this is not CC0. See ATTRIBUTIONS.md.",
+    "use": "Suspense pack: low boom/hit (attack 31 ms)"
+  },
+  "susp_drone_deep": {
+    "c": "drama",
+    "b": "Original cut 2.075-4.745s of https://www.youtube.com/shorts/AKozkV3MeWE (Suspense pack: deep ominous drone (95% low band))",
+    "durationSec": 2.67,
+    "voice": "original",
+    "mood": "dread",
+    "family": "suspense-pack",
+    "source": "https://www.youtube.com/shorts/AKozkV3MeWE",
+    "license": "Short sourced excerpt for meme/commentary use; original rights retained by the source creator. The uploader's 'no copyright' title is treated as UNVERIFIED; this is not CC0. See ATTRIBUTIONS.md.",
+    "use": "Suspense pack: deep ominous drone (95% low band)"
+  },
+  "susp_sting_mid": {
+    "c": "drama",
+    "b": "Original cut 5.565-6.315s of https://www.youtube.com/shorts/AKozkV3MeWE (Suspense pack: mid metallic sting)",
+    "durationSec": 0.75,
+    "voice": "original",
+    "mood": "alert",
+    "family": "suspense-pack",
+    "source": "https://www.youtube.com/shorts/AKozkV3MeWE",
+    "license": "Short sourced excerpt for meme/commentary use; original rights retained by the source creator. The uploader's 'no copyright' title is treated as UNVERIFIED; this is not CC0. See ATTRIBUTIONS.md.",
+    "use": "Suspense pack: mid metallic sting"
+  },
+  "susp_drone_creep": {
+    "c": "drama",
+    "b": "Original cut 7.595-8.805s of https://www.youtube.com/shorts/AKozkV3MeWE (Suspense pack: creeping low drone (slow 738 ms attack))",
+    "durationSec": 1.21,
+    "voice": "original",
+    "mood": "creeping",
+    "family": "suspense-pack",
+    "source": "https://www.youtube.com/shorts/AKozkV3MeWE",
+    "license": "Short sourced excerpt for meme/commentary use; original rights retained by the source creator. The uploader's 'no copyright' title is treated as UNVERIFIED; this is not CC0. See ATTRIBUTIONS.md.",
+    "use": "Suspense pack: creeping low drone (slow 738 ms attack)"
+  },
+  "susp_burst": {
+    "c": "drama",
+    "b": "Original cut 9.775-10.885s of https://www.youtube.com/shorts/AKozkV3MeWE (Suspense pack: sudden mid burst)",
+    "durationSec": 1.11,
+    "voice": "original",
+    "mood": "spike",
+    "family": "suspense-pack",
+    "source": "https://www.youtube.com/shorts/AKozkV3MeWE",
+    "license": "Short sourced excerpt for meme/commentary use; original rights retained by the source creator. The uploader's 'no copyright' title is treated as UNVERIFIED; this is not CC0. See ATTRIBUTIONS.md.",
+    "use": "Suspense pack: sudden mid burst"
+  },
+  "susp_build": {
+    "c": "drama",
+    "b": "Original cut 11.685-14.335s of https://www.youtube.com/shorts/AKozkV3MeWE (Suspense pack: rising tension build)",
+    "durationSec": 2.65,
+    "voice": "original",
+    "mood": "rising",
+    "family": "suspense-pack",
+    "source": "https://www.youtube.com/shorts/AKozkV3MeWE",
+    "license": "Short sourced excerpt for meme/commentary use; original rights retained by the source creator. The uploader's 'no copyright' title is treated as UNVERIFIED; this is not CC0. See ATTRIBUTIONS.md.",
+    "use": "Suspense pack: rising tension build"
+  },
+  "ah_scream": {
+    "c": "comedy",
+    "b": "Original cut 0.035-0.355s of https://www.youtube.com/shorts/fkRNoM2f9GM (Comic \"AHH!\" scream (transcribed))",
+    "durationSec": 0.32,
+    "voice": "original",
+    "mood": "shocked",
+    "family": "nigerian-comedy",
+    "source": "https://www.youtube.com/shorts/fkRNoM2f9GM",
+    "license": "Short sourced excerpt for meme/commentary use; original rights retained by the source creator. The uploader's 'no copyright' title is treated as UNVERIFIED; this is not CC0. See ATTRIBUTIONS.md.",
+    "use": "Comic \"AHH!\" scream (transcribed)"
+  },
+  "comic_hit": {
+    "c": "comedy",
+    "b": "Original cut 1.115-1.675s of https://www.youtube.com/shorts/fkRNoM2f9GM (Bright percussive comedy hit)",
+    "durationSec": 0.56,
+    "voice": "original",
+    "mood": "punchline",
+    "family": "nigerian-comedy",
+    "source": "https://www.youtube.com/shorts/fkRNoM2f9GM",
+    "license": "Short sourced excerpt for meme/commentary use; original rights retained by the source creator. The uploader's 'no copyright' title is treated as UNVERIFIED; this is not CC0. See ATTRIBUTIONS.md.",
+    "use": "Bright percussive comedy hit"
+  },
+  "mwah_kisses": {
+    "c": "comedy",
+    "b": "Original cut 6.385-9.800s of https://www.youtube.com/shorts/fkRNoM2f9GM (Repeated comic mouth-kiss \"mwah\" sounds (medium-model transcription))",
+    "durationSec": 3.415,
+    "voice": "original",
+    "mood": "cloying",
+    "family": "nigerian-comedy",
+    "source": "https://www.youtube.com/shorts/fkRNoM2f9GM",
+    "license": "Short sourced excerpt for meme/commentary use; original rights retained by the source creator. The uploader's 'no copyright' title is treated as UNVERIFIED; this is not CC0. See ATTRIBUTIONS.md.",
+    "use": "Repeated comic mouth-kiss \"mwah\" sounds (medium-model transcription)"
+  },
+  "sorry_dontcry": {
+    "c": "voice",
+    "b": "Original cut 7.520-10.200s of https://youtu.be/g0cRfVqV04Q (Voice: \"Oh, sorry, sorry, sorry, don't cry.\" (word timestamps 7.58-10.14))",
+    "durationSec": 2.68,
+    "voice": "original",
+    "mood": "consoling",
+    "family": "nigerian-compilation",
+    "source": "https://youtu.be/g0cRfVqV04Q",
+    "license": "Short sourced excerpt for meme/commentary use; original rights retained by the source creator. The uploader's 'no copyright' title is treated as UNVERIFIED; this is not CC0. See ATTRIBUTIONS.md.",
+    "use": "Voice: \"Oh, sorry, sorry, sorry, don't cry.\" (word timestamps 7.58-10.14)"
+  },
+  "dont_cry": {
+    "c": "voice",
+    "b": "Original cut 21.000-21.780s of https://youtu.be/g0cRfVqV04Q (Voice: \"Don't cry.\" (word timestamps 21.04-21.72))",
+    "durationSec": 0.78,
+    "voice": "original",
+    "mood": "consoling",
+    "family": "nigerian-compilation",
+    "source": "https://youtu.be/g0cRfVqV04Q",
+    "license": "Short sourced excerpt for meme/commentary use; original rights retained by the source creator. The uploader's 'no copyright' title is treated as UNVERIFIED; this is not CC0. See ATTRIBUTIONS.md.",
+    "use": "Voice: \"Don't cry.\" (word timestamps 21.04-21.72)"
+  },
+  "g0_bass_sting": {
+    "c": "drama",
+    "b": "Original cut 26.500-29.900s of https://youtu.be/g0cRfVqV04Q (Sustained comedic ominous bass sting (centroid 380 Hz))",
+    "durationSec": 3.4,
+    "voice": "original",
+    "mood": "ominous",
+    "family": "nigerian-compilation",
+    "source": "https://youtu.be/g0cRfVqV04Q",
+    "license": "Short sourced excerpt for meme/commentary use; original rights retained by the source creator. The uploader's 'no copyright' title is treated as UNVERIFIED; this is not CC0. See ATTRIBUTIONS.md.",
+    "use": "Sustained comedic ominous bass sting (centroid 380 Hz)"
+  },
+  "comic_hit_bright": {
+    "c": "comedy",
+    "b": "Original cut 32.945-33.655s of https://youtu.be/g0cRfVqV04Q (Bright comedy hit (distinct recording from comic_hit, corr 0.06))",
+    "durationSec": 0.71,
+    "voice": "original",
+    "mood": "punchline",
+    "family": "nigerian-compilation",
+    "source": "https://youtu.be/g0cRfVqV04Q",
+    "license": "Short sourced excerpt for meme/commentary use; original rights retained by the source creator. The uploader's 'no copyright' title is treated as UNVERIFIED; this is not CC0. See ATTRIBUTIONS.md.",
+    "use": "Bright comedy hit (distinct recording from comic_hit, corr 0.06)"
+  },
+  "pregnant_shock": {
+    "c": "comedy",
+    "b": "Original cut 48.425-49.585s of https://youtu.be/g0cRfVqV04Q (Comic exclamation \"PREGNANT?!\" (stable across whisper small+medium))",
+    "durationSec": 1.16,
+    "voice": "original",
+    "mood": "astounded",
+    "family": "nigerian-compilation",
+    "source": "https://youtu.be/g0cRfVqV04Q",
+    "license": "Short sourced excerpt for meme/commentary use; original rights retained by the source creator. The uploader's 'no copyright' title is treated as UNVERIFIED; this is not CC0. See ATTRIBUTIONS.md.",
+    "use": "Comic exclamation \"PREGNANT?!\" (stable across whisper small+medium)"
+  },
+  "g0_deep_wah": {
+    "c": "drama",
+    "b": "Original cut 53.615-56.145s of https://youtu.be/g0cRfVqV04Q (Deep comedic sting (centroid 173 Hz, distinct from g0_bass_sting, corr -0.006))",
+    "durationSec": 2.53,
+    "voice": "original",
+    "mood": "ominous",
+    "family": "nigerian-compilation",
+    "source": "https://youtu.be/g0cRfVqV04Q",
+    "license": "Short sourced excerpt for meme/commentary use; original rights retained by the source creator. The uploader's 'no copyright' title is treated as UNVERIFIED; this is not CC0. See ATTRIBUTIONS.md.",
+    "use": "Deep comedic sting (centroid 173 Hz, distinct from g0_bass_sting, corr -0.006)"
   }
 }
