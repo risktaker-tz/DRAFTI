@@ -1,0 +1,38 @@
+{
+  "clips": 360,
+  "missingSourceFiles": [],
+  "manifestSourceMismatches": [],
+  "selectedClips": [
+    {
+      "id": "later_moments",
+      "credit": "\"popular meme sound effects\" compilation - Mondal Screen (youtube.com/shorts/N1BOQ_9laWs)",
+      "sha256": "20d9bd910cfaaeb9d942144b34a44973959cca703ac1a3b6298b1d5fce2b6be5"
+    },
+    {
+      "id": "later_hours",
+      "credit": "\"popular meme sound effects\" compilation - Mondal Screen (youtube.com/shorts/N1BOQ_9laWs)",
+      "sha256": "6c66463e0157be9fa24a29133a0df699e98b8ea30ab49fa4deebcfc57089f973"
+    },
+    {
+      "id": "shrimp1",
+      "credit": "DRAFTI voiced recreation of a viral clip (originals: see ATTRIBUTIONS.md / sfx_swap)",
+      "sha256": "4e9abda4d27cb6db3aab098ac57d29d1dbdc93198e5fac472b65376b243fd0dd"
+    },
+    {
+      "id": "shrimp2",
+      "credit": "DRAFTI voiced recreation of a viral clip (originals: see ATTRIBUTIONS.md / sfx_swap)",
+      "sha256": "eb7fc46855db1b5a1c93043d34ab4e061b1867f7958b4765fc00f910739dc287"
+    },
+    {
+      "id": "v_retire1",
+      "credit": "DRAFTI voiced recreation of a viral clip (originals: see ATTRIBUTIONS.md / sfx_swap)",
+      "sha256": "1316ccb9cc3a4ede09b22e481d9328f3df63595f4dbecbd70ff87d166c323f96"
+    },
+    {
+      "id": "v_retire2",
+      "credit": "DRAFTI voiced recreation of a viral clip (originals: see ATTRIBUTIONS.md / sfx_swap)",
+      "sha256": "3700b1dbade9e73910ebcfd61f41dc477d2dcb65dfe93a31d2aa2ab064c6950d"
+    }
+  ],
+  "limitation": "Byte equality proves which source file is embedded. It does not independently prove provenance or playback reachability."
+}
