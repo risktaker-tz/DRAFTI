@@ -2314,19 +2314,19 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
   // out the rest, so Ivory Coast never plays Ecuador in an identical green.
   const FLAG_COLORS = {
     TZ:['#1EB53A','#00A3DD'], KE:['#000000','#BB0000'],
-    UG:['#FDCB0C','#D40000'], RW:['#00A1DE','#FAD201'], BI:['#CE1126','#1EB53A'],
+    UG:['#FDCB0C','#D40000'], RW:['#00A1DE','#FAD201'], BI:['#C8102E','#43B02A'],
     SS:['#078930','#DA121A'], SO:['#4189DD','#FFFFFF'], CD:['#007FFF','#F7D618'],
-    ET:['#078930','#FCDD09'], ER:['#12AD2B','#1D84C6'], DJ:['#6AB2E7','#12AD2B'],
+    ET:['#078930','#FCDD09'], ER:['#43B02A','#418FDE'], DJ:['#6AB2E7','#12AD2B'],
     EG:['#CE1126','#C09300'], LY:['#239E46','#E70013'], TN:['#E70013','#FFFFFF'],
     DZ:['#006233','#FFFFFF'], MA:['#C1272D','#006233'], SD:['#D21034','#078930'],
     MR:['#00A95C','#CD2A3E'], ML:['#14B53A','#FCD116'], NE:['#E05206','#0DB02B'],
-    TD:['#002664','#FECB00'], SN:['#00853F','#FDEF42'], GM:['#3A75C4','#3A7728'],
+    TD:['#002664','#FECB00'], SN:['#00853F','#FDEF42'], GM:['#CE1126','#3A7728'],
     GW:['#CE1126','#FCD116'], GN:['#CE1126','#009460'], SL:['#1EB53A','#0072C6'],
     LR:['#002868','#BF0A30'], CI:['#F77F00','#009E60'], GH:['#CE1126','#006B3F'],
     TG:['#006A4E','#FFCE00'], BJ:['#008751','#FCD116'], BF:['#EF2B2D','#009E49'],
     NG:['#008751','#FFFFFF'], CM:['#007A5E','#CE1126'], CF:['#289728','#FFCE00'],
     GQ:['#3E9A00','#E32118'], GA:['#009E60','#3A75C4'], CG:['#009543','#DC241F'],
-    ST:['#12AD2B','#FFCE00'], AO:['#CC092F','#FFCB00'], ZM:['#198A00','#EF7D00'],
+    ST:['#12AD2B','#FFCE00'], AO:['#CC092F','#FFCB00'], ZM:['#147F55','#F99815'],
     ZW:['#319208','#FFD200'], MW:['#339E35','#CE1126'], MZ:['#009639','#FFD100'],
     NA:['#003580','#009543'], BW:['#75AADB','#1A1A1A'], ZA:['#007A4D','#FFB612'],
     LS:['#00209F','#009543'], SZ:['#B10C0C','#FFD900'], MG:['#007E3A','#FC3D32'],
@@ -2433,7 +2433,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
     return {
       1: up, 2: main, 3: dn,
       edge: mixC(main, '#000000', .55),
-      deep: mixC(main, '#000000', .45),
+      deep: lumaC(main) > .18 ? '#101010' : '#ffffff',
       glow: 'rgba(' + hexRgb(main).join(',') + ',.5)',
       bg: 'radial-gradient(circle at 35% 28%, ' + up + ', ' + main + ' 55%, ' + dn + ')',
     };
@@ -2452,10 +2452,10 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
       const cands = [f[0], f[1]];
       const dist = (h) => { const a = hexRgb(h), b = hexRgb(avoid || h);
         return avoid ? Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]) + Math.abs(a[2] - b[2]) : 1e9; };
-      let c = clampLuma(cands[0], .12, .88);
+      let c = clampLuma(cands[0], .035, .88);
       // two greens never make a bout: take the flag's other colour when it
       // reads clearly more distinct, then split lightness if still close
-      if (avoid && cands[1] && dist(cands[1]) > dist(cands[0]) + 120) c = clampLuma(cands[1], .12, .88);
+      if (avoid && colorClose(c, avoid) && cands[1] && dist(cands[1]) > dist(cands[0]) + 120) c = clampLuma(cands[1], .035, .88);
       if (avoid && colorClose(c, avoid)) {
         c = lumaC(c) >= lumaC(avoid)
           ? clampLuma(mixC(c, '#ffffff', .4), .12, .9)

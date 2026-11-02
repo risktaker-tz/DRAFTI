@@ -1,0 +1,12 @@
+'use strict';
+const fs=require('fs'),vm=require('vm'),path=require('path');
+const root=path.resolve(__dirname,'..'),ui=fs.readFileSync(path.join(root,'src/ui.js'),'utf8');
+const flags=vm.runInNewContext('('+ui.match(/const FLAG_COLORS = (\{[\s\S]*?\n  \});/)[1]+')');
+const reference=JSON.parse(fs.readFileSync(path.join(root,'scripts/flag_reference.json'),'utf8'));
+const rgb=h=>h.slice(1).match(/../g).map(x=>parseInt(x,16));
+const distance=(a,b)=>Math.sqrt(rgb(a).reduce((s,v,i)=>s+(v-rgb(b)[i])**2,0));
+const rows=reference.entries.map(r=>({code:r.code,country:r.country,selected:flags[r.code],nearest:flags[r.code].map(c=>r.colours.map(x=>({hex:x.hex,distance:Math.round(distance(c,x.hex))})).sort((a,b)=>a.distance-b.distance)[0]),source:r.source}));
+const output={references:rows.length,totalNations:Object.keys(flags).length,note:'Nearest source colour is review evidence, not an automatic replacement rule. Small emblems may not appear among dominant colours.',rows};
+fs.writeFileSync(path.join(root,'docs/flag-palette-comparison.json'),JSON.stringify(output,null,2)+'\n');
+console.log(rows.length,'palettes compared');
+for(const r of rows)if(r.nearest.some(c=>c.distance>40))console.log(r.code,r.selected.join('/'),'nearest',r.nearest.map(c=>c.hex+' (distance '+c.distance+')').join('/'));
