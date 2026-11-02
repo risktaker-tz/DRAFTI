@@ -9,7 +9,7 @@ const functions=ui.slice(ui.indexOf('  const sideVarSet ='),ui.indexOf('  // wri
 const context={};vm.createContext(context);
 vm.runInContext(`const FLAG_COLORS=${flags}; const ROSTER=${JSON.stringify(nations.map(([id])=>({id})))};
 const IVORY=1,EBONY=2;const G={mode:'aivai',seatIvory:'TZ',seatEbony:'KE'};
-const settings={arenaFlags:true,humanFlags:false};const presentation={nationIvory:'TZ',nationEbony:'KE'};
+const settings={arenaFlags:true,humanFlags:false,aivaiAuto:true};const presentation={nationIvory:'TZ',nationEbony:'KE'};
 const renamed=new Set();const customNamed=id=>renamed.has(id);
 ${math}\n${functions}
 this.api={G,settings,presentation,renamed,flagPalettes,lumaC,colorClose,sideVarSet};`,context);
@@ -30,5 +30,6 @@ for (const [left] of nations) for (const [right] of nations) {
 }
 a.renamed.add('TZ');a.G.seatIvory='TZ';check(a.flagPalettes()[0]===null,'renamed nation uses classic');a.renamed.clear();check(a.flagPalettes()[0]!==null,'restored nation regains flag');
 a.settings.arenaFlags=false;check(a.flagPalettes().every(p=>p===null),'arena classic option');
+a.settings.arenaFlags=true;a.settings.aivaiAuto=false;check(a.flagPalettes().every(p=>p===null),'manual engines use classic colours, without unrelated nation flags');a.settings.aivaiAuto=true;
 for(const mode of ['ai','hotseat']){a.G.mode=mode;check(a.flagPalettes().every(p=>p===null),mode+' default classic');a.settings.humanFlags=true;check(a.flagPalettes().every(Boolean),mode+' opt-in flags');a.settings.humanFlags=false;}
 console.log(assertions+' flag assertions passed');

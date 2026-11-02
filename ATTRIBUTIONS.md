@@ -169,3 +169,5 @@ The narrator recordings later_moments and later_hours were independently matched
 ## Original shrimp question — obtained 2026-11-02
 
 Source: https://youtube.com/shorts/mvUVrweNvsQ . Original rights remain with the source creator; these short credited meme excerpts are not CC0 or recreated voices. `shrimp1.mp3` uses source 11.105–12.570 s (question alone, 1.465 s); `shrimp2.mp3` uses 11.105–13.150 s (the same question plus “Anyway”, 2.045 s). Only one original question occurs; the slots are different framings of that same take. Both play at natural speed. The downloaded transcription report, source hash, processing measurements and exact boundaries are in `docs/shrimp-source-verification.md` and `docs/shrimp-original-cuts.json`. Historical recreations are preserved under `sfx_swap/backups/`.
+
+Playback controls: mute now fades the master output even during a long original passage, preserving the selected volume for unmute. Cancelling an arena ceremony also cancels its pending audio, overlay and next-game continuation. These control fixes change no credited recording.

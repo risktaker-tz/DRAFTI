@@ -1,0 +1,1438 @@
+{
+  "level": "l3 (Casual)",
+  "games": 132,
+  "method": "Complete 12-style round robin, each pair plays both colours from the standard opening with the same pair seed. Production engine, style options, full l3 search budgets and move-selection ladder. No display delays.",
+  "decisionRule": "Two-sided binomial test of decisive results against 50%, Bonferroni threshold 0.05/12. Draws count half in displayed score. This is a bounded empirical check at l3, not a claim of equal strength at every position or level.",
+  "table": [
+    {
+      "id": "classic",
+      "played": 22,
+      "wins": 11,
+      "losses": 9,
+      "draws": 2,
+      "score": 0.5454545454545454,
+      "twoSidedDecisiveP": 0.8238029479980469
+    },
+    {
+      "id": "american",
+      "played": 22,
+      "wins": 10,
+      "losses": 11,
+      "draws": 1,
+      "score": 0.4772727272727273,
+      "twoSidedDecisiveP": 1
+    },
+    {
+      "id": "english",
+      "played": 22,
+      "wins": 12,
+      "losses": 8,
+      "draws": 2,
+      "score": 0.5909090909090909,
+      "twoSidedDecisiveP": 0.5034446716308594
+    },
+    {
+      "id": "italian",
+      "played": 22,
+      "wins": 8,
+      "losses": 12,
+      "draws": 2,
+      "score": 0.4090909090909091,
+      "twoSidedDecisiveP": 0.5034446716308594
+    },
+    {
+      "id": "spanish",
+      "played": 22,
+      "wins": 10,
+      "losses": 9,
+      "draws": 3,
+      "score": 0.5227272727272727,
+      "twoSidedDecisiveP": 1
+    },
+    {
+      "id": "czech",
+      "played": 22,
+      "wins": 14,
+      "losses": 7,
+      "draws": 1,
+      "score": 0.6590909090909091,
+      "twoSidedDecisiveP": 0.18924713134765625
+    },
+    {
+      "id": "french",
+      "played": 22,
+      "wins": 10,
+      "losses": 8,
+      "draws": 4,
+      "score": 0.5454545454545454,
+      "twoSidedDecisiveP": 0.8145294189453125
+    },
+    {
+      "id": "russian",
+      "played": 22,
+      "wins": 5,
+      "losses": 14,
+      "draws": 3,
+      "score": 0.29545454545454547,
+      "twoSidedDecisiveP": 0.063568115234375
+    },
+    {
+      "id": "kenyan",
+      "played": 22,
+      "wins": 9,
+      "losses": 10,
+      "draws": 3,
+      "score": 0.4772727272727273,
+      "twoSidedDecisiveP": 1
+    },
+    {
+      "id": "tanzanian",
+      "played": 22,
+      "wins": 9,
+      "losses": 9,
+      "draws": 4,
+      "score": 0.5,
+      "twoSidedDecisiveP": 1
+    },
+    {
+      "id": "brazilian",
+      "played": 22,
+      "wins": 9,
+      "losses": 9,
+      "draws": 4,
+      "score": 0.5,
+      "twoSidedDecisiveP": 1
+    },
+    {
+      "id": "mongolian",
+      "played": 22,
+      "wins": 10,
+      "losses": 11,
+      "draws": 1,
+      "score": 0.4772727272727273,
+      "twoSidedDecisiveP": 1
+    }
+  ],
+  "rows": [
+    {
+      "ivory": "classic",
+      "ebony": "american",
+      "winnerId": "american",
+      "winner": -1,
+      "plies": 133,
+      "nodes": 258133,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "american",
+      "ebony": "classic",
+      "winnerId": "classic",
+      "winner": -1,
+      "plies": 83,
+      "nodes": 191847,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "classic",
+      "ebony": "english",
+      "winnerId": "english",
+      "winner": -1,
+      "plies": 203,
+      "nodes": 770689,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "english",
+      "ebony": "classic",
+      "winnerId": "classic",
+      "winner": -1,
+      "plies": 187,
+      "nodes": 369699,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "classic",
+      "ebony": "italian",
+      "winnerId": "italian",
+      "winner": -1,
+      "plies": 145,
+      "nodes": 400820,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "italian",
+      "ebony": "classic",
+      "winnerId": "classic",
+      "winner": -1,
+      "plies": 45,
+      "nodes": 97283,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "classic",
+      "ebony": "spanish",
+      "winnerId": null,
+      "winner": 0,
+      "plies": 204,
+      "nodes": 476840,
+      "deepest": 5,
+      "reason": "move limit"
+    },
+    {
+      "ivory": "spanish",
+      "ebony": "classic",
+      "winnerId": "classic",
+      "winner": -1,
+      "plies": 179,
+      "nodes": 352650,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "classic",
+      "ebony": "czech",
+      "winnerId": null,
+      "winner": 0,
+      "plies": 169,
+      "nodes": 580989,
+      "deepest": 5,
+      "reason": "threefold repetition"
+    },
+    {
+      "ivory": "czech",
+      "ebony": "classic",
+      "winnerId": "classic",
+      "winner": -1,
+      "plies": 59,
+      "nodes": 105536,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "classic",
+      "ebony": "french",
+      "winnerId": "french",
+      "winner": -1,
+      "plies": 47,
+      "nodes": 58576,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "french",
+      "ebony": "classic",
+      "winnerId": "classic",
+      "winner": -1,
+      "plies": 141,
+      "nodes": 181623,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "classic",
+      "ebony": "russian",
+      "winnerId": "classic",
+      "winner": 1,
+      "plies": 176,
+      "nodes": 576467,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "russian",
+      "ebony": "classic",
+      "winnerId": "classic",
+      "winner": -1,
+      "plies": 49,
+      "nodes": 44959,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "classic",
+      "ebony": "kenyan",
+      "winnerId": "kenyan",
+      "winner": -1,
+      "plies": 273,
+      "nodes": 574912,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "kenyan",
+      "ebony": "classic",
+      "winnerId": "classic",
+      "winner": -1,
+      "plies": 91,
+      "nodes": 116991,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "classic",
+      "ebony": "tanzanian",
+      "winnerId": "tanzanian",
+      "winner": -1,
+      "plies": 101,
+      "nodes": 151459,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "tanzanian",
+      "ebony": "classic",
+      "winnerId": "tanzanian",
+      "winner": 1,
+      "plies": 102,
+      "nodes": 107450,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "classic",
+      "ebony": "brazilian",
+      "winnerId": "brazilian",
+      "winner": -1,
+      "plies": 155,
+      "nodes": 225841,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "brazilian",
+      "ebony": "classic",
+      "winnerId": "brazilian",
+      "winner": 1,
+      "plies": 124,
+      "nodes": 170171,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "classic",
+      "ebony": "mongolian",
+      "winnerId": "classic",
+      "winner": 1,
+      "plies": 46,
+      "nodes": 35931,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "mongolian",
+      "ebony": "classic",
+      "winnerId": "classic",
+      "winner": -1,
+      "plies": 87,
+      "nodes": 154769,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "american",
+      "ebony": "english",
+      "winnerId": "english",
+      "winner": -1,
+      "plies": 247,
+      "nodes": 939776,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "english",
+      "ebony": "american",
+      "winnerId": "american",
+      "winner": -1,
+      "plies": 103,
+      "nodes": 208554,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "american",
+      "ebony": "italian",
+      "winnerId": "italian",
+      "winner": -1,
+      "plies": 121,
+      "nodes": 148778,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "italian",
+      "ebony": "american",
+      "winnerId": "american",
+      "winner": -1,
+      "plies": 63,
+      "nodes": 115880,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "american",
+      "ebony": "spanish",
+      "winnerId": "american",
+      "winner": 1,
+      "plies": 174,
+      "nodes": 377272,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "spanish",
+      "ebony": "american",
+      "winnerId": "american",
+      "winner": -1,
+      "plies": 165,
+      "nodes": 508657,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "american",
+      "ebony": "czech",
+      "winnerId": "czech",
+      "winner": -1,
+      "plies": 121,
+      "nodes": 214097,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "czech",
+      "ebony": "american",
+      "winnerId": "american",
+      "winner": -1,
+      "plies": 49,
+      "nodes": 70482,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "american",
+      "ebony": "french",
+      "winnerId": "french",
+      "winner": -1,
+      "plies": 131,
+      "nodes": 267351,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "french",
+      "ebony": "american",
+      "winnerId": "french",
+      "winner": 1,
+      "plies": 110,
+      "nodes": 154647,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "american",
+      "ebony": "russian",
+      "winnerId": "american",
+      "winner": 1,
+      "plies": 44,
+      "nodes": 55192,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "russian",
+      "ebony": "american",
+      "winnerId": "american",
+      "winner": -1,
+      "plies": 139,
+      "nodes": 490133,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "american",
+      "ebony": "kenyan",
+      "winnerId": "kenyan",
+      "winner": -1,
+      "plies": 81,
+      "nodes": 129632,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "kenyan",
+      "ebony": "american",
+      "winnerId": "kenyan",
+      "winner": 1,
+      "plies": 146,
+      "nodes": 317110,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "american",
+      "ebony": "tanzanian",
+      "winnerId": "tanzanian",
+      "winner": -1,
+      "plies": 151,
+      "nodes": 425082,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "tanzanian",
+      "ebony": "american",
+      "winnerId": "american",
+      "winner": -1,
+      "plies": 85,
+      "nodes": 167350,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "american",
+      "ebony": "brazilian",
+      "winnerId": null,
+      "winner": 0,
+      "plies": 163,
+      "nodes": 303099,
+      "deepest": 5,
+      "reason": "move limit"
+    },
+    {
+      "ivory": "brazilian",
+      "ebony": "american",
+      "winnerId": "american",
+      "winner": -1,
+      "plies": 107,
+      "nodes": 137973,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "american",
+      "ebony": "mongolian",
+      "winnerId": "mongolian",
+      "winner": -1,
+      "plies": 53,
+      "nodes": 72626,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "mongolian",
+      "ebony": "american",
+      "winnerId": "mongolian",
+      "winner": 1,
+      "plies": 120,
+      "nodes": 148898,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "english",
+      "ebony": "italian",
+      "winnerId": "english",
+      "winner": 1,
+      "plies": 174,
+      "nodes": 287472,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "italian",
+      "ebony": "english",
+      "winnerId": null,
+      "winner": 0,
+      "plies": 199,
+      "nodes": 581693,
+      "deepest": 5,
+      "reason": "move limit"
+    },
+    {
+      "ivory": "english",
+      "ebony": "spanish",
+      "winnerId": null,
+      "winner": 0,
+      "plies": 191,
+      "nodes": 643871,
+      "deepest": 5,
+      "reason": "threefold repetition"
+    },
+    {
+      "ivory": "spanish",
+      "ebony": "english",
+      "winnerId": "spanish",
+      "winner": 1,
+      "plies": 44,
+      "nodes": 79949,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "english",
+      "ebony": "czech",
+      "winnerId": "czech",
+      "winner": -1,
+      "plies": 87,
+      "nodes": 154839,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "czech",
+      "ebony": "english",
+      "winnerId": "english",
+      "winner": -1,
+      "plies": 177,
+      "nodes": 855915,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "english",
+      "ebony": "french",
+      "winnerId": "french",
+      "winner": -1,
+      "plies": 93,
+      "nodes": 90965,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "french",
+      "ebony": "english",
+      "winnerId": "french",
+      "winner": 1,
+      "plies": 162,
+      "nodes": 289237,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "english",
+      "ebony": "russian",
+      "winnerId": "english",
+      "winner": 1,
+      "plies": 174,
+      "nodes": 376315,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "russian",
+      "ebony": "english",
+      "winnerId": "english",
+      "winner": -1,
+      "plies": 43,
+      "nodes": 76885,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "english",
+      "ebony": "kenyan",
+      "winnerId": "english",
+      "winner": 1,
+      "plies": 94,
+      "nodes": 120477,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "kenyan",
+      "ebony": "english",
+      "winnerId": "english",
+      "winner": -1,
+      "plies": 75,
+      "nodes": 95016,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "english",
+      "ebony": "tanzanian",
+      "winnerId": "tanzanian",
+      "winner": -1,
+      "plies": 211,
+      "nodes": 555081,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "tanzanian",
+      "ebony": "english",
+      "winnerId": "english",
+      "winner": -1,
+      "plies": 165,
+      "nodes": 155202,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "english",
+      "ebony": "brazilian",
+      "winnerId": "english",
+      "winner": 1,
+      "plies": 72,
+      "nodes": 102810,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "brazilian",
+      "ebony": "english",
+      "winnerId": "brazilian",
+      "winner": 1,
+      "plies": 218,
+      "nodes": 942339,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "english",
+      "ebony": "mongolian",
+      "winnerId": "english",
+      "winner": 1,
+      "plies": 112,
+      "nodes": 212298,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "mongolian",
+      "ebony": "english",
+      "winnerId": "english",
+      "winner": -1,
+      "plies": 153,
+      "nodes": 415737,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "italian",
+      "ebony": "spanish",
+      "winnerId": "spanish",
+      "winner": -1,
+      "plies": 103,
+      "nodes": 174432,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "spanish",
+      "ebony": "italian",
+      "winnerId": "spanish",
+      "winner": 1,
+      "plies": 204,
+      "nodes": 886641,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "italian",
+      "ebony": "czech",
+      "winnerId": "czech",
+      "winner": -1,
+      "plies": 53,
+      "nodes": 57927,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "czech",
+      "ebony": "italian",
+      "winnerId": "czech",
+      "winner": 1,
+      "plies": 162,
+      "nodes": 406484,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "italian",
+      "ebony": "french",
+      "winnerId": "italian",
+      "winner": 1,
+      "plies": 178,
+      "nodes": 521793,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "french",
+      "ebony": "italian",
+      "winnerId": "italian",
+      "winner": -1,
+      "plies": 57,
+      "nodes": 83383,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "italian",
+      "ebony": "russian",
+      "winnerId": "italian",
+      "winner": 1,
+      "plies": 156,
+      "nodes": 431227,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "russian",
+      "ebony": "italian",
+      "winnerId": null,
+      "winner": 0,
+      "plies": 156,
+      "nodes": 501125,
+      "deepest": 5,
+      "reason": "threefold repetition"
+    },
+    {
+      "ivory": "italian",
+      "ebony": "kenyan",
+      "winnerId": "kenyan",
+      "winner": -1,
+      "plies": 41,
+      "nodes": 47184,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "kenyan",
+      "ebony": "italian",
+      "winnerId": "kenyan",
+      "winner": 1,
+      "plies": 90,
+      "nodes": 106376,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "italian",
+      "ebony": "tanzanian",
+      "winnerId": "tanzanian",
+      "winner": -1,
+      "plies": 157,
+      "nodes": 388985,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "tanzanian",
+      "ebony": "italian",
+      "winnerId": "italian",
+      "winner": -1,
+      "plies": 43,
+      "nodes": 88747,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "italian",
+      "ebony": "brazilian",
+      "winnerId": "brazilian",
+      "winner": -1,
+      "plies": 173,
+      "nodes": 261706,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "brazilian",
+      "ebony": "italian",
+      "winnerId": "italian",
+      "winner": -1,
+      "plies": 67,
+      "nodes": 124062,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "italian",
+      "ebony": "mongolian",
+      "winnerId": "italian",
+      "winner": 1,
+      "plies": 162,
+      "nodes": 415121,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "mongolian",
+      "ebony": "italian",
+      "winnerId": "mongolian",
+      "winner": 1,
+      "plies": 106,
+      "nodes": 188925,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "spanish",
+      "ebony": "czech",
+      "winnerId": "czech",
+      "winner": -1,
+      "plies": 183,
+      "nodes": 866151,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "czech",
+      "ebony": "spanish",
+      "winnerId": "czech",
+      "winner": 1,
+      "plies": 58,
+      "nodes": 92149,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "spanish",
+      "ebony": "french",
+      "winnerId": "french",
+      "winner": -1,
+      "plies": 161,
+      "nodes": 531343,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "french",
+      "ebony": "spanish",
+      "winnerId": "spanish",
+      "winner": -1,
+      "plies": 205,
+      "nodes": 847876,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "spanish",
+      "ebony": "russian",
+      "winnerId": "spanish",
+      "winner": 1,
+      "plies": 46,
+      "nodes": 75331,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "russian",
+      "ebony": "spanish",
+      "winnerId": "spanish",
+      "winner": -1,
+      "plies": 49,
+      "nodes": 105560,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "spanish",
+      "ebony": "kenyan",
+      "winnerId": "spanish",
+      "winner": 1,
+      "plies": 98,
+      "nodes": 205615,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "kenyan",
+      "ebony": "spanish",
+      "winnerId": "kenyan",
+      "winner": 1,
+      "plies": 178,
+      "nodes": 319631,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "spanish",
+      "ebony": "tanzanian",
+      "winnerId": "spanish",
+      "winner": 1,
+      "plies": 184,
+      "nodes": 253470,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "tanzanian",
+      "ebony": "spanish",
+      "winnerId": null,
+      "winner": 0,
+      "plies": 139,
+      "nodes": 183435,
+      "deepest": 5,
+      "reason": "threefold repetition"
+    },
+    {
+      "ivory": "spanish",
+      "ebony": "brazilian",
+      "winnerId": "spanish",
+      "winner": 1,
+      "plies": 222,
+      "nodes": 595292,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "brazilian",
+      "ebony": "spanish",
+      "winnerId": "brazilian",
+      "winner": 1,
+      "plies": 132,
+      "nodes": 324637,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "spanish",
+      "ebony": "mongolian",
+      "winnerId": "mongolian",
+      "winner": -1,
+      "plies": 55,
+      "nodes": 80354,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "mongolian",
+      "ebony": "spanish",
+      "winnerId": "spanish",
+      "winner": -1,
+      "plies": 243,
+      "nodes": 938671,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "czech",
+      "ebony": "french",
+      "winnerId": "czech",
+      "winner": 1,
+      "plies": 246,
+      "nodes": 788129,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "french",
+      "ebony": "czech",
+      "winnerId": "french",
+      "winner": 1,
+      "plies": 50,
+      "nodes": 81126,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "czech",
+      "ebony": "russian",
+      "winnerId": "russian",
+      "winner": -1,
+      "plies": 91,
+      "nodes": 83610,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "russian",
+      "ebony": "czech",
+      "winnerId": "czech",
+      "winner": -1,
+      "plies": 103,
+      "nodes": 159342,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "czech",
+      "ebony": "kenyan",
+      "winnerId": "czech",
+      "winner": 1,
+      "plies": 50,
+      "nodes": 82407,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "kenyan",
+      "ebony": "czech",
+      "winnerId": "kenyan",
+      "winner": 1,
+      "plies": 64,
+      "nodes": 84533,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "czech",
+      "ebony": "tanzanian",
+      "winnerId": "czech",
+      "winner": 1,
+      "plies": 84,
+      "nodes": 98696,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "tanzanian",
+      "ebony": "czech",
+      "winnerId": "czech",
+      "winner": -1,
+      "plies": 69,
+      "nodes": 139067,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "czech",
+      "ebony": "brazilian",
+      "winnerId": "brazilian",
+      "winner": -1,
+      "plies": 87,
+      "nodes": 216285,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "brazilian",
+      "ebony": "czech",
+      "winnerId": "czech",
+      "winner": -1,
+      "plies": 65,
+      "nodes": 60286,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "czech",
+      "ebony": "mongolian",
+      "winnerId": "czech",
+      "winner": 1,
+      "plies": 96,
+      "nodes": 191360,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "mongolian",
+      "ebony": "czech",
+      "winnerId": "czech",
+      "winner": -1,
+      "plies": 83,
+      "nodes": 91713,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "french",
+      "ebony": "russian",
+      "winnerId": null,
+      "winner": 0,
+      "plies": 104,
+      "nodes": 98590,
+      "deepest": 5,
+      "reason": "threefold repetition"
+    },
+    {
+      "ivory": "russian",
+      "ebony": "french",
+      "winnerId": null,
+      "winner": 0,
+      "plies": 195,
+      "nodes": 528311,
+      "deepest": 5,
+      "reason": "threefold repetition"
+    },
+    {
+      "ivory": "french",
+      "ebony": "kenyan",
+      "winnerId": null,
+      "winner": 0,
+      "plies": 160,
+      "nodes": 349918,
+      "deepest": 5,
+      "reason": "threefold repetition"
+    },
+    {
+      "ivory": "kenyan",
+      "ebony": "french",
+      "winnerId": "french",
+      "winner": -1,
+      "plies": 95,
+      "nodes": 166146,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "french",
+      "ebony": "tanzanian",
+      "winnerId": null,
+      "winner": 0,
+      "plies": 189,
+      "nodes": 512142,
+      "deepest": 5,
+      "reason": "threefold repetition"
+    },
+    {
+      "ivory": "tanzanian",
+      "ebony": "french",
+      "winnerId": "french",
+      "winner": -1,
+      "plies": 117,
+      "nodes": 221948,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "french",
+      "ebony": "brazilian",
+      "winnerId": "brazilian",
+      "winner": -1,
+      "plies": 217,
+      "nodes": 702920,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "brazilian",
+      "ebony": "french",
+      "winnerId": "brazilian",
+      "winner": 1,
+      "plies": 38,
+      "nodes": 64005,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "french",
+      "ebony": "mongolian",
+      "winnerId": "mongolian",
+      "winner": -1,
+      "plies": 47,
+      "nodes": 76447,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "mongolian",
+      "ebony": "french",
+      "winnerId": "french",
+      "winner": -1,
+      "plies": 171,
+      "nodes": 529875,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "russian",
+      "ebony": "kenyan",
+      "winnerId": "russian",
+      "winner": 1,
+      "plies": 54,
+      "nodes": 88085,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "kenyan",
+      "ebony": "russian",
+      "winnerId": "russian",
+      "winner": -1,
+      "plies": 81,
+      "nodes": 139146,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "russian",
+      "ebony": "tanzanian",
+      "winnerId": "russian",
+      "winner": 1,
+      "plies": 100,
+      "nodes": 128458,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "tanzanian",
+      "ebony": "russian",
+      "winnerId": "tanzanian",
+      "winner": 1,
+      "plies": 48,
+      "nodes": 49140,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "russian",
+      "ebony": "brazilian",
+      "winnerId": "brazilian",
+      "winner": -1,
+      "plies": 95,
+      "nodes": 192251,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "brazilian",
+      "ebony": "russian",
+      "winnerId": "russian",
+      "winner": -1,
+      "plies": 51,
+      "nodes": 78275,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "russian",
+      "ebony": "mongolian",
+      "winnerId": "mongolian",
+      "winner": -1,
+      "plies": 127,
+      "nodes": 170134,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "mongolian",
+      "ebony": "russian",
+      "winnerId": "mongolian",
+      "winner": 1,
+      "plies": 82,
+      "nodes": 98523,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "kenyan",
+      "ebony": "tanzanian",
+      "winnerId": null,
+      "winner": 0,
+      "plies": 208,
+      "nodes": 627445,
+      "deepest": 5,
+      "reason": "move limit"
+    },
+    {
+      "ivory": "tanzanian",
+      "ebony": "kenyan",
+      "winnerId": "tanzanian",
+      "winner": 1,
+      "plies": 132,
+      "nodes": 248053,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "kenyan",
+      "ebony": "brazilian",
+      "winnerId": "kenyan",
+      "winner": 1,
+      "plies": 148,
+      "nodes": 368117,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "brazilian",
+      "ebony": "kenyan",
+      "winnerId": null,
+      "winner": 0,
+      "plies": 162,
+      "nodes": 179276,
+      "deepest": 5,
+      "reason": "move limit"
+    },
+    {
+      "ivory": "kenyan",
+      "ebony": "mongolian",
+      "winnerId": "kenyan",
+      "winner": 1,
+      "plies": 56,
+      "nodes": 69745,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "mongolian",
+      "ebony": "kenyan",
+      "winnerId": "mongolian",
+      "winner": 1,
+      "plies": 232,
+      "nodes": 1101284,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "tanzanian",
+      "ebony": "brazilian",
+      "winnerId": "tanzanian",
+      "winner": 1,
+      "plies": 154,
+      "nodes": 336984,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "brazilian",
+      "ebony": "tanzanian",
+      "winnerId": null,
+      "winner": 0,
+      "plies": 125,
+      "nodes": 180307,
+      "deepest": 5,
+      "reason": "threefold repetition"
+    },
+    {
+      "ivory": "tanzanian",
+      "ebony": "mongolian",
+      "winnerId": "mongolian",
+      "winner": -1,
+      "plies": 101,
+      "nodes": 221026,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "mongolian",
+      "ebony": "tanzanian",
+      "winnerId": "tanzanian",
+      "winner": -1,
+      "plies": 43,
+      "nodes": 58627,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "brazilian",
+      "ebony": "mongolian",
+      "winnerId": "mongolian",
+      "winner": -1,
+      "plies": 187,
+      "nodes": 481890,
+      "deepest": 5,
+      "reason": "no legal moves"
+    },
+    {
+      "ivory": "mongolian",
+      "ebony": "brazilian",
+      "winnerId": null,
+      "winner": 0,
+      "plies": 156,
+      "nodes": 317774,
+      "deepest": 5,
+      "reason": "threefold repetition"
+    }
+  ]
+}

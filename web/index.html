@@ -1036,6 +1036,14 @@ body.pieces-stone .piece.ebony .body {
 
 /* Broadcast controls preserve the board and every existing action. */
 .presentation-options { display: grid; gap: 12px; }
+.arena-progress { margin-top: 14px; font-size: 12px; }
+.arena-progress summary { color: var(--accent); cursor: pointer; padding: 8px 0; }
+.arena-progress-scroll { max-height: 270px; overflow: auto; border: 1px solid var(--panel-line); border-radius: 8px; }
+.arena-progress table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.arena-progress caption { text-align: left; padding: 10px; color: var(--ink-dim); }
+.arena-progress th, .arena-progress td { padding: 8px; text-align: right; border-bottom: 1px solid var(--panel-line); }
+.arena-progress th:first-child, .arena-progress td:first-child { text-align: left; }
+.arena-progress th { font-size: 10px; color: var(--ink-dim); }
 .presentation-options label { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 .presentation-options select { max-width: 100%; padding: 8px; color: var(--ink); background: var(--panel); border: 1px solid var(--panel-line); border-radius: 8px; }
 body.stream-view .banner { font-size: clamp(13px, 1.5vw, 18px); }
@@ -1225,6 +1233,15 @@ body.stream-view .ticker { font-size: 16px; }
         </div>
       </div>
       <p class="setup-note" id="arenaNote"></p>
+      <details class="arena-progress" id="arenaProgressPanel">
+        <summary>World ladder &amp; event rewards</summary>
+        <p class="setup-note">Every bout: +2 XP. Win: +3 more; defeat: +4 more. Quarter-final wins: +2 bonus, semi-finals: +3, final: +5, title retained: +1. Five XP earns a rung; every new season adds one rung to every nation, up to level 10.</p>
+        <div class="arena-progress-scroll"><table>
+          <caption id="arenaProgressCaption">World ladder</caption>
+          <thead><tr><th scope="col">Nation</th><th scope="col">Level</th><th scope="col">XP</th><th scope="col">Wins</th><th scope="col">Event bonus XP</th></tr></thead>
+          <tbody id="arenaProgressRows"></tbody>
+        </table></div>
+      </details>
     </div>
 
     <div class="card">
@@ -2109,6 +2126,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
   // pulled apart in lightness. Same-colour flags (Indonesia vs Monaco) end
   // up red versus white, never red versus red.
   function flagPalettes() {
+    if (G.mode === 'aivai' && !settings.aivaiAuto) return [null, null];
     if (G.mode === 'aivai' ? settings.arenaFlags === false : !settings.humanFlags) return [null, null];
     const pick = (id, side, avoid) => {
       if (!ROSTER.some((r) => r.id === id) || customNamed(id)) return null;
@@ -2180,7 +2198,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
   // inside each band so the visit order never goes stale
   function ladderQueue(excludeId) {
     const out = [];
-    for (let band = 1; band <= 7; band++) {
+    for (const band of [1, 2, 3, 4, 5, 6, 7, 0]) {
       const bandIds = ROSTER.filter((r) => r.band === band && r.id !== excludeId).map((r) => r.id);
       for (let i = bandIds.length - 1; i > 0; i--) {
         const j = (Math.random() * (i + 1)) | 0;
@@ -2225,6 +2243,47 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
   }
   guardArena();
   const saveArena = () => saveJSON(ARENA_KEY, arena);
+  const ARENA_PROGRESS_KEY = 'drafti.arena-progress.v1';
+  const arenaProgress = loadJSON(ARENA_PROGRESS_KEY, {}) || {};
+  if (!arenaProgress.bonusXp || typeof arenaProgress.bonusXp !== 'object') arenaProgress.bonusXp = {};
+  function arenaSeatLevels(a, b) {
+    const left = rosterLevel(a), right = rosterLevel(b), strongest = Math.max(left, right);
+    return [Math.max(left, strongest - 2), Math.max(right, strongest - 2)];
+  }
+  function seatArenaBout() {
+    guardArena();
+    const champion = arena.champion, challenger = arena.queue[0];
+    // Alternate the colours (and therefore opening side), independently of
+    // who holds the title. Neither role gets a permanent first-move right.
+    const hostIvory = ((arena.season - 1) * SEASON_LEN + arena.bouts) % 2 === 0;
+    G.seatIvory = hostIvory ? champion : challenger;
+    G.seatEbony = hostIvory ? challenger : champion;
+    const levels = arenaSeatLevels(G.seatIvory, G.seatEbony);
+    G.diffIvory = LEVEL_IDS[levels[0] - 1]; G.diffEbony = LEVEL_IDS[levels[1] - 1];
+    G.pairKey = [G.seatIvory, G.seatEbony].sort().join('|');
+    G.pairMeets = (arena.meetings[G.pairKey] || 0) + 1;
+    arena.meetings[G.pairKey] = G.pairMeets;
+    for (const id of [G.seatIvory, G.seatEbony]) if (!arena.appeared.includes(id)) arena.appeared.push(id);
+    saveArena();
+  }
+  let arenaProgressSignature = '';
+  function renderArenaProgress() {
+    const tbody = $('arenaProgressRows'); if (!tbody) return;
+    const signature = JSON.stringify([arena.season, arena.xp, arena.wins, arenaProgress.bonusXp, nameOverrides]);
+    if (signature === arenaProgressSignature) return;
+    arenaProgressSignature = signature;
+    tbody.replaceChildren();
+    const fragment = document.createDocumentFragment();
+    for (const nation of ROSTER) {
+      const row = document.createElement('tr');
+      for (const value of [aiName(nation.id), rosterLevel(nation.id), arena.xp[nation.id], arena.wins[nation.id], arenaProgress.bonusXp[nation.id] || 0]) {
+        const cell = document.createElement('td'); cell.textContent = value; row.appendChild(cell);
+      }
+      fragment.appendChild(row);
+    }
+    tbody.appendChild(fragment);
+    $('arenaProgressCaption').textContent = 'Season ' + arena.season + ' · ' + ROSTER.length + ' nations · event bonuses tracked from this update';
+  }
 
   // the name chips: tap one, type the new name, Enter or blur commits. The
   // grid opens on the teams in play — the host and the next challengers in
@@ -2808,7 +2867,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
         if (AC) {
           this.ctx = new AC();
           this.out = this.ctx.createGain();
-          this.out.gain.value = settings.sfx.master;
+          this.out.gain.value = settings.sound ? settings.sfx.master : 0;
           this.out.connect(this.ctx.destination);
           if (typeof SFX_BANK !== 'undefined') SFX_BANK.decodeAll();
         }
@@ -2818,7 +2877,10 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
     },
     setMaster(v) {
       settings.sfx.master = v;
-      if (this.out) this.out.gain.value = v;
+      this.syncVolume();
+    },
+    syncVolume() {
+      if (this.out) this.out.gain.setTargetAtTime(settings.sound ? settings.sfx.master : 0, this.ctx.currentTime, .015);
     },
     // A sparse, softly enveloped grain rustle accompanies long thoughts.
     // Short searches stay silent; there is no metronome under the pieces.
@@ -3195,17 +3257,41 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
 
   function levelOpts(levelId, style) {
     const L = LEVELS[levelId] || LEVELS.l5;
-    // Think times breathe: the budget wobbles per move, instinctive (chaotic)
-    // styles answer faster while fortress styles take their time — no two
-    // thinks look alike, and neither opponent feels like a metronome.
-    const pace = (1.25 - 0.35 * (style ? style.chaos : 0.2)) * (0.85 + Math.random() * 0.35);
+    // Timing varies by move, never by nationality or personality.
+    const pace = 0.9 + Math.random() * 0.2;
     // Pool-based move picking compares root scores against each other, so it
     // needs exact per-root values: only the shallow rungs (which have a pool)
     // pay for the full-window search.
     const opts = { budgetMs: Math.max(80, Math.round(L.budgetMs * pace)), maxDepth: L.maxDepth, jitter: L.jitter,
       fullRootWindow: L.pool > 0 };
-    if (style) opts.weights = Object.assign({ for: 0 }, style.w); // for: patched by caller
+    // Personality nudges positional taste. Material values stay close to
+    // neutral so an aggressive style is not made weaker by undervaluing men.
+    if (style) opts.weights = Object.fromEntries(Object.entries(style.w).map(([key, value]) =>
+      [key, 1 + (value - 1) * (key === 'trade' ? .1 : key === 'king' ? .15 : .25)]));
     return { opts, level: L };
+  }
+  const searchLevelForSide = () => G.mode === 'aivai'
+    ? (G.side === IVORY ? G.diffIvory : G.diffEbony) : G.diff;
+  function arenaPressureOpts(opts) {
+    if (G.mode === 'aivai' && settings.aivaiAuto) {
+      opts.budgetMs = Math.min(5250, Math.round(opts.budgetMs * (1 + .08 * stageOfBout(arena.bouts))));
+    }
+    return opts;
+  }
+  function chooseLadderMove(res, legal, levelId) {
+    const valid = res.best && legal.find(m => m.from === res.best.from && m.path.join() === res.best.path.join());
+    const best = valid || legal[(Math.random() * legal.length) | 0];
+    const L = LEVELS[levelId] || LEVELS.l5;
+    if (L.pool > 0 && Array.isArray(res.rootScores) && res.rootScores.length > 1) {
+      if (Math.random() < L.blunder) return legal[(Math.random() * legal.length) | 0];
+      const top = Math.max(...res.rootScores.map(r => r.score));
+      const pool = res.rootScores.filter(r => Number.isFinite(r.score) && r.score >= top - L.pool);
+      if (pool.length) {
+        const chosen = pool[(Math.random() * pool.length) | 0].m;
+        return legal.find(m => m.from === chosen.from && m.path.join() === chosen.path.join()) || best;
+      }
+    }
+    return best;
   }
 
   function runSearch(kind) {
@@ -3216,9 +3302,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
     if (kind === 'hint') {
       opts = { budgetMs: 600, maxDepth: 12, jitter: 0 };
     } else {
-      opts = levelOpts(G.mode === 'aivai'
-        ? (G.side === IVORY ? G.diffIvory : G.diffEbony)
-        : G.diff, style).opts;
+      opts = arenaPressureOpts(levelOpts(searchLevelForSide(), style).opts);
     }
     // Against a person the computer keeps its thoughts short — the long
     // deep searches belong to the spectator arena, not to your game.
@@ -3284,23 +3368,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
     const delay = Math.max(0, base - (Date.now() - thinkStart));
     setTimeout(() => {
       if (res.id !== reqId || G.phase !== 'idle') return;
-      // level ladder: weak rungs blunder and wander; styles widen the pool
-      // (pool picking needs exact root scores, so it only runs on the shallow
-      // full-window rungs; deep levels and styles differ through jitter)
-      const L = LEVELS[G.diff] || LEVELS.l5;
-      const style = styleForSide(G.side);
-      if (Array.isArray(res.rootScores) && res.rootScores.length > 1 && L.pool > 0) {
-        const top = res.rootScores.reduce((a, b) => (b.score > a ? b.score : a), -Infinity);
-        const margin = L.pool + (style ? style.chaos * 90 : 0);
-        if (L.blunder > 0 && Math.random() < L.blunder) {
-          executeMove(G.legal[(Math.random() * G.legal.length) | 0]); return;
-        }
-        const pool = res.rootScores.filter((r) => r.score >= top - margin);
-        const pickM = pool[(Math.random() * pool.length) | 0];
-        const m2 = G.legal.find((m) => m.path.join() === pickM.m.path.join());
-        if (m2) { executeMove(m2); return; }
-      }
-      executeMove(mv);
+      executeMove(chooseLadderMove(res, G.legal, searchLevelForSide()));
     }, delay);
   }
 
@@ -4292,22 +4360,25 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
     saveArena();
   }
   function applyArenaResult(winnerSide) { // IVORY / EBONY / 0 = draw
-    const champId = G.seatIvory, challId = G.seatEbony;
+    const champId = arena.champion, challId = G.seatIvory === champId ? G.seatEbony : G.seatIvory;
     const manual = manualRetire;
     manualRetire = false;
-    const winnerId = winnerSide === IVORY ? champId : winnerSide === EBONY ? challId : null;
+    const winnerId = winnerSide === IVORY ? G.seatIvory : winnerSide === EBONY ? G.seatEbony : null;
     const seats = champId === challId ? [champId] : [champId, challId];
     for (const id of seats) {
-      arena.xp[id] += winnerId === null ? 2 : (id === winnerId ? 3 : 4);
+      arena.xp[id] += 2 + (winnerId === null ? 0 : id === winnerId ? 3 : 4);
       if (id === winnerId) arena.wins[id]++;
     }
     if (winnerId) {
       const stageBonus = arena.bouts >= 11 ? 5 : arena.bouts >= 9 ? 3 : arena.bouts >= 5 ? 2 : 0;
-      arena.xp[winnerId] += stageBonus + (winnerSide === IVORY ? 1 : 0);
+      const bonus = stageBonus + (winnerId === champId ? 1 : 0);
+      arena.xp[winnerId] += bonus;
+      arenaProgress.bonusXp[winnerId] = (arenaProgress.bonusXp[winnerId] || 0) + bonus;
+      saveJSON(ARENA_PROGRESS_KEY, arenaProgress);
     }
     const champ = rosterById(champId), chall = rosterById(challId);
     let ceremony = false, text = '';
-    if (winnerSide === EBONY) {
+    if (winnerId === challId) {
       // the challenger takes the crown; the beaten champion goes to the back
       arena.streak = 0;
       arena.queue.push(champId);
@@ -4315,7 +4386,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
       arena.champion = challId;
       arena.challRounds = 0;
       text = (chall.face ? chall.face + ' ' : '') + aiName(challId) + ' beats ' + aiName(champId) + ' — new champion!';
-    } else if (winnerSide === IVORY) {
+    } else if (winnerId === champId) {
       arena.challRounds++;
       arena.streak = (arena.streak || 0) + 1;
       if (arena.streak === 3) {
@@ -4338,7 +4409,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
     } else {
       text = 'A draw — ' + aiName(champId) + ' keeps the board; ' + aiName(challId) + ' goes again.';
     }
-    if (manual && winnerSide !== EBONY) {
+    if (manual && winnerId !== challId) {
       // you called time on a deserving champion — the ceremony is the point
       ceremony = true;
     }
@@ -4378,8 +4449,18 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
 
   // the retirement ceremony: the winner's name takes the centre of the board
   // while the crowd asks how anyone could let that skill retire
+  let ceremonyEpoch = 0, ceremonyVoice = null;
+  function cancelCeremony() {
+    ceremonyEpoch++;
+    if (ceremonyVoice) { try { ceremonyVoice.stop(); } catch {} ceremonyVoice = null; }
+    SFX_BANK.sceneLockUntil = 0;
+    const element = $('ceremony'); if (element) element.hidden = true;
+  }
   const RETIREMENT_DECK = makeDeck(['v_retire1', 'v_retire2', 'v_retire_short']);
   function showCeremony(champId) {
+    cancelCeremony();
+    const epoch = ceremonyEpoch;
+    const later = (fn, delay) => setTimeout(() => { if (epoch === ceremonyEpoch) fn(); }, delay);
     const r = rosterById(champId);
     const el = $('ceremony');
     if (!el) return sleep(6500);
@@ -4392,30 +4473,34 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
       '</div>';
     el.hidden = false;
     SFX_BANK.play('gong', { vol: 0.9 });
-    setTimeout(() => SFX_BANK.play('st_drum1', { vol: 0.75 }), 350);
+    later(() => SFX_BANK.play('st_drum1', { vol: 0.75 }), 350);
     const major = (arena.wins[r.id] || 0) >= 5;
     const retirementClip = SFX_BANK.defs.v_retire_orig ? 'v_retire_orig'
       : major ? RETIREMENT_DECK() : pick(['v_retire1', 'v_retire_short']);
     const voiceMs = Math.min(15, (SFX_BANK.defs[retirementClip] || {}).durationSec || (SFX_BANK.buffers && SFX_BANK.buffers.get(retirementClip) || {}).duration || 5.84) * 1000;
     const ceremonyMs = Math.max(7400, voiceMs + 2400);
-    setTimeout(() => {
+    later(() => {
       const voice = SFX_BANK.play(retirementClip, { vol: 1, rate: 1, maxDuration: 15, sceneOwner: 'ceremony' });
+      ceremonyVoice = voice;
       if (voice) SFX_BANK.sceneLockUntil = performance.now() + voiceMs + 100;
     }, 1000);
-    setTimeout(() => SFX_BANK.play(pick(['st_appl1', 'st_appl2']), { vol: 0.85 }), voiceMs + 1250);
-    setTimeout(() => { el.hidden = true; }, ceremonyMs);
+    later(() => SFX_BANK.play(pick(['st_appl1', 'st_appl2']), { vol: 0.85 }), voiceMs + 1250);
+    later(() => { el.hidden = true; ceremonyVoice = null; }, ceremonyMs);
     return sleep(ceremonyMs);
   }
 
-  let autoNextTimer = 0;
+  let autoNextTimer = 0, autoNextGeneration = 0;
   function cancelAutoNext() {
-    clearTimeout(autoNextTimer);
+    autoNextGeneration++;
+    cancelCeremony();
+    clearInterval(autoNextTimer);
     autoNextTimer = 0;
     const el = $('autoNext');
     if (el) el.hidden = true;
   }
   function scheduleAutoNext() {
     cancelAutoNext();
+    const generation = autoNextGeneration;
     const el = $('autoNext');
     if (!el) return;
     const prevChamp = arena.champion;
@@ -4432,6 +4517,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
       setTimeout(() => SFX_BANK.play(pick(['st_air1', 'st_crowd1']), { vol: 0.8 }), 1600);
     }
     const beginCountdown = () => {
+      if (generation !== autoNextGeneration || G.mode !== 'aivai' || !settings.aivaiAuto) return;
       const c = rosterById(arena.champion), ch = rosterById(arena.queue[0] || arena.champion);
       let left = 6;
       const announce = () => {
@@ -4449,6 +4535,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
       };
       announce();
       const tick = setInterval(() => {
+        if (generation !== autoNextGeneration) { clearInterval(tick); return; }
         left -= 1;
         if (left <= 0) { clearInterval(tick); fire(); return; }
         if (left === 1) SFX_BANK.play('st_riser1', { vol: 0.65 });
@@ -4456,7 +4543,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
       }, 1000);
       autoNextTimer = tick; // interval id doubles as the cancel handle
     };
-    if (res.ceremony) showCeremony(G.seatIvory).then(beginCountdown);
+    if (res.ceremony) showCeremony(prevChamp).then(beginCountdown);
     else beginCountdown();
   }
 
@@ -4494,23 +4581,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
     // The challenger is never left more than two rungs below the champion.
     if (G.mode === 'aivai') guardArena();
     if (G.mode === 'aivai' && settings.aivaiAuto) {
-      G.seatIvory = arena.champion;
-      G.seatEbony = arena.queue[0];
-      if (G.seatEbony === G.seatIvory || !ROSTER.some((r) => r.id === G.seatEbony)) {
-        G.seatEbony = ROSTER.find((r) => r.id !== G.seatIvory).id;
-        arena.queue.unshift(G.seatEbony);
-      }
-      const cl = Math.min(10, Math.max(1, rosterLevel(G.seatIvory)));
-      const hl = Math.min(10, Math.max(rosterLevel(G.seatEbony), cl - 2));
-      G.diffIvory = LEVEL_IDS[cl - 1];
-      G.diffEbony = LEVEL_IDS[hl - 1];
-      // the game remembers its reunions: how often have these two met?
-      G.pairKey = [G.seatIvory, G.seatEbony].sort().join('|');
-      G.pairMeets = (arena.meetings[G.pairKey] || 0) + 1;
-      arena.meetings[G.pairKey] = G.pairMeets;
-      if (!arena.appeared.includes(G.seatIvory)) arena.appeared.push(G.seatIvory);
-      if (!arena.appeared.includes(G.seatEbony)) arena.appeared.push(G.seatEbony);
-      saveArena();
+      seatArenaBout();
     } else {
       G.seatIvory = arena.champion;
       G.seatEbony = ROSTER.find((r) => r.id !== arena.champion).id;
@@ -4525,7 +4596,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
     // the host introduces themselves: their national school speaks first
     const greeter = G.mode === 'ai' ? styleById(settings.style)
       : G.mode === 'aivai' ? (settings.aivaiAuto
-        ? styleById(rosterById(G.seatIvory).styleId)
+        ? styleById(rosterById(arena.champion).styleId)
         : styleById(settings.styleIvory)) : null;
     if (greeter && Math.random() < (G.mode === 'aivai' ? 0.3 : 0.45)) {
       setTimeout(() => SFX_BANK.play(greeter.intro, { vol: 0.8 }), 950);
@@ -4553,7 +4624,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
       const stage = stageOfBout(boutIx);
       let meetDelay = 5200;
       if (boutIx > 0 && stageOfBout(boutIx - 1) !== stage) {
-        const line = displayName(IVORY) + ' advances to the ' + SEASON_STAGES[stage].name + '!';
+        const line = aiName(arena.champion) + ' advances to the ' + SEASON_STAGES[stage].name + '!';
         meetDelay = 8400;
         setTimeout(() => {
           SFX_BANK.play('crown_fanfare', { vol: 0.9 });
@@ -4788,6 +4859,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
             ' bouts a season closes — a full tournament of group stage, quarter-finals, semi-finals and a grand final, each step-up announced — and the world returns one rung stronger. A challenger never faces a champion more than two rungs above it, so bouts stay fair, and when two nations meet again, the game remembers and says so. When every nation has played and the champion still stands, it retires — with the ceremony it deserves.'
           : 'Hand-picked engines: pick the two schools yourself. Auto-rematch is off, so the game stops after every bout.';
     }
+    renderArenaProgress();
     $('nameInput').value = settings.pname;
     $('name2Input').value = settings.pname2;
     const rs = E.RULESETS[settings.rsId];
@@ -5061,6 +5133,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
   });
   $('btnSound').addEventListener('click', () => {
     settings.sound = !settings.sound;
+    FX.syncVolume();
     saveJSON(SETTINGS_KEY, settings);
     if (!settings.sound) FX.thinkStop();
     updateSegs();
@@ -5084,6 +5157,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = makeEngine
     if (!b) return;
     const key = b.dataset.v;
     settings.sfx[key] = !settings.sfx[key];
+    if (key === 'think' && !settings.sfx.think) FX.thinkStop();
     saveJSON(SETTINGS_KEY, settings);
     updateSegs();
     // audible confirmation per category

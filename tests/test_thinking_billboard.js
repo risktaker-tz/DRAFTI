@@ -28,6 +28,16 @@ c.G.over=true;c.G.result={winner:-1,reason:'No legal moves'};c.render();assert.e
 c.G.over=false;c.G.mode='ai';c.G.humanSide=1;c.G.phase='idle';c.render();assert.equal(el('bannerText').textContent,'Your move');assert.equal(el('bannerDetail').textContent,'Canadian');
 c.G.mode='human';c.render();assert.equal(el('bannerContext').textContent,'Two players');
 assert(!/tier\.soft\)\s*\{\s*SFX_BANK\.play\('clock_tick'/.test(ui),'Idle nudge must remain silent');
+let chipHandler,chipStops=0;
+const controls={settings:{sound:false,sfx:{think:true}},FX:{thinkStop:()=>chipStops++},SETTINGS_KEY:'test',saveJSON(){},updateSegs(){},
+  $:()=>({addEventListener:(_event,fn)=>chipHandler=fn})};
+vm.runInNewContext(ui.slice(ui.indexOf("  $('sfxChips').addEventListener"),ui.indexOf('  // theme picker')),controls);
+chipHandler({target:{closest:()=>({dataset:{v:'think'}})}});assert.equal(chipStops,1,'Thinking chip stops an active rustle immediately');
+const mixCalls=[],mixContext={settings:{sound:false,sfx:{master:.9}}};
+vm.runInNewContext('this.mix={'+ui.slice(ui.indexOf('    setMaster(v)'),ui.indexOf('    // A sparse,'))+'};',mixContext);
+mixContext.mix.ctx={currentTime:10};mixContext.mix.out={gain:{setTargetAtTime:value=>mixCalls.push(value)}};
+mixContext.mix.setMaster(.6);assert.equal(mixCalls.at(-1),0);assert.equal(mixContext.settings.sfx.master,.6);
+mixContext.settings.sound=true;mixContext.mix.syncVolume();assert.equal(mixCalls.at(-1),.6,'Unmute restores the selected volume without overwriting it');
 let classified;
 Object.assign(c,{countSide:s=>s===1?5:4,applyMoveEvent:ev=>classified=ev});
 vm.runInContext(ui.slice(ui.indexOf('  function classifySync('),ui.indexOf('  // impact shake,'))+'this.classify=classifySync;',c);

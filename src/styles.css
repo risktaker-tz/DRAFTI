@@ -1023,6 +1023,14 @@ body.pieces-stone .piece.ebony .body {
 
 /* Broadcast controls preserve the board and every existing action. */
 .presentation-options { display: grid; gap: 12px; }
+.arena-progress { margin-top: 14px; font-size: 12px; }
+.arena-progress summary { color: var(--accent); cursor: pointer; padding: 8px 0; }
+.arena-progress-scroll { max-height: 270px; overflow: auto; border: 1px solid var(--panel-line); border-radius: 8px; }
+.arena-progress table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.arena-progress caption { text-align: left; padding: 10px; color: var(--ink-dim); }
+.arena-progress th, .arena-progress td { padding: 8px; text-align: right; border-bottom: 1px solid var(--panel-line); }
+.arena-progress th:first-child, .arena-progress td:first-child { text-align: left; }
+.arena-progress th { font-size: 10px; color: var(--ink-dim); }
 .presentation-options label { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 .presentation-options select { max-width: 100%; padding: 8px; color: var(--ink); background: var(--panel); border: 1px solid var(--panel-line); border-radius: 8px; }
 body.stream-view .banner { font-size: clamp(13px, 1.5vw, 18px); }
