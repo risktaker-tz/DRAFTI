@@ -22,6 +22,12 @@ for(const [left,right] of [['TZ','KE'],['IT','BF'],['ID','MC'],['CI','EC'],['MG'
  console.log(left,right,x[2],y[2]);
 }
 for(const [id] of nations){a.G.seatIvory=id;a.G.seatEbony=id==='TZ'?'KE':'TZ';const [p]=a.flagPalettes();check(p&&/^#[a-f0-9]{6}$/i.test(p[2]),id+' valid palette');const ratio=(Math.max(a.lumaC(p[2]),a.lumaC(p.deep))+.05)/(Math.min(a.lumaC(p[2]),a.lumaC(p.deep))+.05);check(ratio>=3,id+' crown contrast');}
+for (const [left] of nations) for (const [right] of nations) {
+ if (left===right) continue;
+ a.G.seatIvory=left;a.G.seatEbony=right;
+ const [x,y]=a.flagPalettes();
+ check(!a.colorClose(x[2],y[2]),left+'/'+right+' pairwise separation');
+}
 a.renamed.add('TZ');a.G.seatIvory='TZ';check(a.flagPalettes()[0]===null,'renamed nation uses classic');a.renamed.clear();check(a.flagPalettes()[0]!==null,'restored nation regains flag');
 a.settings.arenaFlags=false;check(a.flagPalettes().every(p=>p===null),'arena classic option');
 for(const mode of ['ai','hotseat']){a.G.mode=mode;check(a.flagPalettes().every(p=>p===null),mode+' default classic');a.settings.humanFlags=true;check(a.flagPalettes().every(Boolean),mode+' opt-in flags');a.settings.humanFlags=false;}

@@ -332,3 +332,5 @@ Kenya's main/secondary piece colours now use black/red, consistent with the Wiki
 ### Flag verification
 
 `node tests/test_flags.js` checks production palette logic across all 194 nations, including crown contrast, the named clash pairs, rename/restore behaviour and mode toggles. Crowns now choose a contrasting light or dark emblem; secondary flag colours are selected only when main colours clash. The dark-colour visibility floor preserves black flags more faithfully. Burundi, Eritrea, Gambia and Zambia palettes have been aligned with the collected Wikimedia SVG reference colours.
+
+The flag resolver is additionally checked against all 37,442 ordered pairings of distinct nations. Its final lightness adjustment now repeats until the existing separation threshold is met, fixing the Kenya/Namibia clash found by that exhaustive check.

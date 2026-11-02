@@ -290,9 +290,12 @@
       // reads clearly more distinct, then split lightness if still close
       if (avoid && colorClose(c, avoid) && cands[1] && dist(cands[1]) > dist(cands[0]) + 120) c = clampLuma(cands[1], .035, .88);
       if (avoid && colorClose(c, avoid)) {
-        c = lumaC(c) >= lumaC(avoid)
-          ? clampLuma(mixC(c, '#ffffff', .4), .12, .9)
-          : clampLuma(mixC(c, '#000000', .35), .1, .88);
+        // Preserve the flag hue while moving away from the other seat's
+        // luminance. Recheck after each step: a single shift can still clash.
+        const target = lumaC(avoid) < .35 ? '#ffffff' : '#000000';
+        for (let step = 0; step < 12 && colorClose(c, avoid); step++) {
+          c = mixC(c, target, .22);
+        }
       }
       return c;
     };
