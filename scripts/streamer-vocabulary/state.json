@@ -514,7 +514,7 @@
   "sj2_040": {
    "error": "tts-failed",
    "status": "failed",
-   "takes": 8
+   "takes": 10
   },
   "sj2_041": {
    "bytes": 23266,
@@ -825,22 +825,22 @@
   "sj2_075": {
    "error": "tts-failed",
    "status": "failed",
-   "takes": 6
+   "takes": 8
   },
   "sj2_076": {
    "error": "tts-failed",
    "status": "failed",
-   "takes": 6
+   "takes": 8
   },
   "sj2_077": {
    "error": "tts-failed",
    "status": "failed",
-   "takes": 7
+   "takes": 8
   },
   "sj2_078": {
    "error": "tts-failed",
    "status": "failed",
-   "takes": 7
+   "takes": 8
   },
   "sm2_001": {
    "bytes": 41551,
