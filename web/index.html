@@ -7159,11 +7159,11 @@ function createSoundAudit(capacity = 12000) {
     played:row=>{
       if (row.purpose === 'cheer' && settings.audienceVolume > 0 &&
           !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        const edge = row.side === IVORY ? 'inset 0 14px' : 'inset 0 -14px';
-        frameEl.animate?.([
-          {boxShadow: edge + ' 22px -18px transparent'},
-          {boxShadow: edge + ' 22px -5px var(--accent-soft)', offset: .25},
-          {boxShadow: edge + ' 22px -18px transparent'},
+        const tray = $(row.side === IVORY ? 'trayTop' : 'trayBottom');
+        tray?.animate?.([
+          {outline: '2px solid transparent', outlineOffset: '1px'},
+          {outline: '2px solid var(--accent-soft)', outlineOffset: '3px', offset: .25},
+          {outline: '2px solid transparent', outlineOffset: '5px'},
         ], {duration: 700, easing: 'ease-out'});
       }
       if(SOUND_AUDIT){const event={...row,kind:'audience',category:'audience',at:Math.round(performance.now()),
