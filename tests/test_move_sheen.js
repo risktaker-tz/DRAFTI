@@ -33,4 +33,7 @@ now=1400;marks=[];c.renderHighlights();assert.equal(squares[11].style['--trail-a
 now=1900;marks=[];c.renderHighlights();assert.equal(marks.length,0,'Old highlights expire even if no other piece moves');
 assert(!css.includes('linear-gradient(var(--move-sheen-angle'),'The hard diagonal square cut is removed');
 assert(css.includes('animation: landing-memory 900ms'));
+assert(/\.capture-ribbon \{[^}]*z-index: 0/s.test(css));
+assert(/\.piece \{[^}]*z-index: 2/s.test(css),'Normal pieces sit above their underglow');
+assert(!/\.feast-ribbon \{[^}]*z-index: [1-9]/s.test(css),'Multi-capture arrows cannot rise above the discs');
 console.log('PASS fading highlights, redraw continuity, authentic ribbon geometry on 8/10/12 boards, reversed diagonals, bounded cleanup and reduced motion');

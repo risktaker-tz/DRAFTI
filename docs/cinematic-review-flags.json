@@ -1,0 +1,23 @@
+{
+  "before": {
+    "a": "radial-gradient(circle at 35% 28%, #6bada7, #007168 55%, #004b45)",
+    "b": "radial-gradient(circle at 35% 28%, #e17086, #CC092F 55%, #87061f)",
+    "names": [
+      "Mozambique",
+      "Angola"
+    ]
+  },
+  "after": {
+    "a": "radial-gradient(circle at 35% 28%, #6bada7, #007168 55%, #004b45)",
+    "b": "radial-gradient(circle at 35% 28%, #e17086, #CC092F 55%, #87061f)",
+    "flags": true,
+    "hop": [
+      "467.5ms"
+    ],
+    "names": [
+      "Mozambique",
+      "Angola"
+    ],
+    "speed": "2×"
+  }
+}

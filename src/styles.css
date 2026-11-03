@@ -201,14 +201,14 @@ body.fx-scan::after {
   animation: landing-memory 900ms ease-out var(--trail-age, 0ms) both;
 }
 @keyframes landing-memory { from { opacity: .6; } to { opacity: 0; } }
-.capture-ribbon { position: absolute; height: 3px; z-index: 1; pointer-events: none;
+.capture-ribbon { position: absolute; height: 3px; z-index: 0; pointer-events: none;
   transform-origin: 0 50%; opacity: 0;
   animation: ribbon-fade calc(var(--ribbon-travel) + 400ms) ease-out both; }
 .capture-ribbon i { display: block; width: 100%; height: 100%; border-radius: 100%;
   background: linear-gradient(90deg, transparent, var(--accent-soft) 25%, #fff5d5 88%, #fff);
   box-shadow: 0 0 5px var(--accent), 0 0 12px var(--accent-soft);
-  transform-origin: left center; animation: ribbon-draw var(--ribbon-travel) cubic-bezier(.2,.65,.3,1) both; }
-.feast-ribbon { height: 4px; z-index: 2; }
+  transform-origin: left center; animation: ribbon-draw var(--ribbon-travel) cubic-bezier(.3,.7,.4,1) both; }
+.feast-ribbon { height: 4px; }
 .feast-ribbon i::after { content: ''; position: absolute; right: 0; top: 50%;
   width: 8px; height: 8px; border-top: 2px solid #fff9e9; border-right: 2px solid #fff9e9;
   transform: translateY(-50%) rotate(45deg); filter: drop-shadow(0 0 4px var(--accent)); }
@@ -247,7 +247,7 @@ body.fx-scan::after {
 /* ---------- pieces ---------- */
 .pieces { position: absolute; inset: 0; pointer-events: none; }
 .piece {
-  position: absolute; border-radius: 50%;
+  position: absolute; border-radius: 50%; z-index: 2;
   display: flex; align-items: center; justify-content: center;
   transition: left var(--hop-time, .17s) cubic-bezier(.3, .7, .4, 1), top var(--hop-time, .17s) cubic-bezier(.3, .7, .4, 1),
               transform var(--piece-fx-time, .25s) ease, opacity var(--piece-fx-time, .25s) ease;

@@ -19,13 +19,17 @@ Object.assign(c, {$:el, document:{body:{classList:{toggle(){}}}},IVORY:1,EBONY:-
   SEASON_LEN:12,SEASON_STAGES:[{name:'Semi-finals'}],stageOfBout:()=>0,ord:n=>n+'th',
   G:{mode:'aivai',side:1,phase:'idle',over:false,pairMeets:4,rs:{name:'Canadian'},board:[],history:[],legal:[]}});
 c.FX=c.fx;
+c.G.nationalMatch=true;c.G.arenaSeason=3;c.G.arenaBout=8;
+vm.runInContext(ui.slice(ui.indexOf('  const arenaOn ='),ui.indexOf('  const posKey =')),c);
 vm.runInContext(ui.slice(ui.indexOf('  function lowMaterialLimit('),ui.indexOf('  function checkGameEnd(')),c);
 vm.runInContext(ui.slice(ui.indexOf('  function updateBanner()'),ui.indexOf('  function sideDot()'))+'this.render=updateBanner;',c);
 c.render();assert.equal(el('bannerIvory').textContent,'Tanzania');assert.equal(el('bannerEbony').textContent,'Kenya');
 assert.equal(el('bannerContext').textContent,'Semi-finals');assert.equal(el('bannerDetail').textContent,'Bout 9/12 · 4th meeting');
 c.G.phase='thinking';c.render();assert.equal(el('bannerText').textContent,'Thinking — Tanzania');
 assert.equal(el('bannerIvory').textContent,'Tanzania','Matchup remains independent of thinking status');
-c.G.over=true;c.G.result={winner:-1,reason:'No legal moves'};c.render();assert.equal(el('bannerText').textContent,'Kenya wins');assert.equal(el('bannerContext').textContent,'No legal moves');
+c.G.over=true;c.G.result={winner:-1,reason:'No legal moves'};c.settings.aivaiAuto=false;c.arena.season=4;c.arena.bouts=0;c.render();assert.equal(el('bannerText').textContent,'Kenya wins');assert.equal(el('bannerContext').textContent,'No legal moves');
+assert.equal(el('bannerEventLabel').textContent,'Season 3','Finished board retains its real season after the ladder advances');
+assert.equal(el('bannerDetail').textContent,'Bout 9/12 · 4th meeting','Stop and review cannot replace the finished bout identity');
 c.G.over=false;c.G.mode='ai';c.G.humanSide=1;c.G.phase='idle';c.render();assert.equal(el('bannerText').textContent,'Your move');assert.equal(el('bannerDetail').textContent,'Canadian');
 c.G.mode='human';c.render();assert.equal(el('bannerContext').textContent,'Two players');
 assert(!/tier\.soft\)\s*\{\s*SFX_BANK\.play\('clock_tick'/.test(ui),'Idle nudge must remain silent');

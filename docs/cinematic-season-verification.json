@@ -1,0 +1,337 @@
+{
+  "scope": "Actual logged sound starts and game boundaries on this navigation; not a listening certificate.",
+  "sounds": 5634,
+  "distinctIds": 154,
+  "categories": {
+    "think": 1,
+    "party": 116,
+    "ui": 2653,
+    "drama": 153,
+    "classic": 2246,
+    "voice": 140,
+    "majestic": 324,
+    "judge": 1
+  },
+  "observedModes": {
+    "ai": 7,
+    "aivai": 5627
+  },
+  "completedGames": [
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "run": 1793723825040.8,
+      "epoch": 2,
+      "season": 1,
+      "bout": 0,
+      "plies": 87,
+      "sounds": 254,
+      "result": {
+        "winner": 1,
+        "reason": "Usiogope has no legal move."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "run": 1793723825040.8,
+      "epoch": 3,
+      "season": 1,
+      "bout": 1,
+      "plies": 86,
+      "sounds": 218,
+      "result": {
+        "winner": -1,
+        "reason": "Every Uhakika piece has been captured."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "run": 1793723825040.8,
+      "epoch": 4,
+      "season": 1,
+      "bout": 2,
+      "plies": 95,
+      "sounds": 210,
+      "result": {
+        "winner": 1,
+        "reason": "Usiogope has no legal move."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "run": 1793723825040.8,
+      "epoch": 5,
+      "season": 1,
+      "bout": 3,
+      "plies": 86,
+      "sounds": 227,
+      "result": {
+        "winner": -1,
+        "reason": "Every Uhakika piece has been captured."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "run": 1793723825040.8,
+      "epoch": 6,
+      "season": 1,
+      "bout": 4,
+      "plies": 107,
+      "sounds": 303,
+      "result": {
+        "winner": 1,
+        "reason": "Every Usiogope piece has been captured."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "run": 1793723825040.8,
+      "epoch": 7,
+      "season": 1,
+      "bout": 5,
+      "plies": 109,
+      "sounds": 259,
+      "result": {
+        "winner": 1,
+        "reason": "Every Usiogope piece has been captured."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "run": 1793723825040.8,
+      "epoch": 8,
+      "season": 1,
+      "bout": 6,
+      "plies": 93,
+      "sounds": 217,
+      "result": {
+        "winner": 1,
+        "reason": "Usiogope has no legal move."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "run": 1793723825040.8,
+      "epoch": 9,
+      "season": 1,
+      "bout": 7,
+      "plies": 124,
+      "sounds": 301,
+      "result": {
+        "winner": -1,
+        "reason": "Every Uhakika piece has been captured."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "run": 1793723825040.8,
+      "epoch": 10,
+      "season": 1,
+      "bout": 8,
+      "plies": 114,
+      "sounds": 263,
+      "result": {
+        "winner": -1,
+        "reason": "Every Uhakika piece has been captured."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "run": 1793723825040.8,
+      "epoch": 11,
+      "season": 1,
+      "bout": 9,
+      "plies": 66,
+      "sounds": 165,
+      "result": {
+        "winner": -1,
+        "reason": "Every Uhakika piece has been captured."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "run": 1793723825040.8,
+      "epoch": 12,
+      "season": 1,
+      "bout": 10,
+      "plies": 85,
+      "sounds": 183,
+      "result": {
+        "winner": 1,
+        "reason": "Every Usiogope piece has been captured."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "run": 1793723825040.8,
+      "epoch": 13,
+      "season": 1,
+      "bout": 11,
+      "plies": 116,
+      "sounds": 287,
+      "result": {
+        "winner": null,
+        "reason": "Low-material draw after 2 moves without a capture or crowning."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "run": 1793723825040.8,
+      "epoch": 14,
+      "season": 2,
+      "bout": 0,
+      "plies": 118,
+      "sounds": 289,
+      "result": {
+        "winner": -1,
+        "reason": "Every Uhakika piece has been captured."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "run": 1793723825040.8,
+      "epoch": 15,
+      "season": 2,
+      "bout": 1,
+      "plies": 74,
+      "sounds": 190,
+      "result": {
+        "winner": -1,
+        "reason": "Uhakika has no legal move."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "run": 1793723825040.8,
+      "epoch": 16,
+      "season": 2,
+      "bout": 2,
+      "plies": 85,
+      "sounds": 208,
+      "result": {
+        "winner": 1,
+        "reason": "Every Usiogope piece has been captured."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "run": 1793723825040.8,
+      "epoch": 17,
+      "season": 2,
+      "bout": 3,
+      "plies": 75,
+      "sounds": 175,
+      "result": {
+        "winner": 1,
+        "reason": "Every Usiogope piece has been captured."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "run": 1793723825040.8,
+      "epoch": 18,
+      "season": 2,
+      "bout": 4,
+      "plies": 97,
+      "sounds": 249,
+      "result": {
+        "winner": 1,
+        "reason": "Every Usiogope piece has been captured."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "run": 1793723825040.8,
+      "epoch": 19,
+      "season": 2,
+      "bout": 5,
+      "plies": 100,
+      "sounds": 296,
+      "result": {
+        "winner": -1,
+        "reason": "Every Uhakika piece has been captured."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "run": 1793723825040.8,
+      "epoch": 20,
+      "season": 2,
+      "bout": 6,
+      "plies": 123,
+      "sounds": 373,
+      "result": {
+        "winner": 1,
+        "reason": "Every Usiogope piece has been captured."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "run": 1793723825040.8,
+      "epoch": 21,
+      "season": 2,
+      "bout": 7,
+      "plies": 89,
+      "sounds": 267,
+      "result": {
+        "winner": 1,
+        "reason": "Every Usiogope piece has been captured."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "run": 1793723825040.8,
+      "epoch": 22,
+      "season": 2,
+      "bout": 8,
+      "plies": 83,
+      "sounds": 252,
+      "result": {
+        "winner": 1,
+        "reason": "Usiogope has no legal move."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "run": 1793723825040.8,
+      "epoch": 23,
+      "season": 2,
+      "bout": 9,
+      "plies": 82,
+      "sounds": 263,
+      "result": {
+        "winner": -1,
+        "reason": "Every Uhakika piece has been captured."
+      }
+    }
+  ],
+  "completedSeasons": [
+    {
+      "runAndSeason": "1793723825040.8:1",
+      "bouts": 12
+    }
+  ],
+  "issues": [],
+  "limitations": "Checks logged starts, IDs, clip cooldowns, supplied narrator context and matching fresh-start/end checkpoints. Resumed or partial games do not prove a full playthrough. It does not certify audible quality, every clip, installation or modes/seasons without matching complete evidence."
+}

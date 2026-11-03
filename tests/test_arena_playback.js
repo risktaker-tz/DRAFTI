@@ -26,7 +26,9 @@ c.G.aiPaused=false;pending();assert.equal(executed,1,'Unpaused matching result c
 const h={G:{mode:'aivai',aiSpeed:1},HOP_MS:200,window:{matchMedia:()=>({matches:false})},Math};vm.createContext(h);
 vm.runInContext(ui.slice(ui.indexOf('  function moveHopMs('),ui.indexOf('  async function animateMove(')),h);
 let previousHop=Infinity;
-for(const speed of [1,2,4,6,8,10,16]){h.G.aiSpeed=speed;assert.equal(h.moveHopMs(0),200/speed);assert(h.moveHopMs(0)<previousHop);previousHop=h.moveHopMs(0);}
+const watchable={1:700,2:550,4:430,6:340,8:270,10:210,16:100};
+for(const speed of [1,2,4,6,8,10,16]){h.G.aiSpeed=speed;assert.equal(h.moveHopMs(0),watchable[speed]);assert(h.moveHopMs(0)<previousHop);previousHop=h.moveHopMs(0);}
+assert(watchable[2]>=5*watchable[16],'2x leaves clear viewing time; 16x owns the former rapid 2x pace');
 h.G.mode='ai';assert.equal(h.moveHopMs(0),200,'Spectator speed cannot speed up human gestures');
 const sent=[];const s={G:{mode:'aivai',side:1,rsId:'american',noProg:0,board:[1,-1]},reqId:0,Date:{now:()=>0},
   styleForSide:()=>null,searchLevelForSide:()=> 'l10',levelOpts:()=>({opts:{budgetMs:5200,maxDepth:24}}),

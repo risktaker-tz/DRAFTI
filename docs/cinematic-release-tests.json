@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-03T16:42:40.185Z",
+  "at": "2026-11-03T16:58:49.601Z",
   "rows": [
     {
       "name": "test_ai_learning.js",
@@ -64,7 +64,7 @@
     {
       "name": "test_build_reproducible.js",
       "status": 0,
-      "output": "Portable build passed: 13074246 identical bytes, SHA-256 971e9e5d99c18dc8604ee1c1b175c6bbad69a765a443f182d90d50a3fc713158"
+      "output": "Portable build passed: 13075564 identical bytes, SHA-256 b964dd57e44a292d54f6606a0336d6cf93af2a1a6503869e99ef3bf4cef64390"
     },
     {
       "name": "test_capture_destination.js",
@@ -99,7 +99,7 @@
     {
       "name": "test_engine.js",
       "status": 0,
-      "output": "piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  info   canadian: 15 games, 2406 plies, 15 natural endings\n  ok    canadian: random games terminate (draw rules work)\n\n[playing-style weights in evaluate]\n  ok    aggression boosts the styled side\n  ok    opponent aggression leaves eval unchanged\n  ok    guard boosts the home rank\n  ok    trade willingness cheapens own material\n  ok    king multiplier scales king value\n  ok    weighted search returns a legal opening move\n  ok    weighted search completes a depth iteration\n\n[bait detection — a choice of captures, one walks into a shot]\n  ok    bait position is a forced capture with two choices\n  ok    the safe capture clearly beats the losing capture\n  ok    a safe option exists (loose-bait signature)\n  ok    the search plays the winning capture, not the shot\n\n38466 passed, 0 failed"
+      "output": "piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  info   canadian: 15 games, 2366 plies, 15 natural endings\n  ok    canadian: random games terminate (draw rules work)\n\n[playing-style weights in evaluate]\n  ok    aggression boosts the styled side\n  ok    opponent aggression leaves eval unchanged\n  ok    guard boosts the home rank\n  ok    trade willingness cheapens own material\n  ok    king multiplier scales king value\n  ok    weighted search returns a legal opening move\n  ok    weighted search completes a depth iteration\n\n[bait detection — a choice of captures, one walks into a shot]\n  ok    bait position is a forced capture with two choices\n  ok    the safe capture clearly beats the losing capture\n  ok    a safe option exists (loose-bait signature)\n  ok    the search plays the winning capture, not the shot\n\n37876 passed, 0 failed"
     },
     {
       "name": "test_fast_arena_animals.js",
@@ -119,7 +119,7 @@
     {
       "name": "test_flags.js",
       "status": 0,
-      "output": "TZ KE #1EB53A #434343\nIT BF #009246 #EF2B2D\nID MC #FF0000 #dbdbdb\nCI EC #FF8200 #034EA2\nMG KE #00843D #BB0000\n37848 flag assertions passed"
+      "output": "TZ KE #1EB53A #434343\nIT BF #009246 #EF2B2D\nID MC #FF0000 #dbdbdb\nCI EC #FF8200 #034EA2\nMG KE #00843D #BB0000\n37850 flag assertions passed"
     },
     {
       "name": "test_flag_reference.js",
@@ -195,6 +195,11 @@
       "name": "test_sound_references.js",
       "status": 0,
       "output": "Sound reference tracing: literal, named pool, generated style, conditional, optional and unsupported-expression checks passed"
+    },
+    {
+      "name": "test_streamer_authenticity.js",
+      "status": 0,
+      "output": "PASS exact double-capture context, game/ply/result invalidation, no false win streaks or unsupported comebacks"
     },
     {
       "name": "test_streamer_engagement.js",

@@ -427,7 +427,7 @@ function createSoundAudit(capacity = 12000) {
   // pulled apart in lightness. Same-colour flags (Indonesia vs Monaco) end
   // up red versus white, never red versus red.
   function flagPalettes() {
-    if (G.mode === 'aivai' && !settings.aivaiAuto) return [null, null];
+    if (G.mode === 'aivai' && !(G.nationalMatch ?? settings.aivaiAuto)) return [null, null];
     if (G.mode === 'aivai' ? settings.arenaFlags === false : !settings.humanFlags) return [null, null];
     const pick = (id, side, avoid) => {
       if (!ROSTER.some((r) => r.id === id) || customNamed(id)) return null;
@@ -555,6 +555,7 @@ function createSoundAudit(capacity = 12000) {
   }
   function seatArenaBout() {
     guardArena();
+    G.arenaSeason = arena.season; G.arenaBout = arena.bouts;
     const champion = arena.champion, challenger = arena.queue[0];
     // Alternate the colours (and therefore opening side), independently of
     // who holds the title. Neither role gets a permanent first-move right.
@@ -1740,7 +1741,7 @@ function createSoundAudit(capacity = 12000) {
     pairKey: null, pairMeets: 0, // how often this matchup has happened before
   };
   // the roster arena is live whenever AI-vs-AI runs with auto-rematch
-  const arenaOn = () => G.mode === 'aivai' && settings.aivaiAuto;
+  const arenaOn = () => G.mode === 'aivai' && (G.nationalMatch ?? settings.aivaiAuto);
 
   const posKey = (b, s) => b.join(',') + '|' + s;
   const boardAt = (i) => G.board[i];
@@ -2385,13 +2386,17 @@ function createSoundAudit(capacity = 12000) {
       },
     },
     at: new Map(), count: new Map(), games: 0, busyUntil: 0, lastLine: '', cue: { snd: 'v_nice', dur: 2.5 },
-    joinedMidgame: false, lastSpokeAt: -Infinity, opened: false, observedPly: -1,
+    joinedMidgame: false,
+    sessionOpened: (() => { try { return sessionStorage.getItem('drafti.stream.welcomed.v1') === '1'; } catch { return false; } })(),
+    lastSpokeAt: -Infinity, opened: false, observedPly: -1,
+    rememberSession() { this.sessionOpened = true; try { sessionStorage.setItem('drafti.stream.welcomed.v1', '1'); } catch {} },
     reset() { this.count.clear(); this.games++; this.joinedMidgame = false; this.opened = false; this.openedAt = performance.now(); this.observedPly = -1; },
     openGame() {
-      if (this.joinedMidgame || this.opened) return;
-      // first move of a game: greet the chat, or every third game make the
-      // engagement call (like / share / follow) instead
-      this.opened = this.games % 3 === 2 ? this.say('cta') : this.say('greeting');
+      if (this.joinedMidgame || this.opened || this.sessionOpened) return;
+      // A new bout is not a new livestream. Keep this session flag across
+      // per-game resets and voice switches; never welcome an ongoing show.
+      this.opened = this.say('greeting');
+      if (this.opened) this.rememberSession();
     },
     pulse() {
       // Retry missed openings and fill real quiet moments, never a speech loop
@@ -2405,7 +2410,8 @@ function createSoundAudit(capacity = 12000) {
         return;
       }
       if (!G.history.length) return;
-      if (!this.joinedMidgame && !this.opened && now - this.openedAt < 15000) { this.openGame(); return; }
+      if (this.openedAt == null) { this.joinedMidgame = true; this.rememberSession(); }
+      if (!this.joinedMidgame && !this.sessionOpened && !this.opened && now - this.openedAt < 15000) { this.openGame(); return; }
       const move = G.history.at(-1).move;
       if (this.observedPly !== G.history.length && now - (G.lastMoveAt || 0) < 5000) {
         this.observedPly = G.history.length;
@@ -2596,6 +2602,8 @@ function createSoundAudit(capacity = 12000) {
   let lastAdvantageAt = -Infinity;
   function applyMoveEvent(ev, ply, flavor, endSq) {
     if (G.history.length <= 1) STREAMER.openGame();
+    const eventEpoch = gameEpoch;
+    const currentEvent = () => eventEpoch === gameEpoch && G.history.length === ply && !G.over;
     const def = MOVE_EVENTS[ev] || MOVE_EVENTS.none;
     if (def.rank <= lastEvent.rank && lastEvent.ply === ply) return;
     lastEvent = { rank: def.rank, ply };
@@ -2608,13 +2616,13 @@ function createSoundAudit(capacity = 12000) {
       thump();
       // the table reacts: the greedy shout, then the feast commentary
       setTimeout(() => SFX_BANK.play('badboy', { vol: 1 }), 600);
-      setTimeout(() => { if (!STREAMER.say('great')) SFX_BANK.play(pick(FEAST_POOL), { vol: 0.95 }); }, 1550);
+      setTimeout(() => { if (!currentEvent()) return; if (!STREAMER.say('great')) SFX_BANK.play(pick(FEAST_POOL), { vol: 0.95 }); }, 1550);
     } else if (ev === 'majestic') {
       SFX_BANK.play(pick(['oof', 'oof', 'eagle', 'vineboom']), { vol: 1 }); // "OOF." / the boom
       flashLabel('Double!', 'party');
       shake('shake-m');
       setTimeout(() => SFX_BANK.play('badboy', { vol: 1 }), 550);
-      setTimeout(() => { if (!STREAMER.say('feast')) SFX_BANK.play(pick(HEAVY_POOL), { vol: 0.95 }); }, 1450);
+      setTimeout(() => { if (!currentEvent()) return; if (!STREAMER.say('feast')) SFX_BANK.play(pick(HEAVY_POOL), { vol: 0.95 }); }, 1450);
     } else if (ev === 'promo') {
       SFX_BANK.play('elephant', { vol: 1 });
       SFX_BANK.play('crown_fanfare', { vol: 0.8 });
@@ -2661,7 +2669,8 @@ function createSoundAudit(capacity = 12000) {
       if (ply - lastBlunderPly === 2 && Math.random() < 0.75) {
         lastBlunderPly = -1;
         SFX_BANK.play('relief', { vol: 0.7 });
-        if (!STREAMER.say('comeback')) SFX_BANK.play(pick(COMEBACK_POOL), { vol: 0.9 });
+        // Recovering from a mistake alone does not prove a material comeback.
+        if (!STREAMER.say('praise')) SFX_BANK.play(pick(COMEBACK_POOL), { vol: 0.9 });
         flashLabel('Repaired!', 'judge');
         return;
       }
@@ -2705,7 +2714,7 @@ function createSoundAudit(capacity = 12000) {
     } else if (ev === 'feastmissed') {
       // the mover grabbed the wrong piece: a bigger feast was on the board
       SFX_BANK.play('trombone', { vol: 1 });
-      setTimeout(() => { if (!STREAMER.say('blunder_own')) SFX_BANK.play(pick(['v_wrong1', 'v_wrong2', 'v_wrong3', 'v_wrong4']), { vol: 0.95 }); }, 900);
+      setTimeout(() => { if (!currentEvent()) return; if (!STREAMER.say('blunder_own')) SFX_BANK.play(pick(['v_wrong1', 'v_wrong2', 'v_wrong3', 'v_wrong4']), { vol: 0.95 }); }, 900);
       flashLabel('Wrong piece!', 'comedy');
     } else if (ev === 'awkward') {
       const pool = ['ahooga', 'woops', 'banana', 'haha', 'klonk', 'shloop', 'gulp', 'smarts', 'fall', 'scramble', 'zip'];
@@ -3005,9 +3014,12 @@ function createSoundAudit(capacity = 12000) {
     setTimeout(() => effect.remove(), 1100);
   }
   function moveHopMs(captures) {
-    const speed = G.mode === 'aivai' ? G.aiSpeed : 1;
+    // Watchable presentation rungs, independent of the engine's search. 16x
+    // retains the former rapid 2x hop; lower settings leave room to follow it.
+    const arenaMs = { 1: 700, 2: 550, 4: 430, 6: 340, 8: 270, 10: 210, 16: 100 };
+    const base = G.mode === 'aivai' ? (arenaMs[G.aiSpeed] || arenaMs[1]) : HOP_MS;
     const feast = captures >= 3 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    return Math.max(8, HOP_MS * (feast ? 1.25 : 1) / speed);
+    return base * (feast ? 1.25 : 1);
   }
   function captureRibbon(from, to, hopMs, captures) {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -3032,7 +3044,7 @@ function createSoundAudit(capacity = 12000) {
     if (!p) return;
     const hopMs = moveHopMs(mv.caps.length);
     p.el.style.setProperty('--hop-time', (hopMs * .85) + 'ms');
-    p.el.style.setProperty('--piece-fx-time', (G.mode === 'aivai' ? 250 / (G.aiSpeed || 1) : 250) + 'ms');
+    p.el.style.setProperty('--piece-fx-time', (G.mode === 'aivai' ? Math.min(250, hopMs * .7) : 250) + 'ms');
     p.el.classList.add('lifted');
     if (mv.path.length === 2 && !mv.caps.length) SFX_BANK.effect('slide', { vol: .075 });
     if (Math.abs(p.code) === 2 && !mv.caps.length) SFX_BANK.effect('king_glint', { vol: .12 });
@@ -3143,7 +3155,7 @@ function createSoundAudit(capacity = 12000) {
         setTimeout(() => {
           SFX_BANK.play(big ? 'streak_big' : 'streak_hit', { vol: 0.9 });
           const rampage = Math.random() < (big ? 0.9 : 0.5);
-          if (rampage && STREAMER.say('streak')) {
+          if (rampage && STREAMER.say('great')) {
             // the streamer voice replaces the rampage callout, never doubles it
           } else if (rampage) SFX_BANK.play(big ? 'v_rampage2' : 'v_rampage', { vol: 0.9 });
           flashWhisper(big ? 'Unstoppable!' : 'On a rampage!');
@@ -3592,6 +3604,7 @@ function createSoundAudit(capacity = 12000) {
     SFX_BANK.resetGame();doomClear();
     settings.rsId=saved.rsId;if(LEVELS[saved.diff])settings.diff=saved.diff;
     Object.assign(G,{rs,rsId:saved.rsId,sqn:E.squareNumbers(rs),mode:'aivai',diff:settings.diff,
+      nationalMatch:true,arenaSeason:saved.season ?? arena.season,arenaBout:saved.bout ?? arena.bouts,
       seatIvory:saved.seatIvory,seatEbony:saved.seatEbony,diffIvory:saved.diffIvory,diffEbony:saved.diffEbony,
       pairKey:saved.pairKey,pairMeets:saved.pairMeets||1,lastMove:saved.lastMove,firstStrike:!!saved.firstStrike,
       phase:'idle',over:false,result:null,recorded:false,sel:null,hint:null,aiPaused:!!saved.aiPaused,aiSpeed:settings.speed,progressConflict:false,
@@ -3620,6 +3633,7 @@ function createSoundAudit(capacity = 12000) {
     G.rs = E.RULESETS[settings.rsId];
     G.rsId = settings.rsId;
     G.mode = settings.mode;
+    G.nationalMatch = G.mode === 'aivai' && settings.aivaiAuto;
     G.diff = settings.diff;
     G.humanSide = settings.humanSide;
     G.aiPaused = false;
@@ -3800,13 +3814,13 @@ function createSoundAudit(capacity = 12000) {
     for (const [id, value] of [['bannerIvory', displayName(IVORY)], ['bannerEbony', displayName(EBONY)]]) {
       $(id).textContent = value; $(id).title = value;
     }
-    const tournament = G.mode === 'aivai' && settings.aivaiAuto;
-    $('bannerEventLabel').textContent = tournament ? 'Season ' + arena.season : 'Game';
+    const tournament = arenaOn(), eventBout = G.arenaBout ?? arena.bouts;
+    $('bannerEventLabel').textContent = tournament ? 'Season ' + (G.arenaSeason ?? arena.season) : 'Game';
     const context = tournament
-      ? SEASON_STAGES[stageOfBout(arena.bouts)].name
+      ? SEASON_STAGES[stageOfBout(eventBout)].name
       : G.mode === 'aivai' ? 'AI vs AI' : G.mode === 'ai' ? 'Vs Computer' : 'Two players';
     let detail = tournament
-      ? 'Bout ' + (arena.bouts + 1) + '/' + SEASON_LEN + (G.pairMeets >= 2 ? ' · ' + ord(G.pairMeets) + ' meeting' : '')
+      ? 'Bout ' + (eventBout + 1) + '/' + SEASON_LEN + (G.pairMeets >= 2 ? ' · ' + ord(G.pairMeets) + ' meeting' : '')
       : G.rs.name;
     const ending = lowMaterialCountdown(G.board, G.history, G.legal);
     if (ending && !G.over) detail = ending.scoringNext ? 'Draw countdown · scoring chance' : 'Draw in ' + ending.remaining + ' moves';
@@ -4114,6 +4128,7 @@ function createSoundAudit(capacity = 12000) {
     updateSegs();
     STREAMER.reset();
     STREAMER.joinedMidgame = G.history.length > 0;
+    if (STREAMER.joinedMidgame) STREAMER.rememberSession();
     // Selecting a mode is silent. Its next real game event supplies context;
     // joining an ongoing match must not replay a new-game welcome.
   });

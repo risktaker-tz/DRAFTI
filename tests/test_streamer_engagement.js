@@ -12,6 +12,7 @@ vm.createContext(c);vm.runInContext(ui.slice(ui.indexOf('  const STREAMER ='),ui
 const S=c.S;S.reset();
 c.SFX_BANK.activeSources.set(1,{spoken:true});S.pulse();assert.equal(played.length,0);
 c.SFX_BANK.activeSources.clear();S.pulse();assert(played.at(-1).id.startsWith('sf_greet'),'Opening retries after a competing voice finishes');
+const afterWelcome=played.length;S.reset();S.openGame();assert.equal(played.length,afterWelcome,'New bouts preserve the livestream session instead of saying we are beginning again');
 now+=23000;c.G.phase='thinking';S.pulse();assert.equal(played.at(-1).id,'sf_think');
 now+=23000;c.G.phase='idle';S.pulse();assert(played.at(-1).id.startsWith('sf_cta'));
 const count=played.length;now+=23000;S.pulse();assert.equal(played.length,count,'Quiet routine moves cannot generate false tactical commentary');
@@ -21,4 +22,8 @@ c.G.aiPaused=false;S.intermission();assert(played.at(-1).id.startsWith('sf_cta')
 now+=100000;c.SFX_BANK.sceneLockUntil=now+15000;const before=played.length;assert.equal(S.intermission(),false);assert.equal(played.length,before,'Retirement original is protected');
 c.SFX_BANK.sceneLockUntil=0;c.settings.streamer='male';S.reset();S.joinedMidgame=true;c.G.over=false;c.G.phase='thinking';S.pulse();assert.equal(played.at(-1).id,'sm_think','Midgame joins use the selected real voice and present context');
 now+=100000;c.settings.streamer='off';S.pulse();assert.equal(played.at(-1).id,'sm_think');
+const stored=new Map();c.sessionStorage={getItem:k=>stored.get(k),setItem:(k,v)=>stored.set(k,v)};
+S.sessionOpened=false;S.rememberSession();assert.equal(stored.get('drafti.stream.welcomed.v1'),'1');
+const reload={...c};vm.createContext(reload);vm.runInContext(ui.slice(ui.indexOf('  const STREAMER ='),ui.indexOf('  function flashLabel('))+'this.S=STREAMER;',reload);
+assert.equal(reload.S.sessionOpened,true,'Reloading the same livestream tab preserves its welcome state');
 console.log('PASS opening retry, selected voice, quiet-moment cadence, correct intermission, menu/pause/mute/ceremony gates and no stale tactical speech');

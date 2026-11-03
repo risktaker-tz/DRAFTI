@@ -101,10 +101,10 @@ sandbox.settings.streamer='male'; S.busyUntil=0;
 assert.equal(S.say('victory'),true,'male victory plays');
 assert(plays[plays.length-1].id==='sm_win','sm line played');
 
-// openGame alternates greeting and the engagement call
-S.reset(); S.busyUntil=0; sandbox.settings.streamer='female'; S.at.clear();
+// A livestream welcome belongs to the session, not every arena bout.
+S.reset(); S.sessionOpened=false; S.busyUntil=0; sandbox.settings.streamer='female'; S.at.clear();
 S.games=1; S.openGame(); assert(plays[plays.length-1].id.startsWith('sf_greet'),'game 1 greets');
-S.reset(); S.busyUntil=0; S.at.clear();
-S.games=2; S.openGame(); assert(plays[plays.length-1].id.startsWith('sf_cta'),'game 2 makes the call');
+const welcomed=plays.length;S.reset(); S.busyUntil=0; S.at.clear();
+S.games=2; S.openGame(); assert.equal(plays.length,welcomed,'next event cannot falsely restart the livestream');
 
 console.log('Streamer modes passed: three exclusive default-off modes, gated pools, cooldowns, quotas, funny reuse and bank integrity');
