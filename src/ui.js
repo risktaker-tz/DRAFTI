@@ -642,6 +642,7 @@ function createPlayerProgressStore(storage) {
 
   // ---------------- persistence ----------------
   const SETTINGS_KEY = 'drafti.settings.v1';
+  const DEFAULT_THEME = 'marble';
   const STATS_KEY = 'drafti.stats.v1';
   function loadJSON(k, fb) {
     if (['drafti.arena.v2','drafti.arena-progress.v1','drafti.stats.v1','drafti.match.v1','drafti.learning.v1'].includes(k)) return playerProgress.load(k,fb);
@@ -662,7 +663,7 @@ function createPlayerProgressStore(storage) {
   }
 
   const settings = Object.assign(
-    { rsId: 'eastafrica10', mode: 'ai', diff: 'l5', humanSide: IVORY, sound: true, rotate: true, theme: 'neon', clock: 0, speed: 1, hv: false, ambient: true, style: 'classic', styleIvory: 'italian', styleEbony: 'czech', pname: 'Uhakika', pname2: 'Usiogope', aivaiAuto: true, jumpPaths: true, shake: true, pieces: 'theme', arenaRounds: 1, humanlike: false, streamer: 'off' },
+    { rsId: 'eastafrica10', mode: 'ai', diff: 'l5', humanSide: IVORY, sound: true, rotate: true, theme: DEFAULT_THEME, clock: 0, speed: 1, hv: false, ambient: true, style: 'classic', styleIvory: 'italian', styleEbony: 'czech', pname: 'Uhakika', pname2: 'Usiogope', aivaiAuto: true, jumpPaths: true, shake: true, pieces: 'theme', arenaRounds: 1, humanlike: false, streamer: 'off' },
     loadJSON(SETTINGS_KEY, {})
   );
   if (settings.streamer !== 'female' && settings.streamer !== 'male' && settings.streamer !== 'funny') settings.streamer = 'off';
@@ -1111,19 +1112,27 @@ function createPlayerProgressStore(storage) {
       '--pl-d-edge': '#2c0c06', '--pl-d-glow': GLOW0,
     }),
   ];
-  if (!THEMES.some((t) => t.id === settings.theme)) settings.theme = 'neon';
+  if (!THEMES.some((t) => t.id === settings.theme)) settings.theme = DEFAULT_THEME;
 
   function billboardPalette(theme) {
     const parts = theme['--panel'].match(/[\d.]+/g);
     const bg = rgbHex(+parts[0], +parts[1], +parts[2]);
     const contrast = (a, b) => (Math.max(lumaC(a), lumaC(b)) + .05) / (Math.min(lumaC(a), lumaC(b)) + .05);
-    const fallback = contrast('#ffffff', bg) >= contrast('#000000', bg) ? '#ffffff' : '#000000';
-    const readable = c => /^#[\da-f]{6}$/i.test(c) && contrast(c, bg) >= 4.5 ? c : fallback;
-    return { '--billboard-bg': bg, '--billboard-ink': readable(theme['--ink']),
-      '--billboard-dim': readable(theme['--ink-dim']), '--billboard-accent': readable(theme['--accent']) };
+    const readable = (c, surfaces = [bg]) => {
+      const minimum = ink => Math.min(...surfaces.map(surface => contrast(ink, surface)));
+      if (/^#[\da-f]{6}$/i.test(c) && minimum(c) >= 4.5) return c;
+      return minimum('#ffffff') >= minimum('#000000') ? '#ffffff' : '#000000';
+    };
+    // Active/hover chips retain their original translucent accent and inset
+    // glow. Check text against both the plain panel and the layered accent.
+    const weak = theme['--accent-weak'].match(/[\d.]+/g).map(Number), alpha = weak[3];
+    const blend = a => rgbHex(...parts.slice(0,3).map((v,i) => +v * (1-a) + weak[i] * a));
+    return { '--billboard-bg': bg, '--panel-opaque': bg, '--billboard-ink': readable(theme['--ink']),
+      '--billboard-dim': readable(theme['--ink-dim']), '--billboard-accent': readable(theme['--accent']),
+      '--underboard-active-ink': readable(theme['--accent'], [bg, blend(alpha), blend(1-(1-alpha)*(1-alpha))]) };
   }
   function applyTheme(id) {
-    const t = THEMES.find((x) => x.id === id) || THEMES[0];
+    const t = THEMES.find((x) => x.id === id) || THEMES.find((x) => x.id === DEFAULT_THEME);
     const root = document.documentElement.style;
     for (const [k, v] of Object.entries(t.v)) root.setProperty(k, v);
     for (const [k, v] of Object.entries(billboardPalette(t.v))) root.setProperty(k, v);
@@ -2363,6 +2372,10 @@ function createPlayerProgressStore(storage) {
       host.appendChild(el);
     }
     el.textContent = text;
+    el.title = text;
+    // The stage owns this upright overlay even when the board is flipped.
+    // Anchor it within the playing surface, never across the matchup names.
+    el.style.top = (frameEl.offsetTop + frameEl.offsetHeight * .44) + 'px';
     void el.offsetWidth;
     el.classList.add('run');
     clearTimeout(whisperTimer);

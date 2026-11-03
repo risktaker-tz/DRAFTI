@@ -280,15 +280,20 @@ body.fx-scan::after {
 .qa-bar .btn {
   padding: 9px 22px; border-radius: 999px; font-size: 13.5px; font-weight: 600;
   background: var(--panel-opaque);
+  color: var(--billboard-ink, var(--ink));
   box-shadow: 0 4px 14px rgba(0, 0, 0, .35), 0 0 16px var(--accent-weak);
 }
 .qa-bar .btn svg { width: 16px; height: 16px; }
 .qa-bar .btn:hover:not(:disabled) { box-shadow: 0 4px 18px rgba(0, 0, 0, .35), 0 0 22px var(--accent-weak); }
+.qa-bar .btn:hover:not(:disabled), .qa-bar .btn.active {
+  background: linear-gradient(var(--accent-weak), var(--accent-weak)), var(--panel-opaque);
+}
 .qa-bar .kbd {
-  font-size: 10px; color: var(--ink-dim); border: 1px solid var(--panel-line);
+  font-size: 10px; color: var(--billboard-dim, var(--ink-dim)); border: 1px solid var(--panel-line);
   border-radius: 5px; padding: 1px 5px; letter-spacing: .06em; margin-left: 2px;
 }
-.qa-bar .btn.active { color: var(--accent); border-color: var(--accent-soft); }
+.qa-bar .btn.active { color: var(--underboard-active-ink, var(--accent)); border-color: var(--accent-soft); }
+.qa-bar .btn:hover:not(:disabled) .kbd, .qa-bar .btn.active .kbd { color: var(--underboard-active-ink, var(--accent)); }
 #btnHV, #btnAmbient { width: 100%; margin-top: 10px; }
 
 /* ---------- captured trays ---------- */
@@ -296,7 +301,7 @@ body.fx-scan::after {
 .tray {
   display: flex; align-items: center; gap: 6px; flex: 1 1 0; min-width: 0;
   background: var(--panel-opaque); border: 1px solid var(--panel-line);
-  border-radius: 10px; padding: 7px 12px; font-size: 12.5px; color: var(--ink-dim);
+  border-radius: 10px; padding: 7px 12px; font-size: 12.5px; color: var(--billboard-dim, var(--ink-dim));
   height: 36px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .tray-name { flex: 1 1 auto; min-width: 0; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; touch-action: pan-x pan-y pinch-zoom; }
@@ -344,7 +349,7 @@ body.flags-on .ticker .tk .pdot.ebony { background: var(--side-b-bg, var(--pl-d-
 body.think-a .piece.ivory .body,
 body.think-b .piece.ebony .body { animation: thinkBreath 1.7s ease-in-out infinite; }
 @keyframes thinkBreath { 50% { filter: brightness(1.16) drop-shadow(0 0 7px var(--accent-soft)); } }
-.tray b { color: var(--ink); font-size: 13px; }
+.tray b { color: var(--billboard-ink, var(--ink)); font-size: 13px; }
 
 /* ---------- side panel (drawer reuses these card styles) ---------- */
 .card {
@@ -591,11 +596,12 @@ body.hv .piece.ebony .body {
 
 /* quieter side-whisper for heckles and nudges */
 #whisperLabel {
-  position: absolute; left: 50%; top: 4%; transform: translateX(-50%);
+  position: absolute; left: 50%; transform: translateX(-50%);
   z-index: 39; pointer-events: none;
   font-weight: 600; font-size: clamp(12px, 1.6vw, 17px); letter-spacing: .06em;
-  color: var(--ink-dim); background: var(--panel); border: 1px solid var(--panel-line);
-  padding: 5px 14px; border-radius: 999px; opacity: 0; white-space: nowrap;
+  color: var(--billboard-dim, var(--ink-dim)); background: var(--panel-opaque); border: 1px solid var(--panel-line);
+  padding: 5px 14px; border-radius: 999px; opacity: 0;
+  max-width: calc(var(--board-span) - 32px); white-space: normal; text-align: center;
   box-shadow: 0 4px 14px rgba(0, 0, 0, .35);
 }
 #whisperLabel.run { animation: whisperPop 2.4s ease forwards; }
@@ -723,13 +729,13 @@ body.hv .piece.ebony .body {
   display: flex; align-items: center; gap: 4px; overflow: hidden;
   background: var(--panel-opaque); border: 1px solid var(--panel-line);
   border-radius: 10px; padding: 7px 12px; height: 34px;
-  font-size: 12.5px; color: var(--ink-dim); white-space: nowrap;
+  font-size: 12.5px; color: var(--billboard-dim, var(--ink-dim)); white-space: nowrap;
   mask-image: linear-gradient(90deg, #000 88%, transparent);
   -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent);
 }
 .ticker .tk { display: inline-flex; align-items: center; gap: 5px; padding: 1px 7px;
   border-radius: 999px; flex: none; }
-.ticker .tk.current { color: var(--accent); background: var(--accent-weak); }
+.ticker .tk.current { color: var(--underboard-active-ink, var(--accent)); background: var(--accent-weak); }
 .ticker .tk .pdot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
 .ticker .tk .pdot.ivory { background: radial-gradient(circle at 35% 30%, var(--pl-l-1), var(--pl-l-3)); }
 .ticker .tk .pdot.ebony { background: radial-gradient(circle at 35% 30%, var(--pl-d-1), var(--pl-d-3)); }
@@ -758,7 +764,9 @@ body.hv .piece.ebony .body {
 .aivai-bar::-webkit-scrollbar, #segSpeed::-webkit-scrollbar { display: none; }
 .aivai-bar .seg-btns button { flex: 0 0 auto; min-width: 44px; min-height: 40px; }
 .aivai-bar:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.aivai-bar .btn { padding: 7px 12px; font-size: 12.5px; }
+.aivai-bar .btn { padding: 7px 12px; font-size: 12.5px; color: var(--billboard-ink, var(--ink)); }
+.aivai-bar .seg-btns button { color: var(--billboard-dim, var(--ink-dim)); }
+.aivai-bar .btn.active, .aivai-bar .seg-btns button.active, .aivai-bar .seg-btns button:hover { color: var(--underboard-active-ink, var(--accent)); }
 .inline-seg { border-radius: 999px; }
 .inline-seg button { padding: 6px 12px; font-size: 12px; }
 @media (max-width: 480px) {

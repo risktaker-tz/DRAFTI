@@ -293,15 +293,20 @@ body.fx-scan::after {
 .qa-bar .btn {
   padding: 9px 22px; border-radius: 999px; font-size: 13.5px; font-weight: 600;
   background: var(--panel-opaque);
+  color: var(--billboard-ink, var(--ink));
   box-shadow: 0 4px 14px rgba(0, 0, 0, .35), 0 0 16px var(--accent-weak);
 }
 .qa-bar .btn svg { width: 16px; height: 16px; }
 .qa-bar .btn:hover:not(:disabled) { box-shadow: 0 4px 18px rgba(0, 0, 0, .35), 0 0 22px var(--accent-weak); }
+.qa-bar .btn:hover:not(:disabled), .qa-bar .btn.active {
+  background: linear-gradient(var(--accent-weak), var(--accent-weak)), var(--panel-opaque);
+}
 .qa-bar .kbd {
-  font-size: 10px; color: var(--ink-dim); border: 1px solid var(--panel-line);
+  font-size: 10px; color: var(--billboard-dim, var(--ink-dim)); border: 1px solid var(--panel-line);
   border-radius: 5px; padding: 1px 5px; letter-spacing: .06em; margin-left: 2px;
 }
-.qa-bar .btn.active { color: var(--accent); border-color: var(--accent-soft); }
+.qa-bar .btn.active { color: var(--underboard-active-ink, var(--accent)); border-color: var(--accent-soft); }
+.qa-bar .btn:hover:not(:disabled) .kbd, .qa-bar .btn.active .kbd { color: var(--underboard-active-ink, var(--accent)); }
 #btnHV, #btnAmbient { width: 100%; margin-top: 10px; }
 
 /* ---------- captured trays ---------- */
@@ -309,7 +314,7 @@ body.fx-scan::after {
 .tray {
   display: flex; align-items: center; gap: 6px; flex: 1 1 0; min-width: 0;
   background: var(--panel-opaque); border: 1px solid var(--panel-line);
-  border-radius: 10px; padding: 7px 12px; font-size: 12.5px; color: var(--ink-dim);
+  border-radius: 10px; padding: 7px 12px; font-size: 12.5px; color: var(--billboard-dim, var(--ink-dim));
   height: 36px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .tray-name { flex: 1 1 auto; min-width: 0; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; touch-action: pan-x pan-y pinch-zoom; }
@@ -357,7 +362,7 @@ body.flags-on .ticker .tk .pdot.ebony { background: var(--side-b-bg, var(--pl-d-
 body.think-a .piece.ivory .body,
 body.think-b .piece.ebony .body { animation: thinkBreath 1.7s ease-in-out infinite; }
 @keyframes thinkBreath { 50% { filter: brightness(1.16) drop-shadow(0 0 7px var(--accent-soft)); } }
-.tray b { color: var(--ink); font-size: 13px; }
+.tray b { color: var(--billboard-ink, var(--ink)); font-size: 13px; }
 
 /* ---------- side panel (drawer reuses these card styles) ---------- */
 .card {
@@ -604,11 +609,12 @@ body.hv .piece.ebony .body {
 
 /* quieter side-whisper for heckles and nudges */
 #whisperLabel {
-  position: absolute; left: 50%; top: 4%; transform: translateX(-50%);
+  position: absolute; left: 50%; transform: translateX(-50%);
   z-index: 39; pointer-events: none;
   font-weight: 600; font-size: clamp(12px, 1.6vw, 17px); letter-spacing: .06em;
-  color: var(--ink-dim); background: var(--panel); border: 1px solid var(--panel-line);
-  padding: 5px 14px; border-radius: 999px; opacity: 0; white-space: nowrap;
+  color: var(--billboard-dim, var(--ink-dim)); background: var(--panel-opaque); border: 1px solid var(--panel-line);
+  padding: 5px 14px; border-radius: 999px; opacity: 0;
+  max-width: calc(var(--board-span) - 32px); white-space: normal; text-align: center;
   box-shadow: 0 4px 14px rgba(0, 0, 0, .35);
 }
 #whisperLabel.run { animation: whisperPop 2.4s ease forwards; }
@@ -736,13 +742,13 @@ body.hv .piece.ebony .body {
   display: flex; align-items: center; gap: 4px; overflow: hidden;
   background: var(--panel-opaque); border: 1px solid var(--panel-line);
   border-radius: 10px; padding: 7px 12px; height: 34px;
-  font-size: 12.5px; color: var(--ink-dim); white-space: nowrap;
+  font-size: 12.5px; color: var(--billboard-dim, var(--ink-dim)); white-space: nowrap;
   mask-image: linear-gradient(90deg, #000 88%, transparent);
   -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent);
 }
 .ticker .tk { display: inline-flex; align-items: center; gap: 5px; padding: 1px 7px;
   border-radius: 999px; flex: none; }
-.ticker .tk.current { color: var(--accent); background: var(--accent-weak); }
+.ticker .tk.current { color: var(--underboard-active-ink, var(--accent)); background: var(--accent-weak); }
 .ticker .tk .pdot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
 .ticker .tk .pdot.ivory { background: radial-gradient(circle at 35% 30%, var(--pl-l-1), var(--pl-l-3)); }
 .ticker .tk .pdot.ebony { background: radial-gradient(circle at 35% 30%, var(--pl-d-1), var(--pl-d-3)); }
@@ -771,7 +777,9 @@ body.hv .piece.ebony .body {
 .aivai-bar::-webkit-scrollbar, #segSpeed::-webkit-scrollbar { display: none; }
 .aivai-bar .seg-btns button { flex: 0 0 auto; min-width: 44px; min-height: 40px; }
 .aivai-bar:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.aivai-bar .btn { padding: 7px 12px; font-size: 12.5px; }
+.aivai-bar .btn { padding: 7px 12px; font-size: 12.5px; color: var(--billboard-ink, var(--ink)); }
+.aivai-bar .seg-btns button { color: var(--billboard-dim, var(--ink-dim)); }
+.aivai-bar .btn.active, .aivai-bar .seg-btns button.active, .aivai-bar .seg-btns button:hover { color: var(--underboard-active-ink, var(--accent)); }
 .inline-seg { border-radius: 999px; }
 .inline-seg button { padding: 6px 12px; font-size: 12px; }
 @media (max-width: 480px) {
@@ -2642,6 +2650,7 @@ function createPlayerProgressStore(storage) {
 
   // ---------------- persistence ----------------
   const SETTINGS_KEY = 'drafti.settings.v1';
+  const DEFAULT_THEME = 'marble';
   const STATS_KEY = 'drafti.stats.v1';
   function loadJSON(k, fb) {
     if (['drafti.arena.v2','drafti.arena-progress.v1','drafti.stats.v1','drafti.match.v1','drafti.learning.v1'].includes(k)) return playerProgress.load(k,fb);
@@ -2662,7 +2671,7 @@ function createPlayerProgressStore(storage) {
   }
 
   const settings = Object.assign(
-    { rsId: 'eastafrica10', mode: 'ai', diff: 'l5', humanSide: IVORY, sound: true, rotate: true, theme: 'neon', clock: 0, speed: 1, hv: false, ambient: true, style: 'classic', styleIvory: 'italian', styleEbony: 'czech', pname: 'Uhakika', pname2: 'Usiogope', aivaiAuto: true, jumpPaths: true, shake: true, pieces: 'theme', arenaRounds: 1, humanlike: false, streamer: 'off' },
+    { rsId: 'eastafrica10', mode: 'ai', diff: 'l5', humanSide: IVORY, sound: true, rotate: true, theme: DEFAULT_THEME, clock: 0, speed: 1, hv: false, ambient: true, style: 'classic', styleIvory: 'italian', styleEbony: 'czech', pname: 'Uhakika', pname2: 'Usiogope', aivaiAuto: true, jumpPaths: true, shake: true, pieces: 'theme', arenaRounds: 1, humanlike: false, streamer: 'off' },
     loadJSON(SETTINGS_KEY, {})
   );
   if (settings.streamer !== 'female' && settings.streamer !== 'male' && settings.streamer !== 'funny') settings.streamer = 'off';
@@ -3111,19 +3120,27 @@ function createPlayerProgressStore(storage) {
       '--pl-d-edge': '#2c0c06', '--pl-d-glow': GLOW0,
     }),
   ];
-  if (!THEMES.some((t) => t.id === settings.theme)) settings.theme = 'neon';
+  if (!THEMES.some((t) => t.id === settings.theme)) settings.theme = DEFAULT_THEME;
 
   function billboardPalette(theme) {
     const parts = theme['--panel'].match(/[\d.]+/g);
     const bg = rgbHex(+parts[0], +parts[1], +parts[2]);
     const contrast = (a, b) => (Math.max(lumaC(a), lumaC(b)) + .05) / (Math.min(lumaC(a), lumaC(b)) + .05);
-    const fallback = contrast('#ffffff', bg) >= contrast('#000000', bg) ? '#ffffff' : '#000000';
-    const readable = c => /^#[\da-f]{6}$/i.test(c) && contrast(c, bg) >= 4.5 ? c : fallback;
-    return { '--billboard-bg': bg, '--billboard-ink': readable(theme['--ink']),
-      '--billboard-dim': readable(theme['--ink-dim']), '--billboard-accent': readable(theme['--accent']) };
+    const readable = (c, surfaces = [bg]) => {
+      const minimum = ink => Math.min(...surfaces.map(surface => contrast(ink, surface)));
+      if (/^#[\da-f]{6}$/i.test(c) && minimum(c) >= 4.5) return c;
+      return minimum('#ffffff') >= minimum('#000000') ? '#ffffff' : '#000000';
+    };
+    // Active/hover chips retain their original translucent accent and inset
+    // glow. Check text against both the plain panel and the layered accent.
+    const weak = theme['--accent-weak'].match(/[\d.]+/g).map(Number), alpha = weak[3];
+    const blend = a => rgbHex(...parts.slice(0,3).map((v,i) => +v * (1-a) + weak[i] * a));
+    return { '--billboard-bg': bg, '--panel-opaque': bg, '--billboard-ink': readable(theme['--ink']),
+      '--billboard-dim': readable(theme['--ink-dim']), '--billboard-accent': readable(theme['--accent']),
+      '--underboard-active-ink': readable(theme['--accent'], [bg, blend(alpha), blend(1-(1-alpha)*(1-alpha))]) };
   }
   function applyTheme(id) {
-    const t = THEMES.find((x) => x.id === id) || THEMES[0];
+    const t = THEMES.find((x) => x.id === id) || THEMES.find((x) => x.id === DEFAULT_THEME);
     const root = document.documentElement.style;
     for (const [k, v] of Object.entries(t.v)) root.setProperty(k, v);
     for (const [k, v] of Object.entries(billboardPalette(t.v))) root.setProperty(k, v);
@@ -4363,6 +4380,10 @@ function createPlayerProgressStore(storage) {
       host.appendChild(el);
     }
     el.textContent = text;
+    el.title = text;
+    // The stage owns this upright overlay even when the board is flipped.
+    // Anchor it within the playing surface, never across the matchup names.
+    el.style.top = (frameEl.offsetTop + frameEl.offsetHeight * .44) + 'px';
     void el.offsetWidth;
     el.classList.add('run');
     clearTimeout(whisperTimer);

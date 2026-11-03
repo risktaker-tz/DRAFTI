@@ -1,0 +1,12 @@
+{
+  "scope": "New port8082 first visit, no existing origin preferences were modified.",
+  "cells": 100,
+  "pieces": 40,
+  "rules": "East Africa 10×10",
+  "sidewaysOverflow": false,
+  "theme": "Marble Lux",
+  "viewport": {
+    "height": 720,
+    "width": 1280
+  }
+}
