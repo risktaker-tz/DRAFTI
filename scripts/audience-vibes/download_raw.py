@@ -1,28 +1,35 @@
 #!/usr/bin/env python3
-"""AUDIENCE VIBES Phase B - raw preview downloader.
+"""AUDIENCE VIBES Phase B - raw preview downloader v2 (stall-proof).
 
-Reads the committed checksum-pinned docs/audience-vibes/download-manifest.json
-and downloads every raw HQ preview into git-ignored durable storage
-scripts/research_media/audience_raw/<soundid>.mp3. Resumable: files whose
-sha256/size already match the manifest pins are skipped. Shortest files first
-so reaction clips become reviewable while long beds download.
+Same contract as v1: read docs/audience-vibes/download-manifest.json, fetch
+every pinned raw preview into scripts/research_media/audience_raw/<sid>.mp3,
+verify size + sha256, resumable. v2 adds: 90 s socket timeout, per-file
+wall-clock alarm (240 s), progress logging every 25 files, 8 workers.
 """
 import hashlib
 import json
+import multiprocessing
 import os
-import threading
+import signal
+import socket
 import time
 import urllib.request
-from concurrent.futures import ThreadPoolExecutor
 
 UA = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) Chrome/124.0'}
 REPO = '/home/z/my-project/audience-work'
 RAW = f'{REPO}/scripts/research_media/audience_raw'
 MANIFEST = f'{REPO}/docs/audience-vibes/download-manifest.json'
-PROGRESS = '/home/z/my-project/av-data/phaseb_download_progress.json'
-WORKERS = 6
-LOCK = threading.Lock()
-STATE = {'done': 0, 'failed': 0, 'reused': 0}
+PROGRESS = f'{REPO}/scripts/research_media/phaseb_state/download_progress.json'
+WORKERS = 8
+COUNT = {'done': 0, 'failed': 0, 'reused': 0, 'retries': 0}
+
+
+class Deadline(Exception):
+    pass
+
+
+def _alarm(sig, frame):
+    raise Deadline()
 
 
 def sha256_file(path):
@@ -34,20 +41,29 @@ def sha256_file(path):
 
 
 def download(item):
+    """Worker runs in its own process: signal.alarm is allowed here."""
     sid = item['id'].replace('av-fs-', '')
     dest = f'{RAW}/{sid}.mp3'
     want_sha, want_bytes = item['sha256_preview_bytes'], item['bytes']
     if os.path.exists(dest) and os.path.getsize(dest) == want_bytes:
         if sha256_file(dest) == want_sha:
-            with LOCK:
-                STATE['reused'] += 1
             return sid, 'reused'
         os.remove(dest)
-    for attempt in range(4):
+    signal.signal(signal.SIGALRM, _alarm)
+    for attempt in range(3):
+        signal.alarm(240)
         try:
+            socket.setdefaulttimeout(90)
             req = urllib.request.Request(item['audio_url'], headers=UA)
-            with urllib.request.urlopen(req, timeout=300) as r:
-                data = r.read()
+            with urllib.request.urlopen(req, timeout=90) as r:
+                chunks = []
+                while True:
+                    c = r.read(1 << 18)
+                    if not c:
+                        break
+                    chunks.append(c)
+            data = b''.join(chunks)
+            signal.alarm(0)
             if len(data) != want_bytes:
                 raise IOError(f'size {len(data)} != pinned {want_bytes}')
             got = hashlib.sha256(data).hexdigest()
@@ -57,34 +73,45 @@ def download(item):
             with open(tmp, 'wb') as f:
                 f.write(data)
             os.replace(tmp, dest)
-            with LOCK:
-                STATE['done'] += 1
             return sid, 'downloaded'
         except Exception as e:  # noqa: BLE001
-            if attempt == 3:
-                with LOCK:
-                    STATE['failed'] += 1
-                return sid, f'FAILED: {e}'
+            signal.alarm(0)
+            if attempt == 2:
+                return sid, f'FAILED: {str(e)[:150]}'
             time.sleep(2 * (attempt + 1))
 
 
 def main():
+    multiprocessing.set_start_method('fork', force=True)
     os.makedirs(RAW, exist_ok=True)
+    os.makedirs(os.path.dirname(PROGRESS), exist_ok=True)
     items = sorted(json.load(open(MANIFEST))['items'],
                    key=lambda i: i['duration_sec'])
-    print(f'{len(items)} pinned raw files, target {RAW}', flush=True)
+    t0 = time.time()
+    print(f'{len(items)} pinned raw files -> {RAW}', flush=True)
     results = {}
-    with ThreadPoolExecutor(WORKERS) as ex:
-        for sid, status in ex.map(download, items):
+    with multiprocessing.Pool(WORKERS) as pool:
+        for sid, status in pool.imap_unordered(download, items, chunksize=1):
             results[sid] = status
-            n = STATE['done'] + STATE['reused'] + STATE['failed']
-            if n % 50 == 0:
-                json.dump({'state': STATE, 'results': results}, open(PROGRESS, 'w'))
-                print(f'  {n}/{len(items)} done={STATE["done"]} '
-                      f'reused={STATE["reused"]} failed={STATE["failed"]}', flush=True)
-    json.dump({'state': STATE, 'results': results}, open(PROGRESS, 'w'))
-    print(f'DONE done={STATE["done"]} reused={STATE["reused"]} '
-          f'failed={STATE["failed"]}', flush=True)
+            n = len(results)
+            if n % 25 == 0:
+                for k in COUNT:
+                    COUNT[k] = sum(1 for v in results.values()
+                                   if v == ('downloaded' if k == 'done' else
+                                            'reused' if k == 'reused' else
+                                            v.startswith('FAILED') if k == 'failed'
+                                            else False))
+                json.dump({'state': COUNT}, open(PROGRESS, 'w'))
+                rate = n / max(1e-9, time.time() - t0) * 60
+                print(f'  {n}/{len(items)} done={COUNT["done"]} '
+                      f'reused={COUNT["reused"]} fail={COUNT["failed"]} '
+                      f'({rate:.0f}/min)', flush=True)
+    json.dump({'state': COUNT, 'results': results}, open(PROGRESS, 'w'))
+    done = sum(1 for v in results.values() if v == 'downloaded')
+    reused = sum(1 for v in results.values() if v == 'reused')
+    failed = sum(1 for v in results.values() if v.startswith('FAILED'))
+    print(f'DONE in {(time.time() - t0) / 60:.1f} min '
+          f'downloaded={done} reused={reused} failed={failed}', flush=True)
     bad = {s: r for s, r in results.items() if r.startswith('FAILED')}
     if bad:
         print('FAILURES:', json.dumps(bad, indent=1), flush=True)

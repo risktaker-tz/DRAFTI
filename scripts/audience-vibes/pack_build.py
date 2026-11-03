@@ -22,7 +22,9 @@ from concurrent.futures import ThreadPoolExecutor
 REPO = '/home/z/my-project/audience-work'
 RAW = f'{REPO}/scripts/research_media/audience_raw'
 CATALOG = f'{REPO}/docs/audience-vibes/source-catalog.json'
-STATE = '/home/z/my-project/av-data/phaseb'
+# Git-tracked (committed per wave): recycles wipe untracked dirs, never the repo.
+STATE = f'{REPO}/audience-pack/review_state'
+AUDIO = f'{REPO}/audience-pack/audio'
 WORKERS = 6
 BED_EVENTS = {'chatter_bed', 'venue_bed', 'tension_bed'}
 REACT_MAX = 6.0
@@ -115,7 +117,7 @@ def sha256_file(path):
 def job(args):
     sid, entry = args
     src = f'{RAW}/{sid}.mp3'
-    out_mp3 = f'{STATE}/audio/avpb-{sid}.mp3'
+    out_mp3 = f'{AUDIO}/avpb-{sid}.mp3'
     if os.path.exists(out_mp3) and os.path.exists(f'{STATE}/clips/{sid}.json'):
         return sid, 'cached'
     if not os.path.exists(src):
@@ -142,7 +144,7 @@ def job(args):
             gain = round(TARGET_PEAK - peak, 2)  # gentle gain; never above MAX_PEAK
         gain = min(gain, MAX_PEAK - peak + 0.01)
         gain = max(min(gain, 24.0), -24.0)
-        os.makedirs(f'{STATE}/audio', exist_ok=True)
+        os.makedirs(AUDIO, exist_ok=True)
         r = run(['ffmpeg', '-y', '-i', win_wav, '-af',
                  f'volume={gain}dB,afade=t=in:d={FADE},'
                  f'afade=t=out:st={b - a - FADE:.3f}:d={FADE}',

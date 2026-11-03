@@ -13,7 +13,7 @@ import threading
 import time
 from concurrent.futures import ThreadPoolExecutor
 
-STATE = '/home/z/my-project/av-data/phaseb'
+STATE = '/home/z/my-project/audience-work/audience-pack/review_state'
 RAW = '/home/z/my-project/audience-work/scripts/research_media/audience_raw'
 OUT = f'{STATE}/transcripts.json'
 WORKERS = 2
