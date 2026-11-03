@@ -7,3 +7,9 @@ The current engine run passed 38,019 assertions. The independent move-generator 
 The core audio audit counted 544 clips and zero missing references. It still found eight duration exceptions, one oversized clip, and 289 encoding deviations. The first 57 optional audience recordings are shipped. The repository includes 121 hash-checked streamer recordings from ZAI checkpoint 2655fdf, pending playback integration and context review.
 
 The full blueprint stays open. Remaining acceptance includes the audio limits and current all-mode playthrough, visual and installation checks, updated full season simulation, and GitHub Pages build parity.
+
+## Core bank encoding checkpoint
+
+Re-encoded 289 existing recordings to mono 22,050 Hz MP3 without cutting or speeding up audio. Encoded peaks were verified at or below −1.5 dBFS for each changed clip. Gain was reduced only as needed to meet the peak cap. All 544 IDs and clip metadata were preserved. The approved 15-second retirement original is byte-identical.
+
+The bank audit reports zero missing references, zero oversized clips and zero encoding deviations. Eight recordings still exceed the duration limit. Conservative silence trimming would not fit their complete spoken lines, so their durations remain pending. The Node and Python builds match at 13,112,616 bytes. Sound-deck tests passed. Live listening remains pending.
