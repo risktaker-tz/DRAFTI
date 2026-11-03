@@ -34,6 +34,6 @@ vm.createContext(s);vm.runInContext(ui.slice(ui.indexOf('  function runSearch(')
 for(const speed of [1,16]){s.G.aiSpeed=speed;s.runSearch('ai');}
 assert.deepEqual(sent[0].opts,sent[1].opts,'Speed never lowers search budget/depth');
 assert(css.includes('#segSpeed { max-width: min(42vw, 190px); overflow-x: auto;'),'Speeds stay inside their original enclosed scrollable selector');
-assert(css.includes('#segSpeed { width: 64px; max-width: 64px; flex: 0 0 64px; }'),'Phone selector shows two compact speeds while keeping all four controls visible');
+assert(css.includes('#segSpeed { width: 89px; max-width: 89px; flex: 0 0 89px; }'),'Phone selector shows three compact speeds while keeping all four controls visible');
 assert(css.includes('.aivai-bar::-webkit-scrollbar, #segSpeed::-webkit-scrollbar { display: none; }'),'No scroll arrows/tracks are displayed');
 console.log('Arena playback passed: seven speeds, targeted overflow, no artificial waits when Off, preserved human pacing and unchanged search accuracy settings');

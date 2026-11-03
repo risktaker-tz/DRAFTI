@@ -1,7 +1,7 @@
 {
   "scope": "Real built-in browser, paused existing arena, targeted playback controls; not a full season or physical-device installation test",
-  "mobile320": {"viewport":320,"pageWidth":320,"controlsLeft":18.80000114440918,"controlsRight":282.2500114440918,"speedClientWidth":62,"speedScrollWidth":217,"selectedDuringTest":"16×","speedScrollLeft":154.8000030517578,"outerScrollLeft":0,"pageScrollLeft":0,"allControlsVisible":true,"outerScrollbar":"none","speedScrollbar":"none"},
-  "mobile390": {"viewport":390,"pageWidth":390,"controlsLeft":18.80000114440918,"controlsRight":309.21875762939453,"allControlsVisible":true},
+  "mobile320": {"viewport":320,"pageWidth":320,"controlsLeft":18.80000114440918,"controlsRight":301.200008392334,"speedBoxWidth":89,"initialVisibleSpeeds":["1×","2×","4×"],"selectedDuringTest":"16×","speedScrollLeft":115.5999984741211,"outerScrollLeft":0,"pageScrollLeft":0,"allControlsVisible":true,"outerScrollbar":"none","speedScrollbar":"none"},
+  "mobile390": {"viewport":390,"pageWidth":390,"controlsLeft":18.80000114440918,"controlsRight":371.2000198364258,"allControlsVisible":true},
   "captureTrays320": {"counts":[1,1],"bothCountsInsideFrames":true,"nameContentWidths":[109,96],"nameClientWidths":[85,83],"nativeNameScrollLeft":24.399999618530273,"pageScrollLeft":0},
   "desktop1280": {"viewport":1280,"pageWidth":1265,"bothCountsInsideFrames":true},
   "screenshot":"docs/arena-controls-mobile.png",

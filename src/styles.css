@@ -762,11 +762,11 @@ body.hv .piece.ebony .body {
 .inline-seg { border-radius: 999px; }
 .inline-seg button { padding: 6px 12px; font-size: 12px; }
 @media (max-width: 480px) {
-  .aivai-bar { gap: 4px; padding: 6px; flex-wrap: wrap; }
-  .aivai-bar .btn { padding: 8px 4px; font-size: clamp(10px, 3vw, 12px); min-height: 40px; gap: 3px; }
+  .aivai-bar { gap: 3px; padding: 6px; flex-wrap: wrap; justify-content: space-between; }
+  .aivai-bar .btn { padding: 8px 3px; font-size: clamp(10px, 3vw, 12px); min-height: 40px; gap: 3px; }
   .aivai-bar #btnAivaiNew svg { display: none; }
-  #segSpeed { width: 64px; max-width: 64px; flex: 0 0 64px; }
-  .aivai-bar #segSpeed button { width: 31px; min-width: 31px; padding: 6px 0; font-size: 11px; }
+  #segSpeed { width: 89px; max-width: 89px; flex: 0 0 89px; }
+  .aivai-bar #segSpeed button { width: 29px; min-width: 29px; padding: 6px 0; font-size: 11px; }
   .aivai-bar #autoNext { order: 5; flex: 1 0 100%; max-width: 100%; white-space: normal; }
 }
 
