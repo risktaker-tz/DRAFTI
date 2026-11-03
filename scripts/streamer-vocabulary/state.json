@@ -1,19 +1,19 @@
 {
  "clips": {
   "sf2_001": {
-   "status": "pending",
-   "takes": 1,
-   "error": "retake after length calibration"
+   "error": "'peakDbfs'",
+   "status": "failed",
+   "takes": 2
   },
   "sj2_001": {
-   "status": "pending",
-   "takes": 1,
-   "error": "retake after length calibration"
+   "error": "Speech with padding is 6.616s, above 6.0s; no speech was cut",
+   "status": "failed",
+   "takes": 2
   },
   "sm2_001": {
-   "status": "pending",
-   "takes": 1,
-   "error": "retake after length calibration"
+   "error": "'peakDbfs'",
+   "status": "failed",
+   "takes": 2
   }
  }
 }

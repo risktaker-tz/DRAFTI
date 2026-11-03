@@ -146,6 +146,8 @@ def main():
                 continue
         try:
             out = PACK / 'audio' / f"{r['id']}.mp3"
+            if out.exists() and entry['status'] != 'accepted':
+                out.unlink()   # stale output from an earlier failed bookkeeping run
             fade = raw.with_suffix('.fade.wav')
             import numpy as np
             samples = voice_proc.decode(FFMPEG, raw)
@@ -161,7 +163,7 @@ def main():
             meta = voice_proc.process(fade, out, FFMPEG, maximum=6.0)
             fade.unlink()
             entry.update(status='accepted', seconds=meta['seconds'],
-                         peakDbfs=meta['peakDbfs'], bytes=meta['bytes'],
+                         peakDbfs=meta['peakDbFS'], bytes=meta['bytes'],
                          lufs=measure_lufs(out), error=None)
             accepted += 1
             print(f'{r["id"]}: ACCEPTED {meta}', flush=True)
