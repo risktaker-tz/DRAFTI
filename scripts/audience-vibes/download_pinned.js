@@ -31,7 +31,8 @@ async function download(item, directory, fetcher = fetch) {
     verifyBytes(item, fs.readFileSync(filename));
     return { file: name, cached: true };
   }
-  const response = await fetcher(item.audio_url, { redirect: 'manual', signal: AbortSignal.timeout(90000) });
+  const timeout = Math.min(1200000, Math.max(90000, Math.ceil(item.bytes / 65536) * 1000 + 30000));
+  const response = await fetcher(item.audio_url, { redirect: 'manual', signal: AbortSignal.timeout(timeout) });
   if (response.status !== 200) throw Error('Source HTTP ' + response.status);
   const contentType = response.headers.get('content-type') || '';
   if (!/^(audio\/|application\/octet-stream)/i.test(contentType)) throw Error('Source is not audio');
@@ -58,6 +59,9 @@ async function main() {
   const arg = process.argv.find(x => x.startsWith('--limit='));
   const limit = arg ? Number(arg.slice(8)) : items.length;
   if (!Number.isInteger(limit) || limit < 1 || limit > items.length) throw Error('Invalid limit');
+  const workersArg = process.argv.find(x => x.startsWith('--workers='));
+  const workers = workersArg ? Number(workersArg.slice(10)) : 4;
+  if (!Number.isInteger(workers) || workers < 1 || workers > 8) throw Error('Invalid worker count (1–8)');
   const selected = items.slice(0, limit);
   const directory = path.join(root, 'scripts/research_media/audience_raw');
   fs.mkdirSync(directory, { recursive: true });
@@ -95,7 +99,7 @@ async function main() {
         if (count % 10 === 0 || count === selected.length) console.log(count + '/' + selected.length + ', pinned ' + Object.keys(report.entries).length + ', failed ' + Object.keys(report.failures).length);
       }
     }
-    await Promise.all(Array.from({ length: 4 }, worker));
+    await Promise.all(Array.from({ length: workers }, worker));
     report.completedAt = new Date().toISOString();
     save();
     if (Object.keys(report.failures).length) process.exitCode = 1;

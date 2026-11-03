@@ -3394,9 +3394,14 @@ function createPlayerProgressStore(storage) {
     lastNarratorVoice: null,
     queue: [],
     audioEpoch: 0,
+    queuePosition() {
+      return { ply: G.history?.length, side: G.side, over: !!G.over };
+    },
     drainQueue() {
       const now = performance.now();
-      this.queue = this.queue.filter(item => item.epoch === this.audioEpoch && now - item.at < 3500);
+      const position = this.queuePosition();
+      this.queue = this.queue.filter(item => item.epoch === this.audioEpoch && now - item.at < 3500 &&
+        item.position.ply === position.ply && item.position.side === position.side && item.position.over === position.over);
       this.queue.sort((a,b) => b.priority - a.priority);
       if ([...this.activeSources.values()].some(active => active.spoken)) return;
       const next = this.queue.shift();
@@ -3493,6 +3498,9 @@ function createPlayerProgressStore(storage) {
       const now = performance.now();
       if (now < this.sceneLockUntil && this.defs[name].c !== 'ui' && !(opts && opts.sceneOwner === 'ceremony')) return null;
       const category = this.defs[name].c;
+      // A delayed thinking card must not narrate a finished match or interrupt
+      // the move itself. Tactical and celebration categories keep their cues.
+      if (category === 'think' && (G.over || G.phase === 'over' || G.phase === 'animating')) return null;
       const priority = opts && opts.sceneOwner === 'ceremony' ? 100
         : ({ majestic: 70, voice: 60, judge: 60, drama: 50, party: 40, comedy: 35, ui: 20, think: 10 }[category] || 30);
       const voice = this.defs[name].voice || (window.DRAFTI_VOICES || {})[name];
@@ -3501,7 +3509,7 @@ function createPlayerProgressStore(storage) {
       for (const active of this.activeSources.values()) {
         if (spoken && active.spoken && (priority < 100 || active.priority === 100)) {
           if (!(opts && (opts.queued || opts.queue === false)) && !this.queue.some(item => item.name === name)) {
-            this.queue.push({ name, opts, priority, at: now, epoch: this.audioEpoch });
+            this.queue.push({ name, opts, priority, at: now, epoch: this.audioEpoch, position: this.queuePosition() });
             this.queue.sort((a,b) => b.priority - a.priority); this.queue.length = Math.min(this.queue.length, 3);
           }
           return null;
@@ -3512,7 +3520,7 @@ function createPlayerProgressStore(storage) {
       // and tactical verdicts retain their exact, context-specific recordings.
       if (category === 'think' && ['jam','kazi'].includes(voice) && voice === this.lastNarratorVoice) return null;
       const cooldown = this.defs[name].c === "ui" ? 150 : 8000;
-      if (now - (this.lastPlayed.get(name) || -Infinity) < cooldown) return null;
+      if (now - (this.lastPlayed.get(name) ?? -Infinity) < cooldown) return null;
       if (this.defs[name].c !== "ui" && this.recent.slice(-5).includes(name)) return null;
       this.lastPlayed.set(name, now);
       this.recent.push(name);
