@@ -400,9 +400,13 @@
    "takes": 2
   },
   "sj2_028": {
-   "error": "tts-failed",
-   "status": "failed",
-   "takes": 5
+   "bytes": 31860,
+   "error": null,
+   "lufs": -18.9,
+   "peakDbfs": -1.571,
+   "seconds": 4.4532,
+   "status": "accepted",
+   "takes": 6
   },
   "sj2_029": {
    "bytes": 40088,
@@ -459,9 +463,13 @@
    "takes": 1
   },
   "sj2_035": {
-   "error": "tts-failed",
-   "status": "failed",
-   "takes": 5
+   "bytes": 30397,
+   "error": null,
+   "lufs": -17.4,
+   "peakDbfs": -1.601,
+   "seconds": 4.2325,
+   "status": "accepted",
+   "takes": 6
   },
   "sj2_036": {
    "bytes": 25277,

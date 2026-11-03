@@ -219,79 +219,79 @@ backed by an accepted MP3 in `audio/` with verified duration/peak/hash in
 | ID | Scenario | Sentence | Predicate (short) | Hour gate | Status |
 | --- | --- | --- | --- | --- | --- |
 | `sj2_001` | session_open | Welcome in — jokes are free and checkers is serious! | session-scoped stream welcome | — | accepted {"seconds": 5.3948, "bytes": 38443} |
-| `sj2_002` | session_open | We are live — side effects may include smiling. | session-scoped stream welcome | — | pending |
-| `sj2_003` | session_open | Good evening, night owls — the board is awake! | session-scoped stream welcome | 17-22 | pending |
-| `sj2_004` | new_bout | A new bout — somewhere, a piece plans an early retirement. | boutStart while the stream session is already live | — | pending |
-| `sj2_005` | new_bout | Fresh bout — legal jumps, snacks nearby, zero refunds! | boutStart while the stream session is already live | — | pending |
-| `sj2_006` | new_bout | Next bout begins — place your hopes now! | boutStart while the stream session is already live | — | pending |
-| `sj2_007` | new_bout | New game — the pieces practiced all night... allegedly. | boutStart while the stream session is already live | — | pending |
-| `sj2_008` | new_bout | Bout starting — the board said no pressure. It lied. | boutStart while the stream session is already live | — | pending |
-| `sj2_009` | new_challenger | A new challenger — somebody hide the good moves! | boutStart and the seated pair differs from the previous bout | — | pending |
-| `sj2_010` | new_challenger | Fresh challenger — the chair is still warm! | boutStart and the seated pair differs from the previous bout | — | pending |
-| `sj2_011` | new_challenger | New opponent — my notes say: unknown style, maximum chaos. | boutStart and the seated pair differs from the previous bout | — | pending |
-| `sj2_012` | new_challenger | A different challenger — the plot thickens! | boutStart and the seated pair differs from the previous bout | — | pending |
-| `sj2_013` | rematch_draw | They drew last time — pride is on the menu! | boutStart with the same pair as the previous bout and that b | — | pending |
-| `sj2_014` | rematch_draw | The rematch — same players, extra drama, free! | boutStart with the same pair as the previous bout and that b | — | pending |
-| `sj2_015` | rematch_draw | Round two — the board remembers everything! | boutStart with the same pair as the previous bout and that b | — | pending |
-| `sj2_016` | rematch_draw | No winner last time — the sequel is here! | boutStart with the same pair as the previous bout and that b | — | pending |
-| `sj2_017` | season_advance | New season — standings empty, confidence full. | season rollover while the stream session continues | — | pending |
-| `sj2_018` | season_advance | Season rollover — fresh page, same chaos! | season rollover while the stream session continues | — | pending |
-| `sj2_019` | season_advance | New season unlocked — somewhere, last season's scoreboard sighs. | season rollover while the stream session continues | — | pending |
-| `sj2_020` | season_advance | League restarts — dreams are free, kings are earned! | season rollover while the stream session continues | — | pending |
-| `sj2_021` | stage_quarter | Quarter-finals — the part where pretending stops working. | boutStart where the tournament stage advances to the quarter | — | pending |
-| `sj2_022` | stage_quarter | Quarter-final stage — hearts racing, board unbothered. | boutStart where the tournament stage advances to the quarter | — | pending |
-| `sj2_023` | stage_quarter | Quarter-finals here — bold moves only, please! | boutStart where the tournament stage advances to the quarter | — | pending |
-| `sj2_024` | stage_semi | Semi-finals — one step from the big dance! | boutStart where the tournament stage advances to the semi-fi | — | pending |
-| `sj2_025` | stage_semi | Semi-final bout — drama included at no extra cost! | boutStart where the tournament stage advances to the semi-fi | — | pending |
-| `sj2_026` | stage_semi | Semi-finals underway — hold your snacks! | boutStart where the tournament stage advances to the semi-fi | — | pending |
-| `sj2_027` | stage_final | The grand final — popcorn time all around! | boutStart where the tournament stage advances to the grand f | — | pending |
-| `sj2_028` | stage_final | Final bout — the crown is on this board somewhere! | boutStart where the tournament stage advances to the grand f | — | pending |
-| `sj2_029` | stage_final | Grand final underway — history, one jump at a time! | boutStart where the tournament stage advances to the grand f | — | pending |
-| `sj2_030` | clean_move | Ooh, clean — even the pieces clapped quietly. | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sj2_031` | clean_move | So tidy — the board said thank you! | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sj2_032` | clean_move | Smooth — not one piece complained. | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sj2_033` | clean_move | Textbook — someone did their homework. | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sj2_034` | clean_move | Cleaner than my kitchen — and I never cook! | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sj2_035` | clean_move | Elegant, calm, effective — the move, not me! | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sj2_036` | clean_move | A lovely quiet move — sneaky ones are best! | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sj2_037` | capture1 | One piece off — the board lost a little weight. | caps === 1 on the mover's committed move | — | pending |
-| `sj2_038` | capture1 | A capture — that piece will tell stories. | caps === 1 on the mover's committed move | — | pending |
-| `sj2_039` | capture1 | Taken — one down — the drama continues! | caps === 1 on the mover's committed move | — | pending |
-| `sj2_040` | capture1 | One capture, clean and polite. Civilized aggression! | caps === 1 on the mover's committed move | — | pending |
-| `sj2_041` | capture1 | A piece leaves — no farewell party, none! | caps === 1 on the mover's committed move | — | pending |
-| `sj2_042` | capture1 | Captured — the crowd goes... politely interested! | caps === 1 on the mover's committed move | — | pending |
-| `sj2_043` | capture2 | Double capture — two pieces, one move, zero apologies! | caps === 2 on the mover's committed move | — | pending |
-| `sj2_044` | capture2 | One, two — off they go like late buses! | caps === 2 on the mover's committed move | — | pending |
-| `sj2_045` | capture2 | A double strike — the material report got interesting! | caps === 2 on the mover's committed move | — | pending |
-| `sj2_046` | capture2 | Two captures in one turn — somebody skipped breakfast! | caps === 2 on the mover's committed move | — | pending |
-| `sj2_047` | capture2 | Doubled up — the picnic basket got lighter. | caps === 2 on the mover's committed move | — | pending |
-| `sj2_048` | capture2 | Two for one move — best deal in town! | caps === 2 on the mover's committed move | — | pending |
-| `sj2_049` | capture3plus | A capture chain — call the board's insurance! | caps >= 3 on the mover's committed move | — | pending |
-| `sj2_050` | capture3plus | Three or more — that was a whole parade! | caps >= 3 on the mover's committed move | — | pending |
-| `sj2_051` | capture3plus | Multi-capture — they left faster than my Mondays! | caps >= 3 on the mover's committed move | — | pending |
-| `sj2_052` | capture3plus | What a sequence — the board needs a moment. | caps >= 3 on the mover's committed move | — | pending |
-| `sj2_053` | new_king | A new king — get the tiny crown polished! | promotes: the moved piece reaches the king row and is crowne | — | pending |
-| `sj2_054` | new_king | Promotion — humble piece to royalty in one trip. | promotes: the moved piece reaches the king row and is crowne | — | pending |
-| `sj2_055` | new_king | Crowned — that king owned the runway. | promotes: the moved piece reaches the king row and is crowne | — | pending |
-| `sj2_056` | new_king | Last row reached — a king is born, applaud! | promotes: the moved piece reaches the king row and is crowne | — | pending |
-| `sj2_057` | new_king | New king — the others pretend not to be jealous. | promotes: the moved piece reaches the king row and is crowne | — | pending |
-| `sj2_058` | pressure | Behind on pieces — underdogs love a good story! | the seat the line addresses is behind on material per the en | — | pending |
-| `sj2_059` | pressure | Down on pieces — deep breath, then magic. | the seat the line addresses is behind on material per the en | — | pending |
-| `sj2_060` | pressure | Behind on material — the board respects patience! | the seat the line addresses is behind on material per the en | — | pending |
-| `sj2_061` | pressure | Pressure on — snack, calm, play on! | the seat the line addresses is behind on material per the en | — | pending |
-| `sj2_062` | pressure | Material down, humor intact — that's the spirit! | the seat the line addresses is behind on material per the en | — | pending |
-| `sj2_063` | turnaround | A real turnaround — the report flipped like pancakes! | existing verified-material-turnaround gate | — | pending |
-| `sj2_064` | turnaround | From behind to back in it — superb bounce-back! | existing verified-material-turnaround gate | — | pending |
-| `sj2_065` | turnaround | The comeback is real — I checked twice! | existing verified-material-turnaround gate | — | pending |
-| `sj2_066` | turnaround | Look at the material now — doubters, sit down! | existing verified-material-turnaround gate | — | pending |
-| `sj2_067` | trap | Something suspicious on that square... just saying! | existing trap_set gate: a real trap is present on the board | — | pending |
-| `sj2_068` | trap | That bait is so obvious. I almost took it! | existing trap_set gate: a real trap is present on the board | — | pending |
-| `sj2_069` | trap | The trap snapped — that piece is a souvenir now! | existing trap_spring gate: the baited capture resolved again | — | pending |
-| `sj2_070` | trap | Straight into the trap — even I saw that coming. | existing trap_spring gate: the baited capture resolved again | — | pending |
-| `sj2_071` | trap | Careful — that square has sticky fingers! | existing trap_set gate: a real trap is present on the board | — | pending |
-| `sj2_072` | after_loss | A tough loss — but hey, the jokes were free! | match ends with the addressed seat losing | — | pending |
-| `sj2_073` | after_loss | Didn't go your way — the board forgives! | match ends with the addressed seat losing | — | pending |
-| `sj2_074` | after_loss | So close — the rematch bell rings for you! | match ends with the addressed seat losing | — | pending |
+| `sj2_002` | session_open | We are live — side effects may include smiling. | session-scoped stream welcome | — | accepted {"seconds": 4.3115, "bytes": 30946} |
+| `sj2_003` | session_open | Good evening, night owls — the board is awake! | session-scoped stream welcome | 17-22 | accepted {"seconds": 5.596, "bytes": 39906} |
+| `sj2_004` | new_bout | A piece plans an early retirement! | boutStart while the stream session is already live | — | accepted {"seconds": 5.8692, "bytes": 41734} |
+| `sj2_005` | new_bout | Fresh bout — legal jumps, zero refunds! | boutStart while the stream session is already live | — | accepted {"seconds": 5.0756, "bytes": 36248} |
+| `sj2_006` | new_bout | Next bout begins — place your hopes now! | boutStart while the stream session is already live | — | accepted {"seconds": 5.4156, "bytes": 38626} |
+| `sj2_007` | new_bout | The pieces practiced all night... allegedly. | boutStart while the stream session is already live | — | failed |
+| `sj2_008` | new_bout | The board said no pressure. It lied! | boutStart while the stream session is already live | — | accepted {"seconds": 4.1434, "bytes": 29666} |
+| `sj2_009` | new_challenger | A new challenger — somebody hide the good moves! | boutStart and the seated pair differs from the previous bout | — | accepted {"seconds": 4.5237, "bytes": 32408} |
+| `sj2_010` | new_challenger | Fresh challenger — the chair is still warm! | boutStart and the seated pair differs from the previous bout | — | accepted {"seconds": 5.8558, "bytes": 41734} |
+| `sj2_011` | new_challenger | New opponent — unknown style, maximum chaos! | boutStart and the seated pair differs from the previous bout | — | failed |
+| `sj2_012` | new_challenger | A different challenger — the plot thickens! | boutStart and the seated pair differs from the previous bout | — | accepted {"seconds": 4.2486, "bytes": 30397} |
+| `sj2_013` | rematch_draw | They drew last time — pride is on the menu! | boutStart with the same pair as the previous bout and that b | — | accepted {"seconds": 3.958, "bytes": 28386} |
+| `sj2_014` | rematch_draw | The rematch — same players, extra drama, free! | boutStart with the same pair as the previous bout and that b | — | accepted {"seconds": 5.5941, "bytes": 39906} |
+| `sj2_015` | rematch_draw | Round two — the board remembers everything! | boutStart with the same pair as the previous bout and that b | — | accepted {"seconds": 5.5136, "bytes": 39357} |
+| `sj2_016` | rematch_draw | No winner last time — sequel time! | boutStart with the same pair as the previous bout and that b | — | failed |
+| `sj2_017` | season_advance | New season — standings empty, confidence full. | season rollover while the stream session continues | — | accepted {"seconds": 4.717, "bytes": 33688} |
+| `sj2_018` | season_advance | Season rollover — same beautiful chaos! | season rollover while the stream session continues | — | failed |
+| `sj2_019` | season_advance | New season — last season's scoreboard sighs! | season rollover while the stream session continues | — | failed |
+| `sj2_020` | season_advance | Dreams are free — kings are earned! | season rollover while the stream session continues | — | accepted {"seconds": 3.6371, "bytes": 26191} |
+| `sj2_021` | stage_quarter | Quarter-finals — the part where pretending stops working. | boutStart where the tournament stage advances to the quarter | — | accepted {"seconds": 5.8101, "bytes": 41368} |
+| `sj2_022` | stage_quarter | Quarter-finals — hearts racing, board unbothered! | boutStart where the tournament stage advances to the quarter | — | failed |
+| `sj2_023` | stage_quarter | Quarter-finals here — bold moves only, please! | boutStart where the tournament stage advances to the quarter | — | accepted {"seconds": 5.7039, "bytes": 40637} |
+| `sj2_024` | stage_semi | Semi-finals — one step from glory! | boutStart where the tournament stage advances to the semi-fi | — | accepted {"seconds": 4.8139, "bytes": 34420} |
+| `sj2_025` | stage_semi | Drama included at no extra cost! | boutStart where the tournament stage advances to the semi-fi | — | accepted {"seconds": 4.3994, "bytes": 31494} |
+| `sj2_026` | stage_semi | Semi-finals underway — hold your snacks! | boutStart where the tournament stage advances to the semi-fi | — | accepted {"seconds": 5.8677, "bytes": 41734} |
+| `sj2_027` | stage_final | Grand final — popcorn time! | boutStart where the tournament stage advances to the grand f | — | accepted {"seconds": 3.7934, "bytes": 27288} |
+| `sj2_028` | stage_final | The crown is here — finders keepers! | boutStart where the tournament stage advances to the grand f | — | accepted {"seconds": 4.4532, "bytes": 31860} |
+| `sj2_029` | stage_final | Grand final underway — history, one jump at a time! | boutStart where the tournament stage advances to the grand f | — | accepted {"seconds": 5.619, "bytes": 40088} |
+| `sj2_030` | clean_move | Ooh, clean — even the pieces clapped quietly. | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 5.2422, "bytes": 37346} |
+| `sj2_031` | clean_move | So tidy — the board said thank you! | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 3.512, "bytes": 25277} |
+| `sj2_032` | clean_move | Smooth — not one piece complained. | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 4.9959, "bytes": 35700} |
+| `sj2_033` | clean_move | Textbook — someone did their homework. | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 3.7723, "bytes": 27106} |
+| `sj2_034` | clean_move | Cleaner than my kitchen — and I never cook! | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 4.2747, "bytes": 30580} |
+| `sj2_035` | clean_move | The move is elegant — not me! | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 4.2325, "bytes": 30397} |
+| `sj2_036` | clean_move | The sneaky ones are the best! | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 3.5185, "bytes": 25277} |
+| `sj2_037` | capture1 | One piece off — board lost weight! | caps === 1 on the mover's committed move | — | accepted {"seconds": 5.9016, "bytes": 41917} |
+| `sj2_038` | capture1 | A capture — that piece will tell stories. | caps === 1 on the mover's committed move | — | accepted {"seconds": 4.6954, "bytes": 33506} |
+| `sj2_039` | capture1 | Taken — one down — the drama continues! | caps === 1 on the mover's committed move | — | accepted {"seconds": 4.6937, "bytes": 33506} |
+| `sj2_040` | capture1 | One capture — clean, polite, civilized! | caps === 1 on the mover's committed move | — | failed |
+| `sj2_041` | capture1 | No farewell party for that piece! | caps === 1 on the mover's committed move | — | accepted {"seconds": 3.2268, "bytes": 23266} |
+| `sj2_042` | capture1 | Captured — the crowd goes... politely interested! | caps === 1 on the mover's committed move | — | accepted {"seconds": 5.2495, "bytes": 37346} |
+| `sj2_043` | capture2 | Double capture — two pieces, zero apologies! | caps === 2 on the mover's committed move | — | accepted {"seconds": 4.5984, "bytes": 32957} |
+| `sj2_044` | capture2 | Off they go like late buses! | caps === 2 on the mover's committed move | — | accepted {"seconds": 4.1652, "bytes": 29848} |
+| `sj2_045` | capture2 | A double strike — the material report got interesting! | caps === 2 on the mover's committed move | — | accepted {"seconds": 5.1776, "bytes": 36980} |
+| `sj2_046` | capture2 | Somebody skipped breakfast for this! | caps === 2 on the mover's committed move | — | accepted {"seconds": 4.788, "bytes": 34237} |
+| `sj2_047` | capture2 | Doubled up — the picnic basket got lighter. | caps === 2 on the mover's committed move | — | accepted {"seconds": 3.9705, "bytes": 28386} |
+| `sj2_048` | capture2 | Two for one move — best deal in town! | caps === 2 on the mover's committed move | — | accepted {"seconds": 5.0378, "bytes": 35883} |
+| `sj2_049` | capture3plus | A capture chain — call the board's insurance! | caps >= 3 on the mover's committed move | — | accepted {"seconds": 5.3281, "bytes": 37894} |
+| `sj2_050` | capture3plus | Three or more — that was a whole parade! | caps >= 3 on the mover's committed move | — | accepted {"seconds": 3.4623, "bytes": 24911} |
+| `sj2_051` | capture3plus | Multi-capture — they left faster than my Mondays! | caps >= 3 on the mover's committed move | — | accepted {"seconds": 5.2053, "bytes": 37163} |
+| `sj2_052` | capture3plus | What a sequence — the board needs a moment. | caps >= 3 on the mover's committed move | — | accepted {"seconds": 4.0916, "bytes": 29300} |
+| `sj2_053` | new_king | A new king — get the tiny crown polished! | promotes: the moved piece reaches the king row and is crowne | — | accepted {"seconds": 4.2883, "bytes": 30763} |
+| `sj2_054` | new_king | Promotion — humble piece to royalty in one trip. | promotes: the moved piece reaches the king row and is crowne | — | accepted {"seconds": 5.9673, "bytes": 42466} |
+| `sj2_055` | new_king | Crowned — that king owned the runway. | promotes: the moved piece reaches the king row and is crowne | — | accepted {"seconds": 3.7095, "bytes": 26740} |
+| `sj2_056` | new_king | Last row reached — a king is born, applaud! | promotes: the moved piece reaches the king row and is crowne | — | accepted {"seconds": 5.8536, "bytes": 41734} |
+| `sj2_057` | new_king | The others pretend not to be jealous! | promotes: the moved piece reaches the king row and is crowne | — | accepted {"seconds": 4.4506, "bytes": 31860} |
+| `sj2_058` | pressure | Behind on pieces — underdogs love a good story! | the seat the line addresses is behind on material per the en | — | accepted {"seconds": 5.6304, "bytes": 40088} |
+| `sj2_059` | pressure | Deep breath, then magic! | the seat the line addresses is behind on material per the en | — | accepted {"seconds": 2.9009, "bytes": 21071} |
+| `sj2_060` | pressure | Behind on material — the board respects patience! | the seat the line addresses is behind on material per the en | — | accepted {"seconds": 5.5441, "bytes": 39540} |
+| `sj2_061` | pressure | Pressure on — snack, calm, play on! | the seat the line addresses is behind on material per the en | — | accepted {"seconds": 5.1305, "bytes": 36614} |
+| `sj2_062` | pressure | Material down, humor intact! | the seat the line addresses is behind on material per the en | — | accepted {"seconds": 4.3964, "bytes": 31494} |
+| `sj2_063` | turnaround | The report flipped like pancakes! | existing verified-material-turnaround gate | — | accepted {"seconds": 3.6931, "bytes": 26557} |
+| `sj2_064` | turnaround | From behind to superb bounce-back! | existing verified-material-turnaround gate | — | accepted {"seconds": 4.2511, "bytes": 30397} |
+| `sj2_065` | turnaround | The comeback is real — I checked twice! | existing verified-material-turnaround gate | — | accepted {"seconds": 4.635, "bytes": 33140} |
+| `sj2_066` | turnaround | Look at the material now — doubters, sit down! | existing verified-material-turnaround gate | — | accepted {"seconds": 5.929, "bytes": 42100} |
+| `sj2_067` | trap | Something suspicious on that square... just saying! | existing trap_set gate: a real trap is present on the board | — | accepted {"seconds": 3.7475, "bytes": 26923} |
+| `sj2_068` | trap | That bait is so obvious. I almost took it! | existing trap_set gate: a real trap is present on the board | — | accepted {"seconds": 5.5116, "bytes": 39174} |
+| `sj2_069` | trap | That piece is a souvenir now! | existing trap_spring gate: the baited capture resolved again | — | accepted {"seconds": 4.3752, "bytes": 31311} |
+| `sj2_070` | trap | Even I saw that trap coming! | existing trap_spring gate: the baited capture resolved again | — | accepted {"seconds": 5.79, "bytes": 41186} |
+| `sj2_071` | trap | Careful — that square has sticky fingers! | existing trap_set gate: a real trap is present on the board | — | accepted {"seconds": 4.4485, "bytes": 31860} |
+| `sj2_072` | after_loss | A tough loss — but hey, the jokes were free! | match ends with the addressed seat losing | — | accepted {"seconds": 4.1441, "bytes": 29666} |
+| `sj2_073` | after_loss | Didn't go your way — the board forgives! | match ends with the addressed seat losing | — | accepted {"seconds": 4.7085, "bytes": 33688} |
+| `sj2_074` | after_loss | That spirit pays the bills! | match ends with the addressed seat losing | — | accepted {"seconds": 3.7072, "bytes": 26557} |
 | `sj2_075` | after_loss | Losses sting — that spirit pays the bills! | match ends with the addressed seat losing | — | pending |
 | `sj2_076` | win | That's the win — start the victory dance music! | match ends with the addressed seat winning | — | pending |
 | `sj2_077` | win | Victory — composure, patience, possibly a lucky coin! | match ends with the addressed seat winning | — | pending |

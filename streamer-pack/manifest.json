@@ -1,6 +1,6 @@
 {
  "schema": "drafti-streamer-pack/1",
- "generated": "2026-11-03T19:59:37Z",
+ "generated": "2026-11-03T20:10:31Z",
  "voiceIdentities": {
   "female": "z-ai tongtong",
   "male": "z-ai jam",
@@ -8,11 +8,11 @@
  },
  "counts": {
   "female": 20,
-  "funny": 65,
+  "funny": 67,
   "male": 34
  },
- "total": 119,
- "totalBytes": 3734826,
+ "total": 121,
+ "totalBytes": 3797083,
  "clips": [
   {
    "id": "sf2_001",
@@ -876,6 +876,27 @@
    "processing": "silence-trim; 120ms head / 220ms tail pad; 10ms fades; peak normalized to -1.5 dBFS; mono 22050 Hz; MP3 56 kbps"
   },
   {
+   "id": "sj2_028",
+   "file": "audio/sj2_028.mp3",
+   "mode": "funny",
+   "voice": "kazi",
+   "text": "The crown is here — finders keepers!",
+   "role": "stage_final",
+   "predicate": "boutStart where the tournament stage advances to the grand final",
+   "perspective": "any",
+   "hourGate": null,
+   "mood": "playful",
+   "family": "streamer-vocabulary",
+   "durationSec": 4.4532,
+   "bytes": 31860,
+   "sha256": "c50a15e4601ce9a66b65c847ce4d33866274deb246ff26f75263de00d2b3d535",
+   "peakDbfs": -1.571,
+   "lufs": -18.9,
+   "source": "in-house generation: z-ai neural TTS voice 'kazi'",
+   "license": "original in-house generated audio; no third-party source",
+   "processing": "silence-trim; 120ms head / 220ms tail pad; 10ms fades; peak normalized to -1.5 dBFS; mono 22050 Hz; MP3 56 kbps"
+  },
+  {
    "id": "sj2_029",
    "file": "audio/sj2_029.mp3",
    "mode": "funny",
@@ -997,6 +1018,27 @@
    "sha256": "78c6b98f162f39a008903d07f48c61c87eadbb20c081a7c8c2c998f08f3a1ab6",
    "peakDbfs": -1.593,
    "lufs": -21.1,
+   "source": "in-house generation: z-ai neural TTS voice 'kazi'",
+   "license": "original in-house generated audio; no third-party source",
+   "processing": "silence-trim; 120ms head / 220ms tail pad; 10ms fades; peak normalized to -1.5 dBFS; mono 22050 Hz; MP3 56 kbps"
+  },
+  {
+   "id": "sj2_035",
+   "file": "audio/sj2_035.mp3",
+   "mode": "funny",
+   "voice": "kazi",
+   "text": "The move is elegant — not me!",
+   "role": "clean_move",
+   "predicate": "existing STREAMER praise/good quality gate: engine-verified clean move on the committed ply",
+   "perspective": "any",
+   "hourGate": null,
+   "mood": "playful",
+   "family": "streamer-vocabulary",
+   "durationSec": 4.2325,
+   "bytes": 30397,
+   "sha256": "e482e9fe34d71b40d8cb81393243b51b6f536e174c5dc617de10d1af0402cb8c",
+   "peakDbfs": -1.601,
+   "lufs": -17.4,
    "source": "in-house generation: z-ai neural TTS voice 'kazi'",
    "license": "original in-house generated audio; no third-party source",
    "processing": "silence-trim; 120ms head / 220ms tail pad; 10ms fades; peak normalized to -1.5 dBFS; mono 22050 Hz; MP3 56 kbps"
