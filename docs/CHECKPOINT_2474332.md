@@ -15,3 +15,9 @@ Re-encoded 289 existing recordings to mono 22,050 Hz MP3 without cutting or spee
 The bank audit reports zero missing references, zero oversized clips and zero encoding deviations. Eight recordings still exceed the duration limit. Conservative silence trimming would not fit their complete spoken lines, so their durations remain pending. The Node and Python builds match at 13,112,616 bytes. Sound-deck tests passed. Live listening remains pending.
 
 Five of the eight duration exceptions now fit. Czech and v_tt8 keep their original spoken pace with shorter quiet gaps. English, French and Italian also use pitch-preserving tempo factors of 1.053, 1.076 and 1.150. The edits retain at least 200 ms within each shortened quiet gap. Kenyan, Mongolian and the arena welcome remain pending because the same procedure required a higher tempo. The updated bank has zero encoding, size or missing-reference failures and three duration findings. Live listening remains pending.
+
+## f52909e deployment parity
+
+Vercel deployment dpl_8vTNsBYoiPbU5MFV7XWHqJNbJWqX and GitHub Pages both served 13,055,306 bytes matching the local Node and Python builds. HTML SHA-256 is 07c777e3d06b63690fd86cf24ecc581bbaab47d5b11de4b797b5d15cf4082322. The existing Pages setup published from main after a fast-forward to f52909e.
+
+The manifest, service worker and both PNG install icons matched the checkout on both hosts, allowing for checkout line endings in text files. Installed offline play on a phone and desktop still needs direct verification for this checkpoint.
