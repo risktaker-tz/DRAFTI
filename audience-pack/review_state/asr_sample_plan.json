@@ -1,7 +1,7 @@
 {
- "speechFlagged": 203,
- "beds": 33,
- "nonverbalSampled": 21,
- "nonverbalSkippedBySampling": 120,
+ "speechFlagged": 331,
+ "beds": 82,
+ "nonverbalSampled": 26,
+ "nonverbalSkippedBySampling": 151,
  "sampleEvery": 7
 }
