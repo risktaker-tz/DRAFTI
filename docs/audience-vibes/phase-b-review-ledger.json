@@ -1,5 +1,5 @@
 {
- "acceptedCount": 215,
+ "acceptedCount": 213,
  "rejected": [
   {
    "id": "avpb-237684",
@@ -63,6 +63,18 @@
    "note": "The sound of a crowd cheering and clapping can be heard, indicating excitement or celebration.",
    "event": "applause",
    "transcriptSample": "The sound of a crowd cheering and clapping can be heard, indicating excitement or celebration."
+  },
+  {
+   "id": "avpb-340362",
+   "reason": "peak-above--1.5dBFS-after-encode",
+   "status": "reject",
+   "event": "cheer"
+  },
+  {
+   "id": "avpb-386763",
+   "reason": "peak-above--1.5dBFS-after-encode",
+   "status": "reject",
+   "event": "cheer"
   }
  ],
  "pending": [
@@ -1895,8 +1907,8 @@
   }
  ],
  "crowdA": 38,
- "crowdB": 177,
- "totalBytes": 8943845,
+ "crowdB": 175,
+ "totalBytes": 8885088,
  "buildRejects": [
   {
    "sid": "1925",

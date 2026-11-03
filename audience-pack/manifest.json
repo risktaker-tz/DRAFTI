@@ -2340,39 +2340,6 @@
    }
   },
   {
-   "id": "avpb-340362",
-   "sourceId": "av-fs-340362",
-   "file": "audio/avpb-340362.mp3",
-   "crowd": "B",
-   "event": "applause",
-   "speech": false,
-   "language": "nonverbal",
-   "transcript": "nonverbal crowd/ambient sound; no intelligible words in reviewed window",
-   "intensity": "medium",
-   "valence": "positive",
-   "loopable": false,
-   "durationSec": 3.59,
-   "bytes": 22169,
-   "sha256": "99f749c444ef9738b5b8bf670bc370944da8d62c8210805ec36aed1098baf4ce",
-   "peakDbfs": 0.0,
-   "loudnessLufs": -10.2,
-   "sourceStartSec": 0.15,
-   "sourceEndSec": 3.74,
-   "sourceSha256": "aac04bad1473c41b7703cf6ce9ca5aa42018912792672576c5485b8eba1f1f50",
-   "author": "deleted_user_5205523",
-   "sourceUrl": "https://freesound.org/people/deleted_user_5205523/sounds/340362/",
-   "license": "CC0 1.0 Universal",
-   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/",
-   "modifications": "cut 0.15-3.74s window; mono 22050 Hz; MP3 48 kbps; peak gain -2.00 dB (peak 0.00 dBFS); 30 ms fades",
-   "review": {
-    "method": "Phase A metadata licence/content screen + ffmpeg silence-bounded cut + z-ai ASR on the exact cut window + peak/LUFS acoustic measurement",
-    "verdict": "approved",
-    "caveats": [
-     "nonverbal crowd/ambient sound; reviewed via metadata screen + silence-bounded cut + acoustic peak/LUFS measurement; outside the ASR quota-limited review batch (sample plan in review_state/asr_sample_plan.json)"
-    ]
-   }
-  },
-  {
    "id": "avpb-346682",
    "sourceId": "av-fs-346682",
    "file": "audio/avpb-346682.mp3",
@@ -2760,39 +2727,6 @@
    "license": "CC0 1.0 Universal",
    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/",
    "modifications": "cut 7.87-13.87s window; mono 22050 Hz; MP3 48 kbps; peak gain +0.00 dB (peak -8.20 dBFS); 30 ms fades",
-   "review": {
-    "method": "Phase A metadata licence/content screen + ffmpeg silence-bounded cut + z-ai ASR on the exact cut window + peak/LUFS acoustic measurement",
-    "verdict": "approved",
-    "caveats": [
-     "nonverbal crowd/ambient sound; reviewed via metadata screen + silence-bounded cut + acoustic peak/LUFS measurement; outside the ASR quota-limited review batch (sample plan in review_state/asr_sample_plan.json)"
-    ]
-   }
-  },
-  {
-   "id": "avpb-386763",
-   "sourceId": "av-fs-386763",
-   "file": "audio/avpb-386763.mp3",
-   "crowd": "B",
-   "event": "applause",
-   "speech": false,
-   "language": "nonverbal",
-   "transcript": "nonverbal crowd/ambient sound; no intelligible words in reviewed window",
-   "intensity": "medium",
-   "valence": "positive",
-   "loopable": false,
-   "durationSec": 6.0,
-   "bytes": 36588,
-   "sha256": "2fcb8d34de9651991c52f6c23514540e57400692eb6d3a0b8a21f9bc577bad65",
-   "peakDbfs": -0.6,
-   "loudnessLufs": -14.1,
-   "sourceStartSec": 0.15,
-   "sourceEndSec": 6.15,
-   "sourceSha256": "debe943417559846b98bbf565d458fbdfc4653fc5ac152633d14a5ab5232f708",
-   "author": "ken788",
-   "sourceUrl": "https://freesound.org/people/ken788/sounds/386763/",
-   "license": "CC0 1.0 Universal",
-   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/",
-   "modifications": "cut 0.15-6.15s window; mono 22050 Hz; MP3 48 kbps; peak gain -2.00 dB (peak -0.60 dBFS); 30 ms fades",
    "review": {
     "method": "Phase A metadata licence/content screen + ffmpeg silence-bounded cut + z-ai ASR on the exact cut window + peak/LUFS acoustic measurement",
     "verdict": "approved",
