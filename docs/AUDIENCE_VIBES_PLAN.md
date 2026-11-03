@@ -1,12 +1,18 @@
 # AUDIENCE VIBES — owner addition, 3 November 2026
 
-Status: required new feature; source research running in ZAI. No audience feature or external pack is shipped yet. This adds to the master blueprint, without removing its outstanding acceptance requirements.
+Status: required new feature; Phase A research delivered; bulk raw downloads running; Phase B content review and runtime integration pending. No audience feature or external pack is shipped yet. This adds to the master blueprint, without removing its outstanding acceptance requirements.
 
 The owner requested an Off-by-default feature with two distinct, devoted crowds supporting the current opposing teams. Natural chatter, cheers, shouts, encouragement through hardship, opponent reactions and occasional tasteful funny surprises must follow actual game events. Avoid fixed loops, repetitive patterns, wrong-team celebrations and interference with existing streamer/audio design. Preserve every current recording and existing settings.
 
 The owner requested more than 500 realistic clips, online source research by ZAI, then Codex downloads the raw recordings and supplies a handoff for precise cuts, preparation and an isolated commit. Minimum is 501 genuinely distinct usable recordings/excerpts; search hits, duplicate takes, pitch variants or fabricated metadata do not satisfy it.
 
 When asked about the size tradeoff, the owner requested the safer recommendation. Codex recommended and is planning an optional audience pack: keep the core single-file game small and fully playable; explicit one-time installation; offline playback afterwards; failure falls back to current audio; no downloading during a match. This delivery choice needs real assets and tested installation before any feature is exposed as ready.
+
+## Current evidence
+
+Phase A isolated branch `codex/zai-audience-vibes` at `6cb08a8` contains 646 checksum-pinned candidates. Imported and catalogue validator strengthened; all 646 pass metadata consistency. Content listening/ASR, near-duplicate rejection and natural edits remain required before counting usable clips. Raw total 1,670,546,740 bytes / 20.6028 hours (original report mistakenly said minutes). All previews are being downloaded in a background batch; raw/progress files are ignored and never embedded into the game.
+
+Current public game is `2e22f91655650e4d945f5802d21131b3e5d6bc27`, with East Africa rules, verified at https://drafti-afrika.vercel.app/ . Below is the original Phase A handoff, retained as history.
 
 ## ZAI handoff
 
