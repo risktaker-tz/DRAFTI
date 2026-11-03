@@ -2629,18 +2629,18 @@ function createSoundAudit(capacity = 12000) {
   }
 
   // expanding ring from a square — the crowning shockwave
-  function shockwave(sq, captures = 0) {
+  function shockwave(sq, {captures = 0, landing = false} = {}) {
     if (sq == null) return;
     const n = G.rs.n, r = (sq / n) | 0, c = sq % n;
     const el = document.createElement('div');
-    el.className = captures ? 'shockwave capture-shockwave' : 'shockwave';
+    el.className = landing ? 'shockwave landing-ring' : captures ? 'shockwave capture-shockwave' : 'shockwave';
     if (captures) el.style.setProperty('--blast-radius', Math.min(2.6, 1.3 + captures * .24));
     el.style.left = (c * 100 / n) + '%';
     el.style.top = (r * 100 / n) + '%';
     el.style.width = (100 / n) + '%';
     el.style.height = (100 / n) + '%';
     piecesEl.appendChild(el);
-    setTimeout(() => el.remove(), 800);
+    setTimeout(() => el.remove(), landing ? 360 : 800);
   }
 
   const FIRST_STRIKE_CUES = [
@@ -3169,7 +3169,7 @@ function createSoundAudit(capacity = 12000) {
           }
           const captures = mv.caps.length;
           if (captures > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            shockwave(capIdx, final ? captures : 1);
+            shockwave(capIdx, {captures: final ? captures : 1});
           }
           FX.play('capture');
           SFX_BANK.effect(final ? 'impact' : 'jump', { vol: final ? .32 : Math.min(.29, .17 + k * .025) });
@@ -3181,6 +3181,10 @@ function createSoundAudit(capacity = 12000) {
       }
       await sleep(hopMs);
       if(generation !== gameEpoch)return false;
+      if (!mv.caps.length && !mv.promotes && hopMs >= 120 &&
+          !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        shockwave(to, {landing: true});
+      }
     }
     p.el.classList.remove('lifted');
     if (mv.promotes) {

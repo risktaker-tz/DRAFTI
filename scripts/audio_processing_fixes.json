@@ -473,5 +473,3765 @@
     "transcriptionLimitation": "Tiny-model ASR is corroboration only; two of nine pairs differ. It does not supersede direct PCM preservation or constitute listening certification.",
     "voiceLine": "| v_tt6 | kazi | The move is mine, and the move is everything. |",
     "listeningAcceptance": "Pending full real-game listening acceptance"
+  },
+  {
+    "id": "achievement",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "691bf27e67e7995493119cc82afd0715f0ff66b05c898e71e02b19c56897d18e",
+    "processedSha256": "601e0e4454176f1f975cee4edc37f55d425cbf116cbe98c92c2d35aa8ac7e784",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.8881632653061224,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 7357
+    }
+  },
+  {
+    "id": "ahhscary",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "bc8c3c3a0858469edc1d08708b974abdde55c008b9dcbac7595a1788a301db09",
+    "processedSha256": "4009c5e72904ec45b814fe76614c3490a311f4c37b78703468fc4584520512bf",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.8024489795918368,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 12843
+    }
+  },
+  {
+    "id": "ahooga",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "cd1134c667066a93b282839382c437c659d476fe6991dceb97603b7c8ebdda53",
+    "processedSha256": "b9514a01c2ada5d056e4ec6d174d83fc2283327294a88f16a5edd83927de5d9f",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.8285714285714285,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 13135
+    }
+  },
+  {
+    "id": "alarm",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "544e1b8ea32f1d71a442c26259e820edcbf408f4407045db56a1c70e0964bb7b",
+    "processedSha256": "916dc9e9344c1fb2503881eee34c3ba2c50b7c36a4b4b482ffa802e2170b2b9b",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.5485714285714286,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 4640
+    }
+  },
+  {
+    "id": "animewow",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "b7635a792ff4fc981f48443faf1b7144813b626ec2164b95915b12f4572d50f9",
+    "processedSha256": "572cec6ee4a60066eeb2cf67857339516e080cc48f2bf66fda2779036c2f5954",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.369795918367347,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 23814
+    }
+  },
+  {
+    "id": "badboy",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "5c233d11e1f4d3b17aed05b16fd8491b7ce4686b85692eb904d3473e5dcd7829",
+    "processedSha256": "73b5a851657b0fd5f70dd1b961dde1e1c0c0c6bc547e0f6975f80b9681b55204",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.6457142857142857,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 11746
+    }
+  },
+  {
+    "id": "badboy2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "309fc9c6fba76a402c13f344f28e717af998d48023d726387528d4a2cb7fa34f",
+    "processedSha256": "9ec5296de0337f09c952430edac9d2ff23a0a2ebc1a84cb0f2acd58d0cdc8be7",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.27265306122449,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 16134
+    }
+  },
+  {
+    "id": "banana",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "a65d26ac883abb699519de330ab5a02c3c9fdcf8775446cc9e3cf98718050e05",
+    "processedSha256": "ea9ea5cb2d89a0c2eb07ae1402d9de3f9a3ef6c5fdd1fe4407c77dd092f98ee8",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.4293877551020406,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 17361
+    }
+  },
+  {
+    "id": "bear",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "8af7c5e2d4cab11d0402fcd29e363411a0c0727c01cde8917d6a5400496653ff",
+    "processedSha256": "77a1e0bd27c05cc98aceff0475ea5c932c106bd6e22c67471f61bf6764b90593",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.4293877551020406,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 17333
+    }
+  },
+  {
+    "id": "bruh",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "db0c36cd6abb69896d73a875e3a7403cfbfc5da8607a362b8b03f984576991fd",
+    "processedSha256": "02eead19061f4bf6b38f5ef5599a02fe18d69515788ae190cfe33e8293f60f8a",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.3583673469387756,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 9734
+    }
+  },
+  {
+    "id": "chicken",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "eb46a9b6f565e45150771f5146e3b54f15b76081365fe6eb1dd736a43c1bd4bd",
+    "processedSha256": "e226df0917acab308e50b5ec30b547cefedaca609218a7cb3a8f261aa06b7116",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.9257142857142857,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 20706
+    }
+  },
+  {
+    "id": "clock_tick",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "d93dff744f0347f00d0d55176528df5c50cac33c75cf5de8c70779016c9891a7",
+    "processedSha256": "02e47a574336433a53d2a31aa80ab08436716931d6332792c372f96a60409ef1",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.0783673469387755,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 878
+    }
+  },
+  {
+    "id": "clock_tock",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "287d94965a9d28ff79b375ef2f2e1f36c9924193f9c4a840d807c0f9575b9e98",
+    "processedSha256": "aadef11c9f8f91110332c2d606178c48f15b8d071f2ad6e51be02ea81883a088",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.0783673469387755,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 878
+    }
+  },
+  {
+    "id": "coin",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "264005873e7d2d7a526f7621d9d4893bf1479dba9b65a1cd00f46cfc0fcbd298",
+    "processedSha256": "f82ff76ec1ba79bd02a0f35109968fdd0ddca36a48523d12ac03dab353df791a",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.39183673469387753,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 3386
+    }
+  },
+  {
+    "id": "cricket",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "88a42c2aace07cf9ea41a48f44789d56cc0fdc7fcd5fea1fc3359313ad02c747",
+    "processedSha256": "da763c6c94dead8591c8fad8f0ad61ebfa2f1e7117e9b045b1cb871fca6809fd",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.84734693877551,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 20157
+    }
+  },
+  {
+    "id": "crown_fanfare",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "9ff951848a30606ee829ad5620078bee360697dea5c7bc331dfc81480ed53b2a",
+    "processedSha256": "8b887580b52a4b4080914bf9318fc064833a60ff0677e9151265e55ef328c059",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.9142857142857143,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 7566
+    }
+  },
+  {
+    "id": "downer",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "ca6fbdefcc7f0ea4dbaa62651c55f54f1e4fe9f87a252a4bd0834ac6772c847b",
+    "processedSha256": "94e699eff812ecccda3ef8177b15ee796b9130b6eea19060e7bcdeadb32a566c",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.626938775510204,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 5267
+    }
+  },
+  {
+    "id": "draw_chime",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "5c7beb86dcb7580f819c8285f2b08d78a6100e79b1232a66066123a8acb19ac0",
+    "processedSha256": "72847bb727e1af515523855bdb76ef5aa9a57aec00ccd2202478703de7ac08a8",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.809795918367347,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 6730
+    }
+  },
+  {
+    "id": "drumroll",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "50b38ee0a116b3c2bb169f4c8bfd1a142a7f4644948026e3b6cb0169cb93d18f",
+    "processedSha256": "7822de709768a0e8a88c31a3a3de87a5f7ee6092e40528a83c83b25a1db7330d",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.9404081632653061,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 7775
+    }
+  },
+  {
+    "id": "duck",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "b70e778085005ab0612dbc89ed9035860c4c9b75a461b935f7c065c323f2dd24",
+    "processedSha256": "28ad2061b5c5ec535397a164f3bdfc6534dfa84ea55c5c6a3bd7ca27f6e5715b",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.28,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 9186
+    }
+  },
+  {
+    "id": "dundundun",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "dfef025e49f8ef78288fc405fdb0b4ac58873ed05fd9b15ef3e173d1fa07a850",
+    "processedSha256": "f25db77260ba6badf6168d9b1bf6479041192d93ae39205d1c4de9c775c5354e",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.5412244897959184,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 11014
+    }
+  },
+  {
+    "id": "eagle",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "8e27a9304c21e919e4cb5f6a90698b9f37c68c58d99874cda99fe096bd413fa3",
+    "processedSha256": "ae85d972dd34f2a618014eba94a64688d15d6d5ad851fa9007240837e4ca112e",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.246530612244898,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 15951
+    }
+  },
+  {
+    "id": "elephant",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "70d1d509ad126b16358b53de77fa0d39c5b90c9fc309763dbc77c1cfef37db03",
+    "processedSha256": "69bb53cbbbf472dac7e767ca133b6b07d9220d16b63bde453386ce007cf36e44",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.6383673469387756,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 18797
+    }
+  },
+  {
+    "id": "fall",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "beffd7395b8c86550255e546e8093f97fc0682a0d078171cbb6183629851280f",
+    "processedSha256": "5228648b03930c7ee486e6016aa5746ac45f0daa162786de46258eef2de8b412",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.6310204081632653,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 25772
+    }
+  },
+  {
+    "id": "god",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "a644da8c946b6be6c155ccb0c88bbc579a969360367f37d614990228fc366145",
+    "processedSha256": "d5dc8f6b60472937846d67d92d1019e2d272e4ba16f518b4896e6a27f5120351",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.246530612244898,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 15951
+    }
+  },
+  {
+    "id": "gong",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "7d62add2b49f1559622b4ac783bac854f6e6fb35f910423aa11c034dc8f20545",
+    "processedSha256": "e38bfef63ce24d23ea0b2cf4135b6185e1f7bb4912fea3e47b701654b6f024e6",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.4293877551020406,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 19687
+    }
+  },
+  {
+    "id": "gulp",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "ab58d12760799b80239d5a0f13fdc907154cabfd184ad933725f6cbb524d360b",
+    "processedSha256": "d4a72197add648ec1e0fad7cef3efc5585b146ca8c30aa0479f303793233bb06",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.030204081632653,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 21561
+    }
+  },
+  {
+    "id": "haha",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "ffdc17c356f2e488525e7babdefe40add09d818eaf5cb387c450046ef773c20b",
+    "processedSha256": "e5eb403d56672a2bf15a95c8ff17bb6b7051940522fd36d7a37f0c0bad8c64f6",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.246530612244898,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 16076
+    }
+  },
+  {
+    "id": "heartbeat",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "f701f2a11696e5f7c542153666d02f093e88b0c86ea55f8970d83f8fdd2ea7e0",
+    "processedSha256": "bb855bd979047cfe7573ce80d5b5df3af857563321d06f16c41ce2b92ebb96de",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.39183673469387753,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 3386
+    }
+  },
+  {
+    "id": "klonk",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "16d6488be4d29627bdb7e4ad7f3c5f6c359b8da313f6149b4e147b90076a6baa",
+    "processedSha256": "04b5eeabfeed509c160f3c6d473d7a8e467aed3bb0027a58a5dc0fc3583e2a71",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.2277551020408164,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 8944
+    }
+  },
+  {
+    "id": "laser",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "f9fbd11903ccea6a94793d27d1e199054c5e480b2a29e5350c8252cbdc92327a",
+    "processedSha256": "99789f9b9373f89f0a3debafba715cd9bc93c134c018cff694e06e12ea5b2164",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.2089795918367347,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 1923
+    }
+  },
+  {
+    "id": "later_hours",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "6c66463e0157be9fa24a29133a0df699e98b8ea30ab49fa4deebcfc57089f973",
+    "processedSha256": "f77cc5ac522a30043e965129930615881c765c5e925f751a0fe3c8b9607d9f09",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.750204081632653,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 12477
+    }
+  },
+  {
+    "id": "later_moments",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "20d9bd910cfaaeb9d942144b34a44973959cca703ac1a3b6298b1d5fce2b6be5",
+    "processedSha256": "b24d63e352c28fc10a44d55f1f723d5f4ec5eb93d9b5bc6a52e5486942193c17",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.7951020408163267,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 19791
+    }
+  },
+  {
+    "id": "lion",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "7ef1ea63867746dbbf4f8f48ab08580f7cc3211c7217dba83abe7025c0ee6016",
+    "processedSha256": "1923f306d4a8b203b337930a526f92d23d2e17da2b40739888a2425eb10b6993",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.6457142857142857,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 11746
+    }
+  },
+  {
+    "id": "lion_long",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "c1f480b16fd233fab5b596ac1cc3f86df964c3bd477575019e016e82ab4f1a8f",
+    "processedSha256": "0e28b7746f8ef3213c90d72a1a4798523637627069e080ef0c4a373a3d664790",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.84734693877551,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 20157
+    }
+  },
+  {
+    "id": "lose_womp",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "7804feab865e449e1bfa7f0afbffebc32d9307aeb1f7d6d7a71d41ba97b56cff",
+    "processedSha256": "136b6239f9fc7375e1d9105c8294152f31e58ec96087d74ac2e95da418f61a63",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.6008163265306122,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 5058
+    }
+  },
+  {
+    "id": "meow",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "f4a6e6eeb1048375513546d2be89459779d4a7aa95c33deda29bce7dc9d61b2d",
+    "processedSha256": "7e3c2ab295993588a07c60f66bd7af69bec61171d4631654ad2529cf46ea501d",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.5673469387755101,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 11197
+    }
+  },
+  {
+    "id": "notify_pop",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "dc0f8348e71999561e98f1a755bb88a5ef8c1054834da2e1ab2e558ac3653839",
+    "processedSha256": "aa63b2d4c022e83cb3c7d616d2ca4b5932a9028cd599c28dc30cdcbea5ecaaae",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.1306122448979592,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 1296
+    }
+  },
+  {
+    "id": "omg",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "89cbc3b88f3dccab75481ad77ecb681400bf06f3afdfc9ae60557cf68b52df49",
+    "processedSha256": "94b4e105731b0b14bcb1a0fe9704da022da6d5883251d89ca4e540bb10e3e1a4",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.3510204081632655,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 16683
+    }
+  },
+  {
+    "id": "oof",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "2b0903a6d5f87c66fbb664d7f41d96d6f99f9b845f32f021aeab8ffbbefb1ca5",
+    "processedSha256": "1a2f826c7e027e4405f9ad84e211e4d97cf516f5fac807893e4d8e3e2fea94b0",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.4179591836734694,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 3151
+    }
+  },
+  {
+    "id": "panic",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "ec1bd97cb91ed59120716fc1b47727e1a016ba78460e5de822429ebb27a907a7",
+    "processedSha256": "0784ea68bc36322ca8dc8329d73e45a97355397319acb881174442048781c2bc",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.593469387755102,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 11380
+    }
+  },
+  {
+    "id": "pickup",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "2e456a600e6ee44a1746cdfe02168574204128ef1d49fd7ce39482a6990a0b35",
+    "processedSha256": "74c3dd757ab2c5439c4fd3a6ded60868202ad0b68bd099d3d6c24188c7b585ef",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.1306122448979592,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 1296
+    }
+  },
+  {
+    "id": "powerup",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "f495a0b2702a325b2203d01376ea6e191e40baa862980f66f1610bd199b00051",
+    "processedSha256": "217479567d48e425b3f0dde511a73f5fd5c67cac21a906bf616e5d2ee7d0e6c5",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.5485714285714286,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 4640
+    }
+  },
+  {
+    "id": "purr",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "6b03ab893874fbc8d39f76722d6e83da2f155f986fb022a9b61b3d6098aa1699",
+    "processedSha256": "72fb171acd64f78a8e7634492028bff9d2a32a3aa32acd1cfb75b83ca6ef6416",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.3510204081632655,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 16683
+    }
+  },
+  {
+    "id": "putdown",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "c41ba1f18825731158cade56455861e8f2f05fd89262d2e1c0b68d7e93ff2b26",
+    "processedSha256": "2a39b8e17b4845a823ff8534efd278895c4ca5eccc6af87671c7f04610d0f24d",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.10448979591836735,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 1087
+    }
+  },
+  {
+    "id": "rimshot",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "25bda0f69a661a221eb824ee83c0c6cfa92457ddfdcb32164091cc83b4f6401b",
+    "processedSha256": "6eb756a0e678756ca116bec28531880efb08bdbf283e2ee8a61d0aebf17e9b41",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.8881632653061224,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 6510
+    }
+  },
+  {
+    "id": "riser",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "4ec362ab49fcf1a85e295b8304d94499580d0b61d93c409751953cef0976ddc0",
+    "processedSha256": "839ba6cfcba8521e05f36075ce8b09b550aaafb793802aaa21732d409cba231e",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.0448979591836736,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 8611
+    }
+  },
+  {
+    "id": "s_american_1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "d692da702d7a618e252390706da51847fbc4f2e72543cfb0ba9cef8d454b8c5a",
+    "processedSha256": "c50b5bc51f2ebf4f096852a05013eee2cff391deb970a8d70b618690329b41a3",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 4.6236734693877555,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 32591
+    }
+  },
+  {
+    "id": "s_american_2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "2f7a03cd0005789a5788336cf5d578fc9fcf316570db3ce2938531349fd35789",
+    "processedSha256": "93495092ef928695824542dfff34d0c0655b08cd902fd55d9d88f4d571ce4b04",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.5526530612244898,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 25094
+    }
+  },
+  {
+    "id": "s_brazilian_1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "16377698e28a1fca5c9da5b78b9e176bac4e29e805831cc4d58f173a42094ab6",
+    "processedSha256": "3b33aacbda4ccc4b2314b87b23c36856d8dd9e572e0e68e61c947d7264acf74c",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.4816326530612245,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 17597
+    }
+  },
+  {
+    "id": "s_brazilian_2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "f0ac77aa3479c11c425ec9eeb6d92f6f1d79c2e5ae2986d775977bb0fb17d9c6",
+    "processedSha256": "cabfdb4679fc8cc6779d7b026d02c789c0ed804be8861825ce597973a14c1f6e",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.7240816326530612,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 12294
+    }
+  },
+  {
+    "id": "s_classic_1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "9c629230861afe1cc878c383c7e1c114637e8c7a1afcb153f1fca9a80ac33707",
+    "processedSha256": "40b577715cbba08fe9b1f90a24b0a70fa72e4d925cee2636ce60586f644aa447",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.0971428571428572,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 7906
+    }
+  },
+  {
+    "id": "s_classic_2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "edc3739ab5886983e27d51fdf31310deb8bad57e4412d7f491f6acf0bd79bf6f",
+    "processedSha256": "313a3572143b3056df650bb658fb53a817ad403d461aec62785234629837d471",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.27265306122449,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 16134
+    }
+  },
+  {
+    "id": "s_czech_1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "afbd17675ca1b210de6916d46284734a92930299abd15b8217ed3f1bcf5628b6",
+    "processedSha256": "3992b0f79505a441e14c6a6c76e2f5793606000fc6a5be8d717d59dc1937a35c",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.3583673469387756,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 9734
+    }
+  },
+  {
+    "id": "s_czech_2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "3213babc1f5eaf19efa95cebb73dd0fcc551f50276a76db1faa9df8b62d6912d",
+    "processedSha256": "9598d2286f8f7529b3cd47fce7c9a69b91482d1c88c9d7967b74ddcb7669117b",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.709387755102041,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 26191
+    }
+  },
+  {
+    "id": "s_english_1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "82a281795fc1193631b5c1639d13e1c77c16f02eb8f6e6eb6c0a4aa56317a620",
+    "processedSha256": "9f10a2794d8f48c665001eb0555a44d252d30900cf529b3fc565d1af9b9759e7",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.8922448979591837,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 27471
+    }
+  },
+  {
+    "id": "s_english_2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "9f330f6eb2badb91dab61362e8e957303b2367e25a36218678bae407762d4765",
+    "processedSha256": "f8f0bf3abaf824d668bbb07f23ee618f615a834c6e8ab3dd35fdbff0e33ad776",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.9518367346938774,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 20888
+    }
+  },
+  {
+    "id": "s_french_1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "d21bd5ce76828f3872950fb69313e4efa00523d390209dacf13f7d65489fc77f",
+    "processedSha256": "dc54e8d120b6bdbc4c96bedf8757ce8f39be86aa5b13d03e7cb30cb1cf023ef1",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.7240816326530612,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 12294
+    }
+  },
+  {
+    "id": "s_french_2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "9b8901dafb39185240a23d10f4c667f16ddcceaa09466523e9cbe87ec36e4160",
+    "processedSha256": "343d4db202ec9d21ec45308c6803971e99961706562bc38594591a2f780c572d",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.4293877551020406,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 17231
+    }
+  },
+  {
+    "id": "s_in_brazilian",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "4810ea76ef560d758c11282d2dab4dccf0d00921ed66d434ff400fa50062ff97",
+    "processedSha256": "6001c3519d26cd4d565e58dfaed350303470aace9486bb9d5d6760fb9c09ff91",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 5.5902040816326535,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 39357
+    }
+  },
+  {
+    "id": "s_in_czech",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "244be7eea8b42ca2951d27f79ca60feb4d499b942453ff62c1ca6ce8ce13b27e",
+    "processedSha256": "580cb1e5a1fef37237a66ed4707df7b9e9137e57d1c3f7ea4652518ce0757326",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 6.739591836734694,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 47403
+    }
+  },
+  {
+    "id": "s_in_english",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "7fcefbe9f94940761387f3b788d868d065ea953cdcaa72b7b4a218f25c0cefae",
+    "processedSha256": "9ff040d80328cc3f126f3ab39ffaaf22c8f12e1cd2bf76a7fb79e7e3693214d5",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 7.444897959183673,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 52340
+    },
+    "pitchPreservingTempo": 1.053
+  },
+  {
+    "id": "s_in_french",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "690175b48520ce2a30e528f37185588a29b9cfe0dab6cc0e097cac03b2c13c33",
+    "processedSha256": "3e094109578b445269ebd6f1a06b10112d4d3ac439e49bec95d84f49e99633e8",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 7.157551020408163,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 50328
+    },
+    "pitchPreservingTempo": 1.076
+  },
+  {
+    "id": "s_in_italian",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "59ac8c158aa811e9549882ff2c0c15988291e7e1744131b47f6ed49a9f08a2c6",
+    "processedSha256": "7307d20fe2337db0557ceaa4a0b1d2028693af00445552e34830bace66d3f349",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 8.411428571428571,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 59106
+    },
+    "pitchPreservingTempo": 1.15
+  },
+  {
+    "id": "s_in_kenyan",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "6bed76cdba5246b89ca250d843bf3ec16983112fd3bbbffcf46cd992cdc68d0e",
+    "processedSha256": "0c6f43fdcf60e1bab66fa9e5ed6c1f6f13af11f7945b6cb5a66e84b5db59a19a",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 7.888979591836734,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 55448
+    }
+  },
+  {
+    "id": "s_in_mongolian",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "1267e4e24297b5066e1e5d8c5d8e5fab4e8bd6886b1e387b7ea994626e87562f",
+    "processedSha256": "e674a166cf303de0697da49c50777ceabe2535804843c607df5772fb00efa7b0",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 7.418775510204082,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 52157
+    }
+  },
+  {
+    "id": "s_in_russian",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "0d6bd427162c44c8d534a62f194dd4e1d54a99d9ad55cb46e3bea8772c0882d6",
+    "processedSha256": "a51b8f38f8f0ba583a6ae077210e9087addd7b83dbcdbeaf3b23490994b04813",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 5.12,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 36066
+    }
+  },
+  {
+    "id": "s_in_spanish",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "aaa20e8edf3b2eb7c93832c58d952f445d0230a9c26e01745d993f208d4d609c",
+    "processedSha256": "22b0b6780d27c5f6fbbf9669f478ec8edb79f6ed72d6f4c0af9714cc91cc4826",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 6.0081632653061225,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 42283
+    }
+  },
+  {
+    "id": "s_in_tanzanian",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "1b5d779df81069fa92244ffd27340fdf91779116daef108ed33eb9aa2053bfa1",
+    "processedSha256": "c637bd2d81759e4bade712d8da28235b1d33c712ca67e7cbedb33f700a5bf259",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 5.328979591836735,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 37528
+    }
+  },
+  {
+    "id": "s_italian_1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "d8ba31c1932a084072b731996952c25e35576991fb0fe53af2697eebf89d2e82",
+    "processedSha256": "80730470f5e6b774126aae46b0de3f16693fdea06308b4392c94c434b455bf28",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.403265306122449,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 17048
+    }
+  },
+  {
+    "id": "s_italian_2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "5696bcad2076f1536fee8cd844f835aa47c8029cecb74ddc77337e6b513aba51",
+    "processedSha256": "f631efd65d0baeb4b4dbbe6316c4a0b09de9f1092361abaa749d4939275fe44c",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.690612244897959,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 19060
+    }
+  },
+  {
+    "id": "s_kenyan_1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "82546e1d63ad3ab994f0880f2c4e70dcf4b6b5ed597920fc62d2cffe68da653d",
+    "processedSha256": "27539e1e7a19cbcb27cc9c0e194090107c70d79f6296b1d7bd0e1a71bd9e5707",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.4628571428571429,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 10466
+    }
+  },
+  {
+    "id": "s_kenyan_2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "92b88999921fdfc0a8497e9768b3e1d86fdc376dff0bad1542bafecb725ced7e",
+    "processedSha256": "e3b821af2c3474f4e7547018b800f137e6b686cb926ffebdf05191e4bb2adb81",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.750204081632653,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 12477
+    }
+  },
+  {
+    "id": "s_mongolian_1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "f189466ccc268f4b74111e94922fca702982af509c4c7cd427045667122b1c3a",
+    "processedSha256": "6e7a28e3b5ac3ca96b370d6f0fc107cca516ec4f343f4d5c4a4e6607cabf6c37",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.4628571428571429,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 10466
+    }
+  },
+  {
+    "id": "s_mongolian_2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "11ebf4099339bd3a35ad22f11f71be3676c7f294b534027cdfe886f03fe3bfc0",
+    "processedSha256": "b58fa277ac183b59c578945e03be2226b0b6d3ddeba35bef603fca66c6697ec6",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.7240816326530612,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 12294
+    }
+  },
+  {
+    "id": "s_russian_1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "18340a4a4b28993b8ffa584bec9acc59bc45423f34a020160e303a98d9c078e7",
+    "processedSha256": "6361f90a9e5fbe400c14fc775ceccf3ba3b7d48a84be5ccfcba222cbef39f016",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.9591836734693877,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 13940
+    }
+  },
+  {
+    "id": "s_russian_2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "da52b0c13c7fbca822276cb052099f268332da7e9410bfa6dd5366281f5edcdb",
+    "processedSha256": "b549584555bdbf6ed699baf74087fdd96f7da03fb6e60395d70fc0e317cac166",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.933061224489796,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 13757
+    }
+  },
+  {
+    "id": "s_spanish_1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "e79aefcd9b15812842a3603bc05105c7d009e0f8bbe1f902b5ba577e3d095216",
+    "processedSha256": "cde544b22323823c48dd28bb7dd30a9ac7d7325c036834d742933fa9bc18350f",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.3510204081632655,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 16683
+    }
+  },
+  {
+    "id": "s_spanish_2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "b050ee0ff12981e7e3c6bfb328281e9e862a830ee5f0ffaad70a77626e8fb658",
+    "processedSha256": "a232aa7e829c3f48b35d8beac69db91b56474dd8eaa9b2ff82095a83bab03fdd",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.3771428571428572,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 16866
+    }
+  },
+  {
+    "id": "s_tanzanian_1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "0d79acf6e7e8d9afec942744de882b9f43bc5c5268725cf1e07d50328255c3b6",
+    "processedSha256": "c39ca442a03397d2ea825d727af489c5ba28698d167332c01ff97638d228496f",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.8881632653061224,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 6443
+    }
+  },
+  {
+    "id": "s_tanzanian_2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "792f0ca371d8568c618104f81259446f763bf250e5390d562914862885383675",
+    "processedSha256": "e91cab184208b3fcd73d9065295e6fe6338f8e42e7d94b82971c2d92e0f6b38e",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.507755102040816,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 17780
+    }
+  },
+  {
+    "id": "sadviolin",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "ef9ce64ab19e1a76bbc1c2c75ac1e9d3805ee6acaf6e5b90c3cbc8588b88f7fe",
+    "processedSha256": "3ae4228adae9574376704f54d926bd1254d8105ae33aba1d3b87085516ae0eef",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.6310204081632653,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 25643
+    }
+  },
+  {
+    "id": "scramble",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "8174781c3aef28e21c8c8840aa334ba7a38329307689cee24a6256a757b574f6",
+    "processedSha256": "e36221ae0298d5e36dc7118bff8b62b1de3172ef9afbb02845c607dc0b921e25",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.6457142857142857,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 11813
+    }
+  },
+  {
+    "id": "shloop",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "47c61fadcca05050b68a3a18275fbbfa1efd047dc3d446141ccbc4fc52dad268",
+    "processedSha256": "74b3078c8deb213760b38c58e0565add6a7f1a2078cc42dce86a3d055bb00bf5",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.84,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 27232
+    }
+  },
+  {
+    "id": "smarts",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "25f5d4250cbfdf1c72f20aca0bb7e54924d04bc086f06ff2665644ca37e87a8a",
+    "processedSha256": "4aa977e5b4a76fdb67dca8172fcfd3b436545a91bea0643b7a5413b070dd569b",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.4628571428571429,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 10602
+    }
+  },
+  {
+    "id": "sparkle",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "7ef66ba8b06dfe95e923ab2a3976f88f0098a6d71a37d51e35c0dc32109335dc",
+    "processedSha256": "e4edfa5d1ea54dc9a845441c8cff4c6e36da6cd08d49598d1ea22385f7ccfcac",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.5485714285714286,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 4640
+    }
+  },
+  {
+    "id": "st_air1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "f37c60f9495f90480078aa85c59be8afd399a8c0587ea00a2eac80f911c1cf5b",
+    "processedSha256": "66499ac140e96a8c1f0bb301bedff7cdd4119412cf3252e9906a49e1d350e158",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.2016326530612245,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 8637
+    }
+  },
+  {
+    "id": "st_appl1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "acdaaf8517b819272274168ef0d74300390680ce66f3b9b62f294e48be070464",
+    "processedSha256": "74c72b4d880a4ce6c57ce7a8d5678e2e709c90b832d1ea80abd5f70a45fc62ed",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.933061224489796,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 13757
+    }
+  },
+  {
+    "id": "st_appl2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "a3b6b7f2dd6f84ac8517d8b7feac3c56412e0e70a45c0a42661d49876acb9356",
+    "processedSha256": "b86175c7ed32ceb5b5a43e18227c63b9e2ab7ae9c251a6e8147739840e95e78b",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.4293877551020406,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 17231
+    }
+  },
+  {
+    "id": "st_coin1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "4af6afced96eb62a66a4e2014ce8a4d1f007f524d513bf9ee01f06d27b1db9be",
+    "processedSha256": "c9618adff65f4ec1751ddd2b56c57cf2fff13f90fe7adb0a244b23890b68ae27",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.123265306122449,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 8088
+    }
+  },
+  {
+    "id": "st_crowd1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "1b35fc1f8fc54a371ee9d7989dfa6f9e8729d7c1f61cf7c9c8513be68447c8bf",
+    "processedSha256": "5f0396cc45b61f3f9a75a7e8cfc8af86ef7c0fed4ae4149a79dd41b5948d9d2e",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.6383673469387756,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 18694
+    }
+  },
+  {
+    "id": "st_drum1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "f6ffa247a103b0850674ffeaafa9667efb660d412aab8b8a13ab6c7bd5ded055",
+    "processedSha256": "bbe553d545403b23fec19b9538fc84bae530cec09e0138cb02a2b888422a0639",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.750204081632653,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 12477
+    }
+  },
+  {
+    "id": "st_gasp1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "1bca2f76b13f52cddf5146e6ed234751ef4e70ed5456900db4760cafb30d2155",
+    "processedSha256": "92dc467128277664def0e555351a54532d3e5c1dc207d659be06876675d5f02e",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.9404081632653061,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 6808
+    }
+  },
+  {
+    "id": "st_gasp2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "9be3bde2a5ae0d83e8b498c9fbb7f63a092cca60013610e3a76c9511dab8fe7e",
+    "processedSha256": "49eecfdbd9317ec0613925d9dd83fef3e755fdfd00dcb0a26058b69b16ee054f",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.0971428571428572,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 7906
+    }
+  },
+  {
+    "id": "st_heart1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "3222d1c0385881d9d03d7fbbfe391afeb053110f8849fcd6fba9dad9dd172b8b",
+    "processedSha256": "442df7034b3c0d11f21e0264a5a2ce8056aeab86c1d3c4656f508c5a2ba4c588",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.593469387755102,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 11380
+    }
+  },
+  {
+    "id": "st_ooh1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "306a3ca11f83b93ef8b5b72059e4646d34ca22b6ae4235b784068e1f1e9405a7",
+    "processedSha256": "a1cdf0c7e61194613ba469e38f56370094cb99db0d89a7f9ac0926edb31c7526",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.1493877551020408,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 8271
+    }
+  },
+  {
+    "id": "st_ooh2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "bd832297b0431d31ab0d14f294b15170a41d18f5ab8ef7bffa4e925315477ba0",
+    "processedSha256": "db43061563177bac2718c084804aa0c6952afbc70a3881ed9edf3b1408f6103d",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.3322448979591837,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 9551
+    }
+  },
+  {
+    "id": "st_riser1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "f0254c3114c413c23f8d4067231c7a78db74ca78bff595c48af249973873eb1f",
+    "processedSha256": "2aeef846dd7d2b3dad3e1f10b6ed6053b49204769afbb2cb529a8dd31536fdfd",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.28,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 9186
+    }
+  },
+  {
+    "id": "st_tada1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "c30f68c8796eff3bd04979b37b47706b88881b4af649d82b12c3ff87d8d9789b",
+    "processedSha256": "f05c2a81f51f226b862f118f8545c4dc74b00a287d877f990a59121d1faacff2",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.5412244897959184,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 11014
+    }
+  },
+  {
+    "id": "st_whis1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "f481a6d1dcfaea9784c259b6e588de4a223ff323ae03e4ae85d6b624279d5f01",
+    "processedSha256": "7da462fc187b695bdca14ee5f5fa72c075e4ae02c42b6004713b1babe8a71fe8",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.6008163265306122,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 4431
+    }
+  },
+  {
+    "id": "streak_big",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "0fed272f31c85a7c610c1739d7aa6770cb8ceb09a4d8801c214e420519792f3a",
+    "processedSha256": "6a972ce4f97d7871734b67a5e56d071bf1d744868b980dea2e091424515a193d",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.5485714285714286,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 4640
+    }
+  },
+  {
+    "id": "streak_hit",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "9ada8074e205cdf09ea9471cd177f645e43547224251edda252c2eead9d13b9f",
+    "processedSha256": "227a9b04b472e26ef294155f5f19d7fca3044b531b9dada8b62139d1453b7d95",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.2612244897959184,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 2341
+    }
+  },
+  {
+    "id": "t1a",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "3620c5c76c0c84aacaa1b1dad508699025710b5b318ec7cf509b6b9a31fa4784",
+    "processedSha256": "55d9af83b52823ae76b29925447e40c82aeabd36e5adb1476a02739446a6607e",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.030204081632653,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 21437
+    }
+  },
+  {
+    "id": "t1b",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "ff1ddfb3e33da25117b672832c45515a298e61182fdf35cea93d7e9ffa630233",
+    "processedSha256": "cf55a3382fd116fede50062c62d1c3d9d4ea09a8d7e1dfa202020068ea7b488b",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 4.884897959183673,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 34420
+    }
+  },
+  {
+    "id": "t1c",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "d25689d3852355f5cb32487c9fd4f175b71b53cd90ee3b6433d11d695c6cda12",
+    "processedSha256": "fa4ad601e2188c610871d06c0358d74b65dfae2b31dd3ccf4d983ef2a97bf98b",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.690612244897959,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 19060
+    }
+  },
+  {
+    "id": "t1d",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "59619f3ab2feb459e7920dbe6eb1bc059d8537d4544b54fd1fbe85388da1c9df",
+    "processedSha256": "c0736c062ca0d49281cc362db04ee6532b66aec5c73f8319ebd6c72e03da6736",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.1346938775510202,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 22168
+    }
+  },
+  {
+    "id": "t1e",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "4266b40525458c38fe6610bafbab56c276c86b0296e2f330ad4d81b980d71d4e",
+    "processedSha256": "423f325dfd86753470364c640138c168d966ce3f80166a9055144abf8a3c14d0",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.089795918367347,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 14854
+    }
+  },
+  {
+    "id": "t2a",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "5f105ed58317fb3776f9e37358665d81875c905739c539ec3140e5405c2e8c6c",
+    "processedSha256": "75166ffa93f564470130d179ae7316aec522c0808bf2d59c2003b3cba06bbaf0",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.8546938775510204,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 13208
+    }
+  },
+  {
+    "id": "t2b",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "5d3b839df5f831caf0ab3b4b62c421c6b3156f0425c112accb4c09fb8f123ee1",
+    "processedSha256": "f9f80622dd74ffcf48f3735f78eaca6fa3fa8e3b889f831be9affa84fb26253a",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.6644897959183673,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 18877
+    }
+  },
+  {
+    "id": "t2c",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "e63d849d361194b4bed048024fba2cd8364a62953b13c7f9795f09e473c77d75",
+    "processedSha256": "943a09b6b6f5e0ddd4e32101bb0826f885c42f6629b665248561fe6f18eff338",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.2987755102040817,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 16317
+    }
+  },
+  {
+    "id": "t2d",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "3d830278dfb902ddc26fd7431a9e3687167462ce1d07bb45fb5c3648a2574a6f",
+    "processedSha256": "d0599e94548cc576b293074f761641c1b5ee804430f2e5cb07a2b3e40a8a1339",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.84734693877551,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 20157
+    }
+  },
+  {
+    "id": "t2e",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "a08ac7079b44c669a12c905918b1845fda437f1140cecb778a503def3c839c27",
+    "processedSha256": "a5fb6019e8fb23eba804892d8a40f4517822a8cc97f24aa86994913162d8bcbc",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.082448979591837,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 21803
+    }
+  },
+  {
+    "id": "t3a",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "7ee64bf0d9ccf4bdbc833705839956780d23efdb7165ca167d065636a6b17e28",
+    "processedSha256": "712049efcfa67fa1b3e17b7cacff29913ae8042d2e8f7a8bd6a25e6d1e7873de",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.56,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 18146
+    }
+  },
+  {
+    "id": "t3b",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "42514e01dcc4c257fb0e76990154b26d091738c2c7f56d456132cea776f78bad",
+    "processedSha256": "f24af92bb3fb29fb2e37e73e79b361faddf172fac633d65f6d955d51e9f76bf0",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 4.806530612244898,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 33871
+    }
+  },
+  {
+    "id": "t3c",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "888a9fccc71b7b167606abea95c4c6794d551936bf3172c1222466fb31a92de4",
+    "processedSha256": "f239227d9d647416683b4d9ca3e8ff47463f03a7580ac97b5adaa505c7e38a9b",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.0114285714285716,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 14306
+    }
+  },
+  {
+    "id": "t3d",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "38cbbe7f0d82922814a3272ebad56be9d7ba818d6afa451fadacf6711da451e6",
+    "processedSha256": "55959299a63dce177f7327cf8e29cf3e0cf62f707a2fda53c90e9dec545bed6a",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.4293877551020406,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 17231
+    }
+  },
+  {
+    "id": "t4a",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "7dca1deb465c720d66184425264f16c6f79148665946cbd1b43edafca64a065b",
+    "processedSha256": "cc1ba558d83bb875493dffa17682a621f027b96f89eaffad04c56a61985b44b1",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.4293877551020406,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 17231
+    }
+  },
+  {
+    "id": "t4c",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "da3ca578617b2c6944c1ebb8c89adcbacaad4b4f8e0c40431620f07bf4a32159",
+    "processedSha256": "bc720172bced151142e4fb76e3677942e8403a2ed826b7f5d1baf4b22b4d4ea7",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.5338775510204083,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 17963
+    }
+  },
+  {
+    "id": "t4d",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "4d5293966bf5ed1a5764df33c13dc7e5901d0a8345753de38d947a1612ee40a8",
+    "processedSha256": "377488050de81c9bb0f74feb5664d662485a5233da8df9c59a3a986823df6d98",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.474285714285714,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 24546
+    }
+  },
+  {
+    "id": "t5a",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "9da25565d1578bf8beda5dc36e2822ee7f0ba0aedc546013bbd2cc111483d598",
+    "processedSha256": "de79998804cd8227a4c68346a5292c527558bd03983ef5321ab1493028eea12a",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.246530612244898,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 15951
+    }
+  },
+  {
+    "id": "t5b",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "12fa5e757d7012a0f9ff620a12f3527aca75d0ed81e8803245d5cb485d138cc5",
+    "processedSha256": "1ef29a8731493253f7c6324f64ca0ea027453e52f97678924a795b95a51a530a",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.8212244897959184,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 19974
+    }
+  },
+  {
+    "id": "t5c",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "91e866c69f08adb842d96cfd637a637db7a0693ddc77764ea3064a83ac38c3ad",
+    "processedSha256": "3fd5dd60cfe1219e6c8932ba327201196a9906b477a7ae6077999a59f6e5cb1f",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.115918367346939,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 15037
+    }
+  },
+  {
+    "id": "tellyou",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "87bbc83de7ecc60c33a47ecb983124780230205c8208e5dbb4321aac9964ba1a",
+    "processedSha256": "dc558ee057a277b67e7a5e3f6cad33310237cf8677a9acab21e33be0ab699454",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.9591836734693877,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 13940
+    }
+  },
+  {
+    "id": "th_c1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "bf10c51086998c15317ee2c207793f3976ac0ac47b4117fdca23d09af0de3f07",
+    "processedSha256": "ad5110592c351758d0f6e263d66e405d9bf500953e9db4171c6a435b1b283f3d",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.3844897959183673,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 9917
+    }
+  },
+  {
+    "id": "th_f1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "758d5c17cd0c37a7588d761c0e4ba9c74dd92cc359f29287ca594a1fb90d3291",
+    "processedSha256": "aacbe54899346a14427e5fca3e00cd466925b771765c7dcd3c154efd008045b0",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.5485714285714286,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 4066
+    }
+  },
+  {
+    "id": "th_g1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "35dd4d9cd0590c476adb218abce710b35b8e77fc92f001de530d18e81bdb6dab",
+    "processedSha256": "ecc3fa2d99e479c34c075987bdc6625f3c208faae15531dbcbeeb47cbb9ea2c5",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.123265306122449,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 8088
+    }
+  },
+  {
+    "id": "th_g2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "597bcb4f2693af20c7560de5a202fc7e51817f08ab39b3eef5d3a131bed85e1a",
+    "processedSha256": "61267fdb7b29b8631f79dd0b80e4dad605c166d7a4818ec1b7faf21dc3e57a6a",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.253877551020408,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 9003
+    }
+  },
+  {
+    "id": "th_m1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "6e7bfbe27be0d8532e2fb9f4c39b82490c7c748747d2841c818690c287356029",
+    "processedSha256": "8930c7ffbb00399d156c16da217d4caac6948e4e061ff2d6179617fb24cfe3c4",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.9183673469387754,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 27654
+    }
+  },
+  {
+    "id": "th_m2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "2ae99684e1dfc0ab85c2f2727cd9693d7904fdc0adcc4385b5fe9408d8d9b1e6",
+    "processedSha256": "3553ef4641220b1cbb3c5bca03820a193cf2635a0e7644142f58d26172b80a4d",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.944489795918367,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 27837
+    }
+  },
+  {
+    "id": "th_m3",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "10dadf69280a23186d2ddce99ddaf8e8eefca2e923af13ab23fb6634292e42a3",
+    "processedSha256": "4a0e64de43e71fe901cd40b399ad07d15df61178e81f236a04123e78db18cdd7",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.8922448979591837,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 27471
+    }
+  },
+  {
+    "id": "th_m4",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "9413688dcebb8d9bdf2cc96f23650e30f6c52ffc5bdb187431ac1d6ef7efe836",
+    "processedSha256": "52e8141f9f65dfff9521959ea433de043839d6baa21cd4bdb2a66de27c974f55",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 5.276734693877551,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 37163
+    }
+  },
+  {
+    "id": "th_m5",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "6d6f13730eda72025d2afa15077c3f49ad44b2067bd6c6a3782869ab583895a5",
+    "processedSha256": "774fca6a2be74a75d057b8ab6704c8cf6ae60cbb88a5f283264839ba5ea61b25",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 5.198367346938776,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 36614
+    }
+  },
+  {
+    "id": "th_m6",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "ef3a60d054ffd42543bb2c448d43815946618827b3a7fd96646808d89205363d",
+    "processedSha256": "207401225c68453ff77e083749353652d4b8a704307f69e116c85a11e0c5a314",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 5.250612244897959,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 36980
+    }
+  },
+  {
+    "id": "th_o1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "9725807b6740eefa8b6bb11451f22e844ea5c47b8a087123aeccaac331bfc799",
+    "processedSha256": "24cc196749edf6f9b103153c2f2d6a5a02027dae068ee9b1d47170dcaeb01f76",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.5746938775510204,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 4248
+    }
+  },
+  {
+    "id": "th_o2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "015f205756a75efaca9a3202b15c90ee8c3af7e31beb34aeee13a4eadd97ae8b",
+    "processedSha256": "c50304955d9ecdf0db82248c039ba5202a5928016ab1dd03c2d8e96d0eb0c66b",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.5746938775510204,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 4248
+    }
+  },
+  {
+    "id": "th_o3",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "8a2356aa9a204c379ec9a7bbcc6d2e8a625f37c79be7ae71e5999220eaf572c9",
+    "processedSha256": "d5c4c37a58e274e7148f64cf9baf2dbf26884a792faf4e0d204fd9e8dfdd33d5",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.5746938775510204,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 4248
+    }
+  },
+  {
+    "id": "th_o4",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "59c3bf7ab27f8d6146dd1b342080322b3ef8620aabf3728485ca098d79c4dea3",
+    "processedSha256": "ee813a61f3bd33aa5f5879fbaa3c4474c08f68eeb886ba5fd60aa56d616ccc66",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.5746938775510204,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 4248
+    }
+  },
+  {
+    "id": "th_p1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "c8ce204a40d439606998ca6e69a1e488991f595b40150dbf754f74bf4b787d3a",
+    "processedSha256": "c65432716968877d544d37ca2f3b1a205388b109f8053e2f3ec003dc31682b55",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.1608163265306124,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 22351
+    }
+  },
+  {
+    "id": "th_p2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "bff68406e5bd5d2aa8d6d6d041d78dc8aa538b54d8dacc02ea6687e6c087701c",
+    "processedSha256": "9d4e5658e886d8f74bed67c6e27ddc7803e34c0017611b0ff62b3c3f29a22b1a",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.1608163265306124,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 22351
+    }
+  },
+  {
+    "id": "th_p3",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "4d2d5bdb7254616a356df8e2be02ce6fd3024e021c8a75f75ccac5f7bb06ba8e",
+    "processedSha256": "bbc89bd5fdd0e43b19de7d37d94348ced5285c09b9f88abf168bb413c5a5b402",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.1608163265306124,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 22351
+    }
+  },
+  {
+    "id": "th_s1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "cc39d4532178f654ba7e579de18c2b83eb12fce46c57503f4c8b749dd9cc2b26",
+    "processedSha256": "4a1cdb2495e103bf7c3f8997f532b39a950c6389d567afcc0d7b272a5e412843",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.1493877551020408,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 8271
+    }
+  },
+  {
+    "id": "th_t1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "74f93c586b35fb4a19e92c9f2f00df786f68655928d73dad79aa9258a7cf22a8",
+    "processedSha256": "1e74277fe9e47aea3581883efe54f37c3d1b1c559fb738a478e3e3d4dacb5657",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.7053061224489796,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 5163
+    }
+  },
+  {
+    "id": "th_t2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "6f36ae186a4c4200a66e0f3dd058c579e3dc31099e2c9b3e8dfd76129768bc9e",
+    "processedSha256": "6c42eac7f9ce839b8d402b4573ce3f89fb63d2a402b5028dc7b55e02a9b88362",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.8620408163265306,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 6260
+    }
+  },
+  {
+    "id": "th_t3",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "8f323d5848e625054906cf42fd2b74ecb42daf2fae09e495c65a659f620096f1",
+    "processedSha256": "55016e370fc04188b13c82f0aa2f3b104fb8a9eb7a5f348bbf2f25d716bfbf19",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.7314285714285714,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 5346
+    }
+  },
+  {
+    "id": "th_t4",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "6779959a7199a44a2e86d7824caefab5f3202d9d2fd13387a73c4a17eed650b2",
+    "processedSha256": "d5e0a02876ec12852f2571e2b84f8b0e83758cbec75e98a628eb89b62f1b5bd9",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.0710204081632653,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 7723
+    }
+  },
+  {
+    "id": "th_t5",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "9d33cac699262f92624a483bbf12f49e43bada320b332f50c84ddfb0f942f58f",
+    "processedSha256": "11d2f55ec19970c2393a02f62f90007d8f376d8551e96cbe5eebe2855fed4b2f",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.6791836734693878,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 4980
+    }
+  },
+  {
+    "id": "th_t6",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "607d31af5f3a718da2209dc9bcd18696e2795ad92780a5d542ed11058bb3dc54",
+    "processedSha256": "feee38835f9c2c76eb96ade2b8288758e78eaf4c443fcbe2ab04daed972ffc03",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.8620408163265306,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 6260
+    }
+  },
+  {
+    "id": "trombone",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "ae8c3bea0c791e0edabe9d8099f3f33cf6c5b556e322dda87b406cfdd44db6ad",
+    "processedSha256": "b88728615983304ed71f7c1ef38a438b45196652b11d87a4dfec501a1d70efe2",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.626938775510204,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 4681
+    }
+  },
+  {
+    "id": "ui_back",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "4bdfc9bcd6e152e48d0db4caaeb670aa5dffe01e57921b6e2ccf3648121f1b5c",
+    "processedSha256": "7268fd8b775691c78ca7441005d813f048708c8c18595e47b944d7774412e64c",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.2089795918367347,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 1923
+    }
+  },
+  {
+    "id": "ui_click",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "74fa9118c9664da372f75cf5a3b368922bca3c551e790f427c5e17c94d9a97a9",
+    "processedSha256": "59a90e3739307cbb5fd9326f97459f6586e69235ce573e32f2a4c5e426dce481",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.0783673469387755,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 878
+    }
+  },
+  {
+    "id": "ui_close",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "8bb748cd2591321674002d0f1c0f0b4001a4c3f0d6eb3f7b9976c77aec8e90e0",
+    "processedSha256": "a94b5e4c45efda8d8eccb5d9f5b87640e17d0d67ffeebe987a9a4c406c2c2092",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.2873469387755102,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 2550
+    }
+  },
+  {
+    "id": "ui_error",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "0d2f49b7c8b1cce16fda03300c774eb5b976741c941f870a0fe87db63afe0112",
+    "processedSha256": "b802b99861a406eded7042e3b7fadb6858e5f9fff0b41d79da158329e75332e2",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.4179591836734694,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 3595
+    }
+  },
+  {
+    "id": "ui_open",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "288492c688f201359de60c085a436529f99657ca09b3424f859dd4f91814a540",
+    "processedSha256": "4dc2399b9fecc24bbcdcc76b2752bd8f802f0633711679c577af79ad31a5bc44",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.3395918367346939,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 2968
+    }
+  },
+  {
+    "id": "ui_save",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "c4f6b12ad383651829c5b4a7f75c203d52d1ae0838f2e58a3ef12934f9fbed06",
+    "processedSha256": "e68a2e21e73a28cca9e1aa2350facb79c7c522e69fd5718208f0443b9bb8759d",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.7575510204081632,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 6312
+    }
+  },
+  {
+    "id": "ui_slide",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "939dd21646f4ba60f3ba228702860c8880da20332e44d229b03606750793af70",
+    "processedSha256": "b5250ecea38a26e5c6b9d2b423cc67fae8585c42d7c296879a89155241eda50b",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.23510204081632652,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 2132
+    }
+  },
+  {
+    "id": "ui_theme",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "4f4d30aa3d45d19defb7fc0f0abd122acfef129a7b843b90e8395a13fc304dfd",
+    "processedSha256": "5923e44c8d744d79833a3c049cbf6beb0624d17120dbc5cae28a130c70e50299",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.6008163265306122,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 5058
+    }
+  },
+  {
+    "id": "ui_toggle_off",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "51df656fcf30689e4107b070e028bfbb40b2ec46c49c806661c1d0e46763f560",
+    "processedSha256": "4636bfcbc98dda23e456810a26ccfa65b43616541b588d6230df85f243d241bc",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.4440816326530612,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 3804
+    }
+  },
+  {
+    "id": "ui_toggle_on",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "3725399c706a3b3929b90c6e455d57e3e1d9255fe433b66ceb5d4c900acf31f6",
+    "processedSha256": "18067e1b13878b689cac4026ab80fe622d81e47bb3f1b2277765fac68fe1da26",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.4440816326530612,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 3804
+    }
+  },
+  {
+    "id": "v_aim1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "68bc58230c7e0ec86bc6372bedf18d7413b41ced34cedad605bb0924a2d58903",
+    "processedSha256": "cc4fece501ddfee3802a4275dc3c89a3a3105f30fb7ad81af625ef4d1edc7772",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.866122448979592,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 27288
+    }
+  },
+  {
+    "id": "v_aim2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "861f05ee37f85c22e9c00289a6726a45bebce4cad6b63c5a28d7f7ccbf8073c6",
+    "processedSha256": "cc1a07451dd87007cdc705c0b4e96b7c79e240d2b84c1d9d948a72f2f3e7e847",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 4.231836734693878,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 29848
+    }
+  },
+  {
+    "id": "v_alltime",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "92d9fb95acb1072d20cc3e2ecf874dfe4656718a8a26c1d481eb523242db4acc",
+    "processedSha256": "04c44df9273413e2f253cf67be0cd29ba6b93029ac686c1b194229e64f8b07f2",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.6310204081632653,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 25643
+    }
+  },
+  {
+    "id": "v_awkward",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "07f019d641d1ddb4a1953e54ec05ad9e0ff198c27c3fb58fe93c5eb49c8381bf",
+    "processedSha256": "be1a01ee6ead0119575d254af2294397303bf6ddab8f2b97100ece18028bc910",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.7616326530612243,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 26557
+    }
+  },
+  {
+    "id": "v_bait1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "5ea5b62c176b26dd4c51840234a109750cad44182bc9d35d9f47720132463065",
+    "processedSha256": "89c0e8106e6df9c244f5abf756fe52d0f069af9d2198a7932dfb2bef32e9b434",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.030204081632653,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 21437
+    }
+  },
+  {
+    "id": "v_bait2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "928382dbaa3dd11232faebf75ce747e8b413067a22c073b40581249b39fffb04",
+    "processedSha256": "00be8a6cef7f151e1281fc97df506558492aac87e1c12b01b0913d99da181010",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 5.146122448979592,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 36248
+    }
+  },
+  {
+    "id": "v_bait3",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "66af1db9a3e91492857763199189de66c1be450aafd1f6876bd2cf6a8d02bb79",
+    "processedSha256": "2f22458b46a0ee98ef6b23bacbf4a5ea5a7dbbd21fe6b757a34825da7955de74",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.474285714285714,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 24546
+    }
+  },
+  {
+    "id": "v_beatgm1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "4f4940fa4d172211b3e4ebfaeaa749c6d176d62ef04de2952608d7d43c177e42",
+    "processedSha256": "07ecdf66bfe12c2a1877f7a6fd5a9d6f02e653def1c92d84d47eea949627f61d",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 4.310204081632653,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 30397
+    }
+  },
+  {
+    "id": "v_beatgm2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "eaa471bdb49e5eef2056cf097367dd814c6e4e7cb22411decde1c265dcfa3c7d",
+    "processedSha256": "b446bd1bc28644ae8bed87e2f0029009d1b9fce656fad53bd792af4cbccb1bd6",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.9779591836734696,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 21071
+    }
+  },
+  {
+    "id": "v_bigbrain",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "8ea3e582c6796e370f9ca66630cdfb678a898364bad51863d777336f44bc384f",
+    "processedSha256": "c8dbf0b553c8a4889bb2d51051f4cefc529917f41ff0c01e4d3f54eba16d95c5",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.436734693877551,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 10283
+    }
+  },
+  {
+    "id": "v_chess",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "393796fc815dd0cfadd68421cdd35801f729805a2260d5ef8730917ddd7ed829",
+    "processedSha256": "2bc89719260b0bbd17df00898224cb0db0e4d9bc2f45938d6dcececa519d4ab2",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.9183673469387754,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 27654
+    }
+  },
+  {
+    "id": "v_clean",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "988ff9ca9ce69e6b578495796b4f911ca7ab38b66aa54d1fa999776f1a550167",
+    "processedSha256": "ddfa64d14e7db934bcb46d22212f3e318ce5027ef56ba7c35897e1033f8ca0f1",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.683265306122449,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 26008
+    }
+  },
+  {
+    "id": "v_come1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "eb6217dc93ea60889f3cafeea22bbe14d50432c357abe396eee0752341c71b4e",
+    "processedSha256": "954e7178cefbb462c6482da3c07defc7b8cd500b04983ab537aba5ba56b1f58d",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.899591836734694,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 20523
+    }
+  },
+  {
+    "id": "v_come2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "bcbb3c6ca4a802a6bc2e711d3e1f0e1f94749dae450a868a0917134068437e70",
+    "processedSha256": "9c0f961a1af9cb275419b267df8be77a71ba9f8e7b9fb9a3879b3194ffdef717",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.9257142857142857,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 20706
+    }
+  },
+  {
+    "id": "v_cost",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "a7d1d4e0ac932e2977f8e703e3673350d8b20c611e3bd9a60d8dc72be837dc5f",
+    "processedSha256": "efb5af04a75f68faff3433af8e424540da4ab5e85bc254102db690425e2ceccb",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.507755102040816,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 17780
+    }
+  },
+  {
+    "id": "v_crafty",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "3af9a5c258aff67aba0651d975637e390213d71ba980d9c9c87f9cc435cdd688",
+    "processedSha256": "2a1cab95776e3f4376f850c5bd2cf75736062d704b70034f57cb5405fc3e9deb",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 4.2057142857142855,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 29666
+    }
+  },
+  {
+    "id": "v_curious",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "86c52988b6389b7d0e9376a012b64bb099bc6162a7e5e655d95755fe0ce7a496",
+    "processedSha256": "ea8e4ea3596855052ecc429facc469b0ec32acec1b740c623416a28cb2a70831",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.063673469387755,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 14671
+    }
+  },
+  {
+    "id": "v_doom1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "d8202ea9237fa31da5db43b7219dd9ccfc3cac0ff191517126b7457bfcdef6ef",
+    "processedSha256": "1bcac27026aa0d0b72ae7c5cc033481698996ef1f4eab5f43158cecf0ec7243a",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.6048979591836736,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 25460
+    }
+  },
+  {
+    "id": "v_doom2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "151812f81ec198a09c2447e249478a2b6befe9bfee0bd607cedec788b5f30e60",
+    "processedSha256": "5a888c24153256de2b621bea84a132bb9486d5ada6d73971ef8c05dcdac12af8",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.7877551020408164,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 26740
+    }
+  },
+  {
+    "id": "v_doom3",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "cf8d5527bb56f345b5d52d42ccaa7f82d55284135e617017432d42569a588244",
+    "processedSha256": "7a7164a41991054eb9dff8bae46bbc057d359a697624975c77a1fc766eb1f713",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.6644897959183673,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 18877
+    }
+  },
+  {
+    "id": "v_doom4",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "c28cd968fa7e008872e76a79f8d0b484566a3cb90290721ffe2be5e5b4a16d77",
+    "processedSha256": "8064e84d37e2aa9d2511877b17bce974d8339daceeaf14646851a36cf1ed8450",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 4.6236734693877555,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 32591
+    }
+  },
+  {
+    "id": "v_doom5",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "3e5c473545fab1b30e205ee95c46d8675d87cbb74a3c8a68a12310326b0d2e46",
+    "processedSha256": "06ce31d17d46868b60e7279d59d73b4a06a6adf76bd9d5b386cca789c6e4bf0b",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.866122448979592,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 27288
+    }
+  },
+  {
+    "id": "v_double",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "59bac6ab0cf993d06daa9cd2f15ea0dcacc404d10d26703ec5b0ac345c9ebe09",
+    "processedSha256": "19b6a29239e600cc098d27b914b7dffd444ac21482e6a64257c07c1b65d7e742",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.8881632653061224,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 6443
+    }
+  },
+  {
+    "id": "v_draw",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "1ea4f99730d5510545b2fdbe0600668a7645a5cb3f81accf2e93099c5461f81d",
+    "processedSha256": "09ee293c500ec845a40e3c53155409913224b9f369ded4408134115d39b75b81",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.1681632653061222,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 15403
+    }
+  },
+  {
+    "id": "v_esc1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "9f1a30953422cc51cc1387c08d480ccfb9b19368fab0accc457e8e65d299a5b1",
+    "processedSha256": "ea859fe388347c31de850f79991f882394853d7ad4406e700ea475315b6a4b88",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 4.048979591836734,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 28568
+    }
+  },
+  {
+    "id": "v_esc2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "fd570dc18b1856a2e3e869a2d81d7c7794f457f73b1f97b48091b999998daf5c",
+    "processedSha256": "4036e265f534db7d695f24d52977c7405278cb8e299a46e1b7fedd85036f230b",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.716734693877551,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 19243
+    }
+  },
+  {
+    "id": "v_feast1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "96a7edf103ed9906823a629c046175e418959d84f9d80c70a19e089e4da51782",
+    "processedSha256": "9fbccc373e01619221b10a232b992bb3dc9bf73c153aba34b4b2dde9c98b43d1",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.873469387755102,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 20340
+    }
+  },
+  {
+    "id": "v_feast2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "ec55a9b6ec2a78269db66df5eb9774992ca0e5efd304de8a51f9c83ba9649689",
+    "processedSha256": "0f60c99f91d687268697a3b3620bb42250b21c6684114a8415910ee77d983766",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 4.519183673469388,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 31860
+    }
+  },
+  {
+    "id": "v_first",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "e514bf030d64982f313921295c6d18153e2028090fc84d3221a55f62e47938bc",
+    "processedSha256": "ebe2cedb1150582ed333c51469702ae727ff821ced4d893104a5e68bb46f34eb",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.436734693877551,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 10283
+    }
+  },
+  {
+    "id": "v_gasp1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "0e22ccf01345536bb7b896e3238eaa8ba4530a285163733fdf085cd06155bd9f",
+    "processedSha256": "681e7b701bc0dd75c06fd38f92098e8e5ae4250988302f7d1905500049d79ee0",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.6718367346938776,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 11928
+    }
+  },
+  {
+    "id": "v_genius",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "4cc6e2e06057642505a56bfc715b8aa99d80f968017c6a91d89b14544dc6fd0f",
+    "processedSha256": "be366a8f50013c9b0599f5249453ec66bfb34d254faa3200f58b4777e7259cd5",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.6048979591836736,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 25460
+    }
+  },
+  {
+    "id": "v_heavy1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "8a38800e25dd4414bec62290bf0525b981b23f78fdc2b275ff76b5d6883fceea",
+    "processedSha256": "081e4f4404e1c898ed4a71ae88dc2cc54d3f9adf49d5bc3f4fe499b1d2b4f62d",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.6457142857142857,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 11746
+    }
+  },
+  {
+    "id": "v_heavy2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "51d7099e076a1a2d9bad367fb3e7d5fe3ae1852876dc85898337a76696b9b7ce",
+    "processedSha256": "ad08713bab7896081d94227777638e6dae204099333de90cb18001f1f67ece49",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 4.83265306122449,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 34054
+    }
+  },
+  {
+    "id": "v_heavy3",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "e998a0f6c685b2caa1e3a73a48da33272ddc5f7940964453d7a2e9786d23b7e7",
+    "processedSha256": "1af26c96c405e68e81fb0a5e4f9b8f374519805a81154db20509218f417b965c",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.1681632653061222,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 15403
+    }
+  },
+  {
+    "id": "v_heavy4",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "603224dd39767e54bf9d080c10c9b3e2f663e54df9d9b0783a112f8c468c4832",
+    "processedSha256": "d451397a9f0b9c6fcca8e2bc53bc54c39ce60cf3e5b9c09f4764025532eae129",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.369795918367347,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 23814
+    }
+  },
+  {
+    "id": "v_hint",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "3dc8eacc4b92a7362773f669c96383f79452b080d6236bc186d394dd1ad20d18",
+    "processedSha256": "d6524fca24f2281a9128fa85db08e676491b0e1eefd499a4860c4a30b0beceee",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.3248979591836734,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 16500
+    }
+  },
+  {
+    "id": "v_hmm",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "78e2a08317955ebd17bde27daa03d9d263b4b7a2beef8732a490038d926ca55b",
+    "processedSha256": "a5141d3808365289bd20570d652e2f73f2b145fdc4e1d5f3318a3e87afe15850",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.5526530612244898,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 25094
+    }
+  },
+  {
+    "id": "v_hold1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "ea9defac074d998818c733797db8f515187afacbdf7a586f21270d7a468cc887",
+    "processedSha256": "2ed5a14bdb5cd2b733303904eef6ebdb5ce77feff0b26436020fb84792c2e64f",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.220408163265306,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 15768
+    }
+  },
+  {
+    "id": "v_hold2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "e8b0a58d34b56467ffd56e0b455972a6eec416d59936c66ab31216e93f9ec897",
+    "processedSha256": "ff4e205fd6e270ca282837eb4782c42d5009b790931248e4e588829cdf26418c",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.5673469387755101,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 11197
+    }
+  },
+  {
+    "id": "v_hurt",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "045cec95cb3420da4bc384c11e058dd04ef17c79594ef5ba2d1523c3c458ce7b",
+    "processedSha256": "dc91c2a5b39645f6931b8df0025ded7566180644acd708aca0ab9ecd5bf3d17e",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.030204081632653,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 21437
+    }
+  },
+  {
+    "id": "v_inacc1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "a2169ecd798942b59b723eb0cf713229f21fc4cef056f4ab1ad116d100103c30",
+    "processedSha256": "a912c95d99941b9088cee16a3387e801496015b387966b40ed763d370b9098ac",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.906938775510204,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 13574
+    }
+  },
+  {
+    "id": "v_inacc2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "2b291ef6b5fd9da12edd050f8d7537f03d51877fa780dc763b5f18427f6faf35",
+    "processedSha256": "36c42fea4f737e905cdf124381af351eb1be3d37e11a090a4d9e3718743d10aa",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.750204081632653,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 12477
+    }
+  },
+  {
+    "id": "v_king",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "77eefa9188e1b274b6770be4e07688092ed073d9c9ea652c22e78017614f6f01",
+    "processedSha256": "11518700ecb39c82abbaad55dc2693ee3c345d9fbcfba184067ec7c37500c3cf",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.750204081632653,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 12477
+    }
+  },
+  {
+    "id": "v_king1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "150870f82ca4323a16a9312ba2f024feb90c25a3ff2bae0a39e3f6dc91e3f844",
+    "processedSha256": "c4924c3a47506ba27da7fcf85c591c2fbc02062c8c13ebb77f17c13ed9d7e6a5",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.1681632653061222,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 15403
+    }
+  },
+  {
+    "id": "v_king2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "607b2d1f5bc982096b2c32f2961c1577f2711023b02d5494449803901cafdfec",
+    "processedSha256": "5a8f8d94550f7c74518c1393819828b3d56123f86b3141827596750fcb9083d9",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 4.0751020408163265,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 28751
+    }
+  },
+  {
+    "id": "v_legendary",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "92d1aa7a1512ad5b8b5b4a4ec6a46da0bce15b4dae8d13cda9f7d6785bf8de47",
+    "processedSha256": "ccf4fe75a5e3d2b1f325c8c14ae59717d06f5b37719727f0952822d9343bb52f",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.0114285714285716,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 14306
+    }
+  },
+  {
+    "id": "v_levelup1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "581ee1d6a1744f5950c0e5db47e57912867ab288d7f38b13a55914f140f9af5f",
+    "processedSha256": "67e1f05ad7a23467d44dcc3757e7b40650714f3963cb4591b0d381014630ba27",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.7616326530612243,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 26557
+    }
+  },
+  {
+    "id": "v_levelup2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "9f3759416db1d3140224acc44e88cc4d45d4beb87cc227248fb7e0db6efa345f",
+    "processedSha256": "799be2b520da2898c24c0b045e4ede60cf8109702645a9c0bf1ded3ec143483e",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.1681632653061222,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 15403
+    }
+  },
+  {
+    "id": "v_lose",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "4586e25f51df10864c0585ded2e822d049dfa8af871155e20e54ce972de9330e",
+    "processedSha256": "039f1eb9d679ff4d9f523cd340dff685aeb30107723735114fa91ca8adb1e563",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.84734693877551,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 20157
+    }
+  },
+  {
+    "id": "v_lose2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "d58b2b4e753c8f6a5a5eb718458fe71dbbe8bd727010d8664fac7c6c57c3b1b5",
+    "processedSha256": "9785ce4028e0cd481301c88500c8cbbde488b467cd551822349fbd296f9b77ff",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.3771428571428572,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 16866
+    }
+  },
+  {
+    "id": "v_lose3",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "59eb8b8ea1a267a7050386d5a677bc40fde1b3dea75849c47fd1809b0274453f",
+    "processedSha256": "328a1beff7e56fd7aa25c27e5db1da2e2bba5643cbbcb09714614247b6c1d424",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 4.310204081632653,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 30397
+    }
+  },
+  {
+    "id": "v_lucky1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "6de35f0b6fa3655b86628a2a149f28f803381d7221df3fd7a777e424793be86b",
+    "processedSha256": "e2df08c9bb792d5401793bce29121d11f9aca6503ee4d7fc33c060277c805a2f",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.84734693877551,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 20157
+    }
+  },
+  {
+    "id": "v_lucky2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "002520e0ec9c4665b6bdb92daa146e45b3ce2db7c78975c7fdeb250ee78bed12",
+    "processedSha256": "a61e75058cf03795faafe7be73552190e05acf82c8838b609c2cf5fefd966758",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.4293877551020406,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 17231
+    }
+  },
+  {
+    "id": "v_lucky3",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "0315394b486fa61fc5e7bf6372f8b4e575081c1844104308df30096efcc6d73e",
+    "processedSha256": "f24c2b110ae9bcbdbe76b70b9a7e49ceda63385c8838b04c428783727d3deeb1",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.030204081632653,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 21437
+    }
+  },
+  {
+    "id": "v_lucky4",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "5841ae76c63c49a1b6fae63801132015b220b34cd13ab4ad85b22ee3a4b9304d",
+    "processedSha256": "301e3767cbf7611b47e105d35ddfc7e4f82023c166d7975ba3553f09df873fa1",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 5.146122448979592,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 36248
+    }
+  },
+  {
+    "id": "v_lucky5",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "7a44319661e3a05393eb5c1e6edc5eba762431609b33d406d7625c6745e80250",
+    "processedSha256": "4ea049202723964c0fd115e0c64c663eaeb3f3e7209a76054a012483550fe900",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.3959183673469386,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 23997
+    }
+  },
+  {
+    "id": "v_magnificent",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "2beb72bf7107f65f9f6f7447132fd381eade8c0a8876c2b370ddef0cd201ba71",
+    "processedSha256": "09e7276407c77d5127f4d83471703a561c6d23d6fecfde6466a37dd724852ca9",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.030204081632653,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 21437
+    }
+  },
+  {
+    "id": "v_masterpiece",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "97325a279be8ffb2081355da587ba8258d8e762e0ed6a7c29d9185725b1e5aab",
+    "processedSha256": "e0f39bd12d7ce3584e95aa9c38a008e5fa64c2ea6e0eda530049b55371901c38",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.84734693877551,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 20157
+    }
+  },
+  {
+    "id": "v_mercy",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "c1822c63773db1212c3f9829cfa5be4f093705e4bf1b60ece030565d0584d4c3",
+    "processedSha256": "cb6bd03a37009bbd17aa55e2c5899ddf0b15041a9b4ecab8b54b42e6c6b0d372",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.4293877551020406,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 17231
+    }
+  },
+  {
+    "id": "v_new",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "a70d95bc6bbd6ddba4dd222480414f72c0bcf0b44cd69a80d3f765e19a581f8b",
+    "processedSha256": "7f23e5a0c0875d365658fe0776f8a5ca464e1acdaa004c17ff90ee30071b4f29",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.5861224489795918,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 18328
+    }
+  },
+  {
+    "id": "v_nextup",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "439f2b2475906287adbae2b229c1cbf6ec6d6b16cd2f8c7fd0552d361e4f9a76",
+    "processedSha256": "34b75dbb483e0165382f9b22076d8852c241b0870af4e84a11b2483e21a6af38",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.082448979591837,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 21803
+    }
+  },
+  {
+    "id": "v_nice",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "200dc54104f7e9c2095027547cdb257308ec1bbee131723b637dd287e1ccb519",
+    "processedSha256": "24b1cc1fdc2cd7bc617a5d8d355122af627163811978cbe404a40c53a0485628",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.1493877551020408,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 8271
+    }
+  },
+  {
+    "id": "v_nosense",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "4a9eeaf6725661de800923b0d6793c8d7b3b439fef42eecc37301a78b7aad68e",
+    "processedSha256": "148a7184144b52b9af037337429610b1f517f5e3d5a440022cfe04632d1c9dcb",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.526530612244898,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 24911
+    }
+  },
+  {
+    "id": "v_ohno",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "d4744e9ae533bb3d4b9db49c4b2f6f86fb825f46a66c908ea8d7539f81d72ff4",
+    "processedSha256": "ccda9720e3354c7635ca6c8226f44477f76355830c84da9e085ec865741c6b5f",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.657142857142857,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 25826
+    }
+  },
+  {
+    "id": "v_onejob",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "18bf74f1c603df566a271f00140f25ebb504f31d86fd989cbe8a2f67aae6661c",
+    "processedSha256": "d3db490b6458cffa64fc87f952627ee580348cb2f8444a541afdd896a89c35f7",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.750204081632653,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 12477
+    }
+  },
+  {
+    "id": "v_only",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "6ec9170aae0ba7304c37259028b69a491e651d51dfa16d267a07d6ad5c25a952",
+    "processedSha256": "da657094ee3ed490a4fdda3a6c0223808e5e6ba60754a666df519aa65bd8af40",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 4.884897959183673,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 34420
+    }
+  },
+  {
+    "id": "v_ooh1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "da6f7ab6ae13f2ae9918387c04f1fd423dd8f4304a270d492f6020f615ea343c",
+    "processedSha256": "796627835ad09461d6539c4a7be0f7da5c13c03e781c0190d8ba459aad1ab0e3",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.0448979591836736,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 7540
+    }
+  },
+  {
+    "id": "v_paidoff",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "ed95c7d46a119e9fd786d5e5a61362f4b2821f8c7661b654cd29fcf019f842e6",
+    "processedSha256": "8d1270778f1126317971ef72ed68b84eca31ca4009fc2c1b89b7c9bb9be885de",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.4293877551020406,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 17231
+    }
+  },
+  {
+    "id": "v_quad",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "f96a770dd7a53ea42e498a41783de610bfcf6f88ea15672745c4b9c5cbb091c0",
+    "processedSha256": "86da379e2fc503b0a9b715c2e08bc490571047402347cab24764278a3aef848e",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.8024489795918368,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 12843
+    }
+  },
+  {
+    "id": "v_rampage",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "494d428ccbc2cd549214ba2c2b6bdef0d3309af8dde461b707bd8a06839bbef3",
+    "processedSha256": "67fd5f73e501bcb48a4fd9ec56f89e6033ed649dd0df6b97f58bbacf2a907a0f",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.8546938775510204,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 13208
+    }
+  },
+  {
+    "id": "v_rampage2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "bb5a8d24f8c3527950b51e44bddba1714180e0918ac306a946c765808476a79e",
+    "processedSha256": "8d0d85d331aadb160e02cc3f8cbb7f08db69985696e8b4653dc64871ffe5c623",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.966530612244898,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 6991
+    }
+  },
+  {
+    "id": "v_sharp",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "7409ba914d6fbdc24270d614ebd10ccca3040d5bed6ee5d41457ca0195d10e29",
+    "processedSha256": "b92a09f2e19088ff47b7f616fe3de8e45a3ecdb6db37b6db7cb2daa8a5e8c360",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.8546938775510204,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 13208
+    }
+  },
+  {
+    "id": "v_slau1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "7dd4718c5f974f0dfc7bf1abf52f74fe58de1ce6a4f9f85c201cb01c80592bc1",
+    "processedSha256": "c9f2735d0cf0a02f3db1a35541b9e7a1848f308baa1250d9caa15cf6f3fb2a1a",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 4.649795918367347,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 32774
+    }
+  },
+  {
+    "id": "v_slowsteady",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "49373fc679e23236ca3fc3d7533b425f2c2d2a92d27cbffd3e85e2ff78a4fed1",
+    "processedSha256": "481ef9b52824edab0235a96989dd1f508c4c6877f4a3826ba6a375811aa8fde9",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.1085714285714285,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 21986
+    }
+  },
+  {
+    "id": "v_spec1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "1d0312a441fd630144dc99ee1e8bd856cba0adddfd36386a068874e1a4b8fd69",
+    "processedSha256": "13315252d90cb18fb4ac160f86b2a7099ba86a41d8231f15049ae1258671947c",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 10.81469387755102,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 75928
+    }
+  },
+  {
+    "id": "v_spec10",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "0674e89dbf534eda8193cdf8928fc37d4c218a7f18e39573047aae701ef4efab",
+    "processedSha256": "c163bb936e89a00c84cc9e39eb971e00854fb75be54d81efd7cd31d095b995af",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.369795918367347,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 23814
+    }
+  },
+  {
+    "id": "v_spec2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "97fd31278e37747be52818f6647b7ce54c16ff12e2c98cf02a63bfea3f7a4765",
+    "processedSha256": "fd45ddc46560ed0f378490f84207720ba8d2cc25930f89580195551a5500f352",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.9706122448979593,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 28020
+    }
+  },
+  {
+    "id": "v_spec4",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "430384e332b5519cf470f6e447d2183430b11cad6411f3e9579cb5d5cff70785",
+    "processedSha256": "8c22b772c013bb185ab601830c7ccd619b7122dca8a4833640713747d26f6150",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.7355102040816326,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 26374
+    }
+  },
+  {
+    "id": "v_spec5",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "0a49abc0da045a91a0fc604648dff5a4b7e9e583ae164f30acb5ee05ef91b2d1",
+    "processedSha256": "3a5e3b1dcde522714f9c7c9ebe0b45c6354117bf4b6b8fc3188893604a923ee9",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 5.328979591836735,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 37528
+    }
+  },
+  {
+    "id": "v_spec6",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "33fd5ba9f9a8dbc7d46217bdc2ac28ea2979caf9078de63f970026dd292c81d5",
+    "processedSha256": "ab54899d47d4cd9607c56ce39f3c79d8242f4cc4feb6419d08f55293efbc2d18",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 4.179591836734694,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 29483
+    }
+  },
+  {
+    "id": "v_spec7",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "d867ac6984eb4a972bc49fbbceba7aa9d4fcfef1f8eaa458b95715ea7a0fcb85",
+    "processedSha256": "cc7e2979a29778256e87c21741b11285b8bb791375a0620892607b629bac5fd3",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.6457142857142857,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 11746
+    }
+  },
+  {
+    "id": "v_spec8",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "af9db28960b95bae79b86c2d5fc9148a34ac0c8d4af415bbdd9d83639cac0e81",
+    "processedSha256": "366beb9ad44653269f3f10336dfff282a8078ebbf146f616e274d6f2ce65eebb",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.1420408163265305,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 15220
+    }
+  },
+  {
+    "id": "v_spec9",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "0733e543d4949b3ea24112e44e97c03b7788fbde779478d3ce04291ada5cb9ce",
+    "processedSha256": "ba99f8ae911d4c463b3ba72b54c8ae69b71c1e06a55aa01f8234dbe91102adf7",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 5.564081632653061,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 39174
+    }
+  },
+  {
+    "id": "v_streak1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "9b79f98db7dfee6954d66d9656d5c79b0c029fc74e5a3b41a98d557c25169b95",
+    "processedSha256": "fbc02d6e809f87ff1e0fae38b62674b425e9c59c44dcc5dd5d1a13952cb58336",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 4.780408163265306,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 33688
+    }
+  },
+  {
+    "id": "v_streak2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "5e5530b9ac308068e35002cb1f660ba4c4fff6bcf115f2f486ccf25430d4b47c",
+    "processedSha256": "4a0a84ceb937bb3fa9cec2d2cfab1b12e7f779b0847529ef587558627faabb3e",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.1420408163265305,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 15220
+    }
+  },
+  {
+    "id": "v_sure",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "36f39b71d5fd40c2461a417cf01f598e916bb852a61d9246956564a91849f958",
+    "processedSha256": "c4ee004e5e580816dd9ea0c8bae6d2263e9cc354d74e14e74b23b2a9485e63d1",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.8285714285714285,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 13026
+    }
+  },
+  {
+    "id": "v_tad1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "9972b32e74dbe63fd8a2a18442baafb06f32b8a375faac9bdd105c9d089b5c80",
+    "processedSha256": "46f37bb61d40eae8e401562ce7017c1c009c5b221a4ef1968481af4eabb3f000",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.6383673469387756,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 18694
+    }
+  },
+  {
+    "id": "v_tad2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "65dcb1f7d3d6d74d8d1601687df659e503f2987e8c82422545575210fddc1b75",
+    "processedSha256": "4b5409bb17bddbae68493b4a0934e4775667aa3208b58d1e1144ee3952e11616",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.030204081632653,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 21437
+    }
+  },
+  {
+    "id": "v_tad3",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "2d2eacb9b4a37448e272fe77de25e4b5851cc8ad8389312fee4d2dd2e0398697",
+    "processedSha256": "1360340301fbad8bd259df20821ecbe77391651b558abf5f5beb7daa233c7318",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.84734693877551,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 20157
+    }
+  },
+  {
+    "id": "v_taw1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "6922d0dd2146e0d58037bc153b5e72f086ac750ec4272b7679e14370eabcbf9e",
+    "processedSha256": "9fbef6c466e3306d55413a9421ce7dc71a88f42d673f3ab7e82f0dd44056cd5b",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.507755102040816,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 17780
+    }
+  },
+  {
+    "id": "v_taw2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "25b8320d4660b95b6fad815697a247853092b1b0ee362f6bd988ace2a2f3bea6",
+    "processedSha256": "5dcfa9b8bf22ec5677df9a4bde4269a11d41faf94728a146074f252fa4abdaa8",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.709387755102041,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 26191
+    }
+  },
+  {
+    "id": "v_taw3",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "cd29531483852f37841a4fbcbb1e060a827771fccbb4041aae10ff975fae6835",
+    "processedSha256": "0b8824dcc7272e78d92cbafb83aa18aac404493ea29d1d5b23241fd2bf164859",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.933061224489796,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 13757
+    }
+  },
+  {
+    "id": "v_tbd1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "8bf1e65fcd276bdfd5a1b1efbe312b844e5bacf38ae68c44c3e0e2ab3b39dabf",
+    "processedSha256": "6d973825de09ecb8d738f747acfdfed408ec9b22edcb201558a87d408502d2b2",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.716734693877551,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 19243
+    }
+  },
+  {
+    "id": "v_tbd2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "6eab52104f5f9d508b552a23287b8404d4c70a7bba8eeeceb9380e11e3e42838",
+    "processedSha256": "3652e0456d7de7045bd27b5728bf589d0e309c6f0fb9a340ae53d1176a3b8e34",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.1085714285714285,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 21986
+    }
+  },
+  {
+    "id": "v_tbd3",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "85bf034e992c2926658d418eaf11ceedad79ee802c20f05976feee5952a0238f",
+    "processedSha256": "3f5fef5c432bcec21d2cd5bcf6ce4894c31bea39c5245c6c7140363d2ef3dcc9",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 4.649795918367347,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 32774
+    }
+  },
+  {
+    "id": "v_tbf1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "2c9ba9cb1b0dc3e1741e24ab23ae401b6ccdd99f2517b6888c5f748edc139124",
+    "processedSha256": "0172e598f3f30da116f2f000ea4cbc1ec032108b35bdf5620d9a6e57a0de6a43",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.3436734693877552,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 23631
+    }
+  },
+  {
+    "id": "v_tbf2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "4f6f4b8832ea2334b48f7b2272daeb94f470d5a2f74bb64eb55a8509ce033932",
+    "processedSha256": "781ec0352b4697894eb16255169eeef442e7f5e06d0e489b39f047cdebc61982",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.944489795918367,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 27837
+    }
+  },
+  {
+    "id": "v_tbf3",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "0bbae1369f5e25977679f671329f4e68c332003c3aa3bb07f12a4826e67892e9",
+    "processedSha256": "1e748b4b0775645758d58d974bf3ac8e1cfb3df619675746fd35b5be51cc76bd",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.7616326530612243,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 26557
+    }
+  },
+  {
+    "id": "v_thought30",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "12f4338f243a69a79d8ba60315155f945d59db21a0daafba7fcd2686cbf9b6d0",
+    "processedSha256": "ddb742974a25a8c56d7c4491a773335c63c167fda901673caa1e5d927927c2f7",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 5.381224489795918,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 37894
+    }
+  },
+  {
+    "id": "v_time",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "281327cfb70148e8cb8e546300be2cb225c6485b1e89f4b0108eb21be28582fb",
+    "processedSha256": "dd3b5570b0d41fea8b4599b6377a5a4e82cf8d5bb19a2ab048ee3841dc0e2ef0",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.9926530612244898,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 7174
+    }
+  },
+  {
+    "id": "v_trap",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "9e46efc2ffce6447af5998e2d607a0d29306b5a25523a34bb8d056c540a45188",
+    "processedSha256": "334c44bfefb44b39b0963ef2cd3d25a9c5e70aa267c2186ada4c2142da4ba5f1",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.3322448979591837,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 9551
+    }
+  },
+  {
+    "id": "v_trick",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "55270e51e36f8e9d31dda39a5c5fe4e005220942532f46501d7a55f7454aff18",
+    "processedSha256": "31f396c9431e346f07b4865867d73cf1583472b737338e62e4a432a5ce901cc8",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 4.728163265306122,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 33323
+    }
+  },
+  {
+    "id": "v_triple",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "92dba7da54b2a25f9f25a8758bba6af513e637c398424eb2b02f97a9a8fdf736",
+    "processedSha256": "ef83f8a02405cf5cbfae6ead44249c089631f3f63191d806b2e87dbb1b64989f",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.7314285714285714,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 5346
+    }
+  },
+  {
+    "id": "v_tt1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "637fb00a8216985a55393206c37908d40afbd4d6b86ec36833e7966b6e52c8be",
+    "processedSha256": "815b16f2f5b613b0402b3ef64cc11f6f344c8071966df8747f631b508a3f4d3c",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 5.146122448979592,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 36248
+    }
+  },
+  {
+    "id": "v_tt10",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "fdbf361224ad0a6abfedd1342840ef12346e6d5b4981eaa1cc15afa252b296fa",
+    "processedSha256": "41be82e7bc636d0d38483da32cfa3b8d216701972a3f4f38399c28a6b59753b4",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 5.067755102040817,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 35700
+    }
+  },
+  {
+    "id": "v_tt3",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "d67198a7aa90382f2e210481ff16319be7230344f50631861a7783b8655f509d",
+    "processedSha256": "80c318ca7b72d4954f00d2f1f31e8b9bc17e7dd4363d29f34eebbd90bbd63842",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.239183673469388,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 22900
+    }
+  },
+  {
+    "id": "v_tt4",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "61139b7d1c2f2ac2fc0a7c918c223dad07ce40441c8d0170e5d036d8951e002e",
+    "processedSha256": "ba856dd55a1e033e915d6cca08adbca5929648f8f50e6f99c6b7d5ec812c87d6",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.186938775510204,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 22534
+    }
+  },
+  {
+    "id": "v_tt5",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "d8fda030392f3218f65ae62255911cce9040627c09c4dfdf80218a6070c396ac",
+    "processedSha256": "0d94fd2bc17fcebf0f6cb721d9b51136d2cb93fd9fd0a74777acd51215e4a721",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.0040816326530613,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 21254
+    }
+  },
+  {
+    "id": "v_tt7",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "f9100f653687513e7dc3b8379f24e87ab2f357303e915658e07c6fdfae7cb577",
+    "processedSha256": "290867590447bca78e9cdb1d244c117a1a9b17a79b0b4d90ac1e0574432cda7c",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.683265306122449,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 26008
+    }
+  },
+  {
+    "id": "v_tt8",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "1efc8deb4a5960dfef90d674caffebc3ea912566d5f64487524dc01fc82cea03",
+    "processedSha256": "7a4fb2807e07179f302fba0f791369867519040a0a9b6cb8c1e06dbf5cd57944",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 6.191020408163265,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 43563
+    }
+  },
+  {
+    "id": "v_tt9",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "6c8e8ec63b26275fab8d4e7aea113a9a00fc4f12026461229eeb9064ffc63d40",
+    "processedSha256": "cb260e24edb25a7d697d21377d60da39890d6cbbea9712a8524796fd9ccc6f40",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 4.41469387755102,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 31128
+    }
+  },
+  {
+    "id": "v_undo",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "b440cb2675dd3a1b4a69858cc5ba7e23dc92279ccfa6eb3da7492968553b0a31",
+    "processedSha256": "538830ed4940333e680ce73deb060f7862142ba81ec982532ba794ebec02b389",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.3844897959183673,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 9917
+    }
+  },
+  {
+    "id": "v_why",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "3ce52af363b4d6106accc51210fafc33af7e7c26bc7c0d5c6f9133003f440b31",
+    "processedSha256": "1af2a4af89b0c332bf21af259d5333703a5284ea5a89e90bb580e7eb635d475e",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.750204081632653,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 12477
+    }
+  },
+  {
+    "id": "v_win",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "64d03a3c37c1efb793e2188dc2d0c9b3c882d6ceaed7ce20e2a2220656be0613",
+    "processedSha256": "11dd29802e4379db01ba25c642088e475060bdf2a80094f6b024cf010dfb92bf",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.4293877551020406,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 17231
+    }
+  },
+  {
+    "id": "v_win2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "0185e1b1a80a6fd34ffc2845b6b4ca63e57af9a0ce31665e1ffd356c5029e0d1",
+    "processedSha256": "13db1021f2bfb8d6eeff59b883faf409a535edd824a05ad2efd952245fd8a140",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.1085714285714285,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 21986
+    }
+  },
+  {
+    "id": "v_win3",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "6c3a5ebc47d2f95d7a672848f9719362174fcc0c0f1280fb90b730130a8d1a09",
+    "processedSha256": "f8b4e2bf1ed607397e358f45bf4d580a8a1511c6a6aec356da7d045ff2f396cf",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.716734693877551,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 19243
+    }
+  },
+  {
+    "id": "v_worth",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "81449fcdb8aa1f06e6c8c7fe17204ca16503d1b76eb1cdf17c3ce54717ab8e50",
+    "processedSha256": "f05dcb81d75c059f31086cdad1b86f1196e4f4b0ff24b0a30e987923d96c1a5d",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.2914285714285714,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 23266
+    }
+  },
+  {
+    "id": "v_wow",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "49d0adc1434c7a59a853f910bc44c93fb06646587941c2e04c172ab9b97812f9",
+    "processedSha256": "0d17a515e677cea5879ff14449f9b72cbed3f45fabcb286b2ba4acfe20c6dc78",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.6979591836734693,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 12111
+    }
+  },
+  {
+    "id": "v_wrong1",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "7b7425d5eb198f3db5b6b4a348d0774e8d8ce1cf29b4ad5d62800551e29e8c55",
+    "processedSha256": "832f9c66cabcc773f2137c99584bc8e885bfcb5c82f322229d0ac6228c5168ad",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.0563265306122447,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 21620
+    }
+  },
+  {
+    "id": "v_wrong2",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "bc2ae67769c634fb516fa48f2415cebf5f8aa467ad9ac7add0467e5bf9698b21",
+    "processedSha256": "afc07c92f896c4bdace7d4ffca17498d7da5addd2de1b7f86b97ad2760350c46",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 4.728163265306122,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 33323
+    }
+  },
+  {
+    "id": "v_wrong3",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "76f3e4c546d1232994c00c1ef90320a8e0ee6110bab3242fab4f1a094c4c7e32",
+    "processedSha256": "79064a57cc9ed0e78c3d2cfc9ee17330b81985a178719beee22c3fa276e4ebd9",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.84,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 27106
+    }
+  },
+  {
+    "id": "v_wrong4",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "90b9d133cdacab959df22a73e20ffd69eafca0ffbc74c9891ae1bebf1c7eabff",
+    "processedSha256": "a19e85ad55edc4e8ba000d08094e28a4aea8c0893ae5fa961fd66ae679731cad",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.369795918367347,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 23814
+    }
+  },
+  {
+    "id": "vineboom",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "9f214a70e184ed1a04f58fbef7be70ab1b1f6c55340f6f472c43de2e9fc8f4cb",
+    "processedSha256": "9456eb401ff590c2a1b4bf5094fa295ef5928735d31ae173bbe90e6f6e0f3a8b",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.5861224489795918,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 18328
+    }
+  },
+  {
+    "id": "whistle",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "12271b4b1c08769468387284ff7aea51e8f2c8d9267d489e835b3dbb440284ac",
+    "processedSha256": "fe5c5be85cd69f5a81973857bdc8a0d0fd40c50d3a73697f28181a28597fce49",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.750204081632653,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 12609
+    }
+  },
+  {
+    "id": "whistle_ref",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "dfc51d87594d43a0f3d4dd984cabcf1d64ff69526563c8c2bf703f8d32d80587",
+    "processedSha256": "1de9b32e84b9338e8b7a135919534005eb102f7dc2e5339716166f478892199f",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.7836734693877551,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 6521
+    }
+  },
+  {
+    "id": "wildroar",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "fc28d1c6d616126b7aaa3c879c84fa7ba1cb128ddb5e5625f31b5508e9e3c6ec",
+    "processedSha256": "ded320fa1feb57ddf756fc6816f064cd70f03fb7d2917fad67ffe9619595abcd",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 2.246530612244898,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 16079
+    }
+  },
+  {
+    "id": "wilhelm",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "e3f20e7b5b42c252f6b7c46aa12e53841cf8b89bee02f51ca3c262183896dad7",
+    "processedSha256": "93fd7876c20a6011bc2b71bc2b6b9af5b403e45cf35f850817c27d477b3c2499",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.0971428571428572,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 7992
+    }
+  },
+  {
+    "id": "win_fanfare",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "f6d3457042f8dc3e8723f54d6a79f6f379bbd58ce1f57db8d56a18a1e8ad09eb",
+    "processedSha256": "642c65a8b2a3fc7e2a635b2ab70c036e64233900a1261754bff823c825acf076",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.28,
+      "sampleRate": 44100,
+      "bitrate": 64000,
+      "bytes": 10492
+    }
+  },
+  {
+    "id": "wolfwhistle",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "f7ccfbab93d6d6171c7e8940f4ecae16f3aaea6d79669cc947018f6e678cf5cb",
+    "processedSha256": "d747af3a2d15dd1e24b7129b067f9bc5d5aa760d176cae01d389242885c6bbe7",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 1.5412244897959184,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 11125
+    }
+  },
+  {
+    "id": "woops",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "2fd95f60cae6e4d44d50dcbdd84e7eca206ee10db0e9960acb711664610599fc",
+    "processedSha256": "2fc0c8df6cab301f21accb9860792aa91eae18bb9f458fa5f8498efa6eb67521",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 3.6310204081632653,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 25768
+    }
+  },
+  {
+    "id": "zip",
+    "backup": "b9486e1:src/audio.manifest.js",
+    "sourceSha256": "f20e171e8b3929f2b7f22de3bdf362913c16cb3991f0cf162cce0a5fc214fcb3",
+    "processedSha256": "77e5821c680c19e5bf2026e4f7b32af137c3db1eeb0b962526172d2585455772",
+    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "measuredBefore": {
+      "seconds": 0.3657142857142857,
+      "sampleRate": 44100,
+      "bitrate": 56000,
+      "bytes": 2908
+    }
   }
 ]

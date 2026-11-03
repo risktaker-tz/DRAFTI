@@ -944,6 +944,15 @@ body.hv .piece.ebony .body {
   from { transform: scale(.32); opacity: .85; }
   to { transform: scale(var(--blast-radius)); opacity: 0; }
 }
+.landing-ring {
+  z-index: 0;
+  box-shadow: 0 0 0 1px #ffe8b7, 0 0 7px var(--accent);
+  animation: landing-ring-fade .34s ease-out both;
+}
+@keyframes landing-ring-fade {
+  from { transform: scale(.62); opacity: .6; }
+  to { transform: scale(1.12); opacity: 0; }
+}
 
 /* ---------- doom vignette: the trapped side wears the board out ---------- */
 .board-frame { position: relative; }
