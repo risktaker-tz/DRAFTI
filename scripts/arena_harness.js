@@ -1,9 +1,9 @@
 'use strict';
 // Execute the production arena/ladder functions, not a rewritten simulation of
 // their rules. The DOM, sound and persistence boundaries are harmless stubs.
-const fs=require('fs'),path=require('path'),vm=require('vm');
+const fs=require('fs'),path=require('path'),vm=require('vm'),crypto=require('crypto');
 const ui=fs.readFileSync(path.join(__dirname,'../src/ui.js'),'utf8');
-function createHarness(seed=0xD4AF71,savedSettings={}){
+function createHarness(seed=0xD4AF71,savedSettings={},checkpoint=null){
   let rng=seed>>>0;
   const math=Object.create(Math);math.random=()=>{rng=(Math.imul(rng,1664525)+1013904223)>>>0;return rng/4294967296;};
   const saves={};
@@ -19,17 +19,32 @@ function createHarness(seed=0xD4AF71,savedSettings={}){
   vm.runInContext(slice("  const ARENA_KEY =",'  // the name chips:'),context);
   vm.runInContext(slice('  function levelOpts(','  function runSearch('),context);
   vm.runInContext(slice('  let manualRetire =','  // the retirement ceremony:'),context);
+  vm.runInContext(slice('  function lowMaterialLimit(','  function checkGameEnd('),context);
   vm.runInContext('this.api={ROSTER,STYLES,LEVELS,LEVEL_IDS,rosterLevel,levelOpts,chooseLadderMove,searchLevelForSide,arenaPressureOpts,arenaSeatLevels,seatArenaBout,guardArena,ladderQueue,applyArenaResult,stageOfBout,arena,arenaProgress}; this.aiName=id=>rosterById(id).name;',context);
-  return {E,G:context.G,settings:context.settings,api:context.api,saves,random:math.random};
+  const fingerprint=crypto.createHash('sha256').update(JSON.stringify({
+    engine:fs.readFileSync(path.join(__dirname,'../src/engine.js'),'utf8').replace(/\r\n/g,'\n'),
+    levels:context.api.LEVELS,styles:context.api.STYLES,roster:context.api.ROSTER,
+    functions:[...Object.values(context.api).filter(v=>typeof v==='function'),context.lowMaterialCountdown,context.lowMaterialLimit].map(f=>f.toString())
+  })).digest('hex');
+  if(checkpoint){
+    if(checkpoint.schema!==1||checkpoint.fingerprint!==fingerprint)throw Error('Incompatible arena checkpoint; preserve it and investigate source drift');
+    for(const [target,value] of [[context.api.arena,checkpoint.arena],[context.api.arenaProgress,checkpoint.arenaProgress]]){
+      for(const key of Object.keys(target))delete target[key];Object.assign(target,JSON.parse(JSON.stringify(value)));
+    }
+    Object.assign(context.G,checkpoint.G);Object.assign(context.settings,checkpoint.settings);rng=checkpoint.rng>>>0;
+  }
+  const snapshot=()=>JSON.parse(JSON.stringify({schema:1,fingerprint,rng,settings:context.settings,G:context.G,arena:context.api.arena,arenaProgress:context.api.arenaProgress}));
+  return {E,G:context.G,settings:context.settings,api:context.api,saves,random:math.random,snapshot,fingerprint,lowMaterialCountdown:context.lowMaterialCountdown};
 }
-function playGame(h,{rsId='american',styles,levels,maxPlies=360}={}){
-  const {E,G,api}=h,rs=E.RULESETS[rsId];let board=E.setupBoard(rs),side=rs.firstSide,noProgress=0;
-  const seen=new Map();let nodes=0,deepest=0;
-  for(let ply=0;ply<maxPlies;ply++){
+function playGame(h,{rsId='american',styles,levels,maxPlies=360,checkpoint=null,onProgress=null,houseDraws=false}={}){
+  const {E,G,api}=h,rs=E.RULESETS[rsId];let board=checkpoint?Int8Array.from(checkpoint.board):E.setupBoard(rs),side=checkpoint?checkpoint.side:rs.firstSide,noProgress=checkpoint?checkpoint.noProgress:0;
+  const seen=new Map(checkpoint?.seen||[]),history=checkpoint?.history||[];let nodes=checkpoint?.nodes||0,deepest=checkpoint?.deepest||0;
+  for(let ply=checkpoint?.ply||0;ply<maxPlies;ply++){
     const legal=E.legalMoves(rs,board,side);
     if(!legal.length)return {winner:-side,plies:ply,nodes,deepest,reason:'no legal moves'};
     const key=board.join(',')+'|'+side,visits=(seen.get(key)||0)+1;seen.set(key,visits);
     if(visits>=3||noProgress>=rs.drawPlies)return {winner:0,plies:ply,nodes,deepest,reason:visits>=3?'threefold repetition':'move limit'};
+    if(houseDraws){const end=h.lowMaterialCountdown(board,history,legal);if(end&&end.remaining<=0&&!end.scoringNext)return {winner:0,plies:ply,nodes,deepest,reason:'low-material house countdown'};}
     G.side=side;
     const index=side===E.IVORY?0:1,levelId=levels?levels[index]:api.searchLevelForSide();
     const style=styles?styles[index]:api.STYLES.find(s=>s.id===api.ROSTER.find(r=>r.id===(index===0?G.seatIvory:G.seatEbony)).styleId);
@@ -41,7 +56,9 @@ function playGame(h,{rsId='american',styles,levels,maxPlies=360}={}){
     if(!move)throw Error('Production ladder returned no legal move');
     nodes+=result.nodes;deepest=Math.max(deepest,result.depth);
     noProgress=E.nextNoProgress(rs,board,move,side,noProgress);
+    history.push({boardBefore:Array.from(board),move});
     board=E.applyMove(rs,board,move,side);side=-side;
+    if(onProgress)onProgress({ply:ply+1,board:Array.from(board),side,noProgress,seen:[...seen],nodes,deepest,history});
   }
   return {winner:0,plies:maxPlies,nodes,deepest,reason:'simulation safety cap'};
 }

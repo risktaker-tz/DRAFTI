@@ -1,30 +1,62 @@
 'use strict';
-const fs=require('fs'),path=require('path'),assert=require('assert');
+const fs=require('fs'),path=require('path'),assert=require('assert'),{execFileSync}=require('child_process');
 const {createHarness,playGame}=require('./arena_harness');
-const h=createHarness(0xD4AF71),{api,G}=h,rows=[],growth=[],played={},wins={},openers=[];
-const median=()=>{const levels=api.ROSTER.map(r=>api.rosterLevel(r.id)).sort((a,b)=>a-b);return (levels[96]+levels[97])/2;};
-let dethronings=0;growth.push({season:1,medianLevel:median()});
-for(let bout=0;bout<36;bout++){
-  api.seatArenaBout();
-  if(api.arena.bouts===0)openers.push({season:api.arena.season,champion:api.arena.champion,challenger:api.arena.queue[0]});
-  const before=api.arena.champion,season=api.arena.season,stage=api.stageOfBout(api.arena.bouts);
-  const result=playGame(h),winner=result.winner===1?G.seatIvory:result.winner===-1?G.seatEbony:null;
-  for(const id of [G.seatIvory,G.seatEbony])played[id]=(played[id]||0)+1;
-  if(winner)wins[winner]=(wins[winner]||0)+1;
-  rows.push({bout:bout+1,season,stage,ivory:G.seatIvory,ebony:G.seatEbony,levels:[G.diffIvory,G.diffEbony],winnerId:winner,...result});
-  api.applyArenaResult(result.winner);
-  if(before!==api.arena.champion)dethronings++;
-  if(api.arena.bouts===0)growth.push({season:api.arena.season,medianLevel:median()});
-  console.log('Bout '+(bout+1)+'/36: '+rows.at(-1).ivory+' vs '+rows.at(-1).ebony+' → '+(winner||'draw')+' ('+result.plies+' plies, '+result.nodes+' nodes)');
-  // Incremental evidence survives a long run; no fabricated future results.
-  fs.writeFileSync(path.join(__dirname,'../docs/arena-fairness-progress.json'),JSON.stringify({completedBouts:rows.length,rows,growth},null,2)+'\n');
+const root=path.resolve(__dirname,'..'),docs=path.join(root,'docs');
+const checkpointPath=path.join(docs,'arena-fairness-resume.json'),lockPath=checkpointPath+'.lock';
+const writeJSON=(file,data)=>{const temp=file+'.'+process.pid+'.tmp';fs.writeFileSync(temp,JSON.stringify(data,null,2)+'\n');fs.renameSync(temp,file);};
+if(fs.existsSync(lockPath)){
+  const lock=JSON.parse(fs.readFileSync(lockPath,'utf8'));let alive=true;
+  try{process.kill(lock.pid,0);}catch(error){if(error.code==='ESRCH')alive=false;else throw error;}
+  if(alive)throw Error('Arena simulation already running as process '+lock.pid+'; inspect it instead of restarting');
+  fs.unlinkSync(lockPath);
 }
-const nations=api.ROSTER.map(r=>({id:r.id,name:r.name,played:played[r.id]||0,wins:wins[r.id]||0,level:api.rosterLevel(r.id),xp:api.arena.xp[r.id],bonusXp:api.arenaProgress.bonusXp[r.id]||0}));
-const report={seed:'0xD4AF71',engine:'Unmodified production engine; production difficulty, styles, seat/queue/result functions and arena budgets; humanlike presentation delays omitted.',bouts:rows,openers,dethronings,growth,nations,
-  interpretation:'Winner-stays scheduling intentionally yields unequal appearances. Three seasons are a progression/scheduling exercise, not proof of equal national win probabilities. Style balance is measured separately by the colour-paired round robin.'};
-fs.writeFileSync(path.join(__dirname,'../docs/arena-fairness.json'),JSON.stringify(report,null,2)+'\n');
-let md='# Real-engine arena simulation\n\n'+report.engine+'\n\n'+report.interpretation+'\n\nDethronings: '+dethronings+'.\n\n| Season start | Median roster level |\n| --- | --- |\n'+growth.map(r=>'| '+r.season+' | '+r.medianLevel+' |').join('\n')+'\n\n| Nation | Bouts | Wins | Level | XP | Stage / retention bonus XP |\n| --- | --- | --- | --- | --- | --- |\n'+nations.map(r=>'| '+r.id+' '+r.name+' | '+r.played+' | '+r.wins+' | '+r.level+' | '+r.xp+' | '+r.bonusXp+' |').join('\n')+'\n';
-fs.writeFileSync(path.join(__dirname,'../docs/arena-fairness.md'),md);console.log(md);
-assert(dethronings>0,'No champion was dethroned in this sample; investigate, do not force an outcome');
-assert(growth.every((row,i)=>!i||row.medianLevel>growth[i-1].medianLevel),'Median level must rise each season');
-assert(new Set(openers.slice(1).map(r=>r.challenger)).size===2,'Later-season opening honours must rotate in this sample');
+fs.writeFileSync(lockPath,JSON.stringify({pid:process.pid,startedAt:new Date().toISOString()}),{flag:'wx'});
+try {
+  let state=fs.existsSync(checkpointPath)?JSON.parse(fs.readFileSync(checkpointPath,'utf8')):null;
+  if(state&&state.schema!==2)throw Error('Unknown simulation checkpoint schema; do not overwrite it');
+  const h=createHarness(0xD4AF71,{diff:'l1'},state?.harness),{api,G}=h;
+  const median=()=>{const levels=api.ROSTER.map(r=>api.rosterLevel(r.id)).sort((a,b)=>a-b);return(levels[96]+levels[97])/2;};
+  if(!state){
+    const legacy=path.join(docs,'arena-fairness-progress.json'),archive=path.join(docs,'arena-fairness-interrupted-33.json');
+    if(fs.existsSync(legacy)&&!fs.existsSync(archive))fs.copyFileSync(legacy,archive);
+    state={schema:2,seed:'0xD4AF71',startedAt:new Date().toISOString(),sourceCommit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),rows:[],growth:[{season:1,medianLevel:median()}],played:{},wins:{},openers:[],dethronings:0,inFlight:null};
+  }
+  const save=()=>{state.harness=h.snapshot();state.updatedAt=new Date().toISOString();writeJSON(checkpointPath,state);};
+  console.log('Arena process '+process.pid+': resume at bout '+(state.rows.length+1)+'/36'+(state.inFlight?' ply '+state.inFlight.game?.ply:''));
+  save();
+  while(state.rows.length<36){
+    if(!state.inFlight){
+      api.seatArenaBout();
+      if(api.arena.bouts===0)state.openers.push({season:api.arena.season,champion:api.arena.champion,challenger:api.arena.queue[0]});
+      state.inFlight={before:api.arena.champion,season:api.arena.season,stage:api.stageOfBout(api.arena.bouts),game:null};save();
+    }
+    const active=state.inFlight;
+    const result=playGame(h,{checkpoint:active.game,houseDraws:true,onProgress:game=>{active.game=game;save();}});
+    const winner=result.winner===1?G.seatIvory:result.winner===-1?G.seatEbony:null;
+    for(const id of [G.seatIvory,G.seatEbony])state.played[id]=(state.played[id]||0)+1;
+    if(winner)state.wins[winner]=(state.wins[winner]||0)+1;
+    state.rows.push({bout:state.rows.length+1,season:active.season,stage:active.stage,ivory:G.seatIvory,ebony:G.seatEbony,levels:[G.diffIvory,G.diffEbony],...result,winnerId:winner});
+    api.applyArenaResult(result.winner);
+    if(active.before!==api.arena.champion)state.dethronings++;
+    if(api.arena.bouts===0)state.growth.push({season:api.arena.season,medianLevel:median()});
+    state.inFlight=null;save();
+    const row=state.rows.at(-1);
+    console.log('Bout '+row.bout+'/36: '+row.ivory+' vs '+row.ebony+' -> '+(winner||'draw')+' ('+result.plies+' plies, '+result.nodes+' nodes)');
+    writeJSON(path.join(docs,'arena-fairness-progress.json'),{completedBouts:state.rows.length,rows:state.rows,growth:state.growth,checkpoint:checkpointPath});
+  }
+  const nations=api.ROSTER.map(r=>({id:r.id,name:r.name,played:state.played[r.id]||0,wins:state.wins[r.id]||0,level:api.rosterLevel(r.id),xp:api.arena.xp[r.id],bonusXp:api.arenaProgress.bonusXp[r.id]||0}));
+  const report={seed:state.seed,sourceCommit:state.sourceCommit,sourceFingerprint:h.fingerprint,startedAt:state.startedAt,completedAt:new Date().toISOString(),
+    engine:'Production engine, ladder, national styles, symmetric seat levels, stage pressure, queue and result functions. Baseline l1; normal XP/season growth; production low-material house countdowns active. Search budgets unchanged. Presentation delays omitted.',
+    bouts:state.rows,openers:state.openers,dethronings:state.dethronings,growth:state.growth,nations,
+    interpretation:'Winner-stays scheduling intentionally yields unequal appearances. This 36-bout sample tests scheduling/progression and observed dethroning, not equal national win probabilities. Style balance has a separate colour-paired round robin. Exact-position mistake recall is outside this sample and has separate worker/persistence tests.'};
+  writeJSON(path.join(docs,'arena-fairness.json'),report);
+  const md='# Real-engine arena simulation\n\n'+report.engine+'\n\n'+report.interpretation+'\n\nSource commit: '+report.sourceCommit+'; kernel SHA256 '+report.sourceFingerprint+'.\n\nDethronings: '+report.dethronings+'.\n\n| Season start | Median roster level |\n| --- | --- |\n'+report.growth.map(r=>'| '+r.season+' | '+r.medianLevel+' |').join('\n')+'\n\n| Nation | Bouts | Wins | Level | XP | Stage / retention bonus XP |\n| --- | --- | --- | --- | --- | --- |\n'+nations.map(r=>'| '+r.id+' '+r.name+' | '+r.played+' | '+r.wins+' | '+r.level+' | '+r.xp+' | '+r.bonusXp+' |').join('\n')+'\n';
+  fs.writeFileSync(path.join(docs,'arena-fairness.md'),md);
+  assert(report.dethronings>0,'No dethroning observed; investigate rather than forcing an outcome');
+  assert(report.growth.every((r,i)=>!i||r.medianLevel>report.growth[i-1].medianLevel),'Median level must rise each season');
+  assert(new Set(report.openers.slice(1).map(r=>r.challenger)).size===2,'Later-season opening honours must rotate in this sample');
+  state.completedAt=report.completedAt;save();
+  console.log('COMPLETE: 36 real-engine bouts, '+report.dethronings+' dethronings; growth '+report.growth.map(r=>r.medianLevel).join(' -> '));
+} finally {
+  if(fs.existsSync(lockPath)&&JSON.parse(fs.readFileSync(lockPath,'utf8')).pid===process.pid)fs.unlinkSync(lockPath);
+}
