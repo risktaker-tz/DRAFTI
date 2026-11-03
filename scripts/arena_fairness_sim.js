@@ -3,7 +3,13 @@ const fs=require('fs'),path=require('path'),assert=require('assert'),{execFileSy
 const {createHarness,playGame}=require('./arena_harness');
 const root=path.resolve(__dirname,'..'),docs=path.join(root,'docs');
 const checkpointPath=path.join(docs,'arena-fairness-resume.json'),lockPath=checkpointPath+'.lock';
-const writeJSON=(file,data)=>{const temp=file+'.'+process.pid+'.tmp';fs.writeFileSync(temp,JSON.stringify(data,null,2)+'\n');fs.renameSync(temp,file);};
+const writeJSON=(file,data)=>{
+  const temp=file+'.'+process.pid+'.tmp';fs.writeFileSync(temp,JSON.stringify(data,null,2)+'\n');
+  for(let attempt=0;attempt<20;attempt++){
+    try{fs.renameSync(temp,file);return;}
+    catch(error){if(!['EPERM','EBUSY'].includes(error.code)||attempt===19)throw error;Atomics.wait(new Int32Array(new SharedArrayBuffer(4)),0,0,100);}
+  }
+};
 if(fs.existsSync(lockPath)){
   const lock=JSON.parse(fs.readFileSync(lockPath,'utf8'));let alive=true;
   try{process.kill(lock.pid,0);}catch(error){if(error.code==='ESRCH')alive=false;else throw error;}
