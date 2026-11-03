@@ -1313,27 +1313,31 @@
     "id": "s_in_kenyan",
     "backup": "b9486e1:src/audio.manifest.js",
     "sourceSha256": "6bed76cdba5246b89ca250d843bf3ec16983112fd3bbbffcf46cd992cdc68d0e",
-    "processedSha256": "0c6f43fdcf60e1bab66fa9e5ed6c1f6f13af11f7945b6cb5a66e84b5db59a19a",
+    "processedSha256": "969417b1d1792a088492d3c8223cc30cde90bf2d64322705ccf7bf90b195a6ed",
     "reason": "Correct measured encoding or duration deviation without replacing the recording.",
     "measuredBefore": {
       "seconds": 7.888979591836734,
       "sampleRate": 44100,
       "bitrate": 56000,
       "bytes": 55448
-    }
+    },
+    "pitchPreservingTempo": 1.1113,
+    "processedDecodedSeconds": 6.03075
   },
   {
     "id": "s_in_mongolian",
     "backup": "b9486e1:src/audio.manifest.js",
     "sourceSha256": "1267e4e24297b5066e1e5d8c5d8e5fab4e8bd6886b1e387b7ea994626e87562f",
-    "processedSha256": "e674a166cf303de0697da49c50777ceabe2535804843c607df5772fb00efa7b0",
+    "processedSha256": "b83c6d21397f04d1b37dc24c8d27d8407daaaaf97ce7c2bce95300b2540628d7",
     "reason": "Correct measured encoding or duration deviation without replacing the recording.",
     "measuredBefore": {
       "seconds": 7.418775510204082,
       "sampleRate": 44100,
       "bitrate": 56000,
       "bytes": 52157
-    }
+    },
+    "pitchPreservingTempo": 1.14578,
+    "processedDecodedSeconds": 6.03265
   },
   {
     "id": "s_in_russian",
