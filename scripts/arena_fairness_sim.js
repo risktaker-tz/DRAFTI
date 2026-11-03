@@ -1,7 +1,10 @@
 'use strict';
 const fs=require('fs'),path=require('path'),assert=require('assert'),{execFileSync}=require('child_process');
 const {createHarness,playGame}=require('./arena_harness');
-const root=path.resolve(__dirname,'..'),docs=path.join(root,'docs');
+const root=path.resolve(__dirname,'..');
+const docs=path.resolve(root,process.env.DRAFTI_ARENA_OUTPUT || 'docs');
+const rsId=process.env.DRAFTI_ARENA_RULESET || 'american';
+fs.mkdirSync(docs,{recursive:true});
 const checkpointPath=path.join(docs,'arena-fairness-resume.json'),lockPath=checkpointPath+'.lock';
 const writeJSON=(file,data)=>{
   const temp=file+'.'+process.pid+'.tmp';fs.writeFileSync(temp,JSON.stringify(data,null,2)+'\n');
@@ -20,12 +23,14 @@ fs.writeFileSync(lockPath,JSON.stringify({pid:process.pid,startedAt:new Date().t
 try {
   let state=fs.existsSync(checkpointPath)?JSON.parse(fs.readFileSync(checkpointPath,'utf8')):null;
   if(state&&state.schema!==2)throw Error('Unknown simulation checkpoint schema; do not overwrite it');
+  if(state&&(state.ruleset||'american')!==rsId)throw Error('Checkpoint ruleset differs from the requested ruleset');
   const h=createHarness(0xD4AF71,{diff:'l1'},state?.harness),{api,G}=h;
+  if(!h.E.RULESETS[rsId])throw Error('Unknown ruleset '+rsId);
   const median=()=>{const levels=api.ROSTER.map(r=>api.rosterLevel(r.id)).sort((a,b)=>a-b);return(levels[96]+levels[97])/2;};
   if(!state){
     const legacy=path.join(docs,'arena-fairness-progress.json'),archive=path.join(docs,'arena-fairness-interrupted-33.json');
     if(fs.existsSync(legacy)&&!fs.existsSync(archive))fs.copyFileSync(legacy,archive);
-    state={schema:2,seed:'0xD4AF71',startedAt:new Date().toISOString(),sourceCommit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),rows:[],growth:[{season:1,medianLevel:median()}],played:{},wins:{},openers:[],dethronings:0,inFlight:null};
+    state={schema:2,ruleset:rsId,seed:'0xD4AF71',startedAt:new Date().toISOString(),sourceCommit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),rows:[],growth:[{season:1,medianLevel:median()}],played:{},wins:{},openers:[],dethronings:0,inFlight:null};
   }
   const save=()=>{state.harness=h.snapshot();state.updatedAt=new Date().toISOString();writeJSON(checkpointPath,state);};
   console.log('Arena process '+process.pid+': resume at bout '+(state.rows.length+1)+'/36'+(state.inFlight?' ply '+state.inFlight.game?.ply:''));
@@ -37,7 +42,7 @@ try {
       state.inFlight={before:api.arena.champion,season:api.arena.season,stage:api.stageOfBout(api.arena.bouts),game:null};save();
     }
     const active=state.inFlight;
-    const result=playGame(h,{checkpoint:active.game,houseDraws:true,onProgress:game=>{active.game=game;save();}});
+    const result=playGame(h,{rsId,checkpoint:active.game,houseDraws:true,onProgress:game=>{active.game=game;save();}});
     const winner=result.winner===1?G.seatIvory:result.winner===-1?G.seatEbony:null;
     for(const id of [G.seatIvory,G.seatEbony])state.played[id]=(state.played[id]||0)+1;
     if(winner)state.wins[winner]=(state.wins[winner]||0)+1;
@@ -52,7 +57,8 @@ try {
   }
   const nations=api.ROSTER.map(r=>({id:r.id,name:r.name,played:state.played[r.id]||0,wins:state.wins[r.id]||0,level:api.rosterLevel(r.id),xp:api.arena.xp[r.id],bonusXp:api.arenaProgress.bonusXp[r.id]||0}));
   const report={seed:state.seed,sourceCommit:state.sourceCommit,sourceFingerprint:h.fingerprint,startedAt:state.startedAt,completedAt:new Date().toISOString(),
-    engine:'Production engine, ladder, national styles, symmetric seat levels, stage pressure, queue and result functions. Baseline l1; normal XP/season growth; production low-material house countdowns active. Search budgets unchanged. Presentation delays omitted.',
+    ruleset:rsId,
+    engine:'Production engine, ladder, national styles, symmetric seat levels, stage pressure, queue and result functions. Opening median level '+state.growth[0].medianLevel+'; normal XP/season growth; production low-material house countdowns active. Search budgets unchanged. Presentation delays omitted.',
     bouts:state.rows,openers:state.openers,dethronings:state.dethronings,growth:state.growth,nations,
     interpretation:'Winner-stays scheduling intentionally yields unequal appearances. This 36-bout sample tests scheduling/progression and observed dethroning, not equal national win probabilities. Style balance has a separate colour-paired round robin. Exact-position mistake recall is outside this sample and has separate worker/persistence tests.'};
   writeJSON(path.join(docs,'arena-fairness.json'),report);
