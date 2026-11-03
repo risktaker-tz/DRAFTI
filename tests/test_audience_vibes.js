@@ -14,14 +14,14 @@ for(const crowd of ['A','B'])for(const event of ['cheer','applause','venue_bed']
   clips.push({id,sourceId:'source-'+id,file:'audio/'+id+'.mp3',crowd,event,durationSec:event.endsWith('_bed')?10:2,bytes:bytes.length,sha256:hash(bytes),review:{verdict:'approved'},loudnessLufs:-24});
 }
 let manifest={schema:'drafti-audience-pack/1',clips},now=0,context={epoch:1,menu:false,hidden:false,paused:false,conflict:false,ceremony:false,over:false};
-let fetches=0,saveCount=0;const cacheData=new Map(),played=[],sources=[],messages=[];
+let fetches=0,saveCount=0;const cacheData=new Map(),played=[],sources=[],messages=[],gains=[];
 const caches={has:async name=>cacheData.has(name),delete:async name=>cacheData.delete(name),open:async name=>{
   if(!cacheData.has(name))cacheData.set(name,new Map());const map=cacheData.get(name);
   return {match:async key=>map.get(String(key))?.clone(),put:async(key,r)=>map.set(String(key),r.clone()),delete:async key=>map.delete(String(key))};
 }};
 const ctx={currentTime:0,destination:{},decodeAudioData:async()=>({duration:2}),
   createBufferSource(){const s={playbackRate:{value:1},connect(){},disconnect(){},start(){this.started=true;sources.push(this);},stop(){this.stopped=true;this.onended?.();}};return s;},
-  createGain(){return {gain:{value:0,setTargetAtTime(v){this.value=v;}},connect(){},disconnect(){}};},
+  createGain(){const gain={value:0,setTargetAtTime(v){this.value=v;}};gains.push(gain);return {gain,connect(){},disconnect(){}};},
   createStereoPanner(){return {pan:{value:0},connect(){},disconnect(){}};}};
 const env={settings:{sound:true,audienceEnabled:false,audienceVolume:.35},now:()=>now,random:()=>0,context:()=>context,
   location:{href:'https://game.test/',protocol:'https:'},crypto:crypto.webcrypto,caches,fx:{ctx,ensure:()=>ctx,out:{}},
@@ -40,6 +40,14 @@ const env={settings:{sound:true,audienceEnabled:false,audienceVolume:.35},now:()
   assert(played.some(p=>p.event==='cheer'&&p.side===1&&p.crowd==='A'),'The capturing side gets its own crowd');
   assert(played.some(p=>p.bed&&p.side===1));assert(played.some(p=>p.bed&&p.side===-1),'Both sides have distinct beds');
   assert(sources.length<=3);assert(sources.every(s=>s.playbackRate.value===1),'Original recordings keep their natural speed');
+  assert.equal(gains[0].value,.24*.35,'The default reaction gain is preserved');
+  env.settings.audienceVolume=1;await a.pulse();
+  assert.equal(gains[0].value,.78,'Full volume boosts reactions within their gain cap');
+  assert(gains[1].value>.12,'Both crowd beds are raised at full volume');
+  env.bank.activeSources.set('voice',{spoken:true});await a.pulse();
+  assert.equal(gains[0].value,.78*.12,'The louder crowd still ducks under speech');
+  env.bank.activeSources.clear();env.settings.audienceVolume=0;await a.pulse();
+  assert(gains.every(gain=>gain.value===0),'Zero volume silences all crowd channels');
   context.menu=true;await a.pulse();assert(sources.every(s=>s.stopped),'Menus silence crowds without discarding the installed pack');
   context.menu=false;env.bank.sceneLockUntil=now+15000;a.move(-1,2,false,4);await a.pulse();assert.equal(played.length,3,'Retirement speech owns the scene');
   env.bank.sceneLockUntil=0;context.epoch=2;await a.pulse();assert.equal(played.length,3,'A new game cannot inherit the old capture reaction');

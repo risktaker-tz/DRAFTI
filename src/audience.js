@@ -83,6 +83,11 @@ function createAudienceVibes(env) {
     if(!pool.length&&event==='encouragement_chant')pool=installed.manifest.clips.filter(c=>c.crowd===crowd&&c.event==='applause'&&!lastIds.slice(-12).includes(c.id));
     return pool.length?pool[Math.floor(env.random()*pool.length)]:null;
   }
+  function crowdGain(level,bed,ducked){
+    const volume=Math.max(0,Math.min(1,settings.audienceVolume??.35));
+    const boost=1+2.5*Math.max(0,(volume-.35)/.65);
+    return Math.min(bed?.24:.78,level*volume*boost)*(ducked?.12:1);
+  }
   async function play(side,event,bed=false){
     if(!installed||!permitted())return false;
     if([...env.bank.activeSources.values()].some(a=>a.spoken)&&!bed)return false;
@@ -90,10 +95,10 @@ function createAudienceVibes(env) {
     const token=serial,game=env.context().epoch,buffer=await load(c);
     if(!buffer||token!==serial||game!==env.context().epoch||!permitted()||(!bed&&[...env.bank.activeSources.values()].some(a=>a.spoken)))return false;
     const ctx=env.fx.ensure(),source=ctx.createBufferSource(),gain=ctx.createGain();source.buffer=buffer;source.playbackRate.value=1;
-    const mix=Math.max(0,Math.min(1,settings.audienceVolume??.35));
     const compensate=Math.min(2.5,Math.pow(10,(-24-(Number.isFinite(c.loudnessLufs)?c.loudnessLufs:-24))/20));
     const level=(bed?.035:.24)*compensate;
-    gain.gain.value=level*mix;source.connect(gain);
+    const speaking=[...env.bank.activeSources.values()].some(a=>a.spoken||a.priority>=70);
+    gain.gain.value=crowdGain(level,bed,speaking);source.connect(gain);
     const pan=ctx.createStereoPanner?.();if(pan){pan.pan.value=side===1?-.32:.32;gain.connect(pan);pan.connect(env.fx.out||ctx.destination);}else gain.connect(env.fx.out||ctx.destination);
     const record={source,gain,pan,bed,side,level,spoken:!!c.speech};active.add(record);
     source.onended=()=>{active.delete(record);source.disconnect();gain.disconnect();pan?.disconnect();};source.start();
@@ -103,7 +108,7 @@ function createAudienceVibes(env) {
   function bankStarted(info){
     if(info.priority>=100){stop();return;}
     if(info.spoken||info.priority>=70)for(const a of active){
-      if(a.spoken&&!a.bed){try{a.source.stop();}catch{}}else a.gain.gain.setTargetAtTime(a.level*(settings.audienceVolume??.35)*.12,env.fx.ctx.currentTime,.06);
+      if(a.spoken&&!a.bed){try{a.source.stop();}catch{}}else a.gain.gain.setTargetAtTime(crowdGain(a.level,a.bed,true),env.fx.ctx.currentTime,.06);
     }
   }
   function cue(side,event,priority){
@@ -123,8 +128,10 @@ function createAudienceVibes(env) {
   async function pulse(){
     const c=env.context();if(c.epoch!==epoch)reset();
     if(!permitted()){if(active.size)stop();return;}
-    const speaking=[...env.bank.activeSources.values()].some(a=>a.spoken);
-    for(const a of active)a.gain.gain.setTargetAtTime(a.level*(settings.audienceVolume??.35)*(speaking?.12:1),env.fx.ctx.currentTime,.1);
+    const bankSources=[...env.bank.activeSources.values()];
+    const speaking=bankSources.some(a=>a.spoken);
+    const ducked=speaking||bankSources.some(a=>a.priority>=70);
+    for(const a of active)a.gain.gain.setTargetAtTime(crowdGain(a.level,a.bed,ducked),env.fx.ctx.currentTime,.1);
     if(checking||!installed)return;checking=true;
     try{
       pending=pending.filter(p=>p.epoch===c.epoch&&now()-p.at<1800);
