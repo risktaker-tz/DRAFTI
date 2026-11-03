@@ -1,0 +1,4273 @@
+{
+  "schema": 1,
+  "sourceSha256": "8b505b9d94d526645ea128b8be0d970111de1c69fb00e6adcff5117866a981d0",
+  "target": 3,
+  "method": "WCAG sRGB relative luminance, gamma 2.4; opaque palette samples",
+  "scope": "Follow-table colours only. Conservative samples; not rendered whole-disc visibility. Flags, eight piece-set overrides, High visibility, crowns, coordinates, gradients blended with overlays and animation states are not proven by this report.",
+  "themes": [
+    {
+      "id": "neon",
+      "name": "Neon Circuit",
+      "measurements": [
+        {
+          "check": "square centres",
+          "foreground": "#35608c",
+          "background": "#0d1b2c",
+          "ratio": 2.6467,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#3f6f9d",
+          "background": "#132436",
+          "ratio": 2.9791,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#3f6f9d",
+          "background": "#0d1b2c",
+          "ratio": 3.2819,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#3f6f9d",
+          "background": "#081320",
+          "ratio": 3.5328,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#35608c",
+          "background": "#132436",
+          "ratio": 2.4025,
+          "pass": false
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#35608c",
+          "background": "#0d1b2c",
+          "ratio": 2.6467,
+          "pass": false
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#35608c",
+          "background": "#081320",
+          "ratio": 2.849,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#2b5178",
+          "background": "#132436",
+          "ratio": 1.9132,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#2b5178",
+          "background": "#0d1b2c",
+          "ratio": 2.1077,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#2b5178",
+          "background": "#081320",
+          "ratio": 2.2688,
+          "pass": false
+        },
+        {
+          "check": "l piece 1/square-hi",
+          "foreground": "#ffffff",
+          "background": "#132436",
+          "ratio": 15.7503,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square",
+          "foreground": "#ffffff",
+          "background": "#0d1b2c",
+          "ratio": 17.3517,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-lo",
+          "foreground": "#ffffff",
+          "background": "#081320",
+          "ratio": 18.6778,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-hi",
+          "foreground": "#dbeefa",
+          "background": "#132436",
+          "ratio": 13.2169,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square",
+          "foreground": "#dbeefa",
+          "background": "#0d1b2c",
+          "ratio": 14.5608,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-lo",
+          "foreground": "#dbeefa",
+          "background": "#081320",
+          "ratio": 15.6736,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-hi",
+          "foreground": "#7fa7c2",
+          "background": "#132436",
+          "ratio": 6.1568,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square",
+          "foreground": "#7fa7c2",
+          "background": "#0d1b2c",
+          "ratio": 6.7828,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-lo",
+          "foreground": "#7fa7c2",
+          "background": "#081320",
+          "ratio": 7.3011,
+          "pass": true
+        },
+        {
+          "check": "d piece 1/square-hi",
+          "foreground": "#5d7295",
+          "background": "#132436",
+          "ratio": 3.2298,
+          "pass": true
+        },
+        {
+          "check": "d piece 1/square",
+          "foreground": "#5d7295",
+          "background": "#0d1b2c",
+          "ratio": 3.5582,
+          "pass": true
+        },
+        {
+          "check": "d piece 1/square-lo",
+          "foreground": "#5d7295",
+          "background": "#081320",
+          "ratio": 3.8301,
+          "pass": true
+        },
+        {
+          "check": "d piece 2/square-hi",
+          "foreground": "#364260",
+          "background": "#132436",
+          "ratio": 1.5788,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square",
+          "foreground": "#364260",
+          "background": "#0d1b2c",
+          "ratio": 1.7393,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-lo",
+          "foreground": "#364260",
+          "background": "#081320",
+          "ratio": 1.8723,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-hi",
+          "foreground": "#0a0f18",
+          "background": "#132436",
+          "ratio": 1.2183,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square",
+          "foreground": "#0a0f18",
+          "background": "#0d1b2c",
+          "ratio": 1.1058,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-lo",
+          "foreground": "#0a0f18",
+          "background": "#081320",
+          "ratio": 1.0273,
+          "pass": false
+        }
+      ],
+      "failures": 14
+    },
+    {
+      "id": "hologlass",
+      "name": "Hologlass",
+      "measurements": [
+        {
+          "check": "square centres",
+          "foreground": "#234b54",
+          "background": "#0a232b",
+          "ratio": 1.7124,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#2b5a63",
+          "background": "#0e2c35",
+          "ratio": 1.9194,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#2b5a63",
+          "background": "#0a232b",
+          "ratio": 2.1312,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#2b5a63",
+          "background": "#071a20",
+          "ratio": 2.3312,
+          "pass": false
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#234b54",
+          "background": "#0e2c35",
+          "ratio": 1.5422,
+          "pass": false
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#234b54",
+          "background": "#0a232b",
+          "ratio": 1.7124,
+          "pass": false
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#234b54",
+          "background": "#071a20",
+          "ratio": 1.8732,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#1b3c44",
+          "background": "#0e2c35",
+          "ratio": 1.2419,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#1b3c44",
+          "background": "#0a232b",
+          "ratio": 1.379,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#1b3c44",
+          "background": "#071a20",
+          "ratio": 1.5084,
+          "pass": false
+        },
+        {
+          "check": "l piece 1/square-hi",
+          "foreground": "#f2fffb",
+          "background": "#0e2c35",
+          "ratio": 14.3129,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square",
+          "foreground": "#f2fffb",
+          "background": "#0a232b",
+          "ratio": 15.8923,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-lo",
+          "foreground": "#f2fffb",
+          "background": "#071a20",
+          "ratio": 17.3842,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-hi",
+          "foreground": "#d2f2e8",
+          "background": "#0e2c35",
+          "ratio": 12.3091,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square",
+          "foreground": "#d2f2e8",
+          "background": "#0a232b",
+          "ratio": 13.6674,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-lo",
+          "foreground": "#d2f2e8",
+          "background": "#071a20",
+          "ratio": 14.9505,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-hi",
+          "foreground": "#7fb5a6",
+          "background": "#0e2c35",
+          "ratio": 6.3359,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square",
+          "foreground": "#7fb5a6",
+          "background": "#0a232b",
+          "ratio": 7.0351,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-lo",
+          "foreground": "#7fb5a6",
+          "background": "#071a20",
+          "ratio": 7.6955,
+          "pass": true
+        },
+        {
+          "check": "d piece 1/square-hi",
+          "foreground": "#46707e",
+          "background": "#0e2c35",
+          "ratio": 2.7122,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square",
+          "foreground": "#46707e",
+          "background": "#0a232b",
+          "ratio": 3.0115,
+          "pass": true
+        },
+        {
+          "check": "d piece 1/square-lo",
+          "foreground": "#46707e",
+          "background": "#071a20",
+          "ratio": 3.2942,
+          "pass": true
+        },
+        {
+          "check": "d piece 2/square-hi",
+          "foreground": "#2a4a56",
+          "background": "#0e2c35",
+          "ratio": 1.5467,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square",
+          "foreground": "#2a4a56",
+          "background": "#0a232b",
+          "ratio": 1.7174,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-lo",
+          "foreground": "#2a4a56",
+          "background": "#071a20",
+          "ratio": 1.8786,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-hi",
+          "foreground": "#08131a",
+          "background": "#0e2c35",
+          "ratio": 1.2789,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square",
+          "foreground": "#08131a",
+          "background": "#0a232b",
+          "ratio": 1.1518,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-lo",
+          "foreground": "#08131a",
+          "background": "#071a20",
+          "ratio": 1.053,
+          "pass": false
+        }
+      ],
+      "failures": 17
+    },
+    {
+      "id": "cyberjade",
+      "name": "Cyber Jade",
+      "measurements": [
+        {
+          "check": "square centres",
+          "foreground": "#1a512f",
+          "background": "#0a2415",
+          "ratio": 1.7726,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#215f3a",
+          "background": "#0d2e1c",
+          "ratio": 1.9391,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#215f3a",
+          "background": "#0a2415",
+          "ratio": 2.1649,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#215f3a",
+          "background": "#071a0e",
+          "ratio": 2.3752,
+          "pass": false
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#1a512f",
+          "background": "#0d2e1c",
+          "ratio": 1.5877,
+          "pass": false
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#1a512f",
+          "background": "#0a2415",
+          "ratio": 1.7726,
+          "pass": false
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#1a512f",
+          "background": "#071a0e",
+          "ratio": 1.9447,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#144326",
+          "background": "#0d2e1c",
+          "ratio": 1.306,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#144326",
+          "background": "#0a2415",
+          "ratio": 1.458,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#144326",
+          "background": "#071a0e",
+          "ratio": 1.5996,
+          "pass": false
+        },
+        {
+          "check": "l piece 1/square-hi",
+          "foreground": "#f0fff6",
+          "background": "#0d2e1c",
+          "ratio": 14.2768,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square",
+          "foreground": "#f0fff6",
+          "background": "#0a2415",
+          "ratio": 15.9392,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-lo",
+          "foreground": "#f0fff6",
+          "background": "#071a0e",
+          "ratio": 17.4871,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-hi",
+          "foreground": "#c2ecd6",
+          "background": "#0d2e1c",
+          "ratio": 11.4152,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square",
+          "foreground": "#c2ecd6",
+          "background": "#0a2415",
+          "ratio": 12.7445,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-lo",
+          "foreground": "#c2ecd6",
+          "background": "#071a0e",
+          "ratio": 13.9821,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-hi",
+          "foreground": "#63a583",
+          "background": "#0d2e1c",
+          "ratio": 5.0821,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square",
+          "foreground": "#63a583",
+          "background": "#0a2415",
+          "ratio": 5.6739,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-lo",
+          "foreground": "#63a583",
+          "background": "#071a0e",
+          "ratio": 6.2248,
+          "pass": true
+        },
+        {
+          "check": "d piece 1/square-hi",
+          "foreground": "#456a52",
+          "background": "#0d2e1c",
+          "ratio": 2.4121,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square",
+          "foreground": "#456a52",
+          "background": "#0a2415",
+          "ratio": 2.693,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-lo",
+          "foreground": "#456a52",
+          "background": "#071a0e",
+          "ratio": 2.9545,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-hi",
+          "foreground": "#2a4434",
+          "background": "#0d2e1c",
+          "ratio": 1.3862,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square",
+          "foreground": "#2a4434",
+          "background": "#0a2415",
+          "ratio": 1.5476,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-lo",
+          "foreground": "#2a4434",
+          "background": "#071a0e",
+          "ratio": 1.6979,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-hi",
+          "foreground": "#050806",
+          "background": "#0d2e1c",
+          "ratio": 1.3649,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square",
+          "foreground": "#050806",
+          "background": "#0a2415",
+          "ratio": 1.2225,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-lo",
+          "foreground": "#050806",
+          "background": "#071a0e",
+          "ratio": 1.1143,
+          "pass": false
+        }
+      ],
+      "failures": 19
+    },
+    {
+      "id": "synth",
+      "name": "Synthwave",
+      "measurements": [
+        {
+          "check": "square centres",
+          "foreground": "#523b7c",
+          "background": "#281541",
+          "ratio": 1.7863,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#5f4690",
+          "background": "#342056",
+          "ratio": 1.8597,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#5f4690",
+          "background": "#281541",
+          "ratio": 2.1709,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#5f4690",
+          "background": "#1d0e33",
+          "ratio": 2.3781,
+          "pass": false
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#523b7c",
+          "background": "#342056",
+          "ratio": 1.5302,
+          "pass": false
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#523b7c",
+          "background": "#281541",
+          "ratio": 1.7863,
+          "pass": false
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#523b7c",
+          "background": "#1d0e33",
+          "ratio": 1.9567,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#432f66",
+          "background": "#342056",
+          "ratio": 1.2355,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#432f66",
+          "background": "#281541",
+          "ratio": 1.4422,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#432f66",
+          "background": "#1d0e33",
+          "ratio": 1.5798,
+          "pass": false
+        },
+        {
+          "check": "l piece 1/square-hi",
+          "foreground": "#fff3fb",
+          "background": "#342056",
+          "ratio": 13.0903,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square",
+          "foreground": "#fff3fb",
+          "background": "#281541",
+          "ratio": 15.281,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-lo",
+          "foreground": "#fff3fb",
+          "background": "#1d0e33",
+          "ratio": 16.7391,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-hi",
+          "foreground": "#f0d5ea",
+          "background": "#342056",
+          "ratio": 10.3638,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square",
+          "foreground": "#f0d5ea",
+          "background": "#281541",
+          "ratio": 12.0981,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-lo",
+          "foreground": "#f0d5ea",
+          "background": "#1d0e33",
+          "ratio": 13.2525,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-hi",
+          "foreground": "#a878b8",
+          "background": "#342056",
+          "ratio": 4.0644,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square",
+          "foreground": "#a878b8",
+          "background": "#281541",
+          "ratio": 4.7445,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-lo",
+          "foreground": "#a878b8",
+          "background": "#1d0e33",
+          "ratio": 5.1973,
+          "pass": true
+        },
+        {
+          "check": "d piece 1/square-hi",
+          "foreground": "#5f4a94",
+          "background": "#342056",
+          "ratio": 1.946,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square",
+          "foreground": "#5f4a94",
+          "background": "#281541",
+          "ratio": 2.2717,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-lo",
+          "foreground": "#5f4a94",
+          "background": "#1d0e33",
+          "ratio": 2.4884,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-hi",
+          "foreground": "#463470",
+          "background": "#342056",
+          "ratio": 1.3353,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square",
+          "foreground": "#463470",
+          "background": "#281541",
+          "ratio": 1.5588,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-lo",
+          "foreground": "#463470",
+          "background": "#1d0e33",
+          "ratio": 1.7075,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-hi",
+          "foreground": "#120a20",
+          "background": "#342056",
+          "ratio": 1.3642,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square",
+          "foreground": "#120a20",
+          "background": "#281541",
+          "ratio": 1.1686,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-lo",
+          "foreground": "#120a20",
+          "background": "#1d0e33",
+          "ratio": 1.0669,
+          "pass": false
+        }
+      ],
+      "failures": 19
+    },
+    {
+      "id": "vapor",
+      "name": "Vapor Dreams",
+      "measurements": [
+        {
+          "check": "square centres",
+          "foreground": "#8372ae",
+          "background": "#4b3a6e",
+          "ratio": 2.34,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#9380be",
+          "background": "#5a4880",
+          "ratio": 2.2712,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#9380be",
+          "background": "#4b3a6e",
+          "ratio": 2.8512,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#9380be",
+          "background": "#3d2e59",
+          "ratio": 3.5027,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#8372ae",
+          "background": "#5a4880",
+          "ratio": 1.864,
+          "pass": false
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#8372ae",
+          "background": "#4b3a6e",
+          "ratio": 2.34,
+          "pass": false
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#8372ae",
+          "background": "#3d2e59",
+          "ratio": 2.8747,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#71619a",
+          "background": "#5a4880",
+          "ratio": 1.4508,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#71619a",
+          "background": "#4b3a6e",
+          "ratio": 1.8213,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#71619a",
+          "background": "#3d2e59",
+          "ratio": 2.2375,
+          "pass": false
+        },
+        {
+          "check": "l piece 1/square-hi",
+          "foreground": "#fffdf7",
+          "background": "#5a4880",
+          "ratio": 7.7225,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square",
+          "foreground": "#fffdf7",
+          "background": "#4b3a6e",
+          "ratio": 9.6946,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-lo",
+          "foreground": "#fffdf7",
+          "background": "#3d2e59",
+          "ratio": 11.9097,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-hi",
+          "foreground": "#f2e6f5",
+          "background": "#5a4880",
+          "ratio": 6.5134,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square",
+          "foreground": "#f2e6f5",
+          "background": "#4b3a6e",
+          "ratio": 8.1767,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-lo",
+          "foreground": "#f2e6f5",
+          "background": "#3d2e59",
+          "ratio": 10.045,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-hi",
+          "foreground": "#b191c4",
+          "background": "#5a4880",
+          "ratio": 2.8865,
+          "pass": false
+        },
+        {
+          "check": "l piece edge/square",
+          "foreground": "#b191c4",
+          "background": "#4b3a6e",
+          "ratio": 3.6236,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-lo",
+          "foreground": "#b191c4",
+          "background": "#3d2e59",
+          "ratio": 4.4516,
+          "pass": true
+        },
+        {
+          "check": "d piece 1/square-hi",
+          "foreground": "#8a7ab4",
+          "background": "#5a4880",
+          "ratio": 2.0661,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square",
+          "foreground": "#8a7ab4",
+          "background": "#4b3a6e",
+          "ratio": 2.5938,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-lo",
+          "foreground": "#8a7ab4",
+          "background": "#3d2e59",
+          "ratio": 3.1864,
+          "pass": true
+        },
+        {
+          "check": "d piece 2/square-hi",
+          "foreground": "#6f5d9e",
+          "background": "#5a4880",
+          "ratio": 1.3972,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square",
+          "foreground": "#6f5d9e",
+          "background": "#4b3a6e",
+          "ratio": 1.7541,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-lo",
+          "foreground": "#6f5d9e",
+          "background": "#3d2e59",
+          "ratio": 2.1548,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-hi",
+          "foreground": "#0e0a1a",
+          "background": "#5a4880",
+          "ratio": 2.4822,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square",
+          "foreground": "#0e0a1a",
+          "background": "#4b3a6e",
+          "ratio": 1.9773,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-lo",
+          "foreground": "#0e0a1a",
+          "background": "#3d2e59",
+          "ratio": 1.6095,
+          "pass": false
+        }
+      ],
+      "failures": 18
+    },
+    {
+      "id": "solar",
+      "name": "Solar Storm",
+      "measurements": [
+        {
+          "check": "square centres",
+          "foreground": "#633717",
+          "background": "#2b1505",
+          "ratio": 1.7237,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#74431f",
+          "background": "#3a1e0b",
+          "ratio": 1.8718,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#74431f",
+          "background": "#2b1505",
+          "ratio": 2.1162,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#74431f",
+          "background": "#1d0d02",
+          "ratio": 2.3096,
+          "pass": false
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#633717",
+          "background": "#3a1e0b",
+          "ratio": 1.5246,
+          "pass": false
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#633717",
+          "background": "#2b1505",
+          "ratio": 1.7237,
+          "pass": false
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#633717",
+          "background": "#1d0d02",
+          "ratio": 1.8812,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#512b0f",
+          "background": "#3a1e0b",
+          "ratio": 1.2422,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#512b0f",
+          "background": "#2b1505",
+          "ratio": 1.4043,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#512b0f",
+          "background": "#1d0d02",
+          "ratio": 1.5327,
+          "pass": false
+        },
+        {
+          "check": "l piece 1/square-hi",
+          "foreground": "#fff4e0",
+          "background": "#3a1e0b",
+          "ratio": 14.0601,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square",
+          "foreground": "#fff4e0",
+          "background": "#2b1505",
+          "ratio": 15.8959,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-lo",
+          "foreground": "#fff4e0",
+          "background": "#1d0d02",
+          "ratio": 17.3484,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-hi",
+          "foreground": "#f5ddb8",
+          "background": "#3a1e0b",
+          "ratio": 11.6146,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square",
+          "foreground": "#f5ddb8",
+          "background": "#2b1505",
+          "ratio": 13.1311,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-lo",
+          "foreground": "#f5ddb8",
+          "background": "#1d0d02",
+          "ratio": 14.3309,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-hi",
+          "foreground": "#b08850",
+          "background": "#3a1e0b",
+          "ratio": 4.7309,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square",
+          "foreground": "#b08850",
+          "background": "#2b1505",
+          "ratio": 5.3487,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-lo",
+          "foreground": "#b08850",
+          "background": "#1d0d02",
+          "ratio": 5.8374,
+          "pass": true
+        },
+        {
+          "check": "d piece 1/square-hi",
+          "foreground": "#6e5240",
+          "background": "#3a1e0b",
+          "ratio": 2.1482,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square",
+          "foreground": "#6e5240",
+          "background": "#2b1505",
+          "ratio": 2.4286,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-lo",
+          "foreground": "#6e5240",
+          "background": "#1d0d02",
+          "ratio": 2.6506,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-hi",
+          "foreground": "#4e3828",
+          "background": "#3a1e0b",
+          "ratio": 1.4012,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square",
+          "foreground": "#4e3828",
+          "background": "#2b1505",
+          "ratio": 1.5841,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-lo",
+          "foreground": "#4e3828",
+          "background": "#1d0d02",
+          "ratio": 1.7289,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-hi",
+          "foreground": "#0d0805",
+          "background": "#3a1e0b",
+          "ratio": 1.3002,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square",
+          "foreground": "#0d0805",
+          "background": "#2b1505",
+          "ratio": 1.15,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-lo",
+          "foreground": "#0d0805",
+          "background": "#1d0d02",
+          "ratio": 1.0537,
+          "pass": false
+        }
+      ],
+      "failures": 19
+    },
+    {
+      "id": "glass",
+      "name": "Neon Glass",
+      "measurements": [
+        {
+          "check": "square centres",
+          "foreground": "#2e7ca8",
+          "background": "#180e3c",
+          "ratio": 3.9118,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#3a8cbc",
+          "background": "#20144e",
+          "ratio": 4.4494,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#3a8cbc",
+          "background": "#180e3c",
+          "ratio": 4.8481,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#3a8cbc",
+          "background": "#100829",
+          "ratio": 5.196,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#2e7ca8",
+          "background": "#20144e",
+          "ratio": 3.59,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#2e7ca8",
+          "background": "#180e3c",
+          "ratio": 3.9118,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#2e7ca8",
+          "background": "#100829",
+          "ratio": 4.1924,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#24678d",
+          "background": "#20144e",
+          "ratio": 2.6738,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#24678d",
+          "background": "#180e3c",
+          "ratio": 2.9135,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#24678d",
+          "background": "#100829",
+          "ratio": 3.1225,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-hi",
+          "foreground": "#ffffff",
+          "background": "#20144e",
+          "ratio": 16.5161,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square",
+          "foreground": "#ffffff",
+          "background": "#180e3c",
+          "ratio": 17.9964,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-lo",
+          "foreground": "#ffffff",
+          "background": "#100829",
+          "ratio": 19.2876,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-hi",
+          "foreground": "#d9f6ff",
+          "background": "#20144e",
+          "ratio": 14.6102,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square",
+          "foreground": "#d9f6ff",
+          "background": "#180e3c",
+          "ratio": 15.9196,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-lo",
+          "foreground": "#d9f6ff",
+          "background": "#100829",
+          "ratio": 17.0618,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-hi",
+          "foreground": "#6fb3cc",
+          "background": "#20144e",
+          "ratio": 7.0751,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square",
+          "foreground": "#6fb3cc",
+          "background": "#180e3c",
+          "ratio": 7.7092,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-lo",
+          "foreground": "#6fb3cc",
+          "background": "#100829",
+          "ratio": 8.2623,
+          "pass": true
+        },
+        {
+          "check": "d piece 1/square-hi",
+          "foreground": "#8a76b4",
+          "background": "#20144e",
+          "ratio": 4.1928,
+          "pass": true
+        },
+        {
+          "check": "d piece 1/square",
+          "foreground": "#8a76b4",
+          "background": "#180e3c",
+          "ratio": 4.5686,
+          "pass": true
+        },
+        {
+          "check": "d piece 1/square-lo",
+          "foreground": "#8a76b4",
+          "background": "#100829",
+          "ratio": 4.8964,
+          "pass": true
+        },
+        {
+          "check": "d piece 2/square-hi",
+          "foreground": "#423468",
+          "background": "#20144e",
+          "ratio": 1.5122,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square",
+          "foreground": "#423468",
+          "background": "#180e3c",
+          "ratio": 1.6477,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-lo",
+          "foreground": "#423468",
+          "background": "#100829",
+          "ratio": 1.766,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-hi",
+          "foreground": "#0e0820",
+          "background": "#20144e",
+          "ratio": 1.1836,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square",
+          "foreground": "#0e0820",
+          "background": "#180e3c",
+          "ratio": 1.0862,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-lo",
+          "foreground": "#0e0820",
+          "background": "#100829",
+          "ratio": 1.0135,
+          "pass": false
+        }
+      ],
+      "failures": 8
+    },
+    {
+      "id": "ice",
+      "name": "Quantum Ice",
+      "measurements": [
+        {
+          "check": "square centres",
+          "foreground": "#dcecf6",
+          "background": "#8ab2c9",
+          "ratio": 1.8695,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#f7fbfe",
+          "background": "#9ec2d6",
+          "ratio": 1.8117,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#f7fbfe",
+          "background": "#8ab2c9",
+          "ratio": 2.1722,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#f7fbfe",
+          "background": "#74a0b8",
+          "ratio": 2.7046,
+          "pass": false
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#dcecf6",
+          "background": "#9ec2d6",
+          "ratio": 1.5592,
+          "pass": false
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#dcecf6",
+          "background": "#8ab2c9",
+          "ratio": 1.8695,
+          "pass": false
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#dcecf6",
+          "background": "#74a0b8",
+          "ratio": 2.3277,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#c8e0ee",
+          "background": "#9ec2d6",
+          "ratio": 1.378,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#c8e0ee",
+          "background": "#8ab2c9",
+          "ratio": 1.6522,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#c8e0ee",
+          "background": "#74a0b8",
+          "ratio": 2.0572,
+          "pass": false
+        },
+        {
+          "check": "l piece 1/square-hi",
+          "foreground": "#ffffff",
+          "background": "#9ec2d6",
+          "ratio": 1.8848,
+          "pass": false
+        },
+        {
+          "check": "l piece 1/square",
+          "foreground": "#ffffff",
+          "background": "#8ab2c9",
+          "ratio": 2.26,
+          "pass": false
+        },
+        {
+          "check": "l piece 1/square-lo",
+          "foreground": "#ffffff",
+          "background": "#74a0b8",
+          "ratio": 2.8139,
+          "pass": false
+        },
+        {
+          "check": "l piece 2/square-hi",
+          "foreground": "#f8fcfe",
+          "background": "#9ec2d6",
+          "ratio": 1.8262,
+          "pass": false
+        },
+        {
+          "check": "l piece 2/square",
+          "foreground": "#f8fcfe",
+          "background": "#8ab2c9",
+          "ratio": 2.1896,
+          "pass": false
+        },
+        {
+          "check": "l piece 2/square-lo",
+          "foreground": "#f8fcfe",
+          "background": "#74a0b8",
+          "ratio": 2.7263,
+          "pass": false
+        },
+        {
+          "check": "l piece edge/square-hi",
+          "foreground": "#6f9cb5",
+          "background": "#9ec2d6",
+          "ratio": 1.5696,
+          "pass": false
+        },
+        {
+          "check": "l piece edge/square",
+          "foreground": "#6f9cb5",
+          "background": "#8ab2c9",
+          "ratio": 1.309,
+          "pass": false
+        },
+        {
+          "check": "l piece edge/square-lo",
+          "foreground": "#6f9cb5",
+          "background": "#74a0b8",
+          "ratio": 1.0514,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-hi",
+          "foreground": "#56788e",
+          "background": "#9ec2d6",
+          "ratio": 2.4909,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square",
+          "foreground": "#56788e",
+          "background": "#8ab2c9",
+          "ratio": 2.0775,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-lo",
+          "foreground": "#56788e",
+          "background": "#74a0b8",
+          "ratio": 1.6685,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-hi",
+          "foreground": "#3a566b",
+          "background": "#9ec2d6",
+          "ratio": 4.0911,
+          "pass": true
+        },
+        {
+          "check": "d piece 2/square",
+          "foreground": "#3a566b",
+          "background": "#8ab2c9",
+          "ratio": 3.4121,
+          "pass": true
+        },
+        {
+          "check": "d piece 2/square-lo",
+          "foreground": "#3a566b",
+          "background": "#74a0b8",
+          "ratio": 2.7404,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-hi",
+          "foreground": "#16283a",
+          "background": "#9ec2d6",
+          "ratio": 7.9655,
+          "pass": true
+        },
+        {
+          "check": "d piece edge/square",
+          "foreground": "#16283a",
+          "background": "#8ab2c9",
+          "ratio": 6.6433,
+          "pass": true
+        },
+        {
+          "check": "d piece edge/square-lo",
+          "foreground": "#16283a",
+          "background": "#74a0b8",
+          "ratio": 5.3356,
+          "pass": true
+        }
+      ],
+      "failures": 23
+    },
+    {
+      "id": "space",
+      "name": "Deep Space",
+      "measurements": [
+        {
+          "check": "square centres",
+          "foreground": "#313860",
+          "background": "#12142e",
+          "ratio": 1.6007,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#3c4472",
+          "background": "#171a38",
+          "ratio": 1.8223,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#3c4472",
+          "background": "#12142e",
+          "ratio": 1.9412,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#3c4472",
+          "background": "#0d0f24",
+          "ratio": 2.0361,
+          "pass": false
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#313860",
+          "background": "#171a38",
+          "ratio": 1.5026,
+          "pass": false
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#313860",
+          "background": "#12142e",
+          "ratio": 1.6007,
+          "pass": false
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#313860",
+          "background": "#0d0f24",
+          "ratio": 1.6789,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#272d4f",
+          "background": "#171a38",
+          "ratio": 1.2685,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#272d4f",
+          "background": "#12142e",
+          "ratio": 1.3513,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#272d4f",
+          "background": "#0d0f24",
+          "ratio": 1.4173,
+          "pass": false
+        },
+        {
+          "check": "l piece 1/square-hi",
+          "foreground": "#f5f7ff",
+          "background": "#171a38",
+          "ratio": 15.8148,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square",
+          "foreground": "#f5f7ff",
+          "background": "#12142e",
+          "ratio": 16.8471,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-lo",
+          "foreground": "#f5f7ff",
+          "background": "#0d0f24",
+          "ratio": 17.6708,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-hi",
+          "foreground": "#d8ddf2",
+          "background": "#171a38",
+          "ratio": 12.5228,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square",
+          "foreground": "#d8ddf2",
+          "background": "#12142e",
+          "ratio": 13.3403,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-lo",
+          "foreground": "#d8ddf2",
+          "background": "#0d0f24",
+          "ratio": 13.9925,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-hi",
+          "foreground": "#7f8ab5",
+          "background": "#171a38",
+          "ratio": 4.9988,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square",
+          "foreground": "#7f8ab5",
+          "background": "#12142e",
+          "ratio": 5.3251,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-lo",
+          "foreground": "#7f8ab5",
+          "background": "#0d0f24",
+          "ratio": 5.5855,
+          "pass": true
+        },
+        {
+          "check": "d piece 1/square-hi",
+          "foreground": "#4d5480",
+          "background": "#171a38",
+          "ratio": 2.3326,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square",
+          "foreground": "#4d5480",
+          "background": "#12142e",
+          "ratio": 2.4848,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-lo",
+          "foreground": "#4d5480",
+          "background": "#0d0f24",
+          "ratio": 2.6063,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-hi",
+          "foreground": "#333a5e",
+          "background": "#171a38",
+          "ratio": 1.5368,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square",
+          "foreground": "#333a5e",
+          "background": "#12142e",
+          "ratio": 1.6371,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-lo",
+          "foreground": "#333a5e",
+          "background": "#0d0f24",
+          "ratio": 1.7172,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-hi",
+          "foreground": "#0b0c1a",
+          "background": "#171a38",
+          "ratio": 1.1475,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square",
+          "foreground": "#0b0c1a",
+          "background": "#12142e",
+          "ratio": 1.0772,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-lo",
+          "foreground": "#0b0c1a",
+          "background": "#0d0f24",
+          "ratio": 1.027,
+          "pass": false
+        }
+      ],
+      "failures": 19
+    },
+    {
+      "id": "club",
+      "name": "Midnight Club",
+      "measurements": [
+        {
+          "check": "square centres",
+          "foreground": "#e9d5a7",
+          "background": "#7c4a24",
+          "ratio": 5.0805,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#f0debc",
+          "background": "#8a5629",
+          "ratio": 4.6111,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#f0debc",
+          "background": "#7c4a24",
+          "ratio": 5.5485,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#f0debc",
+          "background": "#6d3f1d",
+          "ratio": 6.675,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#e9d5a7",
+          "background": "#8a5629",
+          "ratio": 4.2222,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#e9d5a7",
+          "background": "#7c4a24",
+          "ratio": 5.0805,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#e9d5a7",
+          "background": "#6d3f1d",
+          "ratio": 6.112,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#d9c193",
+          "background": "#8a5629",
+          "ratio": 3.4844,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#d9c193",
+          "background": "#7c4a24",
+          "ratio": 4.1927,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#d9c193",
+          "background": "#6d3f1d",
+          "ratio": 5.044,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-hi",
+          "foreground": "#fffdf4",
+          "background": "#8a5629",
+          "ratio": 5.9842,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square",
+          "foreground": "#fffdf4",
+          "background": "#7c4a24",
+          "ratio": 7.2007,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-lo",
+          "foreground": "#fffdf4",
+          "background": "#6d3f1d",
+          "ratio": 8.6627,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-hi",
+          "foreground": "#ecdcb4",
+          "background": "#8a5629",
+          "ratio": 4.4901,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square",
+          "foreground": "#ecdcb4",
+          "background": "#7c4a24",
+          "ratio": 5.4028,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-lo",
+          "foreground": "#ecdcb4",
+          "background": "#6d3f1d",
+          "ratio": 6.4998,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-hi",
+          "foreground": "#8f7448",
+          "background": "#8a5629",
+          "ratio": 1.3821,
+          "pass": false
+        },
+        {
+          "check": "l piece edge/square",
+          "foreground": "#8f7448",
+          "background": "#7c4a24",
+          "ratio": 1.6631,
+          "pass": false
+        },
+        {
+          "check": "l piece edge/square-lo",
+          "foreground": "#8f7448",
+          "background": "#6d3f1d",
+          "ratio": 2.0007,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-hi",
+          "foreground": "#6a553f",
+          "background": "#8a5629",
+          "ratio": 1.1541,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square",
+          "foreground": "#6a553f",
+          "background": "#7c4a24",
+          "ratio": 1.0426,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-lo",
+          "foreground": "#6a553f",
+          "background": "#6d3f1d",
+          "ratio": 1.2543,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-hi",
+          "foreground": "#35261a",
+          "background": "#8a5629",
+          "ratio": 2.3857,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square",
+          "foreground": "#35261a",
+          "background": "#7c4a24",
+          "ratio": 1.9826,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-lo",
+          "foreground": "#35261a",
+          "background": "#6d3f1d",
+          "ratio": 1.648,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-hi",
+          "foreground": "#0c0703",
+          "background": "#8a5629",
+          "ratio": 3.2881,
+          "pass": true
+        },
+        {
+          "check": "d piece edge/square",
+          "foreground": "#0c0703",
+          "background": "#7c4a24",
+          "ratio": 2.7326,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-lo",
+          "foreground": "#0c0703",
+          "background": "#6d3f1d",
+          "ratio": 2.2715,
+          "pass": false
+        }
+      ],
+      "failures": 11
+    },
+    {
+      "id": "walnut",
+      "name": "Walnut Classic",
+      "measurements": [
+        {
+          "check": "square centres",
+          "foreground": "#eed7ab",
+          "background": "#8a5629",
+          "ratio": 4.3393,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#f5e3bd",
+          "background": "#96602c",
+          "ratio": 4.1447,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#f5e3bd",
+          "background": "#8a5629",
+          "ratio": 4.8217,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#f5e3bd",
+          "background": "#7a4a22",
+          "ratio": 5.8672,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#eed7ab",
+          "background": "#96602c",
+          "ratio": 3.73,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#eed7ab",
+          "background": "#8a5629",
+          "ratio": 4.3393,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#eed7ab",
+          "background": "#7a4a22",
+          "ratio": 5.2802,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#e2c795",
+          "background": "#96602c",
+          "ratio": 3.2042,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#e2c795",
+          "background": "#8a5629",
+          "ratio": 3.7276,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#e2c795",
+          "background": "#7a4a22",
+          "ratio": 4.5359,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-hi",
+          "foreground": "#fffdf4",
+          "background": "#96602c",
+          "ratio": 5.144,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square",
+          "foreground": "#fffdf4",
+          "background": "#8a5629",
+          "ratio": 5.9842,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-lo",
+          "foreground": "#fffdf4",
+          "background": "#7a4a22",
+          "ratio": 7.2818,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-hi",
+          "foreground": "#ecdcb4",
+          "background": "#96602c",
+          "ratio": 3.8596,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square",
+          "foreground": "#ecdcb4",
+          "background": "#8a5629",
+          "ratio": 4.4901,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-lo",
+          "foreground": "#ecdcb4",
+          "background": "#7a4a22",
+          "ratio": 5.4637,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-hi",
+          "foreground": "#8f7448",
+          "background": "#96602c",
+          "ratio": 1.188,
+          "pass": false
+        },
+        {
+          "check": "l piece edge/square",
+          "foreground": "#8f7448",
+          "background": "#8a5629",
+          "ratio": 1.3821,
+          "pass": false
+        },
+        {
+          "check": "l piece edge/square-lo",
+          "foreground": "#8f7448",
+          "background": "#7a4a22",
+          "ratio": 1.6818,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-hi",
+          "foreground": "#6a553f",
+          "background": "#96602c",
+          "ratio": 1.3426,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square",
+          "foreground": "#6a553f",
+          "background": "#8a5629",
+          "ratio": 1.1541,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-lo",
+          "foreground": "#6a553f",
+          "background": "#7a4a22",
+          "ratio": 1.0544,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-hi",
+          "foreground": "#35261a",
+          "background": "#96602c",
+          "ratio": 2.7754,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square",
+          "foreground": "#35261a",
+          "background": "#8a5629",
+          "ratio": 2.3857,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-lo",
+          "foreground": "#35261a",
+          "background": "#7a4a22",
+          "ratio": 1.9605,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-hi",
+          "foreground": "#0c0703",
+          "background": "#96602c",
+          "ratio": 3.8252,
+          "pass": true
+        },
+        {
+          "check": "d piece edge/square",
+          "foreground": "#0c0703",
+          "background": "#8a5629",
+          "ratio": 3.2881,
+          "pass": true
+        },
+        {
+          "check": "d piece edge/square-lo",
+          "foreground": "#0c0703",
+          "background": "#7a4a22",
+          "ratio": 2.7022,
+          "pass": false
+        }
+      ],
+      "failures": 10
+    },
+    {
+      "id": "royale",
+      "name": "Walnut Royale",
+      "measurements": [
+        {
+          "check": "square centres",
+          "foreground": "#e2c48f",
+          "background": "#7c4e26",
+          "ratio": 4.2109,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#ecd3a4",
+          "background": "#8a5a2e",
+          "ratio": 4.0251,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#ecd3a4",
+          "background": "#7c4e26",
+          "ratio": 4.8476,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#ecd3a4",
+          "background": "#6a401d",
+          "ratio": 6.1001,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#e2c48f",
+          "background": "#8a5a2e",
+          "ratio": 3.4965,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#e2c48f",
+          "background": "#7c4e26",
+          "ratio": 4.2109,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#e2c48f",
+          "background": "#6a401d",
+          "ratio": 5.2989,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#d3b37a",
+          "background": "#8a5a2e",
+          "ratio": 2.9305,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#d3b37a",
+          "background": "#7c4e26",
+          "ratio": 3.5293,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#d3b37a",
+          "background": "#6a401d",
+          "ratio": 4.4413,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-hi",
+          "foreground": "#fbf3dd",
+          "background": "#8a5a2e",
+          "ratio": 5.294,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square",
+          "foreground": "#fbf3dd",
+          "background": "#7c4e26",
+          "ratio": 6.3757,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-lo",
+          "foreground": "#fbf3dd",
+          "background": "#6a401d",
+          "ratio": 8.0231,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-hi",
+          "foreground": "#f6ead0",
+          "background": "#8a5a2e",
+          "ratio": 4.9123,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square",
+          "foreground": "#f6ead0",
+          "background": "#7c4e26",
+          "ratio": 5.9159,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-lo",
+          "foreground": "#f6ead0",
+          "background": "#6a401d",
+          "ratio": 7.4446,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-hi",
+          "foreground": "#a8895c",
+          "background": "#8a5a2e",
+          "ratio": 1.7858,
+          "pass": false
+        },
+        {
+          "check": "l piece edge/square",
+          "foreground": "#a8895c",
+          "background": "#7c4e26",
+          "ratio": 2.1507,
+          "pass": false
+        },
+        {
+          "check": "l piece edge/square-lo",
+          "foreground": "#a8895c",
+          "background": "#6a401d",
+          "ratio": 2.7064,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-hi",
+          "foreground": "#6b4526",
+          "background": "#8a5a2e",
+          "ratio": 1.4305,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square",
+          "foreground": "#6b4526",
+          "background": "#7c4e26",
+          "ratio": 1.1878,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-lo",
+          "foreground": "#6b4526",
+          "background": "#6a401d",
+          "ratio": 1.0594,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-hi",
+          "foreground": "#472c14",
+          "background": "#8a5a2e",
+          "ratio": 2.1868,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square",
+          "foreground": "#472c14",
+          "background": "#7c4e26",
+          "ratio": 1.8158,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-lo",
+          "foreground": "#472c14",
+          "background": "#6a401d",
+          "ratio": 1.4429,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-hi",
+          "foreground": "#140a02",
+          "background": "#8a5a2e",
+          "ratio": 3.3356,
+          "pass": true
+        },
+        {
+          "check": "d piece edge/square",
+          "foreground": "#140a02",
+          "background": "#7c4e26",
+          "ratio": 2.7697,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-lo",
+          "foreground": "#140a02",
+          "background": "#6a401d",
+          "ratio": 2.201,
+          "pass": false
+        }
+      ],
+      "failures": 12
+    },
+    {
+      "id": "tourney",
+      "name": "Tournament",
+      "measurements": [
+        {
+          "check": "square centres",
+          "foreground": "#ecd6a0",
+          "background": "#3f6d3e",
+          "ratio": 4.2362,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#f2e0b0",
+          "background": "#4a7a4a",
+          "ratio": 3.8489,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#f2e0b0",
+          "background": "#3f6d3e",
+          "ratio": 4.6318,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#f2e0b0",
+          "background": "#345c34",
+          "ratio": 5.8921,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#ecd6a0",
+          "background": "#4a7a4a",
+          "ratio": 3.5202,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#ecd6a0",
+          "background": "#3f6d3e",
+          "ratio": 4.2362,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#ecd6a0",
+          "background": "#345c34",
+          "ratio": 5.389,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#dfc68c",
+          "background": "#4a7a4a",
+          "ratio": 3.0173,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#dfc68c",
+          "background": "#3f6d3e",
+          "ratio": 3.6311,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#dfc68c",
+          "background": "#345c34",
+          "ratio": 4.6191,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-hi",
+          "foreground": "#fffdf3",
+          "background": "#4a7a4a",
+          "ratio": 4.9346,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square",
+          "foreground": "#fffdf3",
+          "background": "#3f6d3e",
+          "ratio": 5.9383,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-lo",
+          "foreground": "#fffdf3",
+          "background": "#345c34",
+          "ratio": 7.5542,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-hi",
+          "foreground": "#f0e6c8",
+          "background": "#4a7a4a",
+          "ratio": 4.0389,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square",
+          "foreground": "#f0e6c8",
+          "background": "#3f6d3e",
+          "ratio": 4.8604,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-lo",
+          "foreground": "#f0e6c8",
+          "background": "#345c34",
+          "ratio": 6.183,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-hi",
+          "foreground": "#91805a",
+          "background": "#4a7a4a",
+          "ratio": 1.3032,
+          "pass": false
+        },
+        {
+          "check": "l piece edge/square",
+          "foreground": "#91805a",
+          "background": "#3f6d3e",
+          "ratio": 1.5682,
+          "pass": false
+        },
+        {
+          "check": "l piece edge/square-lo",
+          "foreground": "#91805a",
+          "background": "#345c34",
+          "ratio": 1.995,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-hi",
+          "foreground": "#4a4536",
+          "background": "#4a7a4a",
+          "ratio": 1.9009,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square",
+          "foreground": "#4a4536",
+          "background": "#3f6d3e",
+          "ratio": 1.5796,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-lo",
+          "foreground": "#4a4536",
+          "background": "#345c34",
+          "ratio": 1.2417,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-hi",
+          "foreground": "#2a281c",
+          "background": "#4a7a4a",
+          "ratio": 2.942,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square",
+          "foreground": "#2a281c",
+          "background": "#3f6d3e",
+          "ratio": 2.4447,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-lo",
+          "foreground": "#2a281c",
+          "background": "#345c34",
+          "ratio": 1.9218,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-hi",
+          "foreground": "#0a0906",
+          "background": "#4a7a4a",
+          "ratio": 3.9577,
+          "pass": true
+        },
+        {
+          "check": "d piece edge/square",
+          "foreground": "#0a0906",
+          "background": "#3f6d3e",
+          "ratio": 3.2888,
+          "pass": true
+        },
+        {
+          "check": "d piece edge/square-lo",
+          "foreground": "#0a0906",
+          "background": "#345c34",
+          "ratio": 2.5853,
+          "pass": false
+        }
+      ],
+      "failures": 10
+    },
+    {
+      "id": "marble",
+      "name": "Marble Lux",
+      "measurements": [
+        {
+          "check": "square centres",
+          "foreground": "#f1f3f5",
+          "background": "#5c6672",
+          "ratio": 5.2462,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#fafbfc",
+          "background": "#6a7686",
+          "ratio": 4.4563,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#fafbfc",
+          "background": "#5c6672",
+          "ratio": 5.6326,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#fafbfc",
+          "background": "#4c5664",
+          "ratio": 7.1815,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#f1f3f5",
+          "background": "#6a7686",
+          "ratio": 4.1506,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#f1f3f5",
+          "background": "#5c6672",
+          "ratio": 5.2462,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#f1f3f5",
+          "background": "#4c5664",
+          "ratio": 6.6889,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#e2e6ea",
+          "background": "#6a7686",
+          "ratio": 3.6805,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#e2e6ea",
+          "background": "#5c6672",
+          "ratio": 4.652,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#e2e6ea",
+          "background": "#4c5664",
+          "ratio": 5.9313,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-hi",
+          "foreground": "#ffffff",
+          "background": "#6a7686",
+          "ratio": 4.617,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square",
+          "foreground": "#ffffff",
+          "background": "#5c6672",
+          "ratio": 5.8356,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-lo",
+          "foreground": "#ffffff",
+          "background": "#4c5664",
+          "ratio": 7.4404,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-hi",
+          "foreground": "#f0f2f5",
+          "background": "#6a7686",
+          "ratio": 4.1167,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square",
+          "foreground": "#f0f2f5",
+          "background": "#5c6672",
+          "ratio": 5.2033,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-lo",
+          "foreground": "#f0f2f5",
+          "background": "#4c5664",
+          "ratio": 6.6341,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-hi",
+          "foreground": "#8b95a3",
+          "background": "#6a7686",
+          "ratio": 1.5226,
+          "pass": false
+        },
+        {
+          "check": "l piece edge/square",
+          "foreground": "#8b95a3",
+          "background": "#5c6672",
+          "ratio": 1.9245,
+          "pass": false
+        },
+        {
+          "check": "l piece edge/square-lo",
+          "foreground": "#8b95a3",
+          "background": "#4c5664",
+          "ratio": 2.4538,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-hi",
+          "foreground": "#4a5462",
+          "background": "#6a7686",
+          "ratio": 1.6626,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square",
+          "foreground": "#4a5462",
+          "background": "#5c6672",
+          "ratio": 1.3154,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-lo",
+          "foreground": "#4a5462",
+          "background": "#4c5664",
+          "ratio": 1.0317,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-hi",
+          "foreground": "#323a48",
+          "background": "#6a7686",
+          "ratio": 2.4795,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square",
+          "foreground": "#323a48",
+          "background": "#5c6672",
+          "ratio": 1.9617,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-lo",
+          "foreground": "#323a48",
+          "background": "#4c5664",
+          "ratio": 1.5386,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-hi",
+          "foreground": "#10141c",
+          "background": "#6a7686",
+          "ratio": 3.9939,
+          "pass": true
+        },
+        {
+          "check": "d piece edge/square",
+          "foreground": "#10141c",
+          "background": "#5c6672",
+          "ratio": 3.1598,
+          "pass": true
+        },
+        {
+          "check": "d piece edge/square-lo",
+          "foreground": "#10141c",
+          "background": "#4c5664",
+          "ratio": 2.4783,
+          "pass": false
+        }
+      ],
+      "failures": 10
+    },
+    {
+      "id": "mono",
+      "name": "Porcelain & Obsidian",
+      "measurements": [
+        {
+          "check": "square centres",
+          "foreground": "#f2f2f2",
+          "background": "#121212",
+          "ratio": 16.734,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#fbfbfb",
+          "background": "#1c1c1c",
+          "ratio": 16.4689,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#fbfbfb",
+          "background": "#121212",
+          "ratio": 18.1036,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#fbfbfb",
+          "background": "#080808",
+          "ratio": 19.3538,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#f2f2f2",
+          "background": "#1c1c1c",
+          "ratio": 15.223,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#f2f2f2",
+          "background": "#121212",
+          "ratio": 16.734,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#f2f2f2",
+          "background": "#080808",
+          "ratio": 17.8897,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#e4e4e4",
+          "background": "#1c1c1c",
+          "ratio": 13.4035,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#e4e4e4",
+          "background": "#121212",
+          "ratio": 14.734,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#e4e4e4",
+          "background": "#080808",
+          "ratio": 15.7515,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-hi",
+          "foreground": "#ffffff",
+          "background": "#1c1c1c",
+          "ratio": 17.0421,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square",
+          "foreground": "#ffffff",
+          "background": "#121212",
+          "ratio": 18.7337,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-lo",
+          "foreground": "#ffffff",
+          "background": "#080808",
+          "ratio": 20.0274,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-hi",
+          "foreground": "#f0f0f0",
+          "background": "#1c1c1c",
+          "ratio": 14.9543,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square",
+          "foreground": "#f0f0f0",
+          "background": "#121212",
+          "ratio": 16.4386,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-lo",
+          "foreground": "#f0f0f0",
+          "background": "#080808",
+          "ratio": 17.5739,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-hi",
+          "foreground": "#787878",
+          "background": "#1c1c1c",
+          "ratio": 3.86,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square",
+          "foreground": "#787878",
+          "background": "#121212",
+          "ratio": 4.2431,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-lo",
+          "foreground": "#787878",
+          "background": "#080808",
+          "ratio": 4.5361,
+          "pass": true
+        },
+        {
+          "check": "d piece 1/square-hi",
+          "foreground": "#4a4a4a",
+          "background": "#1c1c1c",
+          "ratio": 1.923,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square",
+          "foreground": "#4a4a4a",
+          "background": "#121212",
+          "ratio": 2.1138,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-lo",
+          "foreground": "#4a4a4a",
+          "background": "#080808",
+          "ratio": 2.2598,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-hi",
+          "foreground": "#363636",
+          "background": "#1c1c1c",
+          "ratio": 1.4103,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square",
+          "foreground": "#363636",
+          "background": "#121212",
+          "ratio": 1.5502,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-lo",
+          "foreground": "#363636",
+          "background": "#080808",
+          "ratio": 1.6573,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-hi",
+          "foreground": "#000000",
+          "background": "#1c1c1c",
+          "ratio": 1.2322,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square",
+          "foreground": "#000000",
+          "background": "#121212",
+          "ratio": 1.121,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-lo",
+          "foreground": "#000000",
+          "background": "#080808",
+          "ratio": 1.0486,
+          "pass": false
+        }
+      ],
+      "failures": 9
+    },
+    {
+      "id": "sakura",
+      "name": "Sakura",
+      "measurements": [
+        {
+          "check": "square centres",
+          "foreground": "#fdeef2",
+          "background": "#d97f96",
+          "ratio": 2.5165,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#fff7f8",
+          "background": "#e08aa0",
+          "ratio": 2.3954,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#fff7f8",
+          "background": "#d97f96",
+          "ratio": 2.6812,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#fff7f8",
+          "background": "#c96f88",
+          "ratio": 3.2574,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#fdeef2",
+          "background": "#e08aa0",
+          "ratio": 2.2483,
+          "pass": false
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#fdeef2",
+          "background": "#d97f96",
+          "ratio": 2.5165,
+          "pass": false
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#fdeef2",
+          "background": "#c96f88",
+          "ratio": 3.0573,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#f8dde4",
+          "background": "#e08aa0",
+          "ratio": 1.9795,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#f8dde4",
+          "background": "#d97f96",
+          "ratio": 2.2156,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#f8dde4",
+          "background": "#c96f88",
+          "ratio": 2.6918,
+          "pass": false
+        },
+        {
+          "check": "l piece 1/square-hi",
+          "foreground": "#ffffff",
+          "background": "#e08aa0",
+          "ratio": 2.5263,
+          "pass": false
+        },
+        {
+          "check": "l piece 1/square",
+          "foreground": "#ffffff",
+          "background": "#d97f96",
+          "ratio": 2.8277,
+          "pass": false
+        },
+        {
+          "check": "l piece 1/square-lo",
+          "foreground": "#ffffff",
+          "background": "#c96f88",
+          "ratio": 3.4354,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-hi",
+          "foreground": "#fdf0f2",
+          "background": "#e08aa0",
+          "ratio": 2.2764,
+          "pass": false
+        },
+        {
+          "check": "l piece 2/square",
+          "foreground": "#fdf0f2",
+          "background": "#d97f96",
+          "ratio": 2.548,
+          "pass": false
+        },
+        {
+          "check": "l piece 2/square-lo",
+          "foreground": "#fdf0f2",
+          "background": "#c96f88",
+          "ratio": 3.0956,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-hi",
+          "foreground": "#b57f92",
+          "background": "#e08aa0",
+          "ratio": 1.2957,
+          "pass": false
+        },
+        {
+          "check": "l piece edge/square",
+          "foreground": "#b57f92",
+          "background": "#d97f96",
+          "ratio": 1.1576,
+          "pass": false
+        },
+        {
+          "check": "l piece edge/square-lo",
+          "foreground": "#b57f92",
+          "background": "#c96f88",
+          "ratio": 1.0495,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-hi",
+          "foreground": "#7a4a5c",
+          "background": "#e08aa0",
+          "ratio": 2.8068,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square",
+          "foreground": "#7a4a5c",
+          "background": "#d97f96",
+          "ratio": 2.5076,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-lo",
+          "foreground": "#7a4a5c",
+          "background": "#c96f88",
+          "ratio": 2.064,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-hi",
+          "foreground": "#57303f",
+          "background": "#e08aa0",
+          "ratio": 4.3754,
+          "pass": true
+        },
+        {
+          "check": "d piece 2/square",
+          "foreground": "#57303f",
+          "background": "#d97f96",
+          "ratio": 3.9091,
+          "pass": true
+        },
+        {
+          "check": "d piece 2/square-lo",
+          "foreground": "#57303f",
+          "background": "#c96f88",
+          "ratio": 3.2176,
+          "pass": true
+        },
+        {
+          "check": "d piece edge/square-hi",
+          "foreground": "#1f0f16",
+          "background": "#e08aa0",
+          "ratio": 7.3033,
+          "pass": true
+        },
+        {
+          "check": "d piece edge/square",
+          "foreground": "#1f0f16",
+          "background": "#d97f96",
+          "ratio": 6.5249,
+          "pass": true
+        },
+        {
+          "check": "d piece edge/square-lo",
+          "foreground": "#1f0f16",
+          "background": "#c96f88",
+          "ratio": 5.3707,
+          "pass": true
+        }
+      ],
+      "failures": 18
+    },
+    {
+      "id": "arcade",
+      "name": "Retro Arcade",
+      "measurements": [
+        {
+          "check": "square centres",
+          "foreground": "#236329",
+          "background": "#0b240d",
+          "ratio": 2.2699,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#2a7432",
+          "background": "#102f13",
+          "ratio": 2.5331,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#2a7432",
+          "background": "#0b240d",
+          "ratio": 2.8628,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#2a7432",
+          "background": "#071a08",
+          "ratio": 3.1394,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#236329",
+          "background": "#102f13",
+          "ratio": 2.0084,
+          "pass": false
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#236329",
+          "background": "#0b240d",
+          "ratio": 2.2699,
+          "pass": false
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#236329",
+          "background": "#071a08",
+          "ratio": 2.4892,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#1c5121",
+          "background": "#102f13",
+          "ratio": 1.5635,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#1c5121",
+          "background": "#0b240d",
+          "ratio": 1.767,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#1c5121",
+          "background": "#071a08",
+          "ratio": 1.9377,
+          "pass": false
+        },
+        {
+          "check": "l piece 1/square-hi",
+          "foreground": "#eaffea",
+          "background": "#102f13",
+          "ratio": 13.9013,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square",
+          "foreground": "#eaffea",
+          "background": "#0b240d",
+          "ratio": 15.711,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-lo",
+          "foreground": "#eaffea",
+          "background": "#071a08",
+          "ratio": 17.2288,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-hi",
+          "foreground": "#b8f0b8",
+          "background": "#102f13",
+          "ratio": 11.2613,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square",
+          "foreground": "#b8f0b8",
+          "background": "#0b240d",
+          "ratio": 12.7274,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-lo",
+          "foreground": "#b8f0b8",
+          "background": "#071a08",
+          "ratio": 13.957,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-hi",
+          "foreground": "#4a9a4a",
+          "background": "#102f13",
+          "ratio": 4.1809,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square",
+          "foreground": "#4a9a4a",
+          "background": "#0b240d",
+          "ratio": 4.7252,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-lo",
+          "foreground": "#4a9a4a",
+          "background": "#071a08",
+          "ratio": 5.1817,
+          "pass": true
+        },
+        {
+          "check": "d piece 1/square-hi",
+          "foreground": "#8a6215",
+          "background": "#102f13",
+          "ratio": 2.6693,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square",
+          "foreground": "#8a6215",
+          "background": "#0b240d",
+          "ratio": 3.0168,
+          "pass": true
+        },
+        {
+          "check": "d piece 1/square-lo",
+          "foreground": "#8a6215",
+          "background": "#071a08",
+          "ratio": 3.3082,
+          "pass": true
+        },
+        {
+          "check": "d piece 2/square-hi",
+          "foreground": "#563d0e",
+          "background": "#102f13",
+          "ratio": 1.4391,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square",
+          "foreground": "#563d0e",
+          "background": "#0b240d",
+          "ratio": 1.6265,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-lo",
+          "foreground": "#563d0e",
+          "background": "#071a08",
+          "ratio": 1.7836,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-hi",
+          "foreground": "#140c02",
+          "background": "#102f13",
+          "ratio": 1.3276,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square",
+          "foreground": "#140c02",
+          "background": "#0b240d",
+          "ratio": 1.1746,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-lo",
+          "foreground": "#140c02",
+          "background": "#071a08",
+          "ratio": 1.0712,
+          "pass": false
+        }
+      ],
+      "failures": 16
+    },
+    {
+      "id": "greenbuff",
+      "name": "Tournament Green",
+      "measurements": [
+        {
+          "check": "square centres",
+          "foreground": "#eddaa4",
+          "background": "#437348",
+          "ratio": 4.0072,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#f4e6ba",
+          "background": "#4d8054",
+          "ratio": 3.724,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#f4e6ba",
+          "background": "#437348",
+          "ratio": 4.4588,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#f4e6ba",
+          "background": "#38633c",
+          "ratio": 5.591,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#eddaa4",
+          "background": "#4d8054",
+          "ratio": 3.3469,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#eddaa4",
+          "background": "#437348",
+          "ratio": 4.0072,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#eddaa4",
+          "background": "#38633c",
+          "ratio": 5.0248,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#e0cb8e",
+          "background": "#4d8054",
+          "ratio": 2.8916,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#e0cb8e",
+          "background": "#437348",
+          "ratio": 3.4621,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#e0cb8e",
+          "background": "#38633c",
+          "ratio": 4.3412,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-hi",
+          "foreground": "#ffffff",
+          "background": "#4d8054",
+          "ratio": 4.6345,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square",
+          "foreground": "#ffffff",
+          "background": "#437348",
+          "ratio": 5.5489,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-lo",
+          "foreground": "#ffffff",
+          "background": "#38633c",
+          "ratio": 6.9579,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-hi",
+          "foreground": "#f4efe4",
+          "background": "#4d8054",
+          "ratio": 4.0416,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square",
+          "foreground": "#f4efe4",
+          "background": "#437348",
+          "ratio": 4.839,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-lo",
+          "foreground": "#f4efe4",
+          "background": "#38633c",
+          "ratio": 6.0678,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-hi",
+          "foreground": "#9a927c",
+          "background": "#4d8054",
+          "ratio": 1.4955,
+          "pass": false
+        },
+        {
+          "check": "l piece edge/square",
+          "foreground": "#9a927c",
+          "background": "#437348",
+          "ratio": 1.7906,
+          "pass": false
+        },
+        {
+          "check": "l piece edge/square-lo",
+          "foreground": "#9a927c",
+          "background": "#38633c",
+          "ratio": 2.2453,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-hi",
+          "foreground": "#c04a42",
+          "background": "#4d8054",
+          "ratio": 1.0539,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square",
+          "foreground": "#c04a42",
+          "background": "#437348",
+          "ratio": 1.1361,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-lo",
+          "foreground": "#c04a42",
+          "background": "#38633c",
+          "ratio": 1.4245,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-hi",
+          "foreground": "#9c3028",
+          "background": "#4d8054",
+          "ratio": 1.5805,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square",
+          "foreground": "#9c3028",
+          "background": "#437348",
+          "ratio": 1.32,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-lo",
+          "foreground": "#9c3028",
+          "background": "#38633c",
+          "ratio": 1.0527,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-hi",
+          "foreground": "#3d0e0a",
+          "background": "#4d8054",
+          "ratio": 3.5803,
+          "pass": true
+        },
+        {
+          "check": "d piece edge/square",
+          "foreground": "#3d0e0a",
+          "background": "#437348",
+          "ratio": 2.9903,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-lo",
+          "foreground": "#3d0e0a",
+          "background": "#38633c",
+          "ratio": 2.3847,
+          "pass": false
+        }
+      ],
+      "failures": 12
+    },
+    {
+      "id": "maplewood",
+      "name": "Maple & Rosewood",
+      "measurements": [
+        {
+          "check": "square centres",
+          "foreground": "#e8c88f",
+          "background": "#6e3b23",
+          "ratio": 5.6595,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#f0d6a4",
+          "background": "#7c462a",
+          "ratio": 5.3713,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#f0d6a4",
+          "background": "#6e3b23",
+          "ratio": 6.4249,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#f0d6a4",
+          "background": "#5c301a",
+          "ratio": 7.8508,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#e8c88f",
+          "background": "#7c462a",
+          "ratio": 4.7314,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#e8c88f",
+          "background": "#6e3b23",
+          "ratio": 5.6595,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#e8c88f",
+          "background": "#5c301a",
+          "ratio": 6.9156,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#dbb87c",
+          "background": "#7c462a",
+          "ratio": 4.0337,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#dbb87c",
+          "background": "#6e3b23",
+          "ratio": 4.8249,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#dbb87c",
+          "background": "#5c301a",
+          "ratio": 5.8958,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-hi",
+          "foreground": "#fbf3dd",
+          "background": "#7c462a",
+          "ratio": 6.8556,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square",
+          "foreground": "#fbf3dd",
+          "background": "#6e3b23",
+          "ratio": 8.2003,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-lo",
+          "foreground": "#fbf3dd",
+          "background": "#5c301a",
+          "ratio": 10.0204,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-hi",
+          "foreground": "#f2e4c2",
+          "background": "#7c462a",
+          "ratio": 6.0191,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square",
+          "foreground": "#f2e4c2",
+          "background": "#6e3b23",
+          "ratio": 7.1997,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-lo",
+          "foreground": "#f2e4c2",
+          "background": "#5c301a",
+          "ratio": 8.7976,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-hi",
+          "foreground": "#a68a55",
+          "background": "#7c462a",
+          "ratio": 2.309,
+          "pass": false
+        },
+        {
+          "check": "l piece edge/square",
+          "foreground": "#a68a55",
+          "background": "#6e3b23",
+          "ratio": 2.7619,
+          "pass": false
+        },
+        {
+          "check": "l piece edge/square-lo",
+          "foreground": "#a68a55",
+          "background": "#5c301a",
+          "ratio": 3.3749,
+          "pass": true
+        },
+        {
+          "check": "d piece 1/square-hi",
+          "foreground": "#6b4526",
+          "background": "#7c462a",
+          "ratio": 1.1047,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square",
+          "foreground": "#6b4526",
+          "background": "#6e3b23",
+          "ratio": 1.0828,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-lo",
+          "foreground": "#6b4526",
+          "background": "#5c301a",
+          "ratio": 1.3231,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-hi",
+          "foreground": "#472c14",
+          "background": "#7c462a",
+          "ratio": 1.6887,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square",
+          "foreground": "#472c14",
+          "background": "#6e3b23",
+          "ratio": 1.4117,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-lo",
+          "foreground": "#472c14",
+          "background": "#5c301a",
+          "ratio": 1.1553,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-hi",
+          "foreground": "#140a02",
+          "background": "#7c462a",
+          "ratio": 2.5758,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square",
+          "foreground": "#140a02",
+          "background": "#6e3b23",
+          "ratio": 2.1534,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-lo",
+          "foreground": "#140a02",
+          "background": "#5c301a",
+          "ratio": 1.7623,
+          "pass": false
+        }
+      ],
+      "failures": 11
+    },
+    {
+      "id": "baize",
+      "name": "Club Baize",
+      "measurements": [
+        {
+          "check": "square centres",
+          "foreground": "#5f9767",
+          "background": "#33613a",
+          "ratio": 2.0981,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#6ba473",
+          "background": "#3c6f45",
+          "ratio": 2.0223,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#6ba473",
+          "background": "#33613a",
+          "ratio": 2.4669,
+          "pass": false
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#6ba473",
+          "background": "#285230",
+          "ratio": 3.0699,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#5f9767",
+          "background": "#3c6f45",
+          "ratio": 1.72,
+          "pass": false
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#5f9767",
+          "background": "#33613a",
+          "ratio": 2.0981,
+          "pass": false
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#5f9767",
+          "background": "#285230",
+          "ratio": 2.6109,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#528658",
+          "background": "#3c6f45",
+          "ratio": 1.3823,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#528658",
+          "background": "#33613a",
+          "ratio": 1.6862,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#528658",
+          "background": "#285230",
+          "ratio": 2.0983,
+          "pass": false
+        },
+        {
+          "check": "l piece 1/square-hi",
+          "foreground": "#f8f2dc",
+          "background": "#3c6f45",
+          "ratio": 5.2721,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square",
+          "foreground": "#f8f2dc",
+          "background": "#33613a",
+          "ratio": 6.4311,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-lo",
+          "foreground": "#f8f2dc",
+          "background": "#285230",
+          "ratio": 8.003,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-hi",
+          "foreground": "#ecdfb8",
+          "background": "#3c6f45",
+          "ratio": 4.4523,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square",
+          "foreground": "#ecdfb8",
+          "background": "#33613a",
+          "ratio": 5.431,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-lo",
+          "foreground": "#ecdfb8",
+          "background": "#285230",
+          "ratio": 6.7585,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-hi",
+          "foreground": "#8f7448",
+          "background": "#3c6f45",
+          "ratio": 1.3401,
+          "pass": false
+        },
+        {
+          "check": "l piece edge/square",
+          "foreground": "#8f7448",
+          "background": "#33613a",
+          "ratio": 1.6346,
+          "pass": false
+        },
+        {
+          "check": "l piece edge/square-lo",
+          "foreground": "#8f7448",
+          "background": "#285230",
+          "ratio": 2.0342,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-hi",
+          "foreground": "#7a3a34",
+          "background": "#3c6f45",
+          "ratio": 1.4309,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square",
+          "foreground": "#7a3a34",
+          "background": "#33613a",
+          "ratio": 1.173,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-lo",
+          "foreground": "#7a3a34",
+          "background": "#285230",
+          "ratio": 1.0609,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-hi",
+          "foreground": "#54201c",
+          "background": "#3c6f45",
+          "ratio": 2.2194,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square",
+          "foreground": "#54201c",
+          "background": "#33613a",
+          "ratio": 1.8195,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-lo",
+          "foreground": "#54201c",
+          "background": "#285230",
+          "ratio": 1.4621,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-hi",
+          "foreground": "#180604",
+          "background": "#3c6f45",
+          "ratio": 3.3299,
+          "pass": true
+        },
+        {
+          "check": "d piece edge/square",
+          "foreground": "#180604",
+          "background": "#33613a",
+          "ratio": 2.7298,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-lo",
+          "foreground": "#180604",
+          "background": "#285230",
+          "ratio": 2.1936,
+          "pass": false
+        }
+      ],
+      "failures": 20
+    },
+    {
+      "id": "travel",
+      "name": "Travel Magnetic",
+      "measurements": [
+        {
+          "check": "square centres",
+          "foreground": "#ddc796",
+          "background": "#6a5c43",
+          "ratio": 3.9334,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#e6d2a4",
+          "background": "#77694c",
+          "ratio": 3.6116,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#e6d2a4",
+          "background": "#6a5c43",
+          "ratio": 4.3784,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#e6d2a4",
+          "background": "#5a4d36",
+          "ratio": 5.538,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#ddc796",
+          "background": "#77694c",
+          "ratio": 3.2446,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#ddc796",
+          "background": "#6a5c43",
+          "ratio": 3.9334,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#ddc796",
+          "background": "#5a4d36",
+          "ratio": 4.9751,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#cfb782",
+          "background": "#77694c",
+          "ratio": 2.7495,
+          "pass": false
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#cfb782",
+          "background": "#6a5c43",
+          "ratio": 3.3332,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#cfb782",
+          "background": "#5a4d36",
+          "ratio": 4.216,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-hi",
+          "foreground": "#f6f0da",
+          "background": "#77694c",
+          "ratio": 4.7053,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square",
+          "foreground": "#f6f0da",
+          "background": "#6a5c43",
+          "ratio": 5.7043,
+          "pass": true
+        },
+        {
+          "check": "l piece 1/square-lo",
+          "foreground": "#f6f0da",
+          "background": "#5a4d36",
+          "ratio": 7.215,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-hi",
+          "foreground": "#eae0c0",
+          "background": "#77694c",
+          "ratio": 4.0727,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square",
+          "foreground": "#eae0c0",
+          "background": "#6a5c43",
+          "ratio": 4.9374,
+          "pass": true
+        },
+        {
+          "check": "l piece 2/square-lo",
+          "foreground": "#eae0c0",
+          "background": "#5a4d36",
+          "ratio": 6.245,
+          "pass": true
+        },
+        {
+          "check": "l piece edge/square-hi",
+          "foreground": "#96865c",
+          "background": "#77694c",
+          "ratio": 1.4993,
+          "pass": false
+        },
+        {
+          "check": "l piece edge/square",
+          "foreground": "#96865c",
+          "background": "#6a5c43",
+          "ratio": 1.8176,
+          "pass": false
+        },
+        {
+          "check": "l piece edge/square-lo",
+          "foreground": "#96865c",
+          "background": "#5a4d36",
+          "ratio": 2.299,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-hi",
+          "foreground": "#a34430",
+          "background": "#77694c",
+          "ratio": 1.1408,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square",
+          "foreground": "#a34430",
+          "background": "#6a5c43",
+          "ratio": 1.0627,
+          "pass": false
+        },
+        {
+          "check": "d piece 1/square-lo",
+          "foreground": "#a34430",
+          "background": "#5a4d36",
+          "ratio": 1.3441,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-hi",
+          "foreground": "#7e2e1e",
+          "background": "#77694c",
+          "ratio": 1.7022,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square",
+          "foreground": "#7e2e1e",
+          "background": "#6a5c43",
+          "ratio": 1.4041,
+          "pass": false
+        },
+        {
+          "check": "d piece 2/square-lo",
+          "foreground": "#7e2e1e",
+          "background": "#5a4d36",
+          "ratio": 1.1101,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-hi",
+          "foreground": "#2c0c06",
+          "background": "#77694c",
+          "ratio": 3.3634,
+          "pass": true
+        },
+        {
+          "check": "d piece edge/square",
+          "foreground": "#2c0c06",
+          "background": "#6a5c43",
+          "ratio": 2.7744,
+          "pass": false
+        },
+        {
+          "check": "d piece edge/square-lo",
+          "foreground": "#2c0c06",
+          "background": "#5a4d36",
+          "ratio": 2.1935,
+          "pass": false
+        }
+      ],
+      "failures": 12
+    }
+  ],
+  "failures": 307
+}

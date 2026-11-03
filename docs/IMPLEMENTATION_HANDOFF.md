@@ -2,6 +2,9 @@
 
 ## Current continuation — 3 November 2026
 
+Board fit locally fixed and browser-verified1280x720/390x844/320x740 (both defaultnames fit,nooverflow). Build13117550bytes notdeployed. Restored missing scripts/check_contrast.py:588independentlycrosschecked palette measurements,307belowconservative3:1target; NOTwhole-rendered-discacceptance. See docs/board-visibility-checkpoint.md. QA tab9createdisolated8082,markedHandoff;tab6preservedbout10/12with11pieces,19logsavailableonlypartialproof. Viewportreset. ZAIuninterrupted.
+
+
 Raw audience downloads independently verified 2026-11-03T11:29:02.007Z: all646 recordings re-read from disk and match pinned byte sizes and SHA256 hashes, total1,670,546,740bytes. Manifest hash82023fa5313ed245b289a9e875c6d80959cc406d790986adecdbfc1ab99b412f; evidence docs/audience-vibes/raw-download-verification.json. download-progress completedAt2026-11-03T11:14:40.419Z, failures empty; CIM found neither download nor supervisor running. Local-download completion gate is now satisfied. ZAI completion gate remains UNPROVEN because browser connection failed before current Stop status could be read; do not send follow-up until freshly confirmed. No raw files added to Git or base offline build.
 
 

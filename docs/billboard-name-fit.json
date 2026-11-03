@@ -1,0 +1,68 @@
+{
+  "scope": "Default human matchup names only, fresh Marble EA10, measured DOM at three viewports",
+  "samples": [
+    {
+      "names": [
+        {
+          "font": "13.68px",
+          "text": "Uhakika",
+          "textWidth": 77,
+          "width": 77
+        },
+        {
+          "font": "13.68px",
+          "text": "Usiogope",
+          "textWidth": 77,
+          "width": 77
+        }
+      ],
+      "pageWidth": 1265,
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "names": [
+        {
+          "font": "12px",
+          "text": "Uhakika",
+          "textWidth": 68,
+          "width": 68
+        },
+        {
+          "font": "12px",
+          "text": "Usiogope",
+          "textWidth": 68,
+          "width": 68
+        }
+      ],
+      "pageWidth": 390,
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "names": [
+        {
+          "font": "11px",
+          "text": "Uhakika",
+          "textWidth": 51,
+          "width": 51
+        },
+        {
+          "font": "11px",
+          "text": "Usiogope",
+          "textWidth": 51,
+          "width": 51
+        }
+      ],
+      "pageWidth": 320,
+      "viewport": [
+        320,
+        740
+      ]
+    }
+  ]
+}

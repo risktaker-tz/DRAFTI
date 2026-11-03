@@ -1,0 +1,125 @@
+{
+  "scope": "Partial season observed, not full-season acceptance",
+  "capturedAt": "2026-11-03T11:36:23.238Z",
+  "state": {
+    "banner": "AT THE TABLE\nThinking — Kenya\nMATCHUP\nBurundi\nVS\nKenya\nSEASON 1\nsemi-finals\nBout 10/12 · 2nd meeting",
+    "pieces": 11,
+    "ticker": "32-38\n9-4♔\n38-43\n35-30\n43-49♔\n4-31\n37-42\n31x48\n1-7\n48-37\n49-27\n37-28\n7-12\n28-6"
+  },
+  "logs": [
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"synth:think-rustle\",\"kind\":\"synth\",\"category\":\"think\",\"mode\":\"aivai\",\"phase\":\"idle\",\"ply\":105,\"at\":2927852,\"run\":1793702840272.8}",
+      "timestamp": "2026-11-03T11:36:10.106Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_slide_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"mode\":\"aivai\",\"ply\":105,\"turnSide\":-1,\"at\":2928029,\"run\":1793702840272.8,\"epoch\":11,\"spoken\":false,\"durationSec\":0.6452083333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_4\"}",
+      "timestamp": "2026-11-03T11:36:10.107Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_king_glint_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"mode\":\"aivai\",\"ply\":105,\"turnSide\":-1,\"at\":2928032,\"run\":1793702840272.8,\"epoch\":11,\"spoken\":false,\"durationSec\":0.979125,\"narrator\":false,\"mood\":null,\"family\":\"fx_king_glint_1\"}",
+      "timestamp": "2026-11-03T11:36:10.110Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"mode\":\"aivai\",\"phase\":\"animating\",\"ply\":105,\"at\":2928035,\"run\":1793702840272.8}",
+      "timestamp": "2026-11-03T11:36:10.112Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_landing_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"mode\":\"aivai\",\"ply\":105,\"turnSide\":-1,\"at\":2928036,\"run\":1793702840272.8,\"epoch\":11,\"spoken\":false,\"durationSec\":0.5775416666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_3\"}",
+      "timestamp": "2026-11-03T11:36:10.115Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_slide_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"mode\":\"aivai\",\"ply\":106,\"turnSide\":1,\"at\":2931084,\"run\":1793702840272.8,\"epoch\":11,\"spoken\":false,\"durationSec\":0.6454375,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_2\"}",
+      "timestamp": "2026-11-03T11:36:13.747Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_king_glint_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"mode\":\"aivai\",\"ply\":106,\"turnSide\":1,\"at\":2931086,\"run\":1793702840272.8,\"epoch\":11,\"spoken\":false,\"durationSec\":0.9793541666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_king_glint_4\"}",
+      "timestamp": "2026-11-03T11:36:13.747Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"mode\":\"aivai\",\"phase\":\"animating\",\"ply\":106,\"at\":2931096,\"run\":1793702840272.8}",
+      "timestamp": "2026-11-03T11:36:13.747Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_landing_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"mode\":\"aivai\",\"ply\":106,\"turnSide\":1,\"at\":2931098,\"run\":1793702840272.8,\"epoch\":11,\"spoken\":false,\"durationSec\":0.5768541666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_4\"}",
+      "timestamp": "2026-11-03T11:36:13.747Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_slide_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"mode\":\"aivai\",\"ply\":107,\"turnSide\":-1,\"at\":2936840,\"run\":1793702840272.8,\"epoch\":11,\"spoken\":false,\"durationSec\":0.646875,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_3\"}",
+      "timestamp": "2026-11-03T11:36:17.232Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"mode\":\"aivai\",\"phase\":\"animating\",\"ply\":107,\"at\":2936852,\"run\":1793702840272.8}",
+      "timestamp": "2026-11-03T11:36:17.232Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_landing_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"mode\":\"aivai\",\"ply\":107,\"turnSide\":-1,\"at\":2936855,\"run\":1793702840272.8,\"epoch\":11,\"spoken\":false,\"durationSec\":0.5784375,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_1\"}",
+      "timestamp": "2026-11-03T11:36:17.232Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_slide_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"mode\":\"aivai\",\"ply\":108,\"turnSide\":1,\"at\":2939927,\"run\":1793702840272.8,\"epoch\":11,\"spoken\":false,\"durationSec\":0.6465208333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_1\"}",
+      "timestamp": "2026-11-03T11:36:20.202Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_king_glint_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"mode\":\"aivai\",\"ply\":108,\"turnSide\":1,\"at\":2939928,\"run\":1793702840272.8,\"epoch\":11,\"spoken\":false,\"durationSec\":0.9792708333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_king_glint_3\"}",
+      "timestamp": "2026-11-03T11:36:20.204Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"mode\":\"aivai\",\"phase\":\"animating\",\"ply\":108,\"at\":2939930,\"run\":1793702840272.8}",
+      "timestamp": "2026-11-03T11:36:20.204Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_landing_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"mode\":\"aivai\",\"ply\":108,\"turnSide\":1,\"at\":2939930,\"run\":1793702840272.8,\"epoch\":11,\"spoken\":false,\"durationSec\":0.5780833333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_2\"}",
+      "timestamp": "2026-11-03T11:36:20.206Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"vineboom\",\"kind\":\"sample\",\"category\":\"party\",\"priority\":40,\"phase\":\"thinking\",\"mode\":\"aivai\",\"ply\":109,\"turnSide\":-1,\"at\":2940608,\"run\":1793702840272.8,\"epoch\":11,\"spoken\":false,\"durationSec\":2.4873402874832307,\"narrator\":false,\"mood\":null,\"family\":\"vineboom\"}",
+      "timestamp": "2026-11-03T11:36:20.882Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"notify_pop\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"thinking\",\"mode\":\"aivai\",\"ply\":109,\"turnSide\":-1,\"at\":2940686,\"run\":1793702840272.8,\"epoch\":11,\"spoken\":false,\"durationSec\":0.0905721505536697,\"narrator\":false,\"mood\":null,\"family\":\"notify_pop\"}",
+      "timestamp": "2026-11-03T11:36:20.962Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"v_spec2\",\"kind\":\"sample\",\"category\":\"voice\",\"priority\":60,\"phase\":\"thinking\",\"mode\":\"aivai\",\"ply\":109,\"turnSide\":-1,\"at\":2940893,\"run\":1793702840272.8,\"epoch\":11,\"spoken\":true,\"voice\":\"jam\",\"durationSec\":3.94,\"narrator\":false,\"mood\":null,\"family\":\"v_spec2\"}",
+      "timestamp": "2026-11-03T11:36:21.172Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    }
+  ]
+}
