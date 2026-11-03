@@ -4869,7 +4869,17 @@ function createSoundAudit(capacity = 12000) {
     status:text=>{$('audienceStatus').textContent=text;
       $('segAudience').querySelector('[data-v="on"]').disabled=!AUDIENCE.installed();},
     save:()=>saveJSON(SETTINGS_KEY,settings),
-    played:row=>{if(SOUND_AUDIT){const event={...row,kind:'audience',category:'audience',at:Math.round(performance.now()),
+    played:row=>{
+      if (row.purpose === 'cheer' && settings.audienceVolume > 0 &&
+          !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const edge = row.side === IVORY ? 'inset 0 14px' : 'inset 0 -14px';
+        frameEl.animate?.([
+          {boxShadow: edge + ' 22px -18px transparent'},
+          {boxShadow: edge + ' 22px -5px var(--accent-soft)', offset: .25},
+          {boxShadow: edge + ' 22px -18px transparent'},
+        ], {duration: 700, easing: 'ease-out'});
+      }
+      if(SOUND_AUDIT){const event={...row,kind:'audience',category:'audience',at:Math.round(performance.now()),
       mode:G.mode,ply:G.history.length,run:performance.timeOrigin,epoch:SFX_BANK.audioEpoch,phase:G.phase};
       console.info('[DRAFTI audio]',JSON.stringify(event));SOUND_AUDIT.sound(event);}},
   });
