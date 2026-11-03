@@ -3,9 +3,9 @@
 
 For each sound with a whitelisted license (from sound_pages.json): download the
 HQ preview mp3 to /tmp/av_audio (kept OUT of git), verify HTTP 200 + real audio
-via ffprobe, record exact duration/bytes/sha256, dedupe by sha256, and for
-long sources (>40s) propose distinct excerpt windows from ffmpeg silence
-detection (real boundaries from actual content).
+via ffprobe, record exact duration/bytes/sha256, and for long sources (>40s)
+propose distinct excerpt windows from ffmpeg silence detection (real
+boundaries from actual content). Dedupe by sha256 happens in build_catalog.
 
 Output: av-data/audio_evidence.json  {sound_id: record}
 Resumable; raw audio stays in /tmp only (git never receives recordings).
@@ -24,15 +24,16 @@ UA = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) Chrome/124.0'}
 DATA = '/home/z/my-project/av-data'
 TMP = '/tmp/av_audio'
 OUT = f'{DATA}/audio_evidence.json'
-WORKERS = 8
+WORKERS = 14
 LOCK = threading.Lock()
+EVID = {}
 
 LICENSE_WHITELIST = (
     'creativecommons.org/publicdomain/zero/1.0/',
     'creativecommons.org/licenses/by/4.0/',
     'creativecommons.org/licenses/by/3.0/',
-    'creativecommons.org/licenses/by/2.0/',
     'creativecommons.org/licenses/by/2.5/',
+    'creativecommons.org/licenses/by/2.0/',
     'creativecommons.org/licenses/by/1.0/',
 )
 
@@ -91,7 +92,7 @@ def excerpt_windows(path, duration):
     ends = [float(m) for m in re.findall(r'silence_end: ([\d.]+)', out)]
     starts = [float(m) for m in re.findall(r'silence_start: ([\d.]+)', out)]
     bounds = [0.0]
-    for s, e in zip(starts, [x for x in ends]):
+    for s, e in zip(starts, ends):
         bounds += [s, e]
     bounds.append(duration)
     segs = [(bounds[i], bounds[i + 1]) for i in range(0, len(bounds) - 1, 2)]
@@ -114,7 +115,13 @@ def excerpt_windows(path, duration):
 def job(args):
     sid, hq_url = args
     dest = f'{TMP}/{sid}.mp3'
-    data, status, ctype, nbytes = http_get(hq_url, dest)
+    if os.path.exists(dest) and os.path.getsize(dest) > 4096:
+        with open(dest, 'rb') as f:
+            data = f.read()
+        status, ctype = 200, 'cached-from-earlier-run'
+    else:
+        data, status, ctype, nbytes = http_get(hq_url, dest)
+    nbytes = len(data) if data else 0
     rec = {'audio_url': hq_url, 'http_status': status, 'content_type': ctype,
            'bytes': nbytes, 'sha256': None, 'ffprobe': None, 'excerpts': [],
            'ok': False, 'error': None}
@@ -132,34 +139,44 @@ def job(args):
     if os.path.exists(dest) and not rec['ok']:
         os.remove(dest)
     with LOCK:
-        allr = json.load(open(OUT))
-        allr[sid] = rec
-        json.dump(allr, open(OUT, 'w'))
+        EVID[sid] = rec
     return sid, rec['ok']
 
 
+def save():
+    with LOCK:
+        json.dump(EVID, open(OUT, 'w'))
+
+
 def main():
+    global EVID
     os.makedirs(TMP, exist_ok=True)
     pages = json.load(open(f'{DATA}/sound_pages.json'))
     hits = json.load(open(f'{DATA}/search_hits.json'))['hits']
-    evid = json.load(open(OUT)) if os.path.exists(OUT) else {}
+    EVID = json.load(open(OUT)) if os.path.exists(OUT) else {}
     todo = []
     for sid, p in pages.items():
-        if sid in evid or not p.get('deed_url'):
+        if sid in EVID:
+            continue
+        if not p.get('deed_url'):
             continue
         if not any(w in p['deed_url'] for w in LICENSE_WHITELIST):
-            evid[sid] = {'ok': False, 'error': f"license not whitelisted: {p['deed_url']}"}
+            EVID[sid] = {'ok': False, 'error': f"license not whitelisted: {p['deed_url']}"}
             continue
         todo.append((sid, hits[sid]['hq_url']))
-    json.dump(evid, open(OUT, 'w'))
-    print(f'{len(todo)} audio files to download/verify', flush=True)
+    todo.sort(key=lambda t: hits[t[0]]['duration_search'] or 9999)
+    save()
+    print(f'{len(EVID)} already recorded, {len(todo)} audio files to download/verify',
+          flush=True)
     ok = bad = 0
     with ThreadPoolExecutor(WORKERS) as ex:
         for sid, good in ex.map(job, todo):
             ok += good
             bad += not good
-            if (ok + bad) % 100 == 0:
-                print(f'  {ok+bad}/{len(todo)} ok={ok} bad={bad}', flush=True)
+            if (ok + bad) % 50 == 0:
+                save()
+                print(f'  {ok + bad}/{len(todo)} ok={ok} bad={bad}', flush=True)
+    save()
     print(f'DONE ok={ok} bad={bad}', flush=True)
 
 

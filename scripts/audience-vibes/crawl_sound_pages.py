@@ -22,12 +22,14 @@ HITS = f'{DATA}/search_hits.json'
 OUT = f'{DATA}/sound_pages.json'
 WORKERS = 6
 
-DEED_RE = re.compile(r'href="(https?://creativecommons\.org/[^"]+)"[^>]*title="Go to the full license text"')
+DEED_RE = re.compile(r'title="Go to the full license text"[^>]*href="(https?://creativecommons\.org/[^"]+)"')
+DEED_RE2 = re.compile(r'href="(https?://creativecommons\.org/[^"]+)"[^>]*title="Go to the full license text"')
 DESC_RE = re.compile(r'DescriptionSection">\s*<p>(.*?)</p>', re.S)
 TAGS_RE = re.compile(r'href="/browse/tags/([^/"]+)/"')
 DUR_RE = re.compile(r'data-duration="([\d.]+)"')
 TITLE_RE = re.compile(r'property="og:title" content="([^"]+)"')
 LOCK = threading.Lock()
+PAGES = {}
 
 
 def fetch(url, retries=3):
@@ -55,7 +57,7 @@ def page_job(args):
     html = fetch(url)
     rec = {'page_url': url, 'http_status': 200 if html else 0}
     if html:
-        deed = DEED_RE.search(html)
+        deed = DEED_RE.search(html) or DEED_RE2.search(html)
         desc = DESC_RE.search(html)
         dur = DUR_RE.search(html)
         ttl = TITLE_RE.search(html)
@@ -67,24 +69,30 @@ def page_job(args):
             'title_page': htmllib.unescape(ttl.group(1)) if ttl else None,
         })
     with LOCK:
-        pages = json.load(open(OUT))
-        pages[sid] = rec
-        json.dump(pages, open(OUT, 'w'))
-    time.sleep(0.15 + random.random() * 0.25)
+        PAGES[sid] = rec
+    time.sleep(0.12 + random.random() * 0.2)
     return sid
 
 
+def save():
+    with LOCK:
+        json.dump(PAGES, open(OUT, 'w'))
+
+
 def main():
+    global PAGES
+    PAGES = json.load(open(OUT)) if os.path.exists(OUT) else {}
     hits = json.load(open(HITS))
-    pages = json.load(open(OUT)) if os.path.exists(OUT) else {}
-    todo = [(sid, h['user']) for sid, h in hits['hits'].items() if sid not in pages]
-    print(f'{len(pages)} already done, {len(todo)} to fetch', flush=True)
+    todo = [(sid, h['user']) for sid, h in hits['hits'].items() if sid not in PAGES]
+    print(f'{len(PAGES)} already done, {len(todo)} to fetch', flush=True)
     done = 0
     with ThreadPoolExecutor(WORKERS) as ex:
         for _ in ex.map(page_job, todo):
             done += 1
-            if done % 100 == 0:
+            if done % 50 == 0:
+                save()
                 print(f'  {done}/{len(todo)}', flush=True)
+    save()
     print('DONE sound pages:', done, flush=True)
 
 

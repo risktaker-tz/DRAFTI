@@ -82,9 +82,11 @@ def main():
         if e['duration_sec'] < 1.0:
             fail(f'{e["id"]}: duration < 1s', errs)
         for w in e['excerpt_windows']:
-            if not (0 <= w['start'] < w['end'] <= e['duration_sec'] + 0.05
-                    and w['end'] - w['start'] >= 3.0):
+            if not (0 <= w['start'] < w['end'] <= e['duration_sec'] + 0.05):
                 fail(f'{e["id"]}: bad excerpt window {w}', errs)
+            if (w['end'] - w['start'] < 3.0
+                    and 'whole short clip' not in w['basis']):
+                fail(f'{e["id"]}: derived excerpt window <3s {w}', errs)
         if e['event'] not in EVENTS_OK:
             fail(f'{e["id"]}: unknown event {e["event"]}', errs)
         if e['valence'] not in {'positive', 'negative', 'neutral'}:
