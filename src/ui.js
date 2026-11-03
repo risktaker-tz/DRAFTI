@@ -3240,6 +3240,18 @@ function createSoundAudit(capacity = 12000) {
     await animateMove(mv, generation);
     if(generation !== gameEpoch)return;
     const ply = commitMove(mv);
+    if (mv.caps.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const remaining = countSide(-moverSide);
+      const lead = countSide(moverSide) - remaining;
+      if (lead > 0 && lead < mv.caps.length) {
+        const tray = $(moverSide === IVORY ? 'trayTop' : 'trayBottom');
+        tray.animate([
+          {boxShadow: 'inset 0 0 0 1px transparent'},
+          {boxShadow: 'inset 0 0 0 1px var(--accent), inset 0 0 14px var(--accent-soft)', offset: .28},
+          {boxShadow: 'inset 0 0 0 1px transparent'},
+        ], {duration: 560, easing: 'ease-out'});
+      }
+    }
     AUDIENCE.move(moverSide,mv.caps.length,mv.promotes,countSide(-moverSide));
     SFX_BANK.fastArenaAnimal(mv.caps.length, countSide(-moverSide), mv.promotes);
     if (mv.caps.length >= 3) SFX_BANK.directOwner('capture_own_feast');
