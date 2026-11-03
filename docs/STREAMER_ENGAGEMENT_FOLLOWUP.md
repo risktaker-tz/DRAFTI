@@ -1,6 +1,6 @@
 # Streamer engagement — owner follow-up, 3 November 2026
 
-Required after ZAI finishes its currently running Audience Vibes Phase B task. Do not interrupt it or submit another message while it runs. Also preserve ongoing raw downloads and their retry supervisor.
+Required after ZAI finishes its currently running Audience Vibes Phase B task AND the pending local raw-download/retry batch reaches a verified terminal report. Do not interrupt it or submit another message while it runs. Also preserve ongoing raw downloads and their retry supervisor.
 
 The owner reports Female/Male/Funny live streamer modes are heard too rarely to sustain livestream engagement. After the current audio task finishes, sync ZAI to the latest pushed release commit and ask it to improve all three modes. Female and Male must keep realistic selected voices; Funny must keep its intended funny/current-voice character. Keep Off default, mutual exclusion, silent settings selection, midgame synchronization, accurate event/team perspective and existing sound assets.
 

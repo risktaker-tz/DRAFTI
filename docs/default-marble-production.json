@@ -1,0 +1,86 @@
+{
+  "scope": "Fresh secondary production alias of the same deployment; first human opening and real AI reply, not a full match.",
+  "sourceCommit": "3b91723e5e199a220d9b07c45e52c0070527dc27",
+  "url": "https://drafti-kappa.vercel.app/?audio-audit",
+  "cells": 100,
+  "moves": 2,
+  "pieces": 40,
+  "status": "Your move",
+  "theme": "Marble Lux",
+  "ticker": "31-26\n16-21",
+  "audio": [
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"th_h01\",\"kind\":\"sample\",\"category\":\"think\",\"priority\":10,\"phase\":\"idle\",\"mode\":\"ai\",\"ply\":0,\"turnSide\":1,\"at\":26666,\"run\":1793704617784.2,\"epoch\":1,\"spoken\":true,\"voice\":\"jam\",\"durationSec\":0.8945416666666667,\"narrator\":true,\"narratorActor\":\"human\",\"mood\":\"patience\",\"family\":\"th_h01\"}",
+      "timestamp": "2026-11-03T11:17:24.454Z",
+      "url": "https://drafti-kappa.vercel.app/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"synth:select\",\"kind\":\"synth\",\"category\":\"classic\",\"mode\":\"ai\",\"phase\":\"idle\",\"ply\":0,\"at\":40963,\"run\":1793704617784.2}",
+      "timestamp": "2026-11-03T11:17:38.749Z",
+      "url": "https://drafti-kappa.vercel.app/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_slide_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"mode\":\"ai\",\"ply\":0,\"turnSide\":1,\"at\":46228,\"run\":1793704617784.2,\"epoch\":1,\"spoken\":false,\"durationSec\":0.646875,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_3\"}",
+      "timestamp": "2026-11-03T11:17:44.028Z",
+      "url": "https://drafti-kappa.vercel.app/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"mode\":\"ai\",\"phase\":\"animating\",\"ply\":0,\"at\":46242,\"run\":1793704617784.2}",
+      "timestamp": "2026-11-03T11:17:44.029Z",
+      "url": "https://drafti-kappa.vercel.app/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_landing_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"mode\":\"ai\",\"ply\":0,\"turnSide\":1,\"at\":46244,\"run\":1793704617784.2,\"epoch\":1,\"spoken\":false,\"durationSec\":0.5780833333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_2\"}",
+      "timestamp": "2026-11-03T11:17:44.039Z",
+      "url": "https://drafti-kappa.vercel.app/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_slide_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"mode\":\"ai\",\"ply\":1,\"turnSide\":-1,\"at\":50093,\"run\":1793704617784.2,\"epoch\":1,\"spoken\":false,\"durationSec\":0.6465208333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_1\"}",
+      "timestamp": "2026-11-03T11:17:47.988Z",
+      "url": "https://drafti-kappa.vercel.app/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"mode\":\"ai\",\"phase\":\"animating\",\"ply\":1,\"at\":50106,\"run\":1793704617784.2}",
+      "timestamp": "2026-11-03T11:17:47.988Z",
+      "url": "https://drafti-kappa.vercel.app/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_landing_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"mode\":\"ai\",\"ply\":1,\"turnSide\":-1,\"at\":50106,\"run\":1793704617784.2,\"epoch\":1,\"spoken\":false,\"durationSec\":0.5784375,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_1\"}",
+      "timestamp": "2026-11-03T11:17:47.988Z",
+      "url": "https://drafti-kappa.vercel.app/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"th_g2\",\"kind\":\"sample\",\"category\":\"think\",\"priority\":10,\"phase\":\"idle\",\"mode\":\"ai\",\"ply\":2,\"turnSide\":1,\"at\":62928,\"run\":1793704617784.2,\"epoch\":1,\"spoken\":false,\"durationSec\":1.1811551803556024,\"narrator\":true,\"narratorActor\":\"human\",\"mood\":null,\"family\":\"th_g2\"}",
+      "timestamp": "2026-11-03T11:18:00.721Z",
+      "url": "https://drafti-kappa.vercel.app/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"th_t2\",\"kind\":\"sample\",\"category\":\"think\",\"priority\":10,\"phase\":\"idle\",\"mode\":\"ai\",\"ply\":2,\"turnSide\":1,\"at\":75934,\"run\":1793704617784.2,\"epoch\":1,\"spoken\":false,\"durationSec\":0.8476114105413115,\"narrator\":true,\"narratorActor\":\"human\",\"mood\":null,\"family\":\"th_t2\"}",
+      "timestamp": "2026-11-03T11:18:13.729Z",
+      "url": "https://drafti-kappa.vercel.app/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"later_hours\",\"kind\":\"sample\",\"category\":\"party\",\"priority\":40,\"phase\":\"idle\",\"mode\":\"ai\",\"ply\":2,\"turnSide\":1,\"at\":95646,\"run\":1793704617784.2,\"epoch\":1,\"spoken\":true,\"durationSec\":1.72,\"narrator\":true,\"narratorActor\":\"human\",\"mood\":\"time-joke\",\"family\":\"th_n23\"}",
+      "timestamp": "2026-11-03T11:18:33.513Z",
+      "url": "https://drafti-kappa.vercel.app/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"th_t1\",\"kind\":\"sample\",\"category\":\"think\",\"priority\":10,\"phase\":\"idle\",\"mode\":\"ai\",\"ply\":2,\"turnSide\":1,\"at\":125657,\"run\":1793704617784.2,\"epoch\":1,\"spoken\":false,\"durationSec\":0.6764661642528962,\"narrator\":true,\"narratorActor\":\"human\",\"mood\":null,\"family\":\"th_t1\"}",
+      "timestamp": "2026-11-03T11:19:03.444Z",
+      "url": "https://drafti-kappa.vercel.app/?audio-audit"
+    }
+  ],
+  "errors": []
+}
