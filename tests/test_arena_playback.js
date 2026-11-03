@@ -29,6 +29,13 @@ let previousHop=Infinity;
 const watchable=Object.fromEntries([1,2,4,6,8,10,16].map(speed=>[speed,700/speed]));
 for(const speed of [1,2,4,6,8,10,16]){h.G.aiSpeed=speed;assert.equal(h.moveHopMs(0),watchable[speed]);assert(h.moveHopMs(0)<previousHop);previousHop=h.moveHopMs(0);}
 assert.equal(watchable[2],watchable[1]/2);assert.equal(watchable[16],watchable[1]/16,'Every playback multiplier is relative to the same 1x baseline');
+for (const [speed, baseline] of Object.entries(watchable)) {
+  h.G.aiSpeed = Number(speed);
+  assert.equal(h.moveHopMs(1), baseline, 'Single captures follow the selected pace');
+  for (const captures of [2, 3, 5]) {
+    assert.equal(h.moveHopMs(captures), baseline * .8, 'Capture chains accelerate by the same proportion at every speed');
+  }
+}
 h.G.mode='ai';assert.equal(h.moveHopMs(0),200,'Spectator speed cannot speed up human gestures');
 const sent=[];const s={G:{mode:'aivai',side:1,rsId:'american',noProg:0,board:[1,-1]},reqId:0,Date:{now:()=>0},
   styleForSide:()=>null,searchLevelForSide:()=> 'l10',levelOpts:()=>({opts:{budgetMs:5200,maxDepth:24}}),
