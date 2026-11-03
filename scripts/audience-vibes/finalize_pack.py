@@ -77,6 +77,12 @@ def load():
 def verdict(rec, tr, entry):
     """(status, reason, caveat). status: approve|reject|pending."""
     tid = rec['id']
+    if rec['peakDbfs'] > -1.49:
+        return ('reject', 'peak-above--1.5dBFS-after-encode',
+                f"peak {rec['peakDbfs']}")
+    if rec['catalogEvent'] in BED_EVENTS and rec['durationSec'] < 7.99:
+        return ('reject', 'bed-window-below-minimum',
+                f"duration {rec['durationSec']}")
     if not tr or not tr.get('ok'):
         if tr is None:
             if rec['windowSpeechFlag']:

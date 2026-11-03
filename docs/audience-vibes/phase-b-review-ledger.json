@@ -1,6 +1,15 @@
 {
- "acceptedCount": 213,
+ "acceptedCount": 296,
  "rejected": [
+  {
+   "id": "avpb-232263",
+   "sourceId": "av-fs-232263",
+   "status": "reject",
+   "reason": "peak-above--1.5dBFS-after-encode",
+   "note": "peak -1.4",
+   "event": "gasp",
+   "transcriptSample": ""
+  },
   {
    "id": "avpb-237684",
    "sourceId": "av-fs-237684",
@@ -11,6 +20,15 @@
    "transcriptSample": "The crowd roared with applause as the final bell tolled, signalling the end of a thrilling match."
   },
   {
+   "id": "avpb-243642",
+   "sourceId": "av-fs-243642",
+   "status": "reject",
+   "reason": "peak-above--1.5dBFS-after-encode",
+   "note": "peak -1.1",
+   "event": "cheer",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-328623",
    "sourceId": "av-fs-328623",
    "status": "reject",
@@ -18,6 +36,42 @@
    "note": "The song is a popular rock ballad with a strong, driving rhythm and emotional vocals. It features prominent electric gui",
    "event": "whistle",
    "transcriptSample": "The song is a popular rock ballad with a strong, driving rhythm and emotional vocals. It features prominent electric guitar riffs that drive the melody forward, creating an upbeat yet intense atmosphere. The overall mood of the song is one of celebration or triumph over adversity, possibly in reference to themes found in traditional folk music from various regions.\n\nThe lyrics are written in English, but they convey a sense of joyous victory or success. They tell a story about two lovers who have overcome obstacles such as illness or betrayal by their enemies. Their reunion at the end suggests"
+  },
+  {
+   "id": "avpb-340362",
+   "sourceId": "av-fs-340362",
+   "status": "reject",
+   "reason": "peak-above--1.5dBFS-after-encode",
+   "note": "peak 0.0",
+   "event": "applause",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-381366",
+   "sourceId": "av-fs-381366",
+   "status": "reject",
+   "reason": "peak-above--1.5dBFS-after-encode",
+   "note": "peak -1.4",
+   "event": "applause",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-386763",
+   "sourceId": "av-fs-386763",
+   "status": "reject",
+   "reason": "peak-above--1.5dBFS-after-encode",
+   "note": "peak 0.0",
+   "event": "applause",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-393402",
+   "sourceId": "av-fs-393402",
+   "status": "reject",
+   "reason": "peak-above--1.5dBFS-after-encode",
+   "note": "peak 0.0",
+   "event": "cheer",
+   "transcriptSample": ""
   },
   {
    "id": "avpb-412161",
@@ -32,10 +86,19 @@
    "id": "avpb-427203",
    "sourceId": "av-fs-427203",
    "status": "reject",
-   "reason": "fluent-speech-in-bed",
-   "note": "I am very sorry, I have to go now. This is a mandatory meeting for the entire world.",
+   "reason": "peak-above--1.5dBFS-after-encode",
+   "note": "peak -1.3",
    "event": "venue_bed",
    "transcriptSample": "I am very sorry, I have to go now. This is a mandatory meeting for the entire world."
+  },
+  {
+   "id": "avpb-463920",
+   "sourceId": "av-fs-463920",
+   "status": "reject",
+   "reason": "peak-above--1.5dBFS-after-encode",
+   "note": "peak -1.4",
+   "event": "whistle",
+   "transcriptSample": ""
   },
   {
    "id": "avpb-486204",
@@ -65,19 +128,70 @@
    "transcriptSample": "The sound of a crowd cheering and clapping can be heard, indicating excitement or celebration."
   },
   {
-   "id": "avpb-340362",
-   "reason": "peak-above--1.5dBFS-after-encode",
+   "id": "avpb-707212",
+   "sourceId": "av-fs-707212",
    "status": "reject",
-   "event": "cheer"
+   "reason": "peak-above--1.5dBFS-after-encode",
+   "note": "peak -0.6",
+   "event": "applause",
+   "transcriptSample": ""
   },
   {
-   "id": "avpb-386763",
-   "reason": "peak-above--1.5dBFS-after-encode",
+   "id": "avpb-727132",
+   "sourceId": "av-fs-727132",
    "status": "reject",
-   "event": "cheer"
+   "reason": "bed-window-below-minimum",
+   "note": "duration 7.79",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-807725",
+   "sourceId": "av-fs-807725",
+   "status": "reject",
+   "reason": "peak-above--1.5dBFS-after-encode",
+   "note": "peak -0.5",
+   "event": "applause",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-869102",
+   "sourceId": "av-fs-869102",
+   "status": "reject",
+   "reason": "peak-above--1.5dBFS-after-encode",
+   "note": "peak -0.7",
+   "event": "cheer_kids",
+   "transcriptSample": ""
   }
  ],
  "pending": [
+  {
+   "id": "avpb-101276",
+   "sourceId": "av-fs-101276",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "tension_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-102099",
+   "sourceId": "av-fs-102099",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-110453",
+   "sourceId": "av-fs-110453",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "cheer",
+   "transcriptSample": ""
+  },
   {
    "id": "avpb-112280",
    "sourceId": "av-fs-112280",
@@ -85,6 +199,15 @@
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "disappointment",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-124005",
+   "sourceId": "av-fs-124005",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "cheer",
    "transcriptSample": ""
   },
   {
@@ -106,12 +229,39 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-135776",
+   "sourceId": "av-fs-135776",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "funny_laugh",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-139973",
    "sourceId": "av-fs-139973",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "applause",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-141704",
+   "sourceId": "av-fs-141704",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "whistle",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-143225",
+   "sourceId": "av-fs-143225",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
    "transcriptSample": ""
   },
   {
@@ -124,12 +274,30 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-156196",
+   "sourceId": "av-fs-156196",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "cheer",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-169233",
    "sourceId": "av-fs-169233",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "cheer",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-172317",
+   "sourceId": "av-fs-172317",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "whistle",
    "transcriptSample": ""
   },
   {
@@ -142,12 +310,30 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-177639",
+   "sourceId": "av-fs-177639",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-178610",
    "sourceId": "av-fs-178610",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "applause",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-180096",
+   "sourceId": "av-fs-180096",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "cheer_kids",
    "transcriptSample": ""
   },
   {
@@ -169,12 +355,48 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-182738",
+   "sourceId": "av-fs-182738",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-182825",
    "sourceId": "av-fs-182825",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "cheer",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-18666",
+   "sourceId": "av-fs-18666",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "applause",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-18786",
+   "sourceId": "av-fs-18786",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "applause",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-189821",
+   "sourceId": "av-fs-189821",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "whistle",
    "transcriptSample": ""
   },
   {
@@ -196,12 +418,30 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-191925",
+   "sourceId": "av-fs-191925",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "disappointment",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-196284",
    "sourceId": "av-fs-196284",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "cheer",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-204911",
+   "sourceId": "av-fs-204911",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "tension_bed",
    "transcriptSample": ""
   },
   {
@@ -223,12 +463,30 @@
    "transcriptSample": ""
   },
   {
-   "id": "avpb-232263",
-   "sourceId": "av-fs-232263",
+   "id": "avpb-217464",
+   "sourceId": "av-fs-217464",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
-   "event": "gasp",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-219428",
+   "sourceId": "av-fs-219428",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "applause",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-233379",
+   "sourceId": "av-fs-233379",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
    "transcriptSample": ""
   },
   {
@@ -265,15 +523,6 @@
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "cheer_kids",
-   "transcriptSample": ""
-  },
-  {
-   "id": "avpb-243642",
-   "sourceId": "av-fs-243642",
-   "status": "pending",
-   "reason": "speech-flagged-but-not-asr-verified",
-   "note": "no transcript",
-   "event": "cheer",
    "transcriptSample": ""
   },
   {
@@ -322,6 +571,15 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-252705",
+   "sourceId": "av-fs-252705",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-25296",
    "sourceId": "av-fs-25296",
    "status": "pending",
@@ -337,6 +595,15 @@
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "applause",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-260727",
+   "sourceId": "av-fs-260727",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
    "transcriptSample": ""
   },
   {
@@ -376,6 +643,15 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-264500",
+   "sourceId": "av-fs-264500",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-267249",
    "sourceId": "av-fs-267249",
    "status": "pending",
@@ -391,6 +667,24 @@
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-269060",
+   "sourceId": "av-fs-269060",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-273052",
+   "sourceId": "av-fs-273052",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "funny_laugh",
    "transcriptSample": ""
   },
   {
@@ -430,12 +724,39 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-332207",
+   "sourceId": "av-fs-332207",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "cheer",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-332393",
+   "sourceId": "av-fs-332393",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-333403",
    "sourceId": "av-fs-333403",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "funny_laugh",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-333653",
+   "sourceId": "av-fs-333653",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
    "transcriptSample": ""
   },
   {
@@ -484,6 +805,33 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-342378",
+   "sourceId": "av-fs-342378",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-349150",
+   "sourceId": "av-fs-349150",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "cheer",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-351291",
+   "sourceId": "av-fs-351291",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-353185",
    "sourceId": "av-fs-353185",
    "status": "pending",
@@ -511,8 +859,44 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-360699",
+   "sourceId": "av-fs-360699",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-360702",
    "sourceId": "av-fs-360702",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-361060",
+   "sourceId": "av-fs-361060",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "cheer",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-363003",
+   "sourceId": "av-fs-363003",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-371222",
+   "sourceId": "av-fs-371222",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
@@ -526,15 +910,6 @@
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "chatter_bed",
-   "transcriptSample": ""
-  },
-  {
-   "id": "avpb-381366",
-   "sourceId": "av-fs-381366",
-   "status": "pending",
-   "reason": "speech-flagged-but-not-asr-verified",
-   "note": "no transcript",
-   "event": "applause",
    "transcriptSample": ""
   },
   {
@@ -565,12 +940,30 @@
    "transcriptSample": ""
   },
   {
-   "id": "avpb-393402",
-   "sourceId": "av-fs-393402",
+   "id": "avpb-384401",
+   "sourceId": "av-fs-384401",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
-   "event": "cheer",
+   "event": "encouragement_chant",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-386761",
+   "sourceId": "av-fs-386761",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-387333",
+   "sourceId": "av-fs-387333",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
    "transcriptSample": ""
   },
   {
@@ -580,6 +973,24 @@
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "applause",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-400588",
+   "sourceId": "av-fs-400588",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-401798",
+   "sourceId": "av-fs-401798",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
    "transcriptSample": ""
   },
   {
@@ -594,6 +1005,42 @@
   {
    "id": "avpb-405042",
    "sourceId": "av-fs-405042",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-405313",
+   "sourceId": "av-fs-405313",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-406184",
+   "sourceId": "av-fs-406184",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-40626",
+   "sourceId": "av-fs-40626",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-407167",
+   "sourceId": "av-fs-407167",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
@@ -634,6 +1081,15 @@
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "encouragement_chant",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-422097",
+   "sourceId": "av-fs-422097",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "tension_bed",
    "transcriptSample": ""
   },
   {
@@ -709,6 +1165,33 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-444526",
+   "sourceId": "av-fs-444526",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "cheer_kids",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-445094",
+   "sourceId": "av-fs-445094",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-445711",
+   "sourceId": "av-fs-445711",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-449915",
    "sourceId": "av-fs-449915",
    "status": "pending",
@@ -718,12 +1201,66 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-451354",
+   "sourceId": "av-fs-451354",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "cheer",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-451424",
+   "sourceId": "av-fs-451424",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "applause",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-451788",
    "sourceId": "av-fs-451788",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-452401",
+   "sourceId": "av-fs-452401",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-452973",
+   "sourceId": "av-fs-452973",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-453948",
+   "sourceId": "av-fs-453948",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-455690",
+   "sourceId": "av-fs-455690",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
    "transcriptSample": ""
   },
   {
@@ -754,12 +1291,84 @@
    "transcriptSample": ""
   },
   {
-   "id": "avpb-463920",
-   "sourceId": "av-fs-463920",
+   "id": "avpb-459162",
+   "sourceId": "av-fs-459162",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
-   "event": "whistle",
+   "event": "applause",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-459338",
+   "sourceId": "av-fs-459338",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "cheer",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-463975",
+   "sourceId": "av-fs-463975",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-463976",
+   "sourceId": "av-fs-463976",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-463977",
+   "sourceId": "av-fs-463977",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-463978",
+   "sourceId": "av-fs-463978",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-463979",
+   "sourceId": "av-fs-463979",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-463980",
+   "sourceId": "av-fs-463980",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-463988",
+   "sourceId": "av-fs-463988",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
    "transcriptSample": ""
   },
   {
@@ -772,8 +1381,35 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-465328",
+   "sourceId": "av-fs-465328",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "cheer_kids",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-465516",
+   "sourceId": "av-fs-465516",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-465699",
    "sourceId": "av-fs-465699",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-469770",
+   "sourceId": "av-fs-469770",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
@@ -844,6 +1480,15 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-482990",
+   "sourceId": "av-fs-482990",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-485621",
    "sourceId": "av-fs-485621",
    "status": "pending",
@@ -859,6 +1504,15 @@
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "cheer",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-486185",
+   "sourceId": "av-fs-486185",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "cheer_kids",
    "transcriptSample": ""
   },
   {
@@ -880,12 +1534,48 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-487356",
+   "sourceId": "av-fs-487356",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "encouragement_chant",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-497700",
    "sourceId": "av-fs-497700",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-504906",
+   "sourceId": "av-fs-504906",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-504925",
+   "sourceId": "av-fs-504925",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "gasp",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-506719",
+   "sourceId": "av-fs-506719",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
    "transcriptSample": ""
   },
   {
@@ -997,12 +1687,57 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-540299",
+   "sourceId": "av-fs-540299",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-543510",
+   "sourceId": "av-fs-543510",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-545756",
+   "sourceId": "av-fs-545756",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-550916",
+   "sourceId": "av-fs-550916",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-563845",
    "sourceId": "av-fs-563845",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "cheer_kids",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-566891",
+   "sourceId": "av-fs-566891",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
    "transcriptSample": ""
   },
   {
@@ -1024,12 +1759,30 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-575929",
+   "sourceId": "av-fs-575929",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-581410",
    "sourceId": "av-fs-581410",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "gasp",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-582107",
+   "sourceId": "av-fs-582107",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
    "transcriptSample": ""
   },
   {
@@ -1060,6 +1813,15 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-59314",
+   "sourceId": "av-fs-59314",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "gasp",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-60688",
    "sourceId": "av-fs-60688",
    "status": "pending",
@@ -1078,12 +1840,30 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-608996",
+   "sourceId": "av-fs-608996",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-619022",
    "sourceId": "av-fs-619022",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "cheer_kids",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-619033",
+   "sourceId": "av-fs-619033",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
    "transcriptSample": ""
   },
   {
@@ -1159,6 +1939,33 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-638322",
+   "sourceId": "av-fs-638322",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-638570",
+   "sourceId": "av-fs-638570",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-638841",
+   "sourceId": "av-fs-638841",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-640855",
    "sourceId": "av-fs-640855",
    "status": "pending",
@@ -1168,12 +1975,75 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-641111",
+   "sourceId": "av-fs-641111",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-641303",
+   "sourceId": "av-fs-641303",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-641975",
+   "sourceId": "av-fs-641975",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "cheer",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-648409",
+   "sourceId": "av-fs-648409",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "disappointment",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-650514",
+   "sourceId": "av-fs-650514",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-650855",
    "sourceId": "av-fs-650855",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-653236",
+   "sourceId": "av-fs-653236",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-653262",
+   "sourceId": "av-fs-653262",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
    "transcriptSample": ""
   },
   {
@@ -1213,12 +2083,30 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-662101",
+   "sourceId": "av-fs-662101",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "funny_laugh",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-667508",
    "sourceId": "av-fs-667508",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "cheer",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-667510",
+   "sourceId": "av-fs-667510",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "tension_bed",
    "transcriptSample": ""
   },
   {
@@ -1237,6 +2125,15 @@
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "cheer_kids",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-678412",
+   "sourceId": "av-fs-678412",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
    "transcriptSample": ""
   },
   {
@@ -1312,12 +2209,48 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-683315",
+   "sourceId": "av-fs-683315",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-685373",
+   "sourceId": "av-fs-685373",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "whistle",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-690190",
+   "sourceId": "av-fs-690190",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-690596",
    "sourceId": "av-fs-690596",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "cheer",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-696116",
+   "sourceId": "av-fs-696116",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
    "transcriptSample": ""
   },
   {
@@ -1357,12 +2290,57 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-709284",
+   "sourceId": "av-fs-709284",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-713539",
    "sourceId": "av-fs-713539",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-716713",
+   "sourceId": "av-fs-716713",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "cheer_kids",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-717438",
+   "sourceId": "av-fs-717438",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "cheer",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-719952",
+   "sourceId": "av-fs-719952",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "applause",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-724600",
+   "sourceId": "av-fs-724600",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "cheer_kids",
    "transcriptSample": ""
   },
   {
@@ -1384,8 +2362,35 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-73137",
+   "sourceId": "av-fs-73137",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "encouragement_chant",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-73280",
    "sourceId": "av-fs-73280",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-735499",
+   "sourceId": "av-fs-735499",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-735591",
+   "sourceId": "av-fs-735591",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
@@ -1420,6 +2425,15 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-743769",
+   "sourceId": "av-fs-743769",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-745201",
    "sourceId": "av-fs-745201",
    "status": "pending",
@@ -1429,12 +2443,30 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-745599",
+   "sourceId": "av-fs-745599",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "cheer_kids",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-746444",
    "sourceId": "av-fs-746444",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "tension_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-752239",
+   "sourceId": "av-fs-752239",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
    "transcriptSample": ""
   },
   {
@@ -1462,6 +2494,42 @@
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "applause",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-753656",
+   "sourceId": "av-fs-753656",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-753765",
+   "sourceId": "av-fs-753765",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-753810",
+   "sourceId": "av-fs-753810",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-760552",
+   "sourceId": "av-fs-760552",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "cheer_kids",
    "transcriptSample": ""
   },
   {
@@ -1681,12 +2749,48 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-789207",
+   "sourceId": "av-fs-789207",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-798170",
+   "sourceId": "av-fs-798170",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-800648",
    "sourceId": "av-fs-800648",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "cheer",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-805441",
+   "sourceId": "av-fs-805441",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "cheer",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-819050",
+   "sourceId": "av-fs-819050",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "cheer_kids",
    "transcriptSample": ""
   },
   {
@@ -1705,6 +2809,33 @@
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
    "event": "cheer",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-836851",
+   "sourceId": "av-fs-836851",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "tension_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-841211",
+   "sourceId": "av-fs-841211",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "whistle",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-845833",
+   "sourceId": "av-fs-845833",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "cheer_kids",
    "transcriptSample": ""
   },
   {
@@ -1762,6 +2893,24 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-852767",
+   "sourceId": "av-fs-852767",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "cheer_kids",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-853576",
+   "sourceId": "av-fs-853576",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-853771",
    "sourceId": "av-fs-853771",
    "status": "pending",
@@ -1798,6 +2947,15 @@
    "transcriptSample": ""
   },
   {
+   "id": "avpb-854369",
+   "sourceId": "av-fs-854369",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
    "id": "avpb-854425",
    "sourceId": "av-fs-854425",
    "status": "pending",
@@ -1816,12 +2974,30 @@
    "transcriptSample": ""
   },
   {
-   "id": "avpb-869102",
-   "sourceId": "av-fs-869102",
+   "id": "avpb-855259",
+   "sourceId": "av-fs-855259",
    "status": "pending",
    "reason": "speech-flagged-but-not-asr-verified",
    "note": "no transcript",
-   "event": "cheer_kids",
+   "event": "chatter_bed",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-855980",
+   "sourceId": "av-fs-855980",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "whistle",
+   "transcriptSample": ""
+  },
+  {
+   "id": "avpb-861331",
+   "sourceId": "av-fs-861331",
+   "status": "pending",
+   "reason": "speech-flagged-but-not-asr-verified",
+   "note": "no transcript",
+   "event": "venue_bed",
    "transcriptSample": ""
   },
   {
@@ -1906,485 +3082,17 @@
    "transcriptSample": ""
   }
  ],
- "crowdA": 38,
- "crowdB": 175,
- "totalBytes": 8885088,
+ "crowdA": 98,
+ "crowdB": 198,
+ "totalBytes": 14486254,
  "buildRejects": [
   {
-   "sid": "1925",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "13272",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "18666",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "18786",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "21137",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "25270",
-   "reason": "missing-raw"
-  },
-  {
    "sid": "25281",
    "reason": "reject-window: bed shorter than 8s minimum"
   },
   {
-   "sid": "25296",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "26223",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "30044",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "39733",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "40626",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "44711",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "51772",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "51773",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "54754",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "59314",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "60033",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "60688",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "73137",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "73280",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "80462",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "84316",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "85040",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "95527",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "95528",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "98945",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "99966",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "100672",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "101276",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "102099",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "102108",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "109748",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "110453",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "124005",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "124022",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "124027",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "130136",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "130568",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "130994",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "135191",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "135776",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "139973",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "141704",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "143225",
-   "reason": "missing-raw"
-  },
-  {
    "sid": "150965",
    "reason": "reject-window: bed shorter than 8s minimum"
-  },
-  {
-   "sid": "156196",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "162352",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "172317",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "172968",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "177517",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "177639",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "177640",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "178247",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "179875",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "180033",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "180096",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "182738",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "189191",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "189821",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "189823",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "190700",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "191295",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "191916",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "191917",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "191920",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "191925",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "196284",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "196645",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "204911",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "209990",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "210959",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "213849",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "215963",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "217464",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "219428",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "221568",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "223837",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "233379",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "237676",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "237679",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "237682",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "237684",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "238980",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "240769",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "243754",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "246300",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "249735",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "250853",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "252705",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "260124",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "260727",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "263679",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "263680",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "264377",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "264378",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "264499",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "264500",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "268000",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "269060",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "273052",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "273841",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "278863",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "278897",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "316716",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "316718",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "316733",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "318653",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "324323",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "324893",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "324896",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "324897",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "328623",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "332207",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "332393",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "333653",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "335585",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "336999",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "340173",
-   "reason": "missing-raw"
   },
   {
    "sid": "340358",
@@ -2399,2208 +3107,12 @@
    "reason": "reject-window: bed shorter than 8s minimum"
   },
   {
-   "sid": "342378",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "346688",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "346689",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "348978",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "349150",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "350721",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "351291",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "353418",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "360699",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "360703",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "361060",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "363003",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "365132",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "365662",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "367958",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "371222",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "378256",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "381454",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "383207",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "384401",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "386761",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "387333",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "388805",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "396549",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "396710",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "397036",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "397434",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "397435",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "400588",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "401798",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "405000",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "405042",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "405313",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "406184",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "406381",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "406950",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "407167",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "407209",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "412161",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "413925",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "415823",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "415826",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "418187",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "420982",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "422097",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "423007",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "424295",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "424297",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "427203",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "427385",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "428230",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "428231",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "428258",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "429152",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "430046",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "432331",
-   "reason": "missing-raw"
-  },
-  {
    "sid": "433880",
    "reason": "reject-window: bed shorter than 8s minimum"
   },
   {
-   "sid": "435462",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "438393",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "438421",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "439258",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "439946",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "439947",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "442292",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "444526",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "445094",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "445711",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "449915",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "450586",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "450590",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "450646",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "450685",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "451106",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "451354",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "451362",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "451424",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "451453",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "451600",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "451788",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "452401",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "452973",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "453915",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "453919",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "453948",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "454385",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "455282",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "455659",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "455660",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "455686",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "455689",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "455690",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "455727",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "455732",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "456706",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "457295",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "458535",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "458637",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "459162",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "459338",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "460515",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "463975",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "463976",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "463977",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "463978",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "463979",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "463980",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "463988",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "464497",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "465328",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "465516",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "465699",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "469770",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "473586",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "473789",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "477530",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "477869",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "480701",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "480702",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "480758",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "480765",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "481775",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "482990",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "485621",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "486179",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "486183",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "486185",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "486204",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "486212",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "486615",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "487356",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "488172",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "488173",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "488174",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "490645",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "497700",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "503620",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "504906",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "504925",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "506719",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "515719",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "519654",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "519655",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "520498",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "524806",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "533430",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "537474",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "537585",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "540299",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "543510",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "545756",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "550916",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "564489",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "566891",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "568440",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "571548",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "574850",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "575929",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "577098",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "581528",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "582107",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "587381",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "588617",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "591564",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "608996",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "609446",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "611423",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "611604",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "613044",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "615586",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "615587",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "619020",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "619022",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "619033",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "619072",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "629884",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "632199",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "634524",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "635492",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "636978",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "637159",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "637454",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "637466",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "637468",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "638276",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "638322",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "638570",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "638825",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "638829",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "638833",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "638841",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "641111",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "641303",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "641975",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "645337",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "648409",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "648483",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "649156",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "649182",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "650514",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "650855",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "651704",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "653236",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "653262",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "654084",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "662101",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "667508",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "667510",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "671273",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "675053",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "675056",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "675107",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "675109",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "676658",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "678412",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "678537",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "678539",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "678540",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "678542",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "678543",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "678545",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "678546",
-   "reason": "missing-raw"
-  },
-  {
    "sid": "678672",
    "reason": "reject-window: bed shorter than 8s minimum"
-  },
-  {
-   "sid": "681095",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "683315",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "685373",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "690190",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "690596",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "696116",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "702099",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "705421",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "706352",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "706497",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "706732",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "706805",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "707212",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "707871",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "709284",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "713539",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "716428",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "716713",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "717438",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "719952",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "724600",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "725697",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "725699",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "727132",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "729994",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "730908",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "733614",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "735499",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "735591",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "736924",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "737754",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "741283",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "743769",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "745201",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "745599",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "746428",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "746442",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "746444",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "752053",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "752239",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "753656",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "753765",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "753810",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "760552",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "761361",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "763506",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "763807",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "763915",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "763924",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "764029",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "764033",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "764138",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "764142",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "764247",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "764251",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "764356",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "776311",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "789207",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "789944",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "795533",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "798170",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "800648",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "805441",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "807725",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "816409",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "819050",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "823294",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "823499",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "826789",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "827410",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "829453",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "829454",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "836851",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "839935",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "841211",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "845833",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "845880",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "845919",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "847506",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "850562",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "851718",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "852767",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "853387",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "853576",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "853771",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "854019",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "854057",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "854170",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "854369",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "854425",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "855252",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "855259",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "855980",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "856936",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "857740",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "861331",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "861933",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "862021",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "865461",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "867038",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "868982",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "869102",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "870333",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "870492",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "870555",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "870634",
-   "reason": "reject-window: bed shorter than 8s minimum"
-  },
-  {
-   "sid": "874805",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "874806",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "875485",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "18666",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "18786",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "25281",
-   "reason": "reject-window: bed shorter than 8s minimum"
-  },
-  {
-   "sid": "39733",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "40626",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "44711",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "51772",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "51773",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "59314",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "60033",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "73137",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "84316",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "85040",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "101276",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "102099",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "110453",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "124005",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "124027",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "130136",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "135776",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "141704",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "143225",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "150965",
-   "reason": "reject-window: bed shorter than 8s minimum"
-  },
-  {
-   "sid": "156196",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "162352",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "172317",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "172968",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "177517",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "177639",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "177640",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "179875",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "180096",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "182738",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "189821",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "191295",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "191917",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "191925",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "204911",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "213849",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "217464",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "219428",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "223837",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "233379",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "237676",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "243754",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "252705",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "260727",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "264500",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "268000",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "269060",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "273052",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "316718",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "316733",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "332207",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "332393",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "333653",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "340358",
-   "reason": "reject-window: bed shorter than 8s minimum"
-  },
-  {
-   "sid": "340934",
-   "reason": "reject-window: bed shorter than 8s minimum"
-  },
-  {
-   "sid": "340972",
-   "reason": "reject-window: bed shorter than 8s minimum"
-  },
-  {
-   "sid": "342378",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "349150",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "350721",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "351291",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "360699",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "361060",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "363003",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "367958",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "371222",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "384401",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "386761",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "387333",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "396710",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "400588",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "401798",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "405313",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "406184",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "406381",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "407167",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "407209",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "413925",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "420982",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "422097",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "424297",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "433880",
-   "reason": "reject-window: bed shorter than 8s minimum"
-  },
-  {
-   "sid": "435462",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "444526",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "445094",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "445711",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "450586",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "450590",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "450646",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "450685",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "451354",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "451362",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "451424",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "451453",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "451600",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "452401",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "452973",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "453915",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "453919",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "453948",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "454385",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "455282",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "455686",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "455689",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "455690",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "455727",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "459162",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "459338",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "460515",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "463975",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "463976",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "463977",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "463978",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "463979",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "463980",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "463988",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "465328",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "465516",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "469770",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "477530",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "477869",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "482990",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "486185",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "487356",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "504906",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "504925",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "506719",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "515719",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "520498",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "540299",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "543510",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "545756",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "550916",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "566891",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "575929",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "582107",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "587381",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "608996",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "615586",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "615587",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "619033",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "619072",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "637454",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "638276",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "638322",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "638570",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "638825",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "638829",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "638833",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "638841",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "641111",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "641303",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "641975",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "648409",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "648483",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "650514",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "653236",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "653262",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "662101",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "667510",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "675056",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "675107",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "676658",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "678412",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "678672",
-   "reason": "reject-window: bed shorter than 8s minimum"
-  },
-  {
-   "sid": "681095",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "683315",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "685373",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "690190",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "696116",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "706805",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "707212",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "709284",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "716713",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "717438",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "719952",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "724600",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "727132",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "735499",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "735591",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "743769",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "745599",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "746428",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "752053",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "752239",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "753656",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "753765",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "753810",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "760552",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "776311",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "789207",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "795533",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "798170",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "805441",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "807725",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "816409",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "819050",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "823294",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "823499",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "829454",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "836851",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "839935",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "841211",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "845833",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "847506",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "852767",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "853576",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "854369",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "855259",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "855980",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "857740",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "861331",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "861933",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "862021",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "865461",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "867038",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "870492",
-   "reason": "missing-raw"
-  },
-  {
-   "sid": "870555",
-   "reason": "missing-raw"
   },
   {
    "sid": "870634",
