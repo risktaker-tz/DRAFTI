@@ -2035,6 +2035,7 @@ function createSoundAudit(capacity = 12000) {
       G.hint = mv;
       if (Math.random() < 0.5) SFX_BANK.play('v_hint', { vol: 0.85 });
       updateAll();
+      if (mv) winkHintPiece(mv.from);
       return;
     }
     // pacing: aivai keeps a watchable rhythm scaled by the speed selector —
@@ -2119,6 +2120,18 @@ function createSoundAudit(capacity = 12000) {
     const n = G.rs.n, r = (sq / n) | 0, c = sq % n;
     el.style.left = (c * 100 / n) + '%';
     el.style.top = (r * 100 / n) + '%';
+  }
+
+  function winkHintPiece(sq) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const body = pieceAt(sq)?.el?.querySelector('.body');
+    if (!body) return;
+    body.querySelector('.hint-wink')?.remove();
+    const wink = document.createElement('span');
+    wink.className = 'hint-wink';
+    wink.setAttribute('aria-hidden', 'true');
+    body.appendChild(wink);
+    setTimeout(() => wink.remove(), 850);
   }
 
   function rebuildPieces() {

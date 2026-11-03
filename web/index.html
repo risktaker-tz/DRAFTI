@@ -274,6 +274,39 @@ body.fx-scan::after {
   width: 78%; height: 78%; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
 }
+.hint-wink {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 50%;
+  height: 28%;
+  z-index: 4;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, #332312df, #33231200 72%);
+  pointer-events: none;
+  animation: hint-wink-reveal .8s ease both;
+}
+.hint-wink::before, .hint-wink::after {
+  content: '';
+  position: absolute;
+  top: 24%;
+  left: 25%;
+  width: 17%;
+  height: 52%;
+  border-radius: 50%;
+  background: #fff7d2;
+  box-shadow: 0 0 5px #ffc35c;
+}
+.hint-wink::after { left: 58%; animation: hint-wink-eye .8s ease both; }
+@keyframes hint-wink-reveal {
+  0%, 100% { opacity: 0; transform: translate(-50%, -44%) scale(.85); }
+  20%, 72% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+@keyframes hint-wink-eye {
+  0%, 27%, 62%, 100% { transform: scaleY(1); }
+  38%, 49% { transform: scaleY(.16); }
+}
+@media (prefers-reduced-motion: reduce) { .hint-wink { display: none; } }
 .piece.ivory .body {
   background: radial-gradient(circle at 35% 28%, var(--pl-l-1), var(--pl-l-2) 55%, var(--pl-l-3));
   border: 1px solid var(--pl-l-edge);
@@ -4252,6 +4285,7 @@ function createSoundAudit(capacity = 12000) {
       G.hint = mv;
       if (Math.random() < 0.5) SFX_BANK.play('v_hint', { vol: 0.85 });
       updateAll();
+      if (mv) winkHintPiece(mv.from);
       return;
     }
     // pacing: aivai keeps a watchable rhythm scaled by the speed selector —
@@ -4336,6 +4370,18 @@ function createSoundAudit(capacity = 12000) {
     const n = G.rs.n, r = (sq / n) | 0, c = sq % n;
     el.style.left = (c * 100 / n) + '%';
     el.style.top = (r * 100 / n) + '%';
+  }
+
+  function winkHintPiece(sq) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const body = pieceAt(sq)?.el?.querySelector('.body');
+    if (!body) return;
+    body.querySelector('.hint-wink')?.remove();
+    const wink = document.createElement('span');
+    wink.className = 'hint-wink';
+    wink.setAttribute('aria-hidden', 'true');
+    body.appendChild(wink);
+    setTimeout(() => wink.remove(), 850);
   }
 
   function rebuildPieces() {
