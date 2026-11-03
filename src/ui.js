@@ -2629,18 +2629,19 @@ function createSoundAudit(capacity = 12000) {
   }
 
   // expanding ring from a square — the crowning shockwave
-  function shockwave(sq, {captures = 0, landing = false} = {}) {
+  function shockwave(sq, {captures = 0, landing = false, corner = false} = {}) {
     if (sq == null) return;
     const n = G.rs.n, r = (sq / n) | 0, c = sq % n;
     const el = document.createElement('div');
-    el.className = landing ? 'shockwave landing-ring' : captures ? 'shockwave capture-shockwave' : 'shockwave';
+    el.className = corner ? 'capture-corner' : landing ? 'shockwave landing-ring' :
+      captures ? 'shockwave capture-shockwave' : 'shockwave';
     if (captures) el.style.setProperty('--blast-radius', Math.min(2.6, 1.3 + captures * .24));
     el.style.left = (c * 100 / n) + '%';
     el.style.top = (r * 100 / n) + '%';
     el.style.width = (100 / n) + '%';
     el.style.height = (100 / n) + '%';
     piecesEl.appendChild(el);
-    setTimeout(() => el.remove(), landing ? 360 : 800);
+    setTimeout(() => el.remove(), landing || corner ? 360 : 800);
   }
 
   const FIRST_STRIKE_CUES = [
@@ -3154,7 +3155,16 @@ function createSoundAudit(capacity = 12000) {
     for (let k = 1; k < mv.path.length; k++) {
       if(generation !== gameEpoch)return false;
       const to = mv.path[k];
-      captureRibbon(mv.path[k - 1], to, hopMs, mv.caps.length);
+      const from = mv.path[k - 1];
+      if (k > 1 && mv.caps.length > 1 && hopMs >= 80 &&
+          !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const previous = mv.path[k - 2], n = G.rs.n;
+        const columnTurn = (from % n - previous % n) * (to % n - from % n) < 0;
+        const rowTurn = (Math.floor(from / n) - Math.floor(previous / n)) *
+          (Math.floor(to / n) - Math.floor(from / n)) < 0;
+        if (columnTurn || rowTurn) shockwave(from, {corner: true});
+      }
+      captureRibbon(from, to, hopMs, mv.caps.length);
       p.sq = to;
       positionEl(p.el, to);
       const capIdx = mv.caps[k - 1];
