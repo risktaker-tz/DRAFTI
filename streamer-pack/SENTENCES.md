@@ -114,41 +114,41 @@ backed by an accepted MP3 in `audio/` with verified duration/peak/hash in
 | ID | Scenario | Sentence | Predicate (short) | Hour gate | Status |
 | --- | --- | --- | --- | --- | --- |
 | `sm2_001` | session_open | Good day, everyone — welcome! The stream starts shortly. | session-scoped stream welcome | — | accepted {"seconds": 5.8392, "bytes": 41551} |
-| `sm2_002` | session_open | We are on air — serious checkers begins right here! | session-scoped stream welcome | — | pending |
-| `sm2_003` | session_open | Morning, everyone! Bright start, sharp moves — stream opens now. | session-scoped stream welcome | 05-11 | pending |
-| `sm2_004` | new_bout | A new bout is underway — watch the opening! | boutStart while the stream session is already live | — | pending |
-| `sm2_005` | new_bout | Fresh game, fresh chances — the next bout starts! | boutStart while the stream session is already live | — | pending |
-| `sm2_006` | new_bout | Pieces are placed — the next bout is on! | boutStart while the stream session is already live | — | pending |
-| `sm2_007` | new_bout | Here comes the next bout — openings matter. | boutStart while the stream session is already live | — | pending |
-| `sm2_008` | new_bout | Play begins again — eyes on the center squares! | boutStart while the stream session is already live | — | pending |
-| `sm2_009` | new_challenger | A new challenger arrives — let's see their style! | boutStart and the seated pair differs from the previous bout | — | pending |
-| `sm2_010` | new_challenger | A different opponent takes the seat — new test! | boutStart and the seated pair differs from the previous bout | — | pending |
-| `sm2_011` | new_challenger | New name at the table — everyone starts even! | boutStart and the seated pair differs from the previous bout | — | pending |
-| `sm2_012` | new_challenger | The challenger is ready — this should be interesting! | boutStart and the seated pair differs from the previous bout | — | pending |
-| `sm2_013` | rematch_draw | They drew last time — now the rematch! | boutStart with the same pair as the previous bout and that b | — | pending |
-| `sm2_014` | rematch_draw | Same two again — unfinished business on the board! | boutStart with the same pair as the previous bout and that b | — | pending |
-| `sm2_015` | rematch_draw | After that draw, both want a statement — round two! | boutStart with the same pair as the previous bout and that b | — | pending |
-| `sm2_016` | rematch_draw | The rematch is here — expect adjustments! | boutStart with the same pair as the previous bout and that b | — | pending |
-| `sm2_017` | season_advance | A new season begins — history starts today! | season rollover while the stream session continues | — | pending |
-| `sm2_018` | season_advance | Season advance! New table, new ambitions. | season rollover while the stream session continues | — | pending |
-| `sm2_019` | season_advance | The league turns its page — fresh season underway! | season rollover while the stream session continues | — | pending |
-| `sm2_020` | season_advance | New season, same hunger — the standings will talk. | season rollover while the stream session continues | — | pending |
-| `sm2_021` | stage_quarter | Quarter-finals! From here, mistakes are expensive. | boutStart where the tournament stage advances to the quarter | — | pending |
-| `sm2_022` | stage_quarter | Quarter-final bout set — high stakes, full focus! | boutStart where the tournament stage advances to the quarter | — | pending |
-| `sm2_023` | stage_quarter | Quarter-final stage — only strong play survives. | boutStart where the tournament stage advances to the quarter | — | pending |
-| `sm2_024` | stage_semi | Semi-final time — the board gets serious! | boutStart where the tournament stage advances to the semi-fi | — | pending |
-| `sm2_025` | stage_semi | The semi-finals — one bout from the final! | boutStart where the tournament stage advances to the semi-fi | — | pending |
-| `sm2_026` | stage_semi | Semi-final bout beginning — composure decides this. | boutStart where the tournament stage advances to the semi-fi | — | pending |
-| `sm2_027` | stage_final | The grand final! Everything built leads here. | boutStart where the tournament stage advances to the grand f | — | pending |
-| `sm2_028` | stage_final | Final bout — the crown is on the line! | boutStart where the tournament stage advances to the grand f | — | pending |
-| `sm2_029` | stage_final | Grand final underway — checkers at its peak! | boutStart where the tournament stage advances to the grand f | — | pending |
-| `sm2_030` | clean_move | What a clean move — textbook stuff! | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sm2_031` | clean_move | Excellent technique — simple and strong. | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sm2_032` | clean_move | Well played! Nothing loose about that. | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sm2_033` | clean_move | That's as clean as it gets! | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sm2_034` | clean_move | Solid play — the structure stays strong. | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sm2_035` | clean_move | No hesitation, no waste — professional! | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sm2_036` | clean_move | That is quality — calm hands, clear head. | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
+| `sm2_002` | session_open | We are on air — serious checkers begins right here! | session-scoped stream welcome | — | accepted {"seconds": 3.9737, "bytes": 28568} |
+| `sm2_003` | session_open | Morning, everyone! Bright start, sharp moves — stream opens now. | session-scoped stream welcome | 05-11 | accepted {"seconds": 5.9489, "bytes": 42283} |
+| `sm2_004` | new_bout | A new bout is underway — watch the opening! | boutStart while the stream session is already live | — | accepted {"seconds": 3.9725, "bytes": 28568} |
+| `sm2_005` | new_bout | Fresh game, fresh chances — the next bout starts! | boutStart while the stream session is already live | — | accepted {"seconds": 4.9133, "bytes": 35151} |
+| `sm2_006` | new_bout | Pieces are placed — the next bout is on! | boutStart while the stream session is already live | — | accepted {"seconds": 2.9469, "bytes": 21254} |
+| `sm2_007` | new_bout | Here comes the next bout — openings matter. | boutStart while the stream session is already live | — | accepted {"seconds": 3.3317, "bytes": 23997} |
+| `sm2_008` | new_bout | Play begins again — eyes on the center squares! | boutStart while the stream session is already live | — | accepted {"seconds": 3.6561, "bytes": 26191} |
+| `sm2_009` | new_challenger | A new challenger arrives — let's see their style! | boutStart and the seated pair differs from the previous bout | — | accepted {"seconds": 3.3415, "bytes": 23997} |
+| `sm2_010` | new_challenger | A different opponent takes the seat — new test! | boutStart and the seated pair differs from the previous bout | — | accepted {"seconds": 3.5794, "bytes": 25826} |
+| `sm2_011` | new_challenger | New name at the table — everyone starts even! | boutStart and the seated pair differs from the previous bout | — | accepted {"seconds": 4.3196, "bytes": 30946} |
+| `sm2_012` | new_challenger | The challenger is ready — this should be interesting! | boutStart and the seated pair differs from the previous bout | — | accepted {"seconds": 4.0101, "bytes": 28751} |
+| `sm2_013` | rematch_draw | They drew last time — now the rematch! | boutStart with the same pair as the previous bout and that b | — | accepted {"seconds": 3.1706, "bytes": 22900} |
+| `sm2_014` | rematch_draw | Same two again — unfinished business on the board! | boutStart with the same pair as the previous bout and that b | — | accepted {"seconds": 4.2867, "bytes": 30763} |
+| `sm2_015` | rematch_draw | After that draw, both want a statement — round two! | boutStart with the same pair as the previous bout and that b | — | accepted {"seconds": 4.9112, "bytes": 35151} |
+| `sm2_016` | rematch_draw | The rematch is here — expect adjustments! | boutStart with the same pair as the previous bout and that b | — | accepted {"seconds": 2.9354, "bytes": 21254} |
+| `sm2_017` | season_advance | A new season begins — history starts today! | season rollover while the stream session continues | — | accepted {"seconds": 3.9373, "bytes": 28203} |
+| `sm2_018` | season_advance | Season advance! New table, new ambitions. | season rollover while the stream session continues | — | accepted {"seconds": 4.4532, "bytes": 31860} |
+| `sm2_019` | season_advance | The league turns its page — fresh season underway! | season rollover while the stream session continues | — | accepted {"seconds": 4.2513, "bytes": 30397} |
+| `sm2_020` | season_advance | New season, same hunger — the standings will talk. | season rollover while the stream session continues | — | accepted {"seconds": 4.5186, "bytes": 32226} |
+| `sm2_021` | stage_quarter | Quarter-finals! From here, mistakes are expensive. | boutStart where the tournament stage advances to the quarter | — | accepted {"seconds": 4.6984, "bytes": 33506} |
+| `sm2_022` | stage_quarter | Quarter-final bout set — high stakes, full focus! | boutStart where the tournament stage advances to the quarter | — | accepted {"seconds": 4.6882, "bytes": 33506} |
+| `sm2_023` | stage_quarter | Quarter-final stage — only strong play survives. | boutStart where the tournament stage advances to the quarter | — | accepted {"seconds": 4.1297, "bytes": 29666} |
+| `sm2_024` | stage_semi | Semi-final time — the board gets serious! | boutStart where the tournament stage advances to the semi-fi | — | accepted {"seconds": 4.9216, "bytes": 35151} |
+| `sm2_025` | stage_semi | The semi-finals — one bout from the final! | boutStart where the tournament stage advances to the semi-fi | — | accepted {"seconds": 3.1151, "bytes": 22534} |
+| `sm2_026` | stage_semi | Semi-final bout beginning — composure decides this. | boutStart where the tournament stage advances to the semi-fi | — | failed |
+| `sm2_027` | stage_final | The grand final! Everything built leads here. | boutStart where the tournament stage advances to the grand f | — | accepted {"seconds": 4.4285, "bytes": 31677} |
+| `sm2_028` | stage_final | Final bout — the crown is on the line! | boutStart where the tournament stage advances to the grand f | — | accepted {"seconds": 3.1198, "bytes": 22534} |
+| `sm2_029` | stage_final | Grand final underway — checkers at its peak! | boutStart where the tournament stage advances to the grand f | — | accepted {"seconds": 3.654, "bytes": 26191} |
+| `sm2_030` | clean_move | What a clean move — textbook stuff! | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 2.9839, "bytes": 21620} |
+| `sm2_031` | clean_move | Excellent technique — simple and strong. | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 3.418, "bytes": 24546} |
+| `sm2_032` | clean_move | Well played! Nothing loose about that. | existing STREAMER praise/good quality gate: engine-verified  | — | failed |
+| `sm2_033` | clean_move | That's as clean as it gets! | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 3.024, "bytes": 21803} |
+| `sm2_034` | clean_move | Solid play — the structure stays strong. | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 3.598, "bytes": 25826} |
+| `sm2_035` | clean_move | No hesitation, no waste — professional! | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 3.8907, "bytes": 27837} |
+| `sm2_036` | clean_move | That is quality — calm hands, clear head. | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 4.9745, "bytes": 35517} |
 | `sm2_037` | capture1 | A piece comes off — the count opens! | caps === 1 on the mover's committed move | — | pending |
 | `sm2_038` | capture1 | One capture — clean and profitable. | caps === 1 on the mover's committed move | — | pending |
 | `sm2_039` | capture1 | Taken! One piece down on that side. | caps === 1 on the mover's committed move | — | pending |
