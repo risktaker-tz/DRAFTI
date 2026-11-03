@@ -1,0 +1,38 @@
+{
+  "scope": "Actual logged sound starts and game boundaries on this navigation; not a listening certificate.",
+  "sounds": 473,
+  "distinctIds": 100,
+  "categories": {
+    "ui": 175,
+    "think": 30,
+    "party": 11,
+    "classic": 165,
+    "judge": 19,
+    "majestic": 34,
+    "voice": 28,
+    "comedy": 9,
+    "drama": 2
+  },
+  "observedModes": {
+    "ai": 473
+  },
+  "completedGames": [
+    {
+      "mode": "ai",
+      "rsId": "eastafrica10",
+      "run": 1793707656395.1,
+      "epoch": 1,
+      "season": null,
+      "bout": null,
+      "plies": 104,
+      "sounds": 469,
+      "result": {
+        "winner": -1,
+        "reason": "Uhakika has no legal move."
+      }
+    }
+  ],
+  "completedSeasons": [],
+  "issues": [],
+  "limitations": "Checks logged starts, IDs, clip cooldowns, supplied narrator context and matching fresh-start/end checkpoints. Resumed or partial games do not prove a full playthrough. It does not certify audible quality, every clip, installation or modes/seasons without matching complete evidence."
+}

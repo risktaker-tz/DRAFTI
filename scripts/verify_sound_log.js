@@ -4,9 +4,10 @@ const context = { window: {} };
 vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../src/audio.manifest.js'), 'utf8'), context);
 const bank = context.window.DRAFTI_SFX;
 const synths = new Set(['select','move','capture','king','win','lose','draw','illegal','undo','trap_snap','denied','relief','levelup','think-rustle']);
-function verifySoundLog(input) {
+function verifySoundLog(input, requirements = {}) {
   const issues = [], rows = [], categories = {}, modes = {}, last = new Map(), narrators = new Map();
   if (!Array.isArray(input.audio)) throw Error('Expected a captured audio array');
+  if (Object.values(input.dropped || {}).some(count => count > 0)) issues.push('Playback report is truncated; earlier events were dropped');
   if (input.errors?.length) issues.push('Browser console contains ' + input.errors.length + ' errors');
   for (const [index, entry] of input.audio.entries()) {
     let row;
@@ -49,16 +50,44 @@ function verifySoundLog(input) {
     narrators.set(run, history);
   }
   if (!rows.length) issues.push('No actual sound starts captured');
+  const starts = new Map(), completedGames = [];
+  for (const point of input.checkpoints || []) {
+    const key = point.run + ':' + point.epoch;
+    if (point.event === 'game-start' && point.ply === 0) starts.set(key, point);
+    if (point.event !== 'game-end') continue;
+    const start = starts.get(key);
+    if (!start || point.mode !== start.mode || point.rsId !== start.rsId || point.at < start.at ||
+        !Number.isInteger(point.ply) || point.ply < 1 || !point.result || typeof point.result.reason !== 'string') continue;
+    const sounds = rows.filter(row => row.run === point.run && row.epoch === point.epoch && row.at >= start.at && row.at <= point.at).length;
+    if (!sounds) continue;
+    completedGames.push({ mode: point.mode, rsId: point.rsId, run: point.run, epoch: point.epoch,
+      season: start.season, bout: start.bout, plies: point.ply, sounds, result: point.result });
+    starts.delete(key); // Repeated end markers cannot manufacture extra games.
+  }
+  const seasonGames = new Map();
+  for (const game of completedGames.filter(game => game.mode === 'aivai' && Number.isInteger(game.season) && Number.isInteger(game.bout))) {
+    const key = game.run + ':' + game.season;
+    if (!seasonGames.has(key)) seasonGames.set(key, new Set());
+    seasonGames.get(key).add(game.bout);
+  }
+  const completedSeasons = [...seasonGames].filter(([, bouts]) => Array.from({ length: 12 }, (_, i) => i).every(i => bouts.has(i)))
+    .map(([key]) => ({ runAndSeason: key, bouts: 12 }));
+  if (requirements.mode && !completedGames.some(game => game.mode === requirements.mode))
+    issues.push('No complete observed game in required mode: ' + requirements.mode);
+  if (requirements.season && !completedSeasons.length) issues.push('No complete observed twelve-bout arena season');
   return { scope: input.scope || 'Captured playback events only', sounds: rows.length,
-    distinctIds: new Set(rows.map(row => row.id)).size, categories, observedModes: modes, issues,
-    limitations: 'Checks logged starts, IDs, clip cooldowns and supplied narrator context. It does not prove audible output, every clip, a completed match or a full season. Full three-mode playthrough and installation acceptance require their own evidence.' };
+    distinctIds: new Set(rows.map(row => row.id)).size, categories, observedModes: modes, completedGames, completedSeasons, issues,
+    limitations: 'Checks logged starts, IDs, clip cooldowns, supplied narrator context and matching fresh-start/end checkpoints. Resumed or partial games do not prove a full playthrough. It does not certify audible quality, every clip, installation or modes/seasons without matching complete evidence.' };
 }
 module.exports = { verifySoundLog };
 if (require.main === module) {
   const file = process.argv[2];
   if (!file) { console.error('Usage: node scripts/verify_sound_log.js <captured-browser-log.json>'); process.exitCode = 1; }
   else {
-    const report = verifySoundLog(JSON.parse(fs.readFileSync(file, 'utf8')));
+    const modeArg = process.argv.find(value => value.startsWith('--require-mode='));
+    const report = verifySoundLog(JSON.parse(fs.readFileSync(file, 'utf8')), {
+      mode: modeArg?.slice('--require-mode='.length), season: process.argv.includes('--require-season'),
+    });
     console.log(JSON.stringify(report, null, 2));
     if (report.issues.length) process.exitCode = 1;
   }

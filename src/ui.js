@@ -124,6 +124,28 @@ function createPlayerProgressStore(storage) {
     persist,
   };
 }
+// Opt-in verification retains a bounded, exportable history without writing
+// player storage or depending on the browser console's short-lived buffer.
+function createSoundAudit(capacity = 12000) {
+  const audio = [], checkpoints = [], errors = [];
+  const dropped = { audio: 0, checkpoints: 0, errors: 0 };
+  const copy = value => JSON.parse(JSON.stringify(value));
+  function append(list, value, key, limit) {
+    if (list.length === limit) { list.shift(); dropped[key]++; }
+    list.push(copy(value));
+  }
+  if (!Number.isInteger(capacity) || capacity < 1) throw Error('Invalid playback log capacity');
+  return {
+    sound(row) { append(audio, { message: '[DRAFTI audio] ' + JSON.stringify(row) }, 'audio', capacity); },
+    checkpoint(row) { append(checkpoints, row, 'checkpoints', 1000); },
+    error(message) { append(errors, { message: String(message).slice(0, 500) }, 'errors', 100); },
+    counts: () => ({ sounds: audio.length, completed: checkpoints.filter(row => row.event === 'game-end').length }),
+    snapshot: () => copy({ schema: 'drafti.sound-audit/1',
+      scope: 'Actual logged sound starts and game boundaries on this navigation; not a listening certificate.',
+      audio, checkpoints, errors, dropped }),
+  };
+}
+
 (function () {
   let playerProgress;
   try { playerProgress = createPlayerProgressStore(localStorage); }
@@ -1184,6 +1206,52 @@ function createPlayerProgressStore(storage) {
   const learningRoute=(move,side,size)=>move.path.map(square=>side===IVORY?square:size-1-square).join(',');
 
   // ---------------- sound ----------------
+  const SOUND_AUDIT = typeof location !== 'undefined' && new URLSearchParams(location.search).has('audio-audit')
+    ? createSoundAudit() : null;
+  let auditCount;
+  function audioAuditContext() {
+    return { run: performance.timeOrigin, epoch: SFX_BANK.audioEpoch, at: Math.round(performance.now()),
+      mode: G.mode, rsId: G.rsId, ply: G.history.length, season: G.mode === 'aivai' ? arena.season : null,
+      bout: G.mode === 'aivai' ? arena.bouts : null, speed: G.aiSpeed,
+      humanlike: settings.humanlike, muted: !settings.sound, seatIvory: G.seatIvory, seatEbony: G.seatEbony };
+  }
+  function updateAudioAuditCount() {
+    if (!auditCount) return;
+    const counts = SOUND_AUDIT.counts();
+    auditCount.textContent = counts.sounds + ' sound starts · ' + counts.completed + ' completed games';
+  }
+  function recordSoundAudit(row) {
+    if (!SOUND_AUDIT) return;
+    SOUND_AUDIT.sound({ ...audioAuditContext(), ...row });
+    updateAudioAuditCount();
+  }
+  function recordAudioCheckpoint(event) {
+    if (!SOUND_AUDIT) return;
+    SOUND_AUDIT.checkpoint({ ...audioAuditContext(), event, result: G.result });
+    updateAudioAuditCount();
+  }
+  if (SOUND_AUDIT) {
+    const panel = document.createElement('details'); panel.className = 'audio-audit-panel';
+    const summary = document.createElement('summary'); summary.textContent = 'Playback report · ';
+    auditCount = document.createElement('span'); summary.appendChild(auditCount); panel.appendChild(summary);
+    const description = document.createElement('p');
+    description.textContent = 'This preview records sound starts and finished games on this page. Show or save the report before reloading.';
+    panel.appendChild(description);
+    const output = document.createElement('pre'); output.id = 'audioAuditReport'; output.hidden = true;
+    const show = document.createElement('button'); show.className = 'btn'; show.textContent = 'Show playback report';
+    show.addEventListener('click', () => { output.textContent = JSON.stringify(SOUND_AUDIT.snapshot(), null, 2); output.hidden = false; });
+    const save = document.createElement('button'); save.className = 'btn'; save.textContent = 'Save playback report';
+    save.addEventListener('click', () => {
+      const url = URL.createObjectURL(new Blob([JSON.stringify(SOUND_AUDIT.snapshot(), null, 2)], { type: 'application/json' }));
+      const link = document.createElement('a'); link.href = url; link.download = 'drafti-playback.json'; link.click();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    });
+    panel.appendChild(show); panel.appendChild(save); panel.appendChild(output); document.body.appendChild(panel);
+    window.addEventListener('error', event => SOUND_AUDIT.error(event.message || 'Unspecified page error'));
+    window.addEventListener('unhandledrejection', event => SOUND_AUDIT.error(event.reason?.message || String(event.reason)));
+    updateAudioAuditCount();
+  }
+
   const FX = {
     ctx: null,
     out: null,
@@ -1230,9 +1298,12 @@ function createPlayerProgressStore(storage) {
       source.onended = () => { source.disconnect(); filter.disconnect(); gain.disconnect();
         if (this.thinkSource === source) this.thinkSource = null; };
       source.start();
-      if (typeof location !== 'undefined' && new URLSearchParams(location.search).has('audio-audit'))
-        console.info('[DRAFTI audio]', JSON.stringify({ id: 'synth:think-rustle', kind: 'synth', category: 'think',
-          mode: G.mode, phase: G.phase, ply: G.history.length, at: Math.round(performance.now()), run: performance.timeOrigin }));
+      if (typeof location !== 'undefined' && new URLSearchParams(location.search).has('audio-audit')) {
+        const row = { id: 'synth:think-rustle', kind: 'synth', category: 'think',
+          mode: G.mode, phase: G.phase, ply: G.history.length, at: Math.round(performance.now()), run: performance.timeOrigin };
+        console.info('[DRAFTI audio]', JSON.stringify(row));
+        if (typeof recordSoundAudit === 'function') recordSoundAudit(row);
+      }
     },
     thinkStart() {
       if (this.thinkTimer) return;
@@ -1337,9 +1408,12 @@ function createPlayerProgressStore(storage) {
             break;
           default: return;
         }
-        if (this.ctx && typeof location !== 'undefined' && new URLSearchParams(location.search).has('audio-audit'))
-          console.info('[DRAFTI audio]', JSON.stringify({ id: 'synth:' + name, kind: 'synth', category: dramaSynth ? 'drama' : 'classic',
-            mode: G.mode, phase: G.phase, ply: G.history.length, at: Math.round(performance.now()), run: performance.timeOrigin }));
+        if (this.ctx && typeof location !== 'undefined' && new URLSearchParams(location.search).has('audio-audit')) {
+          const row = { id: 'synth:' + name, kind: 'synth', category: dramaSynth ? 'drama' : 'classic',
+            mode: G.mode, phase: G.phase, ply: G.history.length, at: Math.round(performance.now()), run: performance.timeOrigin };
+          console.info('[DRAFTI audio]', JSON.stringify(row));
+          if (typeof recordSoundAudit === 'function') recordSoundAudit(row);
+        }
       } catch { /* audio is best-effort */ }
     },
     // soft ceramic tick for piece selection
@@ -1626,12 +1700,15 @@ function createPlayerProgressStore(storage) {
       }
       if (opts && opts.maxDuration) src.start(0, 0, Math.min(opts.maxDuration, buf.duration));
       else src.start();
-      if (new URLSearchParams(location.search).has('audio-audit'))
-        console.info('[DRAFTI audio]', JSON.stringify({ id: name, kind: 'sample', category, priority, phase: G.phase,
+      if (new URLSearchParams(location.search).has('audio-audit')) {
+        const row = { id: name, kind: 'sample', category, priority, phase: G.phase,
           mode: G.mode, ply: G.history?.length, turnSide: G.side, at: Math.round(now), run: performance.timeOrigin,
           epoch: this.audioEpoch, spoken, voice, durationSec: Math.min(opts?.maxDuration ?? buf.duration, buf.duration) / src.playbackRate.value,
           narrator: category === 'think' || !!opts?.narrator, narratorActor: opts?.narratorActor,
-          mood: this.narratorInfo(name).mood, family: this.narratorInfo(name).family }));
+          mood: this.narratorInfo(name).mood, family: this.narratorInfo(name).family };
+        console.info('[DRAFTI audio]', JSON.stringify(row));
+        if (typeof recordSoundAudit === 'function') recordSoundAudit(row);
+      }
       return src;
     },
   };
@@ -3124,6 +3201,7 @@ function createPlayerProgressStore(storage) {
   function showGameOver() {
     if (!G.over || overShown) return;
     overShown = true;
+    if (typeof recordAudioCheckpoint === 'function') recordAudioCheckpoint('game-end');
     const r = G.result;
     if (G.mode === 'ai') {
       FX.play(r.winner === null ? 'draw' : r.winner === G.humanSide ? 'win' : 'lose');
@@ -3444,6 +3522,7 @@ function createPlayerProgressStore(storage) {
     G.firstStrike=G.history.some(h=>h.move.caps.length);
     G.legal=E.legalMoves(rs,G.board,G.side);overShown=false;
     frameEl.classList.remove('victory-a','victory-b','coronation-a','coronation-b');
+    if (typeof recordAudioCheckpoint === 'function') recordAudioCheckpoint('game-resume');
     buildBoard();rebuildPieces();checkGameEnd();updateAll();
     if(G.over)showGameOver();else scheduleAI();
     return true;
@@ -3499,6 +3578,7 @@ function createPlayerProgressStore(storage) {
     buildBoard();
     rebuildPieces();
     updateAll();
+    if (typeof recordAudioCheckpoint === 'function') recordAudioCheckpoint('game-start');
     saveCurrentMatch();
     scheduleAI();
     // the host introduces themselves: their national school speaks first

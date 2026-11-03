@@ -1116,6 +1116,12 @@ body.fx-wood .board-frame { background-image: repeating-linear-gradient(93deg, t
 #bannerContext { font-weight: 650; }
 #bannerText { font-weight: 600; }
 .sound-palette { margin-top: 14px; color: var(--ink); }
+.audio-audit-panel { max-width: min(780px, calc(100% - 24px)); margin: 18px auto; padding: 12px;
+  color: var(--billboard-ink, var(--ink)); background: var(--panel-opaque); border-radius: 10px; }
+.audio-audit-panel summary { cursor: pointer; font-size: 12px; }
+.audio-audit-panel p { font-size: 12px; }
+.audio-audit-panel .btn { margin: 4px; }
+.audio-audit-panel pre { max-height: 300px; overflow: auto; font-size: 11px; white-space: pre; }
 .sound-palette summary { cursor: pointer; padding: 8px 0; }
 .sound-palette-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 7px; margin: 10px 0; }
 .sound-palette-grid .btn { white-space: normal; font-size: 11px; padding: 9px 6px; }

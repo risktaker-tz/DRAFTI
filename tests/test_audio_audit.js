@@ -1,0 +1,41 @@
+'use strict';
+const fs = require('fs'), path = require('path'), vm = require('vm'), assert = require('assert/strict');
+const { verifySoundLog } = require('../scripts/verify_sound_log');
+const source = fs.readFileSync(path.join(__dirname, '../src/ui.js'), 'utf8');
+const c = {}; vm.createContext(c);
+vm.runInContext(source.slice(source.indexOf('function createSoundAudit('), source.indexOf('(function () {')) + 'this.create=createSoundAudit;', c);
+const audit = c.create(2), sound = { id: 'ui_open', category: 'ui', at: 100, run: 1 };
+audit.sound(sound); sound.id = 'tampered';
+assert.equal(JSON.parse(audit.snapshot().audio[0].message.slice('[DRAFTI audio] '.length)).id, 'ui_open');
+audit.checkpoint({ event: 'game-start', epoch: 1, ply: 0 });
+audit.checkpoint({ event: 'game-end', epoch: 1, ply: 20 });
+audit.checkpoint({ event: 'game-resume', epoch: 2, ply: 15 });
+assert.equal(audit.counts().completed, 1, 'A resumed match is not counted as completed');
+const exported = audit.snapshot(); exported.audio.length = 0; exported.checkpoints[0].event = 'tampered';
+assert.equal(audit.snapshot().audio.length, 1, 'Export mutation cannot erase retained events');
+assert.equal(audit.snapshot().checkpoints[0].event, 'game-start');
+audit.sound({ id: 'ui_open', category: 'ui', at: 300, run: 1 });
+audit.sound({ id: 'ui_close', category: 'ui', at: 500, run: 1 });
+assert.equal(audit.snapshot().audio.length, 2);
+assert.equal(audit.snapshot().dropped.audio, 1);
+assert(verifySoundLog(audit.snapshot()).issues.some(issue => issue.includes('truncated')),
+  'A bounded log must never be mistaken for complete full-game evidence');
+audit.error('real page failure');
+assert(verifySoundLog(audit.snapshot()).issues.some(issue => issue.includes('console')));
+for (const capacity of [0, -1, 1.5, NaN]) assert.throws(() => c.create(capacity));
+const season = { audio: [], checkpoints: [] };
+for (let bout = 0; bout < 12; bout++) {
+  const point = { run: 1, epoch: bout + 1, mode: 'aivai', rsId: 'eastafrica10', season: 1, bout };
+  season.checkpoints.push({ ...point, at: bout * 1000, ply: 0, event: 'game-start' });
+  season.audio.push({ message: '[DRAFTI audio] ' + JSON.stringify({ ...point, at: bout * 1000 + 100, id: 'synth:move', kind: 'synth', category: 'classic' }) });
+  season.checkpoints.push({ ...point, at: bout * 1000 + 500, ply: 20, event: 'game-end', result: { winner: 1, reason: 'No pieces' } });
+}
+assert.equal(verifySoundLog(season, { mode: 'aivai', season: true }).issues.length, 0);
+assert.equal(verifySoundLog(season).completedGames.length, 12);
+season.checkpoints.push(season.checkpoints.at(-1));
+assert.equal(verifySoundLog(season).completedGames.length, 12, 'Duplicate game-end cannot manufacture games');
+season.checkpoints[0].event = 'game-resume';
+assert.equal(verifySoundLog(season).completedGames.length, 11, 'A resumed game cannot stand for a fresh full playthrough');
+assert(verifySoundLog(season, { season: true }).issues.some(issue => issue.includes('twelve-bout')));
+assert(verifySoundLog(season, { mode: 'ai' }).issues.some(issue => issue.includes('required mode')));
+console.log('PASS retained real-start schema, independent exports, game/resume boundaries, bounded memory and explicit truncation/error rejection');

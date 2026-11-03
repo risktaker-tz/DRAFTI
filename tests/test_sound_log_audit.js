@@ -12,6 +12,8 @@ const c = { window: { DRAFTI_SFX: { ui_open: { c: 'ui' }, th_n01: { c: 'think', 
   G: { mode: 'ai', phase: 'idle', history: [], side: 1 }, URLSearchParams, location: { search: '?audio-audit' },
   performance: { now: () => now, timeOrigin: 123456 }, console: { info: (...args) => logs.push({ message: args.join(' ') }) } };
 vm.createContext(c);
+vm.runInContext(ui.slice(ui.indexOf('function createSoundAudit('), ui.indexOf('(function () {')) + 'this.audit=createSoundAudit();', c);
+c.recordSoundAudit = row => c.audit.sound(row);
 vm.runInContext(ui.slice(ui.indexOf('  const FX ='), ui.indexOf('  // ---------------- sample sound bank')) + 'this.fx=FX;', c);
 c.fx.ctx = ctx; c.fx.ensure = () => ctx; c.fx.woodKnock = noop; c.fx.tone = noop; c.FX = c.fx;
 vm.runInContext(ui.slice(ui.indexOf('  const SFX_BANK ='), ui.indexOf('  // ---------------- game state')) + 'this.bank=SFX_BANK;', c);
@@ -28,6 +30,8 @@ assert.deepEqual(rows.map(row => row.id), ['synth:move', 'synth:think-rustle', '
 assert(rows.every(row => row.mode === 'ai' && row.run === 123456 && row.ply === 0));
 assert.equal(rows.at(-1).narratorActor, 'engine'); assert.equal(rows.at(-1).durationSec, 2);
 assert.equal(verifySoundLog({ audio: logs, errors: [] }).issues.length, 0);
+assert.deepEqual(JSON.parse(JSON.stringify(c.audit.snapshot().audio)), logs,
+  'Every real production sample/synthetic emission must also enter the retained report');
 const entry = row => ({ message: '[DRAFTI audio] ' + JSON.stringify(row) });
 const invalid = rows.map(row => ({ ...row }));
 invalid.push({ ...rows[2], at: rows[2].at + 10 });
