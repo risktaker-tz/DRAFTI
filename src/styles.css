@@ -265,33 +265,34 @@ body.fx-scan::after {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 50%;
-  height: 28%;
   z-index: 4;
-  border-radius: 50%;
-  background: radial-gradient(ellipse, #332312df, #33231200 72%);
+  font: clamp(14px, 3.2vmin, 30px)/1 "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+  filter: drop-shadow(0 2px 3px #2415039e);
   pointer-events: none;
   animation: hint-wink-reveal .8s ease both;
 }
-.hint-wink::before, .hint-wink::after {
-  content: '';
-  position: absolute;
-  top: 24%;
-  left: 25%;
-  width: 17%;
-  height: 52%;
-  border-radius: 50%;
-  background: #fff7d2;
-  box-shadow: 0 0 5px #ffc35c;
+.hint-wink::before {
+  content: '🙂';
+  animation: hint-wink-smile .8s step-end both;
 }
-.hint-wink::after { left: 58%; animation: hint-wink-eye .8s ease both; }
+.hint-wink::after {
+  content: '😉';
+  position: absolute;
+  inset: 0;
+  animation: hint-wink-eye .8s step-end both;
+}
 @keyframes hint-wink-reveal {
-  0%, 100% { opacity: 0; transform: translate(-50%, -44%) scale(.85); }
-  20%, 72% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  0%, 100% { opacity: 0; transform: translate(-50%, -40%) scale(.68); }
+  22% { opacity: 1; transform: translate(-50%, -56%) rotate(-6deg) scale(1.1); }
+  48%, 74% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 }
 @keyframes hint-wink-eye {
-  0%, 27%, 62%, 100% { transform: scaleY(1); }
-  38%, 49% { transform: scaleY(.16); }
+  0%, 65%, 100% { opacity: 0; }
+  32% { opacity: 1; }
+}
+@keyframes hint-wink-smile {
+  0%, 65%, 100% { opacity: 1; }
+  32% { opacity: 0; }
 }
 .piece:has(.hint-wink-shake) { animation: hint-piece-shake .8s ease-out both; }
 @keyframes hint-piece-shake {
