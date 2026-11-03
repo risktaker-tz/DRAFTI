@@ -210,8 +210,24 @@ body.fx-scan::after {
 /* square states */
 .sq.last::after {
   content: ''; position: absolute; inset: 0;
-  background: var(--accent-weak); box-shadow: inset 0 0 0 2px var(--accent-soft);
+  background: radial-gradient(ellipse at center, var(--accent-soft), transparent 72%);
+  animation: landing-memory 900ms ease-out var(--trail-age, 0ms) both;
 }
+@keyframes landing-memory { from { opacity: .6; } to { opacity: 0; } }
+.capture-ribbon { position: absolute; height: 3px; z-index: 1; pointer-events: none;
+  transform-origin: 0 50%; opacity: 0;
+  animation: ribbon-fade calc(var(--ribbon-travel) + 400ms) ease-out both; }
+.capture-ribbon i { display: block; width: 100%; height: 100%; border-radius: 100%;
+  background: linear-gradient(90deg, transparent, var(--accent-soft) 25%, #fff5d5 88%, #fff);
+  box-shadow: 0 0 5px var(--accent), 0 0 12px var(--accent-soft);
+  transform-origin: left center; animation: ribbon-draw var(--ribbon-travel) cubic-bezier(.2,.65,.3,1) both; }
+.feast-ribbon { height: 4px; z-index: 2; }
+.feast-ribbon i::after { content: ''; position: absolute; right: 0; top: 50%;
+  width: 8px; height: 8px; border-top: 2px solid #fff9e9; border-right: 2px solid #fff9e9;
+  transform: translateY(-50%) rotate(45deg); filter: drop-shadow(0 0 4px var(--accent)); }
+@keyframes ribbon-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes ribbon-fade { 0% { opacity: 0; } 12% { opacity: .85; } 35% { opacity: .7; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .capture-ribbon { display: none; } }
 .sq.sel::after {
   content: ''; position: absolute; inset: 0;
   box-shadow: inset 0 0 0 3px var(--accent), inset 0 0 16px var(--accent-soft);
@@ -247,7 +263,7 @@ body.fx-scan::after {
   position: absolute; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   transition: left var(--hop-time, .17s) cubic-bezier(.3, .7, .4, 1), top var(--hop-time, .17s) cubic-bezier(.3, .7, .4, 1),
-              transform .25s ease, opacity .25s ease;
+              transform var(--piece-fx-time, .25s) ease, opacity var(--piece-fx-time, .25s) ease;
   will-change: left, top;
 }
 .piece .body {
@@ -1110,7 +1126,6 @@ body.flags-on .piece.ebony { --disc-hi: var(--side-b-1, var(--pl-d-1)); --disc-f
   border: 1px solid var(--frame-hi); box-shadow: inset 0 1px 1px rgba(255,255,255,.28), 0 1px 2px rgba(0,0,0,.7); }
 .board-inner { box-shadow: 0 0 0 1px var(--frame-lo), 0 0 0 3px var(--frame-hi), 0 3px 9px rgba(0,0,0,.7); }
 body.fx-wood .board-frame { background-image: repeating-linear-gradient(93deg, transparent 0 6px, rgba(25,10,0,.15) 7px 8px), linear-gradient(150deg,var(--frame-hi),var(--frame) 55%,var(--frame-lo)); }
-.sq.last::after { background: linear-gradient(var(--move-sheen-angle, 135deg), transparent, var(--accent-weak) 45%, var(--accent-soft) 50%, var(--accent-weak) 55%, transparent); }
 /* The scoreboard sits in the same crafted frame as the playing surface.
    Opaque inset faces preserve the independently verified text contrast. */
 .banner { position: relative; border: 4px solid var(--frame); border-top-color: var(--frame-hi);
@@ -3480,11 +3495,12 @@ function createSoundAudit(capacity = 12000) {
     fastAnimalAt: -Infinity,
     fastAnimalCount: 0,
     fastArenaAnimal(captures, remaining, promotes) {
-      if (!settings.sound || !settings.sfx.animals || G.mode !== 'aivai' || G.aiSpeed < 8 ||
-          captures < 1 || this.fastAnimalCount >= 4) return null;
+      const speed = G.aiSpeed || 1, quota = Math.min(6, 2 + Math.floor(Math.log2(speed)));
+      if (!settings.sound || !settings.sfx.animals || G.mode !== 'aivai' || speed <= 1 ||
+          captures < 1 || this.fastAnimalCount >= quota) return null;
       const now = performance.now();
-      if (now < this.sceneLockUntil || now - this.fastAnimalAt < 22000 ||
-          [...this.activeSources.values()].some(active => active.spoken) || Math.random() > .28) return null;
+      if (now < this.sceneLockUntil || now - this.fastAnimalAt < Math.max(10000, 26000 / Math.sqrt(speed)) ||
+          [...this.activeSources.values()].some(active => active.spoken) || Math.random() > .16 + .05 * Math.log2(speed)) return null;
       // Panic belongs to the side losing its last few pieces; powerful
       // captures get the larger animals. Quiet moves never trigger animals.
       const pool = remaining <= 3 ? ['chicken','duck']
@@ -3784,6 +3800,7 @@ function createSoundAudit(capacity = 12000) {
 
   // ---------------- AI worker ----------------
   let worker = null, workerBroken = false, reqId = 0, aiPending = false, hintPending = false, thinkStart = 0;
+  let verdictWorker = null, verdictWorkerBroken = false;
   let gameEpoch = 0;
 
   // The worker source, kept as a named function so tests can spawn the exact
@@ -3875,6 +3892,22 @@ function createSoundAudit(capacity = 12000) {
       worker.onerror = () => { workerBroken = true; worker = null; };
     } catch { workerBroken = true; }
     return worker;
+  }
+
+  function getVerdictWorker() {
+    if (G.mode !== 'aivai' || G.aiSpeed <= 1 || verdictWorkerBroken) return getWorker();
+    if (!verdictWorker) {
+      try {
+        verdictWorker = new Worker(URL.createObjectURL(new Blob([workerSource()], { type: 'text/javascript' })));
+        verdictWorker.onmessage = event => handleVerdict(event.data);
+        verdictWorker.onerror = () => { verdictWorkerBroken = true; verdictWorker = null; };
+      } catch { verdictWorkerBroken = true; return getWorker(); }
+    }
+    return verdictWorker;
+  }
+  function cancelVerdictWork() {
+    if (verdictWorker) { verdictWorker.terminate(); verdictWorker = null; }
+    pendingVerdicts.clear(); pendingVerdict = null;
   }
 
   const DIFF_OPTS = null; // replaced by the LEVELS ladder
@@ -4112,16 +4145,10 @@ function createSoundAudit(capacity = 12000) {
   }
 
   // ---------------- highlights ----------------
-  function moveSheenAngle(from, to, n) {
-    // CSS gradient direction is perpendicular to its bright stripe. Keep the
-    // stripe parallel to the hop in board coordinates; the frame owns flips.
-    return Math.atan2(Math.floor(to / n) - Math.floor(from / n), to % n - from % n) * 180 / Math.PI;
-  }
   function clearHighlights() {
     for (const el of squareEls()) {
       el.classList.remove('sel', 'hop', 'target', 'capture-target', 'finish-target', 'last', 'hint', 'landing');
       el.removeAttribute('data-step');
-      el.style.removeProperty('--move-sheen-angle');
     }
     for (const p of G.pieces) if (p.el) p.el.classList.remove('threat', 'doomed');
   }
@@ -4170,14 +4197,12 @@ function createSoundAudit(capacity = 12000) {
   function renderHighlights() {
     clearHighlights();
     const mark = (i, cls) => { const el = squareEls()[i]; if (el) el.classList.add(cls); };
-    if (G.lastMove) {
+    const trailAge = performance.now() - (G.lastMoveAt || 0);
+    if (G.lastMove && G.lastMoveAt && trailAge < 900) {
       mark(G.lastMove.from, 'last');
       mark(G.lastMove.path[G.lastMove.path.length - 1], 'last');
       const path = G.lastMove.path, squares = squareEls();
-      if (path.length > 1) {
-        squares[path[0]].style.setProperty('--move-sheen-angle', moveSheenAngle(path[0], path[1], G.rs.n) + 'deg');
-        squares[path.at(-1)].style.setProperty('--move-sheen-angle', moveSheenAngle(path.at(-2), path.at(-1), G.rs.n) + 'deg');
-      }
+      for (const sq of [G.lastMove.from, path.at(-1)]) squares[sq].style.setProperty('--trail-age', -trailAge + 'ms');
     }
     if (G.hint) {
       mark(G.hint.from, 'hint');
@@ -4303,6 +4328,7 @@ function createSoundAudit(capacity = 12000) {
   let lastEvent = { rank: -1, ply: -1 };
   let lastQualityPly = -9;     // last ply that earned a quality reaction
   let pendingVerdict = null;
+  const pendingVerdicts = new Map();
   let pendingTrap = null; // { ply, setter, capPath } — a bait waiting to be taken or declined
   let verdictId = 0;
   let labelTimer = 0;
@@ -4330,22 +4356,22 @@ function createSoundAudit(capacity = 12000) {
   // own judge voice and already-credited funny reactions only.
   const STREAMER = {
     ROLES: {
-      greeting:    { chance: .85, cooldown: 300000, perGame: 1 },
-      cta:         { chance: .75, cooldown: 300000, perGame: 1 },
+      greeting:    { chance: 1, cooldown: 20000, perGame: 1 },
+      cta:         { chance: 1, cooldown: 90000, perGame: 4 },
       praise:      { chance: .3,  cooldown: 60000,  perGame: 3 },
       great:       { chance: .45, cooldown: 90000,  perGame: 2 },
-      capture:     { chance: .35, cooldown: 30000,  perGame: 4 },
-      feast:       { chance: .6,  cooldown: 30000,  perGame: 3 },
-      crowning:    { chance: .5,  cooldown: 30000,  perGame: 3 },
+      capture:     { chance: .8, cooldown: 16000,  perGame: 8 },
+      feast:       { chance: 1,  cooldown: 20000,  perGame: 5 },
+      crowning:    { chance: 1,  cooldown: 20000,  perGame: 5 },
       trap_set:    { chance: .4,  cooldown: 60000,  perGame: 2 },
       trap_spring: { chance: .55, cooldown: 60000,  perGame: 2 },
       blunder_own: { chance: .45, cooldown: 45000,  perGame: 3 },
       blunder_opp: { chance: .4,  cooldown: 45000,  perGame: 2 },
       streak:      { chance: .6,  cooldown: 90000,  perGame: 2 },
       comeback:    { chance: .6,  cooldown: 90000,  perGame: 2 },
-      victory:     { chance: .9,  cooldown: 5000,   perGame: 1 },
-      defeat:      { chance: .9,  cooldown: 5000,   perGame: 1 },
-      long_think:  { chance: .35, cooldown: 240000, perGame: 2 },
+      victory:     { chance: 1,  cooldown: 5000,   perGame: 1 },
+      defeat:      { chance: 1,  cooldown: 5000,   perGame: 1 },
+      long_think:  { chance: 1, cooldown: 45000, perGame: 5 },
       outro:       { chance: 1,   cooldown: 60000,  perGame: 1 },
     },
     POOLS: {
@@ -4391,16 +4417,47 @@ function createSoundAudit(capacity = 12000) {
       },
     },
     at: new Map(), count: new Map(), games: 0, busyUntil: 0, lastLine: '', cue: { snd: 'v_nice', dur: 2.5 },
-    joinedMidgame: false,
-    reset() { this.count.clear(); this.games++; this.joinedMidgame = false; },
+    joinedMidgame: false, lastSpokeAt: -Infinity, opened: false, observedPly: -1,
+    reset() { this.count.clear(); this.games++; this.joinedMidgame = false; this.opened = false; this.openedAt = performance.now(); this.observedPly = -1; },
     openGame() {
-      if (this.joinedMidgame) return;
+      if (this.joinedMidgame || this.opened) return;
       // first move of a game: greet the chat, or every third game make the
       // engagement call (like / share / follow) instead
-      if (this.games % 3 === 2) this.say('cta');
-      else this.say('greeting');
+      this.opened = this.games % 3 === 2 ? this.say('cta') : this.say('greeting');
+    },
+    pulse() {
+      // Retry missed openings and fill real quiet moments, never a speech loop
+      // with stale tactical claims. A newly selected voice waits for the menu
+      // to close; enabling a setting itself never starts commentary.
+      if (drawerOpen || document.hidden || G.progressConflict || (G.mode === 'aivai' && G.aiPaused)) return;
+      const now = performance.now(), quiet = now - this.lastSpokeAt;
+      if (now < this.busyUntil || quiet < 12000) return;
+      if (G.over) {
+        if (G.result && G.result.winner !== null) this.say(G.mode === 'ai' && G.result.winner !== G.humanSide ? 'defeat' : 'victory');
+        return;
+      }
+      if (!G.history.length) return;
+      if (!this.joinedMidgame && !this.opened && now - this.openedAt < 15000) { this.openGame(); return; }
+      const move = G.history.at(-1).move;
+      if (this.observedPly !== G.history.length && now - (G.lastMoveAt || 0) < 5000) {
+        this.observedPly = G.history.length;
+        // The recorded "double capture" must never describe three or more.
+        if (move.caps.length === 2 && this.say('feast')) return;
+        if (move.caps.length === 1 && this.say('capture')) return;
+        if (move.promotes && this.say('crowning')) return;
+      }
+      if (quiet < 22000) return;
+      if (G.phase === 'thinking' && this.say('long_think')) return;
+      if (now - (this.at.get('cta') ?? -Infinity) >= 90000) this.say('cta');
+    },
+    intermission() {
+      // A ceremony owns its full original recording. Use the free space after
+      // it for engagement, without falsely announcing the stream has ended.
+      if (drawerOpen || document.hidden) return false;
+      return this.say('cta');
     },
     canPlay(role, opts) {
+      if (typeof drawerOpen !== 'undefined' && drawerOpen) return false;
       const mode = settings.streamer;
       if (mode !== 'female' && mode !== 'male' && mode !== 'funny') return false;
       const conf = this.ROLES[role];
@@ -4432,6 +4489,7 @@ function createSoundAudit(capacity = 12000) {
       const key = settings.streamer + ':' + role;
       this.count.set(key, (this.count.get(key) || 0) + 1);
       this.lastLine = this.cue.snd;
+      this.lastSpokeAt = now;
       this.busyUntil = now + (this.cue.dur * 1000) + 400;
       return true;
     },
@@ -4582,13 +4640,13 @@ function createSoundAudit(capacity = 12000) {
       thump();
       // the table reacts: the greedy shout, then the feast commentary
       setTimeout(() => SFX_BANK.play('badboy', { vol: 1 }), 600);
-      setTimeout(() => { if (!STREAMER.say('feast')) SFX_BANK.play(pick(FEAST_POOL), { vol: 0.95 }); }, 1550);
+      setTimeout(() => { if (!STREAMER.say('great')) SFX_BANK.play(pick(FEAST_POOL), { vol: 0.95 }); }, 1550);
     } else if (ev === 'majestic') {
       SFX_BANK.play(pick(['oof', 'oof', 'eagle', 'vineboom']), { vol: 1 }); // "OOF." / the boom
       flashLabel('Double!', 'party');
       shake('shake-m');
       setTimeout(() => SFX_BANK.play('badboy', { vol: 1 }), 550);
-      setTimeout(() => { if (!STREAMER.say('capture')) SFX_BANK.play(pick(HEAVY_POOL), { vol: 0.95 }); }, 1450);
+      setTimeout(() => { if (!STREAMER.say('feast')) SFX_BANK.play(pick(HEAVY_POOL), { vol: 0.95 }); }, 1450);
     } else if (ev === 'promo') {
       SFX_BANK.play('elephant', { vol: 1 });
       SFX_BANK.play('crown_fanfare', { vol: 0.8 });
@@ -4696,11 +4754,14 @@ function createSoundAudit(capacity = 12000) {
   // Runs right after the move; its verdict may upgrade the instant one.
   function requestVerdict(mv, preBoard, side, preNoProg, ply) {
     if (G.over) return;
-    const w = getWorker();
+    const w = getVerdictWorker();
     if (!w) return;
     const id = ++verdictId;
     pendingVerdict = { id, ply, caps: mv.caps.length, mover: side, epoch:gameEpoch,
-      engine:G.mode==='aivai'||G.mode==='ai'&&side!==G.humanSide,actor:learningActor(side) };
+      engine:G.mode==='aivai'||G.mode==='ai'&&side!==G.humanSide,actor:learningActor(side),
+      playedPath:mv.path.join(),boardBefore:preBoard };
+    pendingVerdicts.set(id,pendingVerdict);
+    if(pendingVerdicts.size>256)pendingVerdicts.delete(pendingVerdicts.keys().next().value);
     w.postMessage({
       cmd: 'classify', id, rsId: G.rsId, side, noProgress: preNoProg,
       board: preBoard, playedPath: mv.path.join(),
@@ -4837,13 +4898,17 @@ function createSoundAudit(capacity = 12000) {
   }
 
   function handleVerdict(res) {
-    const pv = pendingVerdict;
+    const pv = pendingVerdicts.get(res.id);
     if (!pv || res.id !== pv.id || pv.epoch !== gameEpoch) return;
-    pendingVerdict = null;
-    if (G.over || G.history.length !== pv.ply) return;
+    pendingVerdicts.delete(res.id);
+    if(pendingVerdict?.id===res.id)pendingVerdict = null;
     const h = G.history[pv.ply - 1];
+    if(!h || h.move.path.join()!==pv.playedPath || !h.boardBefore.every((piece,i)=>piece===pv.boardBefore[i]))return;
     if(pv.engine && h && mistakeMemory.remember(pv.actor,learningPosition(G.rsId,h.boardBefore,pv.mover),
         learningRoute(h.move,pv.mover,h.boardBefore.length),res))saveJSON(LEARNING_KEY,mistakeMemory.snapshot());
+    // Keep verified historical lessons, but never attach an old taunt,
+    // doom state or trap to a position already passed during fast playback.
+    if (G.over || G.history.length !== pv.ply) return;
     if (isFinite(res.delta) && res.delta >= 420 && !res.onlyMove && h && G.history.length > 4)
       SFX_BANK.directOwner('human_blunder_flagrant', { human: G.mode === 'hotseat' || G.mode === 'ai' && pv.mover === G.humanSide, forced: res.onlyMove, delta: res.delta });
 
@@ -4952,10 +5017,11 @@ function createSoundAudit(capacity = 12000) {
     effect.setAttribute('aria-hidden', 'true');
     effect.style.left = (rect.left + rect.width / 2) + 'px';
     effect.style.top = (rect.top + rect.height / 2) + 'px';
+    const energy = kind === 'capture' && G.mode === 'aivai' ? 1 + Math.log2(G.aiSpeed || 1) * .07 : 1;
     for (let i = 0; i < (kind === 'victory' ? 14 : 7); i++) {
       const bit = document.createElement('i'), angle = i * 2.39996;
-      bit.style.setProperty('--dx', Math.cos(angle) * (kind === 'victory' ? 110 : 28) + 'px');
-      bit.style.setProperty('--dy', Math.sin(angle) * (kind === 'victory' ? 90 : 28) - 15 + 'px');
+      bit.style.setProperty('--dx', Math.cos(angle) * (kind === 'victory' ? 110 : 28) * energy + 'px');
+      bit.style.setProperty('--dy', (Math.sin(angle) * (kind === 'victory' ? 90 : 28) - 15) * energy + 'px');
       bit.style.setProperty('--spin', (i * 71) + 'deg'); effect.appendChild(bit);
     }
     if (kind === 'capture') {
@@ -4973,7 +5039,24 @@ function createSoundAudit(capacity = 12000) {
   function moveHopMs(captures) {
     const speed = G.mode === 'aivai' ? G.aiSpeed : 1;
     const feast = captures >= 3 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    return Math.max(35, HOP_MS * (feast ? 1.25 : 1) / speed);
+    return Math.max(8, HOP_MS * (feast ? 1.25 : 1) / speed);
+  }
+  function captureRibbon(from, to, hopMs, captures) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const n = G.rs.n, dx = (to % n - from % n) * 100 / n;
+    const dy = (Math.floor(to / n) - Math.floor(from / n)) * 100 / n;
+    const ribbon = document.createElement('div');
+    ribbon.className = 'capture-ribbon' + (captures > 1 ? ' feast-ribbon' : '');
+    ribbon.setAttribute('aria-hidden', 'true');
+    ribbon.style.left = ((from % n + .5) * 100 / n) + '%';
+    ribbon.style.top = ((Math.floor(from / n) + .5) * 100 / n) + '%';
+    ribbon.style.width = Math.hypot(dx, dy) + '%';
+    ribbon.style.transform = 'rotate(' + Math.atan2(dy, dx) + 'rad)';
+    const duration = Math.max(100, hopMs * .85);
+    ribbon.style.setProperty('--ribbon-travel', duration + 'ms');
+    const light = document.createElement('i'); ribbon.appendChild(light);
+    piecesEl.appendChild(ribbon);
+    setTimeout(() => ribbon.remove(), duration + 450);
   }
   async function animateMove(mv, epoch) {
     const generation = epoch == null ? gameEpoch : epoch, moverSide = G.side;
@@ -4981,12 +5064,14 @@ function createSoundAudit(capacity = 12000) {
     if (!p) return;
     const hopMs = moveHopMs(mv.caps.length);
     p.el.style.setProperty('--hop-time', (hopMs * .85) + 'ms');
+    p.el.style.setProperty('--piece-fx-time', (G.mode === 'aivai' ? 250 / (G.aiSpeed || 1) : 250) + 'ms');
     p.el.classList.add('lifted');
     if (mv.path.length === 2 && !mv.caps.length) SFX_BANK.effect('slide', { vol: .075 });
     if (Math.abs(p.code) === 2 && !mv.caps.length) SFX_BANK.effect('king_glint', { vol: .12 });
     for (let k = 1; k < mv.path.length; k++) {
       if(generation !== gameEpoch)return false;
       const to = mv.path[k];
+      captureRibbon(mv.path[k - 1], to, hopMs, mv.caps.length);
       p.sq = to;
       positionEl(p.el, to);
       const capIdx = mv.caps[k - 1];
@@ -5030,6 +5115,7 @@ function createSoundAudit(capacity = 12000) {
     const preLegal = G.legal.slice();
     const moverSide = G.side;
     G.sel = null; G.hint = null;
+    G.lastMoveAt = 0;
     updateAll();
     // a big capture trip gets its build-up call while the hops are airborne —
     // at most one per 30 s so feasts never double up with the fanfare lines
@@ -5138,6 +5224,7 @@ function createSoundAudit(capacity = 12000) {
     if (p) { p.sq = end; positionEl(p.el, end); }
 
     G.lastMove = mv;
+    G.lastMoveAt = performance.now();
     G.side = -side;
     G.legal = E.legalMoves(G.rs, G.board, G.side);
     repAdd(posKey(G.board, G.side));
@@ -5458,13 +5545,15 @@ function createSoundAudit(capacity = 12000) {
     const beginCountdown = () => {
       if (generation !== autoNextGeneration || G.mode !== 'aivai' || !settings.aivaiAuto) return;
       const c = rosterById(arena.champion), ch = rosterById(arena.queue[0] || arena.champion);
-      let left = 6;
+      const streamerSpoke = STREAMER.intermission();
+      const voiceEnds = streamerSpoke ? STREAMER.busyUntil : 0;
+      let left = 6, remainingMs = 6000, lastTick = Date.now();
       const announce = () => {
         el.hidden = false;
         el.innerHTML = 'Next: <b>' + (c.face ? c.face + ' ' : '') + aiName(arena.champion) + '</b> vs <b>' +
           (ch.face ? ch.face + ' ' : '') + aiName(arena.queue[0] || arena.champion) + '</b> · Season ' +
           arena.season + ' · bout ' + (arena.bouts + 1) + '/' + SEASON_LEN + ' · ' +
-          SEASON_STAGES[stageOfBout(arena.bouts)].name + ' · ' + left + 's';
+          SEASON_STAGES[stageOfBout(arena.bouts)].name + ' · ' + Math.max(0, Math.ceil(Math.max(remainingMs / (G.aiSpeed || 1), voiceEnds - performance.now()) / 1000)) + 's';
       };
       const fire = () => {
         cancelAutoNext();
@@ -5475,11 +5564,13 @@ function createSoundAudit(capacity = 12000) {
       announce();
       const tick = setInterval(() => {
         if (generation !== autoNextGeneration) { clearInterval(tick); return; }
-        left -= 1;
-        if (left <= 0) { clearInterval(tick); fire(); return; }
-        if (left === 1) SFX_BANK.play('st_riser1', { vol: 0.65 });
+        const now = Date.now(), previous = left;
+        remainingMs -= Math.max(0, now - lastTick) * (G.aiSpeed || 1); lastTick = now;
+        left = Math.ceil(remainingMs / 1000);
+        if (left <= 0 && performance.now() >= voiceEnds) { clearInterval(tick); fire(); return; }
+        if (left === 1 && previous !== 1) SFX_BANK.play('st_riser1', { vol: 0.65 });
         announce();
-      }, 1000);
+      }, 50);
       autoNextTimer = tick; // interval id doubles as the cancel handle
     };
     if (res.ceremony) showCeremony(prevChamp).then(beginCountdown);
@@ -5527,6 +5618,8 @@ function createSoundAudit(capacity = 12000) {
         !Array.isArray(saved.history) || saved.history.length > 2000 || !Array.isArray(saved.repetition)) return false;
     const position=restoreLeaguePosition(saved);if(!position)return false;
     gameEpoch++;
+    cancelVerdictWork();
+    G.lastMoveAt = 0;
     reqId++;aiPending=false;hintPending=false;cancelAutoNext();
     SFX_BANK.resetGame();doomClear();
     settings.rsId=saved.rsId;if(LEVELS[saved.diff])settings.diff=saved.diff;
@@ -5546,6 +5639,7 @@ function createSoundAudit(capacity = 12000) {
   }
   function newGame() {
     gameEpoch++;
+    cancelVerdictWork();
     G.progressConflict=false;
     SFX_BANK.resetGame();
     STREAMER.reset();
@@ -5991,6 +6085,7 @@ function createSoundAudit(capacity = 12000) {
   }
   function loadActivePlayer() {
     gameEpoch++;
+    cancelVerdictWork();
     reqId++;aiPending=false;hintPending=false;cancelAutoNext();
     if(worker){worker.terminate();worker=null;}workerBroken=false;
     arena=loadJSON(ARENA_KEY,null)||{champion:'TZ',queue:ladderQueue('TZ'),appeared:[],season:1,bouts:0,xp:{},wins:{},streak:0,challRounds:0};
@@ -6499,6 +6594,7 @@ function createSoundAudit(capacity = 12000) {
   let lastAiCardAt = 0, aiCardsThisGame = 0; // the gag stays on a leash
 
   setInterval(() => {
+    STREAMER.pulse();
     const k = turnKey();
     const humanActive = humanTurn() && G.phase === 'idle' && !G.over;
 

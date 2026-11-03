@@ -278,4 +278,6 @@ clips are byte-for-byte unchanged.
 
 ## Existing voice processing corrections — 2026-11-03
 
+The subsequent cinematic playback/streamer update adds CSS animation and event scheduling only. It reuses the existing credited Female/Male/Funny recordings and animal effects at natural speech rate. No recording was replaced or downloaded for that update; all source, performer and licensing entries continue to apply.
+
 Nine existing in-house TTS recordings (`s_in_american`, `s_in_classic`, `t4b`, `th_h02`, `th_h18`, `v_slau2`, `v_spec3`, `v_tt2`, `v_tt6`) exceeded the standard duration. Their voices, words, sources and licenses are unchanged. Only centres of internal pauses below -60 dBFS were removed, retaining140ms on either side, followed by the standard mono22050Hz/56kbps peak-normalized MP3 encode. No speech speed-up or replacement recording was used. Full original MP3 backups remain in `sfx_swap/backups/`; hashes, source/processed lengths, every cut, decoded waveform checks and honestly qualified ASR comparisons are in `scripts/audio_processing_fixes.json`.

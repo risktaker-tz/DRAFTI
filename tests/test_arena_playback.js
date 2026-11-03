@@ -25,7 +25,8 @@ c.G.aiPaused=true;pending();assert.equal(executed,0,'Pause during search/present
 c.G.aiPaused=false;pending();assert.equal(executed,1,'Unpaused matching result can execute');
 const h={G:{mode:'aivai',aiSpeed:1},HOP_MS:200,window:{matchMedia:()=>({matches:false})},Math};vm.createContext(h);
 vm.runInContext(ui.slice(ui.indexOf('  function moveHopMs('),ui.indexOf('  async function animateMove(')),h);
-assert.equal(h.moveHopMs(0),200);h.G.aiSpeed=16;assert.equal(h.moveHopMs(0),35);
+let previousHop=Infinity;
+for(const speed of [1,2,4,6,8,10,16]){h.G.aiSpeed=speed;assert.equal(h.moveHopMs(0),200/speed);assert(h.moveHopMs(0)<previousHop);previousHop=h.moveHopMs(0);}
 h.G.mode='ai';assert.equal(h.moveHopMs(0),200,'Spectator speed cannot speed up human gestures');
 const sent=[];const s={G:{mode:'aivai',side:1,rsId:'american',noProg:0,board:[1,-1]},reqId:0,Date:{now:()=>0},
   styleForSide:()=>null,searchLevelForSide:()=> 'l10',levelOpts:()=>({opts:{budgetMs:5200,maxDepth:24}}),

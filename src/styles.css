@@ -197,8 +197,24 @@ body.fx-scan::after {
 /* square states */
 .sq.last::after {
   content: ''; position: absolute; inset: 0;
-  background: var(--accent-weak); box-shadow: inset 0 0 0 2px var(--accent-soft);
+  background: radial-gradient(ellipse at center, var(--accent-soft), transparent 72%);
+  animation: landing-memory 900ms ease-out var(--trail-age, 0ms) both;
 }
+@keyframes landing-memory { from { opacity: .6; } to { opacity: 0; } }
+.capture-ribbon { position: absolute; height: 3px; z-index: 1; pointer-events: none;
+  transform-origin: 0 50%; opacity: 0;
+  animation: ribbon-fade calc(var(--ribbon-travel) + 400ms) ease-out both; }
+.capture-ribbon i { display: block; width: 100%; height: 100%; border-radius: 100%;
+  background: linear-gradient(90deg, transparent, var(--accent-soft) 25%, #fff5d5 88%, #fff);
+  box-shadow: 0 0 5px var(--accent), 0 0 12px var(--accent-soft);
+  transform-origin: left center; animation: ribbon-draw var(--ribbon-travel) cubic-bezier(.2,.65,.3,1) both; }
+.feast-ribbon { height: 4px; z-index: 2; }
+.feast-ribbon i::after { content: ''; position: absolute; right: 0; top: 50%;
+  width: 8px; height: 8px; border-top: 2px solid #fff9e9; border-right: 2px solid #fff9e9;
+  transform: translateY(-50%) rotate(45deg); filter: drop-shadow(0 0 4px var(--accent)); }
+@keyframes ribbon-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes ribbon-fade { 0% { opacity: 0; } 12% { opacity: .85; } 35% { opacity: .7; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .capture-ribbon { display: none; } }
 .sq.sel::after {
   content: ''; position: absolute; inset: 0;
   box-shadow: inset 0 0 0 3px var(--accent), inset 0 0 16px var(--accent-soft);
@@ -234,7 +250,7 @@ body.fx-scan::after {
   position: absolute; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   transition: left var(--hop-time, .17s) cubic-bezier(.3, .7, .4, 1), top var(--hop-time, .17s) cubic-bezier(.3, .7, .4, 1),
-              transform .25s ease, opacity .25s ease;
+              transform var(--piece-fx-time, .25s) ease, opacity var(--piece-fx-time, .25s) ease;
   will-change: left, top;
 }
 .piece .body {
@@ -1097,7 +1113,6 @@ body.flags-on .piece.ebony { --disc-hi: var(--side-b-1, var(--pl-d-1)); --disc-f
   border: 1px solid var(--frame-hi); box-shadow: inset 0 1px 1px rgba(255,255,255,.28), 0 1px 2px rgba(0,0,0,.7); }
 .board-inner { box-shadow: 0 0 0 1px var(--frame-lo), 0 0 0 3px var(--frame-hi), 0 3px 9px rgba(0,0,0,.7); }
 body.fx-wood .board-frame { background-image: repeating-linear-gradient(93deg, transparent 0 6px, rgba(25,10,0,.15) 7px 8px), linear-gradient(150deg,var(--frame-hi),var(--frame) 55%,var(--frame-lo)); }
-.sq.last::after { background: linear-gradient(var(--move-sheen-angle, 135deg), transparent, var(--accent-weak) 45%, var(--accent-soft) 50%, var(--accent-weak) 55%, transparent); }
 /* The scoreboard sits in the same crafted frame as the playing surface.
    Opaque inset faces preserve the independently verified text contrast. */
 .banner { position: relative; border: 4px solid var(--frame); border-top-color: var(--frame-hi);

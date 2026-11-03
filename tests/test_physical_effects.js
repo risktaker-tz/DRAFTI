@@ -3,7 +3,7 @@ const fs=require('fs'),vm=require('vm'),assert=require('assert'),path=require('p
 const ui=fs.readFileSync(path.join(__dirname,'../src/ui.js'),'utf8');
 let reduced=false;const added=[],timers=[],trays=[];
 const make=()=>({children:[],style:{setProperty(k,v){this[k]=v;}},setAttribute(k,v){this[k]=v;},appendChild(e){this.children.push(e);},remove(){this.removed=true;}});
-const c={IVORY:1,Math,window:{matchMedia:()=>({matches:reduced})},document:{createElement:make,body:{appendChild:e=>added.push(e)}},
+const c={IVORY:1,Math,G:{mode:'ai',aiSpeed:1},window:{matchMedia:()=>({matches:reduced})},document:{createElement:make,body:{appendChild:e=>added.push(e)}},
   $:id=>({getBoundingClientRect(){trays.push(id);return {left:100,top:500,width:200,height:30};}}),setTimeout:(fn,ms)=>timers.push({fn,ms})};
 vm.runInNewContext(ui.slice(ui.indexOf('  function physicalBurst('),ui.indexOf('  async function animateMove(')),c);
 const piece={getBoundingClientRect:()=>({left:40,top:50,width:40,height:40})};

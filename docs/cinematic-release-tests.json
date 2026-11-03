@@ -1,0 +1,225 @@
+{
+  "at": "2026-11-03T16:42:40.185Z",
+  "rows": [
+    {
+      "name": "test_ai_learning.js",
+      "status": 0,
+      "output": "AI learning passed: verified non-forced mistakes, legal alternatives, persistence across levels/reload/colours, country-neutral actors, deeper-search rehabilitation and bounded memory"
+    },
+    {
+      "name": "test_animation_generation.js",
+      "status": 0,
+      "output": "Animation generation passed: normal completion commits; player switching/creation/reset cancel old asynchronous commits"
+    },
+    {
+      "name": "test_arena_fairness.js",
+      "status": 0,
+      "output": "489 arena fairness checks passed: full roster, seat symmetry, progression, correct ladder and equal search effort"
+    },
+    {
+      "name": "test_arena_lifecycle.js",
+      "status": 0,
+      "output": "Arena lifecycle passed: cancelled ceremony, mode changes and stale countdown callbacks cannot replace a new game"
+    },
+    {
+      "name": "test_arena_playback.js",
+      "status": 0,
+      "output": "Arena playback passed: seven speeds, targeted overflow, no artificial waits when Off, preserved human pacing and unchanged search accuracy settings"
+    },
+    {
+      "name": "test_arena_sim_resume.js",
+      "status": 0,
+      "output": "Arena simulation resume passed: actual engine midgame recovery, exact RNG/queue/XP/reward state, next-bout continuity and source/schema guards"
+    },
+    {
+      "name": "test_audience_download.js",
+      "status": 0,
+      "output": "PASS audience raw downloads: source bounds, HTTP/type, exact size/hash, atomic acceptance and cache revalidation"
+    },
+    {
+      "name": "test_audio_audit.js",
+      "status": 0,
+      "output": "PASS retained real-start schema, independent exports, game/resume boundaries, bounded memory and explicit truncation/error rejection"
+    },
+    {
+      "name": "test_audio_context.js",
+      "status": 0,
+      "output": "PASS audio context: queued speech expires on position/result changes, same-position pacing survives, thinking gates and zero-time cooldown hold"
+    },
+    {
+      "name": "test_audio_preservation.js",
+      "status": 0,
+      "output": "347 existing clips preserved byte-for-byte; 13 authorized changes\nChanged IDs: s_in_american, s_in_classic, shrimp1, shrimp2, t4b, th_h02, th_h18, v_retire1, v_retire2, v_slau2, v_spec3, v_tt2, v_tt6"
+    },
+    {
+      "name": "test_audio_priority.js",
+      "status": 0,
+      "output": "Audio priority passed: ambient preemption, one voice, bounded contextual queue, ceremony priority, epoch cleanup, category switches and mute"
+    },
+    {
+      "name": "test_board_gestures.js",
+      "status": 0,
+      "output": "Board gestures passed: release-only taps, jitter, swipes, out-and-back drags, native cancellation, pinch, wrong square and mouse controls"
+    },
+    {
+      "name": "test_build_reproducible.js",
+      "status": 0,
+      "output": "Portable build passed: 13074246 identical bytes, SHA-256 971e9e5d99c18dc8604ee1c1b175c6bbad69a765a443f182d90d50a3fc713158"
+    },
+    {
+      "name": "test_capture_destination.js",
+      "status": 0,
+      "output": "Capture destination passed: all five rulesets, three victims, promotion, partial routes, invalid clicks, double-submit and ambiguous king circuits"
+    },
+    {
+      "name": "test_capture_tray_access.js",
+      "status": 0,
+      "output": "Capture tray access passed: fixed independent counts, correct opposing losses, retained captured discs, safe scrollable names and scroll preservation"
+    },
+    {
+      "name": "test_completed_search_scores.js",
+      "status": 0,
+      "output": "Completed-search scores passed: interrupted iterations preserve coherent completed roots; old behavior fails the same fixture"
+    },
+    {
+      "name": "test_default_theme.js",
+      "status": 0,
+      "output": "PASS Marble Lux fresh default and invalid-setting fallback; all 21 saved themes/custom settings retained; real picker changes persist"
+    },
+    {
+      "name": "test_east_africa_rules.js",
+      "status": 0,
+      "output": "East Africa rules passed: exact International inheritance except forward-only men, all three sizes, both sides, flying king landings, maximum capture, crowning, fresh default and preserved saved rules"
+    },
+    {
+      "name": "test_endgame_billboard_retirement.js",
+      "status": 0,
+      "output": "Endgame countdowns, scoring protection, 21-theme billboard contrast and persistent retirement passed"
+    },
+    {
+      "name": "test_engine.js",
+      "status": 0,
+      "output": "piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  info   canadian: 15 games, 2406 plies, 15 natural endings\n  ok    canadian: random games terminate (draw rules work)\n\n[playing-style weights in evaluate]\n  ok    aggression boosts the styled side\n  ok    opponent aggression leaves eval unchanged\n  ok    guard boosts the home rank\n  ok    trade willingness cheapens own material\n  ok    king multiplier scales king value\n  ok    weighted search returns a legal opening move\n  ok    weighted search completes a depth iteration\n\n[bait detection — a choice of captures, one walks into a shot]\n  ok    bait position is a forced capture with two choices\n  ok    the safe capture clearly beats the losing capture\n  ok    a safe option exists (loose-bait signature)\n  ok    the search plays the winning capture, not the shot\n\n38466 passed, 0 failed"
+    },
+    {
+      "name": "test_fast_arena_animals.js",
+      "status": 0,
+      "output": "Fast arena animals passed: meaningful captures only, losing-side panic, rarity, speed/mode/category gates, speech protection and quotas"
+    },
+    {
+      "name": "test_fast_arena_workers.js",
+      "status": 0,
+      "output": "PASS fast commentary isolation, unchanged human/1x queues, fallback/cleanup and exact-position late learning without stale sound effects"
+    },
+    {
+      "name": "test_first_strike.js",
+      "status": 0,
+      "output": "First-strike cues passed: three nonrepeating labels and voices, once-per-game capture gate and no legacy first-blood playback"
+    },
+    {
+      "name": "test_flags.js",
+      "status": 0,
+      "output": "TZ KE #1EB53A #434343\nIT BF #009246 #EF2B2D\nID MC #FF0000 #dbdbdb\nCI EC #FF8200 #034EA2\nMG KE #00843D #BB0000\n37848 flag assertions passed"
+    },
+    {
+      "name": "test_flag_reference.js",
+      "status": 0,
+      "output": "194 flag references verified: roster, source URLs, checksums, palette membership and colour coverage"
+    },
+    {
+      "name": "test_league_resume.js",
+      "status": 0,
+      "output": "League resume passed: all 8 real rulesets, exact board/turn recovery, regenerated history/repetition and corrupted-save rejection"
+    },
+    {
+      "name": "test_learning_worker.js",
+      "status": 0,
+      "output": "Learning worker passed: real threaded classify returns depth, evaluated loss, forced-move status and opponent analysis"
+    },
+    {
+      "name": "test_move_sheen.js",
+      "status": 0,
+      "output": "PASS fading highlights, redraw continuity, authentic ribbon geometry on 8/10/12 boards, reversed diagonals, bounded cleanup and reduced motion"
+    },
+    {
+      "name": "test_owner_audio_director.js",
+      "status": 0,
+      "output": "Owner originals passed: 18 exact cuts embedded, family quotas, rare-human-only laughter, persistent cooldown, category/mute/scene/speed guards"
+    },
+    {
+      "name": "test_physical_audio_bank.js",
+      "status": 0,
+      "output": "124 distinct authored effects across 31 event families: exact embedding, decoded-peak reports, duration, size and four performances each passed"
+    },
+    {
+      "name": "test_physical_effects.js",
+      "status": 0,
+      "output": "Physical effects passed: both capture trays, bounded particles, victory burst, cleanup and reduced-motion silence"
+    },
+    {
+      "name": "test_player_names_strength.js",
+      "status": 0,
+      "output": "Player identity and strength passed: default migration, custom names, equal national baseline, XP/season growth and live search replacement"
+    },
+    {
+      "name": "test_player_progress.js",
+      "status": 0,
+      "output": "Local player progress passed: migration, isolated leagues and records, reload, legacy mirrors, scoped reset, shared themes and failure-safe storage"
+    },
+    {
+      "name": "test_retirement_audio.js",
+      "status": 0,
+      "output": "Retirement timing passed: natural speech, 15-second cap, protected passage, delayed applause and overlay cleanup"
+    },
+    {
+      "name": "test_service_worker.js",
+      "status": 0,
+      "output": "Service worker checks passed: root/subpath homepage refresh, offline latest build, scoped cache cleanup"
+    },
+    {
+      "name": "test_sim_checkpoint_writer.js",
+      "status": 0,
+      "output": "Simulation checkpoint writer passed: atomic temporary write, transient Windows locks retried, real failures surfaced and persistent locks bounded"
+    },
+    {
+      "name": "test_sound_decks.js",
+      "status": 0,
+      "output": "human: 300 accepted draws, 67 different recordings, 123 spoken cards\nengine: 300 accepted draws, 66 different recordings, 179 spoken cards\nPASS category decks, actor/mood/voice/family awareness, no stranded decks, priority/mute/decoding gates and accepted-only narrator quota"
+    },
+    {
+      "name": "test_sound_log_audit.js",
+      "status": 0,
+      "output": "PASS actual production sample/synth audit emission, mute/category gates, metadata and detection of unknown/early/wrong-actor/empty/error logs"
+    },
+    {
+      "name": "test_sound_references.js",
+      "status": 0,
+      "output": "Sound reference tracing: literal, named pool, generated style, conditional, optional and unsupported-expression checks passed"
+    },
+    {
+      "name": "test_streamer_engagement.js",
+      "status": 0,
+      "output": "PASS opening retry, selected voice, quiet-moment cadence, correct intermission, menu/pause/mute/ceremony gates and no stale tactical speech"
+    },
+    {
+      "name": "test_streamer_modes.js",
+      "status": 0,
+      "output": "Streamer modes passed: three exclusive default-off modes, gated pools, cooldowns, quotas, funny reuse and bank integrity"
+    },
+    {
+      "name": "test_thinking_billboard.js",
+      "status": 0,
+      "output": "Thinking and billboard checks passed: delayed sparse cues, cleanup, mute/toggle, stable matchup and all game states"
+    },
+    {
+      "name": "test_underboard_contrast.js",
+      "status": 0,
+      "output": "PASS 483 independent contrast measurements across all 21 themes plus actual hover CSS bindings: names/counts, opaque control faces and translucent active/hover layers"
+    },
+    {
+      "name": "test_whisper_position.js",
+      "status": 0,
+      "output": "PASS quiet captions anchored inside phone/desktop/compact boards, full words retained, original timing and overlay reuse preserved"
+    }
+  ]
+}

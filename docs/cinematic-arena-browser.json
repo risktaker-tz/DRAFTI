@@ -1,0 +1,1357 @@
+{
+  "schema": "drafti.sound-audit/1",
+  "scope": "Actual logged sound starts and game boundaries on this navigation; not a listening certificate.",
+  "audio": [
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":1,\"at\":22376,\"mode\":\"ai\",\"rsId\":\"eastafrica10\",\"ply\":0,\"season\":null,\"bout\":null,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"t2a\",\"kind\":\"sample\",\"category\":\"think\",\"priority\":10,\"phase\":\"idle\",\"turnSide\":1,\"spoken\":true,\"voice\":\"jam\",\"durationSec\":1.82,\"narrator\":true,\"narratorActor\":\"human\",\"mood\":\"time-joke\",\"family\":\"t2a\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":1,\"at\":55187,\"mode\":\"ai\",\"rsId\":\"eastafrica10\",\"ply\":0,\"season\":null,\"bout\":null,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"cricket\",\"kind\":\"sample\",\"category\":\"party\",\"priority\":40,\"phase\":\"idle\",\"turnSide\":1,\"spoken\":false,\"durationSec\":2.853204599557614,\"narrator\":false,\"mood\":null,\"family\":\"cricket\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":1,\"at\":99365,\"mode\":\"ai\",\"rsId\":\"eastafrica10\",\"ply\":0,\"season\":null,\"bout\":null,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"ui_open\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"idle\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.29386333262687,\"narrator\":false,\"mood\":null,\"family\":\"ui_open\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":1,\"at\":99372,\"mode\":\"ai\",\"rsId\":\"eastafrica10\",\"ply\":0,\"season\":null,\"bout\":null,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_drawer_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"idle\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5668333333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_drawer_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":1,\"at\":113408,\"mode\":\"ai\",\"rsId\":\"eastafrica10\",\"ply\":0,\"season\":null,\"bout\":null,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"ui_click\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"idle\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.04493067205292775,\"narrator\":false,\"mood\":null,\"family\":\"ui_click\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":1,\"at\":114183,\"mode\":\"ai\",\"rsId\":\"eastafrica10\",\"ply\":0,\"season\":null,\"bout\":null,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"ui_click\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"idle\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.045470418110015016,\"narrator\":false,\"mood\":null,\"family\":\"ui_click\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":1,\"at\":115340,\"mode\":\"ai\",\"rsId\":\"eastafrica10\",\"ply\":0,\"season\":null,\"bout\":null,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"ui_click\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"idle\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.04422852258027283,\"narrator\":false,\"mood\":null,\"family\":\"ui_click\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":115895,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":0,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_stage_group_1\",\"kind\":\"sample\",\"category\":\"drama\",\"priority\":50,\"phase\":\"thinking\",\"turnSide\":1,\"spoken\":false,\"durationSec\":1.3885625,\"narrator\":false,\"mood\":null,\"family\":\"fx_stage_group_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":116378,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":0,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6452083333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":116386,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":0,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":116387,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":0,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5775416666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":116553,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":0,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"ui_save\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.7326750523845628,\"narrator\":false,\"mood\":null,\"family\":\"ui_save\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":116556,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":0,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"ui_close\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.25298268218204834,\"narrator\":false,\"mood\":null,\"family\":\"ui_close\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":117338,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":1,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"sf_greet2\",\"kind\":\"sample\",\"category\":\"voice\",\"priority\":60,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":true,\"voice\":\"tts-tongtong\",\"durationSec\":4.96925,\"narrator\":false,\"mood\":null,\"family\":\"sf_greet2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":117561,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":1,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"notify_pop\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"thinking\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.0892963132440692,\"narrator\":false,\"mood\":null,\"family\":\"notify_pop\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":118235,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":1,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6465208333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":118238,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":1,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":118239,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":1,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5784375,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":119253,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":2,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.646875,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":119257,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":2,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":119258,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":2,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5768541666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":120367,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":3,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6454375,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":120374,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":3,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":120377,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":3,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5780833333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":121458,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":4,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6452083333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":121462,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":4,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":121464,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":4,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5775416666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":122501,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":5,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6465208333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":122503,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":5,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":122505,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":5,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5784375,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":123220,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":6,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"notify_pop\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"thinking\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.08969323994739663,\"narrator\":false,\"mood\":null,\"family\":\"notify_pop\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":123428,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":6,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"v_spec3\",\"kind\":\"sample\",\"category\":\"voice\",\"priority\":60,\"phase\":\"thinking\",\"turnSide\":1,\"spoken\":true,\"voice\":\"kazi\",\"durationSec\":5.965208333333333,\"narrator\":false,\"mood\":null,\"family\":\"v_spec3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":123545,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":6,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.646875,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":123548,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":6,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":123549,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":6,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5768541666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":124576,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":7,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6454375,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":124586,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":7,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":124588,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":7,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5780833333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":125187,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":8,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":125189,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":8,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_impact_2\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.7611666666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_impact_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":125433,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":9,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_coin_3\",\"kind\":\"sample\",\"category\":\"party\",\"priority\":40,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.7989375,\"narrator\":false,\"mood\":null,\"family\":\"fx_coin_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":125454,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":9,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"sparkle\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5085968032145256,\"narrator\":false,\"mood\":null,\"family\":\"sparkle\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":125923,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":9,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6452083333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":125925,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":9,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":125925,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":9,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5775416666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":127000,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":10,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6465208333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":127009,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":10,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":127012,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":10,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5784375,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":127654,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":11,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":127658,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":11,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_impact_3\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.7571875,\"narrator\":false,\"mood\":null,\"family\":\"fx_impact_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":128069,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":12,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":128069,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":12,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_impact_4\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.7504583333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_impact_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":128753,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":13,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.646875,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":128755,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":13,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":128756,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":13,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5768541666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":129454,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":14,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":129455,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":14,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_impact_1\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.766875,\"narrator\":false,\"mood\":null,\"family\":\"fx_impact_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":130439,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":15,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"s_tanzanian_1\",\"kind\":\"sample\",\"category\":\"voice\",\"priority\":60,\"phase\":\"thinking\",\"turnSide\":-1,\"spoken\":true,\"voice\":\"jam\",\"durationSec\":0.86,\"narrator\":false,\"mood\":null,\"family\":\"s_tanzanian_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":130512,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":15,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6454375,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":130520,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":15,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":130521,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":15,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5780833333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":131153,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":16,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":131519,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":17,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":131520,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":17,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_jump_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6183541666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_jump_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":131764,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":17,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":131984,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":18,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"susp_burst\",\"kind\":\"sample\",\"category\":\"drama\",\"priority\":50,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"voice\":\"original\",\"durationSec\":1.1100208333333332,\"narrator\":false,\"mood\":null,\"family\":\"susp_burst\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":131986,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":18,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"vineboom\",\"kind\":\"sample\",\"category\":\"party\",\"priority\":40,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":2.5093054142985345,\"narrator\":false,\"mood\":null,\"family\":\"vineboom\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":132191,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":18,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"sf_feast\",\"kind\":\"sample\",\"category\":\"voice\",\"priority\":60,\"phase\":\"thinking\",\"turnSide\":1,\"spoken\":true,\"voice\":\"tts-tongtong\",\"durationSec\":4.061208333333333,\"narrator\":false,\"mood\":null,\"family\":\"sf_feast\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":132450,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":18,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6452083333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":132453,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":18,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":132454,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":18,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5775416666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":133519,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":19,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6465208333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":133522,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":19,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":133524,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":19,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5784375,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":134161,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":20,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":134173,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":20,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_impact_2\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.7611666666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_impact_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":134875,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":21,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.646875,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":134884,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":21,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":134886,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":21,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5768541666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":135879,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":22,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6454375,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":135883,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":22,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":135884,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":22,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5780833333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":136487,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":23,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":136488,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":23,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_impact_3\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.7571875,\"narrator\":false,\"mood\":null,\"family\":\"fx_impact_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":137167,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":24,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6452083333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":137179,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":24,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":137180,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":24,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5775416666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":138178,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":25,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6465208333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":138180,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":25,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":138181,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":25,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5784375,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":139223,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":26,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.646875,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":139225,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":26,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":139226,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":26,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5768541666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":140276,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":27,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6454375,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":140281,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":27,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":140283,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":27,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5780833333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":141356,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":28,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6452083333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":141361,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":28,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":141363,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":28,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5775416666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":142138,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":29,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6465208333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":142144,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":29,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":142147,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":29,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5784375,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":142771,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":30,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":142772,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":30,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_jump_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6152291666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_jump_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":142984,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":30,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":142987,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":30,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_impact_4\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.7504583333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_impact_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":143206,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":31,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"oof\",\"kind\":\"sample\",\"category\":\"party\",\"priority\":40,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.3926234888578817,\"narrator\":false,\"mood\":null,\"family\":\"oof\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":143271,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":31,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":143272,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":31,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_impact_1\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.766875,\"narrator\":false,\"mood\":null,\"family\":\"fx_impact_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":143777,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":32,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"badboy\",\"kind\":\"sample\",\"category\":\"party\",\"priority\":40,\"phase\":\"thinking\",\"turnSide\":1,\"spoken\":true,\"durationSec\":1.6,\"narrator\":false,\"mood\":null,\"family\":\"badboy\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":143956,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":32,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.646875,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":143959,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":32,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":143961,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":32,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5768541666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":144690,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":33,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"notify_pop\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"thinking\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.09027220775488058,\"narrator\":false,\"mood\":null,\"family\":\"notify_pop\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":144997,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":33,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6454375,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":145003,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":33,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":145011,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":33,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5780833333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":146054,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":34,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6452083333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":146056,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":34,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":146057,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":34,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5775416666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":147103,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":35,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6465208333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":147106,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":35,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":147108,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":35,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5784375,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":147680,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":36,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":147681,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":36,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_impact_2\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.7611666666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_impact_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":148048,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":37,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"sf_capture\",\"kind\":\"sample\",\"category\":\"voice\",\"priority\":60,\"phase\":\"thinking\",\"turnSide\":-1,\"spoken\":true,\"voice\":\"tts-tongtong\",\"durationSec\":3.3019375,\"narrator\":false,\"mood\":null,\"family\":\"sf_capture\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":148402,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":37,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.646875,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":148404,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":37,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":148405,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":37,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5768541666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":148992,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":38,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":148993,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":38,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_impact_3\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.7571875,\"narrator\":false,\"mood\":null,\"family\":\"fx_impact_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":149268,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":39,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":149930,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":40,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6454375,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":149932,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":40,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":149934,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":40,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5780833333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":150977,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":41,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6452083333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":150984,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":41,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":150986,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":41,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5775416666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":151589,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":42,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":151590,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":42,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_impact_4\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.7504583333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_impact_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":152315,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":43,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":152316,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":43,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_impact_1\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.766875,\"narrator\":false,\"mood\":null,\"family\":\"fx_impact_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":152527,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":44,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:trap_snap\",\"kind\":\"synth\",\"category\":\"drama\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":152528,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":44,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"v_tbf3\",\"kind\":\"sample\",\"category\":\"drama\",\"priority\":50,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":true,\"voice\":\"jam\",\"durationSec\":3.72,\"narrator\":false,\"mood\":null,\"family\":\"v_tbf3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":153344,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":44,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6465208333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":153353,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":44,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":153357,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":44,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5784375,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":154475,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":45,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.646875,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":154483,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":45,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":154486,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":45,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5768541666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":155483,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":46,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6454375,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":155492,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":46,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":155496,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":46,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5780833333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":156528,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":47,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6452083333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":156535,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":47,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":156540,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":47,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5775416666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":157555,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":48,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6465208333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":157557,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":48,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":157558,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":48,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5784375,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":158557,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":49,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.646875,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":158562,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":49,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":158564,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":49,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5768541666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":159597,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":50,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6454375,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":159604,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":50,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":159606,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":50,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5780833333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":160629,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":51,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6452083333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":160634,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":51,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":160635,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":51,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5775416666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":161223,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":52,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":161224,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":52,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_impact_2\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.7611666666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_impact_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":161444,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":52,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:king\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":161446,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":52,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_crown_2\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":1.7091458333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_crown_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":161457,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":53,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"elephant\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":2.5002247755683356,\"narrator\":false,\"mood\":null,\"family\":\"elephant\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":161458,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":53,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"crown_fanfare\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.8528082856924348,\"narrator\":false,\"mood\":null,\"family\":\"crown_fanfare\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":161459,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":53,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"sf_crown\",\"kind\":\"sample\",\"category\":\"voice\",\"priority\":60,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":true,\"voice\":\"tts-tongtong\",\"durationSec\":3.1256041666666667,\"narrator\":false,\"mood\":null,\"family\":\"sf_crown\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":161918,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":53,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"panic\",\"kind\":\"sample\",\"category\":\"party\",\"priority\":40,\"phase\":\"thinking\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":1.5227698147747986,\"narrator\":false,\"mood\":null,\"family\":\"panic\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":161998,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":53,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6465208333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":162001,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":53,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":162003,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":53,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5784375,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":162575,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":54,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":162576,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":54,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_impact_3\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.7571875,\"narrator\":false,\"mood\":null,\"family\":\"fx_impact_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":163255,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":55,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.646875,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":163257,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":55,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":163258,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":55,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5768541666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":164346,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":56,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":164348,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":56,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_impact_4\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.7504583333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_impact_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":164580,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":57,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:relief\",\"kind\":\"synth\",\"category\":\"drama\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":164632,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":57,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"v_tbd3\",\"kind\":\"sample\",\"category\":\"drama\",\"priority\":50,\"phase\":\"thinking\",\"turnSide\":-1,\"spoken\":true,\"voice\":\"jam\",\"durationSec\":4.6,\"narrator\":false,\"mood\":null,\"family\":\"v_tbd3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":164692,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":57,\"season\":1,\"bout\":0,\"speed\":1,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"ui_click\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"thinking\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.044635797108427216,\"narrator\":false,\"mood\":null,\"family\":\"ui_click\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":165416,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":57,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6454375,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":165423,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":57,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":165426,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":57,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5780833333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":165648,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":58,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6452083333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":165650,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":58,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":165651,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":58,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5775416666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":165731,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":59,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":165935,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":60,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":165936,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":60,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_impact_1\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.766875,\"narrator\":false,\"mood\":null,\"family\":\"fx_impact_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":166000,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":61,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6465208333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":166002,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":61,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":166003,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":61,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5784375,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":166008,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":61,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"notify_pop\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.09101680439845994,\"narrator\":false,\"mood\":null,\"family\":\"notify_pop\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":166077,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":62,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":166295,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":63,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.646875,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":166298,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":63,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":166299,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":63,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5768541666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":166368,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":64,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":166577,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":65,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6454375,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":166579,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":65,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":166580,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":65,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5780833333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":166664,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":66,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":166759,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":67,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":166975,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":68,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":167049,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":69,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6452083333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":167051,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":69,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":167052,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":69,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5775416666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":167233,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":70,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6465208333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":167235,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":70,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":167236,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":70,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5784375,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":167332,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":71,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":167428,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":72,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.646875,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":167448,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":72,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":167451,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":72,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5768541666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":167582,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":73,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6454375,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":167584,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":73,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":167585,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":73,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5780833333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":167672,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":74,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":167854,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":75,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6452083333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":167856,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":75,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":167857,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":75,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5775416666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":167995,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":76,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6465208333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":168007,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":76,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":168011,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":76,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5784375,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":168032,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":76,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:king\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":168034,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":76,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_crown_3\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":1.7083333333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_crown_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":168040,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":77,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"crown_fanfare\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.8995855872301798,\"narrator\":false,\"mood\":null,\"family\":\"crown_fanfare\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":168098,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":77,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":168214,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":78,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.646875,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":168217,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":78,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":168218,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":78,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5768541666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":168324,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":79,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":168430,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":80,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"st_tada1\",\"kind\":\"sample\",\"category\":\"drama\",\"priority\":50,\"phase\":\"idle\",\"turnSide\":1,\"spoken\":false,\"durationSec\":1.4586867530887326,\"narrator\":false,\"mood\":null,\"family\":\"st_tada1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":168453,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":80,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6454375,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":168455,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":80,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_king_glint_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.979125,\"narrator\":false,\"mood\":null,\"family\":\"fx_king_glint_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":168457,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":80,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":168458,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":80,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5780833333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":168516,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":81,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":168679,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":82,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6452083333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":168682,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":82,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":168683,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":82,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5775416666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":168749,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":83,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":168938,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":84,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6465208333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":168939,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":84,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":168940,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":84,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5784375,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":169167,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":85,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_slide_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.646875,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":169170,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":85,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":169172,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":85,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_landing_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5768541666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":169334,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":86,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":169334,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":86,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_impact_2\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.7611666666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_impact_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":169381,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":87,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"duck\",\"kind\":\"sample\",\"category\":\"party\",\"priority\":40,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":1.24,\"narrator\":false,\"mood\":null,\"family\":\"duck\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":169391,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":87,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"fx_victory_4\",\"kind\":\"sample\",\"category\":\"party\",\"priority\":40,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":1.8045625,\"narrator\":false,\"mood\":null,\"family\":\"fx_victory_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":169499,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":87,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:king\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"over\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":169502,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":87,\"season\":1,\"bout\":0,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"crown_fanfare\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"over\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.8525491548451392,\"narrator\":false,\"mood\":null,\"family\":\"crown_fanfare\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":169548,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":87,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"sf_cta3\",\"kind\":\"sample\",\"category\":\"voice\",\"priority\":60,\"phase\":\"over\",\"turnSide\":-1,\"spoken\":true,\"voice\":\"tts-tongtong\",\"durationSec\":5.6226666666666665,\"narrator\":false,\"mood\":null,\"family\":\"sf_cta3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":169902,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":87,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"st_riser1\",\"kind\":\"sample\",\"category\":\"drama\",\"priority\":50,\"phase\":\"over\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":1.2096156377373186,\"narrator\":false,\"mood\":null,\"family\":\"st_riser1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":2,\"at\":175606,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":87,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"TZ\",\"seatEbony\":\"KE\",\"id\":\"synth:levelup\",\"kind\":\"synth\",\"category\":\"drama\",\"phase\":\"over\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":175907,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":0,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_stage_group_4\",\"kind\":\"sample\",\"category\":\"drama\",\"priority\":50,\"phase\":\"thinking\",\"turnSide\":1,\"spoken\":false,\"durationSec\":1.3866041666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_stage_group_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":175912,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":0,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"gong\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"thinking\",\"turnSide\":1,\"spoken\":false,\"durationSec\":2.3632095118768164,\"narrator\":false,\"mood\":null,\"family\":\"gong\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":176123,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":0,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6454375,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":176125,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":0,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":176126,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":0,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5780833333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":176146,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":0,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"v_nextup\",\"kind\":\"sample\",\"category\":\"voice\",\"priority\":60,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":true,\"voice\":\"kazi\",\"durationSec\":3.04,\"narrator\":false,\"mood\":null,\"family\":\"v_nextup\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":176207,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":1,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":176268,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":2,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6452083333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":176271,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":2,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":176272,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":2,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5775416666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":176324,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":3,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":176325,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":3,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_impact_3\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.7571875,\"narrator\":false,\"mood\":null,\"family\":\"fx_impact_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":176342,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":4,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_coin_2\",\"kind\":\"sample\",\"category\":\"party\",\"priority\":40,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.799125,\"narrator\":false,\"mood\":null,\"family\":\"fx_coin_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":176386,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":4,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":176449,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":5,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":176450,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":5,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_impact_4\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.7504583333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_impact_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":176592,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":6,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":176593,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":6,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_impact_1\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.766875,\"narrator\":false,\"mood\":null,\"family\":\"fx_impact_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":176710,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":7,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6465208333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":176715,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":7,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":176716,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":7,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5784375,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":176774,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":8,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":176868,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":9,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.646875,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":176870,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":9,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":176871,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":9,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5768541666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177027,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":10,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6454375,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177029,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":10,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177033,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":10,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5780833333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177098,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":11,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177177,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":12,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6452083333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177180,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":12,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177181,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":12,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5775416666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177186,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":12,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"notify_pop\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.09362233058306758,\"narrator\":false,\"mood\":null,\"family\":\"notify_pop\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177242,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":13,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177312,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":14,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177483,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":15,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177484,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":15,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_impact_2\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.7611666666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_impact_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177548,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":16,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6465208333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177549,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":16,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177552,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":16,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5784375,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177616,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":17,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177683,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":18,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.646875,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177685,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":18,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177686,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":18,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5768541666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177827,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":19,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6454375,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177828,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":19,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177829,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":19,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5780833333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177890,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":20,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177958,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":21,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177960,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":21,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_jump_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6173125,\"narrator\":false,\"mood\":null,\"family\":\"fx_jump_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":177979,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":21,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":178034,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":22,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"eagle\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":2.162802391970263,\"narrator\":false,\"mood\":null,\"family\":\"eagle\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":178122,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":22,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":178193,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":23,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6452083333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":178196,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":23,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":178197,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":23,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5775416666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":178267,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":24,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":178399,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":25,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6465208333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":178403,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":25,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":178404,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":25,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5784375,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":178466,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":26,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":178485,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":27,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"sparkle\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.4881702936735551,\"narrator\":false,\"mood\":null,\"family\":\"sparkle\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":178524,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":27,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.646875,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":178529,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":27,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":178530,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":27,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5768541666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":178586,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":28,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":178647,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":29,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6454375,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":178649,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":29,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":178717,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":30,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":178717,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":30,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5780833333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":178785,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":31,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6452083333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":178786,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":31,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":178857,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":32,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":178858,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":32,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5775416666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":179078,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":33,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":179179,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":34,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":179245,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":35,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6465208333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":179247,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":35,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":179248,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":35,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5784375,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":179252,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":35,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"s_french_1\",\"kind\":\"sample\",\"category\":\"voice\",\"priority\":60,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":true,\"voice\":\"jam\",\"durationSec\":1.68,\"narrator\":false,\"mood\":null,\"family\":\"s_french_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":179417,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":36,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.646875,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":179419,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":36,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":179421,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":36,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5768541666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":179512,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":37,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":179576,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":38,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6454375,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":179578,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":38,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":179579,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":38,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5780833333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":179645,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":39,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":179785,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":40,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":179786,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":40,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_jump_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6164583333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_jump_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":179802,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":40,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":179823,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":41,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"vineboom\",\"kind\":\"sample\",\"category\":\"party\",\"priority\":40,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":2.4429467900805677,\"narrator\":false,\"mood\":null,\"family\":\"vineboom\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":179867,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":41,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":179937,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":42,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6452083333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":179939,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":42,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":179939,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":42,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5775416666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180075,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":43,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6465208333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180077,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":43,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180078,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":43,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5784375,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180154,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":44,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180236,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":45,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.646875,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180239,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":45,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180241,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":45,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5768541666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180328,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":46,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180384,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":47,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6454375,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180385,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":47,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180386,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":47,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5780833333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180481,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":48,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180595,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":49,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6452083333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180597,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":49,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180598,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":49,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5775416666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180682,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":50,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180800,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":51,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180802,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":51,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_jump_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6183541666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_jump_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180829,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":51,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180846,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":51,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180866,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":51,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:king\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180869,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":51,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_crown_1\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":1.6739583333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_crown_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180875,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":52,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_feast_2\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":1.5711875,\"narrator\":false,\"mood\":null,\"family\":\"fx_feast_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180875,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":52,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"wildroar\",\"kind\":\"sample\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":2.1184841726714505,\"narrator\":false,\"mood\":null,\"family\":\"wildroar\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180940,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":52,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6465208333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180942,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":52,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":180943,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":52,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5784375,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":181122,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":53,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.646875,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":181125,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":53,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":181127,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":53,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5768541666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":181206,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":54,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"st_tada1\",\"kind\":\"sample\",\"category\":\"drama\",\"priority\":50,\"phase\":\"thinking\",\"turnSide\":1,\"spoken\":false,\"durationSec\":1.5463028657433393,\"narrator\":false,\"mood\":null,\"family\":\"st_tada1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":181245,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":54,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6454375,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":181248,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":54,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":181248,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":54,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5780833333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":181379,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":55,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"sf_feast\",\"kind\":\"sample\",\"category\":\"voice\",\"priority\":60,\"phase\":\"thinking\",\"turnSide\":-1,\"spoken\":true,\"voice\":\"tts-tongtong\",\"durationSec\":4.061208333333333,\"narrator\":false,\"mood\":null,\"family\":\"sf_feast\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":181409,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":55,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":181491,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":56,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6452083333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":181492,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":56,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":181493,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":56,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5775416666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":181652,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":57,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.6465208333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":181653,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":57,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":181654,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":57,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5784375,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":181733,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":58,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":181808,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":59,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.646875,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":181809,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":59,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_king_glint_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.9793541666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_king_glint_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":181812,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":59,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":181813,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":59,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5768541666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":182090,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":60,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6454375,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":182092,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":60,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":182093,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":60,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_2\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5780833333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_2\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":182170,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":61,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":182257,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":62,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6452083333333334,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":182259,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":62,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":182260,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":62,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5775416666666666,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":182439,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":63,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:capture\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":182525,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":64,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.6465208333333333,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":182527,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":64,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":182528,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":64,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_1\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":1,\"spoken\":false,\"durationSec\":0.5784375,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_1\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":182702,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":65,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_slide_3\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.646875,\"narrator\":false,\"mood\":null,\"family\":\"fx_slide_3\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":182704,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":65,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":182705,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":65,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"fx_landing_4\",\"kind\":\"sample\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"turnSide\":-1,\"spoken\":false,\"durationSec\":0.5768541666666667,\"narrator\":false,\"mood\":null,\"family\":\"fx_landing_4\"}"
+    },
+    {
+      "message": "[DRAFTI audio] {\"run\":1793723825040.8,\"epoch\":3,\"at\":182788,\"mode\":\"aivai\",\"rsId\":\"eastafrica10\",\"ply\":66,\"season\":1,\"bout\":1,\"speed\":16,\"humanlike\":false,\"muted\":false,\"seatIvory\":\"ER\",\"seatEbony\":\"TZ\",\"id\":\"synth:move\",\"kind\":\"synth\",\"category\":\"classic\",\"phase\":\"animating\"}"
+    }
+  ],
+  "checkpoints": [
+    {
+      "run": 1793723825040.8,
+      "epoch": 1,
+      "at": 7435,
+      "mode": "ai",
+      "rsId": "eastafrica10",
+      "ply": 0,
+      "season": null,
+      "bout": null,
+      "speed": 1,
+      "humanlike": false,
+      "muted": false,
+      "seatIvory": "TZ",
+      "seatEbony": "KE",
+      "event": "game-start",
+      "result": null
+    },
+    {
+      "run": 1793723825040.8,
+      "epoch": 2,
+      "at": 115535,
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "ply": 0,
+      "season": 1,
+      "bout": 0,
+      "speed": 1,
+      "humanlike": false,
+      "muted": false,
+      "seatIvory": "TZ",
+      "seatEbony": "KE",
+      "event": "game-start",
+      "result": null
+    },
+    {
+      "run": 1793723825040.8,
+      "epoch": 2,
+      "at": 169495,
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "ply": 87,
+      "season": 1,
+      "bout": 0,
+      "speed": 16,
+      "humanlike": false,
+      "muted": false,
+      "seatIvory": "TZ",
+      "seatEbony": "KE",
+      "event": "game-end",
+      "result": {
+        "winner": 1,
+        "reason": "Usiogope has no legal move."
+      }
+    },
+    {
+      "run": 1793723825040.8,
+      "epoch": 3,
+      "at": 175810,
+      "mode": "aivai",
+      "rsId": "eastafrica10",
+      "ply": 0,
+      "season": 1,
+      "bout": 1,
+      "speed": 16,
+      "humanlike": false,
+      "muted": false,
+      "seatIvory": "ER",
+      "seatEbony": "TZ",
+      "event": "game-start",
+      "result": null
+    }
+  ],
+  "errors": [],
+  "dropped": {
+    "audio": 0,
+    "checkpoints": 0,
+    "errors": 0
+  }
+}
