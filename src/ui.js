@@ -3562,7 +3562,15 @@ function createSoundAudit(capacity = 12000) {
       // the crowd asks the only question left — how can you let that retire?
       if (arena.appeared.length >= ROSTER.length) ceremony = true;
     } else {
-      text = 'A draw — ' + aiName(champId) + ' keeps the board; ' + aiName(challId) + ' goes again.';
+      arena.challRounds++;
+      if (arena.challRounds >= Math.max(2, settings.arenaRounds)) {
+        arena.queue.shift();
+        arena.queue.push(challId);
+        arena.challRounds = 0;
+        text = 'A draw — ' + aiName(champId) + ' keeps the board; the next challenger steps up.';
+      } else {
+        text = 'A draw — ' + aiName(champId) + ' keeps the board; ' + aiName(challId) + ' goes again.';
+      }
     }
     if (manual && winnerId !== challId) {
       // you called time on a deserving champion — the ceremony is the point

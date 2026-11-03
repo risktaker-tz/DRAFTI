@@ -31,6 +31,14 @@ for(const bout of [0,5,9,11])for(const hostIvory of [true,false])for(const retai
   check(api.arenaProgress.bonusXp[winner]===bonus,'Bonus XP recorded visibly, separately from old saves');
   check(!!saves['drafti.arena.v2']&&!!saves['drafti.arena-progress.v1'],'Existing and new persistence keys kept');
 }
+const draws=createHarness();
+draws.api.arena.queue=['KE','UG'];
+Object.assign(draws.G,{seatIvory:'TZ',seatEbony:'KE'});
+draws.api.applyArenaResult(0);
+check(draws.api.arena.queue[0]==='KE','A first draw allows a rematch');
+draws.api.applyArenaResult(0);
+check(draws.api.arena.queue[0]!=='KE'&&draws.api.arena.queue.at(-1)==='KE','Repeated draws rotate the challenger');
+check(draws.api.arena.champion==='TZ'&&draws.api.arena.challRounds===0,'Draw rotation preserves the title and resets the round counter');
 const h=createHarness();h.G.diff='l1';h.G.diffIvory='l8';h.G.diffEbony='l3';h.G.side=1;
 for(const nation of h.api.ROSTER)check(h.api.rosterLevel(nation.id)===4,'Season one begins at Club for every nation');
 h.api.arena.season=2;for(const nation of h.api.ROSTER)check(h.api.rosterLevel(nation.id)===5,'The next season automatically raises every untouched nation');
