@@ -3585,11 +3585,22 @@ function createPlayerProgressStore(storage) {
     const tray = (label, color, count) => {
       let minis = '';
       for (let i = 0; i < count; i++) minis += '<span class="mini ' + color + '"></span>';
-      return '<span>' + label + '</span> <b>' + count + '</b> ' + minis;
+      const safe = String(label).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+      return '<span class="tray-name" tabindex="0" aria-label="' + safe + '">' + safe + '</span>' +
+        '<b class="tray-count">' + count + '</b><span class="tray-captures" aria-hidden="true">' + minis + '</span>';
     };
     // arena games name the capturer, not the colour
-    $('trayTop').innerHTML = tray('Captured by ' + displayName(IVORY), 'ebony', byIvory);
-    $('trayBottom').innerHTML = tray('Captured by ' + displayName(EBONY), 'ivory', byEbony);
+    for (const [id, label, color, count] of [
+      ['trayTop', 'Captured by ' + displayName(IVORY), 'ebony', byIvory],
+      ['trayBottom', 'Captured by ' + displayName(EBONY), 'ivory', byEbony]]) {
+      const el = $(id), previous = el.querySelector('.tray-name');
+      const offset = previous && previous.textContent === label ? previous.scrollLeft : 0;
+      const previousDiscs = el.querySelector('.tray-captures');
+      const discOffset = previous && previous.textContent === label && previousDiscs ? previousDiscs.scrollLeft : 0;
+      el.innerHTML = tray(label, color, count);
+      el.querySelector('.tray-name').scrollLeft = offset;
+      el.querySelector('.tray-captures').scrollLeft = discOffset;
+    }
   }
 
   function updateHistory() {
