@@ -306,6 +306,14 @@ body.fx-scan::after {
   0%, 27%, 62%, 100% { transform: scaleY(1); }
   38%, 49% { transform: scaleY(.16); }
 }
+.piece:has(.hint-wink-shake) { animation: hint-piece-shake .8s ease-out both; }
+@keyframes hint-piece-shake {
+  0%, 26%, 58%, 100% { translate: 0 0; }
+  34% { translate: -3% 0; }
+  41% { translate: 3% 0; }
+  48% { translate: -1.5% 0; }
+  53% { translate: 1% 0; }
+}
 @media (prefers-reduced-motion: reduce) { .hint-wink { display: none; } }
 .piece.ivory .body {
   background: radial-gradient(circle at 35% 28%, var(--pl-l-1), var(--pl-l-2) 55%, var(--pl-l-3));
@@ -4378,7 +4386,7 @@ function createSoundAudit(capacity = 12000) {
     if (!body) return;
     body.querySelector('.hint-wink')?.remove();
     const wink = document.createElement('span');
-    wink.className = 'hint-wink';
+    wink.className = settings.shake ? 'hint-wink hint-wink-shake' : 'hint-wink';
     wink.setAttribute('aria-hidden', 'true');
     body.appendChild(wink);
     setTimeout(() => wink.remove(), 850);

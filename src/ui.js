@@ -2128,7 +2128,7 @@ function createSoundAudit(capacity = 12000) {
     if (!body) return;
     body.querySelector('.hint-wink')?.remove();
     const wink = document.createElement('span');
-    wink.className = 'hint-wink';
+    wink.className = settings.shake ? 'hint-wink hint-wink-shake' : 'hint-wink';
     wink.setAttribute('aria-hidden', 'true');
     body.appendChild(wink);
     setTimeout(() => wink.remove(), 850);
