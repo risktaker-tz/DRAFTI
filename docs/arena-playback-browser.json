@@ -1,0 +1,7 @@
+{
+  "scope": "Real built-in browser, paused existing arena, targeted playback controls; not a full season or physical-device installation test",
+  "mobile390": {"viewport":390,"pageWidth":390,"outerClientWidth":364,"outerScrollWidth":515,"speedClientWidth":162,"speedScrollWidth":313,"selected":"16×","speedScrollLeft":149.60000610351562,"outerScrollLeft":0,"pageScrollLeft":0,"outerScrollbar":"none","speedScrollbar":"none"},
+  "mobile320OuterScrollBeforeNestedRefinement": {"viewport":320,"pageWidth":320,"outerClientWidth":294,"nativeHorizontalScrollLeft":371.6000061035156,"pageScrollLeft":0},
+  "screenshot":"docs/arena-controls-mobile.png",
+  "notes":"Temporary viewport reset and original1× selection restored. Speed options were checked without restarting the owner's saved league. Search accuracy preservation is separately exercised by test_arena_playback.js payload comparisons."
+}

@@ -33,6 +33,10 @@ const sandbox={settings:{streamer:'off',sound:true,sfx:{voice:true}},
 vm.createContext(sandbox);
 vm.runInContext(ui.slice(s,e)+'\nthis.STREAMER=STREAMER;',sandbox);
 const S=sandbox.STREAMER;
+const switchCode=ui.slice(ui.indexOf("wireSeg('segStreamer'"),ui.indexOf("wireSeg('segSide'"));
+assert(!/SFX_BANK\.play|STREAMER\.say/.test(switchCode),'Selecting streamer mode stays silent in the settings menu');
+assert(switchCode.includes('STREAMER.joinedMidgame = G.history.length > 0'),'Joining follows actual game progress');
+S.joinedMidgame=true;S.openGame();assert.equal(plays.length,0,'Midgame joins cannot replay a welcome');S.joinedMidgame=false;
 
 // A rejected bank play must leave both the fallback and quota available.
 const originalPlay=sandbox.SFX_BANK.play;

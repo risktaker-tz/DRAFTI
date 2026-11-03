@@ -233,7 +233,7 @@ body.fx-scan::after {
 .piece {
   position: absolute; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  transition: left .17s cubic-bezier(.3, .7, .4, 1), top .17s cubic-bezier(.3, .7, .4, 1),
+  transition: left var(--hop-time, .17s) cubic-bezier(.3, .7, .4, 1), top var(--hop-time, .17s) cubic-bezier(.3, .7, .4, 1),
               transform .25s ease, opacity .25s ease;
   will-change: left, top;
 }
@@ -742,9 +742,17 @@ body.hv .piece.ebony .body {
 /* ---------- AI vs AI spectator bar ---------- */
 .aivai-bar {
   display: flex; align-items: center; gap: 10px;
+  width: var(--board-span); max-width: 100%; min-width: 0;
+  overflow-x: auto; overscroll-behavior-x: contain;
+  touch-action: pan-x pan-y pinch-zoom; scrollbar-width: none;
   background: var(--panel-opaque); border: 1px solid var(--panel-line);
   border-radius: 12px; padding: 8px 12px;
 }
+.aivai-bar > * { flex: 0 0 auto; white-space: nowrap; }
+#segSpeed { max-width: min(42vw, 190px); overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; }
+.aivai-bar::-webkit-scrollbar, #segSpeed::-webkit-scrollbar { display: none; }
+.aivai-bar .seg-btns button { flex: 0 0 auto; min-width: 44px; min-height: 40px; }
+.aivai-bar:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .aivai-bar .btn { padding: 7px 12px; font-size: 12.5px; }
 .inline-seg { border-radius: 999px; }
 .inline-seg button { padding: 6px 12px; font-size: 12px; }

@@ -442,6 +442,10 @@ Ongoing automatic-arena games save their position, complete move history, seats,
 
 ## AI lessons and movement polish
 
+Arena playback offers 1×, 2×, 4×, 6×, 8×, 10× and 16×. Speeds scroll inside their enclosed selector; the Resume / Speed / Retirement / Restart row also scrolls independently on small screens, with no scrollbar arrows or tracks. Page and board edges stay fixed. These settings shorten presentation and hop animations, with a 35 ms visual floor; search budgets and depth stay unchanged, so labels describe playback rather than a guaranteed turn-rate multiplier. With AI human playing mode Off, no artificial pondering delay is added after search. Pause blocks a pending move; an already-started capture route finishes together.
+
+At 8× and above, occasional animal accents respond to major captures or a side losing its last pieces. They reuse credited recordings, rest at least 22 seconds, play at most four times per game, and respect mute, animal categories and active speech. Enabling a streamer mode is silent in settings; joining a game already underway suppresses its welcome and follows the next real event.
+
 Each local player's engines keep up to 512 analysed, avoidable mistakes, keyed by engine identity and exact position. A repeated position can steer that engine toward another legal move at any selected level. Forced moves and shallow verdicts are excluded; substantially deeper fresh analysis can override an older lesson. This is bounded local position memory, not general model training or a promise of perfect play. Resetting the player's league also clears its lessons.
 
 Last-move sheen follows the actual first and final hop, including flipped boards. Movement, slide and landing layers are quieter; capture sounds keep their existing mix. Optional streamer commentary falls back to the existing reaction when a clip cannot play, without spending its quota. Search results retain scores from the last fully completed iteration, so an interrupted deeper search cannot mix depths when judging moves or recording lessons.

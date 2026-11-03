@@ -676,7 +676,7 @@ function createPlayerProgressStore(storage) {
   if (!STYLES.some((s) => s.id === settings.styleIvory)) settings.styleIvory = 'italian';
   if (!STYLES.some((s) => s.id === settings.styleEbony)) settings.styleEbony = 'czech';
   if (![0, 30, 60, 90].includes(settings.clock)) settings.clock = 0;
-  if (![1, 2, 4].includes(settings.speed)) settings.speed = 1;
+  if (![1, 2, 4, 6, 8, 10, 16].includes(settings.speed)) settings.speed = 1;
   settings.sfx = Object.assign(
     { master: 0.9, animals: true, judge: true, comedy: true, voice: true, classic: true, think: true, ui: true, drama: true, party: true },
     (settings.sfx && typeof settings.sfx === 'object') ? settings.sfx : {}
@@ -1369,6 +1369,24 @@ function createPlayerProgressStore(storage) {
     ownerFamilyAt: new Map(),
     ownerFamilyCounts: new Map(),
     lastOwnerAt: -Infinity,
+    fastAnimalAt: -Infinity,
+    fastAnimalCount: 0,
+    fastArenaAnimal(captures, remaining, promotes) {
+      if (!settings.sound || !settings.sfx.animals || G.mode !== 'aivai' || G.aiSpeed < 8 ||
+          captures < 1 || this.fastAnimalCount >= 4) return null;
+      const now = performance.now();
+      if (now < this.sceneLockUntil || now - this.fastAnimalAt < 22000 ||
+          [...this.activeSources.values()].some(active => active.spoken) || Math.random() > .28) return null;
+      // Panic belongs to the side losing its last few pieces; powerful
+      // captures get the larger animals. Quiet moves never trigger animals.
+      const pool = remaining <= 3 ? ['chicken','duck']
+        : captures >= 3 ? ['elephant','bear'] : captures >= 2 || promotes ? ['eagle','wildroar'] : [];
+      const eligible = pool.filter(id => this.defs[id] && this.on(id) && this.buffers.has(id) && !this.recent.slice(-8).includes(id));
+      if (!eligible.length) return null;
+      const source = this.play(eligible[(Math.random() * eligible.length) | 0], { vol: .34, rate: 1, queue: false });
+      if (source) { this.fastAnimalAt = now; this.fastAnimalCount++; }
+      return source;
+    },
     eventHistory: new Map(),
     eventAt: new Map(),
     activeSources: new Map(),
@@ -1400,6 +1418,7 @@ function createPlayerProgressStore(storage) {
       return this.play(id, { vol: .5, rate: 1 });
     },
     resetGame() {
+      this.fastAnimalCount = 0;
       this.ownerCounts.clear(); this.ownerFamilyCounts.clear(); this.queue.length = 0; this.audioEpoch++;
       for (const source of this.activeSources.keys()) { try { source.stop(); } catch {} }
       this.activeSources.clear();
@@ -1808,14 +1827,13 @@ function createPlayerProgressStore(storage) {
       if (G.mode === 'aivai') base /= G.aiSpeed;
       if (vsHuman) base = Math.min(base, 2600);
     } else {
-      base = (G.mode === 'aivai' ? 700 / G.aiSpeed : 450) *
-        (0.55 + Math.random() * 1.15) +
-        (G.mode === 'aivai' && Math.random() < 0.1 ? (1200 + Math.random() * 3500) / G.aiSpeed : 0);
-      if (G.mode === 'ai') base = Math.min(base, 950);
+      // Off means no simulated pondering. Search budgets/depth and the
+      // completed result stay identical; only the theatrical wait disappears.
+      base = 0;
     }
     const delay = Math.max(0, base - (Date.now() - thinkStart));
     setTimeout(() => {
-      if (res.id !== reqId || G.phase !== 'idle') return;
+      if (res.id !== reqId || G.phase !== 'idle' || G.mode === 'aivai' && G.aiPaused) return;
       executeMove(chooseRememberedMove(res, G.legal, searchLevelForSide()));
     }, delay);
   }
@@ -2186,8 +2204,10 @@ function createPlayerProgressStore(storage) {
       },
     },
     at: new Map(), count: new Map(), games: 0, busyUntil: 0, lastLine: '', cue: { snd: 'v_nice', dur: 2.5 },
-    reset() { this.count.clear(); this.games++; },
+    joinedMidgame: false,
+    reset() { this.count.clear(); this.games++; this.joinedMidgame = false; },
     openGame() {
+      if (this.joinedMidgame) return;
       // first move of a game: greet the chat, or every third game make the
       // engagement call (like / share / follow) instead
       if (this.games % 3 === 2) this.say('cta');
@@ -2751,10 +2771,17 @@ function createPlayerProgressStore(storage) {
     document.body.appendChild(effect);
     setTimeout(() => effect.remove(), 1100);
   }
+  function moveHopMs(captures) {
+    const speed = G.mode === 'aivai' ? G.aiSpeed : 1;
+    const feast = captures >= 3 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    return Math.max(35, HOP_MS * (feast ? 1.25 : 1) / speed);
+  }
   async function animateMove(mv, epoch) {
     const generation = epoch == null ? gameEpoch : epoch, moverSide = G.side;
     const p = pieceAt(mv.from);
     if (!p) return;
+    const hopMs = moveHopMs(mv.caps.length);
+    p.el.style.setProperty('--hop-time', (hopMs * .85) + 'ms');
     p.el.classList.add('lifted');
     if (mv.path.length === 2 && !mv.caps.length) SFX_BANK.effect('slide', { vol: .075 });
     if (Math.abs(p.code) === 2 && !mv.caps.length) SFX_BANK.effect('king_glint', { vol: .12 });
@@ -2766,14 +2793,14 @@ function createPlayerProgressStore(storage) {
       const capIdx = mv.caps[k - 1];
       if (capIdx !== undefined) {
         const victim = pieceAt(capIdx);
-        if (victim) setTimeout(() => { if (generation === gameEpoch && victim.el) { physicalBurst(victim.el, 'capture', moverSide); victim.el.classList.add('captured'); } }, 90);
+        if (victim) setTimeout(() => { if (generation === gameEpoch && victim.el) { physicalBurst(victim.el, 'capture', moverSide); victim.el.classList.add('captured'); } }, hopMs * .45);
         FX.play('capture');
         SFX_BANK.effect(k === mv.path.length - 1 ? 'impact' : 'jump', { vol: k === mv.path.length - 1 ? .32 : .17 + k * .025 });
       } else {
         FX.play('move');
         SFX_BANK.effect('landing', { vol: .08 });
       }
-      await sleep(mv.caps.length >= 3 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches ? HOP_MS * 1.25 : HOP_MS);
+      await sleep(hopMs);
       if(generation !== gameEpoch)return false;
     }
     p.el.classList.remove('lifted');
@@ -2814,6 +2841,7 @@ function createPlayerProgressStore(storage) {
     await animateMove(mv, generation);
     if(generation !== gameEpoch)return;
     const ply = commitMove(mv);
+    SFX_BANK.fastArenaAnimal(mv.caps.length, countSide(-moverSide), mv.promotes);
     if (mv.caps.length >= 3) SFX_BANK.effect('feast', { vol: .4 });
     if (mv.caps.length >= 3) SFX_BANK.directOwner('capture_own_feast');
     else if (mv.caps.length >= 2) SFX_BANK.directOwner('material_loss_sudden');
@@ -3808,10 +3836,10 @@ function createPlayerProgressStore(storage) {
     settings.streamer = v;
     saveJSON(SETTINGS_KEY, settings);
     updateSegs();
-    STREAMER.reset(); // a mode switch starts a fresh commentary session
-    if (settings.sound && settings.sfx.voice && v !== 'off') {
-      STREAMER.say('greeting');
-    }
+    STREAMER.reset();
+    STREAMER.joinedMidgame = G.history.length > 0;
+    // Selecting a mode is silent. Its next real game event supplies context;
+    // joining an ongoing match must not replay a new-game welcome.
   });
   wireSeg('segSide', (v) => {
     const s = +v;
@@ -3827,6 +3855,7 @@ function createPlayerProgressStore(storage) {
     updateSegs();
   });
   wireSeg('segSpeed', (v) => {
+    if (![1, 2, 4, 6, 8, 10, 16].includes(+v)) return;
     settings.speed = +v; G.aiSpeed = +v;
     saveJSON(SETTINGS_KEY, settings); updateSegs();
   });

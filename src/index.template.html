@@ -67,12 +67,16 @@
       <div class="tray" id="trayBottom"></div>
     </div>
     <div class="ticker" id="ticker" aria-label="Recent moves"></div>
-    <div class="aivai-bar" id="aivaiBar" hidden>
+    <div class="aivai-bar" id="aivaiBar" role="region" aria-label="Arena playback controls; scroll sideways for more" tabindex="0" hidden>
       <button class="btn" id="btnAivaiPause">⏸ Pause</button>
-      <div class="seg-btns inline-seg" id="segSpeed">
+      <div class="seg-btns inline-seg" id="segSpeed" role="group" aria-label="Arena playback speed; search accuracy stays unchanged">
         <button data-v="1">1×</button>
         <button data-v="2">2×</button>
         <button data-v="4">4×</button>
+        <button data-v="6">6×</button>
+        <button data-v="8">8×</button>
+        <button data-v="10">10×</button>
+        <button data-v="16">16×</button>
       </div>
       <span class="auto-next" id="autoNext" hidden></span>
       <button class="btn" id="btnRetire" aria-pressed="false" title="Keep retirement announcements enabled for qualifying results; click again to switch off">🎖 Retirement off</button>
