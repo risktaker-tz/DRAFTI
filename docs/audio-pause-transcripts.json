@@ -1,0 +1,89 @@
+{
+  "model": "onnx-community/whisper-tiny.en q8, WebAssembly CPU, one thread",
+  "scope": "Actual completed comparison from the working WASM fallback. Seven pairs preserve recognized words apart from punctuation; th_h18 and v_slau2 differ. Tiny ASR errors/differences are not listening certification. Direct sample preservation has separate evidence.",
+  "results": [
+    {
+      "id": "s_in_american",
+      "original": {
+        "text": " American school coming through straight solid useless"
+      },
+      "processed": {
+        "text": " American school coming through straight solid useless."
+      }
+    },
+    {
+      "id": "s_in_classic",
+      "original": {
+        "text": " Classic school. No tricks. No mercy. Let us play."
+      },
+      "processed": {
+        "text": " Classic school, no tricks, no mercy, let us play."
+      }
+    },
+    {
+      "id": "t4b",
+      "original": {
+        "text": " I ordered food. It arrived. I ate it. Still waiting."
+      },
+      "processed": {
+        "text": " I ordered food, it arrived. I ate it. Still waiting."
+      }
+    },
+    {
+      "id": "th_h02",
+      "original": {
+        "text": " Take your time. We have all week."
+      },
+      "processed": {
+        "text": " Take your time. We have all week."
+      }
+    },
+    {
+      "id": "th_h18",
+      "original": {
+        "text": " play when ready, no pressure, sound pressure."
+      },
+      "processed": {
+        "text": " play when ready no pressure"
+      }
+    },
+    {
+      "id": "v_slau2",
+      "original": {
+        "text": " into the trap. And feast in? Ha ha ha!"
+      },
+      "processed": {
+        "text": " into the trap. And feast in Ha Ha!"
+      }
+    },
+    {
+      "id": "v_spec3",
+      "original": {
+        "text": " Deep calculation, or a quick nap, we will never know."
+      },
+      "processed": {
+        "text": " Deep calculation, or a quick nap, we will never know."
+      }
+    },
+    {
+      "id": "v_tt2",
+      "original": {
+        "text": " Keep your back roll tight, or you will be sorry."
+      },
+      "processed": {
+        "text": " Keep your back roll tight, or you will be sorry."
+      }
+    },
+    {
+      "id": "v_tt6",
+      "original": {
+        "text": " The move is mine, and the move is everything."
+      },
+      "processed": {
+        "text": " The move is mine, and the move is everything."
+      }
+    }
+  ],
+  "modelHash": "c0592d0749413c960569e1c7fb806b060d5d18f3ebad4a95cbf9a77dc6e9be52",
+  "source": "https://huggingface.co/onnx-community/whisper-tiny.en/blob/main/onnx/decoder_model_merged_quantized.onnx"
+}

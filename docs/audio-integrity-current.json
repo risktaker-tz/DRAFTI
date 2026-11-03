@@ -1,0 +1,1842 @@
+{
+  "clips": 544,
+  "categories": {
+    "ui": 69,
+    "party": 45,
+    "comedy": 40,
+    "majestic": 22,
+    "drama": 69,
+    "voice": 161,
+    "think": 106,
+    "judge": 32
+  },
+  "directReferences": 70,
+  "playbackCallSites": 133,
+  "uniqueReferencedIds": 338,
+  "optionalOriginalIds": [
+    "shrimp_orig",
+    "v_retire_orig"
+  ],
+  "approvedDurationOverrides": {
+    "v_retire2": {
+      "maxSeconds": 15.1,
+      "decodedSeconds": 15,
+      "reason": "Owner explicitly requested the full original first 15 seconds for major ceremonies. The 0.1s metadata allowance covers MP3 frame padding; playback is capped at 15 seconds."
+    }
+  },
+  "unresolvedExpressions": [],
+  "eventReferences": [
+    "coin",
+    "crown",
+    "defeat",
+    "draw",
+    "drawer",
+    "feast",
+    "impact",
+    "jump",
+    "king_glint",
+    "landing",
+    "reunion",
+    "slide",
+    "stage_final",
+    "stage_group",
+    "stage_quarter",
+    "stage_semi",
+    "theme",
+    "victory"
+  ],
+  "ownerEventReferences": [
+    "capture_own_feast",
+    "human_blunder_flagrant",
+    "material_loss_sudden"
+  ],
+  "missingEvents": [],
+  "missingOwnerEvents": [],
+  "missingOwnerIds": [],
+  "unresolvedEvents": [],
+  "controlledPreviewExpressions": [
+    {
+      "line": 4184,
+      "expression": "button.dataset.event",
+      "ids": []
+    }
+  ],
+  "missing": [],
+  "oversized": [
+    {
+      "id": "v_spec1",
+      "bytes": 75928
+    }
+  ],
+  "durations": [
+    {
+      "id": "s_in_czech",
+      "seconds": 6.739591836734694
+    },
+    {
+      "id": "s_in_english",
+      "seconds": 7.444897959183673
+    },
+    {
+      "id": "s_in_french",
+      "seconds": 7.157551020408163
+    },
+    {
+      "id": "s_in_italian",
+      "seconds": 8.411428571428571
+    },
+    {
+      "id": "s_in_kenyan",
+      "seconds": 7.888979591836734
+    },
+    {
+      "id": "s_in_mongolian",
+      "seconds": 7.418775510204082
+    },
+    {
+      "id": "v_spec1",
+      "seconds": 10.81469387755102
+    },
+    {
+      "id": "v_tt8",
+      "seconds": 6.191020408163265
+    }
+  ],
+  "encoding": [
+    {
+      "id": "achievement",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "ahhscary",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "ahooga",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "alarm",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "animewow",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "badboy",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "badboy2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "banana",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "bear",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "bruh",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "chicken",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "clock_tick",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "clock_tock",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "coin",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "cricket",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "crown_fanfare",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "downer",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "draw_chime",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "drumroll",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "duck",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "dundundun",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "eagle",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "elephant",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "fall",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "god",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "gong",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "gulp",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "haha",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "heartbeat",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "klonk",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "laser",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "later_hours",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "later_moments",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "lion",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "lion_long",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "lose_womp",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "meow",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "notify_pop",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "omg",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "oof",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "panic",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "pickup",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "powerup",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "purr",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "putdown",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "rimshot",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "riser",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "s_american_1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_american_2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_brazilian_1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_brazilian_2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_classic_1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_classic_2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_czech_1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_czech_2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_english_1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_english_2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_french_1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_french_2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_in_brazilian",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_in_czech",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_in_english",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_in_french",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_in_italian",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_in_kenyan",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_in_mongolian",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_in_russian",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_in_spanish",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_in_tanzanian",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_italian_1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_italian_2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_kenyan_1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_kenyan_2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_mongolian_1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_mongolian_2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_russian_1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_russian_2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_spanish_1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_spanish_2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_tanzanian_1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "s_tanzanian_2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "sadviolin",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "scramble",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "shloop",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "smarts",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "sparkle",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "st_air1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "st_appl1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "st_appl2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "st_coin1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "st_crowd1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "st_drum1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "st_gasp1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "st_gasp2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "st_heart1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "st_ooh1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "st_ooh2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "st_riser1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "st_tada1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "st_whis1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "streak_big",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "streak_hit",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "t1a",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "t1b",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "t1c",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "t1d",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "t1e",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "t2a",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "t2b",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "t2c",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "t2d",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "t2e",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "t3a",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "t3b",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "t3c",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "t3d",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "t4a",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "t4c",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "t4d",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "t5a",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "t5b",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "t5c",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "tellyou",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "th_c1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "th_f1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "th_g1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "th_g2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "th_m1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "th_m2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "th_m3",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "th_m4",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "th_m5",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "th_m6",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "th_o1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "th_o2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "th_o3",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "th_o4",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "th_p1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "th_p2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "th_p3",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "th_s1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "th_t1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "th_t2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "th_t3",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "th_t4",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "th_t5",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "th_t6",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "trombone",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "ui_back",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "ui_click",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "ui_close",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "ui_error",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "ui_open",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "ui_save",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "ui_slide",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "ui_theme",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "ui_toggle_off",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "ui_toggle_on",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "v_aim1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_aim2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_alltime",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_awkward",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_bait1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_bait2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_bait3",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_beatgm1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_beatgm2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_bigbrain",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_chess",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_clean",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_come1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_come2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_cost",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_crafty",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_curious",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_doom1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_doom2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_doom3",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_doom4",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_doom5",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_double",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_draw",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_esc1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_esc2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_feast1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_feast2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_first",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_gasp1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_genius",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_heavy1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_heavy2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_heavy3",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_heavy4",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_hint",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_hmm",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_hold1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_hold2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_hurt",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_inacc1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_inacc2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_king",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_king1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_king2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_legendary",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_levelup1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_levelup2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_lose",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_lose2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_lose3",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_lucky1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_lucky2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_lucky3",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_lucky4",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_lucky5",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_magnificent",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_masterpiece",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_mercy",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_new",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_nextup",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_nice",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_nosense",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_ohno",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_onejob",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_only",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_ooh1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_paidoff",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_quad",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_rampage",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_rampage2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_sharp",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_slau1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_slowsteady",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_spec1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_spec10",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_spec2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_spec4",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_spec5",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_spec6",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_spec7",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_spec8",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_spec9",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_streak1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_streak2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_sure",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_tad1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_tad2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_tad3",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_taw1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_taw2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_taw3",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_tbd1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_tbd2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_tbd3",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_tbf1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_tbf2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_tbf3",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_thought30",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_time",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_trap",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_trick",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_triple",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_tt1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_tt10",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_tt3",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_tt4",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_tt5",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_tt7",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_tt8",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_tt9",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_undo",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_why",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_win",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_win2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_win3",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_worth",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_wow",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_wrong1",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_wrong2",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_wrong3",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "v_wrong4",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "vineboom",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "whistle",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "whistle_ref",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "wildroar",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "wilhelm",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "win_fanfare",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 64000
+    },
+    {
+      "id": "wolfwhistle",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "woops",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    },
+    {
+      "id": "zip",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrate": 56000
+    }
+  ],
+  "limitations": "All clips measured for duration, encoding and size. Static analysis covers sample pools and event/owner call sites. The menu event selector is restricted at runtime to embedded registry definitions and unknown events return null; all other unresolved expressions fail. Browser full-game playback still requires verification."
+}

@@ -275,3 +275,7 @@ no existing clip was replaced; the modes play only in place of a covered
 event's spoken reaction, never on top of one, and every cooldown, quota and
 category control of the existing sound design still applies. Existing
 clips are byte-for-byte unchanged.
+
+## Existing voice processing corrections — 2026-11-03
+
+Nine existing in-house TTS recordings (`s_in_american`, `s_in_classic`, `t4b`, `th_h02`, `th_h18`, `v_slau2`, `v_spec3`, `v_tt2`, `v_tt6`) exceeded the standard duration. Their voices, words, sources and licenses are unchanged. Only centres of internal pauses below -60 dBFS were removed, retaining140ms on either side, followed by the standard mono22050Hz/56kbps peak-normalized MP3 encode. No speech speed-up or replacement recording was used. Full original MP3 backups remain in `sfx_swap/backups/`; hashes, source/processed lengths, every cut, decoded waveform checks and honestly qualified ASR comparisons are in `scripts/audio_processing_fixes.json`.

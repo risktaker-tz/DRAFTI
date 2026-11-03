@@ -2,6 +2,11 @@
 
 ## Current continuation — 3 November 2026
 
+Public billboard source1b7644279a6ce3d1877fc7d24cbf9e16f8066298 now VERIFIED atdpl_Dxz7a9Vio8YUYmNfeVDmFhhsmjDU READY,HTTP20013,117,550bytes SHA256f32f911b09656ee8c61f948dc565429f394096f233c95e1c623cff8251a3124f. Local9pause-only corrections implemented with originals backed up; see docs/audio-pause-checkpoint.md, scripts/audio_processing_fixes.json, actual9-ASR comparison (7normalizedmatches,2recognitiondifferences), directPCMproofs. Bank544/0dangling;8duration+1size remain; discovered289legacyencodingmismatches now correctly fail auditor. Never claim fullaudioacceptance green. Bothbuilders13,062,954bytes SHA256d9807bb4519be1589e2f2e47269d581b377ee10cba51acb6f9e67e2e595c5f27; pausesource notyetdeployed atthisnote. Sourceaudiochanges9only, allnonquietPCM/speedpreserved. NativeASRfailed, WASMfallbackfinallyworked; durable scripts/asr_pause_compare.cjs usescachedverifiedmodel,localone-thread runtime.
+
+Actualarena hasprogressed intoSeason2Bout5/12YemenvsCoteDIvoire33pieces; docs/arena-season-transition-browser.json provescontinuingrollover, NOTfullseasonaudiohistory. Tab6muststaymarkedHandoff,donotreload. LatestZAIread showsactualsquareStopgeneration=true, building/recoveringPhaseBtooling andusingdurablereview_state; doNOTinterruptorassignstreamerfollowupyet. Local646downloadgatecomplete.
+
+
 Board fit locally fixed and browser-verified1280x720/390x844/320x740 (both defaultnames fit,nooverflow). Build13117550bytes notdeployed. Restored missing scripts/check_contrast.py:588independentlycrosschecked palette measurements,307belowconservative3:1target; NOTwhole-rendered-discacceptance. See docs/board-visibility-checkpoint.md. QA tab9createdisolated8082,markedHandoff;tab6preservedbout10/12with11pieces,19logsavailableonlypartialproof. Viewportreset. ZAIuninterrupted.
 
 

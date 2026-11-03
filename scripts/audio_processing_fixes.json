@@ -1,0 +1,477 @@
+[
+  {
+    "id": "s_in_american",
+    "reason": "Existing recording exceeds standard duration. Removed only near-silent internal pause centres; no speech-rate change or new voice. Source head/tail and all PCM samples above -60 dBFS preserved before standard peak-normalized MP3 encoding.",
+    "backup": "sfx_swap/backups/s_in_american.mp3",
+    "sourceSha256": "21ffccf8aca94f7e8fafc0abbf5e70e255fd6597beb527b0280efe3a7a8f45df",
+    "processedSha256": "59c8f02cc7bf78db8c0beea67b3421cf55ba310e01d4ab0c5acd68613fbbd094",
+    "originalDecodedSeconds": 6.98,
+    "processedDecodedSeconds": 5.581632653061225,
+    "encoding": {
+      "seconds": 5.5816,
+      "peakDbFS": -1.565,
+      "bytes": 39724
+    },
+    "rate": 22050,
+    "cuts": [
+      {
+        "first": 33355,
+        "last": 37700,
+        "pauseStart": 30268,
+        "pauseEnd": 40787,
+        "removedPeakDbFS": -240
+      },
+      {
+        "first": 66691,
+        "last": 74631,
+        "pauseStart": 63604,
+        "pauseEnd": 77718,
+        "removedPeakDbFS": -240
+      },
+      {
+        "first": 95317,
+        "last": 104178,
+        "pauseStart": 92230,
+        "pauseEnd": 107265,
+        "removedPeakDbFS": -240
+      },
+      {
+        "first": 124868,
+        "last": 134556,
+        "pauseStart": 121781,
+        "pauseEnd": 137643,
+        "removedPeakDbFS": -240
+      }
+    ],
+    "pcmProof": {
+      "id": "s_in_american",
+      "retainedAudibleSamples": 80479,
+      "audiblePcmSha256": "a1a9ba977cb4a187c9d5418d94bc2bf7eaafaecc71c72c9f56ec6ad871222ea9",
+      "exactAudiblePcmPreserved": true,
+      "encodedCorrelation": 0.9991439719338855,
+      "expectedSamples": 123075,
+      "decodedSamples": 123075
+    },
+    "transcription": {
+      "id": "s_in_american",
+      "original": {
+        "text": " American school coming through straight solid useless"
+      },
+      "processed": {
+        "text": " American school coming through straight solid useless."
+      }
+    },
+    "transcriptionLimitation": "Tiny-model ASR is corroboration only; two of nine pairs differ. It does not supersede direct PCM preservation or constitute listening certification.",
+    "voiceLine": "| s_in_american | kazi | American school coming through. Straight, solid, ruthless. |",
+    "listeningAcceptance": "Pending full real-game listening acceptance"
+  },
+  {
+    "id": "s_in_classic",
+    "reason": "Existing recording exceeds standard duration. Removed only near-silent internal pause centres; no speech-rate change or new voice. Source head/tail and all PCM samples above -60 dBFS preserved before standard peak-normalized MP3 encoding.",
+    "backup": "sfx_swap/backups/s_in_classic.mp3",
+    "sourceSha256": "5f29ebc24e8b8d445fd2738c314ea07036c0bf1e4e1dcef6add1a8caa9510542",
+    "processedSha256": "d0d8cfaa44842e62e3ce1a4bb6ea3f588f0eba0179bee25c02ba124087188a30",
+    "originalDecodedSeconds": 6.62,
+    "processedDecodedSeconds": 5.950884353741497,
+    "encoding": {
+      "seconds": 5.9509,
+      "peakDbFS": -1.616,
+      "bytes": 42284
+    },
+    "rate": 22050,
+    "cuts": [
+      {
+        "first": 32948,
+        "last": 38918,
+        "pauseStart": 29861,
+        "pauseEnd": 42005,
+        "removedPeakDbFS": -240
+      },
+      {
+        "first": 105691,
+        "last": 114475,
+        "pauseStart": 102604,
+        "pauseEnd": 117562,
+        "removedPeakDbFS": -240
+      }
+    ],
+    "pcmProof": {
+      "id": "s_in_classic",
+      "retainedAudibleSamples": 95881,
+      "audiblePcmSha256": "5a60393875606bb3fe111d42f59ee21e34af015f4c76d294fea29a7a40011e94",
+      "exactAudiblePcmPreserved": true,
+      "encodedCorrelation": 0.9988797578660743,
+      "expectedSamples": 131217,
+      "decodedSamples": 131217
+    },
+    "transcription": {
+      "id": "s_in_classic",
+      "original": {
+        "text": " Classic school. No tricks. No mercy. Let us play."
+      },
+      "processed": {
+        "text": " Classic school, no tricks, no mercy, let us play."
+      }
+    },
+    "transcriptionLimitation": "Tiny-model ASR is corroboration only; two of nine pairs differ. It does not supersede direct PCM preservation or constitute listening certification.",
+    "voiceLine": "| s_in_classic | kazi | Classic school. No tricks, no mercy. Let us play. |",
+    "listeningAcceptance": "Pending full real-game listening acceptance"
+  },
+  {
+    "id": "t4b",
+    "reason": "Existing recording exceeds standard duration. Removed only near-silent internal pause centres; no speech-rate change or new voice. Source head/tail and all PCM samples above -60 dBFS preserved before standard peak-normalized MP3 encoding.",
+    "backup": "sfx_swap/backups/t4b.mp3",
+    "sourceSha256": "dc511e444d747824413a0cddedf82e72cd593ef2ac4d5550b7160da4f41d588a",
+    "processedSha256": "8cdb6f325a756b0177da89bdb503007a003030d58611fb61905dafc96d1955f1",
+    "originalDecodedSeconds": 6.14,
+    "processedDecodedSeconds": 5.846394557823129,
+    "encoding": {
+      "seconds": 5.8464,
+      "peakDbFS": -1.625,
+      "bytes": 41552
+    },
+    "rate": 22050,
+    "cuts": [
+      {
+        "first": 35982,
+        "last": 42456,
+        "pauseStart": 32895,
+        "pauseEnd": 45543,
+        "removedPeakDbFS": -240
+      }
+    ],
+    "pcmProof": {
+      "id": "t4b",
+      "retainedAudibleSamples": 81297,
+      "audiblePcmSha256": "0d4b239d0d288b894c0a089a9eaf74f4f86da487f6a18b463afe7998fb19ce5a",
+      "exactAudiblePcmPreserved": true,
+      "encodedCorrelation": 0.9985510088023367,
+      "expectedSamples": 128913,
+      "decodedSamples": 128913
+    },
+    "transcription": {
+      "id": "t4b",
+      "original": {
+        "text": " I ordered food. It arrived. I ate it. Still waiting."
+      },
+      "processed": {
+        "text": " I ordered food, it arrived. I ate it. Still waiting."
+      }
+    },
+    "transcriptionLimitation": "Tiny-model ASR is corroboration only; two of nine pairs differ. It does not supersede direct PCM preservation or constitute listening certification.",
+    "voiceLine": "| t4b | jam | I ordered food. It arrived. I ate it. Still waiting. |",
+    "listeningAcceptance": "Pending full real-game listening acceptance"
+  },
+  {
+    "id": "th_h02",
+    "reason": "Existing recording exceeds standard duration. Removed only near-silent internal pause centres; no speech-rate change or new voice. Source head/tail and all PCM samples above -60 dBFS preserved before standard peak-normalized MP3 encoding.",
+    "backup": "sfx_swap/backups/th_h02.mp3",
+    "sourceSha256": "21b5330d36e455fb922751d8f85beab5a04358b33f7f13f09b46512faff67d66",
+    "processedSha256": "f3ff998fc91786fb8676bcfe30bf152baeda8bc3c4ecdca54abf462a6de617c9",
+    "originalDecodedSeconds": 6.176009070294785,
+    "processedDecodedSeconds": 5.3756462585034015,
+    "encoding": {
+      "seconds": 5.3756,
+      "peakDbFS": -1.541,
+      "bytes": 38261
+    },
+    "rate": 22050,
+    "cuts": [
+      {
+        "first": 31658,
+        "last": 36768,
+        "pauseStart": 28571,
+        "pauseEnd": 39855,
+        "removedPeakDbFS": -119.51979064941406
+      },
+      {
+        "first": 56640,
+        "last": 61556,
+        "pauseStart": 53553,
+        "pauseEnd": 64643,
+        "removedPeakDbFS": -119.99337005615234
+      },
+      {
+        "first": 121674,
+        "last": 129296,
+        "pauseStart": 118587,
+        "pauseEnd": 132383,
+        "removedPeakDbFS": -240
+      }
+    ],
+    "pcmProof": {
+      "id": "th_h02",
+      "retainedAudibleSamples": 70229,
+      "audiblePcmSha256": "43413ef52961b6decc08c707a5bc35ce3879d708778fe346e77b4d0bc0a71e79",
+      "exactAudiblePcmPreserved": true,
+      "encodedCorrelation": 0.9991467404981855,
+      "expectedSamples": 118533,
+      "decodedSamples": 118533
+    },
+    "transcription": {
+      "id": "th_h02",
+      "original": {
+        "text": " Take your time. We have all week."
+      },
+      "processed": {
+        "text": " Take your time. We have all week."
+      }
+    },
+    "transcriptionLimitation": "Tiny-model ASR is corroboration only; two of nine pairs differ. It does not supersede direct PCM preservation or constitute listening certification.",
+    "voiceLine": "| th_h02 | kazi | Take your time. We have all week. |",
+    "listeningAcceptance": "Pending full real-game listening acceptance"
+  },
+  {
+    "id": "th_h18",
+    "reason": "Existing recording exceeds standard duration. Removed only near-silent internal pause centres; no speech-rate change or new voice. Source head/tail and all PCM samples above -60 dBFS preserved before standard peak-normalized MP3 encoding.",
+    "backup": "sfx_swap/backups/th_h18.mp3",
+    "sourceSha256": "b517eb9d4e9f909005c93ea9533cc33686393b9ce320987c3cd72d6ff012a7a0",
+    "processedSha256": "e716e3bb394e927d1d2b1bcaf915efbbb44311e1672b0a81434cfcd6b5fcf24c",
+    "originalDecodedSeconds": 6.118321995464853,
+    "processedDecodedSeconds": 5.29328798185941,
+    "encoding": {
+      "seconds": 5.2933,
+      "peakDbFS": -1.529,
+      "bytes": 37712
+    },
+    "rate": 22050,
+    "cuts": [
+      {
+        "first": 50022,
+        "last": 59865,
+        "pauseStart": 46935,
+        "pauseEnd": 62952,
+        "removedPeakDbFS": -212.9804229736328
+      },
+      {
+        "first": 94016,
+        "last": 102365,
+        "pauseStart": 90929,
+        "pauseEnd": 105452,
+        "removedPeakDbFS": -240
+      }
+    ],
+    "pcmProof": {
+      "id": "th_h18",
+      "retainedAudibleSamples": 85941,
+      "audiblePcmSha256": "0b417355d8ae1f11d32c457ad881d08bf824ecf9cd7a7d5407f9bb6c28733969",
+      "exactAudiblePcmPreserved": true,
+      "encodedCorrelation": 0.9987573517712283,
+      "expectedSamples": 116717,
+      "decodedSamples": 116717
+    },
+    "transcription": {
+      "id": "th_h18",
+      "original": {
+        "text": " play when ready, no pressure, sound pressure."
+      },
+      "processed": {
+        "text": " play when ready no pressure"
+      }
+    },
+    "transcriptionLimitation": "Tiny-model ASR is corroboration only; two of nine pairs differ. It does not supersede direct PCM preservation or constitute listening certification.",
+    "voiceLine": "| th_h18 | kazi | Play when ready. No pressure. Some pressure. |",
+    "listeningAcceptance": "Pending full real-game listening acceptance"
+  },
+  {
+    "id": "v_slau2",
+    "reason": "Existing recording exceeds standard duration. Removed only near-silent internal pause centres; no speech-rate change or new voice. Source head/tail and all PCM samples above -60 dBFS preserved before standard peak-normalized MP3 encoding.",
+    "backup": "sfx_swap/backups/v_slau2.mp3",
+    "sourceSha256": "c60f9a035cf3e9466a77f31acc091b7a3329afa64d35ae5793d32c961898cccd",
+    "processedSha256": "0d8bb9ec30cd905bfca1390e1460be85cbac63e87ffa1cb9767dc2dad0e6393f",
+    "originalDecodedSeconds": 6.22,
+    "processedDecodedSeconds": 5.928707482993198,
+    "encoding": {
+      "seconds": 5.9287,
+      "peakDbFS": -1.609,
+      "bytes": 42101
+    },
+    "rate": 22050,
+    "cuts": [
+      {
+        "first": 43921,
+        "last": 50344,
+        "pauseStart": 40834,
+        "pauseEnd": 53431,
+        "removedPeakDbFS": -76.59031677246094
+      }
+    ],
+    "pcmProof": {
+      "id": "v_slau2",
+      "retainedAudibleSamples": 76647,
+      "audiblePcmSha256": "ec22be9a39fa48e1c610a877940a960f4eb68731e26d7a88f9860356731c2267",
+      "exactAudiblePcmPreserved": true,
+      "encodedCorrelation": 0.998928961122476,
+      "expectedSamples": 130728,
+      "decodedSamples": 130728
+    },
+    "transcription": {
+      "id": "v_slau2",
+      "original": {
+        "text": " into the trap. And feast in? Ha ha ha!"
+      },
+      "processed": {
+        "text": " into the trap. And feast in Ha Ha!"
+      }
+    },
+    "transcriptionLimitation": "Tiny-model ASR is corroboration only; two of nine pairs differ. It does not supersede direct PCM preservation or constitute listening certification.",
+    "voiceLine": "| v_slau2 | kazi | Into the trap, and the feast began! Hahaha! |",
+    "listeningAcceptance": "Pending full real-game listening acceptance"
+  },
+  {
+    "id": "v_spec3",
+    "reason": "Existing recording exceeds standard duration. Removed only near-silent internal pause centres; no speech-rate change or new voice. Source head/tail and all PCM samples above -60 dBFS preserved before standard peak-normalized MP3 encoding.",
+    "backup": "sfx_swap/backups/v_spec3.mp3",
+    "sourceSha256": "ca4c789e7cd9a9064d560c6f50a2b8101354f9e9caf8786c8c9f60d829d3fa7b",
+    "processedSha256": "ad0c884321001008140e4637be0a791dbe2a21d39f145e23f3ca5214a98cf3fc",
+    "originalDecodedSeconds": 6.24,
+    "processedDecodedSeconds": 5.965215419501134,
+    "encoding": {
+      "seconds": 5.9652,
+      "peakDbFS": -1.629,
+      "bytes": 42467
+    },
+    "rate": 22050,
+    "cuts": [
+      {
+        "first": 36888,
+        "last": 42947,
+        "pauseStart": 33801,
+        "pauseEnd": 46034,
+        "removedPeakDbFS": -66.95502471923828
+      }
+    ],
+    "pcmProof": {
+      "id": "v_spec3",
+      "retainedAudibleSamples": 80738,
+      "audiblePcmSha256": "49ad670ebacfdef15deaac08807a4ec2ce1ee68bd4b2327c5922838100b6a5eb",
+      "exactAudiblePcmPreserved": true,
+      "encodedCorrelation": 0.9990806055899899,
+      "expectedSamples": 131533,
+      "decodedSamples": 131533
+    },
+    "transcription": {
+      "id": "v_spec3",
+      "original": {
+        "text": " Deep calculation, or a quick nap, we will never know."
+      },
+      "processed": {
+        "text": " Deep calculation, or a quick nap, we will never know."
+      }
+    },
+    "transcriptionLimitation": "Tiny-model ASR is corroboration only; two of nine pairs differ. It does not supersede direct PCM preservation or constitute listening certification.",
+    "voiceLine": "| v_spec3 | kazi | Deep calculation... or a quick nap? We will never know. |",
+    "listeningAcceptance": "Pending full real-game listening acceptance"
+  },
+  {
+    "id": "v_tt2",
+    "reason": "Existing recording exceeds standard duration. Removed only near-silent internal pause centres; no speech-rate change or new voice. Source head/tail and all PCM samples above -60 dBFS preserved before standard peak-normalized MP3 encoding.",
+    "backup": "sfx_swap/backups/v_tt2.mp3",
+    "sourceSha256": "e6af0efbecbe894ade4c4b7c2b4a489874be6ab439bbe7d7e8f474201ced16e3",
+    "processedSha256": "d06b1f694a6134b101ff553ad58b859481677ab0aa9bd987bd851e5ec965a965",
+    "originalDecodedSeconds": 6.4,
+    "processedDecodedSeconds": 5.997777777777777,
+    "encoding": {
+      "seconds": 5.9978,
+      "peakDbFS": -1.579,
+      "bytes": 42649
+    },
+    "rate": 22050,
+    "cuts": [
+      {
+        "first": 68462,
+        "last": 77331,
+        "pauseStart": 65375,
+        "pauseEnd": 80418,
+        "removedPeakDbFS": -240
+      }
+    ],
+    "pcmProof": {
+      "id": "v_tt2",
+      "retainedAudibleSamples": 85255,
+      "audiblePcmSha256": "66b057e4ad0cceac9b8abbcc64bdcc4207f42c1ec2e3cea9c6256e77a79536a8",
+      "exactAudiblePcmPreserved": true,
+      "encodedCorrelation": 0.9991602186266642,
+      "expectedSamples": 132251,
+      "decodedSamples": 132251
+    },
+    "transcription": {
+      "id": "v_tt2",
+      "original": {
+        "text": " Keep your back roll tight, or you will be sorry."
+      },
+      "processed": {
+        "text": " Keep your back roll tight, or you will be sorry."
+      }
+    },
+    "transcriptionLimitation": "Tiny-model ASR is corroboration only; two of nine pairs differ. It does not supersede direct PCM preservation or constitute listening certification.",
+    "voiceLine": "| v_tt2 | kazi | Keep your back row tight, or you will be sorry. |",
+    "listeningAcceptance": "Pending full real-game listening acceptance"
+  },
+  {
+    "id": "v_tt6",
+    "reason": "Existing recording exceeds standard duration. Removed only near-silent internal pause centres; no speech-rate change or new voice. Source head/tail and all PCM samples above -60 dBFS preserved before standard peak-normalized MP3 encoding.",
+    "backup": "sfx_swap/backups/v_tt6.mp3",
+    "sourceSha256": "742694432b0bfa1fa3ee7c0f2c7df2ba1a9cdfe5acd138da4a50b66a256108c7",
+    "processedSha256": "6cb9986c041ae9adccfc36145160d40519fe54a216f1cf2e1c995544ffea9204",
+    "originalDecodedSeconds": 6.78,
+    "processedDecodedSeconds": 5.767256235827665,
+    "encoding": {
+      "seconds": 5.7673,
+      "peakDbFS": -1.777,
+      "bytes": 41004
+    },
+    "rate": 22050,
+    "cuts": [
+      {
+        "first": 16445,
+        "last": 22355,
+        "pauseStart": 13358,
+        "pauseEnd": 25442,
+        "removedPeakDbFS": -211.81607055664062
+      },
+      {
+        "first": 37796,
+        "last": 41822,
+        "pauseStart": 34709,
+        "pauseEnd": 44909,
+        "removedPeakDbFS": -240
+      },
+      {
+        "first": 60386,
+        "last": 67649,
+        "pauseStart": 57299,
+        "pauseEnd": 70736,
+        "removedPeakDbFS": -86.46343231201172
+      },
+      {
+        "first": 83892,
+        "last": 89024,
+        "pauseStart": 80805,
+        "pauseEnd": 92111,
+        "removedPeakDbFS": -224.90948486328125
+      }
+    ],
+    "pcmProof": {
+      "id": "v_tt6",
+      "retainedAudibleSamples": 80336,
+      "audiblePcmSha256": "6c85db83386ad0152f0da4239e66a96fe4e446a11536070ffbe2c7d6d54f059f",
+      "exactAudiblePcmPreserved": true,
+      "encodedCorrelation": 0.9988914981510415,
+      "expectedSamples": 127168,
+      "decodedSamples": 127168
+    },
+    "transcription": {
+      "id": "v_tt6",
+      "original": {
+        "text": " The move is mine, and the move is everything."
+      },
+      "processed": {
+        "text": " The move is mine, and the move is everything."
+      }
+    },
+    "transcriptionLimitation": "Tiny-model ASR is corroboration only; two of nine pairs differ. It does not supersede direct PCM preservation or constitute listening certification.",
+    "voiceLine": "| v_tt6 | kazi | The move is mine, and the move is everything. |",
+    "listeningAcceptance": "Pending full real-game listening acceptance"
+  }
+]
