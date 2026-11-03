@@ -85,9 +85,16 @@ def main():
                 ta, tb = toks[a], toks[b]
                 if ta and tb and len(ta & tb) / len(ta | tb) >= 0.75:
                     problems.append(f'near-duplicate {a} ~ {b} (jaccard)')
-    # ASR spot check
+    # ASR spot check: up to N clips, spread across modes in id order
     if args.asr:
-        for c in man['clips'][:args.asr]:
+        spot, seen_modes = [], set()
+        for c in man['clips']:
+            if c['mode'] not in seen_modes:
+                spot.append(c)
+                seen_modes.add(c['mode'])
+            if len(spot) >= args.asr:
+                break
+        for c in spot:
             wav = f'/tmp/asrspot_{c["id"]}.wav'
             subprocess.run([FFMPEG, '-v', 'error', '-y', '-i', str(PACK / c['file']),
                             '-ac', '1', '-ar', '16000', wav], check=True)

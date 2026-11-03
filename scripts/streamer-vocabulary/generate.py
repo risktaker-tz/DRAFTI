@@ -35,7 +35,7 @@ def save_state(st):
     STATE.write_text(json.dumps(st, indent=1, sort_keys=True), encoding='utf8')
 
 
-def tts(text, voice, dest, attempts=8):
+def tts(text, voice, dest, attempts=10):
     """One raw take with patient rate-limit backoff. Returns True on success."""
     staging = dest.with_suffix('.partial.wav')
     log = dest.with_suffix('.log')
@@ -53,7 +53,7 @@ def tts(text, voice, dest, attempts=8):
         log.write_text(errlog[-2000:], encoding='utf8')
         if not re.search(r'429|rate.?limit|too many requests', errlog, re.I):
             return False          # permanent failure for this attempt round
-        time.sleep(35)            # patient quota wait, no retry storms
+        time.sleep(60)            # patient quota wait, no retry storms
     return False
 
 
@@ -74,11 +74,22 @@ def sha256(path):
     return h.hexdigest()
 
 
-def next_batch(recs, voice_prefix, count):
-    """Next `count` pending sentences for one voice, in id order."""
-    todo = [r for r in recs
-            if r['id'].startswith(voice_prefix)
-            and state['clips'].get(r['id'], {}).get('status') != 'accepted']
+def next_batch(recs, voice_prefix, count, failed_only=False, order='id'):
+    """Next `count` sentences for one voice, in id order (optionally only
+    previously-failed ones — used by targeted retry loops)."""
+    if failed_only:
+        todo = [r for r in recs
+                if r['id'].startswith(voice_prefix)
+                and state['clips'].get(r['id'], {}).get('status') == 'failed']
+    else:
+        todo = [r for r in recs
+                if r['id'].startswith(voice_prefix)
+                and state['clips'].get(r['id'], {}).get('status') != 'accepted']
+    if order == 'reverse':
+        todo = list(reversed(todo))
+    elif order == 'random':
+        import random
+        random.shuffle(todo)
     return todo[:count]
 
 
@@ -124,13 +135,18 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--voice', required=True, choices=list(VOICE_BY_PREFIX))
     ap.add_argument('--count', type=int, default=20)
+    ap.add_argument('--attempts', type=int, default=10, help='TTS attempts per sentence')
+    ap.add_argument('--failed-only', action='store_true',
+                    help='retry only previously-failed sentences for this voice')
+    ap.add_argument('--order', choices=['id', 'reverse', 'random'], default='id',
+                    help='batch ordering (reverse/random rotate which ids meet the quota window)')
     ap.add_argument('--asr-spot', type=int, default=0, help='ASR-verify first N of this batch')
     args = ap.parse_args()
     RAW.mkdir(parents=True, exist_ok=True)
     (PACK / 'audio').mkdir(parents=True, exist_ok=True)
     voice = VOICE_BY_PREFIX[args.voice]
     all_recs = list(records())
-    batch = next_batch(all_recs, args.voice, args.count)
+    batch = next_batch(all_recs, args.voice, args.count, failed_only=args.failed_only, order=args.order)
     print(f'batch for {args.voice}: {[r["id"] for r in batch]}')
     accepted = 0
     for r in batch:
@@ -139,7 +155,7 @@ def main():
         if not raw.exists():
             entry['takes'] += 1
             print(f'{r["id"]}: TTS...', flush=True)
-            if not tts(r['text'], voice, raw):
+            if not tts(r['text'], voice, raw, attempts=args.attempts):
                 entry.update(status='failed', error='tts-failed')
                 save_state(state)
                 print(f'{r["id"]}: TTS FAILED', flush=True)
