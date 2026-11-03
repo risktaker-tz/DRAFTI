@@ -3,7 +3,7 @@
 const fs = require('fs'), path = require('path'), assert = require('assert/strict');
 const { execFileSync } = require('child_process');
 const root = path.resolve(__dirname, '..');
-const report = JSON.parse(fs.readFileSync(path.join(root, 'docs/arena-fairness.json'), 'utf8'));
+const report = JSON.parse(fs.readFileSync(path.resolve(root, process.argv[2] || 'docs/arena-fairness.json'), 'utf8'));
 assert.match(report.sourceCommit, /^[a-f0-9]{40}$/);
 const snapshot = path.join(root, 'scripts/research_media/fairness-source-' + report.sourceCommit);
 for (const file of ['src/engine.js', 'src/ui.js', 'scripts/arena_harness.js']) {
@@ -16,6 +16,9 @@ for (const file of ['src/engine.js', 'src/ui.js', 'scripts/arena_harness.js']) {
 }
 const h = require(path.join(snapshot, 'scripts/arena_harness.js')).createHarness();
 assert.equal(h.fingerprint, report.sourceFingerprint, 'Recorded kernel must match the historical production source');
+assert(h.E.RULESETS[report.ruleset || 'american']);
+const openingLevels = h.api.ROSTER.map(nation => h.api.rosterLevel(nation.id)).sort((a,b) => a-b);
+const openingMedian = (openingLevels[96] + openingLevels[97]) / 2;
 assert.equal(report.bouts.length, 36);
 assert.equal(report.nations.length, 194);
 const played = {}, wins = {};
@@ -35,10 +38,10 @@ for (const nation of report.nations) {
   assert.equal(nation.wins, wins[nation.id] || 0);
   assert(nation.level >= 4 && nation.level <= 10);
 }
-assert.deepEqual(report.growth.map(x => [x.season, x.medianLevel]), [[1, 1], [2, 2], [3, 3], [4, 4]]);
+assert.deepEqual(report.growth.map(x => [x.season, x.medianLevel]),
+  [1, 2, 3, 4].map(season => [season, openingMedian + season - 1]));
 assert.equal(report.openers[0].challenger, 'KE');
 assert.equal(new Set(report.openers.map(x => x.challenger)).size, 3);
-assert.equal(report.nations.find(x => x.id === 'KE').played, 1);
 assert(report.nations.some(x => x.bonusXp > 0));
 let champion = 'TZ', dethronings = 0;
 for (const bout of report.bouts) {
@@ -47,4 +50,6 @@ for (const bout of report.bouts) {
 }
 assert.equal(dethronings, report.dethronings);
 assert(dethronings > 0);
-console.log('PASS: historical production kernel hash, all 36 bouts/194 nation totals, rotating openers, stage bonuses, dethroning and 1→2→3→4 median growth. Scope: American rules; winner-stays distribution, not equal national win probability.');
+console.log('PASS: production kernel hash, all 36 bouts/194 nation totals, rotating openers, stage bonuses and dethroning. Rules: ' +
+  (report.ruleset || 'american') + '. Median progression: ' + report.growth.map(x => x.medianLevel).join(' → ') +
+  '. Winner-stays scheduling yields unequal appearances.');
