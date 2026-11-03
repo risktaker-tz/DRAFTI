@@ -2,6 +2,9 @@
 
 ## Current continuation — 3 November 2026
 
+Raw audience downloads independently verified 2026-11-03T11:29:02.007Z: all646 recordings re-read from disk and match pinned byte sizes and SHA256 hashes, total1,670,546,740bytes. Manifest hash82023fa5313ed245b289a9e875c6d80959cc406d790986adecdbfc1ab99b412f; evidence docs/audience-vibes/raw-download-verification.json. download-progress completedAt2026-11-03T11:14:40.419Z, failures empty; CIM found neither download nor supervisor running. Local-download completion gate is now satisfied. ZAI completion gate remains UNPROVEN because browser connection failed before current Stop status could be read; do not send follow-up until freshly confirmed. No raw files added to Git or base offline build.
+
+
 PUBLIC VERIFIED: source3b91723e5e199a220d9b07c45e52c0070527dc27, Vercel dpl_9HdbjpxHbt95ioxx2UgUvB6kAyjg READY, canonical https://drafti-afrika.vercel.app/ HTTP200 exact13,117,445bytes SHA256f521dcd5945daaf4c4c528ae3585b0323e6b4a44adc58f248719fc897a09d9f9,verified2026-11-03T11:18:25.987Z. Includes d69sounddecks/audit plusnewMarblefirstvisit/contrast/quietposition. BothNode/Pythonbuildersbyteidentical;9currentUI/settings testsplus13previoussoundchecks pass. Existing savedthemechoices stayuntouched. Main/Pages stilloldb9486e1: fullgoalnotcomplete.
 
 Production browser proof on fresh secondary project alias https://drafti-kappa.vercel.app/?audio-audit tab8: actualMarbleLux,EA10,100cells40pieces,human31-26thenrealAI16-21,statusYourmove,12soundstarts/11IDs includinggeneratedclassic,0observedconsoleerrors; node scripts/verify_sound_log.js docs/default-marble-production.json returns0issues. This is openingproof, NOTfullhumanmatch. SavedJSON/PNG; mainownerpublictab2notreloadedorchanged. Tab7local8082freshpreviewalsoconfirmedMarble andisdeliverable; cancloseagent-createdduplicatepreviewifnecessary,butkeepuserownedtabs.
