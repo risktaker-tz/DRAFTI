@@ -1,19 +1,202 @@
 {
  "clips": {
   "sf2_001": {
-   "error": "'peakDbfs'",
-   "status": "failed",
+   "bytes": 27654,
+   "error": null,
+   "lufs": -18.9,
+   "peakDbfs": -1.807,
+   "seconds": 3.8624,
+   "status": "accepted",
    "takes": 2
+  },
+  "sf2_002": {
+   "bytes": 26923,
+   "error": null,
+   "lufs": -18.1,
+   "peakDbfs": -1.581,
+   "seconds": 3.741,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_003": {
+   "bytes": 31860,
+   "error": null,
+   "lufs": -19.3,
+   "peakDbfs": -1.573,
+   "seconds": 4.4637,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_004": {
+   "bytes": 32957,
+   "error": null,
+   "lufs": -19.2,
+   "peakDbfs": -1.646,
+   "seconds": 4.6174,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_005": {
+   "bytes": 36431,
+   "error": null,
+   "lufs": -18.6,
+   "peakDbfs": -1.634,
+   "seconds": 5.1149,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_006": {
+   "bytes": 28203,
+   "error": null,
+   "lufs": -19.8,
+   "peakDbfs": -1.646,
+   "seconds": 3.9353,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_007": {
+   "bytes": 20523,
+   "error": null,
+   "lufs": -19.3,
+   "peakDbfs": -1.504,
+   "seconds": 2.8343,
+   "status": "accepted",
+   "takes": 2
+  },
+  "sf2_008": {
+   "bytes": 23997,
+   "error": null,
+   "lufs": -17.4,
+   "peakDbfs": -1.57,
+   "seconds": 3.3404,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_009": {
+   "bytes": 28934,
+   "error": null,
+   "lufs": -18.0,
+   "peakDbfs": -1.732,
+   "seconds": 4.046,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_010": {
+   "bytes": 23083,
+   "error": null,
+   "lufs": -18.1,
+   "peakDbfs": -1.629,
+   "seconds": 3.1904,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_011": {
+   "bytes": 22168,
+   "error": null,
+   "lufs": -19.5,
+   "peakDbfs": -1.619,
+   "seconds": 3.0726,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_012": {
+   "bytes": 25826,
+   "error": null,
+   "lufs": -19.6,
+   "peakDbfs": -1.605,
+   "seconds": 3.5855,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_013": {
+   "bytes": 29300,
+   "error": null,
+   "lufs": -19.3,
+   "peakDbfs": -1.508,
+   "seconds": 4.0907,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_014": {
+   "bytes": 25094,
+   "error": null,
+   "lufs": -18.7,
+   "peakDbfs": -1.574,
+   "seconds": 3.479,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_015": {
+   "bytes": 34054,
+   "error": null,
+   "lufs": -19.2,
+   "peakDbfs": -1.64,
+   "seconds": 4.7709,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_016": {
+   "bytes": 20157,
+   "error": null,
+   "lufs": -19.1,
+   "peakDbfs": -1.632,
+   "seconds": 2.787,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_017": {
+   "bytes": 29117,
+   "error": null,
+   "lufs": -18.3,
+   "peakDbfs": -1.587,
+   "seconds": 4.0533,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_018": {
+   "bytes": 32957,
+   "error": null,
+   "lufs": -18.1,
+   "peakDbfs": -1.563,
+   "seconds": 4.5979,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_019": {
+   "bytes": 24180,
+   "error": null,
+   "lufs": -18.0,
+   "peakDbfs": -1.533,
+   "seconds": 3.3659,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_020": {
+   "bytes": 31677,
+   "error": null,
+   "lufs": -20.7,
+   "peakDbfs": -1.635,
+   "seconds": 4.4202,
+   "status": "accepted",
+   "takes": 1
   },
   "sj2_001": {
-   "error": "Speech with padding is 6.616s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 2
+   "bytes": 38443,
+   "error": null,
+   "lufs": -21.0,
+   "peakDbfs": -1.509,
+   "seconds": 5.3948,
+   "status": "accepted",
+   "takes": 3
   },
   "sm2_001": {
-   "error": "'peakDbfs'",
-   "status": "failed",
-   "takes": 2
+   "bytes": 41551,
+   "error": null,
+   "lufs": -20.2,
+   "peakDbfs": -1.621,
+   "seconds": 5.8392,
+   "status": "accepted",
+   "takes": 3
   }
  }
 }

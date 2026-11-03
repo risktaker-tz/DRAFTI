@@ -193,7 +193,7 @@ FEMALE = [
 
 
 MALE = [
-    ('sm2_001', 'session_open', "Good day, everyone — welcome! The board goes live shortly.",
+    ('sm2_001', 'session_open', "Good day, everyone — welcome! The stream starts shortly.",
      P_SESSION, 'any', None, 'positive'),
     ('sm2_002', 'session_open', "We are on air — serious checkers begins right here!",
      P_SESSION, 'any', None, 'positive'),
@@ -299,7 +299,7 @@ MALE = [
 ]
 
 FUNNY = [
-    ('sj2_001', 'session_open', "Welcome in — board set, jokes free, checkers serious!",
+    ('sj2_001', 'session_open', "Welcome in — jokes are free and checkers is serious!",
      P_SESSION, 'any', None, 'playful'),
     ('sj2_002', 'session_open', "We are live — side effects may include smiling.",
      P_SESSION, 'any', None, 'playful'),
