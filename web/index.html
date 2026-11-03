@@ -837,6 +837,7 @@ body.hv .piece.ebony .body {
 .wrap-seg { flex-wrap: wrap; }
 .wrap-seg button { flex: 1 1 40%; border-left: none !important; border-top: 1px solid var(--panel-line); }
 .wrap-seg button:nth-child(-n+2) { border-top: none; }
+.wrap-seg button.east-africa-rule { flex: 1 1 30%; min-width: 0; border-top: none; }
 
 @media (max-width: 560px) {
   .drawer { width: 100vw; }
@@ -1239,6 +1240,9 @@ body.fx-wood .board-frame { background-image: repeating-linear-gradient(93deg, t
         <div class="seg-row">
           <span class="seg-label">Rules</span>
           <div class="seg-btns wrap-seg" id="segRules">
+            <button class="east-africa-rule" data-v="eastafrica8" title="International rules on 8×8, except men capture forward only; maximum capture and flying kings remain">East Africa 8×8</button>
+            <button class="east-africa-rule" data-v="eastafrica10" title="Default: International 10×10 rules, except men capture forward only; maximum capture and flying kings remain">East Africa 10×10</button>
+            <button class="east-africa-rule" data-v="eastafrica12" title="International rules on 12×12, except men capture forward only; maximum capture and flying kings remain">East Africa 12×12</button>
             <button data-v="american">American 8×8</button>
             <button data-v="brazilian" title="International rules on an 8×8 board, also called Brazilian draughts">International 8×8 · Brazilian</button>
             <button data-v="russian">Russian 8×8</button>
@@ -1518,8 +1522,14 @@ window.DRAFTI_VOICES = {"nice":"jam","sharp":"jam","clean":"jam","why":"jam","su
 <script>
 'use strict';
 /*
- * DRAFTI rules engine — an original implementation of five public-domain
+ * DRAFTI rules engine — an original implementation of eight public-domain
  * draughts rulesets:
+ *
+ *   - eastafrica8 / eastafrica10 / eastafrica12: the owner's East Africa
+ *                   variant of the corresponding International-family game.
+ *                   The only rule difference is menCaptureBack=false. Flying
+ *                   kings, maximum capture, turn-end crowning and light-side
+ *                   opening stay the same. Default is East Africa 10x10.
  *
  *   - american      American Checkers / English draughts, 8x8, 12 men a side.
  *                   Dark side opens. Men capture forward only. Kings step one
@@ -1567,6 +1577,24 @@ function makeEngine() {
   const MATE = 1000000;
 
   const RULESETS = {
+    eastafrica8: {
+      id: 'eastafrica8', name: 'East Africa 8×8', n: 8, pieceRows: 3,
+      flyingKings: true, menCaptureBack: false, maxCapture: true,
+      promoteEndsMove: false, firstSide: IVORY, drawPlies: 50,
+      manValue: 100, kingValue: 300, advance: 3, homeGuard: 12, center: 4,
+    },
+    eastafrica10: {
+      id: 'eastafrica10', name: 'East Africa 10×10', n: 10, pieceRows: 4,
+      flyingKings: true, menCaptureBack: false, maxCapture: true,
+      promoteEndsMove: false, firstSide: IVORY, drawPlies: 50,
+      manValue: 100, kingValue: 320, advance: 2, homeGuard: 10, center: 3,
+    },
+    eastafrica12: {
+      id: 'eastafrica12', name: 'East Africa 12×12', n: 12, pieceRows: 5,
+      flyingKings: true, menCaptureBack: false, maxCapture: true,
+      promoteEndsMove: false, firstSide: IVORY, drawPlies: 50,
+      manValue: 100, kingValue: 320, advance: 2, homeGuard: 10, center: 3,
+    },
     american: {
       id: 'american', name: 'American Checkers', n: 8, pieceRows: 3,
       flyingKings: false, menCaptureBack: false, maxCapture: false,
@@ -2634,11 +2662,12 @@ function createPlayerProgressStore(storage) {
   }
 
   const settings = Object.assign(
-    { rsId: 'american', mode: 'ai', diff: 'l5', humanSide: IVORY, sound: true, rotate: true, theme: 'neon', clock: 0, speed: 1, hv: false, ambient: true, style: 'classic', styleIvory: 'italian', styleEbony: 'czech', pname: 'Uhakika', pname2: 'Usiogope', aivaiAuto: true, jumpPaths: true, shake: true, pieces: 'theme', arenaRounds: 1, humanlike: false, streamer: 'off' },
+    { rsId: 'eastafrica10', mode: 'ai', diff: 'l5', humanSide: IVORY, sound: true, rotate: true, theme: 'neon', clock: 0, speed: 1, hv: false, ambient: true, style: 'classic', styleIvory: 'italian', styleEbony: 'czech', pname: 'Uhakika', pname2: 'Usiogope', aivaiAuto: true, jumpPaths: true, shake: true, pieces: 'theme', arenaRounds: 1, humanlike: false, streamer: 'off' },
     loadJSON(SETTINGS_KEY, {})
   );
   if (settings.streamer !== 'female' && settings.streamer !== 'male' && settings.streamer !== 'funny') settings.streamer = 'off';
-  if (!E.RULESETS[settings.rsId]) settings.rsId = 'american';
+  // New setups default to East Africa 10x10; saved rule choices stay intact.
+  if (!E.RULESETS[settings.rsId]) settings.rsId = 'eastafrica10';
   if (settings.mode !== 'ai' && settings.mode !== 'hotseat' && settings.mode !== 'aivai') settings.mode = 'ai';
   // difficulty ladder: migrate the old three strengths onto the new rungs
   const OLD_DIFF = { easy: 'l2', medium: 'l5', hard: 'l7' };
