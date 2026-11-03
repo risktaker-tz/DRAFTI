@@ -4,20 +4,6 @@
 {"sid": "340934", "reason": "reject-window: bed shorter than 8s minimum"}
 {"sid": "340972", "reason": "reject-window: bed shorter than 8s minimum"}
 {"sid": "433880", "reason": "reject-window: bed shorter than 8s minimum"}
-{"sid": "650514", "reason": "missing-raw"}
-{"sid": "678672", "reason": "reject-window: bed shorter than 8s minimum"}
-{"sid": "696116", "reason": "missing-raw"}
-{"sid": "760552", "reason": "missing-raw"}
-{"sid": "861331", "reason": "missing-raw"}
-{"sid": "861933", "reason": "missing-raw"}
-{"sid": "867038", "reason": "missing-raw"}
-{"sid": "870634", "reason": "reject-window: bed shorter than 8s minimum"}
-{"sid": "25281", "reason": "reject-window: bed shorter than 8s minimum"}
-{"sid": "150965", "reason": "reject-window: bed shorter than 8s minimum"}
-{"sid": "340358", "reason": "reject-window: bed shorter than 8s minimum"}
-{"sid": "340934", "reason": "reject-window: bed shorter than 8s minimum"}
-{"sid": "340972", "reason": "reject-window: bed shorter than 8s minimum"}
-{"sid": "433880", "reason": "reject-window: bed shorter than 8s minimum"}
 {"sid": "678672", "reason": "reject-window: bed shorter than 8s minimum"}
 {"sid": "861933", "reason": "missing-raw"}
 {"sid": "867038", "reason": "missing-raw"}
