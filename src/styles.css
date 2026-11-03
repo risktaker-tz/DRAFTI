@@ -1067,7 +1067,7 @@ body.flags-on .piece.ebony { --disc-hi: var(--side-b-1, var(--pl-d-1)); --disc-f
   border: 1px solid var(--frame-hi); box-shadow: inset 0 1px 1px rgba(255,255,255,.28), 0 1px 2px rgba(0,0,0,.7); }
 .board-inner { box-shadow: 0 0 0 1px var(--frame-lo), 0 0 0 3px var(--frame-hi), 0 3px 9px rgba(0,0,0,.7); }
 body.fx-wood .board-frame { background-image: repeating-linear-gradient(93deg, transparent 0 6px, rgba(25,10,0,.15) 7px 8px), linear-gradient(150deg,var(--frame-hi),var(--frame) 55%,var(--frame-lo)); }
-.sq.last::after { background: linear-gradient(135deg, transparent, var(--accent-weak) 45%, var(--accent-soft) 50%, var(--accent-weak) 55%, transparent); }
+.sq.last::after { background: linear-gradient(var(--move-sheen-angle, 135deg), transparent, var(--accent-weak) 45%, var(--accent-soft) 50%, var(--accent-weak) 55%, transparent); }
 /* The scoreboard sits in the same crafted frame as the playing surface.
    Opaque inset faces preserve the independently verified text contrast. */
 .banner { position: relative; border: 4px solid var(--frame); border-top-color: var(--frame-hi);

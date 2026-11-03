@@ -32,5 +32,6 @@ d.on=()=>false;assert(!d.directOwner('capture_own_feast'));d.on=()=>true;
 assert(d.directOwner('capture_own_feast'));assert(!d.directOwner('material_loss_sudden'),'Global rest prevents adjacent memes');
 for(let i=0;i<4;i++){d.defs['fixture_'+i]={event:'landing'};d.buffers.set('fixture_'+i,{});}
 const samples=[];for(let i=0;i<9;i++){now+=200;d.effect('landing');samples.push(plays.at(-1));}
+assert.equal(d.effect('not-an-embedded-event'),null,'Dynamic menu previews cannot resolve unknown events to an audio ID');
 for(let i=1;i<samples.length;i++)assert(!samples.slice(Math.max(0,i-3),i).includes(samples[i]),'Event decks avoid three recent performances');
 console.log('Owner originals passed: 18 exact cuts embedded, family quotas, rare-human-only laughter, persistent cooldown, category/mute/scene/speed guards');

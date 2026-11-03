@@ -7,6 +7,16 @@ const bank = sandbox.window.DRAFTI_SFX;
 const ui = fs.readFileSync(path.join(root, 'src/ui.js'), 'utf8');
 const direct = [...ui.matchAll(/SFX_BANK\.play\(\s*['"]([^'"]+)['"]/g)].map(m => m[1]);
 const referenceMap = require('./sound_references').collectSoundReferences(ui);
+const eventReferences=require('./sound_references').collectSoundReferences(ui,'effect');
+const ownerReferences=require('./sound_references').collectSoundReferences(ui,'directOwner');
+const eventIds=new Set(Object.values(bank).map(clip=>clip.event).filter(Boolean));
+const ownerMap=(sandbox.window.DRAFTI_OWNER_AUDIO||{}).clips||{};
+const ownerEvents=new Set(Object.values(ownerMap).map(clip=>clip.event));
+const missingEvents=eventReferences.references.filter(event=>!eventIds.has(event));
+const missingOwnerEvents=ownerReferences.references.filter(event=>!ownerEvents.has(event));
+const controlledPreviewExpressions=eventReferences.unresolved.filter(item=>item.expression==='button.dataset.event');
+const unresolvedEvents=eventReferences.unresolved.filter(item=>item.expression!=='button.dataset.event').concat(ownerReferences.unresolved);
+const missingOwnerIds=Object.keys(ownerMap).filter(id=>!bank[id]);
 const missing = referenceMap.references.filter(id => !bank[id] && !referenceMap.optional.includes(id) && !['move','capture','select','king','illegal','undo','levelup','relief','trap_snap','denied'].includes(id));
 const categories = {};
 const oversized = [];
@@ -25,6 +35,6 @@ for (const [id, clip] of Object.entries(bank)) {
   if (format.sampleRate !== 22050 || format.numberOfChannels !== 1 || format.bitrate > 56500) encoding.push({id,sampleRate:format.sampleRate,channels:format.numberOfChannels,bitrate:format.bitrate});
   if (bytes > 61440) oversized.push({id, bytes});
 }
-console.log(JSON.stringify({clips: Object.keys(bank).length, categories, directReferences: direct.length, playbackCallSites: referenceMap.sites.length, uniqueReferencedIds: referenceMap.references.length, optionalOriginalIds: referenceMap.optional, approvedDurationOverrides: limits.overrides, unresolvedExpressions: referenceMap.unresolved, missing, oversized, durations, encoding, limitations: 'All clips measured for duration, encoding and size. Reference analysis covers literal calls, pooled IDs, conditional choices, style-generated IDs and thinking decks. Browser playback still requires verification.'}, null, 2));
-if (missing.length || referenceMap.unresolved.length || oversized.length || durations.length) process.exitCode = 1;
+console.log(JSON.stringify({clips: Object.keys(bank).length, categories, directReferences: direct.length, playbackCallSites: referenceMap.sites.length, uniqueReferencedIds: referenceMap.references.length, optionalOriginalIds: referenceMap.optional, approvedDurationOverrides: limits.overrides, unresolvedExpressions: referenceMap.unresolved, eventReferences:eventReferences.references,ownerEventReferences:ownerReferences.references,missingEvents,missingOwnerEvents,missingOwnerIds,unresolvedEvents,controlledPreviewExpressions, missing, oversized, durations, encoding, limitations: 'All clips measured for duration, encoding and size. Static analysis covers sample pools and event/owner call sites. The menu event selector is restricted at runtime to embedded registry definitions and unknown events return null; all other unresolved expressions fail. Browser full-game playback still requires verification.'}, null, 2));
+if (missing.length || referenceMap.unresolved.length || missingEvents.length || missingOwnerEvents.length || missingOwnerIds.length || unresolvedEvents.length || oversized.length || durations.length) process.exitCode = 1;
 })().catch(error => { console.error(error); process.exitCode = 1; });

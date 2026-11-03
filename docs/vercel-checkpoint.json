@@ -1,9 +1,10 @@
 {
   "url": "https://drafti-afrika.vercel.app/",
   "status": 200,
-  "bytes": 9527609,
-  "sha256": "907ade399bd2d576a7eefca5d934429360fea14019c6d9d2273fa7e815231b09",
+  "bytes": 13097692,
+  "sha256": "7ef954e25e2837403c8995085599aa0f9f77ef748049bd40c7b5e48ffba1ac87",
   "match": true,
-  "sourceCommit": "947e296aa3b58992a25604cbf30611bcfc738c9f",
-  "deploymentId": "dpl_8Tb3pQphGEhtEq1bCeFRpMMyB2hU"
+  "sourceCommit": "f714112d1ff741081db9b6d999e88dbe46ec4b5a",
+  "deploymentId": "dpl_BTSm3f3Bw89RPkbWtv7UPT9CYVPz",
+  "verifiedAt": "2026-11-03T04:07:41Z"
 }

@@ -2,6 +2,31 @@
 /* DRAFTI web UI — game state, rendering, input, animation, AI worker, extras. */
 // Local players own independent progress; the established keys remain mirrors
 // of the active player for older builds. Presentation preferences stay shared.
+function createMistakeMemory(saved) {
+  const locked=!!saved&&saved.schema!==1;
+  const state={schema:1,serial:0,entries:[]};
+  if(saved&&saved.schema===1&&Array.isArray(saved.entries)){
+    state.entries=saved.entries.filter(e=>e&&typeof e.actor==='string'&&typeof e.position==='string'&&typeof e.route==='string'&&
+      Number.isFinite(e.delta)&&e.delta>=170&&Number.isInteger(e.depth)&&e.depth>=3).slice(-512);
+    state.serial=Math.max(0,...state.entries.map(e=>e.seen||0));
+  }
+  return {
+    remember(actor,position,route,proof){
+      if(locked||!proof||proof.onlyMove||!Number.isFinite(proof.delta)||proof.delta<170||!Number.isInteger(proof.depth)||proof.depth<3)return false;
+      if(typeof actor!=='string'||actor.length>60||typeof position!=='string'||position.length>1600||typeof route!=='string'||route.length>600)return false;
+      let entry=state.entries.find(e=>e.actor===actor&&e.position===position&&e.route===route);
+      if(!entry){entry={actor,position,route,delta:proof.delta,depth:proof.depth};state.entries.push(entry);}
+      entry.delta=Math.max(entry.delta,proof.delta);entry.depth=Math.max(entry.depth,proof.depth);entry.seen=++state.serial;
+      state.entries.sort((a,b)=>(a.seen||0)-(b.seen||0));state.entries=state.entries.slice(-512);return true;
+    },
+    avoid(actor,position,route,depth){
+      const entry=state.entries.find(e=>e.actor===actor&&e.position===position&&e.route===route);
+      return !!entry&&!(Number.isFinite(depth)&&depth>entry.depth+2);
+    },
+    count:()=>state.entries.length,
+    snapshot:()=>JSON.parse(JSON.stringify(state)),
+  };
+}
 function createPlayerProgressStore(storage) {
   const key = 'drafti.players.v1';
   const routed = ['drafti.arena.v2','drafti.arena-progress.v1','drafti.stats.v1','drafti.match.v1','drafti.learning.v1'];
@@ -1141,6 +1166,12 @@ function createPlayerProgressStore(storage) {
     return Object.assign({ p: 0, w: 0, l: 0, d: 0, bestRun: 0, run: 0, runKind: null }, s);
   }
   function saveStats() { saveJSON(STATS_KEY, stats); }
+  const LEARNING_KEY='drafti.learning.v1';
+  let mistakeMemory=createMistakeMemory(loadJSON(LEARNING_KEY,null));
+  const learningActor=side=>G.mode==='aivai'&&settings.aivaiAuto
+    ? 'nation:'+(side===IVORY?G.seatIvory:G.seatEbony) : 'style:'+(styleForSide(side)||{id:'human'}).id;
+  const learningPosition=(rsId,board,side)=>rsId+'|'+(side===IVORY?Array.from(board):Array.from(board).reverse().map(p=>-p)).join(',');
+  const learningRoute=(move,side,size)=>move.path.map(square=>side===IVORY?square:size-1-square).join(',');
 
   // ---------------- sound ----------------
   const FX = {
@@ -1244,7 +1275,7 @@ function createPlayerProgressStore(storage) {
           // A wooden piece set down on wood: a soft click, a short noise
           // "grain" burst and a low body thump, with natural pitch jitter.
           case 'select': this.tick(0.05); break;
-          case 'move': this.woodKnock(0.16, 1); break;
+          case 'move': this.woodKnock(0.105, 1); break;
           case 'capture':
             this.woodKnock(0.3, 0.72);
             this.woodKnock(0.15, 0.55, 0.09); // second knock: piece hits the tray
@@ -1583,7 +1614,7 @@ function createPlayerProgressStore(storage) {
         '      playedScore: played == null ? 0 : played,\n' +
         '      bestOther: isFinite(bestOther) ? bestOther : NaN,\n' +
         '      preBest: isFinite(bestScore) ? bestScore : NaN,\n' +
-        '      onlyMove: roots.length <= 1 };\n' +
+        '      onlyMove: roots.length <= 1, depth: res.depth };\n' +
         // A won capture declined: the mover had a capture that scored far above
         // the quiet move actually played (only meaningful when captures were
         // optional — a forced capture would have been the played move).
@@ -1699,6 +1730,17 @@ function createPlayerProgressStore(storage) {
     }
     return best;
   }
+  function chooseRememberedMove(res,legal,levelId) {
+    const initial=chooseLadderMove(res,legal,levelId);if(!initial||legal.length<=1)return initial;
+    const actor=learningActor(G.side),position=learningPosition(G.rsId,G.board,G.side);
+    const blocked=move=>mistakeMemory.avoid(actor,position,learningRoute(move,G.side,G.board.length),res.depth);
+    if(!blocked(initial))return initial;
+    const alternatives=legal.filter(move=>!blocked(move));if(!alternatives.length)return initial;
+    const roots=(res.rootScores||[]).filter(root=>alternatives.some(move=>move.from===root.m.from&&move.path.join()===root.m.path.join()));
+    const highest=roots.filter(root=>Number.isFinite(root.score)).sort((a,b)=>b.score-a.score)[0];
+    const best=highest?highest.m:alternatives[0];
+    return chooseLadderMove({...res,best,rootScores:roots},alternatives,levelId);
+  }
 
   function runSearch(kind) {
     const id = ++reqId;
@@ -1774,7 +1816,7 @@ function createPlayerProgressStore(storage) {
     const delay = Math.max(0, base - (Date.now() - thinkStart));
     setTimeout(() => {
       if (res.id !== reqId || G.phase !== 'idle') return;
-      executeMove(chooseLadderMove(res, G.legal, searchLevelForSide()));
+      executeMove(chooseRememberedMove(res, G.legal, searchLevelForSide()));
     }, delay);
   }
 
@@ -1865,10 +1907,16 @@ function createPlayerProgressStore(storage) {
   }
 
   // ---------------- highlights ----------------
+  function moveSheenAngle(from, to, n) {
+    // CSS gradient direction is perpendicular to its bright stripe. Keep the
+    // stripe parallel to the hop in board coordinates; the frame owns flips.
+    return Math.atan2(Math.floor(to / n) - Math.floor(from / n), to % n - from % n) * 180 / Math.PI;
+  }
   function clearHighlights() {
     for (const el of squareEls()) {
       el.classList.remove('sel', 'hop', 'target', 'capture-target', 'finish-target', 'last', 'hint', 'landing');
       el.removeAttribute('data-step');
+      el.style.removeProperty('--move-sheen-angle');
     }
     for (const p of G.pieces) if (p.el) p.el.classList.remove('threat', 'doomed');
   }
@@ -1920,6 +1968,11 @@ function createPlayerProgressStore(storage) {
     if (G.lastMove) {
       mark(G.lastMove.from, 'last');
       mark(G.lastMove.path[G.lastMove.path.length - 1], 'last');
+      const path = G.lastMove.path, squares = squareEls();
+      if (path.length > 1) {
+        squares[path[0]].style.setProperty('--move-sheen-angle', moveSheenAngle(path[0], path[1], G.rs.n) + 'deg');
+        squares[path.at(-1)].style.setProperty('--move-sheen-angle', moveSheenAngle(path.at(-2), path.at(-1), G.rs.n) + 'deg');
+      }
     }
     if (G.hint) {
       mark(G.hint.from, 'hint');
@@ -2166,12 +2219,13 @@ function createPlayerProgressStore(storage) {
     say(role, opts) {
       if (!this.canPlay(role, opts)) return false;
       const now = performance.now();
+      const src = SFX_BANK.play(this.cue.snd, { vol: .95, rate: 1, queue: false });
+      if (!src) return false;
       this.at.set(role, now);
       const key = settings.streamer + ':' + role;
       this.count.set(key, (this.count.get(key) || 0) + 1);
       this.lastLine = this.cue.snd;
-      const src = SFX_BANK.play(this.cue.snd, { vol: .95, rate: 1 });
-      if (src) this.busyUntil = now + Math.min(6500, (this.cue.dur * 1000) + 400);
+      this.busyUntil = now + (this.cue.dur * 1000) + 400;
       return true;
     },
   };
@@ -2426,13 +2480,14 @@ function createPlayerProgressStore(storage) {
     const w = getWorker();
     if (!w) return;
     const id = ++verdictId;
-    pendingVerdict = { id, ply, caps: mv.caps.length, mover: side };
+    pendingVerdict = { id, ply, caps: mv.caps.length, mover: side, epoch:gameEpoch,
+      engine:G.mode==='aivai'||G.mode==='ai'&&side!==G.humanSide,actor:learningActor(side) };
     w.postMessage({
       cmd: 'classify', id, rsId: G.rsId, side, noProgress: preNoProg,
       board: preBoard, playedPath: mv.path.join(),
       detectMissed: G.mode === 'ai' && side !== G.humanSide,
       withOpp: true,
-      opts: { budgetMs: 340, maxDepth: 9, jitter: 0 },
+      opts: { budgetMs: 340, maxDepth: 9, jitter: 0, fullRootWindow:true },
     });
   }
 
@@ -2564,10 +2619,12 @@ function createPlayerProgressStore(storage) {
 
   function handleVerdict(res) {
     const pv = pendingVerdict;
-    if (!pv || res.id !== pv.id) return;
+    if (!pv || res.id !== pv.id || pv.epoch !== gameEpoch) return;
     pendingVerdict = null;
     if (G.over || G.history.length !== pv.ply) return;
     const h = G.history[pv.ply - 1];
+    if(pv.engine && h && mistakeMemory.remember(pv.actor,learningPosition(G.rsId,h.boardBefore,pv.mover),
+        learningRoute(h.move,pv.mover,h.boardBefore.length),res))saveJSON(LEARNING_KEY,mistakeMemory.snapshot());
     if (isFinite(res.delta) && res.delta >= 420 && !res.onlyMove && h && G.history.length > 4)
       SFX_BANK.directOwner('human_blunder_flagrant', { human: G.mode === 'hotseat' || G.mode === 'ai' && pv.mover === G.humanSide, forced: res.onlyMove, delta: res.delta });
 
@@ -2699,7 +2756,7 @@ function createPlayerProgressStore(storage) {
     const p = pieceAt(mv.from);
     if (!p) return;
     p.el.classList.add('lifted');
-    if (mv.path.length === 2 && !mv.caps.length) SFX_BANK.effect('slide', { vol: .13 });
+    if (mv.path.length === 2 && !mv.caps.length) SFX_BANK.effect('slide', { vol: .075 });
     if (Math.abs(p.code) === 2 && !mv.caps.length) SFX_BANK.effect('king_glint', { vol: .12 });
     for (let k = 1; k < mv.path.length; k++) {
       if(generation !== gameEpoch)return false;
@@ -2714,7 +2771,7 @@ function createPlayerProgressStore(storage) {
         SFX_BANK.effect(k === mv.path.length - 1 ? 'impact' : 'jump', { vol: k === mv.path.length - 1 ? .32 : .17 + k * .025 });
       } else {
         FX.play('move');
-        SFX_BANK.effect('landing', { vol: .16 });
+        SFX_BANK.effect('landing', { vol: .08 });
       }
       await sleep(mv.caps.length >= 3 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches ? HOP_MS * 1.25 : HOP_MS);
       if(generation !== gameEpoch)return false;
@@ -3701,6 +3758,7 @@ function createPlayerProgressStore(storage) {
     Object.assign(arenaProgress,loadJSON(ARENA_PROGRESS_KEY,{})||{});
     if(!arenaProgress.bonusXp || typeof arenaProgress.bonusXp!=='object')arenaProgress.bonusXp={};
     for(const key of Object.keys(stats))delete stats[key];Object.assign(stats,loadJSON(STATS_KEY,{})||{});
+    mistakeMemory=createMistakeMemory(loadJSON(LEARNING_KEY,null));
     arenaProgressSignature='';settings.pname=cleanName(playerProgress.active().name,'Uhakika');saveJSON(SETTINGS_KEY,settings);
     if(!resumeLeagueMatch())newGame();renderPlayerProfiles();
   }
@@ -3752,8 +3810,7 @@ function createPlayerProgressStore(storage) {
     updateSegs();
     STREAMER.reset(); // a mode switch starts a fresh commentary session
     if (settings.sound && settings.sfx.voice && v !== 'off') {
-      const hello = v === 'female' ? 'sf_greet1' : v === 'male' ? 'sm_greet1' : 'tellyou';
-      SFX_BANK.play(hello, { vol: .9 });
+      STREAMER.say('greeting');
     }
   });
   wireSeg('segSide', (v) => {

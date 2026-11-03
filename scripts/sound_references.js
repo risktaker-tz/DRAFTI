@@ -1,12 +1,12 @@
 'use strict';
 const acorn=require('./tooling/node_modules/acorn');
-function collectSoundReferences(source) {
+function collectSoundReferences(source,method='play') {
  const ast=acorn.parse(source,{ecmaVersion:'latest',locations:true});
  const vars=new Map(),properties=new Map(),calls=[],optional=new Set();
  const property=n=>n?.computed?n.property?.value:n?.property?.name;
  function walk(n){if(!n||typeof n!=='object')return;if(n.type==='VariableDeclarator'&&n.id.type==='Identifier'&&n.init){if(!vars.has(n.id.name))vars.set(n.id.name,[]);vars.get(n.id.name).push(n.init);}
  if(n.type==='Property'){const key=n.key.name||n.key.value;if(!properties.has(key))properties.set(key,[]);properties.get(key).push(n.value);}
- if(n.type==='CallExpression'&&n.callee.type==='MemberExpression'&&n.callee.object.name==='SFX_BANK'&&property(n.callee)==='play')calls.push(n);
+ if(n.type==='CallExpression'&&n.callee.type==='MemberExpression'&&n.callee.object.name==='SFX_BANK'&&property(n.callee)===method)calls.push(n);
  if(n.type==='ConditionalExpression'&&n.test.type==='MemberExpression'&&n.test.object.type==='MemberExpression'&&n.test.object.object.name==='SFX_BANK'&&property(n.test.object)==='defs'&&n.consequent.type==='Literal'&&n.consequent.value===property(n.test))optional.add(n.consequent.value);
  for(const [key,value]of Object.entries(n))if(key!=='loc'){if(Array.isArray(value))value.forEach(walk);else if(value&&typeof value==='object')walk(value);}}
  walk(ast);

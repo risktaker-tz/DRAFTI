@@ -1,18 +1,18 @@
 {
-  "clips": 380,
+  "clips": 544,
   "categories": {
-    "ui": 33,
-    "party": 21,
-    "comedy": 24,
-    "majestic": 6,
-    "drama": 37,
-    "voice": 121,
+    "ui": 69,
+    "party": 45,
+    "comedy": 40,
+    "majestic": 22,
+    "drama": 69,
+    "voice": 161,
     "think": 106,
     "judge": 32
   },
-  "directReferences": 71,
-  "playbackCallSites": 132,
-  "uniqueReferencedIds": 339,
+  "directReferences": 70,
+  "playbackCallSites": 133,
+  "uniqueReferencedIds": 338,
   "optionalOriginalIds": [
     "shrimp_orig",
     "v_retire_orig"
@@ -25,6 +25,42 @@
     }
   },
   "unresolvedExpressions": [],
+  "eventReferences": [
+    "coin",
+    "crown",
+    "defeat",
+    "draw",
+    "drawer",
+    "feast",
+    "impact",
+    "jump",
+    "king_glint",
+    "landing",
+    "reunion",
+    "slide",
+    "stage_final",
+    "stage_group",
+    "stage_quarter",
+    "stage_semi",
+    "theme",
+    "victory"
+  ],
+  "ownerEventReferences": [
+    "capture_own_feast",
+    "human_blunder_flagrant",
+    "material_loss_sudden"
+  ],
+  "missingEvents": [],
+  "missingOwnerEvents": [],
+  "missingOwnerIds": [],
+  "unresolvedEvents": [],
+  "controlledPreviewExpressions": [
+    {
+      "line": 4039,
+      "expression": "button.dataset.event",
+      "ids": []
+    }
+  ],
   "missing": [],
   "oversized": [
     {
@@ -1880,5 +1916,5 @@
       "bitrate": 56000
     }
   ],
-  "limitations": "All clips measured for duration, encoding and size. Reference analysis covers literal calls, pooled IDs, conditional choices, style-generated IDs and thinking decks. Browser playback still requires verification."
+  "limitations": "All clips measured for duration, encoding and size. Static analysis covers sample pools and event/owner call sites. The menu event selector is restricted at runtime to embedded registry definitions and unknown events return null; all other unresolved expressions fail. Browser full-game playback still requires verification."
 }

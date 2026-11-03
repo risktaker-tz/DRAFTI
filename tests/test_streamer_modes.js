@@ -34,6 +34,14 @@ vm.createContext(sandbox);
 vm.runInContext(ui.slice(s,e)+'\nthis.STREAMER=STREAMER;',sandbox);
 const S=sandbox.STREAMER;
 
+// A rejected bank play must leave both the fallback and quota available.
+const originalPlay=sandbox.SFX_BANK.play;
+sandbox.settings.streamer='female';sandbox.SFX_BANK.play=()=>null;
+assert.equal(S.say('praise'),false,'suppressed bank playback allows the existing reaction');
+assert.equal(S.count.size,0,'rejected playback spends no quota');
+assert.equal(S.at.size,0,'rejected playback starts no cooldown');
+sandbox.SFX_BANK.play=originalPlay;sandbox.settings.streamer='off';
+
 // every gendered pool id exists, is family-tagged, role-tagged, event-tagged
 for (const mode of ['female','male']) {
   for (const [role,pool] of Object.entries(S.POOLS[mode])) {

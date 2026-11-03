@@ -403,7 +403,7 @@ function makeEngine() {
       return best;
     }
 
-    let bestMove = rootMoves[0].m, bestScore = 0, completedDepth = 0;
+    let bestMove = rootMoves[0].m, bestScore = 0, completedDepth = 0, completedRoots = null;
     for (let depth = 1; depth <= maxDepth; depth++) {
       rootMoves.sort((a, b2) => b2.score - a.score);
       let alpha = -Infinity, iterBest = null, iterScore = -Infinity;
@@ -427,6 +427,9 @@ function makeEngine() {
         bestMove = iterBest || bestMove;
         bestScore = iterScore;
         completedDepth = depth;
+        // A timed-out next iteration may overwrite only some root scores.
+        // Keep comparisons at the same completed depth as bestMove/score.
+        completedRoots = rootMoves.map((rm) => ({ m: rm.m, score: rm.score }));
         if (bestScore > MATE - 1000) break; // forced win found
       }
       if (Date.now() > deadline) break;
@@ -434,7 +437,7 @@ function makeEngine() {
 
     return {
       best: bestMove, score: bestScore, depth: completedDepth, nodes,
-      rootScores: rootMoves.map((rm) => ({ m: rm.m, score: rm.score })),
+      rootScores: completedRoots || rootMoves.map((rm) => ({ m: rm.m, score: rm.score })),
     };
   }
 
