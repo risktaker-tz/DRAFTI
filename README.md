@@ -19,7 +19,8 @@ shaming, a heavy-hit voice and a board jolt — with your name in the banner:
 
 ## Features
 
-- **Five international rulesets**
+- **Eight rulesets, including the owner's East Africa variants**
+  - *East Africa 8×8 / 10×10 / 12×12* — the corresponding International-family rules, with **only backward capture by ordinary men disabled**. Flying kings, maximum capture, crowning and the other rules stay identical. **East Africa 10×10 is the fresh-install default**, with the three East Africa sizes in the first menu row. All saved rule preferences remain. An ongoing saved arena match resumes under its own original rules rather than changing mid-game.
   - *American Checkers* (English draughts, 8×8) — dark side opens, men capture
     forward only, kings step one square, crowning a man ends the move.
   - *International 8×8 · Brazilian Draughts* — international rules on the smaller board, retaining the existing Brazilian rules and saved selection.

@@ -662,11 +662,12 @@ function createPlayerProgressStore(storage) {
   }
 
   const settings = Object.assign(
-    { rsId: 'american', mode: 'ai', diff: 'l5', humanSide: IVORY, sound: true, rotate: true, theme: 'neon', clock: 0, speed: 1, hv: false, ambient: true, style: 'classic', styleIvory: 'italian', styleEbony: 'czech', pname: 'Uhakika', pname2: 'Usiogope', aivaiAuto: true, jumpPaths: true, shake: true, pieces: 'theme', arenaRounds: 1, humanlike: false, streamer: 'off' },
+    { rsId: 'eastafrica10', mode: 'ai', diff: 'l5', humanSide: IVORY, sound: true, rotate: true, theme: 'neon', clock: 0, speed: 1, hv: false, ambient: true, style: 'classic', styleIvory: 'italian', styleEbony: 'czech', pname: 'Uhakika', pname2: 'Usiogope', aivaiAuto: true, jumpPaths: true, shake: true, pieces: 'theme', arenaRounds: 1, humanlike: false, streamer: 'off' },
     loadJSON(SETTINGS_KEY, {})
   );
   if (settings.streamer !== 'female' && settings.streamer !== 'male' && settings.streamer !== 'funny') settings.streamer = 'off';
-  if (!E.RULESETS[settings.rsId]) settings.rsId = 'american';
+  // New setups default to East Africa 10x10; saved rule choices stay intact.
+  if (!E.RULESETS[settings.rsId]) settings.rsId = 'eastafrica10';
   if (settings.mode !== 'ai' && settings.mode !== 'hotseat' && settings.mode !== 'aivai') settings.mode = 'ai';
   // difficulty ladder: migrate the old three strengths onto the new rungs
   const OLD_DIFF = { easy: 'l2', medium: 'l5', hard: 'l7' };

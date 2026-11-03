@@ -824,6 +824,7 @@ body.hv .piece.ebony .body {
 .wrap-seg { flex-wrap: wrap; }
 .wrap-seg button { flex: 1 1 40%; border-left: none !important; border-top: 1px solid var(--panel-line); }
 .wrap-seg button:nth-child(-n+2) { border-top: none; }
+.wrap-seg button.east-africa-rule { flex: 1 1 30%; min-width: 0; border-top: none; }
 
 @media (max-width: 560px) {
   .drawer { width: 100vw; }

@@ -1,0 +1,13 @@
+{
+  "scope":"Fresh local origin127.0.0.1:8080, separate from the owner's existing localhost saved match",
+  "freshDefault":"East Africa 10×10",
+  "cells":100,
+  "pieces":40,
+  "humanMove":"31-26",
+  "computerReply":"17-21",
+  "statusAfterReply":"Your move",
+  "consoleErrorsObserved":[],
+  "mobile390":{"viewport":390,"pageWidth":390,"menuExpanded":true,"firstRules":[{"label":"East Africa 8×8","top":149,"left":32.400001525878906,"right":137.73125457763672},{"label":"East Africa 10×10","top":149,"left":137.7312469482422,"right":243.0687484741211},{"label":"East Africa 12×12","top":149,"left":243.0687561035156,"right":348.40000915527344}]},
+  "screenshots":["docs/east-africa-playable.png","docs/east-africa-menu-mobile.png"],
+  "notes":"Original saved game/rule preference kept. Menu closed and temporary viewport reset after verification. Unit tests cover backward-capture rejection and full International inheritance; this opening browser check does not pretend to test every tactical rule."
+}

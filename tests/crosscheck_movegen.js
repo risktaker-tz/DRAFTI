@@ -173,6 +173,9 @@ let bad = run(E.RULESETS.american)
   + run(E.RULESETS.brazilian)
   + run(E.RULESETS.russian)
   + run(E.RULESETS.international)
-  + run(E.RULESETS.canadian, 60, 100);
+  + run(E.RULESETS.canadian, 60, 100)
+  + run(E.RULESETS.eastafrica8)
+  + run(E.RULESETS.eastafrica10)
+  + run(E.RULESETS.eastafrica12, 60, 100);
 console.log(bad === 0 ? 'CROSS-CHECK CLEAN' : `CROSS-CHECK FAILED (${bad})`);
 process.exit(bad ? 1 : 0);

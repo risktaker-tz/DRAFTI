@@ -1,7 +1,13 @@
 'use strict';
 /*
- * DRAFTI rules engine — an original implementation of five public-domain
+ * DRAFTI rules engine — an original implementation of eight public-domain
  * draughts rulesets:
+ *
+ *   - eastafrica8 / eastafrica10 / eastafrica12: the owner's East Africa
+ *                   variant of the corresponding International-family game.
+ *                   The only rule difference is menCaptureBack=false. Flying
+ *                   kings, maximum capture, turn-end crowning and light-side
+ *                   opening stay the same. Default is East Africa 10x10.
  *
  *   - american      American Checkers / English draughts, 8x8, 12 men a side.
  *                   Dark side opens. Men capture forward only. Kings step one
@@ -49,6 +55,24 @@ function makeEngine() {
   const MATE = 1000000;
 
   const RULESETS = {
+    eastafrica8: {
+      id: 'eastafrica8', name: 'East Africa 8×8', n: 8, pieceRows: 3,
+      flyingKings: true, menCaptureBack: false, maxCapture: true,
+      promoteEndsMove: false, firstSide: IVORY, drawPlies: 50,
+      manValue: 100, kingValue: 300, advance: 3, homeGuard: 12, center: 4,
+    },
+    eastafrica10: {
+      id: 'eastafrica10', name: 'East Africa 10×10', n: 10, pieceRows: 4,
+      flyingKings: true, menCaptureBack: false, maxCapture: true,
+      promoteEndsMove: false, firstSide: IVORY, drawPlies: 50,
+      manValue: 100, kingValue: 320, advance: 2, homeGuard: 10, center: 3,
+    },
+    eastafrica12: {
+      id: 'eastafrica12', name: 'East Africa 12×12', n: 12, pieceRows: 5,
+      flyingKings: true, menCaptureBack: false, maxCapture: true,
+      promoteEndsMove: false, firstSide: IVORY, drawPlies: 50,
+      manValue: 100, kingValue: 320, advance: 2, homeGuard: 10, center: 3,
+    },
     american: {
       id: 'american', name: 'American Checkers', n: 8, pieceRows: 3,
       flyingKings: false, menCaptureBack: false, maxCapture: false,

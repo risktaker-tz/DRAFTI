@@ -19,4 +19,4 @@ for(const rs of Object.values(c.E.RULESETS)){
   const illegal=JSON.parse(JSON.stringify(saved));illegal.history[0].move.from=-1;assert.equal(c.restoreLeaguePosition(illegal),null,'Illegal saved route rejected');
 }
 assert.equal(c.restoreLeaguePosition({schema:9}),null);
-console.log('League resume passed: all five real rulesets, exact board/turn recovery, regenerated history/repetition and corrupted-save rejection');
+console.log('League resume passed: all '+Object.keys(c.E.RULESETS).length+' real rulesets, exact board/turn recovery, regenerated history/repetition and corrupted-save rejection');
