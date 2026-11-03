@@ -51,4 +51,20 @@ const capture={caps:[8],path:[1,17],promotes:false}; c.G.legal=[{caps:[]}];
 c.classify(capture,[capture],4,1);assert.equal(classified,'advantage');
 c.G.legal=[{caps:[17]}];c.classify(capture,[capture],4,1);assert.equal(classified,'none','Recapturable pieces earn no premature advantage praise');
 c.countSide=s=>s===-1?5:4;c.G.legal=[];c.classify(capture,[capture],4,-1);assert.equal(classified,'advantage','Opponent earns identical situational spotlight');
-console.log('Thinking and billboard checks passed: delayed sparse cues, cleanup, mute/toggle, stable matchup and all game states');
+let wink, cleanup, reduced = false;
+const hint = {
+  settings: {shake:true},
+  window: {matchMedia:()=>({matches:reduced})},
+  document: {createElement:()=>({setAttribute(){},remove(){if(wink===this)wink=null;}})},
+  pieceAt:sq=>sq===12?{el:{querySelector:()=>({querySelector:()=>wink,appendChild:el=>{wink=el;}})}}:null,
+  setTimeout:(fn,ms)=>{assert.equal(ms,850);cleanup=fn;}
+};
+vm.runInNewContext(ui.slice(ui.indexOf('  function winkHintPiece('),ui.indexOf('  function rebuildPieces(')),hint);
+hint.winkHintPiece(11);assert(!wink);
+hint.winkHintPiece(12);assert.equal(wink.className,'hint-wink hint-wink-shake');
+const firstCleanup=cleanup;
+hint.settings.shake=false;hint.winkHintPiece(12);assert.equal(wink.className,'hint-wink');
+firstCleanup();assert(wink,'An older timer cannot remove the latest hint');
+cleanup();assert(!wink);
+reduced=true;hint.winkHintPiece(12);assert(!wink,'Reduced motion skips the animated decoration');
+console.log('Thinking and billboard checks passed: hint feedback, delayed cues, cleanup, mute/toggle and stable matchup');
