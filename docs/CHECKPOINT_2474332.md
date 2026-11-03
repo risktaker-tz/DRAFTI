@@ -1,6 +1,6 @@
 ## 2474332 production checkpoint
 
-Vercel deployment dpl_21K1GLPyrDJTBALL8pWD9kEyodad is READY on drafti-afrika.vercel.app. HTTP 200 returned 13,096,127 bytes matching the Node and Python builds, SHA-256 8044ca73fc0b58e26543a277022495baedfad6fb607d18cde5df12cad10d76b4 (remove the separator space).
+Vercel deployment dpl_21K1GLPyrDJTBALL8pWD9kEyodad is READY on drafti-afrika.vercel.app. HTTP 200 returned 13,096,127 bytes matching the Node and Python builds, SHA-256 8044ca73fc0b58e26543a277022495baedfad6fb607d18cde5df12cad10d76b4.
 
 The current engine run passed 38,019 assertions. The independent move-generator cross-check reported zero mismatches across all eight rulesets. Playback regression coverage checks single captures and capture chains at all seven speeds and verifies identical AI search options at 1× and 16×. Browser review of the newly released capture impact timing is pending.
 
