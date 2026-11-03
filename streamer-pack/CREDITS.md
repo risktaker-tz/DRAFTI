@@ -1,6 +1,6 @@
 # Streamer pack credits
 
-All 300 recordings are **original in-house generation** — no third-party audio,
+The recordings in this checkpoint are **original in-house generation** — no third-party audio,
 no cloned performers, no runtime SpeechSynthesis.
 
 - **Female streamer**: z-ai neural voice profile **tongtong** — the same profile as

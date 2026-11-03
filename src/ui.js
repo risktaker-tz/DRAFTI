@@ -2363,6 +2363,35 @@ function createSoundAudit(capacity = 12000) {
   // phrasebook in docs/streamer-phrasebook.md; Funny mode reuses the app's
   // own judge voice and already-credited funny reactions only.
   const STREAMER = {
+    extraPools: {},
+    loadingVoices: new Set(),
+    warmVoice() {
+      const mode = settings.streamer, ctx = FX.ctx;
+      if (!ctx || !settings.sound || !settings.sfx.voice ||
+          !['female', 'male', 'funny'].includes(mode) || this.loadingVoices.has(mode)) return;
+      this.loadingVoices.add(mode);
+      return fetch('./streamer-vocabulary/manifest.json').then(response => {
+        if (!response.ok) throw Error('Streamer vocabulary unavailable');
+        return response.json();
+      }).then(async clips => {
+        const roles = { session_open: 'greeting', capture1: 'capture',
+          capture2: 'feast', capture3plus: 'capture_chain', new_king: 'crowning' };
+        const pool = this.extraPools[mode] = {};
+        for (const clip of clips) {
+          const role = roles[clip.role];
+          if (clip.mode !== mode || !role || !/^s[fjm]2_\d{3}$/.test(clip.id) ||
+              !(clip.durationSec > 0 && clip.durationSec <= 6)) continue;
+          try {
+            const response = await fetch('./streamer-vocabulary/' + clip.id + '.mp3');
+            if (!response.ok) continue;
+            const buffer = await ctx.decodeAudioData(await response.arrayBuffer());
+            SFX_BANK.defs[clip.id] = { c: 'voice', b: clip.text, durationSec: buffer.duration, hourGate: clip.hourGate };
+            SFX_BANK.buffers.set(clip.id, buffer);
+            (pool[role] ||= []).push(clip.id);
+          } catch { /* the existing voice library remains available */ }
+        }
+      }).catch(() => { /* optional vocabulary can be unavailable offline */ });
+    },
     ROLES: {
       greeting:    { chance: 1, cooldown: 20000, perGame: 1 },
       cta:         { chance: 1, cooldown: 90000, perGame: 4 },
@@ -2370,6 +2399,7 @@ function createSoundAudit(capacity = 12000) {
       great:       { chance: .45, cooldown: 90000,  perGame: 2 },
       capture:     { chance: .8, cooldown: 16000,  perGame: 8 },
       feast:       { chance: 1,  cooldown: 20000,  perGame: 5 },
+      capture_chain: { chance: 1, cooldown: 20000, perGame: 5 },
       crowning:    { chance: 1,  cooldown: 20000,  perGame: 5 },
       trap_set:    { chance: .4,  cooldown: 60000,  perGame: 2 },
       trap_spring: { chance: .55, cooldown: 60000,  perGame: 2 },
@@ -2443,6 +2473,7 @@ function createSoundAudit(capacity = 12000) {
       // with stale tactical claims. A newly selected voice waits for the menu
       // to close; enabling a setting itself never starts commentary.
       if (drawerOpen || document.hidden || G.progressConflict || (G.mode === 'aivai' && G.aiPaused)) return;
+      this.warmVoice();
       const now = performance.now(), quiet = now - this.lastSpokeAt;
       if (now < this.busyUntil || quiet < 12000) return;
       if (G.over) {
@@ -2457,6 +2488,7 @@ function createSoundAudit(capacity = 12000) {
         this.observedPly = G.history.length;
         // The recorded "double capture" must never describe three or more.
         if (move.caps.length === 2 && this.say('feast')) return;
+        if (move.caps.length >= 3 && this.say('capture_chain')) return;
         if (move.caps.length === 1 && this.say('capture')) return;
         if (move.promotes && this.say('crowning')) return;
       }
@@ -2475,7 +2507,7 @@ function createSoundAudit(capacity = 12000) {
       const mode = settings.streamer;
       if (mode !== 'female' && mode !== 'male' && mode !== 'funny') return false;
       const conf = this.ROLES[role];
-      const pool = (this.POOLS[mode] || {})[role];
+      const pool = [...(this.POOLS[mode]?.[role] || []), ...(this.extraPools[mode]?.[role] || [])];
       if (!conf || !pool || !pool.length) return false;
       if (!settings.sound || !settings.sfx.voice) return false;
       const now = performance.now();
@@ -2490,7 +2522,12 @@ function createSoundAudit(capacity = 12000) {
       if (Math.random() > conf.chance) return false;
       const hour = new Date().getHours();
       const fresh = pool.filter((id) => {
-        const text = SFX_BANK.defs[id]?.b || '';
+        const def = SFX_BANK.defs[id];
+        const text = def?.b || '';
+        if (def?.hourGate) {
+          const [first, last] = def.hourGate.split('-').map(Number);
+          if (!(hour >= first && hour <= last)) return false;
+        }
         if (/\btonight\b/i.test(text) && !(hour >= 17 || hour < 5)) return false;
         if (/\bgood evening\b/i.test(text) && hour < 17) return false;
         if (/\bgood morning\b/i.test(text) && !(hour >= 5 && hour < 12)) return false;

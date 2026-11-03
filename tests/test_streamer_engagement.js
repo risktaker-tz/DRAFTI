@@ -4,6 +4,7 @@ const ui=fs.readFileSync(path.join(__dirname,'../src/ui.js'),'utf8'),bank={};
 vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../src/audio.manifest.js'),'utf8'),{window:bank});
 let now=1000;const played=[];
 const c={settings:{streamer:'female',sound:true,sfx:{voice:true}},drawerOpen:false,document:{hidden:false},
+  FX:{ctx:null},
   G:{history:[{move:{caps:[],promotes:false}}],lastMoveAt:1000,phase:'idle',mode:'ai',humanSide:1,over:false},
   performance:{now:()=>now},Date:class{getHours(){return 20;}},Math:{random:()=>0},
   SFX_BANK:{defs:bank.DRAFTI_SFX,buffers:new Map(Object.keys(bank.DRAFTI_SFX).map(k=>[k,{}])),sceneLockUntil:0,activeSources:new Map(),
@@ -27,3 +28,23 @@ S.sessionOpened=false;S.rememberSession();assert.equal(stored.get('drafti.stream
 const reload={...c};vm.createContext(reload);vm.runInContext(ui.slice(ui.indexOf('  const STREAMER ='),ui.indexOf('  function flashLabel('))+'this.S=STREAMER;',reload);
 assert.equal(reload.S.sessionOpened,true,'Reloading the same livestream tab preserves its welcome state');
 console.log('PASS opening retry, selected voice, quiet-moment cadence, correct intermission, menu/pause/mute/ceremony gates and no stale tactical speech');
+
+async function checkVocabulary() {
+  const manifest = JSON.parse(fs.readFileSync(path.join(__dirname, '../web/streamer-vocabulary/manifest.json'), 'utf8').replace(/^\uFEFF/, ''));
+  const fetched = [];
+  c.settings.streamer = 'funny';
+  c.FX.ctx = { decodeAudioData: async () => ({duration: 3}) };
+  c.fetch = async url => {
+    fetched.push(url);
+    return {ok: true, json: async () => manifest, arrayBuffer: async () => new ArrayBuffer(1)};
+  };
+  const before = played.length;
+  await S.warmVoice();
+  assert.equal(played.length, before, 'Loading vocabulary does not start speech');
+  assert.equal(fetched.length, 1 + manifest.filter(clip => clip.mode === 'funny').length);
+  for (const [role, source] of Object.entries({capture: 'capture1', feast: 'capture2', capture_chain: 'capture3plus', crowning: 'new_king'})) {
+    assert(S.extraPools.funny[role].length > 0);
+    assert(S.extraPools.funny[role].every(id => manifest.some(clip => clip.id === id && clip.role === source)));
+  }
+}
+checkVocabulary().catch(error => { console.error(error); process.exitCode = 1; });

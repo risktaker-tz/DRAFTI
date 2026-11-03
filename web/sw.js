@@ -6,7 +6,10 @@ self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET' || new URL(event.request.url).origin !== self.location.origin) return;
   event.respondWith(fetch(event.request).then(response => {
     const navigation = event.request.mode === 'navigate' && event.request.url.startsWith(self.registration.scope);
-    if (response.ok && (navigation || ASSETS.some(path => new URL(path, self.registration.scope).href === event.request.url))) {
+    const vocabularyRoot = new URL('./streamer-vocabulary/', self.registration.scope).href;
+    const vocabulary = event.request.url.startsWith(vocabularyRoot) &&
+      /^(manifest\.json|s[fjm]2_\d{3}\.mp3)$/.test(event.request.url.slice(vocabularyRoot.length));
+    if (response.ok && (navigation || vocabulary || ASSETS.some(path => new URL(path, self.registration.scope).href === event.request.url))) {
       const copy = response.clone();
       const key = navigation ? new URL('./index.html', self.registration.scope).href : event.request;
       event.waitUntil(caches.open(CACHE).then(cache => cache.put(key, copy)));
