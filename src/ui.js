@@ -1397,6 +1397,10 @@ function createSoundAudit(capacity = 12000) {
           // A wooden piece set down on wood: a soft click, a short noise
           // "grain" burst and a low body thump, with natural pitch jitter.
           case 'select': this.tick(0.05); break;
+          case 'hint_wink':
+            this.tone(740, .095, 'sine', .065, .256, 1120);
+            this.tone(1397, .17, 'triangle', .038, .319);
+            break;
           case 'move': this.woodKnock(0.105, 1); break;
           case 'capture':
             this.woodKnock(0.3, 0.72);
@@ -2131,6 +2135,7 @@ function createSoundAudit(capacity = 12000) {
     wink.className = settings.shake ? 'hint-wink hint-wink-shake' : 'hint-wink';
     wink.setAttribute('aria-hidden', 'true');
     body.appendChild(wink);
+    FX.play('hint_wink');
     setTimeout(() => wink.remove(), 850);
   }
 
