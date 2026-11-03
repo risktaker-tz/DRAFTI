@@ -1398,8 +1398,10 @@ function createSoundAudit(capacity = 12000) {
           // "grain" burst and a low body thump, with natural pitch jitter.
           case 'select': this.tick(0.05); break;
           case 'hint_wink':
-            this.tone(740, .095, 'sine', .065, .256, 1120);
-            this.tone(1397, .17, 'triangle', .038, .319);
+            this.noise(.09, .022, .22, 2100);
+            this.woodKnock(.075, .95, .256);
+            this.tone(660, .22, 'sine', .034, .256, 990);
+            this.tone(1320, .28, 'sine', .019, .29);
             break;
           case 'move': this.woodKnock(0.105, 1); break;
           case 'capture':
@@ -2134,6 +2136,9 @@ function createSoundAudit(capacity = 12000) {
     const wink = document.createElement('span');
     wink.className = settings.shake ? 'hint-wink hint-wink-shake' : 'hint-wink';
     wink.setAttribute('aria-hidden', 'true');
+    wink.innerHTML = '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round">' +
+      '<path d="M7 12q3-4 6 0"/><path class="hint-wink-eye" d="M19 12q3-4 6 0"/>' +
+      '<path d="M9 20q7 8 14 0"/></svg>';
     body.appendChild(wink);
     FX.play('hint_wink');
     setTimeout(() => wink.remove(), 850);

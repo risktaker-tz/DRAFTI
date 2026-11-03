@@ -266,41 +266,32 @@ body.fx-scan::after {
   left: 50%;
   top: 50%;
   z-index: 4;
-  font: clamp(14px, 3.2vmin, 30px)/1 "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
-  filter: drop-shadow(0 2px 3px #2415039e);
+  width: 64%;
+  color: color-mix(in srgb, var(--disc-hi) 46%, white);
+  filter: drop-shadow(0 1px 1px color-mix(in srgb, var(--disc-edge) 55%, black));
   pointer-events: none;
   animation: hint-wink-reveal .8s ease both;
 }
-.hint-wink::before {
-  content: '🙂';
-  animation: hint-wink-smile .8s step-end both;
-}
-.hint-wink::after {
-  content: '😉';
-  position: absolute;
-  inset: 0;
-  animation: hint-wink-eye .8s step-end both;
+.hint-wink svg { display: block; width: 100%; }
+.hint-wink-eye {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hint-wink-eye .8s ease both;
 }
 @keyframes hint-wink-reveal {
-  0%, 100% { opacity: 0; transform: translate(-50%, -40%) scale(.68); }
-  22% { opacity: 1; transform: translate(-50%, -56%) rotate(-6deg) scale(1.1); }
-  48%, 74% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  0%, 100% { opacity: 0; transform: translate(-50%, -48%) scale(.9); }
+  22%, 74% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 }
 @keyframes hint-wink-eye {
-  0%, 65%, 100% { opacity: 0; }
-  32% { opacity: 1; }
-}
-@keyframes hint-wink-smile {
-  0%, 65%, 100% { opacity: 1; }
-  32% { opacity: 0; }
+  0%, 26%, 63%, 100% { transform: scaleY(1); }
+  32%, 48% { transform: scaleY(.07) rotate(-9deg); }
 }
 .piece:has(.hint-wink-shake) { animation: hint-piece-shake .8s ease-out both; }
 @keyframes hint-piece-shake {
-  0%, 26%, 58%, 100% { translate: 0 0; }
-  34% { translate: -3% 0; }
-  41% { translate: 3% 0; }
-  48% { translate: -1.5% 0; }
-  53% { translate: 1% 0; }
+  0%, 24%, 66%, 100% { rotate: 0deg; scale: 1; }
+  32% { rotate: -5deg; scale: 1.025 .98; }
+  43% { rotate: 2.5deg; scale: 1.01 1; }
+  55% { rotate: -1deg; scale: 1; }
 }
 @media (prefers-reduced-motion: reduce) { .hint-wink { display: none; } }
 .piece.ivory .body {
