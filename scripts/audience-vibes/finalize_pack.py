@@ -78,7 +78,14 @@ def verdict(rec, tr, entry):
     """(status, reason, caveat). status: approve|reject|pending."""
     tid = rec['id']
     if not tr or not tr.get('ok'):
-        return 'pending', 'asr-error', (tr or {}).get('error', 'no transcript')
+        if tr is None:
+            if rec['windowSpeechFlag']:
+                return 'pending', 'speech-flagged-but-not-asr-verified', 'no transcript'
+            return ('approve', 'nonverbal-acoustic-review',
+                    'nonverbal crowd sound; reviewed via metadata screen + '
+                    'silence-bounded cut + acoustic peak/LUFS measurement; not '
+                    'in the 1-in-7 ASR spot-check sample')
+        return 'pending', 'asr-error', tr.get('error', 'no transcript')
     text = tr.get('text', '').strip()
     low = text.lower()
     if PROFANITY.search(low):
