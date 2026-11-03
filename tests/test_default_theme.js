@@ -14,9 +14,13 @@ function boot(storage) {
 }
 const empty = new Map(), fresh = boot(empty);
 assert.equal(fresh.preferences.theme,'marble');
+assert.equal(fresh.preferences.rsId,'eastafrica8','New players start with East Africa 8x8');
+assert.equal(fresh.preferences.diff,'l1','New players start at Beginner');
 assert.equal(fresh.themes.find(t=>t.id===fresh.preferences.theme).name,'Marble Lux');
 assert.equal(fresh.preferences.pieces,'theme','New pieces still follow the selected table');
 assert.equal(empty.size,0,'Reading defaults must not overwrite storage');
+for(const rules of ['eastafrica8','eastafrica10','eastafrica12','american','brazilian','russian','international','canadian'])
+  assert.equal(boot(new Map([['drafti.settings.v1',JSON.stringify({rsId:rules})]])).preferences.rsId,rules,'Saved rules stay unchanged: '+rules);
 for (const theme of fresh.themes) {
   const store = new Map([['drafti.settings.v1',JSON.stringify({theme:theme.id,rsId:'russian',pname:'Custom player'})]]);
   const c = boot(store);

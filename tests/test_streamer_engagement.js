@@ -5,7 +5,7 @@ vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../src/audio.manifest.js
 let now=1000;const played=[];
 const c={settings:{streamer:'female',sound:true,sfx:{voice:true}},drawerOpen:false,document:{hidden:false},
   G:{history:[{move:{caps:[],promotes:false}}],lastMoveAt:1000,phase:'idle',mode:'ai',humanSide:1,over:false},
-  performance:{now:()=>now},Math:{random:()=>0},
+  performance:{now:()=>now},Date:class{getHours(){return 20;}},Math:{random:()=>0},
   SFX_BANK:{defs:bank.DRAFTI_SFX,buffers:new Map(Object.keys(bank.DRAFTI_SFX).map(k=>[k,{}])),sceneLockUntil:0,activeSources:new Map(),
     play(id,opts){played.push({id,opts});return {};}}};
 vm.createContext(c);vm.runInContext(ui.slice(ui.indexOf('  const STREAMER ='),ui.indexOf('  function flashLabel('))+'this.S=STREAMER;',c);

@@ -14,7 +14,7 @@ function setup(actor = 'engine') {
   const c = { window: manifest.window, settings, G, Math: math, performance: { now: () => now }, Date: { now: () => now },
     FX: { ensure: () => ctx }, URLSearchParams, location: { search: '' }, console,
     setInterval: fn => { timer = fn; }, turnKey: () => G.history.length, humanTurn: () => false,
-    hintPending: false, STREAMER: { pulse() {} }, IVORY: 1, LEVELS: { l10: { budgetMs: 1 } }, $: () => ({}), flashWhisper() {} };
+    hintPending: false, STREAMER: { pulse() {} }, AUDIENCE: { pulse() {} }, IVORY: 1, LEVELS: { l10: { budgetMs: 1 } }, $: () => ({}), flashWhisper() {} };
   vm.createContext(c);
   vm.runInContext(ui.slice(ui.indexOf('  function makeDeck('), ui.indexOf('  const THINK_POOL =')), c);
   vm.runInContext(ui.slice(ui.indexOf('  const SFX_BANK ='), ui.indexOf('  // ---------------- game state')) + 'this.bank=SFX_BANK;', c);

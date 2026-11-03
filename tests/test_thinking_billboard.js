@@ -26,6 +26,7 @@ vm.runInContext(ui.slice(ui.indexOf('  function updateBanner()'),ui.indexOf('  f
 c.render();assert.equal(el('bannerIvory').textContent,'Tanzania');assert.equal(el('bannerEbony').textContent,'Kenya');
 assert.equal(el('bannerContext').textContent,'Semi-finals');assert.equal(el('bannerDetail').textContent,'Bout 9/12 · 4th meeting');
 c.G.phase='thinking';c.render();assert.equal(el('bannerText').textContent,'Thinking — Tanzania');
+c.G.phase='animating';c.render();assert.equal(el('bannerText').textContent,'Moving — Tanzania','The moving side has not switched before the animation commits');
 assert.equal(el('bannerIvory').textContent,'Tanzania','Matchup remains independent of thinking status');
 c.G.over=true;c.G.result={winner:-1,reason:'No legal moves'};c.settings.aivaiAuto=false;c.arena.season=4;c.arena.bouts=0;c.render();assert.equal(el('bannerText').textContent,'Kenya wins');assert.equal(el('bannerContext').textContent,'No legal moves');
 assert.equal(el('bannerEventLabel').textContent,'Season 3','Finished board retains its real season after the ladder advances');

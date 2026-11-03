@@ -29,7 +29,7 @@ function createMistakeMemory(saved) {
 }
 function createPlayerProgressStore(storage) {
   const key = 'drafti.players.v1';
-  const routed = ['drafti.arena.v2','drafti.arena-progress.v1','drafti.stats.v1','drafti.match.v1','drafti.learning.v1'];
+  const routed = ['drafti.arena.v2','drafti.arena-progress.v1','drafti.stats.v1','drafti.match.v1','drafti.learning.v1','drafti.human-ladder.v1'];
   const copy = value => JSON.parse(JSON.stringify(value));
   const read = name => { try { const text = storage && storage.getItem(name); return text ? JSON.parse(text) : null; } catch { return null; } };
   let data = read(key);
@@ -44,9 +44,22 @@ function createPlayerProgressStore(storage) {
   data.players = data.players.filter(player => player && typeof player.id === 'string' && typeof player.name === 'string' && player.values && typeof player.values === 'object');
   if (!data.players.length) data.players.push({id:'player-1',name:'Uhakika',values:{}});
   if (!data.players.some(player => player.id === data.active)) data.active = data.players[0].id;
+  // Old builds shared a selected difficulty. Preserve that selection during
+  // migration; genuinely new players begin an independent automatic journey.
+  const legacyPrefs = read('drafti.settings.v1') || {};
+  const ladderMigrations = [];
+  for (const player of data.players) if (!Object.prototype.hasOwnProperty.call(player.values,'drafti.human-ladder.v1')) {
+    const chosen = /^l([1-9]|10)$/.test(legacyPrefs.diff || '') ? +legacyPrefs.diff.slice(1) : null;
+    player.values['drafti.human-ladder.v1'] = { schema:1, automatic:chosen === null, level:chosen || 1 };
+    ladderMigrations.push(player.id);
+  }
   const active = () => data.players.find(player => player.id === data.active);
   const dirty=new Map(),created=new Set(),baseline=new Map();let activeChanged=false,lastFailure='';
   const baselines=()=>{baseline.clear();for(const player of data.players)for(const name of routed)baseline.set(player.id+'|'+name,JSON.stringify(player.values[name]));};baselines();
+  for (const id of ladderMigrations) {
+    dirty.set(id,new Set(['drafti.human-ladder.v1']));
+    baseline.set(id+'|drafti.human-ladder.v1',undefined);
+  }
   const mark=name=>{if(!dirty.has(data.active))dirty.set(data.active,new Set());dirty.get(data.active).add(name);};
   const persist = () => {
     try {
@@ -115,13 +128,31 @@ function createPlayerProgressStore(storage) {
       if (!name || all.size >= 12 || [...all.values()].some(player => player.name.toLowerCase() === name.toLowerCase())) return null;
       const next = Math.max(2,Number.isSafeInteger(data.next) ? data.next : data.players.length + 1);
       const id='player-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,10);data.next=next+1;
-      data.players.push({id,name,values:{}});data.active=id;created.add(id);activeChanged=true;if(persist())mirror();return id;
+      data.players.push({id,name,values:{'drafti.human-ladder.v1':{schema:1,automatic:true,level:1}}});data.active=id;created.add(id);activeChanged=true;if(persist())mirror();return id;
     },
     resetLeague() {
       for (const name of ['drafti.arena.v2','drafti.arena-progress.v1','drafti.match.v1','drafti.learning.v1']) {mark(name);delete active().values[name];}
       const saved=persist();if(saved)mirror();return saved;
     },
     persist,
+  };
+}
+function createHumanProgression(saved, fallback = 'l1') {
+  const valid = id => typeof id === 'string' && /^l([1-9]|10)$/.test(id);
+  const locked = !!saved && saved.schema !== 1;
+  const level = saved && Number.isInteger(saved.level) && saved.level >= 1 && saved.level <= 10
+    ? saved.level : valid(fallback) ? +fallback.slice(1) : 1;
+  const state = {schema:1,automatic:!locked && (saved == null || saved.automatic === true),level};
+  return {
+    current: () => 'l' + state.level,
+    automatic: () => state.automatic,
+    manual(id) { if (locked || !valid(id)) return false; state.level=+id.slice(1);state.automatic=false;return true; },
+    setAutomatic(enabled) { if(locked)return false;state.automatic=!!enabled;return true; },
+    win(completedLevel) {
+      if(locked || !state.automatic || completedLevel !== 'l'+state.level || state.level >= 10)return false;
+      state.level++;return true;
+    },
+    snapshot: () => locked ? saved : {...state},
   };
 }
 // Opt-in verification retains a bounded, exportable history without writing
@@ -493,7 +524,7 @@ function createSoundAudit(capacity = 12000) {
   // and no one stays on top forever. Five points = one rung on the 1-10
   // ladder, and each new season every nation climbs one more rung.
   const rosterLevel = (id) =>
-    Math.min(10, Math.max(1, (LEVEL_IDS.indexOf(settings.diff) + 1 || 1) + Math.floor((arena.xp[id] || 0) / 5) + (arena.season - 1)));
+    Math.min(10, Math.max(4, LEVEL_IDS.indexOf(settings.diff) + 1 || 4) + Math.floor((arena.xp[id] || 0) / 5) + (arena.season - 1));
   // the challenge ladder, in the order the world comes calling: the rivalry
   // first, then East Africa, Africa, and the continents beyond — shuffled
   // inside each band so the visit order never goes stale
@@ -586,7 +617,7 @@ function createSoundAudit(capacity = 12000) {
       fragment.appendChild(row);
     }
     tbody.appendChild(fragment);
-    $('arenaProgressCaption').textContent = 'Season ' + arena.season + ' · starting strength ' + (LEVEL_IDS.indexOf(settings.diff) + 1 || 1) + ' · ' + ROSTER.length + ' nations · event bonuses tracked from this update';
+    $('arenaProgressCaption').textContent = 'Season ' + arena.season + ' · starting strength ' + Math.max(4,LEVEL_IDS.indexOf(settings.diff)+1||4) + ' · ' + ROSTER.length + ' nations · event bonuses tracked from this update';
   }
 
   // the name chips: tap one, type the new name, Enter or blur commits. The
@@ -668,13 +699,14 @@ function createSoundAudit(capacity = 12000) {
   const DEFAULT_THEME = 'marble';
   const STATS_KEY = 'drafti.stats.v1';
   function loadJSON(k, fb) {
-    if (['drafti.arena.v2','drafti.arena-progress.v1','drafti.stats.v1','drafti.match.v1','drafti.learning.v1'].includes(k)) return playerProgress.load(k,fb);
+    if (['drafti.arena.v2','drafti.arena-progress.v1','drafti.stats.v1','drafti.match.v1','drafti.learning.v1','drafti.human-ladder.v1'].includes(k)) return playerProgress.load(k,fb);
     try { const v = JSON.parse(localStorage.getItem(k)); return v && typeof v === 'object' ? v : fb; } catch { return fb; }
   }
-  function saveJSON(k, v) {
+  function saveJSON(k, v, extra) {
     if (playerProgress.routes(k)) {
       const saved=k === 'drafti.arena.v2' && G.over && G.mode === 'aivai'
-        ? playerProgress.saveBundle({[k]:v,'drafti.match.v1':null}) : playerProgress.save(k,v);
+        ? playerProgress.saveBundle({[k]:v,'drafti.match.v1':null})
+        : extra ? playerProgress.saveBundle({[k]:v,...extra}) : playerProgress.save(k,v);
       if(!saved && playerProgress.lastError()==='conflict' && !G.progressConflict){
         G.progressConflict=true;G.aiPaused=true;gameEpoch++;reqId++;aiPending=false;hintPending=false;
         if(worker){worker.terminate();worker=null;}FX.thinkStop();
@@ -686,7 +718,7 @@ function createSoundAudit(capacity = 12000) {
   }
 
   const settings = Object.assign(
-    { rsId: 'eastafrica10', mode: 'ai', diff: 'l5', humanSide: IVORY, sound: true, rotate: true, theme: DEFAULT_THEME, clock: 0, speed: 1, hv: false, ambient: true, style: 'classic', styleIvory: 'italian', styleEbony: 'czech', pname: 'Uhakika', pname2: 'Usiogope', aivaiAuto: true, jumpPaths: true, shake: true, pieces: 'theme', arenaRounds: 1, humanlike: false, streamer: 'off' },
+    { rsId: 'eastafrica8', mode: 'ai', diff: 'l1', humanSide: IVORY, sound: true, rotate: true, theme: DEFAULT_THEME, clock: 0, speed: 1, hv: false, ambient: true, style: 'classic', styleIvory: 'italian', styleEbony: 'czech', pname: 'Uhakika', pname2: 'Usiogope', aivaiAuto: true, jumpPaths: true, shake: true, pieces: 'theme', arenaRounds: 1, humanlike: false, streamer: 'off' },
     loadJSON(SETTINGS_KEY, {})
   );
   if (settings.streamer !== 'female' && settings.streamer !== 'male' && settings.streamer !== 'funny') settings.streamer = 'off';
@@ -702,6 +734,8 @@ function createSoundAudit(capacity = 12000) {
   if (!STYLES.some((s) => s.id === settings.styleEbony)) settings.styleEbony = 'czech';
   if (![0, 30, 60, 90].includes(settings.clock)) settings.clock = 0;
   if (![1, 2, 4, 6, 8, 10, 16].includes(settings.speed)) settings.speed = 1;
+  settings.audienceEnabled = settings.audienceEnabled === true;
+  settings.audienceVolume = Number.isFinite(settings.audienceVolume) ? Math.max(0,Math.min(1,settings.audienceVolume)) : .35;
   settings.sfx = Object.assign(
     { master: 0.9, animals: true, judge: true, comedy: true, voice: true, classic: true, think: true, ui: true, drama: true, party: true },
     (settings.sfx && typeof settings.sfx === 'object') ? settings.sfx : {}
@@ -1199,6 +1233,9 @@ function createSoundAudit(capacity = 12000) {
     return Object.assign({ p: 0, w: 0, l: 0, d: 0, bestRun: 0, run: 0, runKind: null }, s);
   }
   function saveStats() { saveJSON(STATS_KEY, stats); }
+  const HUMAN_LADDER_KEY = 'drafti.human-ladder.v1';
+  let humanLadder = createHumanProgression(loadJSON(HUMAN_LADDER_KEY,null),settings.diff);
+  function saveHumanLadder() { saveJSON(HUMAN_LADDER_KEY,humanLadder.snapshot()); }
   const LEARNING_KEY='drafti.learning.v1';
   let mistakeMemory=createMistakeMemory(loadJSON(LEARNING_KEY,null));
   const learningActor=side=>G.mode==='aivai'&&settings.aivaiAuto
@@ -1570,6 +1607,7 @@ function createSoundAudit(capacity = 12000) {
       return this.play(id, { vol: .5, rate: 1 });
     },
     resetGame() {
+      this.audienceReset?.();
       this.fastAnimalCount = 0;
       this.ownerCounts.clear(); this.ownerFamilyCounts.clear(); this.queue.length = 0; this.audioEpoch++;
       for (const source of this.activeSources.keys()) { try { source.stop(); } catch {} }
@@ -1702,6 +1740,7 @@ function createSoundAudit(capacity = 12000) {
       }
       if (opts && opts.maxDuration) src.start(0, 0, Math.min(opts.maxDuration, buf.duration));
       else src.start();
+      this.audienceHook?.({spoken,priority,category});
       if (new URLSearchParams(location.search).has('audio-audit')) {
         const row = { id: name, kind: 'sample', category, priority, phase: G.phase,
           mode: G.mode, ply: G.history?.length, turnSide: G.side, at: Math.round(now), run: performance.timeOrigin,
@@ -2386,6 +2425,7 @@ function createSoundAudit(capacity = 12000) {
       },
     },
     at: new Map(), count: new Map(), games: 0, busyUntil: 0, lastLine: '', cue: { snd: 'v_nice', dur: 2.5 },
+    lineAt: new Map(),
     joinedMidgame: false,
     sessionOpened: (() => { try { return sessionStorage.getItem('drafti.stream.welcomed.v1') === '1'; } catch { return false; } })(),
     lastSpokeAt: -Infinity, opened: false, observedPly: -1,
@@ -2448,7 +2488,15 @@ function createSoundAudit(capacity = 12000) {
       const key = mode + ':' + role;
       if ((this.count.get(key) || 0) >= conf.perGame) return false;
       if (Math.random() > conf.chance) return false;
-      const fresh = pool.filter((id) => id !== this.lastLine && SFX_BANK.buffers.has(id) && SFX_BANK.defs[id]);
+      const hour = new Date().getHours();
+      const fresh = pool.filter((id) => {
+        const text = SFX_BANK.defs[id]?.b || '';
+        if (/\btonight\b/i.test(text) && !(hour >= 17 || hour < 5)) return false;
+        if (/\bgood evening\b/i.test(text) && hour < 17) return false;
+        if (/\bgood morning\b/i.test(text) && !(hour >= 5 && hour < 12)) return false;
+        if (/\bgood afternoon\b/i.test(text) && !(hour >= 12 && hour < 17)) return false;
+        return id !== this.lastLine && now - (this.lineAt.get(id) ?? -Infinity) >= (role === 'cta' ? 120000 : 180000) && SFX_BANK.buffers.has(id) && SFX_BANK.defs[id];
+      });
       if (!fresh.length) return false;
       const id = fresh[(Math.random() * fresh.length) | 0];
       this.cue = { snd: id, dur: SFX_BANK.defs[id].durationSec || 2.5 };
@@ -2463,6 +2511,7 @@ function createSoundAudit(capacity = 12000) {
       const key = settings.streamer + ':' + role;
       this.count.set(key, (this.count.get(key) || 0) + 1);
       this.lastLine = this.cue.snd;
+      this.lineAt.set(this.cue.snd,now);
       this.lastSpokeAt = now;
       this.busyUntil = now + (this.cue.dur * 1000) + 400;
       return true;
@@ -2526,11 +2575,12 @@ function createSoundAudit(capacity = 12000) {
   }
 
   // expanding ring from a square — the crowning shockwave
-  function shockwave(sq) {
+  function shockwave(sq, captures = 0) {
     if (sq == null) return;
     const n = G.rs.n, r = (sq / n) | 0, c = sq % n;
     const el = document.createElement('div');
-    el.className = 'shockwave';
+    el.className = captures ? 'shockwave capture-shockwave' : 'shockwave';
+    if (captures) el.style.setProperty('--blast-radius', Math.min(2.6, 1.3 + captures * .24));
     el.style.left = (c * 100 / n) + '%';
     el.style.top = (r * 100 / n) + '%';
     el.style.width = (100 / n) + '%';
@@ -2886,6 +2936,7 @@ function createSoundAudit(capacity = 12000) {
     // Keep verified historical lessons, but never attach an old taunt,
     // doom state or trap to a position already passed during fast playback.
     if (G.over || G.history.length !== pv.ply) return;
+    if (isFinite(res.delta) && res.delta >= 420 && !res.onlyMove && G.history.length > 4) AUDIENCE.mistake(pv.mover);
     if (isFinite(res.delta) && res.delta >= 420 && !res.onlyMove && h && G.history.length > 4)
       SFX_BANK.directOwner('human_blunder_flagrant', { human: G.mode === 'hotseat' || G.mode === 'ai' && pv.mover === G.humanSide, forced: res.onlyMove, delta: res.delta });
 
@@ -3014,12 +3065,10 @@ function createSoundAudit(capacity = 12000) {
     setTimeout(() => effect.remove(), 1100);
   }
   function moveHopMs(captures) {
-    // Watchable presentation rungs, independent of the engine's search. 16x
-    // retains the former rapid 2x hop; lower settings leave room to follow it.
-    const arenaMs = { 1: 700, 2: 550, 4: 430, 6: 340, 8: 270, 10: 210, 16: 100 };
-    const base = G.mode === 'aivai' ? (arenaMs[G.aiSpeed] || arenaMs[1]) : HOP_MS;
-    const feast = captures >= 3 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    return base * (feast ? 1.25 : 1);
+    // The owner's 1x viewing pace is the baseline; selected multipliers scale
+    // presentation exactly. Engine accuracy/search effort is independent.
+    const base = G.mode === 'aivai' ? 700 / (G.aiSpeed || 1) : HOP_MS;
+    return base * (captures > 1 ? .8 : 1);
   }
   function captureRibbon(from, to, hopMs, captures) {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -3032,7 +3081,7 @@ function createSoundAudit(capacity = 12000) {
     ribbon.style.top = ((Math.floor(from / n) + .5) * 100 / n) + '%';
     ribbon.style.width = Math.hypot(dx, dy) + '%';
     ribbon.style.transform = 'rotate(' + Math.atan2(dy, dx) + 'rad)';
-    const duration = Math.max(100, hopMs * .85);
+    const duration = hopMs * .85;
     ribbon.style.setProperty('--ribbon-travel', duration + 'ms');
     const light = document.createElement('i'); ribbon.appendChild(light);
     piecesEl.appendChild(ribbon);
@@ -3057,9 +3106,21 @@ function createSoundAudit(capacity = 12000) {
       const capIdx = mv.caps[k - 1];
       if (capIdx !== undefined) {
         const victim = pieceAt(capIdx);
-        if (victim) setTimeout(() => { if (generation === gameEpoch && victim.el) { physicalBurst(victim.el, 'capture', moverSide); victim.el.classList.add('captured'); } }, hopMs * .45);
-        FX.play('capture');
-        SFX_BANK.effect(k === mv.path.length - 1 ? 'impact' : 'jump', { vol: k === mv.path.length - 1 ? .32 : .17 + k * .025 });
+        const final = k === mv.path.length - 1;
+        setTimeout(() => {
+          if (generation !== gameEpoch) return;
+          if (victim?.el) {
+            physicalBurst(victim.el, 'capture', moverSide);
+            victim.el.classList.add('captured');
+          }
+          const captures = mv.caps.length;
+          if (captures > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            shockwave(capIdx, final ? captures : 1);
+          }
+          FX.play('capture');
+          SFX_BANK.effect(final ? 'impact' : 'jump', { vol: final ? .32 : Math.min(.29, .17 + k * .025) });
+          if (final && captures > 1) SFX_BANK.effect('feast', { vol: Math.min(.48, .24 + captures * .05) });
+        }, hopMs * .32);
       } else {
         FX.play('move');
         SFX_BANK.effect('landing', { vol: .08 });
@@ -3106,8 +3167,8 @@ function createSoundAudit(capacity = 12000) {
     await animateMove(mv, generation);
     if(generation !== gameEpoch)return;
     const ply = commitMove(mv);
+    AUDIENCE.move(moverSide,mv.caps.length,mv.promotes,countSide(-moverSide));
     SFX_BANK.fastArenaAnimal(mv.caps.length, countSide(-moverSide), mv.promotes);
-    if (mv.caps.length >= 3) SFX_BANK.effect('feast', { vol: .4 });
     if (mv.caps.length >= 3) SFX_BANK.directOwner('capture_own_feast');
     else if (mv.caps.length >= 2) SFX_BANK.directOwner('material_loss_sudden');
     // trap drama: the mover either walked into the shot or found the safe way
@@ -3261,6 +3322,7 @@ function createSoundAudit(capacity = 12000) {
     G.phase = 'over';
     doomClear();
     recordStats(winner);
+    AUDIENCE.finish(winner);
   }
 
   function recordStats(winner) {
@@ -3278,7 +3340,9 @@ function createSoundAudit(capacity = 12000) {
       s.run = 0; s.runKind = null;
     }
     stats[G.rsId] = s;
-    saveStats();
+    if (winner === G.humanSide && humanLadder.win(G.diff))
+      saveJSON(STATS_KEY,stats,{[HUMAN_LADDER_KEY]:humanLadder.snapshot()});
+    else saveStats();
   }
 
   let overShown = false; // one farewell per game — the arena must not double-count
@@ -3610,6 +3674,8 @@ function createSoundAudit(capacity = 12000) {
       phase:'idle',over:false,result:null,recorded:false,sel:null,hint:null,aiPaused:!!saved.aiPaused,aiSpeed:settings.speed,progressConflict:false,
       capStreak:0,capStreakSide:0,shrimpFired:false});
     Object.assign(G,position);G.lastMove=G.history.length?G.history.at(-1).move:null;
+    const resumedLevels=arenaSeatLevels(G.seatIvory,G.seatEbony);
+    G.diffIvory=LEVEL_IDS[resumedLevels[0]-1];G.diffEbony=LEVEL_IDS[resumedLevels[1]-1];
     G.firstStrike=G.history.some(h=>h.move.caps.length);
     G.legal=E.legalMoves(rs,G.board,G.side);overShown=false;
     frameEl.classList.remove('victory-a','victory-b','coronation-a','coronation-b');
@@ -3634,6 +3700,7 @@ function createSoundAudit(capacity = 12000) {
     G.rsId = settings.rsId;
     G.mode = settings.mode;
     G.nationalMatch = G.mode === 'aivai' && settings.aivaiAuto;
+    if (G.mode === 'ai') settings.diff = humanLadder.current();
     G.diff = settings.diff;
     G.humanSide = settings.humanSide;
     G.aiPaused = false;
@@ -3818,7 +3885,7 @@ function createSoundAudit(capacity = 12000) {
     $('bannerEventLabel').textContent = tournament ? 'Season ' + (G.arenaSeason ?? arena.season) : 'Game';
     const context = tournament
       ? SEASON_STAGES[stageOfBout(eventBout)].name
-      : G.mode === 'aivai' ? 'AI vs AI' : G.mode === 'ai' ? 'Vs Computer' : 'Two players';
+      : G.mode === 'aivai' ? 'Exhibition' : G.mode === 'ai' ? 'Vs Computer' : 'Two players';
     let detail = tournament
       ? 'Bout ' + (eventBout + 1) + '/' + SEASON_LEN + (G.pairMeets >= 2 ? ' · ' + ord(G.pairMeets) + ' meeting' : '')
       : G.rs.name;
@@ -3846,7 +3913,7 @@ function createSoundAudit(capacity = 12000) {
       text.textContent = hintPending ? 'Looking for a hint' : (G.mode === 'ai' && G.side !== G.humanSide
         ? 'Thinking…' : 'Thinking — ' + displayName(G.side));
     } else if (G.phase === 'animating') {
-      text.textContent = 'Moving — ' + displayName(-G.side);
+      text.textContent = 'Moving — ' + displayName(G.side);
     } else {
       text.textContent = G.mode === 'ai'
         ? (G.side === G.humanSide ? 'Your move' : 'To move — ' + displayName(G.side))
@@ -3931,6 +3998,17 @@ function createSoundAudit(capacity = 12000) {
     set('segStyleI', settings.styleIvory);
     set('segStyleE', settings.styleEbony);
     set('segStreamer', settings.streamer);
+    set('segAudience', settings.audienceEnabled ? 'on' : 'off');
+    $('segAudience').querySelector('[data-v="on"]').disabled = !AUDIENCE.installed();
+    $('btnAudienceDownload').disabled = AUDIENCE.installing();
+    $('btnAudienceRemove').disabled = !AUDIENCE.installed() || AUDIENCE.installing();
+    $('audienceVolume').value = Math.round(settings.audienceVolume*100);
+    $('audienceVolumeValue').textContent = Math.round(settings.audienceVolume*100)+'%';
+    set('segProgression', humanLadder.automatic() ? 'on' : 'off');
+    $('rowProgression').hidden = settings.mode !== 'ai';
+    $('progressionNote').textContent = humanLadder.automatic()
+      ? 'Next opponent: ' + LEVELS[humanLadder.current()].name + '. Each win advances one rung, up to The Machine. Draws and defeats keep your rung.'
+      : 'Manual strength: ' + LEVELS[humanLadder.current()].name + '. Selecting a rung keeps it here until you enable automatic progression.';
     $('rowSide').style.display = settings.mode === 'ai' ? '' : 'none';
     $('rowDiff').style.display = settings.mode !== 'hotseat' ? '' : 'none';
     $('rowStyle').style.display = settings.mode === 'ai' ? '' : 'none';
@@ -4076,6 +4154,7 @@ function createSoundAudit(capacity = 12000) {
     Object.assign(arenaProgress,loadJSON(ARENA_PROGRESS_KEY,{})||{});
     if(!arenaProgress.bonusXp || typeof arenaProgress.bonusXp!=='object')arenaProgress.bonusXp={};
     for(const key of Object.keys(stats))delete stats[key];Object.assign(stats,loadJSON(STATS_KEY,{})||{});
+    humanLadder=createHumanProgression(loadJSON(HUMAN_LADDER_KEY,null),settings.diff);
     mistakeMemory=createMistakeMemory(loadJSON(LEARNING_KEY,null));
     arenaProgressSignature='';settings.pname=cleanName(playerProgress.active().name,'Uhakika');saveJSON(SETTINGS_KEY,settings);
     if(!resumeLeagueMatch())newGame();renderPlayerProfiles();
@@ -4138,17 +4217,51 @@ function createSoundAudit(capacity = 12000) {
     confirmIfNeeded(() => { settings.humanSide = s; saveJSON(SETTINGS_KEY, settings); newGame(); });
   });
   wireSeg('segDiff', (v) => {
+    if (G.mode === 'ai' && humanLadder.manual(v)) saveHumanLadder();
     changeDifficulty(v);
+  });
+  wireSeg('segProgression', v => {
+    humanLadder.setAutomatic(v === 'on');saveHumanLadder();updateSegs();
+  });
+  $('btnLadderReset').addEventListener('click', () => confirmIfNeeded(() => {
+    humanLadder=createHumanProgression({schema:1,automatic:true,level:1});saveHumanLadder();newGame();
+  }));
+  wireSeg('segAudience', v => {
+    if (v === 'on' && !AUDIENCE.installed()) return;
+    settings.audienceEnabled=v === 'on';saveJSON(SETTINGS_KEY,settings);
+    if (!settings.audienceEnabled) AUDIENCE.stop();updateSegs();
+  });
+  $('btnAudienceDownload').addEventListener('click',async()=>{await AUDIENCE.install();updateSegs();});
+  $('btnAudienceRemove').addEventListener('click',async()=>{await AUDIENCE.remove();updateSegs();});
+  $('audienceVolume').addEventListener('input',event=>{
+    settings.audienceVolume=Math.max(0,Math.min(1,+event.target.value/100));
+    $('audienceVolumeValue').textContent=Math.round(settings.audienceVolume*100)+'%';saveJSON(SETTINGS_KEY,settings);
   });
   wireSeg('segClock', (v) => {
     settings.clock = +v; saveJSON(SETTINGS_KEY, settings);
     clockArmedKey = -1; // re-arm with the new budget
     updateSegs();
   });
+  function revealPlaybackNeighbour(speed, previous) {
+    const box=$('segSpeed'),buttons=Array.from(box.querySelectorAll('button'));
+    const direction=Math.sign(speed-previous);if(!direction)return;
+    const index=buttons.findIndex(b=>+b.dataset.v===speed);if(index<0)return;
+    const next=buttons[Math.max(0,Math.min(buttons.length-1,index+direction))];
+    const frame=box.getBoundingClientRect(),a=buttons[index].getBoundingClientRect(),b=next.getBoundingClientRect();
+    const left=Math.min(a.left,b.left)-frame.left+box.scrollLeft;
+    const right=Math.max(a.right,b.right)-frame.left+box.scrollLeft;
+    let target=box.scrollLeft;
+    if(left<target+3)target=left-3;
+    else if(right>target+box.clientWidth-3)target=right-box.clientWidth+3;
+    target=Math.max(0,Math.min(box.scrollWidth-box.clientWidth,target));
+    box.scrollTo({left:target,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+  }
   wireSeg('segSpeed', (v) => {
     if (![1, 2, 4, 6, 8, 10, 16].includes(+v)) return;
+    const previous=G.aiSpeed;
     settings.speed = +v; G.aiSpeed = +v;
     saveJSON(SETTINGS_KEY, settings); updateSegs();
+    revealPlaybackNeighbour(+v,previous);
   });
   wireSeg('segAuto', (v) => {
     settings.aivaiAuto = v === 'on';
@@ -4578,6 +4691,7 @@ function createSoundAudit(capacity = 12000) {
 
   setInterval(() => {
     STREAMER.pulse();
+    AUDIENCE.pulse();
     const k = turnKey();
     const humanActive = humanTurn() && G.phase === 'idle' && !G.over;
 
@@ -4658,12 +4772,27 @@ function createSoundAudit(capacity = 12000) {
   }, 250);
 
   // ---------------- boot ----------------
+  const AUDIENCE = createAudienceVibes({
+    settings,location,crypto:window.crypto,caches:window.caches,fetch:(...args)=>fetch(...args),
+    now:()=>performance.now(),random:()=>Math.random(),bank:SFX_BANK,fx:FX,
+    context:()=>({epoch:gameEpoch,menu:drawerOpen,hidden:document.hidden,paused:G.mode==='aivai'&&G.aiPaused,
+      conflict:G.progressConflict,ceremony:!$('ceremony').hidden,over:G.over,tension:!!G.board&&countSide(IVORY)<=4&&countSide(EBONY)<=4}),
+    status:text=>{$('audienceStatus').textContent=text;
+      $('segAudience').querySelector('[data-v="on"]').disabled=!AUDIENCE.installed();},
+    save:()=>saveJSON(SETTINGS_KEY,settings),
+    played:row=>{if(SOUND_AUDIT){const event={...row,kind:'audience',category:'audience',at:Math.round(performance.now()),
+      mode:G.mode,ply:G.history.length,run:performance.timeOrigin,epoch:SFX_BANK.audioEpoch,phase:G.phase};
+      console.info('[DRAFTI audio]',JSON.stringify(event));SOUND_AUDIT.sound(event);}},
+  });
+  SFX_BANK.audienceHook=info=>AUDIENCE.bankStarted(info);
+  SFX_BANK.audienceReset=()=>AUDIENCE.stop();
   applyTheme(settings.theme);
   applyPieces(settings.pieces);
   document.body.classList.toggle('hv', !!settings.hv);
   document.body.classList.toggle('ambient-off', !settings.ambient);
   if(!resumeLeagueMatch())newGame();
   try { FX.ensure(); } catch { /* audio starts on first gesture instead */ }
+  AUDIENCE.init();
 
   // Minimal test hook: lets automated tests drive the real input path and
   // inspect game state. Not used by the game itself.

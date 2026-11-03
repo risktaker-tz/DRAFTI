@@ -32,6 +32,9 @@ for(const bout of [0,5,9,11])for(const hostIvory of [true,false])for(const retai
   check(!!saves['drafti.arena.v2']&&!!saves['drafti.arena-progress.v1'],'Existing and new persistence keys kept');
 }
 const h=createHarness();h.G.diff='l1';h.G.diffIvory='l8';h.G.diffEbony='l3';h.G.side=1;
+for(const nation of h.api.ROSTER)check(h.api.rosterLevel(nation.id)===4,'Season one begins at Club for every nation');
+h.api.arena.season=2;for(const nation of h.api.ROSTER)check(h.api.rosterLevel(nation.id)===5,'The next season automatically raises every untouched nation');
+h.api.arena.season=1;
 check(h.api.searchLevelForSide()==='l8','Arena move choice uses its seat level, not the menu level');
 h.G.side=-1;check(h.api.searchLevelForSide()==='l3','Other seat uses its own ladder level');
 // Equal random draws must yield equal effort and error policy for all styles.

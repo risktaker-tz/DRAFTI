@@ -33,7 +33,7 @@ const old={};vm.createContext(old);vm.runInContext(execFileSync('git',['show','4
 for(const id of ['american','brazilian','international','canadian','russian'])assert.deepEqual(JSON.parse(JSON.stringify(E.RULESETS[id])),JSON.parse(JSON.stringify(old.E.RULESETS[id])),'Protected existing rules unchanged: '+id);
 const ui=fs.readFileSync(path.join(root,'src/ui.js'),'utf8'),{createHarness}=require('../scripts/arena_harness'),h=createHarness();
 function preferences(saved){const c={E,IVORY:1,LEVELS:h.api.LEVELS,STYLES:h.api.STYLES,localStorage:{getItem:()=>JSON.stringify(saved)}};vm.runInNewContext(ui.slice(ui.indexOf('  const SETTINGS_KEY ='),ui.indexOf('  const PRESENTATION_KEY ='))+';this.settings=settings;',c);return c.settings;}
-assert.equal(preferences({}).rsId,'eastafrica10');
+assert.equal(preferences({}).rsId,'eastafrica8');
 assert.equal(preferences({rsId:'american'}).rsId,'american','Existing saved American preference is preserved');
 assert.equal(preferences({rsId:'russian'}).rsId,'russian','Other saved rule preferences remain');
 assert.equal(preferences({rsId:'american',eastAfricaDefaultV1:true}).rsId,'american','Later explicit American choice remains selectable');

@@ -1,0 +1,807 @@
+{
+  "model": "onnx-community/whisper-tiny.en q8, one-thread WebAssembly",
+  "modelHash": "c0592d0749413c960569e1c7fb806b060d5d18f3ebad4a95cbf9a77dc6e9be52",
+  "sourceCommit": "f1978efa8c9d94dcff1d6a82e58f105367e012e7",
+  "scope": "Independent ASR corroboration, not human listening certification; errors and recognition differences remain explicit.",
+  "results": [
+    {
+      "id": "avpb-102099",
+      "sha256": "d66898f67f9e9d48f490c6bcc6342533e2995282c1962a81a4a3847467267197",
+      "zai": "Look at the first one.",
+      "local": " We get the first."
+    },
+    {
+      "id": "avpb-106237",
+      "sha256": "814d839fe962646eba02b27f812bb7444af3f221dca7b8ecc95e7ad51438d308",
+      "zai": "#",
+      "local": " You"
+    },
+    {
+      "id": "avpb-124022",
+      "sha256": "35c5a156e86b7088335ea2123a2dec9a56cacaff8e0e0d53409e9305764d14e4",
+      "zai": "#",
+      "local": " Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo!"
+    },
+    {
+      "id": "avpb-124027",
+      "sha256": "0c5e9b9398485e0832bb78649ccd260fc7afa3c5ed5b875029116d3b986c8ec3",
+      "zai": "",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-138111",
+      "sha256": "44410d8cbd616d3df2696b288b304d24e836291ab5446c346cab66ab13ead8c6",
+      "zai": "(Applause)",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-150956",
+      "sha256": "3f322ae1261a7779bb73f8f99b766542359f28ce98aee778ed6c4e8513418290",
+      "zai": "No, no, no!",
+      "local": " AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+    },
+    {
+      "id": "avpb-162352",
+      "sha256": "a1dff03100d31dfabb956b4bb9504e00f8334f0dd9ae45c7fc9443379bd41e81",
+      "zai": "You're doing right, I was there.",
+      "local": " You got two to five hours there!"
+    },
+    {
+      "id": "avpb-177639",
+      "sha256": "65a8b7cccbde1b4e757480b6b9c27f2af9e799cc8c5bc02119e88de1c39d6848",
+      "zai": "Okay, you go right now. Okay, you go. You go.",
+      "local": " What's the question about it?"
+    },
+    {
+      "id": "avpb-177640",
+      "sha256": "5dad21e1a4045d9ee80baaa4a0577e3eeb3aa17e5f508eea499ffdf2fe5cf1f0",
+      "zai": "",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-178610",
+      "sha256": "76fc74d0905f247334e091a87622a2beeff4577188745892c2278fdb7d4f3c00",
+      "zai": "Applause",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-191917",
+      "sha256": "865a0aaba4313fcf778714ef82ca79afa69c8e369c65b3d133b68729d9081251",
+      "zai": "#",
+      "local": " You"
+    },
+    {
+      "id": "avpb-207779",
+      "sha256": "d229045772de99cc282a7cc6915ae6a112cedd1e3dfbe1be2e2d5cc3cc1af8ab",
+      "zai": "#",
+      "local": " Ugh!"
+    },
+    {
+      "id": "avpb-217464",
+      "sha256": "751a62a1ed7f4138d9c4b657a25ceff580aad61157f7bfeae007cbbf4fa37910",
+      "zai": "",
+      "local": "."
+    },
+    {
+      "id": "avpb-223745",
+      "sha256": "f8e26839e803cc2600dee955866a3d57ce45f94104e90ea82b6f9dfb8886b07b",
+      "zai": "#",
+      "local": " AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+    },
+    {
+      "id": "avpb-237676",
+      "sha256": "4816533cf3d6bce6b8872c9d382afc4f4910c87fb9b910a17f5d4639e750663e",
+      "zai": "#",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-241245",
+      "sha256": "ae5161e82e08d7a89871e7e531a1958811fe9ff93580b7ebcde51c93347800e2",
+      "zai": "So sorry.",
+      "local": " I'm gonna change it. I'm so sorry."
+    },
+    {
+      "id": "avpb-243647",
+      "sha256": "bc6873c4e69b07603c81aa6421537583f59f3ae96c1fbfcd6f639d4d0bb86cba",
+      "zai": "Man, everybody sang along!",
+      "local": " Come on everybody sing it loud!"
+    },
+    {
+      "id": "avpb-243944",
+      "sha256": "6296efdbb3381984e787a1b90610412a6ec47f394a32d2fa31137e65c953addb",
+      "zai": "谢谢，谢谢，谢谢",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-246300",
+      "sha256": "adf7f95c0feee4ec9c749da5272b5d354f67b202d3a6ae58995b7c72fef41eef",
+      "zai": "#",
+      "local": " I did get it!"
+    },
+    {
+      "id": "avpb-249735",
+      "sha256": "717674f1dc22d0195e2e2e0ea052c277f9f423244747130728e7c03d79a61f3e",
+      "zai": "",
+      "local": " The"
+    },
+    {
+      "id": "avpb-249938",
+      "sha256": "bd2a61e497d6bd68823ec7c02cc6bf165a20cda5c2038ec0090dc3590aa6e20c",
+      "zai": "#",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-25270",
+      "sha256": "bfd920b549e533358da23185d80445c1a00b38aab0d458b6340f9b5871ba9e74",
+      "zai": "",
+      "local": " You"
+    },
+    {
+      "id": "avpb-267249",
+      "sha256": "6cfc138963709ecaff110cc36492947782a037662e5fc627ad4cf9379ef6a107",
+      "zai": "#",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-273052",
+      "sha256": "281cdc98139e3f726dfaa2e7609d83c594caca69a1bdc0256d8baea8582e69cd",
+      "zai": "Oh, if you go all the way to get it, that's just a job.",
+      "local": " You're welcome."
+    },
+    {
+      "id": "avpb-30040",
+      "sha256": "4e8bc39be85296fd7e6a5226a6d2efe8f512ff94919dd0d033004586e3e9549c",
+      "zai": "#",
+      "local": " Oh, yeah."
+    },
+    {
+      "id": "avpb-30044",
+      "sha256": "eee9b06d9ba1ddf4818ec58747777d462e76fca7b929839c6a1baba57c937f21",
+      "zai": "Oh my god!",
+      "local": " I'm not just about to."
+    },
+    {
+      "id": "avpb-324897",
+      "sha256": "dba8d16c431aa0782f4b30b3fc316cde9d50b06bacacbe877b7b09d93249a764",
+      "zai": "#",
+      "local": " Oh"
+    },
+    {
+      "id": "avpb-324898",
+      "sha256": "1104917f0f613bfd29927bf478ef0db950cc195b1be29e4efded5a864c23d8b2",
+      "zai": "#",
+      "local": " Bye!"
+    },
+    {
+      "id": "avpb-333403",
+      "sha256": "18670a07aedc17ef0620ec9bbfcac52d60badd40e493fd6703d65cffd98e6e6a",
+      "zai": "哈哈哈",
+      "local": " I'm a good one."
+    },
+    {
+      "id": "avpb-333407",
+      "sha256": "e20ae2ac067d9817c802c9e88e14730584676971020858c1f69bb0e18adf0d50",
+      "zai": "Oh, you did it!",
+      "local": " Oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh,"
+    },
+    {
+      "id": "avpb-334941",
+      "sha256": "ba9035ed172063e30688bbd3cab2cd8c4f0833b78023476f404540310dd373d0",
+      "zai": "Applause",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-348978",
+      "sha256": "042d6c68c1efbb962c0093da686c1ef15a929c0200b6db86a6c1dcc384698540",
+      "zai": "#",
+      "local": " Yeah!"
+    },
+    {
+      "id": "avpb-351291",
+      "sha256": "42f2ba05102a94ed8fb06c999e695a81f7e417d4db593529ed6b9693e443d385",
+      "zai": "",
+      "local": " You can't do that."
+    },
+    {
+      "id": "avpb-360703",
+      "sha256": "9dbe83321fbfd4c4de885d2feb9d354f5ed385d19c34c2b7261e02f046ac5e4a",
+      "zai": "",
+      "local": " the"
+    },
+    {
+      "id": "avpb-371222",
+      "sha256": "f62293824f1dfb3cb76241c45110a76eb3acdd8a17ab8196d98da3fe609ae03f",
+      "zai": "",
+      "local": " You"
+    },
+    {
+      "id": "avpb-381366",
+      "sha256": "b3d4b4df9bfda6f81695c8f96a7ee64040beee71f67d0877b5f2226f9dc68cfa",
+      "zai": "Applause",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-388805",
+      "sha256": "221dd28b300e18224f6583b0ce90a311afd586e88684905ebfe8ac4d2d6d3db2",
+      "zai": "It's quite nice.",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-397317",
+      "sha256": "21ec926d43d04c76ea17b9d33c30301cd1adeade23de8bb772e985854018fa08",
+      "zai": "Wow, wow hoo!",
+      "local": " WOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOO"
+    },
+    {
+      "id": "avpb-397434",
+      "sha256": "b94d1b049659fd96f6a9fb7f2af9a32b9618b86d186e80154506ecc073a141c8",
+      "zai": "Applause",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-400588",
+      "sha256": "fa1dd474981ddbed3d0d90bc3e22e0a4debb3cb7f2b84ab320daf779a280a491",
+      "zai": "",
+      "local": " the"
+    },
+    {
+      "id": "avpb-403058",
+      "sha256": "15ada16e5cfd5f81101a8099db08cc627833f70ce598561806c6194c765e78a6",
+      "zai": "哈哈哈",
+      "local": " I'm not a fan of that."
+    },
+    {
+      "id": "avpb-406184",
+      "sha256": "62cc5691da92cebac4b61873c5657078cd18dcc3fda8f89fc783fcece33cdfca",
+      "zai": "",
+      "local": " I'm going to eat some of the other."
+    },
+    {
+      "id": "avpb-407167",
+      "sha256": "45e352d0732b4bc606027ab736edaedaca8e6709d072caa331e551431d2f6a33",
+      "zai": "我拿了巴克萨布的尼奥卡斯库，我要走了。",
+      "local": " We're going to have a floss up here in your classroom."
+    },
+    {
+      "id": "avpb-413925",
+      "sha256": "1f2f80caead76c8a38ec034886cba5ed826b9dbc964b4527645aef0e90171016",
+      "zai": "#",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-415823",
+      "sha256": "7ae30661d4420cb15479934a3d8a2baa8229aaf915282e19bd7f36469abbbc0e",
+      "zai": "¡Vamos, Italia! ¡España, España! ¡Granada, Granada! ¡Himno de la Patria!",
+      "local": " You can't do that."
+    },
+    {
+      "id": "avpb-428231",
+      "sha256": "21dcb35a444bb15edf4879561a99dcb2d0f645e1383d403a907db976f761bf0b",
+      "zai": "#",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-432868",
+      "sha256": "c36c5bd123c534b7fb877de35da59030b50568191f95065019c133786faaa393",
+      "zai": "#",
+      "local": " AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+    },
+    {
+      "id": "avpb-432874",
+      "sha256": "df938064ffdcf051d344b1125ea2bc2df3343d333d248b12c272aa677d626ef2",
+      "zai": "#",
+      "local": " Aah!"
+    },
+    {
+      "id": "avpb-438421",
+      "sha256": "87816c0f2f42c5217d9cf1706de8151d11825a41009d8a79dc496673f2898188",
+      "zai": "Yay!",
+      "local": " Yay!"
+    },
+    {
+      "id": "avpb-445711",
+      "sha256": "a0656b66d160f1ec318edec533b10ef6dde0f2f579f5e1baf1510554ff9457ea",
+      "zai": "",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-449915",
+      "sha256": "570a7fe6a02249cc1a0352d6376fffdf31cef31a1949633677261800881f1224",
+      "zai": "Sua vez, sua vez, sua vez!",
+      "local": " I'm out of swab, it's Thomas. That's a drop."
+    },
+    {
+      "id": "avpb-451453",
+      "sha256": "08aefa7d9aa55e1ae3ad11c603be8ffdba4a3fee260dcdf2dcfcb3281c93e044",
+      "zai": "",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-451600",
+      "sha256": "9799ad5d2564ffc0d948431c09a480ca1937db4c448acaa1d4e8cedeb946d4a3",
+      "zai": "",
+      "local": " The President"
+    },
+    {
+      "id": "avpb-453919",
+      "sha256": "62b745559b546098cbab2e77b00af5a76548cdfe5f22c592b89d03f47265893d",
+      "zai": "#",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-453948",
+      "sha256": "aab970a5fe8c87e2cb9c8b513cf893ca0227875746ee1e0a0ccb065693da86d1",
+      "zai": "",
+      "local": " The"
+    },
+    {
+      "id": "avpb-455660",
+      "sha256": "9b346e91de84ceda3c97a0ae2cda6c7d03c7db6191faf8f4caee67b28c2b2f35",
+      "zai": "#",
+      "local": " You"
+    },
+    {
+      "id": "avpb-455686",
+      "sha256": "4b90ca094f0028b2a80fa17a8f1bdfe4dfed4ab2be3ad2a31c1458a513427066",
+      "zai": "",
+      "local": " You're welcome."
+    },
+    {
+      "id": "avpb-459162",
+      "sha256": "1f7f82e50e7a34917275153291ec95dd7ca8b173a69a15ea6e0e884c213925dd",
+      "zai": "Applause",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-463976",
+      "sha256": "e5186346189de87257191fc593341e1b4e13a4fc397ad8896d0b0eca95ff4b46",
+      "zai": "",
+      "local": " We are here in the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city of the city"
+    },
+    {
+      "id": "avpb-467042",
+      "sha256": "00594e3e73526a2b874c122db791356c56391200a3361c2ca0d1d56e5b04f6b6",
+      "zai": "#",
+      "local": " You"
+    },
+    {
+      "id": "avpb-477869",
+      "sha256": "a81d357875524b34d2d9621355bca537e6d15ef45ba072ac0ccd724b2807ad13",
+      "zai": "#",
+      "local": " you"
+    },
+    {
+      "id": "avpb-482990",
+      "sha256": "04a9fae18acc92180fd5cfcb8380c091386321d0bf36f5c87f7f4b754db92c1d",
+      "zai": "",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-490645",
+      "sha256": "969caa3bd0ae40383eead46593a24b2c8c092abcd613a8c5fdfc2e753582cd80",
+      "zai": "",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-503620",
+      "sha256": "70dce06ee762be1a8f7c748e3125d7cb606266fc4cbe84d7a428b7e0c1336aad",
+      "zai": "#",
+      "local": " You"
+    },
+    {
+      "id": "avpb-520370",
+      "sha256": "009bb6ab53e975bba77e67d71c64cd8defa79a71281a71355a9246d8d0110b64",
+      "zai": "#",
+      "local": " I'm so sorry."
+    },
+    {
+      "id": "avpb-533430",
+      "sha256": "af5ea07f5103fda175162687d60c6d196c117ab97dabe2e4b39bbfa87939cd71",
+      "zai": "#",
+      "local": " You"
+    },
+    {
+      "id": "avpb-540299",
+      "sha256": "5aaa79b24c9407ccf357ff7ed6e88d8f44a1ae39a0f8c529e111d2bfe7637e84",
+      "zai": "",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-545756",
+      "sha256": "61584c77b8da9fa9ab5d36e7d00e6dbaf7e80b76811829399edafb0e25d61197",
+      "zai": "您好，请问我们这里有吗？",
+      "local": " You want to move on to the ground?"
+    },
+    {
+      "id": "avpb-564489",
+      "sha256": "8663dfcb1da506d8b84458ba6a6eb47bb00cc76b793407752c37c04453d3f613",
+      "zai": "",
+      "local": " Oh, okay."
+    },
+    {
+      "id": "avpb-615586",
+      "sha256": "bdc1f0aa6c73ab2723e825c37425e29b2a4bf06972ed870ea27e02e425dc9870",
+      "zai": "",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-632296",
+      "sha256": "5548fa9d19f7a21c73c0fb5077781535ace360f0ec09c2fd9fcea01adc1ffe80",
+      "zai": "What's up?",
+      "local": " Blue Star!"
+    },
+    {
+      "id": "avpb-637466",
+      "sha256": "5c5d2ff7142bcb04a46058bc960ac5212e301bfb3c05924240afe42628d14441",
+      "zai": "",
+      "local": "."
+    },
+    {
+      "id": "avpb-637468",
+      "sha256": "73cdc920eb6fd556ff1f6e777f3ae48adb067191bce3bf56b2c70a37bf710930",
+      "zai": "#",
+      "local": " You"
+    },
+    {
+      "id": "avpb-648409",
+      "sha256": "57eb67095799f024d448e1f7336218f5cdaf345e31e79443b8cb17a8293851a7",
+      "zai": "#",
+      "local": " You"
+    },
+    {
+      "id": "avpb-649182",
+      "sha256": "523550e4bbf156f8f95ab1bedd3ddcebfa08b7df5615c8ed93db54861b16c7c4",
+      "zai": "",
+      "local": " The"
+    },
+    {
+      "id": "avpb-650514",
+      "sha256": "4b73a6d4866df6e1a33b5f7522e7dbd3d523a0d9cb5289b4fd54efd7f09b27d1",
+      "zai": "Yeah, he was almost eighteen.",
+      "local": " Yeah."
+    },
+    {
+      "id": "avpb-651704",
+      "sha256": "512dc3706f02c7f826388f3d1a1d0f2e8ff25263b7864f23933dd0c5512bf2c0",
+      "zai": "",
+      "local": " You"
+    },
+    {
+      "id": "avpb-653774",
+      "sha256": "d6cb41554fd041495ec6c6b532d6f3e73e63ab6fd8ed7a74f0837ae4ea3eee16",
+      "zai": "#",
+      "local": " You"
+    },
+    {
+      "id": "avpb-675053",
+      "sha256": "c8186df382249c4d82795c002f354e43709c510c8f1bcc97ae3f3fbfb7b6551a",
+      "zai": "#",
+      "local": " You"
+    },
+    {
+      "id": "avpb-678537",
+      "sha256": "018b91aeb6fdcc5bbde411be3437f00cdc7fbd5f108babe4564e9d6b025955ef",
+      "zai": "#",
+      "local": " Oh, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah,"
+    },
+    {
+      "id": "avpb-678540",
+      "sha256": "fb7f3b2244ec56373288678d47d5d04ab33e67dad11231a3567b822ba4a9a550",
+      "zai": "#",
+      "local": " Oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh,"
+    },
+    {
+      "id": "avpb-678669",
+      "sha256": "f0b27013f58595bda46ce0380f694f4ea9a8202b6cffb84f536b76fd2af62dd7",
+      "zai": "#",
+      "local": " You"
+    },
+    {
+      "id": "avpb-678671",
+      "sha256": "1f2a316efa8688c4948c72c03622266fcea79df5a4debaaca5df6f5921ec780f",
+      "zai": "",
+      "local": " Oh, my God."
+    },
+    {
+      "id": "avpb-690190",
+      "sha256": "0769de460fc8df16503b759add032abb890a0f253f7660a70446e36ce18fa8bf",
+      "zai": "",
+      "local": " I'm happy to be here."
+    },
+    {
+      "id": "avpb-706732",
+      "sha256": "22471e6d4cdd0e8ba880137fde4f210a65607501fd3317a14762eb2328245b9f",
+      "zai": "Applause and cheers",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-706805",
+      "sha256": "717bac5171ad5569d85860e0f6cdb426bb577bbb6b41763b4db2bb3af466ff73",
+      "zai": "",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-707212",
+      "sha256": "667250cf06f0f3eaa010e6ad1e56a19d11abe6494ed421821bd7b0bf7f190f08",
+      "zai": "Applause",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-713539",
+      "sha256": "e3166f2a80d547de2ead9fc831b57162dd27b94019a5e5b9a6a4ee263819cfe5",
+      "zai": "",
+      "local": " The"
+    },
+    {
+      "id": "avpb-716428",
+      "sha256": "6037787b4a4f65cdf710a4941bc1a0116816e3975637b9e1b18bc6fd7a4a532e",
+      "zai": "And it's the best one!",
+      "local": " And in February, aah!"
+    },
+    {
+      "id": "avpb-724600",
+      "sha256": "16568af6b1bcc9ff9c2b7cc1604d143011bd3929daffe7f41c64f2b8f827c9e2",
+      "zai": "#",
+      "local": " You"
+    },
+    {
+      "id": "avpb-730908",
+      "sha256": "c50c29173efe6435562c2919f2532a107f5b217e72b3a1c1022dd1fda05e0097",
+      "zai": "",
+      "local": " The World of the World of the World of the World"
+    },
+    {
+      "id": "avpb-733614",
+      "sha256": "1ee44a78bf6232d4ac30e8efcfcf2e8e226d8e7644e30f5c9bd9a1eafe383834",
+      "zai": "",
+      "local": " You"
+    },
+    {
+      "id": "avpb-735499",
+      "sha256": "0d4ba9f7eed36369210350db926e0482421a474288cc11249beb964e7ffab601",
+      "zai": "",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-735578",
+      "sha256": "42fe1f09daffc0ee6dd88ea39c4293e47c02910d62bfb9400ff438b9f50cf18f",
+      "zai": "Woo! Woo!",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-745599",
+      "sha256": "c19c352dcdba62f7bd2cd198a56071dca1a0f7948d329cd33cf993977f0a68f4",
+      "zai": "#",
+      "local": " You"
+    },
+    {
+      "id": "avpb-752711",
+      "sha256": "6213e2a2eded6599474772e352f9f826ebec02fd8bf06e4879a6140bf6d3b9c5",
+      "zai": "哈哈哈",
+      "local": " I'm the best!"
+    },
+    {
+      "id": "avpb-763828",
+      "sha256": "b77eb320fbcef48ee213ddef1d58168b71146c1584e883c857d085edfa52e6a7",
+      "zai": "Surprise!",
+      "local": " Surprise!"
+    },
+    {
+      "id": "avpb-763924",
+      "sha256": "ee0d3f9239f99d23e2c41fc6edb6b838c212d4efd9ef9d8114c95ce94316936a",
+      "zai": "#",
+      "local": " Good night!"
+    },
+    {
+      "id": "avpb-764110",
+      "sha256": "07e8863df99b45fb789522c2d2c3e599628177f082a37844856052f22feea039",
+      "zai": "Oh, you're so cute!",
+      "local": " Oh, wow!"
+    },
+    {
+      "id": "avpb-764272",
+      "sha256": "f660f85a08d1f69b6c4d9258520b02895e8d1e2daa8b943ec2237f59bd4344c3",
+      "zai": "Surprise!",
+      "local": " So,"
+    },
+    {
+      "id": "avpb-789944",
+      "sha256": "5d05245a34494c0f07c9c6c1184e3204a2c9a83e2fb0a718b6b91d6bb1895567",
+      "zai": "Applause",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-798170",
+      "sha256": "61dc646b38573fef8480b0df02d403b036e0e3d52a370c5cac4147c6fc4d28d7",
+      "zai": "C'est un quart, c'est un quart.",
+      "local": " Check out the checker! Check out the checker! Check out the checker! Check out the checker! Check out the checker! Check out the checker! Check out the checker! Check out the checker! Check out the checker! Check out the checker! Check out the checker! Check out the checker! Check out the checker! Check out the checker! Check out the checker! Check out the checker!"
+    },
+    {
+      "id": "avpb-810742",
+      "sha256": "f9d7d249a804370c65d53671b33be23d6b9093af3f889cf5c002309250cf44ea",
+      "zai": "Applause",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-819050",
+      "sha256": "64b29839827a346b71a7872cde97e106e24979df40e6217c0d6e87d4740b31a7",
+      "zai": "",
+      "local": " You"
+    },
+    {
+      "id": "avpb-845880",
+      "sha256": "7c033f77de84e32a3538fe9a7cd6591900f9d442289be12f680c3ebb55f88b4a",
+      "zai": "我爱爸爸，我爱你诶！",
+      "local": " Oh, no!"
+    },
+    {
+      "id": "avpb-851718",
+      "sha256": "4765ce6483c615bd309b138d2aaee318e6c3bcb7aea15970ed1830b38c129bd5",
+      "zai": "#",
+      "local": " You"
+    },
+    {
+      "id": "avpb-857740",
+      "sha256": "fa2419663e872bc2fca54631eb89169e2621933c471d33adb68dcc9758482c7c",
+      "zai": "",
+      "local": "."
+    },
+    {
+      "id": "avpb-870643",
+      "sha256": "2778139396b5fc0640c440afb83c835e84034b7b1623c54d5eb858b0a5db3a0c",
+      "zai": "#",
+      "local": " I'm not sure."
+    },
+    {
+      "id": "avpb-875485",
+      "sha256": "127cc6842326249c3cc13e2660b3736bba82c10ad2cb6b8cc70e47486170f15d",
+      "zai": "",
+      "local": "."
+    },
+    {
+      "id": "avpb-98945",
+      "sha256": "707a7f32293ef8403e5ac4113deb6bd849176f086a066cf7648a5542eb05661d",
+      "zai": "",
+      "local": " You"
+    },
+    {
+      "id": "avpb-214989",
+      "sha256": "d889c8b83fa202b952cda9caecb9f02e6bf067e65343a89b7713522c85c72f1d",
+      "zai": "The sound of a piano playing a gentle melody, followed by the clapping and cheering of an audience. The music is soft and reflective, creating a calm atmosphere before a performance or event begins.",
+      "local": " You"
+    },
+    {
+      "id": "avpb-237684",
+      "sha256": "3a664cc747ad11300b5a7587c5e213d40e9d08f4be275a6131f4469875c5d3c1",
+      "zai": "The crowd roared with applause as the final bell tolled, signalling the end of a thrilling match.",
+      "local": " The President"
+    },
+    {
+      "id": "avpb-250853",
+      "sha256": "97f6accce1f5dc395c641ba6ad1f9a42b2af6614abc0b4a75f1e805a9ab8bed3",
+      "zai": "哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，哇哦，",
+      "local": " Oh, yeah, oh, yeah, oh, yeah, oh, yeah, oh, yeah, oh, yeah, oh, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah,"
+    },
+    {
+      "id": "avpb-260124",
+      "sha256": "e1dd5b1c14ea9ae8a0d8d242406eb90b90d3956f6206bbd487cc6e468218300a",
+      "zai": "I don't think we're really in competition, are you competing with me right now? I mean, I'm not really competing with you right now. And I could probably talk maybe a little bit more faster perhaps. I mean, I don't know, but I don't feel like I am in competition with you. No, no, you really should. You should not because we're really different. Your voice is...",
+      "local": " I don't think we're really incompetent at that. I'm not really familiar with you right now. And I couldn't probably talk, maybe. I'm not. I mean, I don't know, but I don't feel like I'm in competition. No, no, no, you really show. You should not."
+    },
+    {
+      "id": "avpb-263679",
+      "sha256": "c464dcea00d91ecb9f9178c9129496dcd97bc82df5e1a5fcab9d6e735bae34e8",
+      "zai": "The sound of a train moving on the tracks, with the occasional clatter and creaking as wheels grind against metal. There is also a distant horn blare in the background, suggesting an emergency or alarm situation. The music is fast-paced and energetic, likely designed to evoke excitement or urgency. It builds up quickly before fading out abruptly. This type of audio would be used for scenes involving trains, such as commuter journeys, military patrols, or any scenario where speed and movement are key elements.",
+      "local": " You"
+    },
+    {
+      "id": "avpb-328623",
+      "sha256": "715947c4b96d246a71af2912875413a1d3485b9de4b231e7de54e5a3fb876672",
+      "zai": "The song is a popular rock ballad with a strong, driving rhythm and emotional vocals. It features prominent electric guitar riffs that drive the melody forward, creating an upbeat yet intense atmosphere. The overall mood of the song is one of celebration or triumph over adversity, possibly in reference to themes found in traditional folk music from various regions.\n\nThe lyrics are written in English, but they convey a sense of joyous victory or success. They tell a story about two lovers who have overcome obstacles such as illness or betrayal by their enemies. Their reunion at the end suggests",
+      "local": " The World of Fame!"
+    },
+    {
+      "id": "avpb-332207",
+      "sha256": "b80258e639d0af4fe93d3704197f7827b871bc2695723d448d475625dd47f9fb",
+      "zai": "The wind howled fiercely as it tore through the dense forest, its call echoing off the ancient trees and into the open sky beyond. The air was thick with moisture, carrying a faint scent of damp earth mixed with something unidentifiable. A distant train rumbled on tracks, its metallic rhythm punctuating the natural symphony around it. In this moment, time seemed to stand still, suspended between the chaos of nature and the predictable rhythms of human existence.",
+      "local": " You"
+    },
+    {
+      "id": "avpb-333415",
+      "sha256": "1a7728241e30de22d69daafc8783639e2e4edb1d683db3eaf512bcb13064cc81",
+      "zai": "Do you still really get these things? You let me headline, and we're talking to two people at once.",
+      "local": " to talk to people."
+    },
+    {
+      "id": "avpb-412161",
+      "sha256": "05823a9cf44ddd9dca390c39673ad2a2f81faa5cc92501dfb0b10b9f8bef4dfa",
+      "zai": "The crowd is cheering and clapping as a person walks on the ground, possibly in front of an audience or at a sports event. The music is energetic and upbeat, suggesting it could be from a concert, marching band, or similar activities involving movement and rhythm. There are no other sounds like footsteps, horns, or musical instruments being played during this segment.",
+      "local": " the"
+    },
+    {
+      "id": "avpb-427203",
+      "sha256": "31f3ac510320d8d0d06aaaf56feb576e4a97f66b0974a7cdeb7a851d3644f5d3",
+      "zai": "I am very sorry, I have to go now. This is a mandatory meeting for the entire world.",
+      "local": " The National Anthem of the National Anthem of the National Anthem of the National Anthem of the National Anthem of the National Anthem of the National Anthem of the National Anthem of the National Anthem of the National Anthem of the National Anthem of the National Anthem of the National Anthem of the National Anthem of the National Anthem of the National Anthem of the National Anthem of the National Anthem of the National Anthem of the National Anthem of the National Anthem of the National Anthem of the National Anthem of the National Anthem of"
+    },
+    {
+      "id": "avpb-427385",
+      "sha256": "7769ed3f08176cbaeb9bd9d556dbc1d58eed230fae3b5e15affe00a02a669fac",
+      "zai": "The wind howls fiercely as a single, piercing note echoes through the barren landscape. The sound is both eerie and haunting, suggesting an unnatural or fictional environment. It builds in intensity before abruptly cutting off into silence. This could be part of a horror film score, possibly for a creaking door opening or a distant thunderstorm.",
+      "local": " You"
+    },
+    {
+      "id": "avpb-486204",
+      "sha256": "029ac113ac191436a2cb42462b40327dc97022ff6302d3cfa963d003ca759809",
+      "zai": "The sound of a large crowd cheering and clapping can be heard, likely from an audience at a sports event or public gathering. The music is energetic and upbeat, suggesting it could be the theme song for a movie trailer, concert, or other entertainment involving athletic competition.",
+      "local": " The"
+    },
+    {
+      "id": "avpb-520368",
+      "sha256": "0829003c5eff4e1a099612af0968d3e78f5289cfb7fe51772f6f87a25f1097da",
+      "zai": "哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，",
+      "local": " I'm so sorry."
+    },
+    {
+      "id": "avpb-520374",
+      "sha256": "47d106971604ab72e0363df1f8524261b17d57d252b78faf9a844fef1fd02a11",
+      "zai": "哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，",
+      "local": " You"
+    },
+    {
+      "id": "avpb-537585",
+      "sha256": "1f9e51b619297447f0d3d621d24217634fcc258ea10e2a5f4342a2b415fc8dc4",
+      "zai": "The sound of a train moving on the tracks, with birds chirping in the background.",
+      "local": " The"
+    },
+    {
+      "id": "avpb-60033",
+      "sha256": "24b4b0fb4ec6c8acf41911f8999cd65d1884b46c60fc125ad22c43d747e6c6ca",
+      "zai": "You got to buy one, get three ones. I assume it's the same they've given me before.",
+      "local": " You got to fly when you get three."
+    },
+    {
+      "id": "avpb-613044",
+      "sha256": "6c6a4655e8206b72fcd44f6ed26e1c0528b266dcac794c40d615ff2a696e22dc",
+      "zai": "The sound of a car engine revving and tires screeching can be heard, followed by the rhythmic clatter of metal on metal as something is being dragged across a surface. The music is fast-paced electronic dance music with a strong emphasis on percussion elements such as snare hits, bass drum rolls, and high-hat cymbals. There are also brief, sharp metallic sounds that could indicate the impact or scraping of surfaces. Overall, it's an energetic, chaotic industrialized urban environment filled with rapid movement and mechanical activity.",
+      "local": " Aah!"
+    },
+    {
+      "id": "avpb-637159",
+      "sha256": "6f9236fa5676f5e75de39bac42c8a80906cef800d606b3f23c450be320492eab",
+      "zai": "The sound of a crowd cheering and clapping can be heard, indicating excitement or celebration.",
+      "local": " Thank you."
+    },
+    {
+      "id": "avpb-829454",
+      "sha256": "213735fcbf8d74adc2f1d29873138ab92f10e20b72f431cb986eeb571e9b8975",
+      "zai": "The sound of a car engine revving and tires screeching can be heard as the vehicle accelerates rapidly, likely on an open road or highway. The noise is accompanied by the rhythmic clatter of metal components, suggesting that it could be from a motorcycle or possibly a racecar due to its speed and power output. There are also occasional high-pitched whistles or squeals, which might indicate brakes engaging or other mechanical systems at work. This kind of audio is commonly associated with action scenes in movies where fast paced vehicles are racing against time or evading pursuers.",
+      "local": " The"
+    },
+    {
+      "id": "avpb-841211",
+      "sha256": "33c86b840f9b4ac3c0397ebade6d123b4860abd412bcb6eff377f85b303b9817",
+      "zai": "The sound of a car door opening and closing, followed by the engine starting up and then a loud crash noise.",
+      "local": " Mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm, mmm,"
+    },
+    {
+      "id": "avpb-854057",
+      "sha256": "4594aaaca33bb0dd11990a69cea95bf1a6af89685d28ff23580195e14837a024",
+      "zai": "The song is a cover of the original by The Beatles, released in 1967. It was initially rejected by EMI Records due to its controversial lyrics and themes. However, it gained popularity after being re-released on vinyl records with altered lyrical content.",
+      "local": " It got you, friends!"
+    },
+    {
+      "id": "avpb-855980",
+      "sha256": "0d730c5de37e94182be49eaf3fff760ad1d64da1251d53c154bcf53ed4311bf4",
+      "zai": "The sound of a train moving on the tracks, with occasional clattering and metallic creaking.",
+      "local": " You"
+    },
+    {
+      "id": "avpb-856936",
+      "sha256": "8e0e4995a234d9455d4642b8eed2f53e3ac471ec615ecf8ed1342cd185727776",
+      "zai": "The sound of a train moving on the tracks, with its wheels clattering against metal and occasional metallic squeals or groans as it accelerates or decelerates. There is also a distant hum from machinery in the background, possibly indicating an industrial setting such as a factory or power station. The overall atmosphere suggests a scene set during daylight hours, likely indoorside, where one might expect to hear mechanical equipment at work.",
+      "local": " You"
+    }
+  ],
+  "at": "2026-11-03T17:43:23.471Z"
+}

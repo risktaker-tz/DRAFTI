@@ -143,7 +143,16 @@
             <button data-v="l9">World Champion</button>
             <button data-v="l10">The Machine</button>
           </div>
-          <p class="setup-note">Higher rungs look further ahead and make fewer deliberate mistakes. In the world arena, every nation starts here and grows through experience and seasons, up to level 10.</p>
+          <p class="setup-note">Higher rungs look further ahead and make fewer deliberate mistakes. Seasons start at Club or your higher selected level. Every nation grows through experience and each new season, up to The Machine.</p>
+        </div>
+        <div class="seg-row" id="rowProgression">
+          <span class="seg-label">Your computer challenge</span>
+          <div class="seg-btns" id="segProgression">
+            <button data-v="on">Advance after wins</button>
+            <button data-v="off">Manual level</button>
+          </div>
+          <p class="setup-note" id="progressionNote"></p>
+          <button class="btn" id="btnLadderReset">Restart at Beginner</button>
         </div>
         <div class="seg-row" id="rowStyle">
           <span class="seg-label">🏁 Opponent style — national schools of checkers</span>
@@ -323,6 +332,17 @@
           <button data-v="funny" title="The app's own voice plus the funniest bank reactions, live-streamer style">Funny live streamer</button>
         </div>
       </div>
+      <div class="seg-row">
+        <span class="seg-label">Audience Vibes</span>
+        <div class="seg-btns" id="segAudience" role="group" aria-label="Audience Vibes">
+          <button data-v="off">Off</button><button data-v="on">On</button>
+        </div>
+        <p class="setup-note">Two crowds support their own side. Optional download; saved for offline play.</p>
+        <div class="audience-actions"><button class="btn" id="btnAudienceDownload">Download audience pack · 2.7 MB</button><button class="btn" id="btnAudienceRemove">Remove pack</button></div>
+        <p class="setup-note" id="audienceStatus" role="status" aria-live="polite">Audience Vibes is off by default.</p>
+        <label class="seg-label" for="audienceVolume">Audience volume <output id="audienceVolumeValue">35%</output></label>
+        <input type="range" id="audienceVolume" min="0" max="100" value="35">
+      </div>
       <p class="setup-note">Original recordings, comedy, crafted effects and voice lines · credits in ATTRIBUTIONS.md</p>
       <details class="sound-palette"><summary>Explore the new sound palette</summary>
         <p class="setup-note">Tap to preview. Gameplay chooses moments automatically and gives reactions time to rest.</p>
@@ -381,6 +401,9 @@
 </script>
 <script>
 /*__ENGINE__*/
+</script>
+<script>
+/*__AUDIENCE__*/
 </script>
 <script>
 /*__UI__*/

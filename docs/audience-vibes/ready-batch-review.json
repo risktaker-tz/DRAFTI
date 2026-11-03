@@ -1,0 +1,599 @@
+{
+  "sourceCommit": "f1978efa8c9d94dcff1d6a82e58f105367e012e7",
+  "installed": 57,
+  "bytes": 2811210,
+  "sha256": "8fecff5151599c06e35e98e1bb5190715d58754d3061a940bd2c38428aa2ee6b",
+  "scope": "Incremental tool-assisted review, not a complete 501-clip pack or human listening certificate",
+  "decisions": [
+    {
+      "id": "avpb-30040",
+      "status": "accepted",
+      "event": "funny_laugh",
+      "originalEvent": "funny_laugh",
+      "sha256": "4e8bc39be85296fd7e6a5226a6d2efe8f512ff94919dd0d033004586e3e9549c",
+      "zai": "#",
+      "independent": " Oh, yeah.",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-106237",
+      "status": "accepted",
+      "event": "gasp",
+      "originalEvent": "gasp",
+      "sha256": "814d839fe962646eba02b27f812bb7444af3f221dca7b8ecc95e7ad51438d308",
+      "zai": "#",
+      "independent": " You",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-124022",
+      "status": "accepted",
+      "event": "cheer",
+      "originalEvent": "funny_laugh",
+      "sha256": "35c5a156e86b7088335ea2123a2dec9a56cacaff8e0e0d53409e9305764d14e4",
+      "zai": "#",
+      "independent": " Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo! Woooooo!",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-138111",
+      "status": "accepted",
+      "event": "applause",
+      "originalEvent": "applause",
+      "sha256": "44410d8cbd616d3df2696b288b304d24e836291ab5446c346cab66ab13ead8c6",
+      "zai": "(Applause)",
+      "independent": " Thank you.",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-150956",
+      "status": "accepted",
+      "event": "disappointment",
+      "originalEvent": "disappointment",
+      "sha256": "3f322ae1261a7779bb73f8f99b766542359f28ce98aee778ed6c4e8513418290",
+      "zai": "No, no, no!",
+      "independent": " AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-178610",
+      "status": "accepted",
+      "event": "applause",
+      "originalEvent": "applause",
+      "sha256": "76fc74d0905f247334e091a87622a2beeff4577188745892c2278fdb7d4f3c00",
+      "zai": "Applause",
+      "independent": " Thank you.",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-207779",
+      "status": "accepted",
+      "event": "gasp",
+      "originalEvent": "gasp",
+      "sha256": "d229045772de99cc282a7cc6915ae6a112cedd1e3dfbe1be2e2d5cc3cc1af8ab",
+      "zai": "#",
+      "independent": " Ugh!",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-217464",
+      "status": "accepted",
+      "event": "venue_bed",
+      "originalEvent": "venue_bed",
+      "sha256": "751a62a1ed7f4138d9c4b657a25ceff580aad61157f7bfeae007cbbf4fa37910",
+      "zai": "",
+      "independent": ".",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-223745",
+      "status": "accepted",
+      "event": "cheer",
+      "originalEvent": "gasp",
+      "sha256": "f8e26839e803cc2600dee955866a3d57ce45f94104e90ea82b6f9dfb8886b07b",
+      "zai": "#",
+      "independent": " AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-237676",
+      "status": "accepted",
+      "event": "cheer",
+      "originalEvent": "cheer",
+      "sha256": "4816533cf3d6bce6b8872c9d382afc4f4910c87fb9b910a17f5d4639e750663e",
+      "zai": "#",
+      "independent": " Thank you.",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-243944",
+      "status": "accepted",
+      "event": "applause",
+      "originalEvent": "cheer",
+      "sha256": "6296efdbb3381984e787a1b90610412a6ec47f394a32d2fa31137e65c953addb",
+      "zai": "谢谢，谢谢，谢谢",
+      "independent": " Thank you.",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-249735",
+      "status": "accepted",
+      "event": "chatter_bed",
+      "originalEvent": "chatter_bed",
+      "sha256": "717674f1dc22d0195e2e2e0ea052c277f9f423244747130728e7c03d79a61f3e",
+      "zai": "",
+      "independent": " The",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-249938",
+      "status": "accepted",
+      "event": "applause",
+      "originalEvent": "applause",
+      "sha256": "bd2a61e497d6bd68823ec7c02cc6bf165a20cda5c2038ec0090dc3590aa6e20c",
+      "zai": "#",
+      "independent": " Thank you.",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-267249",
+      "status": "accepted",
+      "event": "cheer",
+      "originalEvent": "cheer",
+      "sha256": "6cfc138963709ecaff110cc36492947782a037662e5fc627ad4cf9379ef6a107",
+      "zai": "#",
+      "independent": " Thank you.",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-324897",
+      "status": "accepted",
+      "event": "disappointment",
+      "originalEvent": "disappointment",
+      "sha256": "dba8d16c431aa0782f4b30b3fc316cde9d50b06bacacbe877b7b09d93249a764",
+      "zai": "#",
+      "independent": " Oh",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-324898",
+      "status": "accepted",
+      "event": "gasp",
+      "originalEvent": "gasp",
+      "sha256": "1104917f0f613bfd29927bf478ef0db950cc195b1be29e4efded5a864c23d8b2",
+      "zai": "#",
+      "independent": " Bye!",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-348978",
+      "status": "accepted",
+      "event": "cheer",
+      "originalEvent": "cheer",
+      "sha256": "042d6c68c1efbb962c0093da686c1ef15a929c0200b6db86a6c1dcc384698540",
+      "zai": "#",
+      "independent": " Yeah!",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-360703",
+      "status": "accepted",
+      "event": "venue_bed",
+      "originalEvent": "venue_bed",
+      "sha256": "9dbe83321fbfd4c4de885d2feb9d354f5ed385d19c34c2b7261e02f046ac5e4a",
+      "zai": "",
+      "independent": " the",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-371222",
+      "status": "accepted",
+      "event": "venue_bed",
+      "originalEvent": "venue_bed",
+      "sha256": "f62293824f1dfb3cb76241c45110a76eb3acdd8a17ab8196d98da3fe609ae03f",
+      "zai": "",
+      "independent": " You",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-397317",
+      "status": "accepted",
+      "event": "gasp",
+      "originalEvent": "gasp",
+      "sha256": "21ec926d43d04c76ea17b9d33c30301cd1adeade23de8bb772e985854018fa08",
+      "zai": "Wow, wow hoo!",
+      "independent": " WOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOOHOO",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-397434",
+      "status": "accepted",
+      "event": "cheer",
+      "originalEvent": "cheer",
+      "sha256": "b94d1b049659fd96f6a9fb7f2af9a32b9618b86d186e80154506ecc073a141c8",
+      "zai": "Applause",
+      "independent": " Thank you.",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-428231",
+      "status": "accepted",
+      "event": "applause",
+      "originalEvent": "applause",
+      "sha256": "21dcb35a444bb15edf4879561a99dcb2d0f645e1383d403a907db976f761bf0b",
+      "zai": "#",
+      "independent": " Thank you.",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-432868",
+      "status": "accepted",
+      "event": "cheer",
+      "originalEvent": "cheer",
+      "sha256": "c36c5bd123c534b7fb877de35da59030b50568191f95065019c133786faaa393",
+      "zai": "#",
+      "independent": " AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-432874",
+      "status": "accepted",
+      "event": "cheer",
+      "originalEvent": "cheer",
+      "sha256": "df938064ffdcf051d344b1125ea2bc2df3343d333d248b12c272aa677d626ef2",
+      "zai": "#",
+      "independent": " Aah!",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-438421",
+      "status": "accepted",
+      "event": "cheer_kids",
+      "originalEvent": "cheer_kids",
+      "sha256": "87816c0f2f42c5217d9cf1706de8151d11825a41009d8a79dc496673f2898188",
+      "zai": "Yay!",
+      "independent": " Yay!",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-445711",
+      "status": "accepted",
+      "event": "chatter_bed",
+      "originalEvent": "chatter_bed",
+      "sha256": "a0656b66d160f1ec318edec533b10ef6dde0f2f579f5e1baf1510554ff9457ea",
+      "zai": "",
+      "independent": " Thank you.",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-453948",
+      "status": "accepted",
+      "event": "chatter_bed",
+      "originalEvent": "chatter_bed",
+      "sha256": "aab970a5fe8c87e2cb9c8b513cf893ca0227875746ee1e0a0ccb065693da86d1",
+      "zai": "",
+      "independent": " The",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-467042",
+      "status": "accepted",
+      "event": "funny_laugh",
+      "originalEvent": "funny_laugh",
+      "sha256": "00594e3e73526a2b874c122db791356c56391200a3361c2ca0d1d56e5b04f6b6",
+      "zai": "#",
+      "independent": " You",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-482990",
+      "status": "accepted",
+      "event": "chatter_bed",
+      "originalEvent": "chatter_bed",
+      "sha256": "04a9fae18acc92180fd5cfcb8380c091386321d0bf36f5c87f7f4b754db92c1d",
+      "zai": "",
+      "independent": " Thank you.",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-490645",
+      "status": "accepted",
+      "event": "venue_bed",
+      "originalEvent": "chatter_bed",
+      "sha256": "969caa3bd0ae40383eead46593a24b2c8c092abcd613a8c5fdfc2e753582cd80",
+      "zai": "",
+      "independent": " Thank you.",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-503620",
+      "status": "accepted",
+      "event": "funny_laugh",
+      "originalEvent": "funny_laugh",
+      "sha256": "70dce06ee762be1a8f7c748e3125d7cb606266fc4cbe84d7a428b7e0c1336aad",
+      "zai": "#",
+      "independent": " You",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-520370",
+      "status": "accepted",
+      "event": "funny_laugh",
+      "originalEvent": "funny_laugh",
+      "sha256": "009bb6ab53e975bba77e67d71c64cd8defa79a71281a71355a9246d8d0110b64",
+      "zai": "#",
+      "independent": " I'm so sorry.",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-533430",
+      "status": "accepted",
+      "event": "cheer",
+      "originalEvent": "cheer",
+      "sha256": "af5ea07f5103fda175162687d60c6d196c117ab97dabe2e4b39bbfa87939cd71",
+      "zai": "#",
+      "independent": " You",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-540299",
+      "status": "accepted",
+      "event": "chatter_bed",
+      "originalEvent": "chatter_bed",
+      "sha256": "5aaa79b24c9407ccf357ff7ed6e88d8f44a1ae39a0f8c529e111d2bfe7637e84",
+      "zai": "",
+      "independent": " Thank you.",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-615586",
+      "status": "accepted",
+      "event": "chatter_bed",
+      "originalEvent": "chatter_bed",
+      "sha256": "bdc1f0aa6c73ab2723e825c37425e29b2a4bf06972ed870ea27e02e425dc9870",
+      "zai": "",
+      "independent": " Thank you.",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-637466",
+      "status": "accepted",
+      "event": "chatter_bed",
+      "originalEvent": "chatter_bed",
+      "sha256": "5c5d2ff7142bcb04a46058bc960ac5212e301bfb3c05924240afe42628d14441",
+      "zai": "",
+      "independent": ".",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-637468",
+      "status": "accepted",
+      "event": "applause",
+      "originalEvent": "applause",
+      "sha256": "73cdc920eb6fd556ff1f6e777f3ae48adb067191bce3bf56b2c70a37bf710930",
+      "zai": "#",
+      "independent": " You",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-648409",
+      "status": "pending",
+      "reason": "Possible performance/music context requires further review"
+    },
+    {
+      "id": "avpb-649182",
+      "status": "accepted",
+      "event": "chatter_bed",
+      "originalEvent": "chatter_bed",
+      "sha256": "523550e4bbf156f8f95ab1bedd3ddcebfa08b7df5615c8ed93db54861b16c7c4",
+      "zai": "",
+      "independent": " The",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-651704",
+      "status": "accepted",
+      "event": "tension_bed",
+      "originalEvent": "tension_bed",
+      "sha256": "512dc3706f02c7f826388f3d1a1d0f2e8ff25263b7864f23933dd0c5512bf2c0",
+      "zai": "",
+      "independent": " You",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-678537",
+      "status": "accepted",
+      "event": "disappointment",
+      "originalEvent": "disappointment",
+      "sha256": "018b91aeb6fdcc5bbde411be3437f00cdc7fbd5f108babe4564e9d6b025955ef",
+      "zai": "#",
+      "independent": " Oh, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah,",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-678540",
+      "status": "accepted",
+      "event": "disappointment",
+      "originalEvent": "disappointment",
+      "sha256": "fb7f3b2244ec56373288678d47d5d04ab33e67dad11231a3567b822ba4a9a550",
+      "zai": "#",
+      "independent": " Oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh,",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-678669",
+      "status": "accepted",
+      "event": "funny_laugh",
+      "originalEvent": "funny_laugh",
+      "sha256": "f0b27013f58595bda46ce0380f694f4ea9a8202b6cffb84f536b76fd2af62dd7",
+      "zai": "#",
+      "independent": " You",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-678671",
+      "status": "accepted",
+      "event": "chatter_bed",
+      "originalEvent": "chatter_bed",
+      "sha256": "1f2a316efa8688c4948c72c03622266fcea79df5a4debaaca5df6f5921ec780f",
+      "zai": "",
+      "independent": " Oh, my God.",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-690190",
+      "status": "accepted",
+      "event": "chatter_bed",
+      "originalEvent": "chatter_bed",
+      "sha256": "0769de460fc8df16503b759add032abb890a0f253f7660a70446e36ce18fa8bf",
+      "zai": "",
+      "independent": " I'm happy to be here.",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-706805",
+      "status": "accepted",
+      "event": "chatter_bed",
+      "originalEvent": "chatter_bed",
+      "sha256": "717bac5171ad5569d85860e0f6cdb426bb577bbb6b41763b4db2bb3af466ff73",
+      "zai": "",
+      "independent": " Thank you.",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-707212",
+      "status": "pending",
+      "reason": "Measured peak/duration outside pack limits"
+    },
+    {
+      "id": "avpb-724600",
+      "status": "accepted",
+      "event": "cheer_kids",
+      "originalEvent": "cheer_kids",
+      "sha256": "16568af6b1bcc9ff9c2b7cc1604d143011bd3929daffe7f41c64f2b8f827c9e2",
+      "zai": "#",
+      "independent": " You",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-730908",
+      "status": "accepted",
+      "event": "cheer",
+      "originalEvent": "cheer",
+      "sha256": "c50c29173efe6435562c2919f2532a107f5b217e72b3a1c1022dd1fda05e0097",
+      "zai": "",
+      "independent": " The World of the World of the World of the World",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-733614",
+      "status": "accepted",
+      "event": "encouragement_chant",
+      "originalEvent": "encouragement_chant",
+      "sha256": "1ee44a78bf6232d4ac30e8efcfcf2e8e226d8e7644e30f5c9bd9a1eafe383834",
+      "zai": "",
+      "independent": " You",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-735499",
+      "status": "accepted",
+      "event": "venue_bed",
+      "originalEvent": "venue_bed",
+      "sha256": "0d4ba9f7eed36369210350db926e0482421a474288cc11249beb964e7ffab601",
+      "zai": "",
+      "independent": " Thank you.",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-735578",
+      "status": "pending",
+      "reason": "Possible performance/music context requires further review"
+    },
+    {
+      "id": "avpb-745599",
+      "status": "accepted",
+      "event": "cheer_kids",
+      "originalEvent": "cheer_kids",
+      "sha256": "c19c352dcdba62f7bd2cd198a56071dca1a0f7948d329cd33cf993977f0a68f4",
+      "zai": "#",
+      "independent": " You",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-763924",
+      "status": "pending",
+      "reason": "Possible time-specific or unrelated wording requires further review"
+    },
+    {
+      "id": "avpb-789944",
+      "status": "accepted",
+      "event": "applause",
+      "originalEvent": "applause",
+      "sha256": "5d05245a34494c0f07c9c6c1184e3204a2c9a83e2fb0a718b6b91d6bb1895567",
+      "zai": "Applause",
+      "independent": " Thank you.",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-810742",
+      "status": "accepted",
+      "event": "cheer",
+      "originalEvent": "cheer",
+      "sha256": "f9d7d249a804370c65d53671b33be23d6b9093af3f889cf5c002309250cf44ea",
+      "zai": "Applause",
+      "independent": " Thank you.",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-819050",
+      "status": "accepted",
+      "event": "cheer_kids",
+      "originalEvent": "cheer_kids",
+      "sha256": "64b29839827a346b71a7872cde97e106e24979df40e6217c0d6e87d4740b31a7",
+      "zai": "",
+      "independent": " You",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-851718",
+      "status": "accepted",
+      "event": "funny_laugh",
+      "originalEvent": "funny_laugh",
+      "sha256": "4765ce6483c615bd309b138d2aaee318e6c3bcb7aea15970ed1830b38c129bd5",
+      "zai": "#",
+      "independent": " You",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-857740",
+      "status": "accepted",
+      "event": "tension_bed",
+      "originalEvent": "tension_bed",
+      "sha256": "fa2419663e872bc2fca54631eb89169e2621933c471d33adb68dcc9758482c7c",
+      "zai": "",
+      "independent": ".",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-870643",
+      "status": "accepted",
+      "event": "funny_laugh",
+      "originalEvent": "funny_laugh",
+      "sha256": "2778139396b5fc0640c440afb83c835e84034b7b1623c54d5eb858b0a5db3a0c",
+      "zai": "#",
+      "independent": " I'm not sure.",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    },
+    {
+      "id": "avpb-875485",
+      "status": "accepted",
+      "event": "chatter_bed",
+      "originalEvent": "chatter_bed",
+      "sha256": "127cc6842326249c3cc13e2660b3736bba82c10ad2cb6b8cc70e47486170f15d",
+      "zai": "",
+      "independent": ".",
+      "reason": "Neutral crowd reaction or unintelligible ambience; checked actual decoded outputs and source context, not metadata alone"
+    }
+  ]
+}

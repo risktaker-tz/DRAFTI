@@ -24,6 +24,7 @@ def main() -> None:
         ("/*__STYLES__*/", "styles.css"),
         ("/*__AUDIO__*/", "audio.manifest.js"),
         ("/*__ENGINE__*/", "engine.js"),
+        ("/*__AUDIENCE__*/", "audience.js"),
         ("/*__UI__*/", "ui.js"),
     ):
         replacement = part(filename)

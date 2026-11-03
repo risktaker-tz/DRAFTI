@@ -25,11 +25,11 @@ assert(ui.includes('STREAMER.openGame();'),'game-open greeting hook');
 // module: slice STREAMER out and exercise the gates deterministically
 const s=ui.indexOf('const STREAMER ='),e=ui.indexOf('function flashLabel',s);
 assert(s>0&&e>s,'STREAMER module present');
-const plays=[];
+const plays=[];let now=1000;
 const sandbox={settings:{streamer:'off',sound:true,sfx:{voice:true}},
   SFX_BANK:{defs:bank,buffers:new Map(Object.keys(bank).map((k)=>[k,{filled:true}])),activeSources:new Map(),sceneLockUntil:0,
     play:(id,opts)=>{plays.push({id,opts});return {id};}},
-  performance:{now:()=>1000},Math:{random:()=>0,min:(a,b)=>a<b?a:b,max:(a,b)=>a>b?a:b}};
+  performance:{now:()=>now},Date:class{getHours(){return 20;}},Math:{random:()=>0,min:(a,b)=>a<b?a:b,max:(a,b)=>a>b?a:b}};
 vm.createContext(sandbox);
 vm.runInContext(ui.slice(s,e)+'\nthis.STREAMER=STREAMER;',sandbox);
 const S=sandbox.STREAMER;
@@ -85,7 +85,7 @@ sandbox.settings.sfx.voice=false; assert.equal(S.say('praise'),false,'voice chip
 sandbox.settings.sound=false; assert.equal(S.say('praise'),false,'master sound respected'); sandbox.settings.sound=true;
 // per-role cooldown, per-game quota, at-map bookkeeping
 S.busyUntil=0; assert.equal(S.say('greeting'),false,'cooldown holds');
-for (let i=0;i<S.ROLES.capture.perGame;i++){ S.busyUntil=0; S.at.clear(); S.lastLine=''; assert.equal(S.say('capture'),true,'capture '+i); }
+for (let i=0;i<S.ROLES.capture.perGame;i++){ now+=180001; S.busyUntil=0; S.at.clear(); S.lastLine=''; assert.equal(S.say('capture'),true,'capture '+i); }
 S.busyUntil=0; S.at.delete('capture');
 assert.equal(S.say('capture'),false,'per-game quota holds');
 // role without a pool in this mode

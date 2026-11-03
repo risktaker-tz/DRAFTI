@@ -195,6 +195,9 @@ body.fx-scan::after {
 .sq.light .sqnum { color: var(--sqnum-l); }
 
 /* square states */
+.audience-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.audience-actions .btn { min-width: 0; white-space: normal; }
+#audienceVolume { max-width: 100%; }
 .sq.last::after {
   content: ''; position: absolute; inset: 0;
   background: radial-gradient(ellipse at center, var(--accent-soft), transparent 72%);
@@ -890,6 +893,15 @@ body.hv .piece.ebony .body {
 @keyframes shock {
   from { transform: scale(.35); opacity: .95; }
   to   { transform: scale(2.6); opacity: 0; }
+}
+.capture-shockwave {
+  z-index: 0;
+  box-shadow: inset 0 0 10px var(--accent-soft), 0 0 0 2px #ffe8b7, 0 0 14px var(--accent);
+  animation: capture-shock .34s ease-out both;
+}
+@keyframes capture-shock {
+  from { transform: scale(.32); opacity: .85; }
+  to { transform: scale(var(--blast-radius)); opacity: 0; }
 }
 
 /* ---------- doom vignette: the trapped side wears the board out ---------- */

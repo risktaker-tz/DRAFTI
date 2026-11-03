@@ -3,6 +3,9 @@ const fs = require('fs'), path = require('path'), vm = require('vm');
 const context = { window: {} };
 vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../src/audio.manifest.js'), 'utf8'), context);
 const bank = context.window.DRAFTI_SFX;
+const audienceFile=path.join(__dirname,'../web/audience-vibes/manifest.json');
+if(fs.existsSync(audienceFile))for(const clip of JSON.parse(fs.readFileSync(audienceFile,'utf8')).clips)
+  bank[clip.id]={...clip,c:'audience'};
 const synths = new Set(['select','move','capture','king','win','lose','draw','illegal','undo','trap_snap','denied','relief','levelup','think-rustle']);
 function verifySoundLog(input, requirements = {}) {
   const issues = [], rows = [], categories = {}, modes = {}, last = new Map(), narrators = new Map();
