@@ -82,9 +82,10 @@ def verdict(rec, tr, entry):
             if rec['windowSpeechFlag']:
                 return 'pending', 'speech-flagged-but-not-asr-verified', 'no transcript'
             return ('approve', 'nonverbal-acoustic-review',
-                    'nonverbal crowd sound; reviewed via metadata screen + '
-                    'silence-bounded cut + acoustic peak/LUFS measurement; not '
-                    'in the 1-in-7 ASR spot-check sample')
+                    'nonverbal crowd/ambient sound; reviewed via metadata '
+                    'screen + silence-bounded cut + acoustic peak/LUFS '
+                    'measurement; outside the ASR quota-limited review batch '
+                    '(sample plan in review_state/asr_sample_plan.json)')
         return 'pending', 'asr-error', tr.get('error', 'no transcript')
     text = tr.get('text', '').strip()
     low = text.lower()

@@ -68,7 +68,7 @@ def job(q):
         ok_gap = 1.0 if rec.get('ok') else BACKOFF['gap']
         BACKOFF['gap'] = max(ok_gap, BACKOFF['gap'] * 0.9)
         gap = max(BACKOFF['gap'], 0.5)
-    time.sleep(max(12.0, min(gap, 8)))
+    time.sleep(max(20.0, min(gap, 8)))
     return q['id'], rec.get('ok', False) if rec else False
 
 
