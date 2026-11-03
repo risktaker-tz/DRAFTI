@@ -47,8 +47,9 @@ for r in all_recs:
             print(f'BANNED PATTERN {pat!r} in {r["id"]}: {r["text"]}')
             ok = False
     words = len(r['text'].split())
-    if words > 16:
-        print(f'LONG ({words} words) {r["id"]}: {r["text"]}')
+    limit = 9 if r['voice'] == 'tongtong' else 12
+    if words > limit:
+        print(f'LONG ({words}>{limit}) {r["id"]}: {r["text"]}')
         ok = False
 print('ALL OK' if ok else 'PROBLEMS FOUND')
 sys.exit(0 if ok else 1)

@@ -1,0 +1,19 @@
+{
+ "clips": {
+  "sf2_001": {
+   "status": "pending",
+   "takes": 1,
+   "error": "retake after length calibration"
+  },
+  "sj2_001": {
+   "status": "pending",
+   "takes": 1,
+   "error": "retake after length calibration"
+  },
+  "sm2_001": {
+   "status": "pending",
+   "takes": 1,
+   "error": "retake after length calibration"
+  }
+ }
+}

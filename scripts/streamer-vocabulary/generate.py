@@ -84,7 +84,7 @@ def next_batch(recs, voice_prefix, count):
 
 def build_manifest(st):
     clips = []
-    for r in recs():
+    for r in records():
         c = st['clips'].get(r['id'])
         if not c or c['status'] != 'accepted':
             continue
