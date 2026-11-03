@@ -46,5 +46,11 @@ async function checkVocabulary() {
     assert(S.extraPools.funny[role].length > 0);
     assert(S.extraPools.funny[role].every(id => manifest.some(clip => clip.id === id && clip.role === source)));
   }
+  const say = S.say;
+  const roles = [];
+  S.say = role => { roles.push(role); return role === 'next_rematch'; };
+  assert(S.intermission('next_rematch'));
+  assert.deepEqual(roles, ['cta', 'next_rematch']);
+  S.say = say;
 }
 checkVocabulary().catch(error => { console.error(error); process.exitCode = 1; });

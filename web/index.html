@@ -4585,7 +4585,8 @@ function createSoundAudit(capacity = 12000) {
         return response.json();
       }).then(async clips => {
         const roles = { session_open: 'greeting', capture1: 'capture',
-          capture2: 'feast', capture3plus: 'capture_chain', new_king: 'crowning' };
+          capture2: 'feast', capture3plus: 'capture_chain', new_king: 'crowning',
+          new_bout: 'next_bout', rematch_draw: 'next_rematch', season_advance: 'next_season' };
         const pool = this.extraPools[mode] = {};
         for (const clip of clips) {
           const role = roles[clip.role];
@@ -4610,6 +4611,9 @@ function createSoundAudit(capacity = 12000) {
       capture:     { chance: .8, cooldown: 16000,  perGame: 8 },
       feast:       { chance: 1,  cooldown: 20000,  perGame: 5 },
       capture_chain: { chance: 1, cooldown: 20000, perGame: 5 },
+      next_bout:    { chance: 1, cooldown: 30000, perGame: 1 },
+      next_rematch: { chance: 1, cooldown: 30000, perGame: 1 },
+      next_season:  { chance: 1, cooldown: 30000, perGame: 1 },
       crowning:    { chance: 1,  cooldown: 20000,  perGame: 5 },
       trap_set:    { chance: .4,  cooldown: 60000,  perGame: 2 },
       trap_spring: { chance: .55, cooldown: 60000,  perGame: 2 },
@@ -4706,11 +4710,11 @@ function createSoundAudit(capacity = 12000) {
       if (G.phase === 'thinking' && this.say('long_think')) return;
       if (now - (this.at.get('cta') ?? -Infinity) >= 90000) this.say('cta');
     },
-    intermission() {
+    intermission(role) {
       // A ceremony owns its full original recording. Use the free space after
       // it for engagement, without falsely announcing the stream has ended.
       if (drawerOpen || document.hidden) return false;
-      return this.say('cta');
+      return this.say('cta') || (role ? this.say(role) : false);
     },
     canPlay(role, opts) {
       if (typeof drawerOpen !== 'undefined' && drawerOpen) return false;
@@ -5836,7 +5840,11 @@ function createSoundAudit(capacity = 12000) {
     const beginCountdown = () => {
       if (generation !== autoNextGeneration || G.mode !== 'aivai' || !settings.aivaiAuto) return;
       const c = rosterById(arena.champion), ch = rosterById(arena.queue[0] || arena.champion);
-      const streamerSpoke = STREAMER.intermission();
+      const nextPair = [arena.champion, arena.queue[0] || arena.champion];
+      const drawnRematch = G.result?.winner === null && nextPair.includes(G.seatIvory) &&
+        nextPair.includes(G.seatEbony);
+      const transition = res.seasonEnd ? 'next_season' : drawnRematch ? 'next_rematch' : 'next_bout';
+      const streamerSpoke = STREAMER.intermission(transition);
       const voiceEnds = streamerSpoke ? STREAMER.busyUntil : 0;
       let left = 6, remainingMs = 6000, lastTick = Date.now();
       const announce = () => {
