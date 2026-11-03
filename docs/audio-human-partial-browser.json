@@ -1,0 +1,253 @@
+{
+  "scope": "Isolated real browser, deck build 13114118 bytes before final ceremony/category-history overlap fix; opening eight plies with captures by both sides, not a full match.",
+  "url": "http://127.0.0.1:8081/?audio-audit",
+  "audio": [
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"th_h01\",\"category\":\"think\",\"priority\":10,\"phase\":\"idle\",\"at\":17608}",
+      "timestamp": "2026-11-03T09:59:21.987Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"th_h16\",\"category\":\"think\",\"priority\":10,\"phase\":\"idle\",\"at\":30597}",
+      "timestamp": "2026-11-03T09:59:35.181Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_slide_1\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"at\":37816}",
+      "timestamp": "2026-11-03T09:59:42.196Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_landing_4\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"at\":37824}",
+      "timestamp": "2026-11-03T09:59:42.199Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_slide_4\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"at\":41692}",
+      "timestamp": "2026-11-03T09:59:46.190Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_landing_3\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"at\":41707}",
+      "timestamp": "2026-11-03T09:59:46.190Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"sparkle\",\"category\":\"ui\",\"priority\":20,\"phase\":\"idle\",\"at\":42722}",
+      "timestamp": "2026-11-03T09:59:47.107Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"v_paidoff\",\"category\":\"judge\",\"priority\":60,\"phase\":\"idle\",\"at\":42728}",
+      "timestamp": "2026-11-03T09:59:47.107Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"th_m6\",\"category\":\"think\",\"priority\":10,\"phase\":\"idle\",\"at\":54629}",
+      "timestamp": "2026-11-03T09:59:59.008Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"th_p1\",\"category\":\"think\",\"priority\":10,\"phase\":\"idle\",\"at\":67624}",
+      "timestamp": "2026-11-03T10:00:12.205Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"cricket\",\"category\":\"party\",\"priority\":40,\"phase\":\"idle\",\"at\":87409}",
+      "timestamp": "2026-11-03T10:00:31.785Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"th_m4\",\"category\":\"think\",\"priority\":10,\"phase\":\"idle\",\"at\":98055}",
+      "timestamp": "2026-11-03T10:00:45.096Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"t1b\",\"category\":\"think\",\"priority\":10,\"phase\":\"idle\",\"at\":98060}",
+      "timestamp": "2026-11-03T10:00:45.096Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"th_p2\",\"category\":\"think\",\"priority\":10,\"phase\":\"idle\",\"at\":117579}",
+      "timestamp": "2026-11-03T10:01:01.949Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"v_hint\",\"category\":\"voice\",\"priority\":60,\"phase\":\"idle\",\"at\":123529}",
+      "timestamp": "2026-11-03T10:01:10.547Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_slide_2\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"at\":133828}",
+      "timestamp": "2026-11-03T10:01:18.202Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_landing_1\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"at\":133836}",
+      "timestamp": "2026-11-03T10:01:18.208Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"sparkle\",\"category\":\"ui\",\"priority\":20,\"phase\":\"thinking\",\"at\":136123}",
+      "timestamp": "2026-11-03T10:01:21.510Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"v_masterpiece\",\"category\":\"judge\",\"priority\":60,\"phase\":\"thinking\",\"at\":136125}",
+      "timestamp": "2026-11-03T10:01:21.511Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"notify_pop\",\"category\":\"ui\",\"priority\":20,\"phase\":\"thinking\",\"at\":136248}",
+      "timestamp": "2026-11-03T10:01:21.511Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_slide_3\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"at\":136604}",
+      "timestamp": "2026-11-03T10:01:21.512Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_landing_2\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"at\":136613}",
+      "timestamp": "2026-11-03T10:01:21.512Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"th_s1\",\"category\":\"think\",\"priority\":10,\"phase\":\"idle\",\"at\":149083}",
+      "timestamp": "2026-11-03T10:01:33.458Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"later_moments\",\"category\":\"party\",\"priority\":40,\"phase\":\"idle\",\"at\":152955}",
+      "timestamp": "2026-11-03T10:01:40.496Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"th_o2\",\"category\":\"think\",\"priority\":10,\"phase\":\"idle\",\"at\":162082}",
+      "timestamp": "2026-11-03T10:01:46.601Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_slide_1\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"at\":163675}",
+      "timestamp": "2026-11-03T10:01:48.047Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_landing_4\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"at\":163681}",
+      "timestamp": "2026-11-03T10:01:48.050Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"shloop\",\"category\":\"comedy\",\"priority\":35,\"phase\":\"animating\",\"at\":164928}",
+      "timestamp": "2026-11-03T10:01:51.467Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"v_awkward\",\"category\":\"voice\",\"priority\":60,\"phase\":\"animating\",\"at\":164935}",
+      "timestamp": "2026-11-03T10:01:51.468Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_impact_3\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"at\":165390}",
+      "timestamp": "2026-11-03T10:01:51.469Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_coin_3\",\"category\":\"party\",\"priority\":40,\"phase\":\"animating\",\"at\":165672}",
+      "timestamp": "2026-11-03T10:01:51.470Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"v_nice\",\"category\":\"judge\",\"priority\":60,\"phase\":\"idle\",\"at\":168698}",
+      "timestamp": "2026-11-03T10:01:53.075Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"th_t5\",\"category\":\"think\",\"priority\":10,\"phase\":\"idle\",\"at\":178253}",
+      "timestamp": "2026-11-03T10:02:04.417Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_impact_1\",\"category\":\"majestic\",\"priority\":70,\"phase\":\"animating\",\"at\":181418}",
+      "timestamp": "2026-11-03T10:02:05.800Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_slide_4\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"at\":184090}",
+      "timestamp": "2026-11-03T10:02:09.529Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"fx_landing_3\",\"category\":\"ui\",\"priority\":20,\"phase\":\"animating\",\"at\":184102}",
+      "timestamp": "2026-11-03T10:02:09.530Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"th_o1\",\"category\":\"think\",\"priority\":10,\"phase\":\"idle\",\"at\":196601}",
+      "timestamp": "2026-11-03T10:02:20.981Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"th_o3\",\"category\":\"think\",\"priority\":10,\"phase\":\"idle\",\"at\":209850}",
+      "timestamp": "2026-11-03T10:02:34.229Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"cricket\",\"category\":\"party\",\"priority\":40,\"phase\":\"idle\",\"at\":229657}",
+      "timestamp": "2026-11-03T10:02:54.034Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"th_t6\",\"category\":\"think\",\"priority\":10,\"phase\":\"idle\",\"at\":259598}",
+      "timestamp": "2026-11-03T10:03:23.968Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    },
+    {
+      "level": "info",
+      "message": "[DRAFTI audio] {\"id\":\"th_m5\",\"category\":\"think\",\"priority\":10,\"phase\":\"idle\",\"at\":289843}",
+      "timestamp": "2026-11-03T10:03:54.218Z",
+      "url": "http://127.0.0.1:8081/?audio-audit"
+    }
+  ],
+  "errors": []
+}

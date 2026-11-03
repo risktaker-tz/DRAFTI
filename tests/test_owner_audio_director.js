@@ -16,6 +16,7 @@ for(const [id,meta] of Object.entries(map.clips)){
 let now=100000,plays=[];
 const fakeMath=Object.create(Math);fakeMath.random=()=>0;
 const c={window:definitions.window,settings:{sound:true},G:{over:false,aiSpeed:1,mode:'aivai'},performance:{now:()=>now},Math:fakeMath};
+vm.runInNewContext(ui.slice(ui.indexOf('  function makeDeck('),ui.indexOf('  const THINK_POOL =')),c);
 vm.runInNewContext('this.bank={'+ui.slice(ui.indexOf('    defs: window.DRAFTI_SFX'),ui.indexOf('    decoding: false,'))+'};',c);
 const d=c.bank;d.sceneLockUntil=0;d.on=()=>true;d.buffers=new Map(Object.keys(bank).map(id=>[id,{}]));d.play=id=>{plays.push(id);return {};};
 assert(!d.directOwner('human_blunder_flagrant',{human:false,delta:500}));

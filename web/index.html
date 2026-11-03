@@ -3221,6 +3221,9 @@ function createPlayerProgressStore(storage) {
       source.onended = () => { source.disconnect(); filter.disconnect(); gain.disconnect();
         if (this.thinkSource === source) this.thinkSource = null; };
       source.start();
+      if (typeof location !== 'undefined' && new URLSearchParams(location.search).has('audio-audit'))
+        console.info('[DRAFTI audio]', JSON.stringify({ id: 'synth:think-rustle', kind: 'synth', category: 'think',
+          mode: G.mode, phase: G.phase, ply: G.history.length, at: Math.round(performance.now()), run: performance.timeOrigin }));
     },
     thinkStart() {
       if (this.thinkTimer) return;
@@ -3323,7 +3326,11 @@ function createPlayerProgressStore(storage) {
               this.noiseAt(0.02, 0.12, i * 0.09, 3800, 1.4);
             });
             break;
+          default: return;
         }
+        if (this.ctx && typeof location !== 'undefined' && new URLSearchParams(location.search).has('audio-audit'))
+          console.info('[DRAFTI audio]', JSON.stringify({ id: 'synth:' + name, kind: 'synth', category: dramaSynth ? 'drama' : 'classic',
+            mode: G.mode, phase: G.phase, ply: G.history.length, at: Math.round(performance.now()), run: performance.timeOrigin }));
       } catch { /* audio is best-effort */ }
     },
     // soft ceramic tick for piece selection
@@ -3392,6 +3399,60 @@ function createPlayerProgressStore(storage) {
     eventAt: new Map(),
     activeSources: new Map(),
     lastNarratorVoice: null,
+    lastNarratorMood: null,
+    narratorHistory: [],
+    categoryDecks: new Map(),
+    categoryHistory: new Map(),
+    narratorInfo(id) {
+      // These families follow the recovered verbatim transcripts in
+      // scripts/voice_lines.md. Alternate voices share the same joke family.
+      const canonical = id.replace(/^(th_[nh]\d+)b$/, '$1');
+      const engine = /^th_n(\d+)$/.exec(canonical), human = /^th_h(\d+)$/.exec(canonical);
+      if (engine) {
+        const n = Number(engine[1]);
+        return { role: 'engine', family: canonical,
+          mood: [1,13,14,17,19,23,24].includes(n) ? 'time-joke'
+            : [8,9,15].includes(n) ? 'suspense' : [2,12].includes(n) ? 'patience' : 'analysis' };
+      }
+      if (human) return { role: 'human', family: canonical,
+        mood: [1,4,6,11,14,17,18,19].includes(Number(human[1])) ? 'patience' : 'time-joke' };
+      if (/^t[1-5][a-e]$/.test(id)) return { role: 'human', family: id,
+        mood: id[1] === '1' ? 'patience' : ['3','4'].includes(id[1]) ? 'challenge' : 'time-joke' };
+      if (id === 'later_moments' || id === 'later_hours') return { role: 'either',
+        family: id === 'later_moments' ? 'th_n01' : 'th_n23', mood: 'time-joke' };
+      return { role: id === 'v_time' ? 'clock' : 'either', family: id, mood: null };
+    },
+    narratorEligible(id, actor) {
+      const info = this.narratorInfo(id);
+      if (info.role === 'clock' || actor && info.role !== 'either' && info.role !== actor) return false;
+      if (G.over || G.phase === 'over' || G.phase === 'animating') return false;
+      if (actor === 'engine' && G.phase !== 'thinking' || actor === 'human' && (G.phase !== 'idle' || G.mode === 'aivai')) return false;
+      const voice = this.defs[id]?.voice || (window.DRAFTI_VOICES || {})[id];
+      return !(info.mood && (info.mood === this.lastNarratorMood || this.narratorHistory.slice(-3).includes(info.family))) &&
+        !(['jam','kazi'].includes(voice) && voice === this.lastNarratorVoice);
+    },
+    drawCue(key, ids, actor, excluded) {
+      if (!settings.sound || !ids.length) return null;
+      if (actor && performance.now() < this.sceneLockUntil) return null;
+      if (actor && [...this.activeSources.values()].some(active => active.spoken)) return null;
+      // Each semantic pool has its own category deck. Never draw an unrelated
+      // sound just because it belongs to the same broad audio category.
+      if (!this.categoryDecks.has(key)) this.categoryDecks.set(key, makeDeck(ids));
+      const now = performance.now(), windowSize = Math.min(3, ids.length - 1);
+      const eligible = id => {
+        const def = this.defs[id];
+        return def && this.on(id) && this.buffers.has(id) && (now >= this.sceneLockUntil || def.c === 'ui') && !(excluded || []).includes(id) &&
+          (def.c === 'ui' || !this.recent.slice(-5).includes(id)) &&
+          now - (this.lastPlayed.get(id) ?? -Infinity) >= (def.c === 'ui' ? 150 : 8000) &&
+          (!actor || this.narratorEligible(id, actor));
+      };
+      const deck = this.categoryDecks.get(key);
+      // Prefer category freshness, but do not strand an event when overlapping
+      // pools cover every variant. Clip cooldowns, event history and narrator
+      // meaning/voice/mood guards remain hard gates in the second draw too.
+      return deck(id => eligible(id) && !(windowSize &&
+        (this.categoryHistory.get(this.defs[id].c) || []).slice(-windowSize).includes(id))) || deck(eligible);
+    },
     queue: [],
     audioEpoch: 0,
     queuePosition() {
@@ -3412,9 +3473,9 @@ function createPlayerProgressStore(storage) {
       const now = performance.now(), rest = ['landing','jump','impact','slide','king_glint'].includes(event) ? 120 : event === 'countdown' ? 700 : 1200;
       if (now - (this.eventAt.get(event) ?? -Infinity) < rest) return null;
       const history = this.eventHistory.get(event) || [];
-      const pool = Object.keys(this.defs).filter(id => this.defs[id].event === event && this.on(id) && this.buffers.has(id) && !history.slice(-3).includes(id));
-      if (!pool.length) return null;
-      const id = pool[(Math.random() * pool.length) | 0];
+      const pool = Object.keys(this.defs).filter(id => this.defs[id].event === event);
+      const id = this.drawCue('effect:' + event, pool, null, history.slice(-3));
+      if (!id) return null;
       const source = this.play(id, { vol: opts.vol ?? .42, rate: 1 });
       if (source) { this.eventAt.set(event, now); history.push(id); this.eventHistory.set(event, history.slice(-8)); }
       return source;
@@ -3501,6 +3562,7 @@ function createPlayerProgressStore(storage) {
       // A delayed thinking card must not narrate a finished match or interrupt
       // the move itself. Tactical and celebration categories keep their cues.
       if (category === 'think' && (G.over || G.phase === 'over' || G.phase === 'animating')) return null;
+      if ((category === 'think' || opts?.narrator) && !this.narratorEligible(name, opts?.narratorActor)) return null;
       const priority = opts && opts.sceneOwner === 'ceremony' ? 100
         : ({ majestic: 70, voice: 60, judge: 60, drama: 50, party: 40, comedy: 35, ui: 20, think: 10 }[category] || 30);
       const voice = this.defs[name].voice || (window.DRAFTI_VOICES || {})[name];
@@ -3525,6 +3587,8 @@ function createPlayerProgressStore(storage) {
       this.lastPlayed.set(name, now);
       this.recent.push(name);
       if (this.recent.length > 20) this.recent.shift();
+      const categoryHistory = this.categoryHistory.get(category) || [];
+      categoryHistory.push(name); this.categoryHistory.set(category, categoryHistory.slice(-8));
       const def = this.defs[name] || {};
       const cat = def.c || 'comedy';
       const vol = ((opts && opts.vol != null ? opts.vol : 1) *
@@ -3543,11 +3607,22 @@ function createPlayerProgressStore(storage) {
       }
       this.activeSources.set(src, { priority, spoken, ambient: category === 'think' });
       src.onended = () => { this.activeSources.delete(src); src.disconnect(); g.disconnect(); this.drainQueue(); };
-      if (category === 'think' && ['jam','kazi'].includes(voice)) this.lastNarratorVoice = voice;
+      if (category === 'think' || opts?.narrator) {
+        if (['jam','kazi'].includes(voice)) this.lastNarratorVoice = voice;
+        const info = this.narratorInfo(name);
+        if (info.mood) {
+          this.lastNarratorMood = info.mood;
+          this.narratorHistory.push(info.family); this.narratorHistory = this.narratorHistory.slice(-8);
+        }
+      }
       if (opts && opts.maxDuration) src.start(0, 0, Math.min(opts.maxDuration, buf.duration));
       else src.start();
       if (new URLSearchParams(location.search).has('audio-audit'))
-        console.info('[DRAFTI audio]', JSON.stringify({ id: name, category, priority, phase: G.phase, at: Math.round(now) }));
+        console.info('[DRAFTI audio]', JSON.stringify({ id: name, kind: 'sample', category, priority, phase: G.phase,
+          mode: G.mode, ply: G.history?.length, turnSide: G.side, at: Math.round(now), run: performance.timeOrigin,
+          epoch: this.audioEpoch, spoken, voice, durationSec: Math.min(opts?.maxDuration ?? buf.duration, buf.duration) / src.playbackRate.value,
+          narrator: category === 'think' || !!opts?.narrator, narratorActor: opts?.narratorActor,
+          mood: this.narratorInfo(name).mood, family: this.narratorInfo(name).family }));
       return src;
     },
   };
@@ -4294,7 +4369,15 @@ function createPlayerProgressStore(storage) {
     whisperTimer = setTimeout(() => el.classList.remove('run'), 2400);
   }
 
-  const pick = (arr) => arr && arr.length ? arr[(Math.random() * arr.length) | 0] : null;
+  const pick = (arr) => {
+    if (!arr || !arr.length) return null;
+    // Sound pools use the same director as the crafted event effects; label
+    // pools retain their existing random choice. The supplied pool still
+    // determines meaning, and duplicate entries retain their weighting.
+    if (arr.every(id => typeof id === 'string' && SFX_BANK.defs[id]))
+      return SFX_BANK.drawCue('pool:' + arr.slice().sort().join('|'), arr);
+    return arr[(Math.random() * arr.length) | 0];
+  };
 
   function thump() {
     frameEl.classList.remove('thump');
@@ -6236,14 +6319,13 @@ function createPlayerProgressStore(storage) {
   let clockArmedKey = -1, clockDeadline = 0, lastTickSec = -1;
   const turnKey = () => G.history.length * 2 + (G.side === IVORY ? 0 : 1);
 
-  // ---- the think deck: 130+ thinking-moment clips, never the same twice ----
-  // One shared bag for every thinking moment (a slow engine, a slow human):
-  // narrator cards, heckles, music-box figures, harp glisses, clock ticks.
-  // Fisher-Yates cycle: every clip plays once before any repeats, the clip
-  // right after a reshuffle is never the last one heard, and the low-tier
-  // "noise" sounds punctuate only occasionally, not every time.
+  // ---- shared decks, with context-aware thinking pools ----
+  // Ordinary decks keep their Fisher-Yates cycle. Director decks prefer the
+  // least-used eligible recording, respecting current actor, category history,
+  // cooldowns, narrator voice and mood without getting stuck on blocked cards.
   function makeDeck(ids) {
     const bag = ids.slice();
+    const uses = new Map();
     let last = null;
     const shuffle = () => {
       for (let i = bag.length - 1; i > 0; i--) {
@@ -6252,7 +6334,20 @@ function createPlayerProgressStore(storage) {
       }
     };
     shuffle();
-    return () => {
+    return (eligible) => {
+      if (typeof eligible === 'function') {
+        // Prefer the least-used eligible recording. A depleted voice/mood
+        // cannot strand the deck forever while incompatible cards remain.
+        const candidates = ids.filter(eligible);
+        if (!candidates.length) return null;
+        const minimum = Math.min(...candidates.map(id => uses.get(id) || 0));
+        const fresh = candidates.filter(id => (uses.get(id) || 0) === minimum);
+        const different = fresh.filter(id => id !== last);
+        const pool = different.length ? different : fresh;
+        const id = pool[(Math.random() * pool.length) | 0];
+        uses.set(id, (uses.get(id) || 0) + 1); last = id;
+        return id;
+      }
       if (!bag.length) { bag.push(...ids); shuffle(); }
       let ix = bag.length - 1;
       if (bag[ix] === last && bag.length > 1) ix = (Math.random() * (bag.length - 1)) | 0;
@@ -6279,14 +6374,7 @@ function createPlayerProgressStore(storage) {
      'th_t1', 'th_t2', 'th_t3', 'th_t4', 'th_t5', 'th_t6', 'th_c1', 'th_f1', 'th_s1'],
     SFX_BANK.defs.th_n01 ? [] : ['notify_pop']
   );
-  const THINK_DECK = makeDeck(THINK_POOL);
-  // draw for a thinking moment; if a clip is not in the bank yet (voices are
-  // generated in batches), fall back to a real interface cue
-  const thinkSound = () => {
-    let id = THINK_DECK();
-    if (!SFX_BANK.defs[id]) id = 'notify_pop';
-    return id;
-  };
+  const thinkSound = (actor) => SFX_BANK.drawCue('narrator:' + actor, THINK_POOL, actor);
 
   // narrator time cards while an engine is lost in thought. Thresholds are
   // tuned to the ladder's real budgets: only genuinely long thinks (budget +
@@ -6320,11 +6408,10 @@ function createPlayerProgressStore(storage) {
       const budgetFloor = Math.min((LEVELS[seatLevel] || LEVELS.l5).budgetMs,
         G.mode === 'ai' ? 1300 : 1e9) + 500;
       while (aiCardFired < AI_CARDS.length && dt >= Math.max(AI_CARDS[aiCardFired].at, budgetFloor)) {
-        if (G.aiSpeed > 1 || Date.now() - lastAiCardAt < 45000 || aiCardsThisGame >= 3) break;
+        if (G.mode === 'aivai' && G.aiSpeed > 1 || Date.now() - lastAiCardAt < 45000 || aiCardsThisGame >= 3) break;
         const card = AI_CARDS[aiCardFired++];
-        lastAiCardAt = Date.now();
-        aiCardsThisGame++;
-        SFX_BANK.play(thinkSound(), { vol: 0.9 });
+        const source = SFX_BANK.play(thinkSound('engine'), { vol: 0.9, narrator: true, narratorActor: 'engine', queue: false });
+        if (source) { lastAiCardAt = Date.now(); aiCardsThisGame++; }
         flashWhisper(card.say);
       }
     }
@@ -6371,7 +6458,12 @@ function createPlayerProgressStore(storage) {
       }
       // a dead-quiet position (tier 3): crickets first, sometimes
       if (tier.at === 45000 && Math.random() < 0.3) SFX_BANK.play('cricket');
-      setTimeout(() => SFX_BANK.play(thinkSound(), { vol: 0.95 }), 170);
+      const epoch = SFX_BANK.audioEpoch, position = SFX_BANK.queuePosition();
+      setTimeout(() => {
+        const current = SFX_BANK.queuePosition();
+        if (epoch !== SFX_BANK.audioEpoch || position.ply !== current.ply || position.side !== current.side || current.over) return;
+        SFX_BANK.play(thinkSound('human'), { vol: 0.95, narrator: true, narratorActor: 'human', queue: false });
+      }, 170);
       flashWhisper(tier.say);
     }
   }, 250);
