@@ -1,6 +1,6 @@
 {
  "schema": "drafti-streamer-pack/1",
- "generated": "2026-11-03T20:10:31Z",
+ "generated": "2026-11-03T21:37:36Z",
  "voiceIdentities": {
   "female": "z-ai tongtong",
   "male": "z-ai jam",
@@ -8,11 +8,11 @@
  },
  "counts": {
   "female": 20,
-  "funny": 67,
+  "funny": 68,
   "male": 34
  },
- "total": 121,
- "totalBytes": 3797083,
+ "total": 122,
+ "totalBytes": 3831869,
  "clips": [
   {
    "id": "sf2_001",
@@ -556,6 +556,27 @@
    "sha256": "bb307f5e1d3755d61df50ed360aff8d58530d1e8493033f98206d30ee056206f",
    "peakDbfs": -1.611,
    "lufs": -19.0,
+   "source": "in-house generation: z-ai neural TTS voice 'kazi'",
+   "license": "original in-house generated audio; no third-party source",
+   "processing": "silence-trim; 120ms head / 220ms tail pad; 10ms fades; peak normalized to -1.5 dBFS; mono 22050 Hz; MP3 56 kbps"
+  },
+  {
+   "id": "sj2_007",
+   "file": "audio/sj2_007.mp3",
+   "mode": "funny",
+   "voice": "kazi",
+   "text": "The pieces practiced all night... allegedly.",
+   "role": "new_bout",
+   "predicate": "boutStart while the stream session is already live (continuing coverage)",
+   "perspective": "any",
+   "hourGate": null,
+   "mood": "playful",
+   "family": "streamer-vocabulary",
+   "durationSec": 4.8678,
+   "bytes": 34786,
+   "sha256": "1ddb7508a3560f19d9fcb715aff234f595ab8a092d23c196a791ff8e7812110e",
+   "peakDbfs": -1.623,
+   "lufs": -17.9,
    "source": "in-house generation: z-ai neural TTS voice 'kazi'",
    "license": "original in-house generated audio; no third-party source",
    "processing": "silence-trim; 120ms head / 220ms tail pad; 10ms fades; peak normalized to -1.5 dBFS; mono 22050 Hz; MP3 56 kbps"

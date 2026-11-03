@@ -26,5 +26,5 @@ st = json.load(open('scripts/streamer-vocabulary/state.json'))['clips']
 print(sum(1 for s,c in st.items() if s.startswith('$VOICE') and c.get('status')=='accepted'))")
   echo "cycle: $BEFORE -> $AFTER (failed before: $FAILED)"
   if [ "$AFTER" -eq "$BEFORE" ]; then cooldown=$((cooldown+1)); else cooldown=0; fi
-  if [ "$cooldown" -ge 3 ]; then sleep 420; else sleep 75; fi
+  if [ "$cooldown" -ge 2 ]; then sleep 120; else sleep 40; fi
 done
