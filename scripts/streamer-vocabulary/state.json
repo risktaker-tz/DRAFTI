@@ -208,14 +208,22 @@
    "takes": 1
   },
   "sj2_004": {
-   "error": "Speech with padding is 6.338s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 1
+   "bytes": 41734,
+   "error": null,
+   "lufs": -19.0,
+   "peakDbfs": -1.569,
+   "seconds": 5.8692,
+   "status": "accepted",
+   "takes": 2
   },
   "sj2_005": {
-   "error": "Speech with padding is 8.113s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 1
+   "bytes": 36248,
+   "error": null,
+   "lufs": -17.6,
+   "peakDbfs": -1.593,
+   "seconds": 5.0756,
+   "status": "accepted",
+   "takes": 2
   },
   "sj2_006": {
    "bytes": 38626,
@@ -227,14 +235,18 @@
    "takes": 1
   },
   "sj2_007": {
-   "error": "Speech with padding is 6.177s, above 6.0s; no speech was cut",
+   "error": "Speech with padding is 6.787s, above 6.0s; no speech was cut",
    "status": "failed",
-   "takes": 1
+   "takes": 2
   },
   "sj2_008": {
-   "error": "Speech with padding is 6.518s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 1
+   "bytes": 29666,
+   "error": null,
+   "lufs": -16.7,
+   "peakDbfs": -1.752,
+   "seconds": 4.1434,
+   "status": "accepted",
+   "takes": 2
   },
   "sj2_009": {
    "bytes": 32408,
@@ -255,9 +267,9 @@
    "takes": 1
   },
   "sj2_011": {
-   "error": "Speech with padding is 7.756s, above 6.0s; no speech was cut",
+   "error": "Speech with padding is 6.697s, above 6.0s; no speech was cut",
    "status": "failed",
-   "takes": 1
+   "takes": 2
   },
   "sj2_012": {
    "bytes": 30397,
@@ -296,9 +308,9 @@
    "takes": 1
   },
   "sj2_016": {
-   "error": "Speech with padding is 6.494s, above 6.0s; no speech was cut",
+   "error": "Speech with padding is 6.299s, above 6.0s; no speech was cut",
    "status": "failed",
-   "takes": 1
+   "takes": 2
   },
   "sj2_017": {
    "bytes": 33688,
@@ -310,19 +322,23 @@
    "takes": 1
   },
   "sj2_018": {
-   "error": "Speech with padding is 6.001s, above 6.0s; no speech was cut",
+   "error": "Speech with padding is 6.673s, above 6.0s; no speech was cut",
    "status": "failed",
-   "takes": 1
+   "takes": 2
   },
   "sj2_019": {
-   "error": "Speech with padding is 6.428s, above 6.0s; no speech was cut",
+   "error": "Speech with padding is 7.860s, above 6.0s; no speech was cut",
    "status": "failed",
-   "takes": 1
+   "takes": 2
   },
   "sj2_020": {
-   "error": "Speech with padding is 7.870s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 1
+   "bytes": 26191,
+   "error": null,
+   "lufs": -19.4,
+   "peakDbfs": -1.596,
+   "seconds": 3.6371,
+   "status": "accepted",
+   "takes": 2
   },
   "sj2_021": {
    "bytes": 41368,
@@ -334,9 +350,9 @@
    "takes": 1
   },
   "sj2_022": {
-   "error": "Speech with padding is 7.418s, above 6.0s; no speech was cut",
+   "error": "Speech with padding is 6.892s, above 6.0s; no speech was cut",
    "status": "failed",
-   "takes": 1
+   "takes": 2
   },
   "sj2_023": {
    "bytes": 40637,
@@ -348,14 +364,22 @@
    "takes": 1
   },
   "sj2_024": {
-   "error": "Speech with padding is 6.174s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 1
+   "bytes": 34420,
+   "error": null,
+   "lufs": -18.0,
+   "peakDbfs": -1.548,
+   "seconds": 4.8139,
+   "status": "accepted",
+   "takes": 2
   },
   "sj2_025": {
-   "error": "Speech with padding is 9.125s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 1
+   "bytes": 31494,
+   "error": null,
+   "lufs": -20.2,
+   "peakDbfs": -1.517,
+   "seconds": 4.3994,
+   "status": "accepted",
+   "takes": 2
   },
   "sj2_026": {
    "bytes": 41734,
@@ -367,14 +391,18 @@
    "takes": 1
   },
   "sj2_027": {
-   "error": "Speech with padding is 6.766s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 1
+   "bytes": 27288,
+   "error": null,
+   "lufs": -17.2,
+   "peakDbfs": -1.58,
+   "seconds": 3.7934,
+   "status": "accepted",
+   "takes": 2
   },
   "sj2_028": {
-   "error": "Speech with padding is 6.314s, above 6.0s; no speech was cut",
+   "error": "tts-failed",
    "status": "failed",
-   "takes": 1
+   "takes": 5
   },
   "sj2_029": {
    "bytes": 40088,
@@ -431,19 +459,27 @@
    "takes": 1
   },
   "sj2_035": {
-   "error": "Speech with padding is 6.440s, above 6.0s; no speech was cut",
+   "error": "tts-failed",
    "status": "failed",
-   "takes": 1
+   "takes": 5
   },
   "sj2_036": {
-   "error": "Speech with padding is 7.133s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 1
+   "bytes": 25277,
+   "error": null,
+   "lufs": -18.8,
+   "peakDbfs": -1.564,
+   "seconds": 3.5185,
+   "status": "accepted",
+   "takes": 2
   },
   "sj2_037": {
-   "error": "Speech with padding is 7.577s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 1
+   "bytes": 41917,
+   "error": null,
+   "lufs": -15.1,
+   "peakDbfs": -1.637,
+   "seconds": 5.9016,
+   "status": "accepted",
+   "takes": 2
   },
   "sj2_038": {
    "bytes": 33506,
@@ -464,14 +500,18 @@
    "takes": 1
   },
   "sj2_040": {
-   "error": "Speech with padding is 7.425s, above 6.0s; no speech was cut",
+   "error": "Speech with padding is 6.123s, above 6.0s; no speech was cut",
    "status": "failed",
-   "takes": 1
+   "takes": 2
   },
   "sj2_041": {
-   "error": "tts-failed",
-   "status": "failed",
-   "takes": 3
+   "bytes": 23266,
+   "error": null,
+   "lufs": -17.8,
+   "peakDbfs": -1.541,
+   "seconds": 3.2268,
+   "status": "accepted",
+   "takes": 5
   },
   "sj2_042": {
    "bytes": 37346,
@@ -483,14 +523,22 @@
    "takes": 1
   },
   "sj2_043": {
-   "error": "Speech with padding is 6.468s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 1
+   "bytes": 32957,
+   "error": null,
+   "lufs": -19.3,
+   "peakDbfs": -1.518,
+   "seconds": 4.5984,
+   "status": "accepted",
+   "takes": 2
   },
   "sj2_044": {
-   "error": "Speech with padding is 8.279s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 1
+   "bytes": 29848,
+   "error": null,
+   "lufs": -19.7,
+   "peakDbfs": -1.635,
+   "seconds": 4.1652,
+   "status": "accepted",
+   "takes": 2
   },
   "sj2_045": {
    "bytes": 36980,
@@ -502,9 +550,13 @@
    "takes": 1
   },
   "sj2_046": {
-   "error": "Speech with padding is 6.383s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 1
+   "bytes": 34237,
+   "error": null,
+   "lufs": -20.1,
+   "peakDbfs": -1.602,
+   "seconds": 4.788,
+   "status": "accepted",
+   "takes": 2
   },
   "sj2_047": {
    "bytes": 28386,
@@ -597,9 +649,13 @@
    "takes": 1
   },
   "sj2_057": {
-   "error": "Speech with padding is 6.416s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 1
+   "bytes": 31860,
+   "error": null,
+   "lufs": -20.3,
+   "peakDbfs": -1.845,
+   "seconds": 4.4506,
+   "status": "accepted",
+   "takes": 2
   },
   "sj2_058": {
    "bytes": 40088,
@@ -611,9 +667,13 @@
    "takes": 1
   },
   "sj2_059": {
-   "error": "Speech with padding is 6.583s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 1
+   "bytes": 21071,
+   "error": null,
+   "lufs": -21.8,
+   "peakDbfs": -1.511,
+   "seconds": 2.9009,
+   "status": "accepted",
+   "takes": 2
   },
   "sj2_060": {
    "bytes": 39540,
@@ -634,19 +694,31 @@
    "takes": 1
   },
   "sj2_062": {
-   "error": "Speech with padding is 7.139s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 1
+   "bytes": 31494,
+   "error": null,
+   "lufs": -17.9,
+   "peakDbfs": -1.543,
+   "seconds": 4.3964,
+   "status": "accepted",
+   "takes": 2
   },
   "sj2_063": {
-   "error": "Speech with padding is 6.566s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 1
+   "bytes": 26557,
+   "error": null,
+   "lufs": -16.6,
+   "peakDbfs": -1.506,
+   "seconds": 3.6931,
+   "status": "accepted",
+   "takes": 2
   },
   "sj2_064": {
-   "error": "Speech with padding is 6.064s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 1
+   "bytes": 30397,
+   "error": null,
+   "lufs": -16.2,
+   "peakDbfs": -1.515,
+   "seconds": 4.2511,
+   "status": "accepted",
+   "takes": 2
   },
   "sj2_065": {
    "bytes": 33140,
@@ -667,24 +739,40 @@
    "takes": 1
   },
   "sj2_067": {
-   "error": "tts-failed",
-   "status": "failed",
-   "takes": 3
+   "bytes": 26923,
+   "error": null,
+   "lufs": -20.3,
+   "peakDbfs": -1.783,
+   "seconds": 3.7475,
+   "status": "accepted",
+   "takes": 4
   },
   "sj2_068": {
-   "error": "tts-failed",
-   "status": "failed",
-   "takes": 3
+   "bytes": 39174,
+   "error": null,
+   "lufs": -18.4,
+   "peakDbfs": -1.522,
+   "seconds": 5.5116,
+   "status": "accepted",
+   "takes": 4
   },
   "sj2_069": {
-   "error": "Speech with padding is 6.097s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 1
+   "bytes": 31311,
+   "error": null,
+   "lufs": -18.2,
+   "peakDbfs": -1.593,
+   "seconds": 4.3752,
+   "status": "accepted",
+   "takes": 2
   },
   "sj2_070": {
-   "error": "Speech with padding is 6.304s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 1
+   "bytes": 41186,
+   "error": null,
+   "lufs": -17.9,
+   "peakDbfs": -1.659,
+   "seconds": 5.79,
+   "status": "accepted",
+   "takes": 2
   },
   "sj2_071": {
    "bytes": 31860,
@@ -714,9 +802,13 @@
    "takes": 1
   },
   "sj2_074": {
-   "error": "tts-failed",
-   "status": "failed",
-   "takes": 3
+   "bytes": 26557,
+   "error": null,
+   "lufs": -20.1,
+   "peakDbfs": -1.644,
+   "seconds": 3.7072,
+   "status": "accepted",
+   "takes": 5
   },
   "sm2_001": {
    "bytes": 41551,
