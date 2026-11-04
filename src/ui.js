@@ -2142,6 +2142,7 @@ function createSoundAudit(capacity = 12000) {
       '<path d="M9 20q7 8 14 0"/></svg>';
     body.appendChild(wink);
     FX.play('hint_wink');
+    globalThis.DRAFTI_CINEMA?.hint(sq, Math.sign(G.board[sq]));
     setTimeout(() => wink.remove(), 850);
   }
 
@@ -2890,6 +2891,7 @@ function createSoundAudit(capacity = 12000) {
     doomTauntCount = 0;
     frameEl.classList.add('doomed');
     frameEl.dataset.doomSide = side;
+    globalThis.DRAFTI_CINEMA?.doom(side);
     if (isHumanDoomed) {
       // bad news for the player: the sad violin and a straight admission
       SFX_BANK.play('sadviolin', { vol: 0.95 });
@@ -3234,6 +3236,7 @@ function createSoundAudit(capacity = 12000) {
     const preNoProg = G.noProg;
     const preLegal = G.legal.slice();
     const moverSide = G.side;
+    globalThis.DRAFTI_CINEMA?.moveStart(mv, moverSide);
     G.sel = null; G.hint = null;
     G.lastMoveAt = 0;
     updateAll();
@@ -3246,6 +3249,7 @@ function createSoundAudit(capacity = 12000) {
     await animateMove(mv, generation);
     if(generation !== gameEpoch)return;
     const ply = commitMove(mv);
+    globalThis.DRAFTI_CINEMA?.moveEnd(mv, moverSide, preBoard);
     const remaining = countSide(-moverSide);
     if (mv.caps.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       const lead = countSide(moverSide) - remaining;
@@ -3414,6 +3418,7 @@ function createSoundAudit(capacity = 12000) {
     doomClear();
     recordStats(winner);
     AUDIENCE.finish(winner);
+    globalThis.DRAFTI_CINEMA?.result(winner);
   }
 
   function recordStats(winner) {
@@ -3844,6 +3849,7 @@ function createSoundAudit(capacity = 12000) {
     if (typeof recordAudioCheckpoint === 'function') recordAudioCheckpoint('game-start');
     saveCurrentMatch();
     if (globalThis.DRAFTI_UPDATE?.applyAtMatchBoundary()) return;
+    globalThis.DRAFTI_CINEMA?.reset();
     scheduleAI();
     // the host introduces themselves: their national school speaks first
     const greeter = G.mode === 'ai' ? styleById(settings.style)
@@ -4221,6 +4227,7 @@ function createSoundAudit(capacity = 12000) {
     updateSegs();
     updateControls();
     renderHighlights();
+    globalThis.DRAFTI_CINEMA?.refresh(G);
   }
 
   // ---------------- modals ----------------

@@ -27,6 +27,8 @@ def main() -> None:
         ("/*__AUDIENCE__*/", "audience.js"),
         ("/*__UI__*/", "ui.js"),
         ("/*__UPDATES__*/", "app_updates.js"),
+        ("/*__CINEMA_STYLES__*/", "cinematic_preview.css"),
+        ("/*__CINEMA__*/", "cinematic_preview.js"),
     ):
         replacement = part(filename)
         assert token in html, f"missing {token} in template"
