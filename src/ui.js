@@ -4099,7 +4099,17 @@ function createSoundAudit(capacity = 12000) {
     set('segRules', settings.rsId);
     set('segMode', settings.mode);
     set('segSide', settings.humanSide);
-    set('segDiff', settings.diff);
+    const liveArena = G.mode === 'aivai' && !!G.board;
+    set('segDiff', liveArena ? searchLevelForSide() : settings.diff);
+    $('strengthLabel').textContent = liveArena
+      ? 'Live strength — ' + displayName(G.side)
+      : 'Starting strength — ten rungs up the ladder';
+    $('liveStrength').hidden = !liveArena;
+    if (liveArena) {
+      $('liveStrength').textContent = displayName(IVORY) + ' — ' + LEVELS[G.diffIvory].name +
+        ' · ' + displayName(EBONY) + ' — ' + LEVELS[G.diffEbony].name +
+        (settings.aivaiAuto ? ' · Season ' + (G.arenaSeason ?? arena.season) : '');
+    }
     set('segClock', settings.clock);
     set('segSpeed', G.aiSpeed);
     set('segStyle', settings.style);

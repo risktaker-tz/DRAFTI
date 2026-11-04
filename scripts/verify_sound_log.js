@@ -6,7 +6,10 @@ const bank = context.window.DRAFTI_SFX;
 const audienceFile=path.join(__dirname,'../web/audience-vibes/manifest.json');
 if(fs.existsSync(audienceFile))for(const clip of JSON.parse(fs.readFileSync(audienceFile,'utf8')).clips)
   bank[clip.id]={...clip,c:'audience'};
-const synths = new Set(['select','move','capture','king','win','lose','draw','illegal','undo','trap_snap','denied','relief','levelup','think-rustle']);
+const vocabularyFile=path.join(__dirname,'../web/streamer-vocabulary/manifest.json');
+if(fs.existsSync(vocabularyFile))for(const clip of JSON.parse(fs.readFileSync(vocabularyFile,'utf8').replace(/^\uFEFF/,'')))
+  bank[clip.id]={...clip,c:'voice'};
+const synths = new Set(['select','hint_wink','move','capture','king','win','lose','draw','illegal','undo','trap_snap','denied','relief','levelup','think-rustle']);
 function verifySoundLog(input, requirements = {}) {
   const issues = [], rows = [], categories = {}, modes = {}, last = new Map(), narrators = new Map();
   if (!Array.isArray(input.audio)) throw Error('Expected a captured audio array');

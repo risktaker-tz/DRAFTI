@@ -1372,7 +1372,7 @@ body.fx-wood .board-frame { background-image: repeating-linear-gradient(93deg, t
           </div>
         </div>
         <div class="seg-row" id="rowDiff">
-          <span class="seg-label">Starting strength — ten rungs up the ladder</span>
+          <span class="seg-label" id="strengthLabel">Starting strength — ten rungs up the ladder</span>
           <div class="seg-btns wrap-seg" id="segDiff">
             <button data-v="l1">Beginner</button>
             <button data-v="l2">Novice</button>
@@ -1385,7 +1385,8 @@ body.fx-wood .board-frame { background-image: repeating-linear-gradient(93deg, t
             <button data-v="l9">World Champion</button>
             <button data-v="l10">The Machine</button>
           </div>
-          <p class="setup-note">Higher rungs look further ahead and make fewer deliberate mistakes. Seasons start at Club or your higher selected level. Every nation grows through experience and each new season, up to The Machine.</p>
+          <p class="setup-note" id="liveStrength" hidden></p>
+          <p class="setup-note">Higher rungs look further ahead and make fewer deliberate mistakes. Choosing a rung sets the starting strength. Seasons start at Club or your higher selected level. Every nation grows through experience and each new season, up to The Machine.</p>
         </div>
         <div class="seg-row" id="rowProgression">
           <span class="seg-label">Your computer challenge</span>
@@ -6378,7 +6379,17 @@ function createSoundAudit(capacity = 12000) {
     set('segRules', settings.rsId);
     set('segMode', settings.mode);
     set('segSide', settings.humanSide);
-    set('segDiff', settings.diff);
+    const liveArena = G.mode === 'aivai' && !!G.board;
+    set('segDiff', liveArena ? searchLevelForSide() : settings.diff);
+    $('strengthLabel').textContent = liveArena
+      ? 'Live strength — ' + displayName(G.side)
+      : 'Starting strength — ten rungs up the ladder';
+    $('liveStrength').hidden = !liveArena;
+    if (liveArena) {
+      $('liveStrength').textContent = displayName(IVORY) + ' — ' + LEVELS[G.diffIvory].name +
+        ' · ' + displayName(EBONY) + ' — ' + LEVELS[G.diffEbony].name +
+        (settings.aivaiAuto ? ' · Season ' + (G.arenaSeason ?? arena.season) : '');
+    }
     set('segClock', settings.clock);
     set('segSpeed', G.aiSpeed);
     set('segStyle', settings.style);
