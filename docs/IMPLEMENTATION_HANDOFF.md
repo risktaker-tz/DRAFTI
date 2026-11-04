@@ -1,6 +1,21 @@
 # DRAFTI implementation handoff and full remaining plan
 
-## Current continuation — 3 November 2026
+## Current verified state — 4 November 2026
+
+Release source 01ec5df93b1b52112d17adeb698c46e799265fcc is pushed on codex/blueprint-release and main. Local Node/Python output is 12,977,482 bytes, SHA-256 dc7f83303754a0cff34fa6e6f50f91a8a14a80e88d7122e063eaf2324f1411d7. Vercel deployment dpl_AUeSaFGHzS1RUNofBEVCh9UFtdbo was requested. Verify both live host hashes before claiming this release deployed.
+
+Core audio integrity now exits 0 for all 544 clips. Processing records retain original Git/file backups and checksums. v_spec1 uses the complete 2.42-second original opening sentence, with subsequent speech omitted. Local ASR corroborated the excerpt. Live listening remains required.
+
+Fresh defaults are East Africa 8×8 and Marble Lux. Arena hops use 700 ms divided by selected speed, with a 0.8 factor for multi-capture hops. Search budgets are independent of playback speed. Seasons start at Club and rise each season. Personal computer-mode progression advances after wins with manual override. The hint uses a piece-coloured SVG smile/wink, a small rock and a soft physical chirp. Capture route sparks, landing rings and side-specific crowd tray glows are implemented. Visual checks of the full effect/theme matrix remain required.
+
+The latest full automated suite passed 50 tests before the final two introduction edits and arena welcome excerpt. Targeted integrity/preservation and reproducible-build checks passed afterward. Full real-device offline/install/update and current all-mode audio playback/listening remain open.
+
+The updated draw-rotation fairness simulation checkpoint is docs/arena-eastafrica8-draw-rotation/arena-fairness-resume.json, source 5c5816256f62d07a1b8d1f9fed21519df09df19f. After the prior process stopped at 11 bouts, it resumed successfully at bout 12 ply 48 under process 11324, session 67945. Inspect the live process before resuming again. The pre-fix comparison at docs/arena-eastafrica8-current stopped at 24 bouts. Preserve it as historical evidence. The completed original American run remains separately verified.
+
+ZAI is exhausted until tomorrow by the owner's instruction. Leave it alone. Its reviewed branch checkpoint is 2655fdf with 121 recordings. The runtime integrates 36 selected recordings. The 300-sentence total and complete audience pack remain unfinished. First optional audience pack has 57 hash-checked clips. High volume has extra gain, with default mix retained and speech ducking.
+
+The following sections are historical notes. This section supersedes their current-state claims. The full master goal stays active. Future multiplayer, Supabase and admin work remain excluded.
+## Historical continuation — 3 November 2026
 
 ### Latest authoritative checkpoint — 20:01 EAT
 
