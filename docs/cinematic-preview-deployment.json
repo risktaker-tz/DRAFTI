@@ -1,0 +1,16 @@
+{
+  "environment": "preview",
+  "productionApproved": false,
+  "deploymentId": "dpl_6174Paou4z7x2DPNHaEr6xNKuMwH",
+  "url": "https://drafti-mp7oug0uw-risktaker-tzs-projects.vercel.app/",
+  "runtimeCommit": "6ef0cf8d4ede312a10c04f2424b858fbbcb30cdd",
+  "state": "READY",
+  "target": null,
+  "httpStatus": 200,
+  "bytes": 14266690,
+  "sha256": "28e8f049328c29a44a948d29041999c10c45ed908cb365375393acb9e85e3762",
+  "verification": "Authenticated share download matches the local and both reproducible builders byte for byte. Share credentials are intentionally not stored here.",
+  "checks": "55-check full suite plus the new retirement-flag check; relevant timing/worker/animation checks rerun after final safeguards.",
+  "browserEvidence": "cinematic-qualified-browser.json: 30 rendered demos, real final-square double capture, no ordinary-move hero effects, zero errors, cleanup and eight decoded flag spot checks. Browser build preceded the final worker-failure fallback safeguard; that safeguard has targeted regression coverage.",
+  "remaining": "Owner AI-vs-AI review; no production promotion authorized. Exact whole-match speed ratios remain subject to full-strength calculation time. Native OS reduced-motion and installed-device checks remain outstanding in the master goal."
+}
