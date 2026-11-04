@@ -21,3 +21,9 @@ Five of the eight duration exceptions now fit. Czech and v_tt8 keep their origin
 Vercel deployment dpl_8vTNsBYoiPbU5MFV7XWHqJNbJWqX and GitHub Pages both served 13,055,306 bytes matching the local Node and Python builds. HTML SHA-256 is 07c777e3d06b63690fd86cf24ecc581bbaab47d5b11de4b797b5d15cf4082322. The existing Pages setup published from main after a fast-forward to f52909e.
 
 The manifest, service worker and both PNG install icons matched the checkout on both hosts, allowing for checkout line endings in text files. Installed offline play on a phone and desktop still needs direct verification for this checkpoint.
+
+## Core sound integrity acceptance
+
+The arena greeting now uses the complete original opening sentence, “Welcome to the arena.” A local Whisper transcription corroborated the 2.42-second candidate cut. The full original recording is recoverable from Git, and the processing record includes the excerpt boundary and original/processed checksums. This changes the spoken content of the short arena welcome by omitting its subsequent “two engines...” sentence.
+
+The core integrity audit now exits 0 across all 544 clips, with zero missing references, duration, encoding or size violations. The preservation test passes. Live listening remains pending.

@@ -3501,14 +3501,16 @@
     "id": "v_spec1",
     "backup": "b9486e1:src/audio.manifest.js",
     "sourceSha256": "1d0312a441fd630144dc99ee1e8bd856cba0adddfd36386a068874e1a4b8fd69",
-    "processedSha256": "13315252d90cb18fb4ac160f86b2a7099ba86a41d8231f15049ae1258671947c",
-    "reason": "Correct measured encoding or duration deviation without replacing the recording.",
+    "processedSha256": "88f02e0da6dc53484a7afb826b7367803a882dcf6fd058b451560cb0eebac453",
+    "reason": "Use the complete opening sentence of the original arena greeting to meet the duration limit. Full original remains in Git. Local ASR confirmed the sentence in the candidate before gain normalization.",
     "measuredBefore": {
       "seconds": 10.81469387755102,
       "sampleRate": 44100,
       "bitrate": 56000,
       "bytes": 75928
-    }
+    },
+    "excerptEndSeconds": 2.42,
+    "excerptTranscript": "Welcome to the arena."
   },
   {
     "id": "v_spec10",
