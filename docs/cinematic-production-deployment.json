@@ -1,0 +1,16 @@
+{
+  "environment": "production",
+  "ownerApproved": true,
+  "runtimeCommit": "8a01d05ba8fea3c1ba78bc412586632073e2e9e7",
+  "deploymentId": "dpl_9mmGkGanG8WzJx7aw78LrZ2CrSAG",
+  "state": "READY",
+  "url": "https://drafti-afrika.vercel.app/",
+  "pagesUrl": "https://risktaker-tz.github.io/DRAFTI/web/",
+  "verifiedHttpStatus": 200,
+  "verifiedBothHosts": true,
+  "bytes": 14268871,
+  "sha256": "09e2179394263d6f5db23119c0150b929805e93337c0dc041a60996ff890aeff",
+  "checks": 59,
+  "scope": "Approved cinematic checkpoint, current-hop speed refresh, stable history/tray rendering, persisted pair-specific colour reversal and full-strength search preservation. Broader master goal remains active.",
+  "releasePath": "GitHub connector PR creation returned 403; the existing Git release path fast-forwarded main and codex/blueprint-release without force. Vercel production was created from the exact pushed SHA."
+}
