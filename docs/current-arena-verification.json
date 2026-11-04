@@ -1,0 +1,51 @@
+{
+  "scope": "Actual logged sound starts and game boundaries on this navigation; not a listening certificate.",
+  "sounds": 614,
+  "distinctIds": 88,
+  "categories": {
+    "ui": 323,
+    "drama": 21,
+    "classic": 179,
+    "majestic": 55,
+    "judge": 4,
+    "party": 10,
+    "voice": 22
+  },
+  "observedModes": {
+    "ai": 3,
+    "aivai": 611
+  },
+  "completedGames": [
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica8",
+      "run": 1793789900982.4,
+      "epoch": 2,
+      "season": 1,
+      "bout": 0,
+      "plies": 74,
+      "sounds": 269,
+      "result": {
+        "winner": null,
+        "reason": "Low-material draw after 2 moves without a capture or crowning."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica8",
+      "run": 1793789900982.4,
+      "epoch": 3,
+      "season": 1,
+      "bout": 1,
+      "plies": 82,
+      "sounds": 299,
+      "result": {
+        "winner": null,
+        "reason": "Low-material draw after 10 moves without a capture or crowning."
+      }
+    }
+  ],
+  "completedSeasons": [],
+  "issues": [],
+  "limitations": "Checks logged starts, IDs, clip cooldowns, supplied narrator context and matching fresh-start/end checkpoints. Resumed or partial games do not prove a full playthrough. It does not certify audible quality, every clip, installation or modes/seasons without matching complete evidence."
+}

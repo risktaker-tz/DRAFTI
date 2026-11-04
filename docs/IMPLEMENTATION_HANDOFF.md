@@ -2,6 +2,10 @@
 
 ## Latest release verification
 
+Current arena runtime playback evidence now includes two complete Club-level East Africa bouts (74/82 plies), 614 starts, 88 IDs and zero verifier issues/errors, saved in docs/current-arena-audit.json and current-arena-verification.json. Twelve-bout and presentation-matrix browser runs were interrupted, not accepted as complete.
+
+Windows browser helper repair: old duplicate daemon 5424 repeatedly spawned visible Bun terminal-agent children from a stale bundled source path. Stopped that verified daemon and its five matching children. Local external tooling now hides Bun child launches and ACL helper windows, and disables the optional terminal-companion watchdog under Windows in server-node.mjs. Game/runtime files are untouched by this tooling fix. One hidden helper was started as PID 5644 with a two-hour idle window and parent PID zero. Reinspect actual process state before using it; never launch duplicates after an observation timeout. External paths are C:/Users/Risk Taker/.codex/skills/gstack/browse/dist/bun-polyfill.cjs and server-node.mjs. These local repairs are outside the repository and may need reapplying if that skill package is replaced.
+
 PUBLIC VERIFIED: Club-floor source 3b3c4fba6e3884fb508c8aa7184e9f0fdab45a95 is READY on Vercel and both canonical and Pages public files match all 12,979,043 local bytes, SHA-256 e8d2584c1acfca0dbb67697492ef5007f3e4067fff67e3d019ca34ded2e1b4fa. See docs/club-minimum-release.json. This supersedes the pending-deployment language below. All remaining master acceptance checks still apply.
 
 Club-floor source 3b3c4fba6e3884fb508c8aa7184e9f0fdab45a95 is pushed to blueprint-release and main. Vercel dpl_BtSvcXTF4rghnEpQF5efA2Z4pKGE reports READY, with canonical alias assigned; public bytes still being checked. Browser additionally confirms manual Club/Club and switching back to Computer restores Beginner and enables the lower rungs.
