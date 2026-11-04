@@ -1,0 +1,19 @@
+{
+  "at": "2026-11-04T11:47:18.622Z",
+  "scope": "Actual byte/hash inventory for local ASR review, not content approval or a completed audience pack",
+  "queued": 636,
+  "priorSuccessfulTranscripts": 133,
+  "queueSha256": "f0ab6af0e448ec610923c342ab01164b5430d92aa2f319373decffe7378c8b27",
+  "missing": [
+    {
+      "id": "avpb-340362",
+      "file": "audio/avpb-340362.mp3",
+      "reason": "Measured file absent from received archive"
+    },
+    {
+      "id": "avpb-386763",
+      "file": "audio/avpb-386763.mp3",
+      "reason": "Measured file absent from received archive"
+    }
+  ]
+}
