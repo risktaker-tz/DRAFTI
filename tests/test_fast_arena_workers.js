@@ -1,7 +1,7 @@
 'use strict';
 const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('assert/strict');
 const ui=fs.readFileSync(path.join(__dirname,'../src/ui.js'),'utf8'),workers=[];
-const c={G:{mode:'aivai',aiSpeed:16},worker:null,workerBroken:false,verdictWorker:null,verdictWorkerBroken:false,
+const c={G:{mode:'aivai',aiSpeed:16,phase:'idle'},worker:null,workerBroken:false,verdictWorker:null,verdictWorkerBroken:false,presentationWait:null,
   pendingVerdicts:new Map(),pendingVerdict:null,workerSource:()=> 'actual-worker-source',
   URL:{createObjectURL:()=> 'blob:worker'},Blob:function(){},handleSearch(){},handleVerdict(){},
   Worker:function(){this.messages=[];this.postMessage=m=>this.messages.push(m);this.terminate=()=>{this.stopped=true;};workers.push(this);}};
@@ -14,6 +14,9 @@ c.pendingVerdicts.set(1,{});c.cancelVerdictWork();assert(judge.stopped);assert.e
 c.G.aiSpeed=1;assert.equal(c.getVerdictWorker(),search,'Normal-speed sound judgement retains its established ordering');
 c.G.aiSpeed=16;c.G.mode='ai';assert.equal(c.getVerdictWorker(),search,'Human matches are unchanged');
 c.G.mode='aivai';c.verdictWorkerBroken=true;assert.equal(c.getVerdictWorker(),search,'Worker failure keeps full analysis fallback');
+let restarted='';c.runSearch=kind=>restarted=kind;c.preparedSearch={id:25};search.onerror();
+assert.equal(c.preparedSearch,null,'Failed speculative replies are invalidated instead of hanging the next turn');
+c.G.phase='thinking';c.aiPending=true;c.hintPending=false;search.onerror();assert.equal(restarted,'ai','An interrupted active turn restarts using the existing full-search fallback');
 let learned=0,saved=0;
 const move={path:[0,9]},h={move,boardBefore:[1,-1]},pv={id:9,ply:1,epoch:1,engine:true,actor:'nation:TZ',mover:1,playedPath:'0,9',boardBefore:[1,-1]};
 Object.assign(c,{gameEpoch:1,pendingVerdicts:new Map([[9,pv]]),pendingVerdict:pv,G:{history:[h,{}],mode:'aivai',rsId:'american',over:false},

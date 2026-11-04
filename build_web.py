@@ -28,6 +28,9 @@ def main() -> None:
         ("/*__UI__*/", "ui.js"),
         ("/*__UPDATES__*/", "app_updates.js"),
         ("/*__CINEMA_STYLES__*/", "cinematic_preview.css"),
+        ("/*__CEREMONY_FLAG_DATA__*/", "ceremony_flags.data.js"),
+        ("/*__CEREMONY_FLAGS__*/", "ceremony_flags.js"),
+        ("/*__CINEMA_DIRECTOR__*/", "cinematic_director.js"),
         ("/*__CINEMA__*/", "cinematic_preview.js"),
     ):
         replacement = part(filename)

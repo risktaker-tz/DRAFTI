@@ -4,7 +4,7 @@ const fs = require('fs'), path = require('path'), crypto = require('crypto');
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(file, 'utf8').replace(/\r\n?/g, '\n');
 let html = read(path.join(root, 'src/index.template.html'));
-for (const [token, file] of [['STYLES','styles.css'], ['AUDIO','audio.manifest.js'], ['ENGINE','engine.js'], ['AUDIENCE','audience.js'], ['UI','ui.js'], ['UPDATES','app_updates.js'], ['CINEMA_STYLES','cinematic_preview.css'], ['CINEMA','cinematic_preview.js']]) {
+for (const [token, file] of [['STYLES','styles.css'], ['AUDIO','audio.manifest.js'], ['ENGINE','engine.js'], ['AUDIENCE','audience.js'], ['UI','ui.js'], ['UPDATES','app_updates.js'], ['CINEMA_STYLES','cinematic_preview.css'], ['CEREMONY_FLAG_DATA','ceremony_flags.data.js'], ['CEREMONY_FLAGS','ceremony_flags.js'], ['CINEMA_DIRECTOR','cinematic_director.js'], ['CINEMA','cinematic_preview.js']]) {
   const marker = '/*__' + token + '__*/';
   if (!html.includes(marker)) throw Error('Missing ' + marker);
   html = html.replace(marker, () => read(path.join(root, 'src', file)));

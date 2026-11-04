@@ -4,7 +4,7 @@ const ui=fs.readFileSync(path.join(__dirname,'../src/ui.js'),'utf8');
 async function scenario(cancel){
   let release,commits=0;
   const c={G:{phase:'idle',board:new Int8Array([1,-1]),side:1,noProg:0,legal:[]},gameEpoch:1,humanTurn:()=>false,
-    updateAll(){},animateMove:()=>new Promise(resolve=>release=resolve),commitMove(){commits++;throw Error('reached valid commit');}};
+    updateAll(){},prepareArenaReply(){},animateMove:()=>new Promise(resolve=>release=resolve),commitMove(){commits++;throw Error('reached valid commit');}};
   vm.runInNewContext(ui.slice(ui.indexOf('  async function executeMove('),ui.indexOf('  function commitMove(')),c);
   const running=c.executeMove({from:0,path:[0,2],caps:[]});
   if(cancel)c.gameEpoch++;release();

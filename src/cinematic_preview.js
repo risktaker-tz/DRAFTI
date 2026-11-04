@@ -16,8 +16,8 @@
   ];
   const KEY='drafti.cinema.preview.v1';let saved={};try{saved=JSON.parse(localStorage.getItem(KEY)||'{}');}catch{}
   const options={enabled:saved.enabled!==false,energy:['subtle','balanced','stream'].includes(saved.energy)?saved.energy:'balanced',disabled:new Set(saved.disabled||[])};
-  const liveNodes=new Set(),timers=new Set(),motions=new Set(),last=new Map(),played=[];
-  let plane,atmosphere,epoch=0,latest=null,previousThreats=new Set(),previousBoard=[],pointerFrame=0,lastIntermission='';
+  const liveNodes=new Set(),timers=new Set(),motions=new Set(),played=[],director=createCinematicDirector();
+  let plane,atmosphere,epoch=0,latest=null,previousThreats=new Set(),previousBoard=[],pointerFrame=0,lastIntermission='',phaseKey='',phaseAt=0,stageKey='',pointerUntil=0;
   const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
   const energy=()=>({subtle:.6,balanced:1,stream:1.25})[options.energy];
   const allowed=id=>options.enabled&&!options.disabled.has(id);
@@ -56,7 +56,12 @@
   function aura(sq,side,cls='cine-halo',ms=900){const piece=pieceAt(sq);if(!piece)return null;const el=node(piece,'i',cls,side,ms);return el;}
   function rays(sq,side,kind='cine-fracture'){
     const root=svg(kind,side,1000);if(!root)return;const p=point(sq),r=100/n();
-    for(let i=0;i<7;i++){const a=(i*2.39996+sq)*1.1;shape(root,'path',{d:`M${p.x} ${p.y} l${Math.cos(a)*r*.55} ${Math.sin(a)*r*.55} l${Math.cos(a+.8)*r*.24} ${Math.sin(a+.8)*r*.24}`,fill:'none','stroke-width':'.16'});}
+    // Tapered branches open out of the actual captured square, then dissolve.
+    for(let i=0;i<7;i++){const a=(i*2.39996+sq)*1.1,x=p.x+Math.cos(a)*r*.45,y=p.y+Math.sin(a)*r*.45;
+      const line=shape(root,'path',{d:`M${p.x} ${p.y} L${x} ${y} l${Math.cos(a+.8)*r*.28} ${Math.sin(a+.8)*r*.28}`,fill:'none','stroke-width':'.13',pathLength:100,'stroke-dasharray':'100 100'});
+      animate(line,[{strokeDashoffset:100,opacity:0},{strokeDashoffset:0,opacity:.85,offset:.3},{strokeDashoffset:0,opacity:0}],{duration:850,delay:i*18});
+      shape(root,'path',{d:`M${x} ${y} l${Math.cos(a-.9)*r*.22} ${Math.sin(a-.9)*r*.22}`,fill:'none','stroke-width':'.065'});
+    }
   }
   function perimeter(side,dir=1,cls='cine-perimeter'){
     const root=svg(cls,side,1400);if(!root)return;
@@ -79,10 +84,10 @@
     return{...c,side:c.side??G.side,from,to,move,path:c.path||move?.path||[from,to],captures:c.captures??move?.caps?.length??0};
   }
   const effects={
-    b1:c=>{const p=point(c.from),q=point(c.to);perimeter(c.side,q.x-p.x+q.y-p.y);},
+    b1:c=>{const p=point(c.from),q=point(c.to);perimeter(c.side,q.x!==p.x?q.x-p.x:q.y-p.y);},
     b2:c=>pulse(c.to,c.side,'cine-ripple',3),
     b3:c=>rays(c.impact??c.to,c.side),
-    b4:c=>{const root=svg('cine-route',c.side,1300);if(!root)return;shape(root,'polyline',{points:c.path.map(sq=>{const p=point(sq);return p.x+','+p.y;}).join(' '),fill:'none','stroke-width':'.6',pathLength:100,'stroke-dasharray':'100 100'});},
+    b4:c=>{const root=svg('cine-route',c.side,1300);if(!root)return;root.style.setProperty('--cine-route-time',Math.max(180,Math.min(1100,(c.path.length-1)*560/(app.state.mode==='aivai'?app.state.aiSpeed:1)))+'ms');shape(root,'polyline',{points:c.path.map(sq=>{const p=point(sq);return p.x+','+p.y;}).join(' '),fill:'none','stroke-width':'.6',pathLength:100,'stroke-dasharray':'100 100'});},
     b5:c=>node(plane,'div','cine-advantage',c.side,1400),
     b6:c=>{const row=c.side===1?0:n()-1;for(let col=0;col<n();col++)if((row+col)%2)pulse(row*n()+col,c.side,'cine-runway',1);},
     b7:c=>{const squares=c.squares||Array.from(app.state.board).flatMap((v,i)=>Math.sign(v)===c.side?[i]:[]);for(const sq of squares.slice(0,4))pulse(sq,c.side,'cine-last-stand',1);},
@@ -95,7 +100,7 @@
     p4:c=>{const el=aura(c.to,c.side,'cine-halo cine-charge',1100);if(el){const value=document.createElement('em');value.textContent=Math.max(2,c.captures)+'×';el.appendChild(value);}},
     p5:c=>{const el=aura(c.to,c.side,'cine-orbit',1300);if(el)for(let i=0;i<5;i++){const dot=document.createElement('b');dot.style.setProperty('--orbit',i*72+'deg');el.appendChild(dot);}},
     p6:c=>{for(const el of document.querySelectorAll('.piece.'+(c.side===1?'ivory':'ebony')+' .body'))animate(el,[{rotate:'0deg'},{rotate:'-2deg',offset:.3},{rotate:'2deg',offset:.6},{rotate:'0deg'}],{duration:900});},
-    p7:c=>{const el=aura(c.to,c.side,'cine-halo cine-threat',1200);bodyMove(c.to,[{rotate:'0deg'},{rotate:'-2deg',offset:.3},{rotate:'1deg',offset:.7},{rotate:'0deg'}],600);},
+    p7:c=>{for(const sq of (c.squares||[c.to]).slice(0,3)){aura(sq,c.side,'cine-halo cine-threat',1200);bodyMove(sq,[{rotate:'0deg'},{rotate:'-2deg',offset:.3},{rotate:'1deg',offset:.7},{rotate:'0deg'}],600);}},
     p8:c=>{const piece=pieceAt(c.from);if(piece){spray(plane,c.side,'cine-wink-star',5,c.from);aura(c.from,c.side,'cine-halo cine-wink-aura',850);}},
     p9:c=>{aura(c.to,c.side,'cine-halo cine-relief',1000);bodyMove(c.to,[{scale:'1'},{scale:'1.025',offset:.35},{scale:'1'}],700);},
     p10:c=>{const body=pieceAt(c.from)?.querySelector('.body')||pieceAt(c.to)?.querySelector('.body');const el=node(plane,'i','cine-echo',c.side,750);at(el,c.from,.72);if(el&&body)el.style.background=getComputedStyle(body).background;},
@@ -112,54 +117,67 @@
   };
   function fire(id,input={},demo=false){
     ensure();if(!allowed(id)||reduced()||document.hidden)return false;
-    const now=performance.now();if(!demo&&now-(last.get(id)||-Infinity)<(id.startsWith('a')?2600:450))return false;
-    last.set(id,now);effects[id](scene(input));played.push({id,at:now,demo});if(played.length>200)played.shift();
+    if(id.startsWith('a')&&app.settings.ambient===false)return false;
+    if(!demo&&(!$('ceremony').hidden||app.menu.isOpen()||app.state.aiPaused))return false;
+    const c=scene(input);if(!director.allow(id,c,demo))return false;
+    if(['a6','a7','a8','a9'].includes(id))for(const el of liveNodes)if(el.matches('.cine-crowd-wash,.cine-horizon,.cine-aurora')){el.remove();liveNodes.delete(el);}
+    const now=performance.now();effects[id](c);played.push({id,at:now,demo,moment:c.moment,ply:c.ply});if(played.length>200)played.shift();
     if(demo)$('cineStatus').textContent='Preview: '+catalogue.find(row=>row[0]===id)[2];return true;
   }
   function fireMany(ids,c,demo=false){for(const id of ids)fire(id,c,demo);}
-  function clear(){epoch++;for(const id of timers)clearTimeout(id);timers.clear();for(const motion of motions)motion.cancel();motions.clear();for(const el of liveNodes)el.remove();liveNodes.clear();previousThreats.clear();previousBoard=[];}
+  function clear(){epoch++;for(const id of timers)clearTimeout(id);timers.clear();for(const motion of motions)motion.cancel();motions.clear();for(const el of liveNodes)el.remove();liveNodes.clear();previousThreats.clear();previousBoard=[];phaseKey='';pointerUntil=0;}
   function refresh(G=app.state){
     latest=G;ensure();const side=G.side;
     document.body.style.setProperty('--cine-active',tone(side));
     document.body.dataset.cineTurn=String(side);
-    document.body.classList.toggle('cine-spot-on',allowed('a1')&&!reduced()&&app.settings.ambient!==false);
-    document.body.classList.toggle('cine-pointer-on',allowed('a3')&&!reduced()&&app.settings.ambient!==false);
-    document.body.classList.toggle('cine-idle-atmosphere',allowed('a4')&&!reduced()&&app.settings.ambient!==false);
-    const stage=G.mode==='aivai'&&G.nationalMatch?(G.arenaBout<5?0:G.arenaBout<9?1:G.arenaBout<11?2:3):null;
-    document.body.dataset.cineStage=allowed('a5')&&stage!==null&&app.settings.ambient!==false?stage:'off';
+    const active=!G.over&&!G.aiPaused&&!app.menu.isOpen()&&$('ceremony').hidden&&!document.hidden;
+    const key=[G.phase,G.history.length,G.side,active].join(':');
+    if(key!==phaseKey){phaseKey=key;phaseAt=performance.now();if(active&&['idle','thinking'].includes(G.phase))later(()=>{if(key===phaseKey){refresh();fire('a4',{moment:'deliberation',quietMs:performance.now()-phaseAt});}},G.phase==='thinking'?1900:7000);}
+    const quiet=performance.now()-phaseAt;
+    const ambient=active&&!reduced()&&app.settings.ambient!==false;
+    document.body.classList.toggle('cine-spot-on',allowed('a1')&&ambient&&G.phase==='thinking'&&quiet>=1800);
+    document.body.classList.toggle('cine-pointer-on',allowed('a3')&&ambient&&performance.now()<pointerUntil);
+    document.body.classList.toggle('cine-idle-atmosphere',allowed('a4')&&ambient&&quiet>=(G.phase==='thinking'?1800:6500));
+    const arena=app.arena(),stage=G.mode==='aivai'&&G.nationalMatch?(arena.bouts<5?0:arena.bouts<9?1:arena.bouts<11?2:3):null;
+    document.body.dataset.cineStage=allowed('a5')&&stage!==null&&ambient?stage:'off';
+    const nextStage=stage===null?'':arena.season+':'+stage;
+    if(nextStage&&nextStage!==stageKey&&active){stageKey=nextStage;fire('a5',{moment:'stage',stage,stageChanged:true});}
   }
   const api={
     refresh,
-    reset(){clear();refresh();if(allowed('a1'))fire('a1');},
-    moveStart(move,side){const c={move,side,from:move.from,to:move.path.at(-1)};fireMany(['b1','p2','p10'],c);if(move.caps.length>1)fireMany(['b4','b8'],c);if(move.promotes)fire('b6',c);},
+    reset(){clear();director.resetGame();refresh();},
+    moveStart(move,side){const to=move.path.at(-1),c={moment:'move',move,side,from:move.from,to,captures:move.caps.length,king:Math.abs(app.state.board[move.from])===2,distance:Math.abs(to%n()-move.from%n())};fireMany(['p2','p10','b4','b6'],c);},
     moveEnd(move,side,before){
-      const to=move.path.at(-1),c={move,side,to,from:move.from,captures:move.caps.length,impact:move.caps.at(-1)};
-      fireMany(['b2','p1','p3'],c);
-      if(move.caps.length){fireMany(['b3','a2'],c);if(move.caps.length>1)fire('p4',c);}
-      if(move.promotes)fireMany(['p5','a7'],c);
+      const to=move.path.at(-1),c={moment:move.caps.length?'capture':'land',move,side,to,from:move.from,captures:move.caps.length,impact:move.caps.at(-1),king:Math.abs(before?.[move.from])===2,distance:Math.abs(to%n()-move.from%n())};
+      if(move.promotes)fireMany(['p5','a7','p3'],{...c,moment:'promotion'});
+      fireMany(['p1','p3','b3','a2','p4'],c);
       const count=board=>board.reduce((value,piece)=>value+(piece?Math.sign(piece):0),0);
-      if(before&&count(before)*side<0&&count(app.state.board)*side>0)fireMany(['b5','a6'],c);
+      if(before&&count(before)*side<0&&count(app.state.board)*side>0)fireMany(['b5','a6'],{...c,moment:'comeback'});
       const threats=new Set(app.state.legal.flatMap(m=>m.caps));
-      for(const sq of threats)if(!previousThreats.has(sq))fire('p7',{to:sq,side:Math.sign(app.state.board[sq])});
-      for(const sq of previousThreats){const target=sq===move.from?to:sq;if(!move.caps.includes(sq)&&!threats.has(target)&&app.state.board[target]&&Math.sign(previousBoard[sq])===Math.sign(app.state.board[target]))fire('p9',{to:target,side:Math.sign(app.state.board[target])});}
-      previousThreats=threats;previousBoard=Array.from(app.state.board);refresh();
+      const remaining=Array.from(app.state.board).filter(p=>Math.sign(p)===side).length;
+      const critical=remaining<=3||app.state.legal.some(m=>m.caps.length>=2);
+      const fresh=[...threats].filter(sq=>!previousThreats.has(sq));
+      if(fresh.length)fire('p7',{moment:'threat',criticalThreat:critical,squares:fresh,side});
+      for(const sq of previousThreats){const target=sq===move.from?to:sq;if(!move.caps.includes(sq)&&!threats.has(target)&&app.state.board[target]&&Math.sign(previousBoard[sq])===Math.sign(app.state.board[target])){fire('p9',{moment:'relief',verified:true,to:target,side:Math.sign(app.state.board[target])});break;}}
+      previousThreats=critical?threats:new Set();previousBoard=Array.from(app.state.board);refresh();
     },
-    hint(sq,side){fire('p8',{from:sq,to:sq,side});},
-    doom(side){fireMany(['b7','a1'],{side});},
-    result(side){if(side===null)fireMany(['b10','a9'],{side:1});else fireMany(['b9','p6','a8'],{side});},
-    intermission(){if($('autoNext').hidden){lastIntermission='';return;}const text=$('autoNext').textContent;if(text!==lastIntermission){lastIntermission=text;fire('a10');}},
+    verdict(data){const G=app.state,q=assessCinematicMove(data,{over:G.over,phase:G.phase,ply:G.history.length});if(q.intelligent)fireMany(['b1','b2','b8','p3','a2','a1'],{...data,...q,moment:'quality',captures:data.move.caps.length});},
+    hint(sq,side){fire('p8',{moment:'hint',from:sq,to:sq,side});},
+    doom(side){fireMany(['b7','a1'],{moment:'doom',verified:true,side});},
+    result(side){if(side===null)fireMany(['b10','a9'],{moment:'draw',side:1});else fireMany(['b9','p6','a8'],{moment:'win',side});},
+    intermission(){if($('autoNext').hidden){lastIntermission='';return;}if(!lastIntermission){lastIntermission='active';fire('a10',{moment:'intermission',countdownVisible:true});}},
     preview(id){const G=app.state,move=G.legal[0],from=move?.from??G.board.findIndex(Boolean),side=Math.sign(G.board[from])||1;
       const to=move?.path.at(-1)??from;const path=[from,to,Math.max(0,Math.min(G.board.length-1,to+(side===1?-2:2)*n()+2))];
       const displayTo=id.startsWith('p')&&!['p2','p10'].includes(id)?from:to;
       if(!fire(id,{from,to:displayTo,side,path,captures:3,stage:3,squares:[from,to]},true)){$('cineStatus').textContent=reduced()?'Reduced motion · animated effects suppressed':'Effect disabled · enable it to preview';return false;}
       try{app.fx.ensure();app.sfx.effect(id==='p5'||id==='a7'||id==='b6'?'crown':id==='b9'||id==='a8'||id==='p6'?'victory':id==='b10'||id==='a9'?'draw':id==='b3'||id==='b4'||id==='p4'?'impact':'landing',{vol:.14});}catch{}
     },
-    debug(){return{catalogue:catalogue.map(([id,group,name])=>({id,group,name})),played:played.slice(),nodes:liveNodes.size,motions:motions.size,timers:timers.size,reduced:reduced(),options:{...options,disabled:[...options.disabled]}};},
+    debug(){return{catalogue:catalogue.map(([id,group,name])=>({id,group,name})),played:played.slice(),director:director.inspect(),nodes:liveNodes.size,motions:motions.size,timers:timers.size,reduced:reduced(),options:{...options,disabled:[...options.disabled]}};},
   };
   globalThis.DRAFTI_CINEMA=api;
   const launch=document.createElement('button');launch.id='cineLaunch';launch.className='btn cine-launch';launch.textContent='✦ Preview studio';launch.setAttribute('aria-expanded','true');document.body.appendChild(launch);
   const panel=document.createElement('aside');panel.id='cineStudio';panel.className='cine-studio';panel.setAttribute('aria-label','Cinematic preview studio');
-  panel.innerHTML='<div class="cine-studio-head"><div><span class="cine-eyebrow">REVIEW PREVIEW</span><h2>Make the moment.</h2></div><button class="btn" id="cineClose" aria-label="Close preview studio">×</button></div><p>Try each effect below, or play normally. Staged previews do not change the match.</p><div class="cine-controls"><button class="btn" id="cineCompare">Compare original</button><select id="cineEnergy" aria-label="Effect intensity"><option value="subtle">Subtle</option><option value="balanced">Balanced</option><option value="stream">Livestream</option></select><button class="btn" id="cineTour">Play showcase</button></div><p class="cine-status" id="cineStatus" role="status">30 effects · existing sound design preserved</p><div id="cineCatalogue"></div>';
+  panel.innerHTML='<div class="cine-studio-head"><div><span class="cine-eyebrow">REVIEW PREVIEW</span><h2>Make the moment.</h2></div><button class="btn" id="cineClose" aria-label="Close preview studio">×</button></div><p>Gameplay saves effects for qualified moments. Buttons below stage a demonstration without changing the match.</p><div class="cine-controls"><button class="btn" id="cineCompare">Compare original</button><select id="cineEnergy" aria-label="Effect intensity"><option value="subtle">Subtle</option><option value="balanced">Balanced</option><option value="stream">Livestream</option></select><button class="btn" id="cineTour">Play showcase</button></div><p class="cine-status" id="cineStatus" role="status">30 situational effects · original sounds preserved</p><div id="cineCatalogue"></div>';
   document.body.appendChild(panel);
   for(const group of ['Board','Pieces','Background']){
     const details=document.createElement('details');details.open=group==='Board';const summary=document.createElement('summary');summary.textContent=group+' · 10 effects';details.appendChild(summary);
@@ -177,9 +195,12 @@
   $('cineCompare').addEventListener('click',()=>{options.enabled=!options.enabled;clear();refresh();persist();$('cineCompare').textContent=options.enabled?'Compare original':'Restore preview';$('cineStatus').textContent=options.enabled?'Cinematic preview enabled':'Original presentation · new effects off';});
   $('cineEnergy').value=options.energy;$('cineEnergy').addEventListener('change',event=>{options.energy=event.target.value;refresh();persist();});
   $('cineTour').addEventListener('click',()=>{clear();options.enabled=true;refresh();persist();$('cineCompare').textContent='Compare original';if(innerWidth<900)togglePanel(false);catalogue.forEach(([id],i)=>later(()=>api.preview(id),i*1500));});
-  const pointer=event=>{if(pointerFrame||!allowed('a3')||reduced())return;pointerFrame=requestAnimationFrame(()=>{pointerFrame=0;document.body.style.setProperty('--cine-pointer-x',event.clientX/innerWidth*100+'%');document.body.style.setProperty('--cine-pointer-y',event.clientY/innerHeight*100+'%');});};
+  const pointer=event=>{if(pointerFrame||!allowed('a3')||reduced()||!event.target.closest?.('#boardFrame')||app.menu.isOpen())return;pointerFrame=requestAnimationFrame(()=>{pointerFrame=0;pointerUntil=performance.now()+1700;document.body.style.setProperty('--cine-pointer-x',event.clientX/innerWidth*100+'%');document.body.style.setProperty('--cine-pointer-y',event.clientY/innerHeight*100+'%');refresh();fire('a3',{moment:'interaction',boardInteraction:true});later(refresh,1800);});};
   document.addEventListener('pointermove',pointer,{passive:true});document.addEventListener('pointerdown',pointer,{passive:true});
   new MutationObserver(()=>api.intermission()).observe($('autoNext'),{childList:true,subtree:true,attributes:true,attributeFilter:['hidden']});
+  new MutationObserver(()=>refresh()).observe($('drawer'),{attributes:true,attributeFilter:['aria-hidden']});
+  new MutationObserver(()=>refresh()).observe($('ceremony'),{attributes:true,attributeFilter:['hidden']});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)clear();refresh();});
   matchMedia('(prefers-reduced-motion: reduce)').addEventListener?.('change',()=>{clear();refresh();});
   ensure();refresh();
   togglePanel(innerWidth>=900);

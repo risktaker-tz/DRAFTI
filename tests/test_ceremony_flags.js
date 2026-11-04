@@ -1,0 +1,21 @@
+'use strict';
+const fs=require('fs'),vm=require('vm'),path=require('path'),zlib=require('zlib'),crypto=require('crypto'),assert=require('assert/strict');
+const root=path.resolve(__dirname,'..'),context={};vm.createContext(context);
+vm.runInContext(fs.readFileSync(path.join(root,'src/ceremony_flags.data.js'),'utf8'),context);
+const map=JSON.parse(zlib.gunzipSync(Buffer.from(context.DRAFTI_FLAG_ARCHIVE,'base64')));
+const reference=JSON.parse(fs.readFileSync(path.join(root,'scripts/flag_reference.json'),'utf8'));
+assert.equal(Object.keys(map).length,194);
+for(const entry of reference.entries)assert.equal(crypto.createHash('sha256').update(map[entry.code]).digest('hex'),entry.svgSha256,entry.code+' retains its verified original artwork');
+const element=()=>({dataset:{},isConnected:true,replaceChildren(img){this.image=img;}});
+Object.assign(context,{DecompressionStream,Response,Blob,Uint8Array,atob,URL:{createObjectURL:()=> 'blob:verified-flag'},Image:class{decode(){return Promise.resolve();}}});
+vm.runInContext(fs.readFileSync(path.join(root,'src/ceremony_flags.js'),'utf8'),context);
+(async()=>{
+  const face=element();assert(await context.DRAFTI_FLAGS.render(face,'TZ'));assert.equal(face.image.className,'cer-flag');
+  assert.equal(face.image.src,'blob:verified-flag');
+  const race=element(),first=context.DRAFTI_FLAGS.render(race,'TZ'),second=context.DRAFTI_FLAGS.render(race,'KE');
+  assert.equal(await first,false);assert.equal(await second,true);assert.equal(race.dataset.flagCode,'KE','A changed champion cannot inherit old flag artwork');
+  const gone=element();gone.isConnected=false;assert.equal(await context.DRAFTI_FLAGS.render(gone,'TZ'),false);
+  assert.equal(await context.DRAFTI_FLAGS.render(element(),'XX'),false,'Unknown flags leave the existing fallback intact');
+  const html=fs.readFileSync(path.join(root,'web/index.html'));assert(html.length<14*1024*1024,'Entire offline build remains below 14 MiB');
+  console.log('PASS 194 exact-source offline retirement flags, decoded image, stale-champion/disconnected guards and complete build size');
+})().catch(error=>{console.error(error);process.exitCode=1;});

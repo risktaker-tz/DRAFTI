@@ -1116,6 +1116,7 @@ body.pieces-stone .piece.ebony .body {
   animation: cerPop .65s cubic-bezier(.2, 1.5, .4, 1);
 }
 .cer-face { font-size: 56px; line-height: 1; filter: drop-shadow(0 6px 22px rgba(255, 202, 84, .4)); }
+.cer-face .cer-flag { display: block; width: 88px; height: 60px; object-fit: contain; margin: 0 auto; border-radius: 3px; }
 .cer-name {
   margin: 8px 0 2px; font-size: 34px; font-weight: 800; letter-spacing: .04em;
   color: var(--ink); text-shadow: 0 0 26px var(--accent-soft);

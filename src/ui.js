@@ -1814,6 +1814,8 @@ function createSoundAudit(capacity = 12000) {
 
   // ---------------- AI worker ----------------
   let worker = null, workerBroken = false, reqId = 0, aiPending = false, hintPending = false, thinkStart = 0;
+  let preparedSearch = null;
+  let presentationWait = null;
   let verdictWorker = null, verdictWorkerBroken = false;
   let gameEpoch = 0;
 
@@ -1901,9 +1903,17 @@ function createSoundAudit(capacity = 12000) {
       worker = new Worker(URL.createObjectURL(new Blob([src], { type: 'text/javascript' })));
       worker.onmessage = (e) => {
         if (e.data && e.data.cmd === 'verdict') handleVerdict(e.data);
-        else handleSearch(e.data);
+        else if (preparedSearch && e.data.id === preparedSearch.id) {
+          preparedSearch.result=e.data;
+          if(preparedSearch.waiting){preparedSearch=null;handleSearch(e.data);}
+        } else handleSearch(e.data);
       };
-      worker.onerror = () => { workerBroken = true; worker = null; };
+      worker.onerror = () => {
+        workerBroken = true; worker = null; preparedSearch = null;
+        // A failed speculative reply must not leave the next turn waiting
+        // forever for a result from a worker that no longer exists.
+        if(G.phase==='thinking'&&(aiPending||hintPending))runSearch(hintPending?'hint':'ai');
+      };
     } catch { workerBroken = true; }
     return worker;
   }
@@ -1920,6 +1930,8 @@ function createSoundAudit(capacity = 12000) {
     return verdictWorker;
   }
   function cancelVerdictWork() {
+    preparedSearch = null;
+    presentationWait?.cancel();
     if (verdictWorker) { verdictWorker.terminate(); verdictWorker = null; }
     pendingVerdicts.clear(); pendingVerdict = null;
   }
@@ -1996,7 +2008,31 @@ function createSoundAudit(capacity = 12000) {
     return chooseLadderMove({...res,best,rootScores:roots},alternatives,levelId);
   }
 
+  function prepareArenaReply(move,board,side,noProgress) {
+    if(G.mode!=='aivai'||G.aiSpeed<=1||G.aiPaused||workerBroken)return;
+    const nextBoard=E.applyMove(G.rs,board,move,side),nextSide=-side;
+    if(!E.legalMoves(G.rs,nextBoard,nextSide).length)return;
+    const level=nextSide===IVORY?G.diffIvory:G.diffEbony;
+    const opts=arenaPressureOpts(levelOpts(level,styleForSide(nextSide)).opts);
+    if(opts.weights)opts.weights.for=nextSide;
+    const w=getWorker();if(!w)return;
+    const nextNoProgress=E.nextNoProgress(G.rs,board,move,side,noProgress),id=++reqId;
+    preparedSearch={id,epoch:gameEpoch,board:nextBoard,side:nextSide,rsId:G.rsId,level,
+      noProgress:nextNoProgress,started:Date.now(),waiting:false,result:null};
+    // Search the known next legal position while the current piece is in flight.
+    // Exactly the same level options are used, with no reduced time/depth budget.
+    w.postMessage({cmd:'search',id,rsId:G.rsId,side:nextSide,board:nextBoard,noProgress:nextNoProgress,opts});
+  }
   function runSearch(kind) {
+    if(kind==='ai'&&preparedSearch){
+      const p=preparedSearch;
+      if(p.id===reqId&&p.epoch===gameEpoch&&p.rsId===G.rsId&&p.side===G.side&&
+          p.level===searchLevelForSide()&&p.noProgress===G.noProg&&p.board.every((v,i)=>v===G.board[i])){
+        thinkStart=p.started;aiPending=true;hintPending=false;p.waiting=true;
+        if(p.result){preparedSearch=null;setTimeout(()=>handleSearch(p.result),0);}return;
+      }
+      preparedSearch=null;
+    }
     const id = ++reqId;
     thinkStart = Date.now();
     const style = kind === 'hint' ? null : styleForSide(G.side);
@@ -2060,18 +2096,24 @@ function createSoundAudit(capacity = 12000) {
       else if (r < 0.12) base = 500 + r * 900;                     // the quick reply
       else if (r > 0.88) base = (vsHuman ? 2100 : 8000) + r * (vsHuman ? 900 : 9000);
       else base = vsHuman ? 1200 + Math.random() * 1400 : 1600 + Math.random() * 4200;
-      if (G.mode === 'aivai') base /= G.aiSpeed;
       if (vsHuman) base = Math.min(base, 2600);
     } else {
       // Off means no simulated pondering. Search budgets/depth and the
       // completed result stay identical; only the theatrical wait disappears.
       base = 0;
     }
-    const delay = Math.max(0, base - (Date.now() - thinkStart));
-    setTimeout(() => {
-      if (res.id !== reqId || G.phase !== 'idle' || G.mode === 'aivai' && G.aiPaused) return;
-      executeMove(chooseRememberedMove(res, G.legal, searchLevelForSide()));
-    }, delay);
+    const multiplier=()=>G.mode==='aivai'?(G.aiSpeed||1):1;
+    let last=Date.now(),pace=multiplier(),remaining=Math.max(0,base-(last-thinkStart)*pace),timer;
+    const advance=()=>{
+      clearTimeout(timer);
+      const now=Date.now();remaining-=Math.max(0,now-last)*pace;last=now;pace=multiplier();
+      if(res.id!==reqId||G.phase!=='idle'||G.mode==='aivai'&&G.aiPaused){if(presentationWait===wait)presentationWait=null;return;}
+      if(remaining<=0){if(presentationWait===wait)presentationWait=null;executeMove(chooseRememberedMove(res,G.legal,searchLevelForSide()));}
+      else timer=setTimeout(advance,remaining/pace);
+    };
+    const wait={retime:advance,cancel(){clearTimeout(timer);if(presentationWait===wait)presentationWait=null;}};
+    presentationWait=wait;
+    timer=setTimeout(advance,remaining/pace);
   }
 
   // ---------------- board DOM ----------------
@@ -3004,6 +3046,7 @@ function createSoundAudit(capacity = 12000) {
     // Keep verified historical lessons, but never attach an old taunt,
     // doom state or trap to a position already passed during fast playback.
     if (G.over || G.history.length !== pv.ply) return;
+    globalThis.DRAFTI_CINEMA?.verdict({verdict:res,move:h.move,side:pv.mover,ply:pv.ply});
     if (isFinite(res.delta) && res.delta >= 420 && !res.onlyMove && G.history.length > 4) AUDIENCE.mistake(pv.mover);
     if (isFinite(res.delta) && res.delta >= 420 && !res.onlyMove && h && G.history.length > 4)
       SFX_BANK.directOwner('human_blunder_flagrant', { human: G.mode === 'hotseat' || G.mode === 'ai' && pv.mover === G.humanSide, forced: res.onlyMove, delta: res.delta });
@@ -3236,6 +3279,7 @@ function createSoundAudit(capacity = 12000) {
     const preNoProg = G.noProg;
     const preLegal = G.legal.slice();
     const moverSide = G.side;
+    prepareArenaReply(mv,preBoard,moverSide,preNoProg);
     globalThis.DRAFTI_CINEMA?.moveStart(mv, moverSide);
     G.sel = null; G.hint = null;
     G.lastMoveAt = 0;
@@ -3645,6 +3689,7 @@ function createSoundAudit(capacity = 12000) {
       ' wins, L' + rosterLevel(r.id) + ' of experience</div>' +
       '<div class="cer-quote">"How can you allow the one with that skill to retire?!"</div>' +
       '</div>';
+    globalThis.DRAFTI_FLAGS?.render(el.querySelector('.cer-face'),r.id);
     el.hidden = false;
     SFX_BANK.play('gong', { vol: 0.9 });
     later(() => SFX_BANK.play('st_drum1', { vol: 0.75 }), 350);
@@ -4390,6 +4435,7 @@ function createSoundAudit(capacity = 12000) {
     if (![1, 2, 4, 6, 8, 10, 16].includes(+v)) return;
     const previous=G.aiSpeed;
     settings.speed = +v; G.aiSpeed = +v;
+    presentationWait?.retime();
     saveJSON(SETTINGS_KEY, settings); updateSegs();
     revealPlaybackNeighbour(+v,previous);
   });
