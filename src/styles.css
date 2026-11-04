@@ -266,9 +266,10 @@ body.fx-scan::after {
   left: 50%;
   top: 50%;
   z-index: 4;
-  width: 64%;
+  width: 86%;
   color: color-mix(in srgb, var(--disc-hi) 46%, white);
-  filter: drop-shadow(0 1px 1px color-mix(in srgb, var(--disc-edge) 55%, black));
+  filter: drop-shadow(0 1px 0 color-mix(in srgb, var(--disc-edge) 55%, black))
+          drop-shadow(0 -1px 0 color-mix(in srgb, var(--disc-edge) 55%, black));
   pointer-events: none;
   animation: hint-wink-reveal .8s ease both;
 }
