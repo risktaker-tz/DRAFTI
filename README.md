@@ -63,7 +63,8 @@ shaming, a heavy-hit voice and a board jolt — with your name in the banner:
     allow the one with that skill to retire?!"* — and you can retire any
     champion yourself with the 🎖 Retire button. Every nation's name is
     renameable in The players (the grid lists the teams in play, with an
-    all-nations expander). Prefer the old way? Turn the arena off and
+    all-nations expander). Capture and stalemate results use the actual
+    displayed country or player name. Prefer the old way? Turn the arena off and
     hand-pick the two national schools.
   - **AI human playing mode** (in the arena card) — the engines stop moving
     like metronomes and start moving like people at a table: quick snaps on

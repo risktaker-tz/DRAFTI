@@ -36,4 +36,19 @@ let callback,saved=0;const button={addEventListener:(_e,fn)=>callback=fn};
 const t={settings:{},SETTINGS_KEY:'settings',manualRetire:false,$:()=>button,arenaOn:()=>true,saveJSON:()=>saved++,updateControls(){},SFX_BANK:{play(){}},flashWhisper(){}};
 vm.runInNewContext(part("  $('btnRetire').addEventListener('click',",'  // player names:'),t);
 callback();assert.equal(t.settings.retireEvents,true);callback();assert.equal(t.settings.retireEvents,false);assert.equal(saved,2);
+let endResult;
+const ending={IVORY:1,G:{mode:'aivai',side:-1,legal:[],seatIvory:'TZ',seatEbony:'KE',humanSide:1},
+  settings:{pname:'Asha',pname2:'Juma'},arenaOn:()=>true,
+  aiName:id=>id==='TZ'?'Tanzania':'Kenya',countSide:()=>0,
+  setOver:(winner,reason)=>{endResult={winner,reason};}};
+vm.runInNewContext(part('  const sideName =','  // the seat\'s full tag:')+
+  part('  function checkGameEnd(','  function setOver('),ending);
+ending.checkGameEnd();assert.equal(endResult.reason,'Every Kenya piece has been captured.');
+ending.G.side=1;ending.countSide=()=>1;ending.checkGameEnd();
+assert.equal(endResult.reason,'Tanzania has no legal move.');assert.equal(endResult.winner,-1);
+ending.G.mode='hotseat';ending.countSide=()=>0;ending.checkGameEnd();
+assert.equal(endResult.reason,'Every Asha piece has been captured.');
+ending.G.side=-1;ending.checkGameEnd();assert.equal(endResult.reason,'Every Juma piece has been captured.');
+ending.G.mode='ai';ending.G.side=1;ending.checkGameEnd();
+assert.equal(endResult.reason,'Every Asha piece has been captured.');
 console.log('Endgame countdowns, scoring protection, 21-theme billboard contrast and persistent retirement passed');

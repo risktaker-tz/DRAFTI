@@ -3387,8 +3387,8 @@ function createSoundAudit(capacity = 12000) {
     const opp = G.side;
     if (!G.legal.length) {
       setOver(-opp, countSide(opp) === 0
-        ? 'Every ' + sideName(opp) + ' piece has been captured.'
-        : sideName(opp) + ' has no legal move.');
+        ? 'Every ' + displayName(opp) + ' piece has been captured.'
+        : displayName(opp) + ' has no legal move.');
     } else if (G.noProg >= G.rs.drawPlies) {
       setOver(null, G.rs.flyingKings
         ? 'Twenty-five king moves per side without a capture or man move.'
