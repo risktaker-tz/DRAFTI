@@ -1,0 +1,10 @@
+'use strict';
+const fs=require('fs'),vm=require('vm'),path=require('path'),assert=require('assert/strict'),{createHarness}=require('../scripts/arena_harness');
+const ui=fs.readFileSync(path.join(__dirname,'../src/ui.js'),'utf8'),h=createHarness(),math=Object.create(Math);math.random=()=>0;
+const c={G:{mode:'aivai'},LEVELS:h.api.LEVELS,Math:math};vm.createContext(c);
+vm.runInContext(ui.slice(ui.indexOf('  function chooseLadderMove('),ui.indexOf('  function prepareArenaReply(')),c);
+const legal=[{from:1,path:[1,10],caps:[]},{from:3,path:[3,12],caps:[]},{from:5,path:[5,14],caps:[]}];
+const result={best:legal[2],rootScores:[{m:legal[0],score:-900},{m:legal[1],score:-500},{m:legal[2],score:0}]};
+assert.equal(c.chooseLadderMove(result,legal,'l4'),legal[2],'Spectator Club must not intentionally throw a nine-piece evaluation loss for randomness');
+c.G.mode='ai';assert.equal(c.chooseLadderMove(result,legal,'l1'),legal[0],'The selected Beginner human-game ladder retains its intended forgiving policy');
+console.log('PASS spectator quality excludes deliberate random blunders while human Beginner difficulty remains intact');

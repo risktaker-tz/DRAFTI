@@ -1,0 +1,23 @@
+'use strict';
+const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('assert/strict');
+const ui=fs.readFileSync(path.join(__dirname,'../src/ui.js'),'utf8'),c={IVORY:1,EBONY:-1};vm.createContext(c);
+vm.runInContext(fs.readFileSync(path.join(__dirname,'../src/engine.js'),'utf8')+'this.E=makeEngine();',c);
+vm.runInContext(ui.slice(ui.indexOf('  function lowMaterialLimit('),ui.indexOf('  function setOver(')),c);
+const position=entries=>{const b=new Int8Array(64);for(const [sq,code]of entries)b[sq]=code;return b;};
+const quiet=(b,n)=>Array.from({length:n},()=>({boardBefore:b,side:1,move:{caps:[],promotes:false}}));
+const rs=c.E.RULESETS.american,far=position([[1,2],[62,-2]]),before=position([[10,1],[62,-2]]);
+assert.equal(c.possibleWinWithinMoves(rs,far,-1,3),false,'Distant short kings have no legal winning continuation in three turns');
+const close=position([[42,2],[33,-2]]);assert.equal(c.possibleWinWithinMoves(rs,close,1,3),true,'A real winning capture must keep play alive');
+const crown=[{boardBefore:before,side:1,move:{from:10,path:[10,1],caps:[],promotes:true}}];
+const early=c.lowMaterialCountdown(far,crown,c.E.legalMoves(rs,far,-1),{rs,side:-1});
+assert(early.immediateAfterCrown&&early.remaining===0,'Only a verified no-win small endgame may draw immediately after the first shared king');
+assert.equal(c.lowMaterialLimit([2,1,1,-2,-1,-1,-1,-1]),10,'One side down to three is enough when both have a king');
+for(const b of [[1,-2],[1,1,-2,-1],[2,1,-1,-1],[1,1,-1,-1]])assert.equal(c.lowMaterialLimit(b),0,'An uncrowned side always blocks automatic drawing');
+const ending=c.lowMaterialCountdown(close,quiet(close,2),c.E.legalMoves(rs,close,1),{rs,side:1});assert(ending.scoringNext,'A winning capture survives a finished countdown');
+let calls=[];Object.assign(c,{G:{board:before,side:1,noProg:999,rs,history:[],legal:c.E.legalMoves(rs,before,1),repMap:new Map([['same',3]])},
+  posKey:()=> 'same',setOver:(winner,reason)=>calls.push({winner,reason}),countSide:()=>1,displayName:()=> 'Player'});
+c.checkGameEnd();assert.equal(calls.length,0,'Even inactivity/repetition may not end a game while one side has no king');
+const larger=position([[1,2],[3,1],[5,1],[7,1],[56,-2],[58,-1],[60,-1],[62,-1]]);
+Object.assign(c.G,{board:larger,legal:c.E.legalMoves(rs,larger,1)});c.checkGameEnd();assert.equal(calls.length,0,'Automatic draws cannot end a larger game before either side reaches the threshold');
+Object.assign(c.G,{board:far,legal:c.E.legalMoves(rs,far,1)});c.checkGameEnd();assert.equal(calls.length,1,'An eligible, fully checked no-win repeated/inactive position can still draw');
+console.log('PASS uncrowned-side protection, one-side three-piece threshold, existing countdown lengths, real three-turn legal win checks and guarded official draw paths');

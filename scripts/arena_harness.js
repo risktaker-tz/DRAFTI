@@ -43,20 +43,24 @@ function playGame(h,{rsId='american',styles,levels,maxPlies=360,checkpoint=null,
     const legal=E.legalMoves(rs,board,side);
     if(!legal.length)return {winner:-side,plies:ply,nodes,deepest,reason:'no legal moves'};
     const key=board.join(',')+'|'+side,visits=(seen.get(key)||0)+1;seen.set(key,visits);
-    if(visits>=3||noProgress>=rs.drawPlies)return {winner:0,plies:ply,nodes,deepest,reason:visits>=3?'threefold repetition':'move limit'};
-    if(houseDraws){const end=h.lowMaterialCountdown(board,history,legal);if(end&&end.remaining<=0&&!end.scoringNext)return {winner:0,plies:ply,nodes,deepest,reason:'low-material house countdown'};}
+    const standardDrawDue=visits>=3||noProgress>=rs.drawPlies;
+    if(!houseDraws&&standardDrawDue)return {winner:0,plies:ply,nodes,deepest,reason:visits>=3?'threefold repetition':'move limit'};
+    if(houseDraws){const end=h.lowMaterialCountdown(board,history,legal,{rs,side,forceCheck:standardDrawDue});
+      if(end&&!end.scoringNext&&!end.winningNext&&!end.analysisLimited&&(end.remaining<=0||standardDrawDue))return {winner:0,plies:ply,nodes,deepest,reason:'protected low-material house draw'};}
     G.side=side;
     const index=side===E.IVORY?0:1,levelId=levels?levels[index]:api.searchLevelForSide();
     const style=styles?styles[index]:api.STYLES.find(s=>s.id===api.ROSTER.find(r=>r.id===(index===0?G.seatIvory:G.seatEbony)).styleId);
     const opts=api.arenaPressureOpts(api.levelOpts(levelId,style).opts);
     if(opts.weights)opts.weights.for=side;
-    opts.noProgress=noProgress;
+    // The live UI owns its protected house-draw checks; its worker starts
+    // searches without an automatic draw counter. Keep that same boundary.
+    opts.noProgress=houseDraws?0:noProgress;
     const result=E.search(rs,board,side,opts);
     const move=api.chooseLadderMove(result,legal,levelId);
     if(!move)throw Error('Production ladder returned no legal move');
     nodes+=result.nodes;deepest=Math.max(deepest,result.depth);
     noProgress=E.nextNoProgress(rs,board,move,side,noProgress);
-    history.push({boardBefore:Array.from(board),move});
+    history.push({boardBefore:Array.from(board),move,side});
     board=E.applyMove(rs,board,move,side);side=-side;
     if(onProgress)onProgress({ply:ply+1,board:Array.from(board),side,noProgress,seen:[...seen],nodes,deepest,history});
   }

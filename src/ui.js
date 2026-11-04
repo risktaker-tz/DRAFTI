@@ -2004,7 +2004,10 @@ function createSoundAudit(capacity = 12000) {
     const best = valid || legal[(Math.random() * legal.length) | 0];
     const L = LEVELS[levelId] || LEVELS.l5;
     if (L.pool > 0 && Array.isArray(res.rootScores) && res.rootScores.length > 1) {
-      if (Math.random() < L.blunder) return legal[(Math.random() * legal.length) | 0];
+      // Spectator opponents may choose among comparably evaluated plans,
+      // but never inject a wholly random losing move for theatre. The
+      // forgiving human-facing Beginner ladder keeps its existing policy.
+      if (G.mode !== 'aivai' && Math.random() < L.blunder) return legal[(Math.random() * legal.length) | 0];
       const top = Math.max(...res.rootScores.map(r => r.score));
       const pool = res.rootScores.filter(r => Number.isFinite(r.score) && r.score >= top - L.pool);
       if (pool.length) {
@@ -3436,11 +3439,31 @@ function createSoundAudit(capacity = 12000) {
   function lowMaterialLimit(board) {
     let a = 0, b = 0, ak = false, bk = false;
     for (const p of board) { if (p > 0) { a++; ak ||= p === 2; } else if (p < 0) { b++; bk ||= p === -2; } }
-    if (!a || !b) return 0;
+    if (!a || !b || !ak || !bk) return 0;
     if (a <= 2 && b <= 2) return 2;
-    return a <= 3 && b <= 3 && ak && bk ? 10 : 0;
+    return Math.min(a,b) <= 3 ? 10 : 0;
   }
-  function lowMaterialCountdown(board, history, legal) {
+  function possibleWinWithinMoves(rs,board,side,plies=3,cacheOnly=false) {
+    const cache=possibleWinWithinMoves.cache ||= new Map(),key=rs.id+'|'+side+'|'+plies+'|'+board.join(',');
+    if(cache.has(key))return cache.get(key);
+    if(cacheOnly)return null;
+    const deadline=Date.now()+35,exhausted={},memo=new Map();let nodes=0;
+    const visit=(position,turn,left)=>{
+      if(++nodes>8000||Date.now()>deadline)throw exhausted;
+      const moves=E.legalMoves(rs,position,turn);
+      if(!moves.length)return true; // A normal win, not a selected or assigned outcome.
+      if(!left)return false;
+      const k=turn+'|'+left+'|'+position.join(',');if(memo.has(k))return memo.get(k);
+      for(const move of moves)if(visit(E.applyMove(rs,position,move,turn),-turn,left-1)){memo.set(k,true);return true;}
+      memo.set(k,false);return false;
+    };
+    try{
+      const result=visit(board,side,plies);cache.set(key,result);
+      if(cache.size>128)cache.delete(cache.keys().next().value);
+      return result;
+    }catch(error){if(error!==exhausted)throw error;return null;} // Incomplete proof always keeps play alive.
+  }
+  function lowMaterialCountdown(board, history, legal,context) {
     const limit = lowMaterialLimit(board);
     if (!limit) return null;
     let elapsed = 0;
@@ -3450,7 +3473,15 @@ function createSoundAudit(capacity = 12000) {
       elapsed++;
     }
     const scoringNext = legal.some(m => m.caps.length || m.promotes);
-    return { limit, remaining: Math.max(0, limit - elapsed), scoringNext };
+    let remaining=Math.max(0,limit-elapsed),winningNext=false,analysisLimited=false,immediateAfterCrown=false;
+    const last=history.at(-1),firstSharedKing=limit===2&&last?.move.promotes&&[IVORY,EBONY].includes(last.side)&&
+      !last.boardBefore.some(piece=>piece===last.side*2);
+    if(context&&!scoringNext&&(remaining===0||firstSharedKing||context.forceCheck)){
+      const possible=possibleWinWithinMoves(context.rs,board,context.side,3,!!context.cacheOnly);
+      winningNext=possible===true;analysisLimited=possible===null;
+      if(firstSharedKing&&possible===false){remaining=0;immediateAfterCrown=true;}
+    }
+    return { limit, remaining, scoringNext,winningNext,analysisLimited,immediateAfterCrown };
   }
   function checkGameEnd() {
     const opp = G.side;
@@ -3458,16 +3489,16 @@ function createSoundAudit(capacity = 12000) {
       setOver(-opp, countSide(opp) === 0
         ? 'Every ' + displayName(opp) + ' piece has been captured.'
         : displayName(opp) + ' has no legal move.');
-    } else if (G.noProg >= G.rs.drawPlies) {
-      setOver(null, G.rs.flyingKings
-        ? 'Twenty-five king moves per side without a capture or man move.'
-        : 'Forty moves per side without a capture or man move.');
-    } else if ((G.repMap.get(posKey(G.board, G.side)) || 0) >= 3) {
-      setOver(null, 'The same position occurred three times.');
     } else {
-      const countdown = lowMaterialCountdown(G.board, G.history, G.legal);
-      if (countdown && countdown.remaining === 0 && !countdown.scoringNext)
-        setOver(null, 'Low-material draw after ' + countdown.limit + ' moves without a capture or crowning.');
+      const repeated=(G.repMap.get(posKey(G.board,G.side))||0)>=3,inactive=G.noProg>=G.rs.drawPlies;
+      const countdown=lowMaterialCountdown(G.board,G.history,G.legal,{rs:G.rs,side:G.side,forceCheck:repeated||inactive});
+      // Every automatic draw follows the owner's crowned-side protection.
+      if(!countdown||countdown.scoringNext||countdown.winningNext||countdown.analysisLimited)return;
+      if(inactive)setOver(null,G.rs.flyingKings?'Twenty-five king moves per side without a capture or man move.':'Forty moves per side without a capture or man move.');
+      else if(repeated)setOver(null,'The same position occurred three times.');
+      else if(countdown.remaining===0)setOver(null,countdown.immediateAfterCrown
+        ? 'Both sides are crowned with no winning continuation in the next three moves.'
+        : 'Low-material draw after '+countdown.limit+' moves without a capture or crowning.');
     }
   }
 
@@ -4072,8 +4103,10 @@ function createSoundAudit(capacity = 12000) {
     let detail = tournament
       ? 'Bout ' + (eventBout + 1) + '/' + SEASON_LEN + (G.pairMeets >= 2 ? ' · ' + ord(G.pairMeets) + ' meeting' : '')
       : G.rs.name;
-    const ending = lowMaterialCountdown(G.board, G.history, G.legal);
-    if (ending && !G.over) detail = ending.scoringNext ? 'Draw countdown · scoring chance' : 'Draw in ' + ending.remaining + ' moves';
+    const ending = lowMaterialCountdown(G.board,G.history,G.legal,{rs:G.rs,side:G.side,cacheOnly:true,
+      forceCheck:G.noProg>=G.rs.drawPlies||(G.repMap.get(posKey(G.board,G.side))||0)>=3});
+    if (ending && !G.over) detail = ending.winningNext ? 'Endgame · winning chance' : ending.analysisLimited ? 'Endgame · play continues'
+      : ending.scoringNext ? 'Draw countdown · scoring chance' : 'Draw in ' + ending.remaining + ' moves';
     $('bannerContext').textContent = context; $('bannerContext').title = context;
     $('bannerDetail').textContent = detail; $('bannerDetail').title = detail;
     const engineThinking = G.phase === 'thinking' && !G.over;

@@ -7,8 +7,12 @@ vm.runInContext(part('  function lowMaterialLimit(','  function checkGameEnd('),
 const two=[2,1,-2,-1],three=[2,1,1,-2,-1,-1];
 const quiet=(board,n)=>Array.from({length:n},()=>({boardBefore:board,move:{caps:[],promotes:false}}));
 assert.equal(c.lowMaterialLimit(two),2);assert.equal(c.lowMaterialLimit(three),10);
+assert.equal(c.lowMaterialLimit([2,1,-1,-1]),0,'A surviving uncrowned side must still have the chance to crown or be beaten');
+assert.equal(c.lowMaterialLimit([1,1,-2,-1]),0,'Both sides need a king before the rapid countdown can begin');
 assert.equal(c.lowMaterialLimit([1,1,1,-2,-1,-1]),0,'Three-piece countdown requires kings on both sides');
-assert.equal(c.lowMaterialLimit([2,1,1,1,-2]),0);assert.equal(c.lowMaterialLimit([2]),0,'A win has priority');
+assert.equal(c.lowMaterialLimit([2,1,1,1,-2]),10,'The other side need not also be down to three pieces');
+assert.equal(c.lowMaterialLimit([2,1,1,1,-2,-1,-1,-1]),0,'Neither side has reached the endgame threshold');
+assert.equal(c.lowMaterialLimit([2]),0,'A win has priority');
 assert.equal(c.lowMaterialCountdown(two,quiet(two,1),[]).remaining,1);
 assert.equal(c.lowMaterialCountdown(two,quiet(two,2),[]).remaining,0);
 assert.equal(c.lowMaterialCountdown(three,quiet(three,9),[]).remaining,1);
