@@ -1,0 +1,20 @@
+'use strict';
+const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('assert/strict');
+const ui=fs.readFileSync(path.join(__dirname,'../src/ui.js'),'utf8');
+function element(){let html='',writes=0;const child={textContent:'',scrollLeft:0};return{get innerHTML(){return html;},set innerHTML(v){html=v;writes++;},get writes(){return writes;},scrollHeight:100,scrollWidth:200,scrollTop:0,scrollLeft:0,querySelector:()=>child};}
+const elements={history:element(),ticker:element()},history=[{side:1,notation:'21-17',move:{promotes:false}}];
+const c={G:{history,mode:'aivai',rsId:'eastafrica8',rs:{firstSide:1}},IVORY:1,$:id=>elements[id],sideName:()=> 'Uhakika'};
+vm.createContext(c);vm.runInContext(ui.slice(ui.indexOf('  function updateHistory('),ui.indexOf('  function updateSegs(')),c);
+c.updateHistory();const first=elements.history.writes;
+c.updateHistory();c.updateHistory();assert.equal(elements.history.writes,first,'Thinking and animation phase changes must not rebuild an unchanged growing score sheet');
+history[0].badge='!!';c.updateHistory();assert.equal(elements.history.writes,first+1,'Fresh engine badges still render');
+history.push({side:-1,notation:'9-13',move:{promotes:false}});c.updateHistory();assert.equal(elements.history.writes,first+2,'New moves still render');
+history.pop();c.updateHistory();assert.equal(elements.history.writes,first+3,'Undo still renders');
+c.G.history=[{side:1,notation:'22-18',move:{promotes:false}}];c.updateHistory();assert.equal(elements.history.writes,first+4,'A different saved match with equal length still renders');
+const t={G:{rs:{n:8,pieceRows:3}},IVORY:1,EBONY:-1,$:id=>elements[id],countSide:()=>12,displayName:side=>side===1?'Tanzania':'Kenya'};
+elements.trayTop=element();elements.trayBottom=element();vm.createContext(t);
+vm.runInContext(ui.slice(ui.indexOf('  function updateTrays('),ui.indexOf('  function updateHistory(')),t);
+t.updateTrays();t.updateTrays();assert.equal(elements.trayTop.writes,1,'Unchanged trays stay intact between thinking/animation renders');
+t.countSide=side=>side===-1?10:12;t.updateTrays();assert.equal(elements.trayTop.writes,2,'Actual captures update immediately');
+t.displayName=side=>side===1?'Uhakika':'Usiogope';t.updateTrays();assert.equal(elements.trayTop.writes,3,'Renaming updates the visible capturer');
+console.log('PASS stable score sheet/trays across repeated playback phases; new moves, captures, badges, undo, renamed teams and restored matches still refresh');

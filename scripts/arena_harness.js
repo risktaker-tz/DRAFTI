@@ -20,7 +20,7 @@ function createHarness(seed=0xD4AF71,savedSettings={},checkpoint=null){
   vm.runInContext(slice('  function levelOpts(','  function runSearch('),context);
   vm.runInContext(slice('  let manualRetire =','  // the retirement ceremony:'),context);
   vm.runInContext(slice('  function lowMaterialLimit(','  function checkGameEnd('),context);
-  vm.runInContext('this.api={ROSTER,STYLES,LEVELS,LEVEL_IDS,rosterLevel,levelOpts,chooseLadderMove,searchLevelForSide,arenaPressureOpts,arenaSeatLevels,seatArenaBout,guardArena,ladderQueue,applyArenaResult,stageOfBout,arena,arenaProgress}; this.aiName=id=>rosterById(id).name;',context);
+  vm.runInContext('this.api={ROSTER,STYLES,LEVELS,LEVEL_IDS,rosterLevel,levelOpts,chooseLadderMove,searchLevelForSide,arenaPressureOpts,arenaSeatLevels,rememberResumedPairColours,seatArenaBout,guardArena,ladderQueue,applyArenaResult,stageOfBout,arena,arenaProgress}; this.aiName=id=>rosterById(id).name;',context);
   const fingerprint=crypto.createHash('sha256').update(JSON.stringify({
     engine:fs.readFileSync(path.join(__dirname,'../src/engine.js'),'utf8').replace(/\r\n/g,'\n'),
     levels:context.api.LEVELS,styles:context.api.STYLES,roster:context.api.ROSTER,

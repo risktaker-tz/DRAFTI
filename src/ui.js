@@ -584,20 +584,38 @@ function createSoundAudit(capacity = 12000) {
     const left = rosterLevel(a), right = rosterLevel(b), strongest = Math.max(left, right);
     return [Math.max(left, strongest - 2), Math.max(right, strongest - 2)];
   }
+  function arenaPairColourHistory() {
+    if(!arenaProgress.lastIvoryByPair||typeof arenaProgress.lastIvoryByPair!=='object'||Array.isArray(arenaProgress.lastIvoryByPair))arenaProgress.lastIvoryByPair={};
+    return arenaProgress.lastIvoryByPair;
+  }
+  function rememberResumedPairColours(ivory,ebony) {
+    const key=[ivory,ebony].sort().join('|'),colours=arenaPairColourHistory();
+    if(![ivory,ebony].includes(colours[key])){
+      colours[key]=ivory;
+      saveJSON(ARENA_PROGRESS_KEY,arenaProgress);
+    }
+  }
   function seatArenaBout() {
     guardArena();
     G.arenaSeason = arena.season; G.arenaBout = arena.bouts;
     const champion = arena.champion, challenger = arena.queue[0];
-    // Alternate the colours (and therefore opening side), independently of
-    // who holds the title. Neither role gets a permanent first-move right.
+    // First encounters use the tournament's alternating host colour. Once
+    // two countries have met, reverse their last colours even if the title
+    // changed hands or an odd number of other bouts happened in between.
+    // Alternating only the host could otherwise give one pair the same
+    // physical colours repeatedly after an upset.
     const hostIvory = ((arena.season - 1) * SEASON_LEN + arena.bouts) % 2 === 0;
-    G.seatIvory = hostIvory ? champion : challenger;
-    G.seatEbony = hostIvory ? challenger : champion;
+    const pairKey = [champion,challenger].sort().join('|');
+    const lastIvory = arenaPairColourHistory()[pairKey];
+    G.seatIvory = lastIvory === champion ? challenger : lastIvory === challenger ? champion : hostIvory ? champion : challenger;
+    G.seatEbony = G.seatIvory === champion ? challenger : champion;
     const levels = arenaSeatLevels(G.seatIvory, G.seatEbony);
     G.diffIvory = LEVEL_IDS[levels[0] - 1]; G.diffEbony = LEVEL_IDS[levels[1] - 1];
     G.pairKey = [G.seatIvory, G.seatEbony].sort().join('|');
     G.pairMeets = (arena.meetings[G.pairKey] || 0) + 1;
     arena.meetings[G.pairKey] = G.pairMeets;
+    arenaProgress.lastIvoryByPair[pairKey] = G.seatIvory;
+    saveJSON(ARENA_PROGRESS_KEY,arenaProgress);
     for (const id of [G.seatIvory, G.seatEbony]) if (!arena.appeared.includes(id)) arena.appeared.push(id);
     saveArena();
   }
@@ -3202,14 +3220,17 @@ function createSoundAudit(capacity = 12000) {
     const generation = epoch == null ? gameEpoch : epoch, moverSide = G.side;
     const p = pieceAt(mv.from);
     if (!p) return;
-    const hopMs = moveHopMs(mv.caps.length);
-    p.el.style.setProperty('--hop-time', (hopMs * .85) + 'ms');
-    p.el.style.setProperty('--piece-fx-time', (G.mode === 'aivai' ? Math.min(250, hopMs * .7) : 250) + 'ms');
     p.el.classList.add('lifted');
     if (mv.path.length === 2 && !mv.caps.length) SFX_BANK.effect('slide', { vol: .075 });
     if (Math.abs(p.code) === 2 && !mv.caps.length) SFX_BANK.effect('king_glint', { vol: .12 });
     for (let k = 1; k < mv.path.length; k++) {
       if(generation !== gameEpoch)return false;
+      // The selector may change while this very capture chain is playing.
+      // Give each hop one matching movement/effect/wait clock, independent
+      // of AI level, league progress or the time spent calculating.
+      const hopMs = moveHopMs(mv.caps.length);
+      p.el.style.setProperty('--hop-time', (hopMs * .85) + 'ms');
+      p.el.style.setProperty('--piece-fx-time', (G.mode === 'aivai' ? Math.min(250, hopMs * .7) : 250) + 'ms');
       const to = mv.path[k];
       const from = mv.path[k - 1];
       if (k > 1 && mv.caps.length > 1 && hopMs >= 80 &&
@@ -3827,6 +3848,7 @@ function createSoundAudit(capacity = 12000) {
       phase:'idle',over:false,result:null,recorded:false,sel:null,hint:null,aiPaused:!!saved.aiPaused,aiSpeed:settings.speed,progressConflict:false,
       capStreak:0,capStreakSide:0,shrimpFired:false});
     Object.assign(G,position);G.lastMove=G.history.length?G.history.at(-1).move:null;
+    rememberResumedPairColours(G.seatIvory,G.seatEbony);
     const resumedLevels=arenaSeatLevels(G.seatIvory,G.seatEbony);
     G.diffIvory=LEVEL_IDS[resumedLevels[0]-1];G.diffEbony=LEVEL_IDS[resumedLevels[1]-1];
     G.firstStrike=G.history.some(h=>h.move.caps.length);
@@ -4099,18 +4121,30 @@ function createSoundAudit(capacity = 12000) {
     for (const [id, label, color, count] of [
       ['trayTop', 'Captured by ' + displayName(IVORY), 'ebony', byIvory],
       ['trayBottom', 'Captured by ' + displayName(EBONY), 'ivory', byEbony]]) {
-      const el = $(id), previous = el.querySelector('.tray-name');
+      const el = $(id), renderKey = JSON.stringify([label,color,count]);
+      if(el.__draftiTrayRenderKey===renderKey)continue;
+      const previous = el.querySelector('.tray-name');
       const offset = previous && previous.textContent === label ? previous.scrollLeft : 0;
       const previousDiscs = el.querySelector('.tray-captures');
       const discOffset = previous && previous.textContent === label && previousDiscs ? previousDiscs.scrollLeft : 0;
       el.innerHTML = tray(label, color, count);
       el.querySelector('.tray-name').scrollLeft = offset;
       el.querySelector('.tray-captures').scrollLeft = discOffset;
+      el.__draftiTrayRenderKey=renderKey;
     }
   }
 
   function updateHistory() {
     const ol = $('history');
+    const last=G.history.at(-1),previous=ol.__draftiHistoryRender;
+    const current={list:G.history,length:G.history.length,last,badge:last?.badge,notation:last?.notation,promotes:last?.move.promotes,
+      mode:G.mode,rsId:G.rsId,emptyName:G.history.length?null:sideName(G.rs.firstSide)};
+    // Thinking/moving transitions do not change the score sheet. Rebuilding
+    // its entire growing DOM on each phase made late-game fast playback
+    // progressively heavier. Moves, verdict badges, undo and restored
+    // histories still invalidate this presentation-only cache immediately.
+    if(previous&&Object.keys(current).every(key=>current[key]===previous[key]))return;
+    ol.__draftiHistoryRender=current;
     if (!G.history.length) {
       ol.innerHTML = '<li class="empty">No moves yet — ' +
         (G.mode === 'ai' ? 'make your move or press Hint for a suggestion.' : sideName(G.rs.firstSide) + ' opens.') + '</li>';

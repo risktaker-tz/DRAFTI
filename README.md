@@ -14,6 +14,11 @@ effects. Retirement flags use verified offline SVG artwork across devices.
 Accelerated arena playback overlaps full-strength calculation with movement and
 retimes pending presentation waits when speed changes. Search depth and effort
 remain independent of speed; demanding positions can still be CPU-bound.
+Movement timing refreshes on each hop, including speed changes during a capture
+chain. Repeated phase changes retain unchanged score-sheet and tray contents.
+Country pairs reverse their previous colours on rematches, including after a
+champion changes or an older saved league resumes; this rule applies equally to
+every nation and leaves earned levels and match outcomes intact.
 
 An **original, open-source checkers game**. DRAFTI is an independent
 implementation of the public-domain game of draughts — no code, assets, or

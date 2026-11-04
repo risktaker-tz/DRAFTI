@@ -1,0 +1,172 @@
+{
+  "scope": "Eight real-engine East Africa 8x8 games, four equal-strength seeded pairs with seat order reversed. Full Club budgets, actual national personality options, production house draws. This is a targeted regression sample, not proof of equal national win probabilities.",
+  "completed": 8,
+  "planned": 8,
+  "results": {
+    "TZ": 1,
+    "KE": 3,
+    "draws": 4
+  },
+  "rows": [
+    {
+      "pair": 0,
+      "seed": 128245760,
+      "ivory": "TZ",
+      "ebony": "KE",
+      "levels": [
+        "l4",
+        "l4"
+      ],
+      "styles": [
+        "tanzanian",
+        "kenyan"
+      ],
+      "winner": -1,
+      "plies": 50,
+      "nodes": 544372,
+      "deepest": 8,
+      "reason": "no legal moves",
+      "winnerId": "KE"
+    },
+    {
+      "pair": 0,
+      "seed": 128245760,
+      "ivory": "KE",
+      "ebony": "TZ",
+      "levels": [
+        "l4",
+        "l4"
+      ],
+      "styles": [
+        "kenyan",
+        "tanzanian"
+      ],
+      "winner": 0,
+      "plies": 101,
+      "nodes": 1962676,
+      "deepest": 8,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "pair": 1,
+      "seed": 128245761,
+      "ivory": "TZ",
+      "ebony": "KE",
+      "levels": [
+        "l4",
+        "l4"
+      ],
+      "styles": [
+        "tanzanian",
+        "kenyan"
+      ],
+      "winner": 1,
+      "plies": 57,
+      "nodes": 492219,
+      "deepest": 8,
+      "reason": "no legal moves",
+      "winnerId": "TZ"
+    },
+    {
+      "pair": 1,
+      "seed": 128245761,
+      "ivory": "KE",
+      "ebony": "TZ",
+      "levels": [
+        "l4",
+        "l4"
+      ],
+      "styles": [
+        "kenyan",
+        "tanzanian"
+      ],
+      "winner": 0,
+      "plies": 53,
+      "nodes": 421577,
+      "deepest": 8,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "pair": 2,
+      "seed": 128245762,
+      "ivory": "TZ",
+      "ebony": "KE",
+      "levels": [
+        "l4",
+        "l4"
+      ],
+      "styles": [
+        "tanzanian",
+        "kenyan"
+      ],
+      "winner": 0,
+      "plies": 68,
+      "nodes": 793603,
+      "deepest": 8,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "pair": 2,
+      "seed": 128245762,
+      "ivory": "KE",
+      "ebony": "TZ",
+      "levels": [
+        "l4",
+        "l4"
+      ],
+      "styles": [
+        "kenyan",
+        "tanzanian"
+      ],
+      "winner": 0,
+      "plies": 70,
+      "nodes": 942985,
+      "deepest": 8,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "pair": 3,
+      "seed": 128245763,
+      "ivory": "TZ",
+      "ebony": "KE",
+      "levels": [
+        "l4",
+        "l4"
+      ],
+      "styles": [
+        "tanzanian",
+        "kenyan"
+      ],
+      "winner": -1,
+      "plies": 96,
+      "nodes": 1267668,
+      "deepest": 8,
+      "reason": "no legal moves",
+      "winnerId": "KE"
+    },
+    {
+      "pair": 3,
+      "seed": 128245763,
+      "ivory": "KE",
+      "ebony": "TZ",
+      "levels": [
+        "l4",
+        "l4"
+      ],
+      "styles": [
+        "kenyan",
+        "tanzanian"
+      ],
+      "winner": 1,
+      "plies": 45,
+      "nodes": 259887,
+      "deepest": 8,
+      "reason": "no legal moves",
+      "winnerId": "KE"
+    }
+  ]
+}
