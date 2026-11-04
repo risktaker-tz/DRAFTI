@@ -73,7 +73,7 @@
 @keyframes cine-calm{0%,100%{opacity:0}50%{opacity:.8}}
 .cine-intermission{background:radial-gradient(ellipse at 50% 0%,color-mix(in srgb,var(--cue) 22%,transparent),transparent 65%);animation:cine-calm 1.3s ease both}
 .cine-launch{position:fixed;right:18px;bottom:16px;z-index:95;background:var(--panel-opaque);box-shadow:0 6px 24px #0004;font-size:12px}
-.cine-studio{position:fixed;right:16px;top:16px;bottom:68px;z-index:100;width:326px;max-width:calc(100vw - 24px);overflow:auto;overscroll-behavior:contain;padding:20px;border:1px solid var(--panel-line);border-radius:20px;background:var(--panel-opaque);box-shadow:0 20px 70px #0006;color:var(--ink);backdrop-filter:blur(18px)}
+.cine-studio{position:fixed;right:16px;top:80px;bottom:68px;z-index:100;width:326px;max-width:calc(100vw - 24px);overflow:auto;overscroll-behavior:contain;padding:20px;border:1px solid var(--panel-line);border-radius:20px;background:var(--panel-opaque);box-shadow:0 20px 70px #0006;color:var(--ink);backdrop-filter:blur(18px)}
 .cine-studio-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
 .cine-eyebrow{font-size:9px;font-weight:750;letter-spacing:.18em;color:var(--accent)}
 .cine-studio h2{font:600 25px/1.2 var(--serif);margin:6px 0}

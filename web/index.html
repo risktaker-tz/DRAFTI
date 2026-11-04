@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="drafti-build" content="45126ef61495eb2432657e87c535092dbb43f9d1af3e1a80780b34c1382cc59f">
+<meta name="drafti-build" content="1955ff7e4ee1a877d310e3591f47ba315b4c6d58dd0dd306779827af21c33b6f">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="apple-touch-icon" href="./icon-192.png">
@@ -1330,7 +1330,7 @@ body.fx-wood .board-frame { background-image: repeating-linear-gradient(93deg, t
 @keyframes cine-calm{0%,100%{opacity:0}50%{opacity:.8}}
 .cine-intermission{background:radial-gradient(ellipse at 50% 0%,color-mix(in srgb,var(--cue) 22%,transparent),transparent 65%);animation:cine-calm 1.3s ease both}
 .cine-launch{position:fixed;right:18px;bottom:16px;z-index:95;background:var(--panel-opaque);box-shadow:0 6px 24px #0004;font-size:12px}
-.cine-studio{position:fixed;right:16px;top:16px;bottom:68px;z-index:100;width:326px;max-width:calc(100vw - 24px);overflow:auto;overscroll-behavior:contain;padding:20px;border:1px solid var(--panel-line);border-radius:20px;background:var(--panel-opaque);box-shadow:0 20px 70px #0006;color:var(--ink);backdrop-filter:blur(18px)}
+.cine-studio{position:fixed;right:16px;top:80px;bottom:68px;z-index:100;width:326px;max-width:calc(100vw - 24px);overflow:auto;overscroll-behavior:contain;padding:20px;border:1px solid var(--panel-line);border-radius:20px;background:var(--panel-opaque);box-shadow:0 20px 70px #0006;color:var(--ink);backdrop-filter:blur(18px)}
 .cine-studio-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
 .cine-eyebrow{font-size:9px;font-weight:750;letter-spacing:.18em;color:var(--accent)}
 .cine-studio h2{font:600 25px/1.2 var(--serif);margin:6px 0}
@@ -7525,7 +7525,8 @@ function createSoundAudit(capacity = 12000) {
     intermission(){if($('autoNext').hidden){lastIntermission='';return;}const text=$('autoNext').textContent;if(text!==lastIntermission){lastIntermission=text;fire('a10');}},
     preview(id){const G=app.state,move=G.legal[0],from=move?.from??G.board.findIndex(Boolean),side=Math.sign(G.board[from])||1;
       const to=move?.path.at(-1)??from;const path=[from,to,Math.max(0,Math.min(G.board.length-1,to+(side===1?-2:2)*n()+2))];
-      if(!fire(id,{from,to,side,path,captures:3,stage:3,squares:[from,to]},true)){$('cineStatus').textContent=reduced()?'Reduced motion · animated effects suppressed':'Effect disabled · enable it to preview';return false;}
+      const displayTo=id.startsWith('p')&&!['p2','p10'].includes(id)?from:to;
+      if(!fire(id,{from,to:displayTo,side,path,captures:3,stage:3,squares:[from,to]},true)){$('cineStatus').textContent=reduced()?'Reduced motion · animated effects suppressed':'Effect disabled · enable it to preview';return false;}
       try{app.fx.ensure();app.sfx.effect(id==='p5'||id==='a7'||id==='b6'?'crown':id==='b9'||id==='a8'||id==='p6'?'victory':id==='b10'||id==='a9'?'draw':id==='b3'||id==='b4'||id==='p4'?'impact':'landing',{vol:.14});}catch{}
     },
     debug(){return{catalogue:catalogue.map(([id,group,name])=>({id,group,name})),played:played.slice(),nodes:liveNodes.size,motions:motions.size,timers:timers.size,reduced:reduced(),options:{...options,disabled:[...options.disabled]}};},
@@ -7547,6 +7548,7 @@ function createSoundAudit(capacity = 12000) {
   }
   const togglePanel=open=>{panel.hidden=!open;launch.setAttribute('aria-expanded',String(open));};
   launch.addEventListener('click',()=>togglePanel(panel.hidden));$('cineClose').addEventListener('click',()=>togglePanel(false));
+  $('btnMenu').addEventListener('click',()=>togglePanel(false));
   $('cineCompare').addEventListener('click',()=>{options.enabled=!options.enabled;clear();refresh();persist();$('cineCompare').textContent=options.enabled?'Compare original':'Restore preview';$('cineStatus').textContent=options.enabled?'Cinematic preview enabled':'Original presentation · new effects off';});
   $('cineEnergy').value=options.energy;$('cineEnergy').addEventListener('change',event=>{options.energy=event.target.value;refresh();persist();});
   $('cineTour').addEventListener('click',()=>{clear();options.enabled=true;refresh();persist();$('cineCompare').textContent='Compare original';if(innerWidth<900)togglePanel(false);catalogue.forEach(([id],i)=>later(()=>api.preview(id),i*1500));});

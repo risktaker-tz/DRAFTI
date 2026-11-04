@@ -150,7 +150,8 @@
     intermission(){if($('autoNext').hidden){lastIntermission='';return;}const text=$('autoNext').textContent;if(text!==lastIntermission){lastIntermission=text;fire('a10');}},
     preview(id){const G=app.state,move=G.legal[0],from=move?.from??G.board.findIndex(Boolean),side=Math.sign(G.board[from])||1;
       const to=move?.path.at(-1)??from;const path=[from,to,Math.max(0,Math.min(G.board.length-1,to+(side===1?-2:2)*n()+2))];
-      if(!fire(id,{from,to,side,path,captures:3,stage:3,squares:[from,to]},true)){$('cineStatus').textContent=reduced()?'Reduced motion · animated effects suppressed':'Effect disabled · enable it to preview';return false;}
+      const displayTo=id.startsWith('p')&&!['p2','p10'].includes(id)?from:to;
+      if(!fire(id,{from,to:displayTo,side,path,captures:3,stage:3,squares:[from,to]},true)){$('cineStatus').textContent=reduced()?'Reduced motion · animated effects suppressed':'Effect disabled · enable it to preview';return false;}
       try{app.fx.ensure();app.sfx.effect(id==='p5'||id==='a7'||id==='b6'?'crown':id==='b9'||id==='a8'||id==='p6'?'victory':id==='b10'||id==='a9'?'draw':id==='b3'||id==='b4'||id==='p4'?'impact':'landing',{vol:.14});}catch{}
     },
     debug(){return{catalogue:catalogue.map(([id,group,name])=>({id,group,name})),played:played.slice(),nodes:liveNodes.size,motions:motions.size,timers:timers.size,reduced:reduced(),options:{...options,disabled:[...options.disabled]}};},
@@ -172,6 +173,7 @@
   }
   const togglePanel=open=>{panel.hidden=!open;launch.setAttribute('aria-expanded',String(open));};
   launch.addEventListener('click',()=>togglePanel(panel.hidden));$('cineClose').addEventListener('click',()=>togglePanel(false));
+  $('btnMenu').addEventListener('click',()=>togglePanel(false));
   $('cineCompare').addEventListener('click',()=>{options.enabled=!options.enabled;clear();refresh();persist();$('cineCompare').textContent=options.enabled?'Compare original':'Restore preview';$('cineStatus').textContent=options.enabled?'Cinematic preview enabled':'Original presentation · new effects off';});
   $('cineEnergy').value=options.energy;$('cineEnergy').addEventListener('change',event=>{options.energy=event.target.value;refresh();persist();});
   $('cineTour').addEventListener('click',()=>{clear();options.enabled=true;refresh();persist();$('cineCompare').textContent='Compare original';if(innerWidth<900)togglePanel(false);catalogue.forEach(([id],i)=>later(()=>api.preview(id),i*1500));});
