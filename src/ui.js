@@ -3843,6 +3843,7 @@ function createSoundAudit(capacity = 12000) {
     updateAll();
     if (typeof recordAudioCheckpoint === 'function') recordAudioCheckpoint('game-start');
     saveCurrentMatch();
+    if (globalThis.DRAFTI_UPDATE?.applyAtMatchBoundary()) return;
     scheduleAI();
     // the host introduces themselves: their national school speaks first
     const greeter = G.mode === 'ai' ? styleById(settings.style)

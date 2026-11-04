@@ -2,8 +2,12 @@
 const fs=require('fs'),path=require('path'),assert=require('assert'),crypto=require('crypto'),{execFileSync}=require('child_process');
 const root=path.resolve(__dirname,'..'),python=process.argv[2]||'python3';
 execFileSync(process.execPath,['scripts/build_web.js'],{cwd:root});const node=fs.readFileSync(path.join(root,'web/index.html'));
+const nodeWorker=fs.readFileSync(path.join(root,'web/sw.js'));
 execFileSync(python,['build_web.py'],{cwd:root});const py=fs.readFileSync(path.join(root,'web/index.html'));
 assert(node.equals(py),'Python and Node builders must emit exactly the same artifact');
+assert(nodeWorker.equals(fs.readFileSync(path.join(root,'web/sw.js'))),'Both builders must also emit the same release worker');
+const build=/name="drafti-build" content="([a-f0-9]{64})"/.exec(node.toString('utf8'))?.[1];
+assert(build&&nodeWorker.includes(Buffer.from("const BUILD = '"+build+"'")),'HTML and worker must identify the same release');
 assert(!node.includes(Buffer.from('\r\n')),'Distributed artifact must use portable LF endings');
 assert(node.length<14*1024*1024,'Single-file offline artifact stays under 14 MiB');
 assert(!node.toString('utf8').includes('/*__AUDIO__*/'),'All source tokens must be embedded');

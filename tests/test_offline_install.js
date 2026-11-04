@@ -11,12 +11,12 @@ async function check(scope) {
   let online = true;
   const absolute = request => new URL(request.url || request, scope).href;
   const cache = {
-    async addAll(paths) { for (const p of paths) files.set(absolute(p), new Response(p)); },
+    async addAll(paths) { for (const p of paths) { const name=new URL(absolute(p)).pathname.split('/').pop();files.set(absolute(p), new Response(name==='index.html'?'cached-game-build':name)); } },
     async put(request, response) { files.set(absolute(request), response); },
   };
   vm.runInNewContext(source, {
-    URL, Response,
-    self: {location: new URL(scope), registration: {scope}, addEventListener: (name, fn) => routes.set(name, fn)},
+    URL, Request, Response,
+    self: {location: new URL(scope), registration: {scope}, skipWaiting:async()=>{}, addEventListener: (name, fn) => routes.set(name, fn)},
     caches: {open: async () => cache, match: async request => files.get(absolute(request))?.clone()},
     fetch: async request => {
       if (!online) throw Error('Offline');
@@ -39,10 +39,10 @@ async function check(scope) {
   await handle(clip);
   await handle('streamer-vocabulary/unexpected.mp3');
   online = false;
-  assert.equal(await (await handle('?offline', 'navigate')).text(), './index.html');
+  assert.equal(await (await handle('?offline', 'navigate')).text(), 'cached-game-build');
   assert.equal(await (await handle(clip)).text(), absolute(clip));
   assert.equal((await handle('streamer-vocabulary/unexpected.mp3')).type, 'error');
-  assert.equal(await (await handle('icon-512.png')).text(), './icon-512.png');
+  assert.equal(await (await handle('icon-512.png')).text(), 'icon-512.png');
 }
 (async () => {
   await check('https://drafti-afrika.vercel.app/');

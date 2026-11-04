@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="drafti-build" content="__DRAFTI_BUILD__">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="apple-touch-icon" href="./icon-192.png">
@@ -410,9 +411,7 @@
 /*__UI__*/
 </script>
 <script>
-if (location.protocol === 'https:' || location.hostname === 'localhost') {
-  navigator.serviceWorker?.register('./sw.js').catch(console.warn);
-}
+/*__UPDATES__*/
 </script>
 </body>
 </html>
