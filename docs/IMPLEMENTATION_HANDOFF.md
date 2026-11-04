@@ -2,6 +2,10 @@
 
 ## Latest release verification
 
+Club-floor source 3b3c4fba6e3884fb508c8aa7184e9f0fdab45a95 is pushed to blueprint-release and main. Vercel dpl_BtSvcXTF4rghnEpQF5efA2Z4pKGE reports READY, with canonical alias assigned; public bytes still being checked. Browser additionally confirms manual Club/Club and switching back to Computer restores Beginner and enables the lower rungs.
+
+The East Africa 8x8 draw-rotation simulation has completed all 36 real-engine bouts. Its preserved kernel source is 5c5816256f62d07a1b8d1f9fed21519df09df19f. Independent report verification passes all bout/nation totals, rotating openers, stage bonuses and three dethronings. Median levels rise 4 to 5 to 6 to 7 across season starts. Evidence: docs/arena-eastafrica8-draw-rotation/arena-fairness.json and arena-fairness.md. Winner-stays scheduling produces unequal appearances; this sample does not establish equal national win probabilities. Process 11072 finished successfully and the simulator removed its lock. No simulation resume is needed.
+
 Current checkpoint adds Club as the minimum for every AI-vs-AI game, including manual matches. Lower three menu rungs are disabled only in that mode. New games clamp runtime strength without overwriting the saved human baseline. Existing national XP/season progression and higher chosen levels remain active. Targeted strength, fairness (880 checks), human progression and arena lifecycle tests pass. Both builders produce 12,979,043 identical bytes, SHA-256 e8d2584c1acfca0dbb67697492ef5007f3e4067fff67e3d019ca34ded2e1b4fa. Browser confirms national seats Club/Club and lower three buttons disabled. Deployment verification pending for this checkpoint.
 
 Public runtime source 8fc14e44050fdeef28857c75baa70ffec3978213 is verified on Vercel and GitHub Pages. Both serve 12,977,948 bytes, SHA-256 8e348509284e3bd6233df73967cd603140d213fe308daac732331cb22988da2e. It includes guards that drop stale opening introductions after restarts, menu entry and established play. Full automated suite at this source passed all 50 tests. Evidence is docs/current-release-tests.json. This supersedes the older release details below.

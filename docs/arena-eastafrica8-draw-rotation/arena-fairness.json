@@ -1,0 +1,2408 @@
+{
+  "seed": "0xD4AF71",
+  "sourceCommit": "5c5816256f62d07a1b8d1f9fed21519df09df19f",
+  "sourceFingerprint": "7633014e0ab6278c88504617aedb167d0c9001c01119dddcf1839bc80b960734",
+  "startedAt": "2026-11-03T22:05:47.282Z",
+  "completedAt": "2026-11-04T10:53:58.910Z",
+  "ruleset": "eastafrica8",
+  "engine": "Production engine, ladder, national styles, symmetric seat levels, stage pressure, queue and result functions. Opening median level 4; normal XP/season growth; production low-material house countdowns active. Search budgets unchanged. Presentation delays omitted.",
+  "bouts": [
+    {
+      "bout": 1,
+      "season": 1,
+      "stage": 0,
+      "ivory": "TZ",
+      "ebony": "KE",
+      "levels": [
+        "l4",
+        "l4"
+      ],
+      "winner": 0,
+      "plies": 56,
+      "nodes": 882572,
+      "deepest": 8,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "bout": 2,
+      "season": 1,
+      "stage": 0,
+      "ivory": "KE",
+      "ebony": "TZ",
+      "levels": [
+        "l4",
+        "l4"
+      ],
+      "winner": 1,
+      "plies": 45,
+      "nodes": 760555,
+      "deepest": 8,
+      "reason": "no legal moves",
+      "winnerId": "KE"
+    },
+    {
+      "bout": 3,
+      "season": 1,
+      "stage": 0,
+      "ivory": "KE",
+      "ebony": "SS",
+      "levels": [
+        "l5",
+        "l4"
+      ],
+      "winner": 1,
+      "plies": 59,
+      "nodes": 1347442,
+      "deepest": 10,
+      "reason": "no legal moves",
+      "winnerId": "KE"
+    },
+    {
+      "bout": 4,
+      "season": 1,
+      "stage": 0,
+      "ivory": "BI",
+      "ebony": "KE",
+      "levels": [
+        "l4",
+        "l6"
+      ],
+      "winner": -1,
+      "plies": 40,
+      "nodes": 858014,
+      "deepest": 9,
+      "reason": "no legal moves",
+      "winnerId": "KE"
+    },
+    {
+      "bout": 5,
+      "season": 1,
+      "stage": 0,
+      "ivory": "KE",
+      "ebony": "SO",
+      "levels": [
+        "l7",
+        "l5"
+      ],
+      "winner": 1,
+      "plies": 53,
+      "nodes": 2277556,
+      "deepest": 13,
+      "reason": "no legal moves",
+      "winnerId": "KE"
+    },
+    {
+      "bout": 6,
+      "season": 1,
+      "stage": 1,
+      "ivory": "UG",
+      "ebony": "KE",
+      "levels": [
+        "l7",
+        "l9"
+      ],
+      "winner": 0,
+      "plies": 59,
+      "nodes": 11120041,
+      "deepest": 17,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "bout": 7,
+      "season": 1,
+      "stage": 1,
+      "ivory": "KE",
+      "ebony": "UG",
+      "levels": [
+        "l9",
+        "l7"
+      ],
+      "winner": 0,
+      "plies": 47,
+      "nodes": 8052736,
+      "deepest": 15,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "bout": 8,
+      "season": 1,
+      "stage": 1,
+      "ivory": "DJ",
+      "ebony": "KE",
+      "levels": [
+        "l7",
+        "l9"
+      ],
+      "winner": 0,
+      "plies": 54,
+      "nodes": 6155958,
+      "deepest": 15,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "bout": 9,
+      "season": 1,
+      "stage": 1,
+      "ivory": "KE",
+      "ebony": "DJ",
+      "levels": [
+        "l10",
+        "l8"
+      ],
+      "winner": 0,
+      "plies": 89,
+      "nodes": 9055232,
+      "deepest": 16,
+      "reason": "threefold repetition",
+      "winnerId": null
+    },
+    {
+      "bout": 10,
+      "season": 1,
+      "stage": 2,
+      "ivory": "CD",
+      "ebony": "KE",
+      "levels": [
+        "l8",
+        "l10"
+      ],
+      "winner": 0,
+      "plies": 53,
+      "nodes": 3404288,
+      "deepest": 19,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "bout": 11,
+      "season": 1,
+      "stage": 2,
+      "ivory": "KE",
+      "ebony": "CD",
+      "levels": [
+        "l10",
+        "l8"
+      ],
+      "winner": 0,
+      "plies": 62,
+      "nodes": 4577861,
+      "deepest": 21,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "bout": 12,
+      "season": 1,
+      "stage": 3,
+      "ivory": "ER",
+      "ebony": "KE",
+      "levels": [
+        "l8",
+        "l10"
+      ],
+      "winner": 0,
+      "plies": 67,
+      "nodes": 18418688,
+      "deepest": 17,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "bout": 13,
+      "season": 2,
+      "stage": 0,
+      "ivory": "KE",
+      "ebony": "SV",
+      "levels": [
+        "l10",
+        "l8"
+      ],
+      "winner": 0,
+      "plies": 78,
+      "nodes": 7440896,
+      "deepest": 13,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "bout": 14,
+      "season": 2,
+      "stage": 0,
+      "ivory": "ER",
+      "ebony": "KE",
+      "levels": [
+        "l8",
+        "l10"
+      ],
+      "winner": -1,
+      "plies": 68,
+      "nodes": 4457958,
+      "deepest": 14,
+      "reason": "no legal moves",
+      "winnerId": "KE"
+    },
+    {
+      "bout": 15,
+      "season": 2,
+      "stage": 0,
+      "ivory": "KE",
+      "ebony": "ET",
+      "levels": [
+        "l10",
+        "l8"
+      ],
+      "winner": 0,
+      "plies": 61,
+      "nodes": 4833649,
+      "deepest": 14,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "bout": 16,
+      "season": 2,
+      "stage": 0,
+      "ivory": "ET",
+      "ebony": "KE",
+      "levels": [
+        "l8",
+        "l10"
+      ],
+      "winner": 0,
+      "plies": 66,
+      "nodes": 4758528,
+      "deepest": 15,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "bout": 17,
+      "season": 2,
+      "stage": 0,
+      "ivory": "KE",
+      "ebony": "RW",
+      "levels": [
+        "l10",
+        "l8"
+      ],
+      "winner": 0,
+      "plies": 78,
+      "nodes": 6073856,
+      "deepest": 14,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "bout": 18,
+      "season": 2,
+      "stage": 1,
+      "ivory": "RW",
+      "ebony": "KE",
+      "levels": [
+        "l8",
+        "l10"
+      ],
+      "winner": 0,
+      "plies": 43,
+      "nodes": 10225152,
+      "deepest": 21,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "bout": 19,
+      "season": 2,
+      "stage": 1,
+      "ivory": "KE",
+      "ebony": "CV",
+      "levels": [
+        "l10",
+        "l8"
+      ],
+      "winner": -1,
+      "plies": 52,
+      "nodes": 5679045,
+      "deepest": 19,
+      "reason": "no legal moves",
+      "winnerId": "CV"
+    },
+    {
+      "bout": 20,
+      "season": 2,
+      "stage": 1,
+      "ivory": "MA",
+      "ebony": "CV",
+      "levels": [
+        "l5",
+        "l6"
+      ],
+      "winner": 0,
+      "plies": 58,
+      "nodes": 1859730,
+      "deepest": 13,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "bout": 21,
+      "season": 2,
+      "stage": 1,
+      "ivory": "CV",
+      "ebony": "MA",
+      "levels": [
+        "l6",
+        "l5"
+      ],
+      "winner": 0,
+      "plies": 68,
+      "nodes": 2659769,
+      "deepest": 10,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "bout": 22,
+      "season": 2,
+      "stage": 2,
+      "ivory": "TD",
+      "ebony": "CV",
+      "levels": [
+        "l5",
+        "l7"
+      ],
+      "winner": 0,
+      "plies": 84,
+      "nodes": 6364502,
+      "deepest": 12,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "bout": 23,
+      "season": 2,
+      "stage": 2,
+      "ivory": "CV",
+      "ebony": "TD",
+      "levels": [
+        "l7",
+        "l5"
+      ],
+      "winner": 1,
+      "plies": 53,
+      "nodes": 2387796,
+      "deepest": 12,
+      "reason": "no legal moves",
+      "winnerId": "CV"
+    },
+    {
+      "bout": 24,
+      "season": 2,
+      "stage": 3,
+      "ivory": "MZ",
+      "ebony": "CV",
+      "levels": [
+        "l7",
+        "l9"
+      ],
+      "winner": 0,
+      "plies": 56,
+      "nodes": 7300608,
+      "deepest": 16,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "bout": 25,
+      "season": 3,
+      "stage": 0,
+      "ivory": "CV",
+      "ebony": "MK",
+      "levels": [
+        "l10",
+        "l8"
+      ],
+      "winner": 0,
+      "plies": 49,
+      "nodes": 6825984,
+      "deepest": 13,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "bout": 26,
+      "season": 3,
+      "stage": 0,
+      "ivory": "MZ",
+      "ebony": "CV",
+      "levels": [
+        "l8",
+        "l10"
+      ],
+      "winner": 0,
+      "plies": 82,
+      "nodes": 17065984,
+      "deepest": 13,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "bout": 27,
+      "season": 3,
+      "stage": 0,
+      "ivory": "CV",
+      "ebony": "MZ",
+      "levels": [
+        "l10",
+        "l8"
+      ],
+      "winner": 0,
+      "plies": 92,
+      "nodes": 17491456,
+      "deepest": 17,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "bout": 28,
+      "season": 3,
+      "stage": 0,
+      "ivory": "GN",
+      "ebony": "CV",
+      "levels": [
+        "l8",
+        "l10"
+      ],
+      "winner": 0,
+      "plies": 61,
+      "nodes": 11218432,
+      "deepest": 15,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "bout": 29,
+      "season": 3,
+      "stage": 0,
+      "ivory": "CV",
+      "ebony": "GN",
+      "levels": [
+        "l10",
+        "l8"
+      ],
+      "winner": 1,
+      "plies": 91,
+      "nodes": 17144755,
+      "deepest": 22,
+      "reason": "no legal moves",
+      "winnerId": "CV"
+    },
+    {
+      "bout": 30,
+      "season": 3,
+      "stage": 1,
+      "ivory": "ML",
+      "ebony": "CV",
+      "levels": [
+        "l8",
+        "l10"
+      ],
+      "winner": 0,
+      "plies": 84,
+      "nodes": 14209024,
+      "deepest": 13,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "bout": 31,
+      "season": 3,
+      "stage": 1,
+      "ivory": "CV",
+      "ebony": "ML",
+      "levels": [
+        "l10",
+        "l8"
+      ],
+      "winner": 0,
+      "plies": 64,
+      "nodes": 7668736,
+      "deepest": 12,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "bout": 32,
+      "season": 3,
+      "stage": 1,
+      "ivory": "ZM",
+      "ebony": "CV",
+      "levels": [
+        "l8",
+        "l10"
+      ],
+      "winner": 0,
+      "plies": 50,
+      "nodes": 4186112,
+      "deepest": 28,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "bout": 33,
+      "season": 3,
+      "stage": 1,
+      "ivory": "CV",
+      "ebony": "ZM",
+      "levels": [
+        "l10",
+        "l8"
+      ],
+      "winner": 1,
+      "plies": 57,
+      "nodes": 4134383,
+      "deepest": 14,
+      "reason": "no legal moves",
+      "winnerId": "CV"
+    },
+    {
+      "bout": 34,
+      "season": 3,
+      "stage": 2,
+      "ivory": "DZ",
+      "ebony": "CV",
+      "levels": [
+        "l8",
+        "l10"
+      ],
+      "winner": 1,
+      "plies": 103,
+      "nodes": 30039846,
+      "deepest": 17,
+      "reason": "no legal moves",
+      "winnerId": "DZ"
+    },
+    {
+      "bout": 35,
+      "season": 3,
+      "stage": 2,
+      "ivory": "DZ",
+      "ebony": "BJ",
+      "levels": [
+        "l7",
+        "l6"
+      ],
+      "winner": 0,
+      "plies": 63,
+      "nodes": 3471240,
+      "deepest": 10,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    },
+    {
+      "bout": 36,
+      "season": 3,
+      "stage": 3,
+      "ivory": "BJ",
+      "ebony": "DZ",
+      "levels": [
+        "l6",
+        "l8"
+      ],
+      "winner": 0,
+      "plies": 62,
+      "nodes": 6436211,
+      "deepest": 14,
+      "reason": "low-material house countdown",
+      "winnerId": null
+    }
+  ],
+  "openers": [
+    {
+      "season": 1,
+      "champion": "TZ",
+      "challenger": "KE"
+    },
+    {
+      "season": 2,
+      "champion": "KE",
+      "challenger": "SV"
+    },
+    {
+      "season": 3,
+      "champion": "CV",
+      "challenger": "MK"
+    }
+  ],
+  "dethronings": 3,
+  "growth": [
+    {
+      "season": 1,
+      "medianLevel": 4
+    },
+    {
+      "season": 2,
+      "medianLevel": 5
+    },
+    {
+      "season": 3,
+      "medianLevel": 6
+    },
+    {
+      "season": 4,
+      "medianLevel": 7
+    }
+  ],
+  "nations": [
+    {
+      "id": "TZ",
+      "name": "Tanzania",
+      "played": 2,
+      "wins": 0,
+      "level": 8,
+      "xp": 8,
+      "bonusXp": 0
+    },
+    {
+      "id": "KE",
+      "name": "Kenya",
+      "played": 19,
+      "wins": 5,
+      "level": 10,
+      "xp": 61,
+      "bonusXp": 4
+    },
+    {
+      "id": "UG",
+      "name": "Uganda",
+      "played": 2,
+      "wins": 0,
+      "level": 7,
+      "xp": 4,
+      "bonusXp": 0
+    },
+    {
+      "id": "RW",
+      "name": "Rwanda",
+      "played": 2,
+      "wins": 0,
+      "level": 7,
+      "xp": 4,
+      "bonusXp": 0
+    },
+    {
+      "id": "BI",
+      "name": "Burundi",
+      "played": 1,
+      "wins": 0,
+      "level": 8,
+      "xp": 6,
+      "bonusXp": 0
+    },
+    {
+      "id": "SS",
+      "name": "South Sudan",
+      "played": 1,
+      "wins": 0,
+      "level": 8,
+      "xp": 6,
+      "bonusXp": 0
+    },
+    {
+      "id": "SO",
+      "name": "Somalia",
+      "played": 1,
+      "wins": 0,
+      "level": 8,
+      "xp": 6,
+      "bonusXp": 0
+    },
+    {
+      "id": "CD",
+      "name": "DR Congo",
+      "played": 2,
+      "wins": 0,
+      "level": 7,
+      "xp": 4,
+      "bonusXp": 0
+    },
+    {
+      "id": "ET",
+      "name": "Ethiopia",
+      "played": 2,
+      "wins": 0,
+      "level": 7,
+      "xp": 4,
+      "bonusXp": 0
+    },
+    {
+      "id": "ER",
+      "name": "Eritrea",
+      "played": 2,
+      "wins": 0,
+      "level": 8,
+      "xp": 8,
+      "bonusXp": 0
+    },
+    {
+      "id": "DJ",
+      "name": "Djibouti",
+      "played": 2,
+      "wins": 0,
+      "level": 7,
+      "xp": 4,
+      "bonusXp": 0
+    },
+    {
+      "id": "EG",
+      "name": "Egypt",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "LY",
+      "name": "Libya",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "TN",
+      "name": "Tunisia",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "DZ",
+      "name": "Algeria",
+      "played": 3,
+      "wins": 1,
+      "level": 9,
+      "xp": 12,
+      "bonusXp": 3
+    },
+    {
+      "id": "MA",
+      "name": "Morocco",
+      "played": 2,
+      "wins": 0,
+      "level": 7,
+      "xp": 4,
+      "bonusXp": 0
+    },
+    {
+      "id": "SD",
+      "name": "Sudan",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "MR",
+      "name": "Mauritania",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "ML",
+      "name": "Mali",
+      "played": 2,
+      "wins": 0,
+      "level": 7,
+      "xp": 4,
+      "bonusXp": 0
+    },
+    {
+      "id": "NE",
+      "name": "Niger",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "TD",
+      "name": "Chad",
+      "played": 2,
+      "wins": 0,
+      "level": 8,
+      "xp": 8,
+      "bonusXp": 0
+    },
+    {
+      "id": "SN",
+      "name": "Senegal",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "GM",
+      "name": "Gambia",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "GW",
+      "name": "Guinea-Bissau",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "GN",
+      "name": "Guinea",
+      "played": 2,
+      "wins": 0,
+      "level": 8,
+      "xp": 8,
+      "bonusXp": 0
+    },
+    {
+      "id": "SL",
+      "name": "Sierra Leone",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "LR",
+      "name": "Liberia",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "CI",
+      "name": "Côte d’Ivoire",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "GH",
+      "name": "Ghana",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "TG",
+      "name": "Togo",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "BJ",
+      "name": "Benin",
+      "played": 2,
+      "wins": 0,
+      "level": 7,
+      "xp": 4,
+      "bonusXp": 0
+    },
+    {
+      "id": "BF",
+      "name": "Burkina Faso",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "NG",
+      "name": "Nigeria",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "CM",
+      "name": "Cameroon",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "CF",
+      "name": "Central Africa",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "GQ",
+      "name": "Eq. Guinea",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "GA",
+      "name": "Gabon",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "CG",
+      "name": "Congo",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "ST",
+      "name": "São Tomé",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "AO",
+      "name": "Angola",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "ZM",
+      "name": "Zambia",
+      "played": 2,
+      "wins": 0,
+      "level": 8,
+      "xp": 8,
+      "bonusXp": 0
+    },
+    {
+      "id": "ZW",
+      "name": "Zimbabwe",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "MW",
+      "name": "Malawi",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "MZ",
+      "name": "Mozambique",
+      "played": 3,
+      "wins": 0,
+      "level": 8,
+      "xp": 6,
+      "bonusXp": 0
+    },
+    {
+      "id": "NA",
+      "name": "Namibia",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "BW",
+      "name": "Botswana",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "ZA",
+      "name": "South Africa",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "LS",
+      "name": "Lesotho",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "SZ",
+      "name": "Eswatini",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "MG",
+      "name": "Madagascar",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "MU",
+      "name": "Mauritius",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "SC",
+      "name": "Seychelles",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "KM",
+      "name": "Comoros",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "CV",
+      "name": "Cabo Verde",
+      "played": 16,
+      "wins": 4,
+      "level": 10,
+      "xp": 58,
+      "bonusXp": 10
+    },
+    {
+      "id": "AL",
+      "name": "Albania",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "AD",
+      "name": "Andorra",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "AT",
+      "name": "Austria",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "BY",
+      "name": "Belarus",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "BE",
+      "name": "Belgium",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "BA",
+      "name": "Bosnia & Herz.",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "BG",
+      "name": "Bulgaria",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "HR",
+      "name": "Croatia",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "CY",
+      "name": "Cyprus",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "CZ",
+      "name": "Czechia",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "DK",
+      "name": "Denmark",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "EE",
+      "name": "Estonia",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "FI",
+      "name": "Finland",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "FR",
+      "name": "France",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "DE",
+      "name": "Germany",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "GR",
+      "name": "Greece",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "HU",
+      "name": "Hungary",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "IS",
+      "name": "Iceland",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "IE",
+      "name": "Ireland",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "IT",
+      "name": "Italy",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "LV",
+      "name": "Latvia",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "LI",
+      "name": "Liechtenstein",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "LT",
+      "name": "Lithuania",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "LU",
+      "name": "Luxembourg",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "MT",
+      "name": "Malta",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "MD",
+      "name": "Moldova",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "MC",
+      "name": "Monaco",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "ME",
+      "name": "Montenegro",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "NL",
+      "name": "Netherlands",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "MK",
+      "name": "North Macedonia",
+      "played": 1,
+      "wins": 0,
+      "level": 7,
+      "xp": 2,
+      "bonusXp": 0
+    },
+    {
+      "id": "NO",
+      "name": "Norway",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "PL",
+      "name": "Poland",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "PT",
+      "name": "Portugal",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "RO",
+      "name": "Romania",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "RU",
+      "name": "Russia",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "SM",
+      "name": "San Marino",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "RS",
+      "name": "Serbia",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "SK",
+      "name": "Slovakia",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "SI",
+      "name": "Slovenia",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "ES",
+      "name": "Spain",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "SE",
+      "name": "Sweden",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "CH",
+      "name": "Switzerland",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "UA",
+      "name": "Ukraine",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "GB",
+      "name": "United Kingdom",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "AF",
+      "name": "Afghanistan",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "AM",
+      "name": "Armenia",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "AZ",
+      "name": "Azerbaijan",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "BH",
+      "name": "Bahrain",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "BD",
+      "name": "Bangladesh",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "BT",
+      "name": "Bhutan",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "BN",
+      "name": "Brunei",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "KH",
+      "name": "Cambodia",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "CN",
+      "name": "China",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "GE",
+      "name": "Georgia",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "IN",
+      "name": "India",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "ID",
+      "name": "Indonesia",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "IR",
+      "name": "Iran",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "IQ",
+      "name": "Iraq",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "IL",
+      "name": "Israel",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "JP",
+      "name": "Japan",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "JO",
+      "name": "Jordan",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "KZ",
+      "name": "Kazakhstan",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "KW",
+      "name": "Kuwait",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "KG",
+      "name": "Kyrgyzstan",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "LA",
+      "name": "Laos",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "LB",
+      "name": "Lebanon",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "MY",
+      "name": "Malaysia",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "MV",
+      "name": "Maldives",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "MN",
+      "name": "Mongolia",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "MM",
+      "name": "Myanmar",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "NP",
+      "name": "Nepal",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "KP",
+      "name": "North Korea",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "OM",
+      "name": "Oman",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "PK",
+      "name": "Pakistan",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "PH",
+      "name": "Philippines",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "QA",
+      "name": "Qatar",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "SA",
+      "name": "Saudi Arabia",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "SG",
+      "name": "Singapore",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "KR",
+      "name": "South Korea",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "LK",
+      "name": "Sri Lanka",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "PS",
+      "name": "Palestine",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "SY",
+      "name": "Syria",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "TJ",
+      "name": "Tajikistan",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "TH",
+      "name": "Thailand",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "TL",
+      "name": "Timor-Leste",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "TR",
+      "name": "Turkey",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "TM",
+      "name": "Turkmenistan",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "AE",
+      "name": "UAE",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "UZ",
+      "name": "Uzbekistan",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "VN",
+      "name": "Vietnam",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "YE",
+      "name": "Yemen",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "AG",
+      "name": "Antigua & Barbuda",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "BS",
+      "name": "Bahamas",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "BB",
+      "name": "Barbados",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "BZ",
+      "name": "Belize",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "CA",
+      "name": "Canada",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "CR",
+      "name": "Costa Rica",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "CU",
+      "name": "Cuba",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "DM",
+      "name": "Dominica",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "DO",
+      "name": "Dom. Republic",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "SV",
+      "name": "El Salvador",
+      "played": 1,
+      "wins": 0,
+      "level": 7,
+      "xp": 2,
+      "bonusXp": 0
+    },
+    {
+      "id": "GD",
+      "name": "Grenada",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "GT",
+      "name": "Guatemala",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "HT",
+      "name": "Haiti",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "HN",
+      "name": "Honduras",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "JM",
+      "name": "Jamaica",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "MX",
+      "name": "Mexico",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "NI",
+      "name": "Nicaragua",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "PA",
+      "name": "Panama",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "KN",
+      "name": "St Kitts & Nevis",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "LC",
+      "name": "St Lucia",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "VC",
+      "name": "St Vincent",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "TT",
+      "name": "Trinidad & Tobago",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "US",
+      "name": "United States",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "AR",
+      "name": "Argentina",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "BO",
+      "name": "Bolivia",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "BR",
+      "name": "Brazil",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "CL",
+      "name": "Chile",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "CO",
+      "name": "Colombia",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "EC",
+      "name": "Ecuador",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "GY",
+      "name": "Guyana",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "PY",
+      "name": "Paraguay",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "PE",
+      "name": "Peru",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "SR",
+      "name": "Suriname",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "UY",
+      "name": "Uruguay",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "VE",
+      "name": "Venezuela",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "AU",
+      "name": "Australia",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "FJ",
+      "name": "Fiji",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "KI",
+      "name": "Kiribati",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "MH",
+      "name": "Marshall Is.",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "FM",
+      "name": "Micronesia",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "NR",
+      "name": "Nauru",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "NZ",
+      "name": "New Zealand",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "PW",
+      "name": "Palau",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "PG",
+      "name": "Papua New Guinea",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "WS",
+      "name": "Samoa",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "SB",
+      "name": "Solomon Is.",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "TO",
+      "name": "Tonga",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "TV",
+      "name": "Tuvalu",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    },
+    {
+      "id": "VU",
+      "name": "Vanuatu",
+      "played": 0,
+      "wins": 0,
+      "level": 7,
+      "xp": 0,
+      "bonusXp": 0
+    }
+  ],
+  "interpretation": "Winner-stays scheduling intentionally yields unequal appearances. This 36-bout sample tests scheduling/progression and observed dethroning, not equal national win probabilities. Style balance has a separate colour-paired round robin. Exact-position mistake recall is outside this sample and has separate worker/persistence tests."
+}
