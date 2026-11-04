@@ -13,7 +13,7 @@ async function checkScope(scope){
  async function navigation(url){let result;handlers.fetch({request:{method:'GET',url,mode:'navigate'},waitUntil:p=>pending.push(p),respondWith:p=>result=p});const res=await result;await Promise.all(pending.splice(0));return res;}
  stored.set(new URL('index.html',scope).href,{version:'old-build'});
  await navigation(scope);assert.equal(stored.get(new URL('index.html',scope).href).version,'new-build','Online homepage refreshes canonical offline entry');
- assert.equal(requests[0].cache,'no-store','Reopening bypasses an old browser HTTP cache');
+ assert.equal(requests[0].cache,'no-cache','Reopening revalidates the browser HTTP cache instead of trusting an old response');
  response.ok=false;assert.equal((await navigation(scope)).version,'new-build','A server error retains the last good offline game');response.ok=true;
  online=false;assert.equal((await navigation(scope)).version,'new-build','Offline homepage uses latest online build');
  handlers.activate({waitUntil:p=>pending.push(p)});await Promise.all(pending.splice(0));

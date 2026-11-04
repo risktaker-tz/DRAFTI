@@ -1,4 +1,4 @@
-const BUILD = '177a04845bb4e01cb09b6472392ad3cdd0a5099f7c89c2bbf006e2c2eae1b54d';
+const BUILD = '710a151f4b4c3a171bb7a8e340f2752f755ada94929266fcd7b9154832f30630';
 const CACHE = 'drafti-install-' + BUILD;
 const VOCAB_CACHE = 'drafti-streamer-vocabulary-v1';
 const vocabularyRoot = new URL('./streamer-vocabulary/', self.registration.scope).href;
@@ -32,7 +32,7 @@ self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET' || new URL(event.request.url).origin !== self.location.origin) return;
   const navigation = event.request.mode === 'navigate' && event.request.url.startsWith(self.registration.scope);
   const vocabulary = isVocabulary(event.request.url);
-  event.respondWith(fetch(event.request, { cache: navigation || vocabulary ? 'no-store' : 'default' }).then(response => {
+  event.respondWith(fetch(event.request, { cache: navigation || vocabulary ? 'no-cache' : 'default' }).then(response => {
     if (navigation && !response.ok) throw Error('Keep the cached game during a server outage');
     if (response.ok && (navigation || vocabulary || ASSETS.some(asset => new URL(asset, self.registration.scope).href === event.request.url))) {
       const copy = response.clone();

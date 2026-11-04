@@ -32,7 +32,7 @@ self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET' || new URL(event.request.url).origin !== self.location.origin) return;
   const navigation = event.request.mode === 'navigate' && event.request.url.startsWith(self.registration.scope);
   const vocabulary = isVocabulary(event.request.url);
-  event.respondWith(fetch(event.request, { cache: navigation || vocabulary ? 'no-store' : 'default' }).then(response => {
+  event.respondWith(fetch(event.request, { cache: navigation || vocabulary ? 'no-cache' : 'default' }).then(response => {
     if (navigation && !response.ok) throw Error('Keep the cached game during a server outage');
     if (response.ok && (navigation || vocabulary || ASSETS.some(asset => new URL(asset, self.registration.scope).href === event.request.url))) {
       const copy = response.clone();
