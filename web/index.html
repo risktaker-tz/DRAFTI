@@ -6126,14 +6126,18 @@ function createSoundAudit(capacity = 12000) {
       : G.mode === 'aivai' ? (settings.aivaiAuto
         ? styleById(rosterById(arena.champion).styleId)
         : styleById(settings.styleIvory)) : null;
+    const openingEpoch = gameEpoch;
+    const openingCurrent = () => openingEpoch === gameEpoch && !G.over && !drawerOpen && G.history.length <= 4;
     if (greeter && Math.random() < (G.mode === 'aivai' ? 0.3 : 0.45)) {
-      setTimeout(() => SFX_BANK.play(greeter.intro, { vol: 0.8 }), 950);
+      setTimeout(() => { if (openingCurrent()) SFX_BANK.play(greeter.intro, { vol: 0.8 }); }, 950);
     }
     // AI vs AI: the arena announcer opens the show — who against who
     if (G.mode === 'aivai' && Math.random() < 0.75) {
       setTimeout(() => {
+        if (!openingCurrent()) return;
         SFX_BANK.play('notify_pop');
         setTimeout(() => {
+          if (!openingCurrent()) return;
           SFX_BANK.play('v_spec1', { vol: 0.9 });
           flashWhisper(settings.aivaiAuto
             ? seatTag(IVORY) + ' vs ' + seatTag(EBONY) + ' — Season ' + arena.season +
@@ -6156,8 +6160,9 @@ function createSoundAudit(capacity = 12000) {
         const line = aiName(arena.champion) + ' advances to the ' + SEASON_STAGES[stage].name + '!';
         meetDelay = 8400;
         setTimeout(() => {
+          if (openingEpoch !== gameEpoch || G.over || drawerOpen) return;
           SFX_BANK.play('crown_fanfare', { vol: 0.9 });
-          setTimeout(() => SFX_BANK.play('st_air1', { vol: 0.8 }), 750);
+          setTimeout(() => { if (openingEpoch === gameEpoch && !G.over && !drawerOpen) SFX_BANK.play('st_air1', { vol: 0.8 }); }, 750);
           flashLabel(line, 'majestic');
         }, 4300);
       }
@@ -6165,6 +6170,7 @@ function createSoundAudit(capacity = 12000) {
         const line = displayName(IVORY) + ' and ' + displayName(EBONY) +
           ' meet again — the ' + ord(G.pairMeets) + ' time in the arena.';
         setTimeout(() => {
+          if (openingEpoch !== gameEpoch || G.over || drawerOpen) return;
           SFX_BANK.play('st_drum1', { vol: 0.8 });
           SFX_BANK.effect('reunion', { vol: .25 });
           flashWhisper(line);

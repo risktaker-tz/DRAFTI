@@ -11,6 +11,18 @@ const c={settings:{streamer:'female',sound:true,sfx:{voice:true}},drawerOpen:fal
     play(id,opts){played.push({id,opts});return {};}}};
 vm.createContext(c);vm.runInContext(ui.slice(ui.indexOf('  const STREAMER ='),ui.indexOf('  function flashLabel('))+'this.S=STREAMER;',c);
 const S=c.S;S.reset();
+const openingTimers=[], openingPlayed=[];
+const openingContext={gameEpoch:1,drawerOpen:false,greeter:{intro:'fixture_intro'},
+  G:{mode:'ai',over:false,history:[]},Math:{random:()=>0},
+  setTimeout:fn=>openingTimers.push(fn),SFX_BANK:{play:id=>openingPlayed.push(id)}};
+vm.runInNewContext(ui.slice(ui.indexOf('    const openingEpoch = gameEpoch;'),
+  ui.indexOf('    // AI vs AI: the arena announcer opens the show')),openingContext);
+openingContext.gameEpoch=2;openingTimers[0]();
+assert.equal(openingPlayed.length,0,'A restarted game cannot inherit an old introduction');
+openingContext.gameEpoch=1;openingContext.G.history=Array(5);openingTimers[0]();
+assert.equal(openingPlayed.length,0,'An introduction cannot describe an established game');
+openingContext.G.history=[];openingTimers[0]();
+assert.deepEqual(openingPlayed,['fixture_intro'],'A current opening keeps its original recording');
 c.SFX_BANK.activeSources.set(1,{spoken:true});S.pulse();assert.equal(played.length,0);
 c.SFX_BANK.activeSources.clear();S.pulse();assert(played.at(-1).id.startsWith('sf_greet'),'Opening retries after a competing voice finishes');
 const afterWelcome=played.length;S.reset();S.openGame();assert.equal(played.length,afterWelcome,'New bouts preserve the livestream session instead of saying we are beginning again');
