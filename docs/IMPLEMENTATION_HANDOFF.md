@@ -2,6 +2,8 @@
 
 ## Latest release verification
 
+PUBLIC VERIFIED: Club-floor source 3b3c4fba6e3884fb508c8aa7184e9f0fdab45a95 is READY on Vercel and both canonical and Pages public files match all 12,979,043 local bytes, SHA-256 e8d2584c1acfca0dbb67697492ef5007f3e4067fff67e3d019ca34ded2e1b4fa. See docs/club-minimum-release.json. This supersedes the pending-deployment language below. All remaining master acceptance checks still apply.
+
 Club-floor source 3b3c4fba6e3884fb508c8aa7184e9f0fdab45a95 is pushed to blueprint-release and main. Vercel dpl_BtSvcXTF4rghnEpQF5efA2Z4pKGE reports READY, with canonical alias assigned; public bytes still being checked. Browser additionally confirms manual Club/Club and switching back to Computer restores Beginner and enables the lower rungs.
 
 The East Africa 8x8 draw-rotation simulation has completed all 36 real-engine bouts. Its preserved kernel source is 5c5816256f62d07a1b8d1f9fed21519df09df19f. Independent report verification passes all bout/nation totals, rotating openers, stage bonuses and three dethronings. Median levels rise 4 to 5 to 6 to 7 across season starts. Evidence: docs/arena-eastafrica8-draw-rotation/arena-fairness.json and arena-fairness.md. Winner-stays scheduling produces unequal appearances; this sample does not establish equal national win probabilities. Process 11072 finished successfully and the simulator removed its lock. No simulation resume is needed.

@@ -1,0 +1,19 @@
+{
+  "sourceCommit": "3b3c4fba6e3884fb508c8aa7184e9f0fdab45a95",
+  "deploymentId": "dpl_BtSvcXTF4rghnEpQF5efA2Z4pKGE",
+  "deploymentState": "READY",
+  "bytes": 12979043,
+  "sha256": "e8d2584c1acfca0dbb67697492ef5007f3e4067fff67e3d019ca34ded2e1b4fa",
+  "verifiedPublicCopies": [
+    "https://drafti-afrika.vercel.app/",
+    "https://risktaker-tz.github.io/DRAFTI/web/?club-check=3b3c4fb"
+  ],
+  "localBrowserChecks": {
+    "seasonSeats": ["l4", "l4"],
+    "manualSeats": ["l4", "l4"],
+    "disabledArenaRungs": ["l1", "l2", "l3"],
+    "computerModeAfterSwitch": "l1",
+    "computerBeginnerEnabled": true
+  },
+  "scope": "Club minimum and menu behaviour, targeted automated checks, reproducible build and public byte parity. Full master-goal acceptance remains open."
+}
