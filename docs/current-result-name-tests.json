@@ -1,0 +1,265 @@
+{
+  "sourceCommit": "2b8d59b04a67317f6c3850deb4bc14e9496d9695",
+  "at": "2026-11-04T11:57:10.583Z",
+  "uiSha256": "6b279a7b07db58b6041cd9c28cbfaa3b88d298c785d6b0ee343875d13111cd90",
+  "builtArtifactSha256": "0bd2d43bd8db250c0bc5fefb0c8048e17fbb6db9b9eea832043f7c4f7d635f3e",
+  "tests": 51,
+  "failed": 0,
+  "rows": [
+    {
+      "file": "test_ai_learning.js",
+      "exitCode": 0,
+      "milliseconds": 859
+    },
+    {
+      "file": "test_animation_generation.js",
+      "exitCode": 0,
+      "milliseconds": 310
+    },
+    {
+      "file": "test_arena_fairness.js",
+      "exitCode": 0,
+      "milliseconds": 1821
+    },
+    {
+      "file": "test_arena_lifecycle.js",
+      "exitCode": 0,
+      "milliseconds": 324
+    },
+    {
+      "file": "test_arena_playback.js",
+      "exitCode": 0,
+      "milliseconds": 364
+    },
+    {
+      "file": "test_arena_sim_resume.js",
+      "exitCode": 0,
+      "milliseconds": 487
+    },
+    {
+      "file": "test_audience_download.js",
+      "exitCode": 0,
+      "milliseconds": 456
+    },
+    {
+      "file": "test_audience_vibes.js",
+      "exitCode": 0,
+      "milliseconds": 572
+    },
+    {
+      "file": "test_audio_audit.js",
+      "exitCode": 0,
+      "milliseconds": 653
+    },
+    {
+      "file": "test_audio_context.js",
+      "exitCode": 0,
+      "milliseconds": 353
+    },
+    {
+      "file": "test_audio_preservation.js",
+      "exitCode": 0,
+      "milliseconds": 1295
+    },
+    {
+      "file": "test_audio_priority.js",
+      "exitCode": 0,
+      "milliseconds": 266
+    },
+    {
+      "file": "test_board_gestures.js",
+      "exitCode": 0,
+      "milliseconds": 339
+    },
+    {
+      "file": "test_build_reproducible.js",
+      "exitCode": 0,
+      "milliseconds": 1814
+    },
+    {
+      "file": "test_capture_destination.js",
+      "exitCode": 0,
+      "milliseconds": 271
+    },
+    {
+      "file": "test_capture_tray_access.js",
+      "exitCode": 0,
+      "milliseconds": 230
+    },
+    {
+      "file": "test_completed_search_scores.js",
+      "exitCode": 0,
+      "milliseconds": 475
+    },
+    {
+      "file": "test_default_theme.js",
+      "exitCode": 0,
+      "milliseconds": 350
+    },
+    {
+      "file": "test_east_africa_rules.js",
+      "exitCode": 0,
+      "milliseconds": 480
+    },
+    {
+      "file": "test_endgame_billboard_retirement.js",
+      "exitCode": 0,
+      "milliseconds": 311
+    },
+    {
+      "file": "test_engine.js",
+      "exitCode": 0,
+      "milliseconds": 1746
+    },
+    {
+      "file": "test_fast_arena_animals.js",
+      "exitCode": 0,
+      "milliseconds": 211
+    },
+    {
+      "file": "test_fast_arena_workers.js",
+      "exitCode": 0,
+      "milliseconds": 226
+    },
+    {
+      "file": "test_first_strike.js",
+      "exitCode": 0,
+      "milliseconds": 215
+    },
+    {
+      "file": "test_flag_reference.js",
+      "exitCode": 0,
+      "milliseconds": 611
+    },
+    {
+      "file": "test_flags.js",
+      "exitCode": 0,
+      "milliseconds": 4112
+    },
+    {
+      "file": "test_human_progression.js",
+      "exitCode": 0,
+      "milliseconds": 210
+    },
+    {
+      "file": "test_league_resume.js",
+      "exitCode": 0,
+      "milliseconds": 281
+    },
+    {
+      "file": "test_learning_worker.js",
+      "exitCode": 0,
+      "milliseconds": 771
+    },
+    {
+      "file": "test_move_sheen.js",
+      "exitCode": 0,
+      "milliseconds": 242
+    },
+    {
+      "file": "test_offline_install.js",
+      "exitCode": 0,
+      "milliseconds": 394
+    },
+    {
+      "file": "test_owner_audio_director.js",
+      "exitCode": 0,
+      "milliseconds": 665
+    },
+    {
+      "file": "test_physical_audio_bank.js",
+      "exitCode": 0,
+      "milliseconds": 961
+    },
+    {
+      "file": "test_physical_effects.js",
+      "exitCode": 0,
+      "milliseconds": 310
+    },
+    {
+      "file": "test_player_names_strength.js",
+      "exitCode": 0,
+      "milliseconds": 569
+    },
+    {
+      "file": "test_player_progress.js",
+      "exitCode": 0,
+      "milliseconds": 308
+    },
+    {
+      "file": "test_retirement_audio.js",
+      "exitCode": 0,
+      "milliseconds": 478
+    },
+    {
+      "file": "test_service_worker.js",
+      "exitCode": 0,
+      "milliseconds": 349
+    },
+    {
+      "file": "test_sim_checkpoint_writer.js",
+      "exitCode": 0,
+      "milliseconds": 331
+    },
+    {
+      "file": "test_sound_decks.js",
+      "exitCode": 0,
+      "milliseconds": 1023
+    },
+    {
+      "file": "test_sound_log_audit.js",
+      "exitCode": 0,
+      "milliseconds": 510
+    },
+    {
+      "file": "test_sound_references.js",
+      "exitCode": 0,
+      "milliseconds": 1551
+    },
+    {
+      "file": "test_speed_reveal.js",
+      "exitCode": 0,
+      "milliseconds": 289
+    },
+    {
+      "file": "test_streamer_authenticity.js",
+      "exitCode": 0,
+      "milliseconds": 302
+    },
+    {
+      "file": "test_streamer_engagement.js",
+      "exitCode": 0,
+      "milliseconds": 574
+    },
+    {
+      "file": "test_streamer_modes.js",
+      "exitCode": 0,
+      "milliseconds": 650
+    },
+    {
+      "file": "test_streamer_time_cadence.js",
+      "exitCode": 0,
+      "milliseconds": 714
+    },
+    {
+      "file": "test_thinking_billboard.js",
+      "exitCode": 0,
+      "milliseconds": 295
+    },
+    {
+      "file": "test_underboard_contrast.js",
+      "exitCode": 0,
+      "milliseconds": 336
+    },
+    {
+      "file": "test_whisper_position.js",
+      "exitCode": 0,
+      "milliseconds": 304
+    },
+    {
+      "file": "crosscheck_movegen.js",
+      "exitCode": 0,
+      "milliseconds": 4171
+    }
+  ]
+}

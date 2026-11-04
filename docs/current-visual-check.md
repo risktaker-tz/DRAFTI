@@ -17,3 +17,7 @@ All 1,008 unique combinations completed. Maximum measured disc width/height diff
 Hint feedback was inspected on Maple & Rosewood at 375×812 with the East Africa 12×12 opening. For the still screenshot only, the actual hint animations were paused at 360 ms and the decoration's removal timer was temporarily extended. The normal timer was restored afterward. This is a frozen animation review frame, not an unmodified real-time playback capture.
 
 The face measured about 14 pixels wide at its former width, which was too subtle on the small board. Its width was increased from 64% to 86% of the piece face and the engraved edge gained a second shadow. The hint and billboard regression tests pass.
+
+## Rendered flag controls and clash pairs
+
+The Club-minimum runtime passed 120 cases covering TZ/KE, IT/BF, ID/MC, CI/EC and MG/KE across Marble Lux, Walnut Royale, Neon Glass and Maple & Rosewood; Follow table, Turned Wood and Steel & Brass; and high visibility off/on. Actual computed flag face gradients stayed identical across theme/material/visibility changes, and each clash pair retained different seat palettes. Renaming Tanzania removed its flag palette; typing its original name and using Restore names each restored the exact prior gradients. Computer and Two players flag opt-in/off controls also passed. Data: current-flag-spotchecks.json; verifier: scripts/verify_flag_spotchecks.js. These measurements do not replace all-nation visual review, crown contrast or event frames.

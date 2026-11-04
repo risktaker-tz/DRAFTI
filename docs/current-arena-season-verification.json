@@ -1,0 +1,197 @@
+{
+  "scope": "Actual logged sound starts and game boundaries on this navigation; not a listening certificate.",
+  "sounds": 2616,
+  "distinctIds": 128,
+  "categories": {
+    "think": 3,
+    "ui": 1302,
+    "drama": 76,
+    "classic": 833,
+    "majestic": 232,
+    "judge": 12,
+    "party": 69,
+    "voice": 89
+  },
+  "observedModes": {
+    "hotseat": 7,
+    "aivai": 2609
+  },
+  "completedGames": [
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica8",
+      "run": 1793792161474,
+      "epoch": 4,
+      "season": 1,
+      "bout": 0,
+      "plies": 78,
+      "sounds": 272,
+      "result": {
+        "winner": null,
+        "reason": "Low-material draw after 10 moves without a capture or crowning."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica8",
+      "run": 1793792161474,
+      "epoch": 5,
+      "season": 1,
+      "bout": 1,
+      "plies": 51,
+      "sounds": 155,
+      "result": {
+        "winner": 1,
+        "reason": "Every Usiogope piece has been captured."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica8",
+      "run": 1793792161474,
+      "epoch": 6,
+      "season": 1,
+      "bout": 2,
+      "plies": 51,
+      "sounds": 154,
+      "result": {
+        "winner": 1,
+        "reason": "Every Usiogope piece has been captured."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica8",
+      "run": 1793792161474,
+      "epoch": 7,
+      "season": 1,
+      "bout": 3,
+      "plies": 52,
+      "sounds": 173,
+      "result": {
+        "winner": -1,
+        "reason": "Every Uhakika piece has been captured."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica8",
+      "run": 1793792161474,
+      "epoch": 8,
+      "season": 1,
+      "bout": 4,
+      "plies": 68,
+      "sounds": 225,
+      "result": {
+        "winner": null,
+        "reason": "Low-material draw after 2 moves without a capture or crowning."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica8",
+      "run": 1793792161474,
+      "epoch": 9,
+      "season": 1,
+      "bout": 5,
+      "plies": 72,
+      "sounds": 253,
+      "result": {
+        "winner": null,
+        "reason": "Low-material draw after 10 moves without a capture or crowning."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica8",
+      "run": 1793792161474,
+      "epoch": 10,
+      "season": 1,
+      "bout": 6,
+      "plies": 51,
+      "sounds": 171,
+      "result": {
+        "winner": 1,
+        "reason": "Every Usiogope piece has been captured."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica8",
+      "run": 1793792161474,
+      "epoch": 11,
+      "season": 1,
+      "bout": 7,
+      "plies": 83,
+      "sounds": 317,
+      "result": {
+        "winner": 1,
+        "reason": "Every Usiogope piece has been captured."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica8",
+      "run": 1793792161474,
+      "epoch": 12,
+      "season": 1,
+      "bout": 8,
+      "plies": 51,
+      "sounds": 152,
+      "result": {
+        "winner": 1,
+        "reason": "Every Usiogope piece has been captured."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica8",
+      "run": 1793792161474,
+      "epoch": 13,
+      "season": 1,
+      "bout": 9,
+      "plies": 52,
+      "sounds": 154,
+      "result": {
+        "winner": -1,
+        "reason": "Every Uhakika piece has been captured."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica8",
+      "run": 1793792161474,
+      "epoch": 14,
+      "season": 1,
+      "bout": 10,
+      "plies": 55,
+      "sounds": 167,
+      "result": {
+        "winner": 1,
+        "reason": "Every Usiogope piece has been captured."
+      }
+    },
+    {
+      "mode": "aivai",
+      "rsId": "eastafrica8",
+      "run": 1793792161474,
+      "epoch": 15,
+      "season": 1,
+      "bout": 11,
+      "plies": 75,
+      "sounds": 269,
+      "result": {
+        "winner": null,
+        "reason": "Low-material draw after 10 moves without a capture or crowning."
+      }
+    }
+  ],
+  "completedSeasons": [
+    {
+      "runAndSeason": "1793792161474:1",
+      "bouts": 12
+    }
+  ],
+  "issues": [],
+  "limitations": "Checks logged starts, IDs, clip cooldowns, supplied narrator context and matching fresh-start/end checkpoints. Resumed or partial games do not prove a full playthrough. It does not certify audible quality, every clip, installation or modes/seasons without matching complete evidence."
+}
