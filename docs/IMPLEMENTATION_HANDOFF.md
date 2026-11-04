@@ -1,6 +1,9 @@
 # DRAFTI implementation handoff and full remaining plan
 
-## Current verified state — 4 November 2026
+## Latest release verification
+
+Public runtime source 8fc14e44050fdeef28857c75baa70ffec3978213 is verified on Vercel and GitHub Pages. Both serve 12,977,948 bytes, SHA-256 8e348509284e3bd6233df73967cd603140d213fe308daac732331cb22988da2e. It includes guards that drop stale opening introductions after restarts, menu entry and established play. Full automated suite at this source passed all 50 tests. Evidence is docs/current-release-tests.json. This supersedes the older release details below.
+## Prior verified state — 4 November 2026
 
 Release source 01ec5df93b1b52112d17adeb698c46e799265fcc is pushed on codex/blueprint-release and main. Local Node/Python output is 12,977,482 bytes, SHA-256 dc7f83303754a0cff34fa6e6f50f91a8a14a80e88d7122e063eaf2324f1411d7. Vercel deployment dpl_AUeSaFGHzS1RUNofBEVCh9UFtdbo was requested. Verify both live host hashes before claiming this release deployed.
 

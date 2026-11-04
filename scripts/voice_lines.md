@@ -192,7 +192,7 @@ to -1.5 dBFS, mono 22050 Hz, MP3 56 kbps.
 | v_triple | jam | Triple! |
 | v_quad | jam | Quadruple! Sensational! |
 | v_nextup | kazi | Next level, let us go! |
-| v_spec1 | kazi | Welcome to the arena! Two engines, one board, zero mercy! |
+| v_spec1 | kazi | Welcome to the arena! |
 | v_spec2 | jam | He is thinking so hard, the fans just spun up. |
 | v_spec3 | kazi | Deep calculation... or a quick nap? We will never know. |
 | v_spec4 | jam | Somewhere out there, a kettle is boiling. |
