@@ -42,7 +42,8 @@ shaming, a heavy-hit voice and a board jolt — with your name in the banner:
     in the record, with a fanfare the first time you take a new rung.
   - *Two players* — pass-and-play on one device, with optional automatic
     board rotation each turn.
-  - *AI vs AI* — spectate two engines playing each other, with pause and
+  - *AI vs AI* — spectate two engines playing each other, starting at Club
+    or your higher selected level in both manual matches and seasons, with pause and
     1× / 2× / 4× speed. With **auto-rematch** on, the show never stops — and
     it is never a nameless "AI vs AI": a **world arena of 194 national
     teams** plays a title challenge. **Tanzania hosts the board** and Kenya

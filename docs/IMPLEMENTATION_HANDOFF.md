@@ -2,6 +2,8 @@
 
 ## Latest release verification
 
+Current checkpoint adds Club as the minimum for every AI-vs-AI game, including manual matches. Lower three menu rungs are disabled only in that mode. New games clamp runtime strength without overwriting the saved human baseline. Existing national XP/season progression and higher chosen levels remain active. Targeted strength, fairness (880 checks), human progression and arena lifecycle tests pass. Both builders produce 12,979,043 identical bytes, SHA-256 e8d2584c1acfca0dbb67697492ef5007f3e4067fff67e3d019ca34ded2e1b4fa. Browser confirms national seats Club/Club and lower three buttons disabled. Deployment verification pending for this checkpoint.
+
 Public runtime source 8fc14e44050fdeef28857c75baa70ffec3978213 is verified on Vercel and GitHub Pages. Both serve 12,977,948 bytes, SHA-256 8e348509284e3bd6233df73967cd603140d213fe308daac732331cb22988da2e. It includes guards that drop stale opening introductions after restarts, menu entry and established play. Full automated suite at this source passed all 50 tests. Evidence is docs/current-release-tests.json. This supersedes the older release details below.
 ## Prior verified state — 4 November 2026
 

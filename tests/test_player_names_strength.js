@@ -21,21 +21,38 @@ c.humanTurn=()=>true;c.G.phase='idle';const priorRequest=c.reqId;c.changeDifficu
 c.G.phase='animating';const before=c.reqId;c.changeDifficulty('l10');assert.equal(c.reqId,before,'An active capture animation is not interrupted');
 c.changeDifficulty('not-a-level');assert.equal(c.settings.diff,'l10','Invalid rungs cannot corrupt settings');
 assert(updated>=3);
+for(const auto of [false,true])for(const rung of ['l1','l2','l3']){
+  c.settings.aivaiAuto=auto;c.changeDifficulty(rung);
+  assert.equal(c.G.diff,'l4','Every AI-vs-AI difficulty change has a Club floor');
+  if(!auto){assert.equal(c.G.diffIvory,'l4');assert.equal(c.G.diffEbony,'l4');}
+}
+c.G.mode='ai';c.changeDifficulty('l1');assert.equal(c.G.diff,'l1','Human games can still choose Beginner');
+const bootAssignment=ui.match(/    G\.diff = G\.mode === 'aivai'[^\n]+/)[0];
+for(const mode of ['aivai','ai','hotseat'])for(const rung of h.api.LEVEL_IDS){
+  const boot={G:{mode},settings:{diff:rung},LEVEL_IDS:h.api.LEVEL_IDS};
+  vm.runInNewContext(bootAssignment,boot);
+  assert.equal(boot.G.diff,mode==='aivai'&&h.api.LEVEL_IDS.indexOf(rung)<3?'l4':rung);
+  assert.equal(boot.settings.diff,rung,'Starting an arena preserves the saved human baseline');
+}
+const strengthButtons=h.api.LEVEL_IDS.map(v=>({dataset:{v}}));
 const strengthNodes={strengthLabel:{},liveStrength:{}};
+strengthNodes.segDiff={querySelectorAll:()=>strengthButtons};
 const menuStrength={G:{mode:'aivai',board:[1,-1],side:1,diffIvory:'l7',diffEbony:'l8',arenaSeason:3},
-  settings:{diff:'l1',aivaiAuto:true},LEVELS:h.api.LEVELS,IVORY:1,EBONY:-1,arena:{season:4},
+  settings:{diff:'l1',aivaiAuto:true},LEVELS:h.api.LEVELS,LEVEL_IDS:h.api.LEVEL_IDS,IVORY:1,EBONY:-1,arena:{season:4},
   $:id=>strengthNodes[id],displayName:side=>side===1?'Tanzania':'Kenya',
   set:(id,value)=>{menuStrength.selected=value;}};
 menuStrength.searchLevelForSide=()=>menuStrength.G.side===1?menuStrength.G.diffIvory:menuStrength.G.diffEbony;
 const menuBlock=ui.slice(ui.indexOf("    const liveArena = G.mode === 'aivai'"),ui.indexOf("    set('segClock', settings.clock)"));
 vm.runInNewContext(menuBlock,menuStrength);
 assert.equal(menuStrength.selected,'l7','The menu follows the real acting level, not saved Beginner');
+assert.deepEqual(strengthButtons.filter(b=>b.disabled).map(b=>b.dataset.v),['l1','l2','l3']);
 assert.match(strengthNodes.liveStrength.textContent,/Tanzania — Grandmaster.*Kenya — Super GM.*Season 3/);
 menuStrength.G.side=-1;vm.runInNewContext('{'+menuBlock+'}',menuStrength);
 assert.equal(menuStrength.selected,'l8','The highlight follows the other opponent on its turn');
 menuStrength.G.mode='ai';vm.runInNewContext('{'+menuBlock+'}',menuStrength);
 assert.equal(menuStrength.selected,'l1','Computer mode retains its selected personal difficulty');
 assert.equal(strengthNodes.liveStrength.hidden,true);
+assert(strengthButtons.every(b=>!b.disabled),'Lower rungs become available again in human games');
 const labels=fs.readFileSync(path.join(__dirname,'../src/index.template.html'),'utf8').replace(/\bid="[^"]*"|\bclass="[^"]*"/g,'');
 assert(!/>\s*(Ivory|Ebony)(\s|<)/.test(labels),'Old colour names are not player labels');
 console.log('Player identity and strength passed: default migration, custom names, equal national baseline, XP/season growth and live search replacement');

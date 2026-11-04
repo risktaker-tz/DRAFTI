@@ -1945,6 +1945,7 @@ function createSoundAudit(capacity = 12000) {
     ? (G.side === IVORY ? G.diffIvory : G.diffEbony) : G.diff;
   function changeDifficulty(levelId) {
     if (!LEVELS[levelId]) return;
+    if (G.mode === 'aivai') levelId = LEVEL_IDS[Math.max(3, LEVEL_IDS.indexOf(levelId))];
     settings.diff = levelId; G.diff = levelId;
     if (G.mode === 'aivai' && settings.aivaiAuto) {
       const levels = arenaSeatLevels(G.seatIvory, G.seatEbony);
@@ -3803,7 +3804,7 @@ function createSoundAudit(capacity = 12000) {
     G.mode = settings.mode;
     G.nationalMatch = G.mode === 'aivai' && settings.aivaiAuto;
     if (G.mode === 'ai') settings.diff = humanLadder.current();
-    G.diff = settings.diff;
+    G.diff = G.mode === 'aivai' ? LEVEL_IDS[Math.max(3, LEVEL_IDS.indexOf(settings.diff))] : settings.diff;
     G.humanSide = settings.humanSide;
     G.aiPaused = false;
     G.aiSpeed = settings.speed;
@@ -3833,7 +3834,7 @@ function createSoundAudit(capacity = 12000) {
     } else {
       G.seatIvory = arena.champion;
       G.seatEbony = ROSTER.find((r) => r.id !== arena.champion).id;
-      G.diffIvory = settings.diff; G.diffEbony = settings.diff;
+      G.diffIvory = G.diff; G.diffEbony = G.diff;
       G.pairKey = null; G.pairMeets = 0;
     }
     doomClear();
@@ -4100,6 +4101,9 @@ function createSoundAudit(capacity = 12000) {
     set('segMode', settings.mode);
     set('segSide', settings.humanSide);
     const liveArena = G.mode === 'aivai' && !!G.board;
+    for (const button of $('segDiff').querySelectorAll('button')) {
+      button.disabled = G.mode === 'aivai' && LEVEL_IDS.indexOf(button.dataset.v) < 3;
+    }
     set('segDiff', liveArena ? searchLevelForSide() : settings.diff);
     $('strengthLabel').textContent = liveArena
       ? 'Live strength — ' + displayName(G.side)
