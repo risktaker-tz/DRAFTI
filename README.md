@@ -2,8 +2,18 @@
 
 [Play on Vercel](https://drafti-afrika.vercel.app/) · [GitHub Pages](https://risktaker-tz.github.io/DRAFTI/web/)
 
-The Vercel link serves the current blueprint checkpoint. GitHub Pages retains
-its previous release until the remaining blueprint acceptance work is complete.
+Vercel and GitHub Pages serve the same verified checkpoint. The broader
+blueprint work continues; optional audience-pack and streamer-vocabulary
+expansion are still in progress.
+
+The approved cinematic checkpoint adds thirty situational board, piece and
+background effects. Cracks accompany multi-captures; rare edge lighting requires
+fresh tactical analysis; ordinary landings do not trigger the new ripple.
+The studio controls let you compare the original presentation or try individual
+effects. Retirement flags use verified offline SVG artwork across devices.
+Accelerated arena playback overlaps full-strength calculation with movement and
+retimes pending presentation waits when speed changes. Search depth and effort
+remain independent of speed; demanding positions can still be CPU-bound.
 
 An **original, open-source checkers game**. DRAFTI is an independent
 implementation of the public-domain game of draughts — no code, assets, or

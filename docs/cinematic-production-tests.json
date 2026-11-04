@@ -1,0 +1,341 @@
+{
+  "at": "2026-11-04T16:42:18.700Z",
+  "rows": [
+    {
+      "file": "crosscheck_movegen.js",
+      "passed": true,
+      "ms": 8273,
+      "output": "american: 10512 positions cross-checked, 0 mismatches\nbrazilian: 7212 positions cross-checked, 0 mismatches\nrussian: 7288 positions cross-checked, 0 mismatches\ninternational: 13912 positions cross-checked, 0 mismatches\ncanadian: 6000 positions cross-checked, 0 mismatches\neastafrica8: 7395 positions cross-checked, 0 mismatches\neastafrica10: 13902 positions cross-checked, 0 mismatches\neastafrica12: 6000 positions cross-checked, 0 mismatches\nCROSS-CHECK CLEAN\n"
+    },
+    {
+      "file": "test_ai_learning.js",
+      "passed": true,
+      "ms": 1341,
+      "output": "AI learning passed: verified non-forced mistakes, legal alternatives, persistence across levels/reload/colours, country-neutral actors, deeper-search rehabilitation and bounded memory\n"
+    },
+    {
+      "file": "test_animation_generation.js",
+      "passed": true,
+      "ms": 554,
+      "output": "Animation generation passed: normal completion commits; player switching/creation/reset cancel old asynchronous commits\n"
+    },
+    {
+      "file": "test_app_updates.js",
+      "passed": true,
+      "ms": 855,
+      "output": "PASS installed updates: foreground checks, fresh release detection, no midgame reload or loop, offline/file safety and save-before-reload match boundaries\n"
+    },
+    {
+      "file": "test_arena_fairness.js",
+      "passed": true,
+      "ms": 3870,
+      "output": "880 arena fairness checks passed: full roster, seat symmetry, progression, correct ladder and equal search effort\n"
+    },
+    {
+      "file": "test_arena_lifecycle.js",
+      "passed": true,
+      "ms": 449,
+      "output": "Arena lifecycle passed: cancelled ceremony, mode changes and stale countdown callbacks cannot replace a new game\n"
+    },
+    {
+      "file": "test_arena_playback.js",
+      "passed": true,
+      "ms": 371,
+      "output": "Arena playback passed: seven speeds, targeted overflow, no artificial waits when Off, preserved human pacing and unchanged search accuracy settings\n"
+    },
+    {
+      "file": "test_arena_search_pipeline.js",
+      "passed": true,
+      "ms": 419,
+      "output": "PASS full-strength opponent search overlaps animation; exact level/position/epoch guards; single result consumption; human/1x unchanged\n"
+    },
+    {
+      "file": "test_arena_sim_resume.js",
+      "passed": true,
+      "ms": 639,
+      "output": "Arena simulation resume passed: actual engine midgame recovery, exact RNG/queue/XP/reward state, next-bout continuity and source/schema guards\n"
+    },
+    {
+      "file": "test_audience_download.js",
+      "passed": true,
+      "ms": 768,
+      "output": "PASS audience raw downloads: source bounds, HTTP/type, exact size/hash, atomic acceptance and cache revalidation\n"
+    },
+    {
+      "file": "test_audience_vibes.js",
+      "passed": true,
+      "ms": 667,
+      "output": "PASS optional/off-default install, file validation and hashes, atomic rollback, offline reopen, both crowd identities, original rate, bounded sources, menu/scene/epoch guards and scoped removal\n"
+    },
+    {
+      "file": "test_audio_audit.js",
+      "passed": true,
+      "ms": 855,
+      "output": "PASS retained real-start schema, independent exports, game/resume boundaries, bounded memory and explicit truncation/error rejection\n"
+    },
+    {
+      "file": "test_audio_context.js",
+      "passed": true,
+      "ms": 516,
+      "output": "PASS audio context: queued speech expires on position/result changes, same-position pacing survives, thinking gates and zero-time cooldown hold\n"
+    },
+    {
+      "file": "test_audio_preservation.js",
+      "passed": true,
+      "ms": 2098,
+      "output": "58 existing clips preserved byte-for-byte; 302 authorized changes\nChanged IDs: achievement, ahhscary, ahooga, alarm, animewow, badboy, badboy2, banana, bear, bruh, chicken, clock_tick, clock_tock, coin, cricket, crown_fanfare, downer, draw_chime, drumroll, duck, dundundun, eagle, elephant, fall, god, gong, gulp, haha, heartbeat, klonk, laser, later_hours, later_moments, lion, lion_long, lose_womp, meow, notify_pop, omg, oof, panic, pickup, powerup, purr, putdown, rimshot, riser, s_american_1, s_american_2, s_brazilian_1, s_brazilian_2, s_classic_1, s_classic_2, s_czech_1, s_czech_2, s_english_1, s_english_2, s_french_1, s_french_2, s_in_american, s_in_brazilian, s_in_classic, s_in_czech, s_in_english, s_in_french, s_in_italian, s_in_kenyan, s_in_mongolian, s_in_russian, s_in_spanish, s_in_tanzanian, s_italian_1, s_italian_2, s_kenyan_1, s_kenyan_2, s_mongolian_1, s_mongolian_2, s_russian_1, s_russian_2, s_spanish_1, s_spanish_2, s_tanzanian_1, s_tanzanian_2, sadviolin, scramble, shloop, shrimp1, shrimp2, smarts, sparkle, st_air1, st_appl1, st_appl2, st_coin1, st_crowd1, st_drum1, st_gasp1, st_gasp2, st_heart1, st_ooh1, st_ooh2, st_riser1, st_tada1, st_whis1, streak_big, streak_hit, t1a, t1b, t1c, t1d, t1e, t2a, t2b, t2c, t2d, t2e, t3a, t3b, t3c, t3d, t4a, t4b, t4c, t4d, t5a, t5b, t5c, tellyou, th_c1, th_f1, th_g1, th_g2, th_h02, th_h18, th_m1, th_m2, th_m3, th_m4, th_m5, th_m6, th_o1, th_o2, th_o3, th_o4, th_p1, th_p2, th_p3, th_s1, th_t1, th_t2, th_t3, th_t4, th_t5, th_t6, trombone, ui_back, ui_click, ui_close, ui_error, ui_open, ui_save, ui_slide, ui_theme, ui_toggle_off, ui_toggle_on, v_aim1, v_aim2, v_alltime, v_awkward, v_bait1, v_bait2, v_bait3, v_beatgm1, v_beatgm2, v_bigbrain, v_chess, v_clean, v_come1, v_come2, v_cost, v_crafty, v_curious, v_doom1, v_doom2, v_doom3, v_doom4, v_doom5, v_double, v_draw, v_esc1, v_esc2, v_feast1, v_feast2, v_first, v_gasp1, v_genius, v_heavy1, v_heavy2, v_heavy3, v_heavy4, v_hint, v_hmm, v_hold1, v_hold2, v_hurt, v_inacc1, v_inacc2, v_king, v_king1, v_king2, v_legendary, v_levelup1, v_levelup2, v_lose, v_lose2, v_lose3, v_lucky1, v_lucky2, v_lucky3, v_lucky4, v_lucky5, v_magnificent, v_masterpiece, v_mercy, v_new, v_nextup, v_nice, v_nosense, v_ohno, v_onejob, v_only, v_ooh1, v_paidoff, v_quad, v_rampage, v_rampage2, v_retire1, v_retire2, v_sharp, v_slau1, v_slau2, v_slowsteady, v_spec1, v_spec10, v_spec2, v_spec3, v_spec4, v_spec5, v_spec6, v_spec7, v_spec8, v_spec9, v_streak1, v_streak2, v_sure, v_tad1, v_tad2, v_tad3, v_taw1, v_taw2, v_taw3, v_tbd1, v_tbd2, v_tbd3, v_tbf1, v_tbf2, v_tbf3, v_thought30, v_time, v_trap, v_trick, v_triple, v_tt1, v_tt10, v_tt2, v_tt3, v_tt4, v_tt5, v_tt6, v_tt7, v_tt8, v_tt9, v_undo, v_why, v_win, v_win2, v_win3, v_worth, v_wow, v_wrong1, v_wrong2, v_wrong3, v_wrong4, vineboom, whistle, whistle_ref, wildroar, wilhelm, win_fanfare, wolfwhistle, woops, zip\n"
+    },
+    {
+      "file": "test_audio_priority.js",
+      "passed": true,
+      "ms": 652,
+      "output": "Audio priority passed: ambient preemption, one voice, bounded contextual queue, ceremony priority, epoch cleanup, category switches and mute\n"
+    },
+    {
+      "file": "test_board_gestures.js",
+      "passed": true,
+      "ms": 529,
+      "output": "Board gestures passed: release-only taps, jitter, swipes, out-and-back drags, native cancellation, pinch, wrong square and mouse controls\n"
+    },
+    {
+      "file": "test_build_reproducible.js",
+      "passed": true,
+      "ms": 7202,
+      "output": "Portable build passed: 14266690 identical bytes, SHA-256 28e8f049328c29a44a948d29041999c10c45ed908cb365375393acb9e85e3762\n"
+    },
+    {
+      "file": "test_capture_destination.js",
+      "passed": true,
+      "ms": 659,
+      "output": "Capture destination passed: all five rulesets, three victims, promotion, partial routes, invalid clicks, double-submit and ambiguous king circuits\n"
+    },
+    {
+      "file": "test_capture_tray_access.js",
+      "passed": true,
+      "ms": 392,
+      "output": "Capture tray access passed: fixed independent counts, correct opposing losses, retained captured discs, safe scrollable names and scroll preservation\n"
+    },
+    {
+      "file": "test_ceremony_flags.js",
+      "passed": true,
+      "ms": 1251,
+      "output": "PASS 194 exact-source offline retirement flags, decoded image, stale-champion/disconnected guards and complete build size\n"
+    },
+    {
+      "file": "test_cinematic_director.js",
+      "passed": true,
+      "ms": 453,
+      "output": "PASS all 30 occasion gates, stale/bad/forced verdict rejection, rare edge quota, cooldown continuity and visual priority\n"
+    },
+    {
+      "file": "test_completed_search_scores.js",
+      "passed": true,
+      "ms": 985,
+      "output": "Completed-search scores passed: interrupted iterations preserve coherent completed roots; old behavior fails the same fixture\n"
+    },
+    {
+      "file": "test_default_theme.js",
+      "passed": true,
+      "ms": 924,
+      "output": "PASS Marble Lux fresh default and invalid-setting fallback; all 21 saved themes/custom settings retained; real picker changes persist\n"
+    },
+    {
+      "file": "test_east_africa_rules.js",
+      "passed": true,
+      "ms": 862,
+      "output": "East Africa rules passed: exact International inheritance except forward-only men, all three sizes, both sides, flying king landings, maximum capture, crowning, fresh default and preserved saved rules\n"
+    },
+    {
+      "file": "test_endgame_billboard_retirement.js",
+      "passed": true,
+      "ms": 636,
+      "output": "Endgame countdowns, scoring protection, 21-theme billboard contrast and persistent retirement passed\n"
+    },
+    {
+      "file": "test_engine.js",
+      "passed": true,
+      "ms": 4050,
+      "output": "ne piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  ok    no men on the king row\n  ok    capture targets were enemies\n  ok    at least one piece remains on the board\n  info   canadian: 15 games, 2376 plies, 15 natural endings\n  ok    canadian: random games terminate (draw rules work)\n\n[playing-style weights in evaluate]\n  ok    aggression boosts the styled side\n  ok    opponent aggression leaves eval unchanged\n  ok    guard boosts the home rank\n  ok    trade willingness cheapens own material\n  ok    king multiplier scales king value\n  ok    weighted search returns a legal opening move\n  ok    weighted search completes a depth iteration\n\n[bait detection — a choice of captures, one walks into a shot]\n  ok    bait position is a forced capture with two choices\n  ok    the safe capture clearly beats the losing capture\n  ok    a safe option exists (loose-bait signature)\n  ok    the search plays the winning capture, not the shot\n\n38981 passed, 0 failed\n"
+    },
+    {
+      "file": "test_fast_arena_animals.js",
+      "passed": true,
+      "ms": 740,
+      "output": "Fast arena animals passed: meaningful captures only, losing-side panic, rarity, speed/mode/category gates, speech protection and quotas\n"
+    },
+    {
+      "file": "test_fast_arena_workers.js",
+      "passed": true,
+      "ms": 1035,
+      "output": "PASS fast commentary isolation, unchanged human/1x queues, fallback/cleanup and exact-position late learning without stale sound effects\n"
+    },
+    {
+      "file": "test_first_strike.js",
+      "passed": true,
+      "ms": 687,
+      "output": "First-strike cues passed: three nonrepeating labels and voices, once-per-game capture gate and no legacy first-blood playback\n"
+    },
+    {
+      "file": "test_flag_reference.js",
+      "passed": true,
+      "ms": 2979,
+      "output": "194 flag references verified: roster, source URLs, checksums, palette membership and colour coverage\n"
+    },
+    {
+      "file": "test_flags.js",
+      "passed": true,
+      "ms": 9173,
+      "output": "TZ KE #1EB53A #434343\nIT BF #009246 #EF2B2D\nID MC #FF0000 #dbdbdb\nCI EC #FF8200 #034EA2\nMG KE #00843D #BB0000\n37850 flag assertions passed\n"
+    },
+    {
+      "file": "test_human_progression.js",
+      "passed": true,
+      "ms": 456,
+      "output": "PASS Beginner-to-Machine wins, manual override/resume, exact-once results, atomic records, migration, independent profiles, reload and safe future saves\n"
+    },
+    {
+      "file": "test_install_update_cycle.js",
+      "passed": true,
+      "ms": 701,
+      "output": "PASS install upgrade: latest offline core, legacy cached voice migration, audience preservation, invalid-file exclusion and outage fallback on both hosts\n"
+    },
+    {
+      "file": "test_league_resume.js",
+      "passed": true,
+      "ms": 718,
+      "output": "League resume passed: all 8 real rulesets, exact board/turn recovery, regenerated history/repetition and corrupted-save rejection\n"
+    },
+    {
+      "file": "test_learning_worker.js",
+      "passed": true,
+      "ms": 1263,
+      "output": "Learning worker passed: real threaded classify returns depth, evaluated loss, forced-move status and opponent analysis\n"
+    },
+    {
+      "file": "test_move_sheen.js",
+      "passed": true,
+      "ms": 281,
+      "output": "PASS fading highlights, redraw continuity, authentic ribbon geometry on 8/10/12 boards, reversed diagonals, bounded cleanup and reduced motion\n"
+    },
+    {
+      "file": "test_offline_install.js",
+      "passed": true,
+      "ms": 619,
+      "output": "Offline navigation, install icons and vocabulary caching passed for both hosting scopes\n"
+    },
+    {
+      "file": "test_owner_audio_director.js",
+      "passed": true,
+      "ms": 1250,
+      "output": "Owner originals passed: 18 exact cuts embedded, family quotas, rare-human-only laughter, persistent cooldown, category/mute/scene/speed guards\n"
+    },
+    {
+      "file": "test_physical_audio_bank.js",
+      "passed": true,
+      "ms": 1671,
+      "output": "124 distinct authored effects across 31 event families: exact embedding, decoded-peak reports, duration, size and four performances each passed\n"
+    },
+    {
+      "file": "test_physical_effects.js",
+      "passed": true,
+      "ms": 365,
+      "output": "Physical effects passed: both capture trays, bounded particles, victory burst, cleanup and reduced-motion silence\n"
+    },
+    {
+      "file": "test_player_names_strength.js",
+      "passed": true,
+      "ms": 603,
+      "output": "Player identity and strength passed: default migration, custom names, equal national baseline, XP/season growth and live search replacement\n"
+    },
+    {
+      "file": "test_player_progress.js",
+      "passed": true,
+      "ms": 588,
+      "output": "Local player progress passed: migration, isolated leagues and records, reload, legacy mirrors, scoped reset, shared themes and failure-safe storage\n"
+    },
+    {
+      "file": "test_retirement_audio.js",
+      "passed": true,
+      "ms": 796,
+      "output": "Retirement timing passed: natural speech, 15-second cap, protected passage, delayed applause and overlay cleanup\n"
+    },
+    {
+      "file": "test_service_worker.js",
+      "passed": true,
+      "ms": 748,
+      "output": "Service worker checks passed: root/subpath homepage refresh, offline latest build, scoped cache cleanup\n"
+    },
+    {
+      "file": "test_sim_checkpoint_writer.js",
+      "passed": true,
+      "ms": 515,
+      "output": "Simulation checkpoint writer passed: atomic temporary write, transient Windows locks retried, real failures surfaced and persistent locks bounded\n"
+    },
+    {
+      "file": "test_sound_decks.js",
+      "passed": true,
+      "ms": 1899,
+      "output": "human: 300 accepted draws, 67 different recordings, 123 spoken cards\nengine: 300 accepted draws, 66 different recordings, 179 spoken cards\nPASS category decks, actor/mood/voice/family awareness, no stranded decks, priority/mute/decoding gates and accepted-only narrator quota\n"
+    },
+    {
+      "file": "test_sound_log_audit.js",
+      "passed": true,
+      "ms": 910,
+      "output": "PASS actual production sample/synth audit emission, mute/category gates, metadata and detection of unknown/early/wrong-actor/empty/error logs\n"
+    },
+    {
+      "file": "test_sound_references.js",
+      "passed": true,
+      "ms": 2590,
+      "output": "Sound reference tracing: literal, named pool, generated style, conditional, optional and unsupported-expression checks passed\n"
+    },
+    {
+      "file": "test_speed_reveal.js",
+      "passed": true,
+      "ms": 411,
+      "output": "PASS exact-direction neighbour reveal, both boundaries, enclosed scrolling and reduced-motion behaviour\n"
+    },
+    {
+      "file": "test_streamer_authenticity.js",
+      "passed": true,
+      "ms": 376,
+      "output": "PASS exact double-capture context, game/ply/result invalidation, no false win streaks or unsupported comebacks\n"
+    },
+    {
+      "file": "test_streamer_engagement.js",
+      "passed": true,
+      "ms": 932,
+      "output": "PASS opening retry, selected voice, quiet-moment cadence, correct intermission, menu/pause/mute/ceremony gates and no stale tactical speech\n"
+    },
+    {
+      "file": "test_streamer_modes.js",
+      "passed": true,
+      "ms": 772,
+      "output": "Streamer modes passed: three exclusive default-off modes, gated pools, cooldowns, quotas, funny reuse and bank integrity\n"
+    },
+    {
+      "file": "test_streamer_time_cadence.js",
+      "passed": true,
+      "ms": 1100,
+      "output": "PASS local-time greetings/night language, recording-level rest across events and session-scoped welcomes\n"
+    },
+    {
+      "file": "test_thinking_billboard.js",
+      "passed": true,
+      "ms": 866,
+      "output": "Thinking and billboard checks passed: hint feedback, delayed cues, cleanup, mute/toggle and stable matchup\n"
+    },
+    {
+      "file": "test_underboard_contrast.js",
+      "passed": true,
+      "ms": 378,
+      "output": "PASS 483 independent contrast measurements across all 21 themes plus actual hover CSS bindings: names/counts, opaque control faces and translucent active/hover layers\n"
+    },
+    {
+      "file": "test_whisper_position.js",
+      "passed": true,
+      "ms": 443,
+      "output": "PASS quiet captions anchored inside phone/desktop/compact boards, full words retained, original timing and overlay reuse preserved\n"
+    }
+  ]
+}

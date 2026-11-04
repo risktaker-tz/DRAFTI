@@ -1,6 +1,6 @@
 # Cinematic effects review preview
 
-This branch is a review preview of thirty optional additions/refinements. It is not approved for production. The existing game, sounds, materials, flags and engine stay in place.
+The owner approved this thirty-effect checkpoint for the live app on 4 November 2026 after testing the review deployment. The existing game, sounds, materials, flags and engine stay in place. The historical preview receipt records its earlier review-only status; the production receipt records the subsequent release.
 
 Open Preview studio to try individual effects, select Subtle/Balanced/Livestream, play the showcase, or compare the original presentation. Staged visual previews do not change the game result or legal position. Actual gameplay uses the event conditions below. Reduced motion suppresses the new animation; the original sound mixer remains authoritative.
 
