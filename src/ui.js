@@ -2069,16 +2069,38 @@ function createSoundAudit(capacity = 12000) {
     }
     return best;
   }
+  function chooseCycleEscape(selected,res,legal,levelId,isRepeated) {
+    const visits=selected?isRepeated(selected):0;
+    if(!selected||!visits||!Array.isArray(res.rootScores)||res.depth<1||
+        res.rootScores.length!==legal.length||res.rootScores.some(root=>!Number.isFinite(root.score)))return selected;
+    const key=move=>move.from+'|'+move.path.join(','),legalKeys=new Set(legal.map(key));
+    const roots=res.rootScores;
+    if(new Set(roots.map(root=>key(root.m))).size!==legalKeys.size||roots.some(root=>!legalKeys.has(key(root.m))))return selected;
+    const top=Math.max(...roots.map(root=>root.score));
+    const margin=Math.min(100,45+(visits-1)*55);
+    const fresh=roots.filter(root=>!isRepeated(root.m)&&root.score>=top-margin);
+    if(!fresh.length)return selected;
+    // Repetition is only a tiebreak among near-equal, fully searched moves;
+    // clearly better lines and the engine's normal result handling stay intact.
+    const best=fresh.reduce((a,b)=>b.score>a.score?b:a),freshLegal=legal.filter(move=>fresh.some(root=>key(root.m)===key(move)));
+    return chooseLadderMove({...res,best:best.m,rootScores:fresh},freshLegal,levelId);
+  }
   function chooseRememberedMove(res,legal,levelId) {
     const initial=chooseLadderMove(res,legal,levelId);if(!initial||legal.length<=1)return initial;
+    const isRepeated=move=>{
+      const next=E.applyMove(G.rs,G.board,move,G.side);
+      return G.repMap?.get(posKey(next,-G.side))||0;
+    };
     const actor=learningActor(G.side),position=learningPosition(G.rsId,G.board,G.side);
     const blocked=move=>mistakeMemory.avoid(actor,position,learningRoute(move,G.side,G.board.length),res.depth);
-    if(!blocked(initial))return initial;
+    if(!blocked(initial))return chooseCycleEscape(initial,res,legal,levelId,isRepeated);
     const alternatives=legal.filter(move=>!blocked(move));if(!alternatives.length)return initial;
     const roots=(res.rootScores||[]).filter(root=>alternatives.some(move=>move.from===root.m.from&&move.path.join()===root.m.path.join()));
     const highest=roots.filter(root=>Number.isFinite(root.score)).sort((a,b)=>b.score-a.score)[0];
     const best=highest?highest.m:alternatives[0];
-    return chooseLadderMove({...res,best,rootScores:roots},alternatives,levelId);
+    const alternativeResult={...res,best,rootScores:roots};
+    const chosen=chooseLadderMove(alternativeResult,alternatives,levelId);
+    return chooseCycleEscape(chosen,alternativeResult,alternatives,levelId,isRepeated);
   }
 
   function prepareArenaReply(move,board,side,noProgress) {
@@ -3254,6 +3276,21 @@ function createSoundAudit(capacity = 12000) {
     const base = G.mode === 'aivai' ? 700 / (G.aiSpeed || 1) : HOP_MS;
     return base * (captures > 1 ? .8 : 1);
   }
+  function captureContactDelay(from,to,captured,n,hopMs) {
+    const fr=Math.floor(from/n),fc=from%n,tr=Math.floor(to/n),tc=to%n,cr=Math.floor(captured/n),cc=captured%n;
+    const fractions=[];
+    if(tr!==fr)fractions.push(Math.abs(cr-fr)/Math.abs(tr-fr));
+    if(tc!==fc)fractions.push(Math.abs(cc-fc)/Math.abs(tc-fc));
+    const distance=Math.max(...fractions);
+    if(!Number.isFinite(distance)||distance<0||distance>1)return hopMs*.22228046353706682;
+    // Match the piece's CSS cubic-bezier(.3,.7,.4,1), so each victim burst
+    // lands at the instant the moving disc reaches that victim (also for flying kings).
+    const bezier=(t,a,b)=>3*(1-t)*(1-t)*t*a+3*(1-t)*t*t*b+t*t*t;
+    let lo=0,hi=1;
+    for(let i=0;i<20;i++){const mid=(lo+hi)/2;if(bezier(mid,.7,1)<distance)lo=mid;else hi=mid;}
+    const contact=(lo+hi)/2;
+    return hopMs*bezier(contact,.3,.4);
+  }
   function captureRibbon(from, to, hopMs, captures) {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const n = G.rs.n, dx = (to % n - from % n) * 100 / n;
@@ -3265,7 +3302,7 @@ function createSoundAudit(capacity = 12000) {
     ribbon.style.top = ((Math.floor(from / n) + .5) * 100 / n) + '%';
     ribbon.style.width = Math.hypot(dx, dy) + '%';
     ribbon.style.transform = 'rotate(' + Math.atan2(dy, dx) + 'rad)';
-    const duration = hopMs * .85;
+    const duration = hopMs;
     ribbon.style.setProperty('--ribbon-travel', duration + 'ms');
     const light = document.createElement('i'); ribbon.appendChild(light);
     piecesEl.appendChild(ribbon);
@@ -3316,13 +3353,11 @@ function createSoundAudit(capacity = 12000) {
           FX.play('capture');
           SFX_BANK.effect(final ? 'impact' : 'jump', { vol: final ? .32 : Math.min(.29, .17 + k * .025) });
           if (final && captures > 1) SFX_BANK.effect('feast', { vol: Math.min(.48, .24 + captures * .05) });
-        }, hopMs * .32);
-      } else {
-        FX.play('move');
-        SFX_BANK.effect('landing', { vol: .08 });
+        }, captureContactDelay(from,to,capIdx,G.rs.n,hopMs));
       }
       await sleep(hopMs);
       if(generation !== gameEpoch)return false;
+      if(capIdx===undefined){FX.play('move');SFX_BANK.effect('landing',{vol:.08});}
       if (!mv.caps.length && !mv.promotes && hopMs >= 120 &&
           !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         shockwave(to, {landing: true});

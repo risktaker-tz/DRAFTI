@@ -7,7 +7,29 @@ vm.createContext(c);vm.runInContext(ui.slice(ui.indexOf('function createMistakeM
 c.mistakeMemory=c.createMistakeMemory(null);
 vm.runInContext(ui.slice(ui.indexOf('  const learningActor='),ui.indexOf('  // ---------------- sound'))+'this.actor=learningActor;this.position=learningPosition;this.route=learningRoute;',c);
 vm.runInContext(ui.slice(ui.indexOf('  function chooseLadderMove('),ui.indexOf('  function runSearch(')),c);
-const E=h.E,rs=E.RULESETS.american;c.G.board=E.setupBoard(rs);const legal=E.legalMoves(rs,c.G.board,1);
+const E=h.E,rs=E.RULESETS.american;c.E=E;c.G.board=E.setupBoard(rs);const legal=E.legalMoves(rs,c.G.board,1);
+// If the draw guard deliberately keeps a four-piece endgame alive, the AI
+// must still escape a near-equal route that returns to an earlier position.
+c.G.rs=rs;c.G.side=1;c.G.repMap=new Map();c.posKey=(board,side)=>Array.from(board).join(',')+'|'+side;
+const cycleBoard=E.applyMove(rs,c.G.board,legal[0],1),cycleKey=c.posKey(cycleBoard,-1);
+c.G.repMap.set(cycleKey,1);c.mistakeMemory=c.createMistakeMemory(null);
+const cycleScores=legal.map((m,i)=>({m,score:i===0?100:i===1?70:-500}));
+const cycleResult={best:legal[0],depth:6,rootScores:cycleScores};
+assert.equal(c.chooseRememberedMove(cycleResult,legal,'l10').path.join(),legal[1].path.join(),
+  'A near-equal legal route escapes a repeated position');
+const costlyResult={best:legal[0],depth:6,rootScores:legal.map((m,i)=>({m,score:i===0?100:i===1?40:-500}))};
+assert.equal(c.chooseRememberedMove(costlyResult,legal,'l10').path.join(),legal[0].path.join(),
+  'A repeated best move remains when every fresh route costs more than the safety margin');
+c.G.repMap.set(cycleKey,2);
+assert.equal(c.chooseRememberedMove(costlyResult,legal,'l10').path.join(),legal[1].path.join(),
+  'The escape margin widens only after a protected cycle repeats again');
+const edgeResult={best:legal[0],depth:8,rootScores:legal.map((m,i)=>({m,score:i===0?1200:i===1?100:-1000}))};
+assert.equal(c.chooseRememberedMove(edgeResult,legal,'l10').path.join(),legal[0].path.join(),
+  'Cycle handling preserves a clearly stronger line and never forces a game result');
+c.G.repMap=new Map(legal.map(m=>[c.posKey(E.applyMove(rs,c.G.board,m,1),-1),1]));
+assert.equal(c.chooseRememberedMove(cycleResult,legal,'l10').path.join(),legal[0].path.join(),
+  'The AI keeps its best move when every legal result repeats');
+c.G.repMap.clear();
 const position=c.position(rs.id,c.G.board,1),route=c.route(legal[0],1,c.G.board.length);
 assert(!c.mistakeMemory.remember('nation:TZ',position,route,{delta:500,depth:6,onlyMove:true}),'Forced moves are not mistakes');
 assert(!c.mistakeMemory.remember('nation:TZ',position,route,{delta:50,depth:6}));
@@ -24,4 +46,4 @@ assert.equal(c.route({path:legal[0].path.map(i=>c.G.board.length-1-i)},-1,c.G.bo
 for(let i=0;i<600;i++)c.mistakeMemory.remember('nation:KE','position'+i,'route'+i,{delta:200,depth:4});
 assert.equal(c.mistakeMemory.count(),512,'Memory remains bounded');
 assert(!c.createMistakeMemory({schema:2}).remember('x','p','r',{delta:300,depth:4}),'Unknown future learning schema is protected');
-console.log('AI learning passed: verified non-forced mistakes, legal alternatives, persistence across levels/reload/colours, country-neutral actors, deeper-search rehabilitation and bounded memory');
+console.log('AI learning and cycle escape passed: verified mistakes, persisted country-neutral lessons, bounded memory, near-equal repetition escapes and stronger-route protection');

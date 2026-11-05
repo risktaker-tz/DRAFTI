@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-05 — AI cycle escape and contact-synced movement
+
+- Give each AI the real game's visited-position counts at move selection. When its chosen route repeats a position, it takes a fresh legal route only when full-search scores remain close; the safe margin widens after a protected loop repeats, while materially stronger lines and normal game results stay intact. This does not force a win or end a game.
+- Time capture feedback to the jumped piece's actual location along the eased hop, let the light trail finish with the moving piece, and play quiet-move landing feedback at arrival without adding wait time.
+
 ## 2026-11-05 — Endgame threshold and continuous movement
 
 - Require both crowned sides to have three pieces or fewer before starting the ten-turn draw countdown; a king counts as a piece. A four-piece side keeps play going.
