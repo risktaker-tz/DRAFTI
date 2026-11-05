@@ -11,8 +11,8 @@ function fingerprint(change){
 }
 const original=fingerprint(text=>text);
 assert.notEqual(fingerprint(text=>{
-  assert(text.includes('const deadline=Date.now()+35'));
-  return text.replace('const deadline=Date.now()+35','const deadline=Date.now()+36');
+  assert(text.includes('const deadline=Date.now()+180'));
+  return text.replace('const deadline=Date.now()+180','const deadline=Date.now()+181');
 }),original,'Changing the legal winning-continuation proof must invalidate saved fairness evidence');
 assert.equal(fingerprint(text=>text+'\n// unrelated presentation comment\n'),original,
   'Unrelated source comments do not invalidate the production arena kernel');
