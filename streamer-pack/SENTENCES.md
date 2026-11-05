@@ -158,28 +158,28 @@ backed by an accepted MP3 in `audio/` with verified duration/peak/hash in
 | `sm2_043` | capture2 | Double capture! Two pieces in one move! | caps === 2 on the mover's committed move | — | accepted {"seconds": 2.883, "bytes": 20888} |
 | `sm2_044` | capture2 | One, two — gone! What a combination! | caps === 2 on the mover's committed move | — | accepted {"seconds": 4.2249, "bytes": 30214} |
 | `sm2_045` | capture2 | Two captures in one turn — fast changes! | caps === 2 on the mover's committed move | — | accepted {"seconds": 4.0478, "bytes": 28934} |
-| `sm2_046` | capture2 | A double strike — excellent awareness! | caps === 2 on the mover's committed move | — | pending |
-| `sm2_047` | capture2 | Two for one move — real profit! | caps === 2 on the mover's committed move | — | pending |
-| `sm2_048` | capture2 | Doubled! The material gap widens. | caps === 2 on the mover's committed move | — | pending |
-| `sm2_049` | capture3plus | Multiple captures in one turn — magnificent! | caps >= 3 on the mover's committed move | — | pending |
-| `sm2_050` | capture3plus | What a chain — several gone at once! | caps >= 3 on the mover's committed move | — | pending |
-| `sm2_051` | capture3plus | Three or more off — a thunderous sequence! | caps >= 3 on the mover's committed move | — | pending |
-| `sm2_052` | capture3plus | A sweeping capture — pieces everywhere! | caps >= 3 on the mover's committed move | — | pending |
-| `sm2_053` | new_king | And it crowns — a new king takes the field! | promotes: the moved piece reaches the king row and is crowne | — | pending |
-| `sm2_054` | new_king | King it is! That promotion matters. | promotes: the moved piece reaches the king row and is crowne | — | pending |
-| `sm2_055` | new_king | Promotion achieved — the king changes everything! | promotes: the moved piece reaches the king row and is crowne | — | pending |
-| `sm2_056` | new_king | Last row reached — a king is born! | promotes: the moved piece reaches the king row and is crowne | — | pending |
-| `sm2_057` | new_king | Crowned and ready — respect the new king! | promotes: the moved piece reaches the king row and is crowne | — | pending |
-| `sm2_058` | pressure | Behind on pieces — steady defense, no panic! | the seat the line addresses is behind on material per the en | — | pending |
-| `sm2_059` | pressure | Down on pieces — the board still offers chances. | the seat the line addresses is behind on material per the en | — | pending |
-| `sm2_060` | pressure | Pressure builds on that side — hold the line! | the seat the line addresses is behind on material per the en | — | pending |
-| `sm2_061` | pressure | Material behind — patience is the way back. | the seat the line addresses is behind on material per the en | — | pending |
-| `sm2_062` | pressure | Keep fighting! One accurate move swings it. | the seat the line addresses is behind on material per the en | — | pending |
-| `sm2_063` | turnaround | A real turnaround — the balance has flipped! | existing verified-material-turnaround gate | — | pending |
-| `sm2_064` | turnaround | From behind to back in it — superb recovery! | existing verified-material-turnaround gate | — | pending |
-| `sm2_065` | turnaround | The deficit is gone — a genuine comeback! | existing verified-material-turnaround gate | — | pending |
-| `sm2_066` | turnaround | Look at the material — what a recovery! | existing verified-material-turnaround gate | — | pending |
-| `sm2_067` | trap | Someone left a gift on that square — or is it? | existing trap_set gate: a real trap is present on the board | — | pending |
+| `sm2_046` | capture2 | A double strike — excellent awareness! | caps === 2 on the mover's committed move | — | accepted {"seconds": 2.9376, "bytes": 21254} |
+| `sm2_047` | capture2 | Two for one move — real profit! | caps === 2 on the mover's committed move | — | accepted {"seconds": 2.6657, "bytes": 19426} |
+| `sm2_048` | capture2 | Doubled! The material gap widens. | caps === 2 on the mover's committed move | — | accepted {"seconds": 2.3904, "bytes": 17414} |
+| `sm2_049` | capture3plus | Multiple captures in one turn — magnificent! | caps >= 3 on the mover's committed move | — | accepted {"seconds": 4.1644, "bytes": 29848} |
+| `sm2_050` | capture3plus | What a chain — several gone at once! | caps >= 3 on the mover's committed move | — | accepted {"seconds": 5.1396, "bytes": 36614} |
+| `sm2_051` | capture3plus | Three or more off — a thunderous sequence! | caps >= 3 on the mover's committed move | — | accepted {"seconds": 2.7934, "bytes": 20157} |
+| `sm2_052` | capture3plus | A sweeping capture — pieces everywhere! | caps >= 3 on the mover's committed move | — | accepted {"seconds": 3.1139, "bytes": 22534} |
+| `sm2_053` | new_king | And it crowns — a new king takes the field! | promotes: the moved piece reaches the king row and is crowne | — | accepted {"seconds": 2.8095, "bytes": 20340} |
+| `sm2_054` | new_king | King it is! That promotion matters. | promotes: the moved piece reaches the king row and is crowne | — | accepted {"seconds": 2.3011, "bytes": 16866} |
+| `sm2_055` | new_king | Promotion achieved — the king changes everything! | promotes: the moved piece reaches the king row and is crowne | — | accepted {"seconds": 3.7155, "bytes": 26740} |
+| `sm2_056` | new_king | Last row reached — a king is born! | promotes: the moved piece reaches the king row and is crowne | — | accepted {"seconds": 3.1416, "bytes": 22717} |
+| `sm2_057` | new_king | Crowned and ready — respect the new king! | promotes: the moved piece reaches the king row and is crowne | — | accepted {"seconds": 4.6488, "bytes": 33140} |
+| `sm2_058` | pressure | Behind on pieces — steady defense, no panic! | the seat the line addresses is behind on material per the en | — | accepted {"seconds": 4.2191, "bytes": 30214} |
+| `sm2_059` | pressure | Down on pieces — the board still offers chances. | the seat the line addresses is behind on material per the en | — | accepted {"seconds": 4.1544, "bytes": 29848} |
+| `sm2_060` | pressure | Pressure builds on that side — hold the line! | the seat the line addresses is behind on material per the en | — | accepted {"seconds": 3.8202, "bytes": 27471} |
+| `sm2_061` | pressure | Material behind — patience is the way back. | the seat the line addresses is behind on material per the en | — | accepted {"seconds": 4.1249, "bytes": 29483} |
+| `sm2_062` | pressure | Keep fighting! One accurate move swings it. | the seat the line addresses is behind on material per the en | — | accepted {"seconds": 3.0958, "bytes": 22351} |
+| `sm2_063` | turnaround | A real turnaround — the balance has flipped! | existing verified-material-turnaround gate | — | failed |
+| `sm2_064` | turnaround | From behind to back in it — superb recovery! | existing verified-material-turnaround gate | — | failed |
+| `sm2_065` | turnaround | The deficit is gone — a genuine comeback! | existing verified-material-turnaround gate | — | failed |
+| `sm2_066` | turnaround | Look at the material — what a recovery! | existing verified-material-turnaround gate | — | failed |
+| `sm2_067` | trap | Someone left a gift on that square — or is it? | existing trap_set gate: a real trap is present on the board | — | accepted {"seconds": 3.0938, "bytes": 22351} |
 | `sm2_068` | trap | Careful — that square bites! | existing trap_set gate: a real trap is present on the board | — | pending |
 | `sm2_069` | trap | The trap springs — the piece is lost! | existing trap_spring gate: the baited capture resolved again | — | pending |
 | `sm2_070` | trap | Right into the trap! Beautifully executed. | existing trap_spring gate: the baited capture resolved again | — | pending |
