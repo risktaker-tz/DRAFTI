@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-05",
+  "sourceCommit": "db456ba40b270e65d81c704ed2e00b92ee0cccd2",
+  "scope": "Automated offline install/update behavior for Vercel root and GitHub Pages subpath hosting.",
+  "results": {
+    "test_offline_install.js": "PASS: cached navigation, install icons, and allowlisted vocabulary caching on both hosting scopes.",
+    "test_install_update_cycle.js": "PASS: failed install leaves prior cache intact; successful update activates current offline core; previously cached vocabulary migrates; the audience cache is preserved; invalid voice files are excluded; server outage falls back to cached app on both hosts.",
+    "test_audience_vibes.js": "PASS: explicit audience-pack install validates all asset hashes and stores the entire pack in a dedicated Cache Storage bucket; a reopened pack initializes with network unavailable; failed pack replacement preserves the complete prior pack; removal stays scoped to the audience cache."
+  },
+  "liveAudiencePack": {
+    "clips": 57,
+    "audioBytes": 2811210,
+    "version": "partial-2026-11-03",
+    "note": "This is the existing optional playable pack. The reviewed 501+ asset expansion is still pending and is not implied by this result."
+  },
+  "limitations": [
+    "Automated browser/service-worker fixtures are not a physical PC or mobile OS-shell install acceptance test.",
+    "The optional audience pack must first be explicitly downloaded while online. Once installed, all manifest assets are cached independently of service-worker cache rotation and can reopen offline.",
+    "This is test evidence only; no runtime source changed and no redeployment was needed."
+  ]
+}
