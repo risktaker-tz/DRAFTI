@@ -28,7 +28,9 @@ for (const [index, bout] of report.bouts.entries()) {
   assert.equal(bout.stage, h.api.stageOfBout(index % 12));
   assert.notEqual(bout.ivory, bout.ebony);
   assert(bout.nodes > 0 && bout.plies > 0 && bout.deepest > 0);
-  assert.notEqual(bout.reason, 'simulation safety cap', 'A capped run is incomplete evidence');
+  assert.notEqual(bout.unresolved, true, 'An unresolved simulation is incomplete evidence');
+  assert(!/simulation safety cap/i.test(bout.reason), 'A capped run is incomplete evidence');
+  assert([-1,0,1].includes(bout.winner), 'Every recorded bout needs a genuine result');
   assert.equal(bout.winnerId, bout.winner === 1 ? bout.ivory : bout.winner === -1 ? bout.ebony : null);
   for (const id of [bout.ivory, bout.ebony]) played[id] = (played[id] || 0) + 1;
   if (bout.winnerId) wins[bout.winnerId] = (wins[bout.winnerId] || 0) + 1;

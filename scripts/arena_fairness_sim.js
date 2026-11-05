@@ -4,6 +4,8 @@ const {createHarness,playGame}=require('./arena_harness');
 const root=path.resolve(__dirname,'..');
 const docs=path.resolve(root,process.env.DRAFTI_ARENA_OUTPUT || 'docs');
 const rsId=process.env.DRAFTI_ARENA_RULESET || 'american';
+const maxPlies=Number(process.env.DRAFTI_ARENA_MAX_PLIES || 1440);
+if(!Number.isSafeInteger(maxPlies)||maxPlies<1)throw Error('DRAFTI_ARENA_MAX_PLIES must be a positive integer');
 fs.mkdirSync(docs,{recursive:true});
 const checkpointPath=path.join(docs,'arena-fairness-resume.json'),lockPath=checkpointPath+'.lock';
 const writeJSON=(file,data)=>{
@@ -42,7 +44,15 @@ try {
       state.inFlight={before:api.arena.champion,season:api.arena.season,stage:api.stageOfBout(api.arena.bouts),game:null};save();
     }
     const active=state.inFlight;
-    const result=playGame(h,{rsId,checkpoint:active.game,houseDraws:true,onProgress:game=>{active.game=game;save();}});
+    const result=playGame(h,{rsId,maxPlies,checkpoint:active.game,houseDraws:true,onProgress:game=>{active.game=game;save();}});
+    if(result.unresolved){
+      state.unresolved={bout:state.rows.length+1,reason:result.reason,maxPlies,checkpointPly:active.game?.ply||0};save();
+      writeJSON(path.join(docs,'arena-fairness-progress.json'),{completedBouts:state.rows.length,rows:state.rows,growth:state.growth,
+        unresolved:state.unresolved,checkpoint:checkpointPath});
+      console.log('UNRESOLVED: bout '+state.unresolved.bout+' reached '+maxPlies+' plies with no natural result. No draw or win was assigned; increase DRAFTI_ARENA_MAX_PLIES to resume this exact game.');
+      process.exitCode=2;break;
+    }
+    delete state.unresolved;
     const winner=result.winner===1?G.seatIvory:result.winner===-1?G.seatEbony:null;
     for(const id of [G.seatIvory,G.seatEbony])state.played[id]=(state.played[id]||0)+1;
     if(winner)state.wins[winner]=(state.wins[winner]||0)+1;
@@ -55,6 +65,7 @@ try {
     console.log('Bout '+row.bout+'/36: '+row.ivory+' vs '+row.ebony+' -> '+(winner||'draw')+' ('+result.plies+' plies, '+result.nodes+' nodes)');
     writeJSON(path.join(docs,'arena-fairness-progress.json'),{completedBouts:state.rows.length,rows:state.rows,growth:state.growth,checkpoint:checkpointPath});
   }
+  if(state.rows.length===36){
   const nations=api.ROSTER.map(r=>({id:r.id,name:r.name,played:state.played[r.id]||0,wins:state.wins[r.id]||0,level:api.rosterLevel(r.id),xp:api.arena.xp[r.id],bonusXp:api.arenaProgress.bonusXp[r.id]||0}));
   const report={seed:state.seed,sourceCommit:state.sourceCommit,sourceFingerprint:h.fingerprint,startedAt:state.startedAt,completedAt:new Date().toISOString(),
     ruleset:rsId,
@@ -69,6 +80,7 @@ try {
   assert(new Set(report.openers.slice(1).map(r=>r.challenger)).size===2,'Later-season opening honours must rotate in this sample');
   state.completedAt=report.completedAt;save();
   console.log('COMPLETE: 36 real-engine bouts, '+report.dethronings+' dethronings; growth '+report.growth.map(r=>r.medianLevel).join(' -> '));
+  }
 } finally {
   if(fs.existsSync(lockPath)&&JSON.parse(fs.readFileSync(lockPath,'utf8')).pid===process.pid)fs.unlinkSync(lockPath);
 }

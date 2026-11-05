@@ -1,5 +1,7 @@
 # Real-engine arena simulation
 
+> **QA correction (2026-11-06): diagnostic only, not D3 fairness acceptance.** A later harness audit found that the recorded run bypassed the live `chooseRememberedMove` loop-escape selector and counted six 360-ply simulation safety caps as draws. Those are unresolved games, not game results. The original JSON remains preserved for audit history; do not use its 36-row tally as a completed season.
+
 Production engine, ladder, national styles, symmetric seat levels, stage pressure, queue and result functions. Opening median level 4; normal XP/season growth; production low-material house countdowns active. Search budgets unchanged. Presentation delays omitted.
 
 Winner-stays scheduling intentionally yields unequal appearances. This 36-bout sample tests scheduling/progression and observed dethroning, not equal national win probabilities. Style balance has a separate colour-paired round robin. Exact-position mistake recall is outside this sample and has separate worker/persistence tests.

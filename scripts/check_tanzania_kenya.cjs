@@ -6,6 +6,7 @@ for(let pair=0;pair<4;pair++)for(let swap=0;swap<2;swap++){
   const ids=swap?['KE','TZ']:['TZ','KE'];
   const styles=ids.map(id=>h.api.STYLES.find(s=>s.id===h.api.ROSTER.find(r=>r.id===id).styleId));
   const result=playGame(h,{rsId:'eastafrica8',styles,levels:['l4','l4'],houseDraws:true});
+  if(result.unresolved)throw Error('Unresolved game at the simulation cap; it is not a draw and cannot enter the Tanzania–Kenya sample');
   const winnerId=result.winner===1?ids[0]:result.winner===-1?ids[1]:null;
   rows.push({pair,seed,ivory:ids[0],ebony:ids[1],levels:['l4','l4'],styles:styles.map(s=>s.id),...result,winnerId});
   const report={scope:'Eight real-engine East Africa 8x8 games, four equal-strength seeded pairs with seat order reversed. Full Club budgets, actual national personality options, production house draws. This is a targeted regression sample, not proof of equal national win probabilities.',

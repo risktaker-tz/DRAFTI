@@ -7,6 +7,7 @@ for(let a=0;a<styles.length;a++)for(let b=a+1;b<styles.length;b++){
     const h=createHarness(0x510000+a*100+b);h.settings.aivaiAuto=false;
     const seats=swap?[styles[b],styles[a]]:[styles[a],styles[b]];
     const result=playGame(h,{styles:seats,levels:['l3','l3']});
+    if(result.unresolved)throw Error('Unresolved game at the simulation cap; it is not a draw and cannot enter the balance sample');
     const winner=result.winner===1?seats[0].id:result.winner===-1?seats[1].id:null;
     for(const style of seats){const c=counts[style.id];c.played++;if(!winner)c.draws++;else if(winner===style.id)c.wins++;else c.losses++;}
     rows.push({ivory:seats[0].id,ebony:seats[1].id,winnerId:winner,...result});
