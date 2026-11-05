@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-05 — Season Cups
+
+- Award the Season Cup to the actual grand-final winner, or shared cups for a drawn final. Present the winning flags, an existing short trophy fanfare and a season-engraved metallic trophy, with eight increasing prestige tiers.
+- Keep season honours per local player under a new versioned key, saved with the season advance. Show recent honours and the actual winner-stays season format in the arena menu; preserve stage XP, fair scheduling and retirement ceremonies.
+- Include the three-turn draw-proof implementation in simulation fingerprints so saved evidence cannot silently reuse different rules.
+
 ## 2026-11-05 — Menu-only Preview Studio
 
 - Move Preview Studio into Table & themes → Board feel in the menu. Keep it closed at startup on phone and desktop, and remove the floating gameplay launcher. Preserve all thirty effects and studio controls.

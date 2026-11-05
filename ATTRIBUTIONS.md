@@ -1,5 +1,7 @@
 # Sound & voice attributions
 
+Season Cup ceremonies reuse the existing `fx_trophy_1`–`fx_trophy_4` in-house ceremonial fanfares credited below. They accompany the actual winning flag(s); they are original game music, not national anthem recordings. No existing recordings were replaced for this feature.
+
 Every sound in DRAFTI is open-licensed, synthesized in-house, or a short
 sourced meme effect credited below. Samples are embedded in `web/index.html`
 (base64 MP3); the processed source files live in `src/audio/`. This file

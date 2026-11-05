@@ -9,7 +9,7 @@ function createHarness(seed=0xD4AF71,savedSettings={},checkpoint=null){
   const saves={};
   const context={IVORY:1,EBONY:-1,Math:math,
     settings:Object.assign({arenaRounds:1,aivaiAuto:true},savedSettings),G:{mode:'aivai'},
-    loadJSON:(_key,fallback)=>fallback,saveJSON:(key,value)=>{saves[key]=JSON.parse(JSON.stringify(value));},
+    loadJSON:(_key,fallback)=>fallback,saveJSON:(key,value,extra)=>{for(const [k,v]of Object.entries({[key]:value,...extra}))saves[k]=JSON.parse(JSON.stringify(v));},
     setTimeout:()=>0,SFX_BANK:{play(){}},console};
   vm.createContext(context);
   vm.runInContext(fs.readFileSync(path.join(__dirname,'../src/engine.js'),'utf8'),context);
@@ -20,20 +20,20 @@ function createHarness(seed=0xD4AF71,savedSettings={},checkpoint=null){
   vm.runInContext(slice('  function levelOpts(','  function runSearch('),context);
   vm.runInContext(slice('  let manualRetire =','  // the retirement ceremony:'),context);
   vm.runInContext(slice('  function lowMaterialLimit(','  function checkGameEnd('),context);
-  vm.runInContext('this.api={ROSTER,STYLES,LEVELS,LEVEL_IDS,rosterLevel,levelOpts,chooseLadderMove,searchLevelForSide,arenaPressureOpts,arenaSeatLevels,rememberResumedPairColours,seatArenaBout,guardArena,ladderQueue,applyArenaResult,stageOfBout,arena,arenaProgress}; this.aiName=id=>rosterById(id).name;',context);
+  vm.runInContext('this.api={ROSTER,STYLES,LEVELS,LEVEL_IDS,rosterLevel,levelOpts,chooseLadderMove,searchLevelForSide,arenaPressureOpts,arenaSeatLevels,rememberResumedPairColours,seatArenaBout,guardArena,ladderQueue,applyArenaResult,stageOfBout,arena,arenaProgress,seasonHonours}; this.aiName=id=>rosterById(id).name;',context);
   const fingerprint=crypto.createHash('sha256').update(JSON.stringify({
     engine:fs.readFileSync(path.join(__dirname,'../src/engine.js'),'utf8').replace(/\r\n/g,'\n'),
     levels:context.api.LEVELS,styles:context.api.STYLES,roster:context.api.ROSTER,
-    functions:[...Object.values(context.api).filter(v=>typeof v==='function'),context.lowMaterialCountdown,context.lowMaterialLimit].map(f=>f.toString())
+    functions:[...Object.values(context.api).filter(v=>typeof v==='function'),context.lowMaterialCountdown,context.lowMaterialLimit,context.possibleWinWithinMoves,context.createSeasonHonours].map(f=>f.toString())
   })).digest('hex');
   if(checkpoint){
     if(checkpoint.schema!==1||checkpoint.fingerprint!==fingerprint)throw Error('Incompatible arena checkpoint; preserve it and investigate source drift');
     for(const [target,value] of [[context.api.arena,checkpoint.arena],[context.api.arenaProgress,checkpoint.arenaProgress]]){
       for(const key of Object.keys(target))delete target[key];Object.assign(target,JSON.parse(JSON.stringify(value)));
     }
-    Object.assign(context.G,checkpoint.G);Object.assign(context.settings,checkpoint.settings);rng=checkpoint.rng>>>0;
+    Object.assign(context.G,checkpoint.G);Object.assign(context.settings,checkpoint.settings);context.api.seasonHonours.restore(checkpoint.seasonHonours);rng=checkpoint.rng>>>0;
   }
-  const snapshot=()=>JSON.parse(JSON.stringify({schema:1,fingerprint,rng,settings:context.settings,G:context.G,arena:context.api.arena,arenaProgress:context.api.arenaProgress}));
+  const snapshot=()=>JSON.parse(JSON.stringify({schema:1,fingerprint,rng,settings:context.settings,G:context.G,arena:context.api.arena,arenaProgress:context.api.arenaProgress,seasonHonours:context.api.seasonHonours.snapshot()}));
   return {E,G:context.G,settings:context.settings,api:context.api,saves,random:math.random,snapshot,fingerprint,lowMaterialCountdown:context.lowMaterialCountdown};
 }
 function playGame(h,{rsId='american',styles,levels,maxPlies=360,checkpoint=null,onProgress=null,houseDraws=false}={}){

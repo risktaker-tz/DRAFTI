@@ -1,6 +1,6 @@
 'use strict';
 const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('assert/strict');
-const ui=fs.readFileSync(path.join(__dirname,'../src/ui.js'),'utf8'),c={IVORY:1,EBONY:-1};vm.createContext(c);
+const ui=fs.readFileSync(path.join(__dirname,'../src/ui.js'),'utf8'),c={IVORY:1,EBONY:-1,Date:{now:()=>0}};vm.createContext(c);
 vm.runInContext(fs.readFileSync(path.join(__dirname,'../src/engine.js'),'utf8')+'this.E=makeEngine();',c);
 vm.runInContext(ui.slice(ui.indexOf('  function lowMaterialLimit('),ui.indexOf('  function setOver(')),c);
 const position=entries=>{const b=new Int8Array(64);for(const [sq,code]of entries)b[sq]=code;return b;};
@@ -20,4 +20,6 @@ c.checkGameEnd();assert.equal(calls.length,0,'Even inactivity/repetition may not
 const larger=position([[1,2],[3,1],[5,1],[7,1],[56,-2],[58,-1],[60,-1],[62,-1]]);
 Object.assign(c.G,{board:larger,legal:c.E.legalMoves(rs,larger,1)});c.checkGameEnd();assert.equal(calls.length,0,'Automatic draws cannot end a larger game before either side reaches the threshold');
 Object.assign(c.G,{board:far,legal:c.E.legalMoves(rs,far,1)});c.checkGameEnd();assert.equal(calls.length,1,'An eligible, fully checked no-win repeated/inactive position can still draw');
+calls=[];let time=0;c.Date.now=()=>time+=100;c.possibleWinWithinMoves.cache.clear();
+c.checkGameEnd();assert.equal(calls.length,0,'An expired proof budget conservatively keeps the real game alive');
 console.log('PASS uncrowned-side protection, one-side three-piece threshold, existing countdown lengths, real three-turn legal win checks and guarded official draw paths');

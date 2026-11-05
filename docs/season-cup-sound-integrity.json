@@ -1,0 +1,70 @@
+{
+  "clips": 544,
+  "categories": {
+    "ui": 69,
+    "party": 45,
+    "comedy": 40,
+    "majestic": 22,
+    "drama": 69,
+    "voice": 161,
+    "think": 106,
+    "judge": 32
+  },
+  "directReferences": 70,
+  "playbackCallSites": 133,
+  "uniqueReferencedIds": 338,
+  "optionalOriginalIds": [
+    "shrimp_orig",
+    "v_retire_orig"
+  ],
+  "approvedDurationOverrides": {
+    "v_retire2": {
+      "maxSeconds": 15.1,
+      "decodedSeconds": 15,
+      "reason": "Owner explicitly requested the full original first 15 seconds for major ceremonies. The 0.1s metadata allowance covers MP3 frame padding; playback is capped at 15 seconds."
+    }
+  },
+  "unresolvedExpressions": [],
+  "eventReferences": [
+    "coin",
+    "crown",
+    "defeat",
+    "draw",
+    "drawer",
+    "feast",
+    "impact",
+    "jump",
+    "king_glint",
+    "landing",
+    "reunion",
+    "slide",
+    "stage_final",
+    "stage_group",
+    "stage_quarter",
+    "stage_semi",
+    "theme",
+    "trophy",
+    "victory"
+  ],
+  "ownerEventReferences": [
+    "capture_own_feast",
+    "human_blunder_flagrant",
+    "material_loss_sudden"
+  ],
+  "missingEvents": [],
+  "missingOwnerEvents": [],
+  "missingOwnerIds": [],
+  "unresolvedEvents": [],
+  "controlledPreviewExpressions": [
+    {
+      "line": 4807,
+      "expression": "button.dataset.event",
+      "ids": []
+    }
+  ],
+  "missing": [],
+  "oversized": [],
+  "durations": [],
+  "encoding": [],
+  "limitations": "All clips measured for duration, encoding and size. Static analysis covers sample pools and event/owner call sites. The menu event selector is restricted at runtime to embedded registry definitions and unknown events return null; all other unresolved expressions fail. Browser full-game playback still requires verification."
+}

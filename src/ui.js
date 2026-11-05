@@ -29,7 +29,7 @@ function createMistakeMemory(saved) {
 }
 function createPlayerProgressStore(storage) {
   const key = 'drafti.players.v1';
-  const routed = ['drafti.arena.v2','drafti.arena-progress.v1','drafti.stats.v1','drafti.match.v1','drafti.learning.v1','drafti.human-ladder.v1'];
+  const routed = ['drafti.arena.v2','drafti.arena-progress.v1','drafti.stats.v1','drafti.match.v1','drafti.learning.v1','drafti.human-ladder.v1','drafti.season-honours.v1'];
   const copy = value => JSON.parse(JSON.stringify(value));
   const read = name => { try { const text = storage && storage.getItem(name); return text ? JSON.parse(text) : null; } catch { return null; } };
   let data = read(key);
@@ -131,7 +131,7 @@ function createPlayerProgressStore(storage) {
       data.players.push({id,name,values:{'drafti.human-ladder.v1':{schema:1,automatic:true,level:1}}});data.active=id;created.add(id);activeChanged=true;if(persist())mirror();return id;
     },
     resetLeague() {
-      for (const name of ['drafti.arena.v2','drafti.arena-progress.v1','drafti.match.v1','drafti.learning.v1']) {mark(name);delete active().values[name];}
+      for (const name of ['drafti.arena.v2','drafti.arena-progress.v1','drafti.match.v1','drafti.learning.v1','drafti.season-honours.v1']) {mark(name);delete active().values[name];}
       const saved=persist();if(saved)mirror();return saved;
     },
     persist,
@@ -592,10 +592,37 @@ function createSoundAudit(capacity = 12000) {
     }
   }
   guardArena();
-  const saveArena = () => saveJSON(ARENA_KEY, arena);
+  const saveArena = () => saveJSON(ARENA_KEY, arena, {[SEASON_HONOURS_KEY]:seasonHonours.snapshot()});
   const ARENA_PROGRESS_KEY = 'drafti.arena-progress.v1';
   const arenaProgress = loadJSON(ARENA_PROGRESS_KEY, {}) || {};
   if (!arenaProgress.bonusXp || typeof arenaProgress.bonusXp !== 'object') arenaProgress.bonusXp = {};
+  function createSeasonHonours(saved) {
+    let state;const copy=value=>JSON.parse(JSON.stringify(value));
+    const restore=value=>{state=value&&value.schema!==1?copy(value):{schema:1,awards:Array.isArray(value?.awards)?copy(value.awards):[]};};
+    restore(saved);
+    return {
+      restore,
+      award(season,winner,seats,ruleset){
+        if(state.schema!==1||!Number.isSafeInteger(season)||season<1||![1,-1,0].includes(winner)||
+          seats.length!==2||new Set(seats).size!==2||!seats.every(id=>ROSTER.some(n=>n.id===id)))return null;
+        if(state.awards.some(a=>a?.season===season))return null;
+        const row={season,nations:winner===0?seats.slice():[seats[winner===1?0:1]],finalists:seats.slice(),shared:winner===0,ruleset:ruleset||'unknown'};
+        state.awards.push(row);return copy(row);
+      },
+      snapshot:()=>copy(state),
+    };
+  }
+  function seasonCupDesign(season) {
+    const level=Math.max(1,Math.floor(Number(season)||1));
+    const tiers=[['Bronze','#834b28','#f8c38e','#b87840'],['Silver','#677787','#f8fcff','#bccbd7'],
+      ['Gold','#94601b','#fff1a9','#e9b64f'],['Platinum','#607a87','#ffffff','#bddeea'],
+      ['Royal Sapphire','#354d93','#e3f3ff','#6e9ee4'],['Emerald Crown','#265f4e','#e8fff3','#69bda0'],
+      ['Diamond','#5786a3','#ffffff','#b3e9ff'],['Celestial','#54468c','#fff6c9','#bcaff1']];
+    const tier=Math.min(tiers.length,level),[name,edge,light,face]=tiers[tier-1];
+    return {level,tier,name,edge,light,face,gems:Math.min(12,level),prestige:level};
+  }
+  const SEASON_HONOURS_KEY='drafti.season-honours.v1';
+  const seasonHonours=createSeasonHonours(loadJSON(SEASON_HONOURS_KEY,null));
   function arenaSeatLevels(a, b) {
     const left = rosterLevel(a), right = rosterLevel(b), strongest = Math.max(left, right);
     return [Math.max(left, strongest - 2), Math.max(right, strongest - 2)];
@@ -638,7 +665,7 @@ function createSoundAudit(capacity = 12000) {
   let arenaProgressSignature = '';
   function renderArenaProgress() {
     const tbody = $('arenaProgressRows'); if (!tbody) return;
-    const signature = JSON.stringify([arena.season, settings.diff, arena.xp, arena.wins, arenaProgress.bonusXp, nameOverrides]);
+    const signature = JSON.stringify([arena.season, settings.diff, arena.xp, arena.wins, arenaProgress.bonusXp, nameOverrides,seasonHonours.snapshot()]);
     if (signature === arenaProgressSignature) return;
     arenaProgressSignature = signature;
     tbody.replaceChildren();
@@ -652,6 +679,14 @@ function createSoundAudit(capacity = 12000) {
     }
     tbody.appendChild(fragment);
     $('arenaProgressCaption').textContent = 'Season ' + arena.season + ' · starting strength ' + Math.max(4,LEVEL_IDS.indexOf(settings.diff)+1||4) + ' · ' + ROSTER.length + ' nations · event bonuses tracked from this update';
+    const honours=$('seasonHonours');if(honours){
+      const saved=seasonHonours.snapshot(),awards=Array.isArray(saved.awards)?saved.awards.filter(a=>a&&Number.isSafeInteger(a.season)&&Array.isArray(a.nations)&&a.nations.every(id=>ROSTER.some(n=>n.id===id))):[];honours.replaceChildren();
+      if(!awards.length)honours.textContent='The Season Cup is awarded after the grand final. A drawn final earns shared honours.';
+      for(const award of awards.slice(-12).reverse()){
+        const row=document.createElement('p');row.className='season-honour-row';
+        row.textContent='🏆 Season '+award.season+' · '+(award.shared?'Shared cup · ':'Champion · ')+award.nations.map(aiName).join(' & ');honours.appendChild(row);
+      }
+    }
   }
 
   // the name chips: tap one, type the new name, Enter or blur commits. The
@@ -733,13 +768,13 @@ function createSoundAudit(capacity = 12000) {
   const DEFAULT_THEME = 'marble';
   const STATS_KEY = 'drafti.stats.v1';
   function loadJSON(k, fb) {
-    if (['drafti.arena.v2','drafti.arena-progress.v1','drafti.stats.v1','drafti.match.v1','drafti.learning.v1','drafti.human-ladder.v1'].includes(k)) return playerProgress.load(k,fb);
+    if (['drafti.arena.v2','drafti.arena-progress.v1','drafti.stats.v1','drafti.match.v1','drafti.learning.v1','drafti.human-ladder.v1','drafti.season-honours.v1'].includes(k)) return playerProgress.load(k,fb);
     try { const v = JSON.parse(localStorage.getItem(k)); return v && typeof v === 'object' ? v : fb; } catch { return fb; }
   }
   function saveJSON(k, v, extra) {
     if (playerProgress.routes(k)) {
       const saved=k === 'drafti.arena.v2' && G.over && G.mode === 'aivai'
-        ? playerProgress.saveBundle({[k]:v,'drafti.match.v1':null})
+        ? playerProgress.saveBundle({[k]:v,...extra,'drafti.match.v1':null})
         : extra ? playerProgress.saveBundle({[k]:v,...extra}) : playerProgress.save(k,v);
       if(!saved && playerProgress.lastError()==='conflict' && !G.progressConflict){
         G.progressConflict=true;G.aiPaused=true;gameEpoch++;reqId++;aiPending=false;hintPending=false;
@@ -1639,7 +1674,7 @@ function createSoundAudit(capacity = 12000) {
       const pool = Object.keys(this.defs).filter(id => this.defs[id].event === event);
       const id = this.drawCue('effect:' + event, pool, null, history.slice(-3));
       if (!id) return null;
-      const source = this.play(id, { vol: opts.vol ?? .42, rate: 1 });
+      const source = this.play(id, { vol: opts.vol ?? .42, rate: 1, ...(opts.sceneOwner==='ceremony'?{sceneOwner:'ceremony'}:{}) });
       if (source) { this.eventAt.set(event, now); history.push(id); this.eventHistory.set(event, history.slice(-8)); }
       return source;
     },
@@ -3711,9 +3746,10 @@ function createSoundAudit(capacity = 12000) {
       arena.queue = ladderQueue(arena.champion);
     }
     // the season closes every SEASON_LEN bouts — the world comes back stronger
-    let seasonEnd = false;
+    let seasonEnd = false,seasonAward=null;
     arena.bouts++;
     if (arena.bouts >= SEASON_LEN) {
+      seasonAward=seasonHonours.award(arena.season,winnerSide,[G.seatIvory,G.seatEbony],G.rsId);
       arena.bouts = 0;
       arena.season++;
       // Rotate opening honours among nations that have waited longest.
@@ -3731,7 +3767,7 @@ function createSoundAudit(capacity = 12000) {
         ' advances to Season ' + arena.season + ' — every nation returns one rung stronger.' +
         (text ? ' ' + text : '');
     }
-    return { ceremony, text, champion: arena.champion, seasonEnd };
+    return { ceremony, text, champion: arena.champion, seasonEnd,seasonAward };
   }
 
   // the retirement ceremony: the winner's name takes the centre of the board
@@ -3777,6 +3813,41 @@ function createSoundAudit(capacity = 12000) {
     return sleep(ceremonyMs);
   }
 
+  function showSeasonAward(award) {
+    cancelCeremony();const epoch=ceremonyEpoch,el=$('ceremony');
+    if(!el||!award?.nations?.length)return Promise.resolve();
+    el.replaceChildren();
+    const card=document.createElement('div');card.className='cer-card season-cup-card';
+    const design=seasonCupDesign(award.season);card.dataset.cupTier=design.name;card.dataset.season=design.level;
+    const label=document.createElement('div');label.className='cup-eyebrow';label.textContent='SEASON '+award.season+' · '+design.name.toUpperCase()+' CUP';
+    const trophy=document.createElement('div');trophy.className='season-trophy';
+    trophy.innerHTML='<svg viewBox="0 0 160 140" aria-hidden="true"><defs><linearGradient id="cupGold"><stop stop-color="#96601d"/><stop offset=".28" stop-color="#fff0a5"/><stop offset=".52" stop-color="#e9b64f"/><stop offset=".76" stop-color="#fff4bd"/><stop offset="1" stop-color="#96601d"/></linearGradient></defs><g fill="url(#cupGold)" stroke="#b68435" stroke-width="2"><path d="M41 17H14v18c0 23 16 35 36 35v-9C34 59 24 50 24 35v-8h17zm78 0h27v18c0 23-16 35-36 35v-9c16-2 26-11 26-26v-8h-17z"/><path d="M39 11h82l-5 44c-2 22-17 35-31 37v20h21v11H54v-11h21V92C61 90 46 77 44 55z"/><path d="M48 123h64v10H48z"/></g><path d="M49 19h60" stroke="#fff8d1" stroke-width="3" opacity=".7"/></svg>';
+    const svg=trophy.querySelector('svg'),stops=svg.querySelectorAll('stop');
+    for(const [i,color]of [design.edge,design.light,design.face,design.light,design.edge].entries())stops[i].setAttribute('stop-color',color);
+    const ns='http://www.w3.org/2000/svg',gems=document.createElementNS(ns,'g');
+    for(let i=0;i<design.gems;i++){
+      const gem=document.createElementNS(ns,'circle');gem.setAttribute('cx',String(51+58*(design.gems===1?.5:i/(design.gems-1))));gem.setAttribute('cy','117');gem.setAttribute('r',design.tier>=5?'2.2':'1.7');gem.setAttribute('fill',design.tier>=5?'#ddf8ff':design.light);gems.appendChild(gem);
+    }
+    if(design.tier>=4){const crown=document.createElementNS(ns,'path');crown.setAttribute('d','M55 13 51 2 67 8 80 0 93 8 109 2 105 13Z');crown.setAttribute('fill','url(#cupGold)');crown.setAttribute('stroke',design.edge);gems.appendChild(crown);}
+    const engraving=document.createElementNS(ns,'text');engraving.setAttribute('x','80');engraving.setAttribute('y','132');engraving.setAttribute('text-anchor','middle');engraving.setAttribute('font-size','7');engraving.setAttribute('fill',design.edge);engraving.textContent='S'+design.level;gems.appendChild(engraving);svg.appendChild(gems);
+    const flags=document.createElement('div');flags.className='cup-flags';
+    for(const id of award.nations){
+      const flag=document.createElement('span');flag.className='cer-face';flag.textContent=rosterById(id).face;flag.setAttribute('aria-label',aiName(id)+' flag');
+      flags.appendChild(flag);
+    }
+    // Attach first: the offline flag renderer protects against detached/stale recipients.
+    trophy.appendChild(flags);
+    const title=document.createElement('h2');title.className='cer-name';title.textContent=award.nations.map(aiName).join(' & ');
+    const subtitle=document.createElement('p');subtitle.className='cer-sub';subtitle.textContent=(award.shared?'Shared Season Cup · drawn grand final':'Season Cup champions · grand-final victory')+' · prestige '+design.prestige;
+    const note=document.createElement('p');note.className='cer-quote';note.textContent='Honours recorded · every nation returns stronger for Season '+(award.season+1);
+    card.append(label,trophy,title,subtitle,note);el.appendChild(card);el.hidden=false;
+    [...flags.children].forEach((flag,i)=>globalThis.DRAFTI_FLAGS?.render(flag,award.nations[i]));
+    ceremonyVoice=SFX_BANK.effect('trophy',{vol:.68,sceneOwner:'ceremony'});
+    const duration=Math.max(5200,Math.min(7500,(ceremonyVoice?.buffer?.duration||4)*1000+600));
+    SFX_BANK.sceneLockUntil=performance.now()+duration;
+    return sleep(duration).then(()=>{if(epoch===ceremonyEpoch){el.hidden=true;ceremonyVoice=null;SFX_BANK.sceneLockUntil=0;}});
+  }
+
   let autoNextTimer = 0, autoNextGeneration = 0;
   function cancelAutoNext() {
     autoNextGeneration++;
@@ -3799,7 +3870,7 @@ function createSoundAudit(capacity = 12000) {
       setTimeout(() => SFX_BANK.play(pick(['st_gasp1', 'st_gasp2']), { vol: 0.85 }), 500);
       setTimeout(() => SFX_BANK.play('st_crowd1', { vol: 0.7 }), 1400);
     }
-    if (res.seasonEnd) {
+    if (res.seasonEnd && !res.seasonAward) {
       // a season closes: the gong sounds, the world readies its stronger side
       setTimeout(() => SFX_BANK.play('gong', { vol: 0.9 }), 700);
       setTimeout(() => SFX_BANK.play(pick(['st_air1', 'st_crowd1']), { vol: 0.8 }), 1600);
@@ -3839,8 +3910,11 @@ function createSoundAudit(capacity = 12000) {
       }, 50);
       autoNextTimer = tick; // interval id doubles as the cancel handle
     };
-    if (res.ceremony) showCeremony(prevChamp).then(beginCountdown);
-    else beginCountdown();
+    const afterCup=()=>{
+      if(generation!==autoNextGeneration)return;
+      if(res.ceremony)showCeremony(prevChamp).then(beginCountdown);else beginCountdown();
+    };
+    if(res.seasonAward)showSeasonAward(res.seasonAward).then(afterCup);else afterCup();
   }
 
   // ---------------- game lifecycle ----------------
@@ -4415,6 +4489,7 @@ function createSoundAudit(capacity = 12000) {
     for(const key of Object.keys(stats))delete stats[key];Object.assign(stats,loadJSON(STATS_KEY,{})||{});
     humanLadder=createHumanProgression(loadJSON(HUMAN_LADDER_KEY,null),settings.diff);
     mistakeMemory=createMistakeMemory(loadJSON(LEARNING_KEY,null));
+    seasonHonours.restore(loadJSON(SEASON_HONOURS_KEY,null));
     arenaProgressSignature='';settings.pname=cleanName(playerProgress.active().name,'Uhakika');saveJSON(SETTINGS_KEY,settings);
     if(!resumeLeagueMatch())newGame();renderPlayerProfiles();
   }

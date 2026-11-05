@@ -1124,6 +1124,18 @@ body.pieces-stone .piece.ebony .body {
 .cer-sub { color: var(--ink-dim); font-size: 13px; }
 .cer-quote { margin-top: 10px; color: var(--accent); font-size: 13px; font-style: italic; }
 @keyframes cerPop { from { transform: scale(.55); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.season-cup-card { width:min(90%,440px);box-sizing:border-box;padding:clamp(14px,3vw,28px);border-color:#c9a55c;background:radial-gradient(ellipse at 50% 0%,#3e351f,#152132 62%,#0b1421); }
+.season-cup-card .cer-name { color:#fff5d7;font-size:clamp(20px,4vw,32px);overflow-wrap:anywhere;line-height:1.15; }
+.season-cup-card .cer-sub { color:#eee0bd;margin:10px 0; }
+.season-cup-card .cer-quote { color:#ead19a;line-height:1.5;font-size:clamp(10px,2vw,12px); }
+.cup-eyebrow { color:#f1d68c;font-size:10px;letter-spacing:.15em;font-weight:800; }
+.season-trophy { position:relative;width:clamp(96px,22vw,166px);margin:10px auto 0;filter:drop-shadow(0 7px 18px #e3b94a44); }
+.season-trophy>svg { width:100%;display:block; }
+.cup-flags { position:absolute;top:24%;left:26%;right:26%;display:flex;align-items:center;justify-content:center;gap:3px; }
+.cup-flags .cer-face { min-width:0;flex:1;font-size:clamp(18px,4vw,30px);filter:drop-shadow(0 2px 3px #0008); }
+.cup-flags .cer-flag { width:100%;height:auto;max-height:37px;border-radius:1px; }
+.season-honour-row { color:var(--ink);font-size:12px;line-height:1.6;padding:8px 0;border-bottom:1px solid var(--panel-line); }
+@media(prefers-reduced-motion:reduce){.season-cup-card{animation:none;}}
 
 /* ---------- nation name chips: every team in the world is renameable ------- */
 .name-grid { display: flex; flex-wrap: wrap; gap: 6px; }
