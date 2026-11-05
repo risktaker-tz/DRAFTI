@@ -1,5 +1,13 @@
 # DRAFTI implementation handoff and full remaining plan
 
+## Latest streamer checkpoint — 2026-11-05
+
+- Reviewed Z.AI commit `32adce296e94284e20804e3ecbc41a81de6894fb` without contacting or interrupting its running work. Its commit headline says 20 accepted, while 11 clip IDs were genuinely new to this checkout (nine were already present). Imported only those 11 originals, preserving every existing clip/hash.
+- Funny streamer pack: 132 clips total (20 female, 34 male, 78 funny), 4,062,697 bytes. The new recordings are enabled only for their matching events: one capture, a drawn rematch, new bout, actual champion change, quarter-final entry, season rollover, and human-match result. A real event line now takes priority over a generic CTA; the CTA remains the fallback. Existing defaults, voice selection, cooldowns, sound gating and offline cache behavior remain intact.
+- Checkpoint `e92f935` was pushed to the release branch (`main`) and Vercel reports deployment success. Production `https://drafti-afrika.vercel.app/` returns HTTP 200 and exactly matches the built 14,287,840-byte `web/index.html` (SHA-256 `db5d106c944767af2ce50b09c209f276ec745e2a57c4fa919afe2de302ff0ac0`). The live streamer manifest contains 132 entries; all 11 new audio URLs return successfully and match their local SHA-256 hashes (265,614 audio bytes).
+- Verification passed: streamer engagement, authenticity, modes and time cadence; offline install and installed-update-cycle checks; Node/Python build parity (`14,287,840` identical bytes, SHA-256 above). No new visual acceptance was claimed because in-app browser control is disabled in Work settings.
+- This is a streamer-vocabulary checkpoint only; the full `docs/DRAFTI_MASTER_PROMPT.md` acceptance plan remains open. Z.AI's separate vocabulary branch and its ongoing work were left untouched.
+
 ## Authoritative checkpoint — 2026-11-05
 
 - Contrast gap remains open: the current 21-theme conservative palette audit records 307/588 samples below 3:1. This is source-palette evidence, not rendered-material proof. Keep theme identities intact; inspect actual rendered contrast before selecting a correction. The in-app CUA browser was disabled in Work settings during this turn, so no new rendered visual acceptance was claimed.
