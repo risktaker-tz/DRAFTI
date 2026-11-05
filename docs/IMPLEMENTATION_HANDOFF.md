@@ -349,3 +349,7 @@ The owner reiterated that completed checkers games have only two outcomes: a win
 ### Sound bank integrity replay
 
 Re-ran `scripts/sound_integrity_audit.js` against this exact source tree on 2026-11-05 and saved its output as `docs/audio-integrity-replay-20261105.json`. All 544 embedded clips pass the current size, duration, sample-rate, channel-count, and bitrate limits. All 338 statically resolved playback IDs are present (including optional original assets); all 19 automatic event families and four owner reaction families resolve; no unresolved sound expressions or missing owner IDs remain. This is static reference/asset evidence only; full listening acceptance across computer, two-player, and arena matches remains open.
+
+### Public artifact parity and local preview
+
+On 2026-11-05, the built-in browser preview at `http://127.0.0.1:8080/`, Vercel production, GitHub Pages, and the checked-in `web/index.html` were compared. Both public endpoints returned HTTP 200, 14,292,307 bytes, and SHA-256 `78ec93be68687486365cf078ecd0b2c2a907350a609b8d7cdf18f561f2351929`, exactly matching the local artifact. Evidence: `docs/live-artifact-parity-20261105.json`. Recent checkpoints after this runtime artifact are docs/tests only; no deployment was required.

@@ -1,0 +1,22 @@
+{
+  "verifiedAt": "2026-11-05",
+  "artifact": "web/index.html",
+  "bytes": 14292307,
+  "sha256": "78ec93be68687486365cf078ecd0b2c2a907350a609b8d7cdf18f561f2351929",
+  "endpoints": [
+    {
+      "url": "https://drafti-afrika.vercel.app/",
+      "status": 200,
+      "bytes": 14292307,
+      "sha256": "78ec93be68687486365cf078ecd0b2c2a907350a609b8d7cdf18f561f2351929"
+    },
+    {
+      "url": "https://risktaker-tz.github.io/DRAFTI/web/index.html",
+      "status": 200,
+      "bytes": 14292307,
+      "sha256": "78ec93be68687486365cf078ecd0b2c2a907350a609b8d7cdf18f561f2351929"
+    }
+  ],
+  "result": "Both published copies exactly match the checked-in single-file app",
+  "note": "The current checkpoints since the last runtime artifact contain documentation and test evidence only."
+}
