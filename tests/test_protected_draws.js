@@ -1,6 +1,8 @@
 'use strict';
 const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('assert/strict');
 const ui=fs.readFileSync(path.join(__dirname,'../src/ui.js'),'utf8'),c={IVORY:1,EBONY:-1,Date:{now:()=>0}};vm.createContext(c);
+const playerFacing=[ui,fs.readFileSync(path.join(__dirname,'../src/index.template.html'),'utf8'),fs.readFileSync(path.join(__dirname,'../src/styles.css'),'utf8')].join('\n');
+assert(!/\bunresolved\b/i.test(playerFacing),'The player-facing app must present only ordinary win/draw outcomes');
 vm.runInContext(fs.readFileSync(path.join(__dirname,'../src/engine.js'),'utf8')+'this.E=makeEngine();',c);
 vm.runInContext(ui.slice(ui.indexOf('  function lowMaterialLimit('),ui.indexOf('  function setOver(')),c);
 const position=entries=>{const b=new Int8Array(64);for(const [sq,code]of entries)b[sq]=code;return b;};
@@ -28,4 +30,7 @@ calls=[];Object.assign(c.G,{board:close,side:1,noProg:0,history:quiet(close,2),l
 c.checkGameEnd();assert.equal(calls.length,0,'A real winning capture keeps play alive after the countdown reaches zero');
 calls=[];let time=0;c.Date.now=()=>time+=100;c.possibleWinWithinMoves.cache.clear();
 c.checkGameEnd();assert.equal(calls.length,0,'A genuinely exhausted proof budget conservatively keeps the real game alive');
-console.log('PASS uncrowned-side protection, thresholds, countdown expiry adjudication, real three-turn win preservation, proof-timeout safety and guarded official draw paths');
+calls=[];Object.assign(c.G,{side:1,legal:[]});c.checkGameEnd();
+assert.deepEqual(calls.map(result=>result.winner),[-1],'A terminal position with no legal moves records the opponent as the winner');
+assert(calls.every(result=>result.winner===null||result.winner===c.IVORY||result.winner===c.EBONY),'Every completed game is exactly a draw or a win for one side');
+console.log('PASS win/draw-only terminal outcomes, no unresolved player-facing state, uncrowned-side protection, thresholds, countdown expiry adjudication, real three-turn win preservation, proof-timeout safety and guarded official draw paths');
