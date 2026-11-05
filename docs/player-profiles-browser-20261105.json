@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-05",
+  "baseUrl": "http://127.0.0.1:8080/",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "method": "Isolated Chromium browser using production UI controls",
+  "checks": {
+    "initialProfile": "Uhakika",
+    "create": "PASS: Added QA Guest through Add player",
+    "switch": "PASS: Switched between Uhakika and QA Guest; displayed player name updated",
+    "reset": "PASS: Reset QA Guest league through confirmation dialog; profile remained available",
+    "mobileLayout": "PASS: body scroll width 390px at 390px viewport; profile controls visible in menu",
+    "restore": "PASS: Isolated browser storage restored to original Uhakika-only profile after checks",
+    "consoleErrors": []
+  },
+  "warnings": [
+    "Chromium autoplay warnings during untrusted scripted gestures; no page errors"
+  ],
+  "limitations": [
+    "Browser profile is isolated and headless; physical OS-shell installation is a separate open acceptance item"
+  ],
+  "screenshot": "docs/player-profiles-mobile-qa-viewport.png"
+}
