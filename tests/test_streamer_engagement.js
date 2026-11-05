@@ -6,7 +6,7 @@ let now=1000;const played=[];
 const c={settings:{streamer:'female',sound:true,sfx:{voice:true}},drawerOpen:false,document:{hidden:false},
   FX:{ctx:null},
   G:{history:[{move:{caps:[],promotes:false}}],lastMoveAt:1000,phase:'idle',mode:'ai',humanSide:1,over:false},
-  performance:{now:()=>now},Date:class{getHours(){return 20;}},Math:{random:()=>0},
+  performance:{now:()=>now},Date:class{getHours(){return 20;}},Math:{random:()=>0,abs:Math.abs},
   SFX_BANK:{defs:bank.DRAFTI_SFX,buffers:new Map(Object.keys(bank.DRAFTI_SFX).map(k=>[k,{}])),sceneLockUntil:0,activeSources:new Map(),
     play(id,opts){played.push({id,opts});return {};}}};
 vm.createContext(c);vm.runInContext(ui.slice(ui.indexOf('  const STREAMER ='),ui.indexOf('  function flashLabel('))+'this.S=STREAMER;',c);
@@ -55,7 +55,7 @@ async function checkVocabulary() {
   assert.equal(played.length, before, 'Loading vocabulary does not start speech');
   const activeRoles = new Set(['session_open', 'new_bout', 'rematch_draw', 'season_advance',
     'capture1', 'capture2', 'capture3plus', 'new_king', 'new_challenger', 'stage_quarter',
-    'stage_semi', 'stage_final', 'win', 'after_loss', 'trap']);
+    'stage_semi', 'stage_final', 'win', 'after_loss', 'trap', 'pressure', 'turnaround']);
   assert.equal(fetched.length, 1 + manifest.filter(clip => clip.mode === 'funny' && activeRoles.has(clip.role)).length,
     'Only approved event roles are downloaded for the selected voice');
   for (const [role, source] of Object.entries({capture: 'capture1', feast: 'capture2', capture_chain: 'capture3plus', crowning: 'new_king'})) {
@@ -98,9 +98,40 @@ async function checkVocabulary() {
     'The verified trap-set line is available only to the existing engine trap event');
   assert(S.extraPools.funny.trap_set.includes('sj2_067') && S.extraPools.funny.trap_spring.includes('sj2_069'),
     'Funny trap narration stays separated between setting a real trap and seeing it spring');
-  assert(!S.extraPools.female?.turnaround && !S.extraPools.male?.turnaround &&
-    !S.extraPools.female?.pressure && !S.extraPools.male?.pressure,
-    'Unimplemented material-state narration remains withheld until precise engine event gates exist');
+  assert(S.extraPools.female.pressure.includes('sf2_058') && S.extraPools.male.pressure.includes('sm2_058') &&
+    S.extraPools.funny.pressure.includes('sj2_058'), 'Every voice has material-pressure lines');
+  assert(S.extraPools.female.turnaround.includes('sf2_063') && S.extraPools.funny.turnaround.includes('sj2_063') &&
+    !S.extraPools.male.turnaround, 'Turnaround lines are limited to voices with accepted recordings');
+  assert.deepEqual(S.materialShift({boardBefore:[2,1,1,-2,-1]},[2,1,-2,-1,-1]),
+    {turnaround:true,pressure:false}, 'Only a real change from a lead to a deficit is a turnaround');
+  assert.deepEqual(S.materialShift({boardBefore:[1,1,-1,-1]},[1,0,-1,-1]),
+    {turnaround:false,pressure:true}, 'New pressure is measured from the committed before/after boards');
+  assert.deepEqual(S.materialShift({boardBefore:[2,1,1,1,-2]},[2,1,1,0,-2]),
+    {turnaround:false,pressure:false}, 'A shrinking material lead is not announced as pressure');
+  assert.equal(S.materialShift({boardBefore:[1,1]},[1]),null,
+    'Incomplete board evidence cannot trigger material commentary');
+  const originalSay = S.say;
+  function observeMaterial(beforeBoard, afterBoard, speaks) {
+    const heard = [];
+    c.settings.streamer = 'female';
+    c.G.mode = 'ai'; c.G.over = false; c.G.result = null; c.G.phase = 'idle';
+    c.G.history = [{move:{caps:[0],promotes:false},boardBefore:beforeBoard}];
+    c.G.board = afterBoard; c.G.lastMoveAt = c.performance.now() - 1000;
+    S.joinedMidgame = true; S.sessionOpened = true; S.opened = true; S.observedPly = -1;
+    S.lastSpokeAt = -Infinity; S.busyUntil = 0;
+    S.say = role => { heard.push(role); return role === speaks; };
+    S.pulse();
+    return heard;
+  }
+  assert.deepEqual(observeMaterial([2,1,1,-2,-1],[2,1,-2,-1,-1],'turnaround'),['turnaround'],
+    'A real lead reversal takes priority over generic capture commentary');
+  const pressureHeard = observeMaterial([1,1,-1,-1],[1,0,-1,-1],'pressure');
+  assert.deepEqual(pressureHeard,['capture','pressure'],
+    'A newly verified material deficit can use a pressure line when no capture line plays: '+JSON.stringify(pressureHeard));
+  const reducedLeadHeard = observeMaterial([2,1,1,1,-2],[2,1,1,0,-2],'pressure');
+  assert.deepEqual(reducedLeadHeard,['capture','cta'],
+    'A reduced lead never reaches pressure narration: '+JSON.stringify(reducedLeadHeard));
+  S.say = originalSay;
   const say = S.say;
   const roles = [];
   S.say = role => { roles.push(role); return role === 'next_rematch'; };

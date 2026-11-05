@@ -1,6 +1,6 @@
 # Streamer pack credits
 
-The recordings in this checkpoint are **original in-house generation** — no third-party audio,
+All accepted streamer recordings in this pack are **original in-house generation** — no third-party audio,
 no cloned performers, no runtime SpeechSynthesis.
 
 - **Female streamer**: z-ai neural voice profile **tongtong** — the same profile as
@@ -20,8 +20,5 @@ no cloned performers, no runtime SpeechSynthesis.
   MP3 56 kbps) plus 10 ms fades applied by `scripts/streamer-vocabulary/generate.py`.
 - Authoring: sentence text written for this pack by zacharia
   (zachariafx@gmail.com); humor comes from wording only, no copyrighted
-  catchphrases. Manifest schema `drafti-streamer-pack/1`, 163 clips,
-  4870969 bytes after importing Z.AI commits `32adce2`, `9cf69ca` and
-  `4c963d4` (2026-11-05). The eight newly accepted `clean_move` clips remain
-  in the pack but are not loaded at runtime until an engine-verified quality
-  gate can select them precisely.
+  catchphrases. Manifest schema `drafti-streamer-pack/1`, 206 clips,
+  5934108 bytes at last build (2026-11-05T08:00:46Z).

@@ -10,7 +10,9 @@ assert.equal(c.lowMaterialLimit(two),2);assert.equal(c.lowMaterialLimit(three),1
 assert.equal(c.lowMaterialLimit([2,1,-1,-1]),0,'A surviving uncrowned side must still have the chance to crown or be beaten');
 assert.equal(c.lowMaterialLimit([1,1,-2,-1]),0,'Both sides need a king before the rapid countdown can begin');
 assert.equal(c.lowMaterialLimit([1,1,1,-2,-1,-1]),0,'Three-piece countdown requires kings on both sides');
-assert.equal(c.lowMaterialLimit([2,1,1,1,-2]),10,'The other side need not also be down to three pieces');
+assert.equal(c.lowMaterialLimit([2,1,1,-2]),10,'A three-piece side and a smaller crowned opponent begin the ten-move countdown');
+assert.equal(c.lowMaterialLimit([2,1,1,1,-2]),0,'Four pieces on either side keep the game alive');
+assert.equal(c.lowMaterialLimit([2,1,1,1,-2,-1,-1]),0,'The countdown stays off when either side has more than three pieces');
 assert.equal(c.lowMaterialLimit([2,1,1,1,-2,-1,-1,-1]),0,'Neither side has reached the endgame threshold');
 assert.equal(c.lowMaterialLimit([2]),0,'A win has priority');
 assert.equal(c.lowMaterialCountdown(two,quiet(two,1),[]).remaining,1);

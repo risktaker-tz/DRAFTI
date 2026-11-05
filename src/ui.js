@@ -2542,6 +2542,7 @@ function createSoundAudit(capacity = 12000) {
       }).then(async clips => {
         const roles = { session_open: 'greeting', capture1: 'capture',
           capture2: 'feast', capture3plus: 'capture_chain', new_king: 'crowning',
+          pressure: 'pressure', turnaround: 'turnaround',
           new_bout: 'next_bout', rematch_draw: 'next_rematch', season_advance: 'next_season',
           new_challenger: 'upset', stage_quarter: 'stage_quarter', stage_semi: 'stage_semi',
           stage_final: 'stage_final', win: 'victory', after_loss: 'defeat' };
@@ -2571,6 +2572,8 @@ function createSoundAudit(capacity = 12000) {
       capture:     { chance: .8, cooldown: 16000,  perGame: 8 },
       feast:       { chance: 1,  cooldown: 20000,  perGame: 5 },
       capture_chain: { chance: 1, cooldown: 20000, perGame: 5 },
+      pressure: { chance: .35, cooldown: 90000, perGame: 2 },
+      turnaround: { chance: .45, cooldown: 90000, perGame: 1 },
       next_bout:    { chance: 1, cooldown: 30000, perGame: 1 },
       next_rematch: { chance: 1, cooldown: 30000, perGame: 1 },
       next_season:  { chance: 1, cooldown: 30000, perGame: 1 },
@@ -2664,15 +2667,32 @@ function createSoundAudit(capacity = 12000) {
       const move = G.history.at(-1).move;
       if (this.observedPly !== G.history.length && now - (G.lastMoveAt || 0) < 5000) {
         this.observedPly = G.history.length;
+        const material = this.materialShift(G.history.at(-1), G.board);
+        // A real lead reversal outranks generic capture praise. The comparison
+        // uses the committed before/after boards, never move-quality labels.
+        if (material?.turnaround && this.say('turnaround')) return;
         // The recorded "double capture" must never describe three or more.
         if (move.caps.length === 2 && this.say('feast')) return;
         if (move.caps.length >= 3 && this.say('capture_chain')) return;
         if (move.caps.length === 1 && this.say('capture')) return;
+        if (material?.pressure && this.say('pressure')) return;
         if (move.promotes && this.say('crowning')) return;
       }
       if (quiet < 22000) return;
       if (G.phase === 'thinking' && this.say('long_think')) return;
       if (now - (this.at.get('cta') ?? -Infinity) >= 90000) this.say('cta');
+    },
+    materialShift(entry, currentBoard) {
+      const before = entry?.boardBefore;
+      if (!Array.isArray(before) || !Array.isArray(currentBoard) || before.length !== currentBoard.length) return null;
+      const edge = board => {
+        let positive = 0, negative = 0;
+        for (const piece of board) { if (piece > 0) positive++; else if (piece < 0) negative++; }
+        return positive - negative;
+      };
+      const previous = edge(before), current = edge(currentBoard);
+      return { turnaround: previous * current < 0,
+        pressure: current !== 0 && Math.abs(current) > Math.abs(previous) };
     },
     intermission(role) {
       // A ceremony owns its full original recording. Use the free space after
