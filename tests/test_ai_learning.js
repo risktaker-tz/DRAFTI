@@ -32,9 +32,15 @@ assert.equal(c.chooseRememberedMove(cycleResult,legal,'l10').path.join(),legal[0
 c.G.repMap.clear();
 // The escape check must follow whichever rules and board size are active;
 // do not assume a fixed initial piece count or square count.
+let rulesetCoverage=0;
 for (const activeRules of Object.values(E.RULESETS)) {
   const activeBoard=E.setupBoard(activeRules),activeLegal=E.legalMoves(activeRules,activeBoard,1);
   if (activeLegal.length<2) continue;
+  const expectedPieces=activeRules.pieceRows*activeRules.n/2;
+  assert.equal(activeBoard.filter(piece=>piece===1).length,expectedPieces,
+    `${activeRules.id}: ivory piece count follows the selected board rules`);
+  assert.equal(activeBoard.filter(piece=>piece===-1).length,expectedPieces,
+    `${activeRules.id}: ebony piece count follows the selected board rules`);
   c.G.rs=activeRules;c.G.rsId=activeRules.id;c.G.board=activeBoard;c.G.side=1;c.G.repMap=new Map();
   const repeatedKey=c.posKey(E.applyMove(activeRules,activeBoard,activeLegal[0],1),-1);
   c.G.repMap.set(repeatedKey,1);
@@ -46,7 +52,10 @@ for (const activeRules of Object.values(E.RULESETS)) {
   assert.notEqual(escaped.path.join(),activeLegal[0].path.join(),
     `${activeRules.id}: avoids a repeated route using the selected rules`);
   assert.equal(repeated(escaped),0,`${activeRules.id}: chosen route is a fresh result position`);
+  rulesetCoverage++;
 }
+assert.equal(rulesetCoverage,Object.keys(E.RULESETS).length,
+  'Every selectable ruleset and board size receives loop-escape coverage');
 c.G.rs=rs;c.G.rsId=rs.id;c.G.board=E.setupBoard(rs);c.G.side=1;c.G.repMap.clear();
 const position=c.position(rs.id,c.G.board,1),route=c.route(legal[0],1,c.G.board.length);
 assert(!c.mistakeMemory.remember('nation:TZ',position,route,{delta:500,depth:6,onlyMove:true}),'Forced moves are not mistakes');
@@ -64,4 +73,4 @@ assert.equal(c.route({path:legal[0].path.map(i=>c.G.board.length-1-i)},-1,c.G.bo
 for(let i=0;i<600;i++)c.mistakeMemory.remember('nation:KE','position'+i,'route'+i,{delta:200,depth:4});
 assert.equal(c.mistakeMemory.count(),512,'Memory remains bounded');
 assert(!c.createMistakeMemory({schema:2}).remember('x','p','r',{delta:300,depth:4}),'Unknown future learning schema is protected');
-console.log('AI learning and cycle escape passed: verified mistakes, persisted country-neutral lessons, bounded memory, near-equal repetition escapes and stronger-route protection');
+console.log(`AI learning and cycle escape passed: ${rulesetCoverage} rulesets and their piece counts, verified mistakes, persisted country-neutral lessons, bounded memory, near-equal repetition escapes and stronger-route protection`);
