@@ -187,7 +187,7 @@ FEMALE = [
     ('sf2_096', 'like_share_follow', "Share this live with someone who loves checkers!", P_CTA, 'any', None, 'positive'),
     ('sf2_097', 'intermission', "While we reset — which move impressed you most?", P_INTER, 'any', None, 'playful'),
     ('sf2_098', 'intermission', "Quick pause between bouts — tap that follow!", P_INTER, 'any', None, 'positive'),
-    ('sf2_099', 'intermission', "Next bout coming — stretch, breathe, stay with me!", P_INTER, 'any', None, 'positive'),
+    ('sf2_099', 'intermission', "Next bout soon, stay close!", P_INTER, 'any', None, 'positive'),
     ('sf2_100', 'intermission', "Between bouts, the story continues — more ahead!", P_INTER, 'any', None, 'positive'),
 ]
 
@@ -294,7 +294,7 @@ MALE = [
     ('sm2_096', 'like_share_follow', "Enjoying the coverage? A share goes a long way!", P_CTA, 'any', None, 'positive'),
     ('sm2_097', 'intermission', "Table reset in progress — which move stood out? Comments!", P_INTER, 'any', None, 'playful'),
     ('sm2_098', 'intermission', "A short break between bouts — perfect moment to follow!", P_INTER, 'any', None, 'positive'),
-    ('sm2_099', 'intermission', "Next bout arrives shortly — stay with me, folks!", P_INTER, 'any', None, 'positive'),
+    ('sm2_099', 'intermission', "Stay with me, folks!", P_INTER, 'any', None, 'positive'),
     ('sm2_100', 'intermission', "While the ceremony settles — more checkers coming up!", P_INTER, 'any', None, 'positive'),
 ]
 

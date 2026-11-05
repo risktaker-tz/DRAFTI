@@ -90,24 +90,24 @@ backed by an accepted MP3 in `audio/` with verified duration/peak/hash in
 | `sf2_080` | draw | A draw! After all that, honors shared. | official draw | — | accepted {"seconds": 2.7245, "bytes": 19791} |
 | `sf2_081` | draw | Neither side gives an inch — ends level! | official draw | — | accepted {"seconds": 3.3235, "bytes": 23997} |
 | `sf2_082` | draw | Hard-fought and split — a fair draw. | official draw | — | accepted {"seconds": 2.9259, "bytes": 21254} |
-| `sf2_083` | quiet_engagement | A quiet moment — enjoy the craft, everyone. | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sf2_084` | quiet_engagement | Moments like this are why we love checkers. | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sf2_085` | quiet_engagement | Good morning, checkers family — coffee and classics! | no tactical claim; live play continues; eligible idle direct | 05-11 | pending |
-| `sf2_086` | quiet_engagement | Take it in, folks — quiet moves win games. | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sf2_087` | quiet_engagement | Nothing flashy — just two minds at work. | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sf2_088` | comment_prompt | What would you play there? Comments below! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sf2_089` | comment_prompt | Which side looks better? Drop your read below! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sf2_090` | comment_prompt | Comment your favorite moment of this match! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sf2_091` | comment_prompt | If it were your board — what's next? Comments! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sf2_092` | like_share_follow | Make sure you like this stream — it helps! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sf2_093` | like_share_follow | Enjoying the coverage? Share the live! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sf2_094` | like_share_follow | Hit follow — never miss the next session! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sf2_095` | like_share_follow | One tap on like keeps the stream strong! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sf2_096` | like_share_follow | Share this live with someone who loves checkers! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sf2_097` | intermission | While we reset — which move impressed you most? | post-retirement speech finished and ceremony ownership relea | — | pending |
-| `sf2_098` | intermission | Quick pause between bouts — tap that follow! | post-retirement speech finished and ceremony ownership relea | — | pending |
-| `sf2_099` | intermission | Next bout coming — stretch, breathe, stay with me! | post-retirement speech finished and ceremony ownership relea | — | pending |
-| `sf2_100` | intermission | Between bouts, the story continues — more ahead! | post-retirement speech finished and ceremony ownership relea | — | pending |
+| `sf2_083` | quiet_engagement | A quiet moment — enjoy the craft, everyone. | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 3.5074, "bytes": 25277} |
+| `sf2_084` | quiet_engagement | Moments like this are why we love checkers. | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 3.1365, "bytes": 22717} |
+| `sf2_085` | quiet_engagement | Good morning, checkers family — coffee and classics! | no tactical claim; live play continues; eligible idle direct | 05-11 | accepted {"seconds": 5.4479, "bytes": 38808} |
+| `sf2_086` | quiet_engagement | Take it in, folks — quiet moves win games. | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 5.226, "bytes": 37346} |
+| `sf2_087` | quiet_engagement | Nothing flashy — just two minds at work. | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 2.9147, "bytes": 21071} |
+| `sf2_088` | comment_prompt | What would you play there? Comments below! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 2.6135, "bytes": 19060} |
+| `sf2_089` | comment_prompt | Which side looks better? Drop your read below! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 4.5127, "bytes": 32226} |
+| `sf2_090` | comment_prompt | Comment your favorite moment of this match! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 2.9456, "bytes": 21254} |
+| `sf2_091` | comment_prompt | If it were your board — what's next? Comments! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 3.7303, "bytes": 26740} |
+| `sf2_092` | like_share_follow | Make sure you like this stream — it helps! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 4.3966, "bytes": 31494} |
+| `sf2_093` | like_share_follow | Enjoying the coverage? Share the live! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 3.0734, "bytes": 22168} |
+| `sf2_094` | like_share_follow | Hit follow — never miss the next session! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 4.993, "bytes": 35700} |
+| `sf2_095` | like_share_follow | One tap on like keeps the stream strong! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 4.202, "bytes": 30031} |
+| `sf2_096` | like_share_follow | Share this live with someone who loves checkers! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 4.0061, "bytes": 28751} |
+| `sf2_097` | intermission | While we reset — which move impressed you most? | post-retirement speech finished and ceremony ownership relea | — | accepted {"seconds": 4.6905, "bytes": 33506} |
+| `sf2_098` | intermission | Quick pause between bouts — tap that follow! | post-retirement speech finished and ceremony ownership relea | — | accepted {"seconds": 3.3828, "bytes": 24363} |
+| `sf2_099` | intermission | Next bout soon, stay close! | post-retirement speech finished and ceremony ownership relea | — | accepted {"seconds": 2.9673, "bytes": 21437} |
+| `sf2_100` | intermission | Between bouts, the story continues — more ahead! | post-retirement speech finished and ceremony ownership relea | — | accepted {"seconds": 4.5698, "bytes": 32591} |
 
 ## Male (jam)
 
@@ -197,10 +197,10 @@ backed by an accepted MP3 in `audio/` with verified duration/peak/hash in
 | `sm2_082` | draw | It ends level — a draw both earned. | official draw | — | accepted {"seconds": 2.4473, "bytes": 17780} |
 | `sm2_083` | quiet_engagement | A calm spell — savor the technique, everyone. | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 4.084, "bytes": 29300} |
 | `sm2_084` | quiet_engagement | Quiet moves carry the real weight of a game. | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 3.0704, "bytes": 22168} |
-| `sm2_085` | quiet_engagement | A calm evening of checkers — just right! | no tactical claim; live play continues; eligible idle direct | 17-22 | failed |
-| `sm2_086` | quiet_engagement | No fireworks here — deep, honest play. | no tactical claim; live play continues; eligible idle direct | — | failed |
-| `sm2_087` | quiet_engagement | Watch the thinking — games are shaped here. | no tactical claim; live play continues; eligible idle direct | — | failed |
-| `sm2_088` | comment_prompt | Your move, folks — what would you play? Comments! | no tactical claim; live play continues; eligible idle direct | — | failed |
+| `sm2_085` | quiet_engagement | A calm evening of checkers — just right! | no tactical claim; live play continues; eligible idle direct | 17-22 | accepted {"seconds": 3.1449, "bytes": 22717} |
+| `sm2_086` | quiet_engagement | No fireworks here — deep, honest play. | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 4.8588, "bytes": 34786} |
+| `sm2_087` | quiet_engagement | Watch the thinking — games are shaped here. | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 3.5049, "bytes": 25277} |
+| `sm2_088` | comment_prompt | Your move, folks — what would you play? Comments! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 5.7611, "bytes": 41003} |
 | `sm2_089` | comment_prompt | Which side do you favor? Tell me below! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 3.4961, "bytes": 25094} |
 | `sm2_090` | comment_prompt | Rate that exchange in the comments — good call? | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 4.2463, "bytes": 30397} |
 | `sm2_091` | comment_prompt | Guess the next big moment — drop it below! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 3.6706, "bytes": 26374} |
@@ -211,7 +211,7 @@ backed by an accepted MP3 in `audio/` with verified duration/peak/hash in
 | `sm2_096` | like_share_follow | Enjoying the coverage? A share goes a long way! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 4.0307, "bytes": 28934} |
 | `sm2_097` | intermission | Table reset in progress — which move stood out? Comments! | post-retirement speech finished and ceremony ownership relea | — | accepted {"seconds": 4.8147, "bytes": 34420} |
 | `sm2_098` | intermission | A short break between bouts — perfect moment to follow! | post-retirement speech finished and ceremony ownership relea | — | accepted {"seconds": 5.6049, "bytes": 39906} |
-| `sm2_099` | intermission | Next bout arrives shortly — stay with me, folks! | post-retirement speech finished and ceremony ownership relea | — | failed |
+| `sm2_099` | intermission | Stay with me, folks! | post-retirement speech finished and ceremony ownership relea | — | accepted {"seconds": 2.8271, "bytes": 20523} |
 | `sm2_100` | intermission | While the ceremony settles — more checkers coming up! | post-retirement speech finished and ceremony ownership relea | — | accepted {"seconds": 4.7363, "bytes": 33871} |
 
 ## Funny (kazi persona)
@@ -308,7 +308,7 @@ backed by an accepted MP3 in `audio/` with verified duration/peak/hash in
 | `sj2_088` | comment_prompt | Brave answers below! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 3.3259, "bytes": 23997} |
 | `sj2_089` | comment_prompt | First try, promise! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 3.2165, "bytes": 23266} |
 | `sj2_090` | comment_prompt | Bragging rights await! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 2.4764, "bytes": 17963} |
-| `sj2_091` | comment_prompt | The board listens. Probably! | no tactical claim; live play continues; eligible idle direct | — | failed |
+| `sj2_091` | comment_prompt | The board listens. Probably! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 2.6044, "bytes": 18877} |
 | `sj2_092` | like_share_follow | Tap like, gently! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 2.56, "bytes": 18694} |
 | `sj2_093` | like_share_follow | Friends deserve checkers! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 3.2156, "bytes": 23266} |
 | `sj2_094` | like_share_follow | Follow. Board happy! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 3.2189, "bytes": 23266} |
