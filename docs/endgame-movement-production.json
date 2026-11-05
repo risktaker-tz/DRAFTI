@@ -1,0 +1,24 @@
+{
+  "commit": "c2a33017b0eea70702822011cdb151c6511fd2b9",
+  "deployment": "Git-connected production deployment verified by public artifact hash",
+  "verifiedAt": "2026-11-05T05:01:32.091Z",
+  "hosts": {
+    "vercel": {
+      "url": "https://drafti-afrika.vercel.app/",
+      "status": 200,
+      "bytes": 14284897,
+      "sha256": "307d4e34998392529eea56d8513cd749119c8bda78c4a3fdb8bd2feb75b86431"
+    },
+    "githubPages": {
+      "url": "https://risktaker-tz.github.io/DRAFTI/web/",
+      "status": 200,
+      "bytes": 14284897,
+      "sha256": "307d4e34998392529eea56d8513cd749119c8bda78c4a3fdb8bd2feb75b86431"
+    }
+  },
+  "tests": {
+    "protectedDraws": "pass: both sides kinged, both sides <=3 for 10-turn threshold; >3 blocks automatic draw; <=2 retains two-turn rule; real three-turn continuation protection",
+    "movement": "pass: seven speeds and within-capture speed changes; CSS movement duration equals full hop interval"
+  },
+  "scope": "Any side with four or more total pieces blocks automatic draw, including repetition/inactivity. Movement now uses the entire selected hop interval, avoiding a pause at each landing. Search accuracy and sound/effect triggers unchanged."
+}
