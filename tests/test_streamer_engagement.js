@@ -10,7 +10,10 @@ const c={settings:{streamer:'female',sound:true,sfx:{voice:true}},drawerOpen:fal
   SFX_BANK:{defs:bank.DRAFTI_SFX,buffers:new Map(Object.keys(bank.DRAFTI_SFX).map(k=>[k,{}])),sceneLockUntil:0,activeSources:new Map(),
     play(id,opts){played.push({id,opts});return {};}}};
 vm.createContext(c);vm.runInContext(ui.slice(ui.indexOf('  const STREAMER ='),ui.indexOf('  function flashLabel('))+'this.S=STREAMER;',c);
-const S=c.S;S.reset();
+const S=c.S;S.extraPools.female={quiet_engagement:['sf2_083'],comment_prompt:['sf2_088'],like_share_follow:['sf2_092'],intermission:['sf2_097']};
+for(const id of ['sf2_083','sf2_088','sf2_092','sf2_097'])c.SFX_BANK.defs[id]={durationSec:2,b:'DRAFTI line'};
+for(const id of ['sf2_083','sf2_088','sf2_092','sf2_097'])c.SFX_BANK.buffers.set(id,{});
+S.reset();
 const openingTimers=[], openingPlayed=[];
 const openingContext={gameEpoch:1,drawerOpen:false,greeter:{intro:'fixture_intro'},
   G:{mode:'ai',over:false,history:[]},Math:{random:()=>0},
@@ -27,11 +30,14 @@ c.SFX_BANK.activeSources.set(1,{spoken:true});S.pulse();assert.equal(played.leng
 c.SFX_BANK.activeSources.clear();S.pulse();assert(played.at(-1).id.startsWith('sf_greet'),'Opening retries after a competing voice finishes');
 const afterWelcome=played.length;S.reset();S.openGame();assert.equal(played.length,afterWelcome,'New bouts preserve the livestream session instead of saying we are beginning again');
 now+=23000;c.G.phase='thinking';S.pulse();assert.equal(played.at(-1).id,'sf_think');
-now+=23000;c.G.phase='idle';S.pulse();assert(played.at(-1).id.startsWith('sf_cta'));
-const count=played.length;now+=23000;S.pulse();assert.equal(played.length,count,'Quiet routine moves cannot generate false tactical commentary');
+now+=23000;c.G.phase='idle';S.pulse();assert(played.at(-1).id.startsWith('sf2_08'),'A quiet live-play window uses quiet engagement, not a social CTA');
+let count=played.length;now+=23000;S.pulse();assert.equal(played.length,count,'Quiet routine moves cannot generate false tactical commentary');
+now+=67000;S.pulse();assert.equal(played.at(-1).id,'sf2_088','A comment prompt follows only a separate 90-second quiet window');count=played.length;
+now+=90000;S.pulse();assert.equal(played.at(-1).id,'sf2_083','The next idle slot returns to board-focused quiet commentary');
+now+=90000;S.pulse();assert.equal(played.at(-1).id,'sf2_092','Like/share language is reserved for its own later idle slot');count=played.length;
 c.drawerOpen=true;now+=100000;S.pulse();assert.equal(played.length,count,'Settings stay silent');
 c.drawerOpen=false;c.G.aiPaused=true;c.G.mode='aivai';S.pulse();assert.equal(played.length,count,'Paused spectator games stay quiet');
-c.G.aiPaused=false;S.intermission();assert(played.at(-1).id.startsWith('sf_cta'),'Intermission uses engagement, never the stream-ending outro');
+c.G.aiPaused=false;S.intermission();assert(played.at(-1).id.startsWith('sf2_09'),'Intermission uses its exact transition vocabulary, never an idle CTA or stream-ending outro');
 now+=100000;c.SFX_BANK.sceneLockUntil=now+15000;const before=played.length;assert.equal(S.intermission(),false);assert.equal(played.length,before,'Retirement original is protected');
 c.SFX_BANK.sceneLockUntil=0;c.settings.streamer='male';S.reset();S.joinedMidgame=true;c.G.over=false;c.G.phase='thinking';S.pulse();assert.equal(played.at(-1).id,'sm_think','Midgame joins use the selected real voice and present context');
 now+=100000;c.settings.streamer='off';S.pulse();assert.equal(played.at(-1).id,'sm_think');
@@ -70,8 +76,10 @@ async function checkVocabulary() {
   assert(S.extraPools.funny.new_challenger.includes('sj2_009'), 'New-opponent lines have their own transition gate');
   assert(S.extraPools.funny.draw.includes('sj2_080'), 'Draw language is available only to the official draw result');
   assert(S.extraPools.funny.intermission.includes('sj2_097'), 'Between-bout lines have a dedicated intermission pool');
-  assert(S.extraPools.funny.cta.includes('sj2_088') && S.extraPools.funny.cta.includes('sj2_092'),
-    'Quiet engagement and like/comment prompts share the low-frequency idle director');
+  assert(S.extraPools.funny.quiet_engagement.includes('sj2_083') &&
+    S.extraPools.funny.comment_prompt.includes('sj2_088') &&
+    S.extraPools.funny.like_share_follow.includes('sj2_092'),
+    'Quiet talk, comment prompts and like/share prompts keep distinct event pools');
   assert(S.extraPools.funny.victory.includes('sj2_077') && S.extraPools.funny.victory.includes('sj2_078'));
   assert(S.extraPools.funny.next_season.includes('sj2_019'));
   assert(ui.includes("const stageRole = { 1: 'stage_quarter', 2: 'stage_semi', 3: 'stage_final' }[stage]"),
@@ -107,6 +115,14 @@ async function checkVocabulary() {
     S.extraPools.funny.pressure.includes('sj2_058'), 'Every voice has material-pressure lines');
   assert(S.extraPools.female.turnaround.includes('sf2_063') && S.extraPools.male.turnaround.includes('sm2_063') &&
     S.extraPools.funny.turnaround.includes('sj2_063'), 'Each streamer has only its own accepted turnaround recordings');
+  for (const mode of ['female','male','funny']) {
+    for (const [manifestRole, runtimeRole] of [['quiet_engagement','quiet_engagement'],
+      ['comment_prompt','comment_prompt'],['like_share_follow','like_share_follow']]) {
+      const ids=manifest.filter(clip=>clip.mode===mode&&clip.role===manifestRole).map(clip=>clip.id);
+      assert(ids.length>0&&ids.every(id=>S.extraPools[mode][runtimeRole].includes(id)),
+        `${mode} ${manifestRole} vocabulary is heard only in its matching idle role`);
+    }
+  }
   assert.deepEqual(S.materialShift({boardBefore:[2,1,1,-2,-1]},[2,1,-2,-1,-1]),
     {turnaround:true,pressure:false}, 'Only a real change from a lead to a deficit is a turnaround');
   assert.deepEqual(S.materialShift({boardBefore:[1,1,-1,-1]},[1,0,-1,-1]),
@@ -140,7 +156,7 @@ async function checkVocabulary() {
   assert.deepEqual(pressureHeard,['capture','pressure'],
     'A newly verified material deficit can use a pressure line when no capture line plays: '+JSON.stringify(pressureHeard));
   const reducedLeadHeard = observeMaterial([2,1,1,1,-2],[2,1,1,0,-2],'pressure');
-  assert.deepEqual(reducedLeadHeard,['capture','cta'],
+  assert.deepEqual(reducedLeadHeard,['capture','quiet_engagement'],
     'A reduced lead never reaches pressure narration: '+JSON.stringify(reducedLeadHeard));
   S.say = originalSay;
   const say = S.say;
@@ -151,7 +167,7 @@ async function checkVocabulary() {
   roles.length = 0;
   S.say = role => { roles.push(role); return false; };
   assert.equal(S.intermission('next_season'), false);
-  assert.deepEqual(roles, ['next_season', 'intermission', 'cta'], 'Intermission then CTA are fallbacks when no event line is eligible');
+  assert.deepEqual(roles, ['next_season', 'intermission', 'comment_prompt'], 'Intermission falls back only to appropriate between-bout commentary');
   S.say = say;
 }
 checkVocabulary().catch(error => { console.error(error); process.exitCode = 1; });

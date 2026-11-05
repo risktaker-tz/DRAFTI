@@ -1,5 +1,12 @@
 # DRAFTI implementation handoff and full remaining plan
 
+## Current checkpoint — role-accurate streamer language and builder parity — 2026-11-05
+
+- The live 300-clip pack remains intact: 100 clips each for Female, Male and Funny. Tactical, result, crown, stage, season, bout, trap, pressure and turnaround lines remain in their specific event pools. Idle language is now split into quiet board commentary, comment prompts and like/share prompts; it cycles through those purposes only during genuine quiet play, with a 90-second idle interval and longer per-purpose cooldowns for social requests. Intermission fallback uses between-bout language, not generic social or stream-ending copy.
+- Added focused regression checks proving each of the three voice modes routes quiet, comment and social lines only to its matching role, and that the idle sequence observes the quiet interval. Streamer pack integrity, mode exclusivity, authenticity and local-time checks pass.
+- Fixed a reproducibility defect in `build_web.py`: Python serialized integral float metadata as values such as `18.0`, while the Node builder emitted `18`. The Python builder now normalizes integral numbers to match `JSON.stringify`. The reproducibility test passes: both builders emit 14,291,060 identical bytes, SHA-256 `ac57456e1502bdb509f78c905c97908da3febfe79530b73b29afac3806b242f6`.
+- This is a streamer-routing refinement, not completion of the master blueprint. The optional 300-clip vocabulary still uses first-use network fetch and is not proven to work from a standalone `file://` copy or fully offline; that acceptance gate remains open.
+
 ## Latest Z.AI vocabulary follow-up — 2026-11-05 (batch 2)
 
 - Checked pushed Z.AI commit `1fc8c05`; left its branch and worktree untouched. Imported all 43 newly accepted, hash-verified clips while preserving the earlier pack: 65 Female, 63 Male, 78 Funny; 206 total, 5,934,108 audio bytes.

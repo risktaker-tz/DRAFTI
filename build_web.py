@@ -104,8 +104,19 @@ def sync_streamer_vocabulary() -> int:
             raise ValueError(f'streamer per-mode count mismatch: {mode}')
     if manifest.get('totalBytes') != total_bytes:
         raise ValueError('streamer total byte count mismatch')
-    atomic_write(output_root / 'manifest.json', json.dumps(public_clips, ensure_ascii=False, indent=2) + '\n')
+    atomic_write(output_root / 'manifest.json', json.dumps(js_json_compatible(public_clips), ensure_ascii=False, indent=2) + '\n')
     return len(clips)
+
+
+def js_json_compatible(value):
+    """Match JSON.stringify's integer formatting for reproducible web builds."""
+    if isinstance(value, float) and value.is_integer():
+        return int(value)
+    if isinstance(value, list):
+        return [js_json_compatible(item) for item in value]
+    if isinstance(value, dict):
+        return {key: js_json_compatible(item) for key, item in value.items()}
+    return value
 
 
 def atomic_write(target: pathlib.Path, content: str) -> None:

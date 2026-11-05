@@ -2546,7 +2546,8 @@ function createSoundAudit(capacity = 12000) {
           new_bout: 'next_bout', rematch_draw: 'next_rematch', season_advance: 'next_season',
           new_challenger: 'new_challenger', stage_quarter: 'stage_quarter', stage_semi: 'stage_semi',
           stage_final: 'stage_final', win: 'victory', after_loss: 'defeat', draw: 'draw',
-          quiet_engagement: 'cta', comment_prompt: 'cta', like_share_follow: 'cta',
+          quiet_engagement: 'quiet_engagement', comment_prompt: 'comment_prompt',
+          like_share_follow: 'like_share_follow',
           intermission: 'intermission' };
         const pool = this.extraPools[mode] = {};
         for (const clip of clips) {
@@ -2568,7 +2569,10 @@ function createSoundAudit(capacity = 12000) {
     },
     ROLES: {
       greeting:    { chance: 1, cooldown: 20000, perGame: 1 },
-      cta:         { chance: 1, cooldown: 90000, perGame: 4 },
+      cta:         { chance: 1, cooldown: 90000, perGame: 4 }, // legacy role; not used for idle selection
+      quiet_engagement: { chance: 1, cooldown: 90000, perGame: 5 },
+      comment_prompt: { chance: 1, cooldown: 150000, perGame: 2 },
+      like_share_follow: { chance: 1, cooldown: 210000, perGame: 2 },
       praise:      { chance: .3,  cooldown: 60000,  perGame: 3 },
       great:       { chance: .45, cooldown: 90000,  perGame: 2 },
       clean_move:  { chance: 1, cooldown: 45000, perGame: 3 },
@@ -2642,7 +2646,7 @@ function createSoundAudit(capacity = 12000) {
       },
     },
     at: new Map(), count: new Map(), games: 0, busyUntil: 0, lastLine: '', cue: { snd: 'v_nice', dur: 2.5 },
-    lineAt: new Map(),
+    lineAt: new Map(), idleSequence: 0, lastIdleAt: -Infinity,
     joinedMidgame: false,
     sessionOpened: (() => { try { return sessionStorage.getItem('drafti.stream.welcomed.v1') === '1'; } catch { return false; } })(),
     lastSpokeAt: -Infinity, opened: false, observedPly: -1,
@@ -2686,7 +2690,14 @@ function createSoundAudit(capacity = 12000) {
       }
       if (quiet < 22000) return;
       if (G.phase === 'thinking' && this.say('long_think')) return;
-      if (now - (this.at.get('cta') ?? -Infinity) >= 90000) this.say('cta');
+      if (now - this.lastIdleAt < 90000) return;
+      // Keep three idle purposes in separate pools. A line is chosen only
+      // inside its quiet-play window, and social prompts stay infrequent.
+      const idleRoles = ['quiet_engagement', 'comment_prompt', 'quiet_engagement', 'like_share_follow'];
+      if (this.say(idleRoles[this.idleSequence % idleRoles.length])) {
+        this.idleSequence++;
+        this.lastIdleAt = now;
+      }
     },
     materialShift(entry, currentBoard) {
       const before = entry?.boardBefore;
@@ -2704,7 +2715,7 @@ function createSoundAudit(capacity = 12000) {
       // A ceremony owns its full original recording. Use the free space after
       // it for engagement, without falsely announcing the stream has ended.
       if (drawerOpen || document.hidden) return false;
-      return (role ? this.say(role) : false) || this.say('intermission') || this.say('cta');
+      return (role ? this.say(role) : false) || this.say('intermission') || this.say('comment_prompt');
     },
     canPlay(role, opts) {
       if (typeof drawerOpen !== 'undefined' && drawerOpen) return false;
