@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-05",
+  "commit": "3d7b35ce1c3c07641e32207bbae817b097c1fbf2",
+  "branch": "codex/blueprint-release",
+  "deployment": {
+    "platform": "Vercel",
+    "id": "dpl_HjSmCsQjNSJQVufbg3mMfPHrNynL",
+    "state": "READY",
+    "aliases": [
+      "https://drafti-afrika.vercel.app/",
+      "https://drafti-kappa.vercel.app/"
+    ]
+  },
+  "artifact": {
+    "httpStatus": 200,
+    "bytes": 14292855,
+    "sha256": "9AD47E8BA836FEE2F2617C9287A8F306819BFB783FA446AA9FEB83E407CAB62B",
+    "embeddedBuildId": "e78ed80a363367c7edd3469f946940b4e56f4bf1760ba5849aef7a793c48179e",
+    "matchesLocalWebIndex": true
+  },
+  "change": "The low-material draw countdown now distinguishes a genuinely forced win from a line that only wins if the opponent blunders. The adjudication proof does not choose moves or force a result; when proof exceeds its budget, the match remains active and retries. The checkers engine and move evaluation are unchanged.",
+  "verification": [
+    "tests/test_protected_draws.js",
+    "tests/test_arena_sim_resume.js",
+    "tests/test_arena_lifecycle.js",
+    "tests/test_show_gameover_epoch.js",
+    "tests/test_app_updates.js",
+    "tests/test_install_update_cycle.js",
+    "Engine suite: 39,935 passed, 0 failed",
+    "Vercel public artifact HTTP 200 and byte-for-byte SHA-256 match with the local build"
+  ],
+  "notes": [
+    "The 36-bout current-policy fairness simulation is still running and is not represented as complete evidence here.",
+    "GitHub Pages was not checked for this checkpoint."
+  ]
+}

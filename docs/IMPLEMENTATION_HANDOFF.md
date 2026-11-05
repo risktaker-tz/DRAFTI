@@ -374,4 +374,12 @@ Commit `66f13f664af5299eac637656dcb21f228dff4b10` is pushed to `origin/codex/blu
 
 ### Countdown proof correction and fairness-run restart
 
+
 The resumed preliminary D3 run reached 3,630 plies in bout 8 with one king each and the countdown already at zero. The old house-rule guard returned `winningNext` because it found an opponent-blunder line, even though neither side could force a win against legal defense. This explains why a draw countdown could remain at zero in an AI game; it was not evidence of an old browser cache. The guard now uses an adversarial proof, preserving play only when some side can force an actual natural win within its existing horizon. No AI move choice, evaluation, legal-move code, or `src/engine.js` changed. The seven earlier bouts and in-flight checkpoint are preserved as superseded diagnostic evidence; the three-season fairness study must restart from bout 1 under this corrected policy. `tests/test_protected_draws.js` pins forced-win preservation, avoidable-blunder rejection, completed draw expiry and proof-timeout safety. Details: `docs/draw-countdown-minimax-fix-20261105.json`.
+
+### Live checkpoint — 3d7b35c (2026-11-05)
+
+- The low-material countdown correction is deployed to Vercel production. Deployment `dpl_HjSmCsQjNSJQVufbg3mMfPHrNynL` is READY and the `drafti-afrika.vercel.app` alias returns HTTP 200 with the exact local artifact (14,292,855 bytes, SHA-256 `9AD47E8BA836FEE2F2617C9287A8F306819BFB783FA446AA9FEB83E407CAB62B`; embedded build ID `e78ed80a363367c7edd3469f946940b4e56f4bf1760ba5849aef7a793c48179e`). Full evidence: `docs/live-checkpoint-3d7b35c.json`.
+- The fix proves that a side can force a natural win against every legal defense before delaying a draw. It does not change move selection, engine evaluation, legal move generation, or arena scheduling. An exhausted proof budget leaves play active and retries.
+- The fresh 36-bout East Africa 8×8 current-policy simulation is running in `docs/arena-minimax-live-selector-3d7b35c-2026-11-06/`. At this handoff it had completed 9/36 bouts. Do not report its fairness results as final until the run completes and its assertions pass.
+- Remaining major acceptance work: complete the current-policy simulation; rendered E1 contrast/material/effect review (the conservative source audit still flags 307/588 samples below 3:1); complete full D2 listening/playback acceptance; final blueprint requirements audit. Z.ai remains active in its separate checkout; leave its work untouched until the owner reports completion.
