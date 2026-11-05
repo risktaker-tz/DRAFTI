@@ -30,6 +30,24 @@ c.G.repMap=new Map(legal.map(m=>[c.posKey(E.applyMove(rs,c.G.board,m,1),-1),1]))
 assert.equal(c.chooseRememberedMove(cycleResult,legal,'l10').path.join(),legal[0].path.join(),
   'The AI keeps its best move when every legal result repeats');
 c.G.repMap.clear();
+// The escape check must follow whichever rules and board size are active;
+// do not assume a fixed initial piece count or square count.
+for (const activeRules of Object.values(E.RULESETS)) {
+  const activeBoard=E.setupBoard(activeRules),activeLegal=E.legalMoves(activeRules,activeBoard,1);
+  if (activeLegal.length<2) continue;
+  c.G.rs=activeRules;c.G.rsId=activeRules.id;c.G.board=activeBoard;c.G.side=1;c.G.repMap=new Map();
+  const repeatedKey=c.posKey(E.applyMove(activeRules,activeBoard,activeLegal[0],1),-1);
+  c.G.repMap.set(repeatedKey,1);
+  const repeated=move=>c.G.repMap.get(c.posKey(E.applyMove(activeRules,activeBoard,move,1),-1))||0;
+  const result={best:activeLegal[0],depth:6,rootScores:activeLegal.map((m,i)=>({m,score:i===0?100:i===1?70:-1000}))};
+  const escaped=c.chooseCycleEscape(activeLegal[0],result,activeLegal,'l10',repeated);
+  assert(activeLegal.some(m=>m.from===escaped.from&&m.path.join()===escaped.path.join()),
+    `${activeRules.id}: escape remains legal under the selected rules`);
+  assert.notEqual(escaped.path.join(),activeLegal[0].path.join(),
+    `${activeRules.id}: avoids a repeated route using the selected rules`);
+  assert.equal(repeated(escaped),0,`${activeRules.id}: chosen route is a fresh result position`);
+}
+c.G.rs=rs;c.G.rsId=rs.id;c.G.board=E.setupBoard(rs);c.G.side=1;c.G.repMap.clear();
 const position=c.position(rs.id,c.G.board,1),route=c.route(legal[0],1,c.G.board.length);
 assert(!c.mistakeMemory.remember('nation:TZ',position,route,{delta:500,depth:6,onlyMove:true}),'Forced moves are not mistakes');
 assert(!c.mistakeMemory.remember('nation:TZ',position,route,{delta:50,depth:6}));
