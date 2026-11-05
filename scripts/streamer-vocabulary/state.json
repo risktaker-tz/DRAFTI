@@ -271,9 +271,13 @@
    "takes": 1
   },
   "sj2_011": {
-   "error": "Speech with padding is 6.697s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 2
+   "bytes": 25277,
+   "error": null,
+   "lufs": -19.3,
+   "peakDbfs": -2.048,
+   "seconds": 3.5066,
+   "status": "accepted",
+   "takes": 3
   },
   "sj2_012": {
    "bytes": 30397,
@@ -312,9 +316,13 @@
    "takes": 1
   },
   "sj2_016": {
-   "error": "Speech with padding is 6.299s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 2
+   "bytes": 12294,
+   "error": null,
+   "lufs": -19.3,
+   "peakDbfs": -1.613,
+   "seconds": 1.6491,
+   "status": "accepted",
+   "takes": 3
   },
   "sj2_017": {
    "bytes": 33688,
@@ -326,14 +334,22 @@
    "takes": 1
   },
   "sj2_018": {
-   "error": "Speech with padding is 6.673s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 2
+   "bytes": 29483,
+   "error": null,
+   "lufs": -20.3,
+   "peakDbfs": -1.799,
+   "seconds": 4.1218,
+   "status": "accepted",
+   "takes": 3
   },
   "sj2_019": {
-   "error": "Speech with padding is 7.860s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 2
+   "bytes": 20523,
+   "error": null,
+   "lufs": -18.3,
+   "peakDbfs": -1.534,
+   "seconds": 2.845,
+   "status": "accepted",
+   "takes": 3
   },
   "sj2_020": {
    "bytes": 26191,
@@ -354,9 +370,13 @@
    "takes": 1
   },
   "sj2_022": {
-   "error": "Speech with padding is 6.892s, above 6.0s; no speech was cut",
-   "status": "failed",
-   "takes": 2
+   "bytes": 23266,
+   "error": null,
+   "lufs": -15.9,
+   "peakDbfs": -1.626,
+   "seconds": 3.2147,
+   "status": "accepted",
+   "takes": 3
   },
   "sj2_023": {
    "bytes": 40637,
@@ -512,9 +532,13 @@
    "takes": 1
   },
   "sj2_040": {
-   "error": "tts-failed",
-   "status": "failed",
-   "takes": 19
+   "bytes": 30397,
+   "error": null,
+   "lufs": -19.9,
+   "peakDbfs": -1.587,
+   "seconds": 4.2418,
+   "status": "accepted",
+   "takes": 20
   },
   "sj2_041": {
    "bytes": 23266,
@@ -823,24 +847,40 @@
    "takes": 5
   },
   "sj2_075": {
-   "error": "tts-failed",
-   "status": "failed",
-   "takes": 18
+   "bytes": 31860,
+   "error": null,
+   "lufs": -19.3,
+   "peakDbfs": -1.515,
+   "seconds": 4.4615,
+   "status": "accepted",
+   "takes": 19
   },
   "sj2_076": {
-   "error": "tts-failed",
-   "status": "failed",
-   "takes": 18
+   "bytes": 22717,
+   "error": null,
+   "lufs": -16.7,
+   "peakDbfs": -1.519,
+   "seconds": 3.1385,
+   "status": "accepted",
+   "takes": 20
   },
   "sj2_077": {
-   "error": "tts-failed",
-   "status": "failed",
-   "takes": 18
+   "bytes": 18511,
+   "error": null,
+   "lufs": -18.2,
+   "peakDbfs": -1.564,
+   "seconds": 2.5482,
+   "status": "accepted",
+   "takes": 20
   },
   "sj2_078": {
-   "error": "tts-failed",
-   "status": "failed",
-   "takes": 20
+   "bytes": 16500,
+   "error": null,
+   "lufs": -16.7,
+   "peakDbfs": -1.619,
+   "seconds": 2.2602,
+   "status": "accepted",
+   "takes": 22
   },
   "sm2_001": {
    "bytes": 41551,

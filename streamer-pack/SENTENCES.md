@@ -228,18 +228,18 @@ backed by an accepted MP3 in `audio/` with verified duration/peak/hash in
 | `sj2_008` | new_bout | The board said no pressure. It lied! | boutStart while the stream session is already live | — | accepted {"seconds": 4.1434, "bytes": 29666} |
 | `sj2_009` | new_challenger | A new challenger — somebody hide the good moves! | boutStart and the seated pair differs from the previous bout | — | accepted {"seconds": 4.5237, "bytes": 32408} |
 | `sj2_010` | new_challenger | Fresh challenger — the chair is still warm! | boutStart and the seated pair differs from the previous bout | — | accepted {"seconds": 5.8558, "bytes": 41734} |
-| `sj2_011` | new_challenger | Unknown style, maximum chaos! | boutStart and the seated pair differs from the previous bout | — | failed |
+| `sj2_011` | new_challenger | Maximum chaos! | boutStart and the seated pair differs from the previous bout | — | accepted {"seconds": 3.5066, "bytes": 25277} |
 | `sj2_012` | new_challenger | A different challenger — the plot thickens! | boutStart and the seated pair differs from the previous bout | — | accepted {"seconds": 4.2486, "bytes": 30397} |
 | `sj2_013` | rematch_draw | They drew last time — pride is on the menu! | boutStart with the same pair as the previous bout and that b | — | accepted {"seconds": 3.958, "bytes": 28386} |
 | `sj2_014` | rematch_draw | The rematch — same players, extra drama, free! | boutStart with the same pair as the previous bout and that b | — | accepted {"seconds": 5.5941, "bytes": 39906} |
 | `sj2_015` | rematch_draw | Round two — the board remembers everything! | boutStart with the same pair as the previous bout and that b | — | accepted {"seconds": 5.5136, "bytes": 39357} |
-| `sj2_016` | rematch_draw | Last round had no winner! | boutStart with the same pair as the previous bout and that b | — | failed |
+| `sj2_016` | rematch_draw | Sequel time! | boutStart with the same pair as the previous bout and that b | — | accepted {"seconds": 1.6491, "bytes": 12294} |
 | `sj2_017` | season_advance | New season — standings empty, confidence full. | season rollover while the stream session continues | — | accepted {"seconds": 4.717, "bytes": 33688} |
-| `sj2_018` | season_advance | New season, same beautiful chaos! | season rollover while the stream session continues | — | failed |
-| `sj2_019` | season_advance | Last season's scoreboard sighs! | season rollover while the stream session continues | — | failed |
+| `sj2_018` | season_advance | Same beautiful chaos! | season rollover while the stream session continues | — | accepted {"seconds": 4.1218, "bytes": 29483} |
+| `sj2_019` | season_advance | Scoreboard sighs! | season rollover while the stream session continues | — | accepted {"seconds": 2.845, "bytes": 20523} |
 | `sj2_020` | season_advance | Dreams are free — kings are earned! | season rollover while the stream session continues | — | accepted {"seconds": 3.6371, "bytes": 26191} |
 | `sj2_021` | stage_quarter | Quarter-finals — the part where pretending stops working. | boutStart where the tournament stage advances to the quarter | — | accepted {"seconds": 5.8101, "bytes": 41368} |
-| `sj2_022` | stage_quarter | Quarter-finals — hearts racing, board unbothered! | boutStart where the tournament stage advances to the quarter | — | failed |
+| `sj2_022` | stage_quarter | Board unbothered! | boutStart where the tournament stage advances to the quarter | — | accepted {"seconds": 3.2147, "bytes": 23266} |
 | `sj2_023` | stage_quarter | Quarter-finals here — bold moves only, please! | boutStart where the tournament stage advances to the quarter | — | accepted {"seconds": 5.7039, "bytes": 40637} |
 | `sj2_024` | stage_semi | Semi-finals — one step from glory! | boutStart where the tournament stage advances to the semi-fi | — | accepted {"seconds": 4.8139, "bytes": 34420} |
 | `sj2_025` | stage_semi | Drama included at no extra cost! | boutStart where the tournament stage advances to the semi-fi | — | accepted {"seconds": 4.3994, "bytes": 31494} |
@@ -257,7 +257,7 @@ backed by an accepted MP3 in `audio/` with verified duration/peak/hash in
 | `sj2_037` | capture1 | One piece off — board lost weight! | caps === 1 on the mover's committed move | — | accepted {"seconds": 5.9016, "bytes": 41917} |
 | `sj2_038` | capture1 | A capture — that piece will tell stories. | caps === 1 on the mover's committed move | — | accepted {"seconds": 4.6954, "bytes": 33506} |
 | `sj2_039` | capture1 | Taken — one down — the drama continues! | caps === 1 on the mover's committed move | — | accepted {"seconds": 4.6937, "bytes": 33506} |
-| `sj2_040` | capture1 | Clean, polite, civilized aggression! | caps === 1 on the mover's committed move | — | failed |
+| `sj2_040` | capture1 | Clean, polite, civilized aggression! | caps === 1 on the mover's committed move | — | accepted {"seconds": 4.2418, "bytes": 30397} |
 | `sj2_041` | capture1 | No farewell party for that piece! | caps === 1 on the mover's committed move | — | accepted {"seconds": 3.2268, "bytes": 23266} |
 | `sj2_042` | capture1 | Captured — the crowd goes... politely interested! | caps === 1 on the mover's committed move | — | accepted {"seconds": 5.2495, "bytes": 37346} |
 | `sj2_043` | capture2 | Double capture — two pieces, zero apologies! | caps === 2 on the mover's committed move | — | accepted {"seconds": 4.5984, "bytes": 32957} |
@@ -292,10 +292,10 @@ backed by an accepted MP3 in `audio/` with verified duration/peak/hash in
 | `sj2_072` | after_loss | A tough loss — but hey, the jokes were free! | match ends with the addressed seat losing | — | accepted {"seconds": 4.1441, "bytes": 29666} |
 | `sj2_073` | after_loss | Didn't go your way — the board forgives! | match ends with the addressed seat losing | — | accepted {"seconds": 4.7085, "bytes": 33688} |
 | `sj2_074` | after_loss | That spirit pays the bills! | match ends with the addressed seat losing | — | accepted {"seconds": 3.7072, "bytes": 26557} |
-| `sj2_075` | after_loss | Losses sting — that spirit pays the bills! | match ends with the addressed seat losing | — | failed |
-| `sj2_076` | win | That's the win — start the victory dance music! | match ends with the addressed seat winning | — | failed |
-| `sj2_077` | win | Victory — composure, patience, possibly a lucky coin! | match ends with the addressed seat winning | — | failed |
-| `sj2_078` | win | It's decided — winner gets glory, board gets a rest! | match ends with the addressed seat winning | — | failed |
+| `sj2_075` | after_loss | Losses sting — that spirit pays the bills! | match ends with the addressed seat losing | — | accepted {"seconds": 4.4615, "bytes": 31860} |
+| `sj2_076` | win | Victory dance, go! | match ends with the addressed seat winning | — | accepted {"seconds": 3.1385, "bytes": 22717} |
+| `sj2_077` | win | Composure wins. Again! | match ends with the addressed seat winning | — | accepted {"seconds": 2.5482, "bytes": 18511} |
+| `sj2_078` | win | Winner takes glory! | match ends with the addressed seat winning | — | accepted {"seconds": 2.2602, "bytes": 16500} |
 | `sj2_079` | win | Match won — the last piece took a bow! | match ends with the addressed seat winning | — | pending |
 | `sj2_080` | draw | A draw — both sides blink, nobody winks! | official draw | — | pending |
 | `sj2_081` | draw | It ends level — the board calls it diplomacy! | official draw | — | pending |
