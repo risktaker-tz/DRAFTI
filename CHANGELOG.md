@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-05 — Ultra materials and protected endgames
+
+- Add engraved rims, layered contact shadows, crafted frame trim and subtle Marble Lux veins across the existing material system. Correct the visual lower-disc position of flipped kings.
+- Separate similar flag palettes perceptually, preferring genuine secondary flag colours while preserving all flag sources and user controls.
+- Require a king on each side before automatic draws. Keep the short countdown for two-or-fewer pieces each; start the ten-turn countdown when at least one side has three pieces. Preserve any possible winning continuation within three turns; incomplete checks continue play.
+- Remove deliberate random beginner blunders from spectator matches without reducing search depth or changing the human Beginner ladder.
+- Preserve movement-speed behavior, sounds, situational cinematic effects, themes and progress. Startup optimization is deferred to a later checkpoint.
+
 ## 2026-11-04 — Approved cinematic checkpoint
 
 - Add thirty board, piece and background effects with occasion checks, priorities, per-game quotas and cooldowns. Reserve fractures for multi-captures and tactical edge lighting for rare engine-confirmed moments.

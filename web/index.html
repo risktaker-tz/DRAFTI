@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="drafti-build" content="324b55694c7b30233ff7a45e852f7e737ae49e6984c4b766041d3039ff64c77e">
+<meta name="drafti-build" content="88d9ecd65ae70b9dd99e366643b892f7f4321eef721e2298361fdb15e250b382">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="apple-touch-icon" href="./icon-192.png">
@@ -1196,10 +1196,64 @@ body.pieces-woodturn .piece .ring { background: repeating-radial-gradient(circle
 body.pieces-steel .piece .body::before { background: conic-gradient(from 25deg, rgba(255,255,255,.5), transparent 18%, rgba(0,0,0,.25) 45%, rgba(255,255,255,.5) 68%, transparent 86%, rgba(255,255,255,.5)); }
 body.pieces-glass .piece .body::before { background: radial-gradient(ellipse at 35% 20%, rgba(255,255,255,.7), transparent 48%); }
 body.pieces-stone .piece .body::before { opacity: .75; }
+/* Precision-cut surfaces: static vector detail, with the chosen face paint
+   and functional glow layers left in charge of colour and game events. */
+.piece { --disc-depth: clamp(.6px, calc(var(--board-span) * .002), 1.2px); }
+.piece .body::before {
+  box-shadow: inset 0 .7px .6px rgba(255,255,255,.8), inset 0 -2px 1.5px rgba(0,0,0,.52),
+    0 var(--disc-depth) 0 var(--disc-edge), 0 calc(var(--disc-depth) * 2) 0 var(--disc-edge),
+    0 calc(var(--disc-depth) * 3) 0 color-mix(in srgb,var(--disc-edge) 80%,black),
+    0 calc(var(--disc-depth) * 4) 2px rgba(0,0,0,.52), 0 calc(var(--disc-depth) * 5) 6px rgba(0,0,0,.32);
+}
+.piece .ring::before,.piece .ring::after {
+  content:'';position:absolute;border-radius:50%;pointer-events:none;
+}
+.piece .ring::before {
+  inset:-6%;border:1px solid rgba(255,255,255,.27);
+  box-shadow:0 1px 0 rgba(0,0,0,.3),inset 0 1px 0 rgba(0,0,0,.14);
+}
+.piece .ring::after {
+  inset:18%;border:1px solid color-mix(in srgb,var(--disc-edge) 55%,transparent);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.27),0 1px 0 rgba(255,255,255,.14);
+}
+.piece.ivory .body { outline:1px solid color-mix(in srgb,var(--disc-hi) 58%,white);outline-offset:-1px; }
+.piece.ebony .body { outline:1px solid color-mix(in srgb,var(--disc-edge) 78%,black);outline-offset:-1px; }
+.piece.king .stack::after {
+  content:'';position:absolute;inset:8%;border-radius:50%;pointer-events:none;
+  border:1px solid rgba(255,255,255,.19);box-shadow:0 1px 0 rgba(0,0,0,.38);
+}
+.piece.king .crown { filter:drop-shadow(0 .5px 0 rgba(255,255,255,.38)) drop-shadow(0 1px 1px rgba(0,0,0,.62)); }
+.board-frame.flip .piece .stack { top:40%;transform:translate(-50%,-50%) rotate(180deg); }
+body.pieces-tourney .piece .ring::before { border-color:rgba(255,255,255,.2); }
+body.pieces-woodturn .piece .ring::before { border-color:rgba(241,203,153,.27); }
+body.pieces-woodturn .piece .ring::after { box-shadow:inset 0 1px 0 rgba(250,219,177,.3),0 1px 0 rgba(69,32,8,.23); }
+body.pieces-ivoryjet .piece .ring::before { border-color:rgba(255,255,255,.36); }
+body.pieces-bakelite .piece .ring::before { border-color:rgba(255,233,185,.32); }
+body.pieces-steel .piece .ring::before { border-color:rgba(255,255,255,.56); }
+body.pieces-steel .piece .ring::after { box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 1px 0 rgba(0,0,0,.32); }
+body.pieces-glass .piece .ring::before { border-color:color-mix(in srgb,var(--disc-hi) 55%,white); }
+body.pieces-glass .piece .ring::after { opacity:.6; }
+body.pieces-stone .piece .ring::before { opacity:.7; }
+body.pieces-stone .piece .ring::after { opacity:.55; }
+.board-frame { outline:1px solid color-mix(in srgb,var(--frame-hi) 65%,var(--frame-lo));outline-offset:2px; }
+.board-inner { outline:1px solid color-mix(in srgb,var(--frame-hi) 70%,white);outline-offset:1px; }
+body[data-table="marble"]:not(.hv) .sq.light {
+  background-image:linear-gradient(123deg,transparent 27%,rgba(86,102,117,.075) 28%,transparent 29.2% 60%,rgba(86,102,117,.045) 61%,transparent 62.5%),
+    linear-gradient(137deg,transparent 67%,rgba(113,127,141,.055) 68%,transparent 69.3%),
+    linear-gradient(160deg,var(--sq-light-hi),var(--sq-light) 55%,var(--sq-light-lo));
+}
+body[data-table="marble"]:not(.hv) .sq.dark {
+  background-image:linear-gradient(123deg,transparent 27%,rgba(237,244,250,.055) 28%,transparent 29.2% 60%,rgba(12,22,35,.08) 61%,transparent 62.5%),
+    linear-gradient(137deg,transparent 67%,rgba(237,244,250,.035) 68%,transparent 69.3%),
+    linear-gradient(160deg,var(--sq-dark-hi),var(--sq-dark) 55%,var(--sq-dark-lo));
+}
+body[data-table="marble"]:not(.hv) .sq:nth-child(3n) { background-position:14px -9px,-6px 17px,0 0;background-size:140% 120%,130% 160%,100% 100%; }
+body[data-table="marble"]:not(.hv) .sq:nth-child(5n+1) { background-position:-18px 12px,13px -8px,0 0;background-size:125% 160%,170% 130%,100% 100%; }
 body.flags-on .piece.ivory { --disc-hi: var(--side-a-1, var(--pl-l-1)); --disc-face: var(--side-a-2, var(--pl-l-2)); --disc-edge: var(--side-a-edge, var(--pl-l-edge)); }
 body.flags-on .piece.ebony { --disc-hi: var(--side-b-1, var(--pl-d-1)); --disc-face: var(--side-b-2, var(--pl-d-2)); --disc-edge: var(--side-b-edge, var(--pl-d-edge)); }
 .board-frame::before { content: ''; position: absolute; inset: 5px; border-radius: 13px; pointer-events: none;
   border: 1px solid var(--frame-hi); box-shadow: inset 0 1px 1px rgba(255,255,255,.28), 0 1px 2px rgba(0,0,0,.7); }
+.board-frame::before { border-top-color:color-mix(in srgb,var(--frame-hi) 65%,white);border-bottom-color:var(--frame-lo); }
 .board-inner { box-shadow: 0 0 0 1px var(--frame-lo), 0 0 0 3px var(--frame-hi), 0 3px 9px rgba(0,0,0,.7); }
 body.fx-wood .board-frame { background-image: repeating-linear-gradient(93deg, transparent 0 6px, rgba(25,10,0,.15) 7px 8px), linear-gradient(150deg,var(--frame-hi),var(--frame) 55%,var(--frame-lo)); }
 /* The scoreboard sits in the same crafted frame as the playing surface.
@@ -2807,6 +2861,16 @@ function createSoundAudit(capacity = 12000) {
   };
   const linC = (v) => { v /= 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); };
   const lumaC = (h) => { const c = hexRgb(h); return .2126 * linC(c[0]) + .7152 * linC(c[1]) + .0722 * linC(c[2]); };
+  const flagLabCache=new Map();
+  const flagLab=h=>{
+    if(flagLabCache.has(h))return flagLabCache.get(h);
+    const [r,g,b]=hexRgb(h).map(linC),f=t=>t>.008856?Math.cbrt(t):7.787*t+16/116;
+    const x=f((.4124564*r+.3575761*g+.1804375*b)/.95047),y=f(.2126729*r+.7151522*g+.072175*b),z=f((.0193339*r+.119192*g+.9503041*b)/1.08883);
+    const lab=[116*y-16,500*(x-y),200*(y-z)];flagLabCache.set(h,lab);
+    if(flagLabCache.size>1024)flagLabCache.delete(flagLabCache.keys().next().value);
+    return lab;
+  };
+  const flagDistance=(a,b)=>{const x=flagLab(a),y=flagLab(b);return Math.hypot(...x.map((v,i)=>v-y[i]));};
   // flags never disappear into the table: too-dark or too-bright mains are
   // pulled back into a band every board theme can show
   const clampLuma = (h, lo, hi) => {
@@ -2816,9 +2880,14 @@ function createSoundAudit(capacity = 12000) {
     return c;
   };
   const colorClose = (h1, h2) => {
-    const a = hexRgb(h1), b = hexRgb(h2);
-    return Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]) + Math.abs(a[2] - b[2]) < 150 &&
-      Math.abs(lumaC(h1) - lumaC(h2)) < .13;
+    const a=flagLab(h1),b=flagLab(h2),la=lumaC(h1),lb=lumaC(h2),ratio=(Math.max(la,lb)+.05)/(Math.min(la,lb)+.05);
+    const ca=Math.hypot(a[1],a[2]),cb=Math.hypot(b[1],b[2]);
+    const rawHue=Math.abs(Math.atan2(a[2],a[1])-Math.atan2(b[2],b[1])),hue=Math.min(rawHue,Math.PI*2-rawHue);
+    // Stream compression and small mobile discs can make dark navy/maroon,
+    // pale surfaces, or similarly lit hues merge despite a large RGB distance.
+    return flagDistance(h1,h2)<28||(la<.12&&lb<.12&&ratio<2.2)||
+      (la>.6&&lb>.6&&ratio<1.6)||(ca<18&&cb<18&&ratio<2.5)||
+      (ca>=18&&cb>=18&&hue<24*Math.PI/180&&Math.abs(a[0]-b[0])<32&&ratio<2.5);
   };
 
   // every nation's name is the crowd's to change: tap a chip in the drawer
@@ -2867,12 +2936,13 @@ function createSoundAudit(capacity = 12000) {
       const f = FLAG_COLORS[id];
       if (!f) return null;
       const cands = [f[0], f[1]];
-      const dist = (h) => { const a = hexRgb(h), b = hexRgb(avoid || h);
-        return avoid ? Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]) + Math.abs(a[2] - b[2]) : 1e9; };
       let c = clampLuma(cands[0], .035, .88);
       // two greens never make a bout: take the flag's other colour when it
       // reads clearly more distinct, then split lightness if still close
-      if (avoid && colorClose(c, avoid) && cands[1] && dist(cands[1]) > dist(cands[0]) + 120) c = clampLuma(cands[1], .035, .88);
+      if(avoid&&colorClose(c,avoid)&&cands[1]){
+        const alternative=clampLuma(cands[1],.035,.88);
+        if(!colorClose(alternative,avoid)||flagDistance(alternative,avoid)>flagDistance(c,avoid)+4)c=alternative;
+      }
       if (avoid && colorClose(c, avoid)) {
         // Preserve the flag hue while moving away from the other seat's
         // luminance. Recheck after each step: a single shift can still clash.
@@ -3610,6 +3680,7 @@ function createSoundAudit(capacity = 12000) {
   }
   function applyTheme(id) {
     const t = THEMES.find((x) => x.id === id) || THEMES.find((x) => x.id === DEFAULT_THEME);
+    document.body.dataset.table=t.id;
     const root = document.documentElement.style;
     for (const [k, v] of Object.entries(t.v)) root.setProperty(k, v);
     for (const [k, v] of Object.entries(billboardPalette(t.v))) root.setProperty(k, v);
@@ -4406,7 +4477,10 @@ function createSoundAudit(capacity = 12000) {
     const best = valid || legal[(Math.random() * legal.length) | 0];
     const L = LEVELS[levelId] || LEVELS.l5;
     if (L.pool > 0 && Array.isArray(res.rootScores) && res.rootScores.length > 1) {
-      if (Math.random() < L.blunder) return legal[(Math.random() * legal.length) | 0];
+      // Spectator opponents may choose among comparably evaluated plans,
+      // but never inject a wholly random losing move for theatre. The
+      // forgiving human-facing Beginner ladder keeps its existing policy.
+      if (G.mode !== 'aivai' && Math.random() < L.blunder) return legal[(Math.random() * legal.length) | 0];
       const top = Math.max(...res.rootScores.map(r => r.score));
       const pool = res.rootScores.filter(r => Number.isFinite(r.score) && r.score >= top - L.pool);
       if (pool.length) {
@@ -5838,11 +5912,31 @@ function createSoundAudit(capacity = 12000) {
   function lowMaterialLimit(board) {
     let a = 0, b = 0, ak = false, bk = false;
     for (const p of board) { if (p > 0) { a++; ak ||= p === 2; } else if (p < 0) { b++; bk ||= p === -2; } }
-    if (!a || !b) return 0;
+    if (!a || !b || !ak || !bk) return 0;
     if (a <= 2 && b <= 2) return 2;
-    return a <= 3 && b <= 3 && ak && bk ? 10 : 0;
+    return Math.min(a,b) <= 3 ? 10 : 0;
   }
-  function lowMaterialCountdown(board, history, legal) {
+  function possibleWinWithinMoves(rs,board,side,plies=3,cacheOnly=false) {
+    const cache=possibleWinWithinMoves.cache ||= new Map(),key=rs.id+'|'+side+'|'+plies+'|'+board.join(',');
+    if(cache.has(key))return cache.get(key);
+    if(cacheOnly)return null;
+    const deadline=Date.now()+35,exhausted={},memo=new Map();let nodes=0;
+    const visit=(position,turn,left)=>{
+      if(++nodes>8000||Date.now()>deadline)throw exhausted;
+      const moves=E.legalMoves(rs,position,turn);
+      if(!moves.length)return true; // A normal win, not a selected or assigned outcome.
+      if(!left)return false;
+      const k=turn+'|'+left+'|'+position.join(',');if(memo.has(k))return memo.get(k);
+      for(const move of moves)if(visit(E.applyMove(rs,position,move,turn),-turn,left-1)){memo.set(k,true);return true;}
+      memo.set(k,false);return false;
+    };
+    try{
+      const result=visit(board,side,plies);cache.set(key,result);
+      if(cache.size>128)cache.delete(cache.keys().next().value);
+      return result;
+    }catch(error){if(error!==exhausted)throw error;return null;} // Incomplete proof always keeps play alive.
+  }
+  function lowMaterialCountdown(board, history, legal,context) {
     const limit = lowMaterialLimit(board);
     if (!limit) return null;
     let elapsed = 0;
@@ -5852,7 +5946,15 @@ function createSoundAudit(capacity = 12000) {
       elapsed++;
     }
     const scoringNext = legal.some(m => m.caps.length || m.promotes);
-    return { limit, remaining: Math.max(0, limit - elapsed), scoringNext };
+    let remaining=Math.max(0,limit-elapsed),winningNext=false,analysisLimited=false,immediateAfterCrown=false;
+    const last=history.at(-1),firstSharedKing=limit===2&&last?.move.promotes&&[IVORY,EBONY].includes(last.side)&&
+      !last.boardBefore.some(piece=>piece===last.side*2);
+    if(context&&!scoringNext&&(remaining===0||firstSharedKing||context.forceCheck)){
+      const possible=possibleWinWithinMoves(context.rs,board,context.side,3,!!context.cacheOnly);
+      winningNext=possible===true;analysisLimited=possible===null;
+      if(firstSharedKing&&possible===false){remaining=0;immediateAfterCrown=true;}
+    }
+    return { limit, remaining, scoringNext,winningNext,analysisLimited,immediateAfterCrown };
   }
   function checkGameEnd() {
     const opp = G.side;
@@ -5860,16 +5962,16 @@ function createSoundAudit(capacity = 12000) {
       setOver(-opp, countSide(opp) === 0
         ? 'Every ' + displayName(opp) + ' piece has been captured.'
         : displayName(opp) + ' has no legal move.');
-    } else if (G.noProg >= G.rs.drawPlies) {
-      setOver(null, G.rs.flyingKings
-        ? 'Twenty-five king moves per side without a capture or man move.'
-        : 'Forty moves per side without a capture or man move.');
-    } else if ((G.repMap.get(posKey(G.board, G.side)) || 0) >= 3) {
-      setOver(null, 'The same position occurred three times.');
     } else {
-      const countdown = lowMaterialCountdown(G.board, G.history, G.legal);
-      if (countdown && countdown.remaining === 0 && !countdown.scoringNext)
-        setOver(null, 'Low-material draw after ' + countdown.limit + ' moves without a capture or crowning.');
+      const repeated=(G.repMap.get(posKey(G.board,G.side))||0)>=3,inactive=G.noProg>=G.rs.drawPlies;
+      const countdown=lowMaterialCountdown(G.board,G.history,G.legal,{rs:G.rs,side:G.side,forceCheck:repeated||inactive});
+      // Every automatic draw follows the owner's crowned-side protection.
+      if(!countdown||countdown.scoringNext||countdown.winningNext||countdown.analysisLimited)return;
+      if(inactive)setOver(null,G.rs.flyingKings?'Twenty-five king moves per side without a capture or man move.':'Forty moves per side without a capture or man move.');
+      else if(repeated)setOver(null,'The same position occurred three times.');
+      else if(countdown.remaining===0)setOver(null,countdown.immediateAfterCrown
+        ? 'Both sides are crowned with no winning continuation in the next three moves.'
+        : 'Low-material draw after '+countdown.limit+' moves without a capture or crowning.');
     }
   }
 
@@ -6474,8 +6576,10 @@ function createSoundAudit(capacity = 12000) {
     let detail = tournament
       ? 'Bout ' + (eventBout + 1) + '/' + SEASON_LEN + (G.pairMeets >= 2 ? ' · ' + ord(G.pairMeets) + ' meeting' : '')
       : G.rs.name;
-    const ending = lowMaterialCountdown(G.board, G.history, G.legal);
-    if (ending && !G.over) detail = ending.scoringNext ? 'Draw countdown · scoring chance' : 'Draw in ' + ending.remaining + ' moves';
+    const ending = lowMaterialCountdown(G.board,G.history,G.legal,{rs:G.rs,side:G.side,cacheOnly:true,
+      forceCheck:G.noProg>=G.rs.drawPlies||(G.repMap.get(posKey(G.board,G.side))||0)>=3});
+    if (ending && !G.over) detail = ending.winningNext ? 'Endgame · winning chance' : ending.analysisLimited ? 'Endgame · play continues'
+      : ending.scoringNext ? 'Draw countdown · scoring chance' : 'Draw in ' + ending.remaining + ' moves';
     $('bannerContext').textContent = context; $('bannerContext').title = context;
     $('bannerDetail').textContent = detail; $('bannerDetail').title = detail;
     const engineThinking = G.phase === 'thinking' && !G.over;

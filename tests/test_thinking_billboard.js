@@ -17,7 +17,8 @@ const elements = {}, el=id=>elements[id]||(elements[id]={classList:{toggle(){}},
 Object.assign(c, {$:el, document:{body:{classList:{toggle(){}}}},IVORY:1,EBONY:-1,hintPending:false,
   displayName:s=>s===1?'Tanzania':'Kenya', sideDot:()=> 'ivory', arena:{season:3,bouts:8},
   SEASON_LEN:12,SEASON_STAGES:[{name:'Semi-finals'}],stageOfBout:()=>0,ord:n=>n+'th',
-  G:{mode:'aivai',side:1,phase:'idle',over:false,pairMeets:4,rs:{name:'Canadian'},board:[],history:[],legal:[]}});
+  posKey:(b,s)=>b.join(',')+'|'+s,
+  G:{mode:'aivai',side:1,phase:'idle',over:false,pairMeets:4,rs:{name:'Canadian'},board:[],history:[],legal:[],noProg:0,repMap:new Map()}});
 c.FX=c.fx;
 c.G.nationalMatch=true;c.G.arenaSeason=3;c.G.arenaBout=8;
 vm.runInContext(ui.slice(ui.indexOf('  const arenaOn ='),ui.indexOf('  const posKey =')),c);

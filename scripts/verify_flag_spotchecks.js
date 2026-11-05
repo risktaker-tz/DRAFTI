@@ -2,7 +2,8 @@
 const fs=require('node:fs'),assert=require('node:assert/strict');
 const report=JSON.parse(fs.readFileSync(process.argv[2],'utf8'));
 assert.equal(report.running,false);assert.equal(report.complete,true);assert.deepEqual(report.errors,[]);
-assert.equal(report.rows.length,120);
+const expectedPairs=['TZ/KE','IT/BF','ID/MC','CI/EC','MG/KE'].concat(report.extended||process.argv.includes('--extended')?['NZ/QA']:[]);
+assert.equal(report.rows.length,expectedPairs.length*24);
 const groups=new Map(),keys=new Set();
 for(const row of report.rows){
   assert(row.on&&row.a&&row.b);assert.notEqual(row.a,row.b,'Clashing seats must separate');
@@ -10,7 +11,7 @@ for(const row of report.rows){
   assert(!keys.has(key));keys.add(key);
   if(!groups.has(pair))groups.set(pair,[]);groups.get(pair).push(row);
 }
-assert.deepEqual([...groups.keys()],['TZ/KE','IT/BF','ID/MC','CI/EC','MG/KE']);
+assert.deepEqual([...groups.keys()],expectedPairs);
 for(const [pair,rows] of groups){
   assert.equal(rows.length,24,pair);
   assert.equal(new Set(rows.map(row=>row.theme)).size,4);
@@ -28,4 +29,4 @@ for(const name of ['hotseat-flags-off','computer-flags-off']){
 }
 assert.equal(steps['computer-flags-on'].mode,'ai');assert(steps['computer-flags-on'].on);
 assert.equal(steps['computer-flags-on'].a,steps.original.a);
-console.log('PASS: 120 rendered flag cases, five known clash pairs, four themes, three materials, high visibility, both rename restoration paths and flags on/off in Computer and Two players.');
+console.log('PASS: '+report.rows.length+' rendered flag cases, '+expectedPairs.length+' known clash pairs, four themes, three materials, high visibility, both rename restoration paths and flags on/off in Computer and Two players.');

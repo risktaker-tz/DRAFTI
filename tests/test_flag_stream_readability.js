@@ -1,0 +1,13 @@
+'use strict';
+const fs=require('fs'),vm=require('vm'),path=require('path'),assert=require('assert/strict');
+const ui=fs.readFileSync(path.join(__dirname,'../src/ui.js'),'utf8'),nations=vm.runInNewContext(ui.match(/const NATION_DATA = (\[[\s\S]*?\n  \]);/)[1]);
+const flags=ui.match(/const FLAG_COLORS = (\{[\s\S]*?\n  \});/)[1];
+const math=ui.slice(ui.indexOf('  const hexRgb ='),ui.indexOf('  // every nation\'s name'));
+const functions=ui.slice(ui.indexOf('  const sideVarSet ='),ui.indexOf('  // write the palettes'));
+const c={};vm.createContext(c);vm.runInContext(`const FLAG_COLORS=${flags},ROSTER=${JSON.stringify(nations.map(([id])=>({id})))};
+const IVORY=1,EBONY=-1,G={mode:'aivai',nationalMatch:true,seatIvory:'NZ',seatEbony:'QA'},settings={arenaFlags:true},presentation={};const customNamed=()=>false;
+${math}\n${functions}\nthis.api={flagPalettes,lumaC,colorClose};`,c);
+const [a,b]=c.api.flagPalettes();
+assert(c.api.lumaC(b[2])>.5,'Dark navy against dark maroon should use Qatar\'s real white secondary instead of two dark streaming silhouettes');
+assert(!c.api.colorClose(a[2],b[2]));
+console.log('PASS close dark flag palettes choose a genuine distinct secondary without changing national mappings');

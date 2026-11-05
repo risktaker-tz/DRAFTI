@@ -405,6 +405,16 @@ function createSoundAudit(capacity = 12000) {
   };
   const linC = (v) => { v /= 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); };
   const lumaC = (h) => { const c = hexRgb(h); return .2126 * linC(c[0]) + .7152 * linC(c[1]) + .0722 * linC(c[2]); };
+  const flagLabCache=new Map();
+  const flagLab=h=>{
+    if(flagLabCache.has(h))return flagLabCache.get(h);
+    const [r,g,b]=hexRgb(h).map(linC),f=t=>t>.008856?Math.cbrt(t):7.787*t+16/116;
+    const x=f((.4124564*r+.3575761*g+.1804375*b)/.95047),y=f(.2126729*r+.7151522*g+.072175*b),z=f((.0193339*r+.119192*g+.9503041*b)/1.08883);
+    const lab=[116*y-16,500*(x-y),200*(y-z)];flagLabCache.set(h,lab);
+    if(flagLabCache.size>1024)flagLabCache.delete(flagLabCache.keys().next().value);
+    return lab;
+  };
+  const flagDistance=(a,b)=>{const x=flagLab(a),y=flagLab(b);return Math.hypot(...x.map((v,i)=>v-y[i]));};
   // flags never disappear into the table: too-dark or too-bright mains are
   // pulled back into a band every board theme can show
   const clampLuma = (h, lo, hi) => {
@@ -414,9 +424,14 @@ function createSoundAudit(capacity = 12000) {
     return c;
   };
   const colorClose = (h1, h2) => {
-    const a = hexRgb(h1), b = hexRgb(h2);
-    return Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]) + Math.abs(a[2] - b[2]) < 150 &&
-      Math.abs(lumaC(h1) - lumaC(h2)) < .13;
+    const a=flagLab(h1),b=flagLab(h2),la=lumaC(h1),lb=lumaC(h2),ratio=(Math.max(la,lb)+.05)/(Math.min(la,lb)+.05);
+    const ca=Math.hypot(a[1],a[2]),cb=Math.hypot(b[1],b[2]);
+    const rawHue=Math.abs(Math.atan2(a[2],a[1])-Math.atan2(b[2],b[1])),hue=Math.min(rawHue,Math.PI*2-rawHue);
+    // Stream compression and small mobile discs can make dark navy/maroon,
+    // pale surfaces, or similarly lit hues merge despite a large RGB distance.
+    return flagDistance(h1,h2)<28||(la<.12&&lb<.12&&ratio<2.2)||
+      (la>.6&&lb>.6&&ratio<1.6)||(ca<18&&cb<18&&ratio<2.5)||
+      (ca>=18&&cb>=18&&hue<24*Math.PI/180&&Math.abs(a[0]-b[0])<32&&ratio<2.5);
   };
 
   // every nation's name is the crowd's to change: tap a chip in the drawer
@@ -465,12 +480,13 @@ function createSoundAudit(capacity = 12000) {
       const f = FLAG_COLORS[id];
       if (!f) return null;
       const cands = [f[0], f[1]];
-      const dist = (h) => { const a = hexRgb(h), b = hexRgb(avoid || h);
-        return avoid ? Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]) + Math.abs(a[2] - b[2]) : 1e9; };
       let c = clampLuma(cands[0], .035, .88);
       // two greens never make a bout: take the flag's other colour when it
       // reads clearly more distinct, then split lightness if still close
-      if (avoid && colorClose(c, avoid) && cands[1] && dist(cands[1]) > dist(cands[0]) + 120) c = clampLuma(cands[1], .035, .88);
+      if(avoid&&colorClose(c,avoid)&&cands[1]){
+        const alternative=clampLuma(cands[1],.035,.88);
+        if(!colorClose(alternative,avoid)||flagDistance(alternative,avoid)>flagDistance(c,avoid)+4)c=alternative;
+      }
       if (avoid && colorClose(c, avoid)) {
         // Preserve the flag hue while moving away from the other seat's
         // luminance. Recheck after each step: a single shift can still clash.
@@ -1208,6 +1224,7 @@ function createSoundAudit(capacity = 12000) {
   }
   function applyTheme(id) {
     const t = THEMES.find((x) => x.id === id) || THEMES.find((x) => x.id === DEFAULT_THEME);
+    document.body.dataset.table=t.id;
     const root = document.documentElement.style;
     for (const [k, v] of Object.entries(t.v)) root.setProperty(k, v);
     for (const [k, v] of Object.entries(billboardPalette(t.v))) root.setProperty(k, v);

@@ -1182,10 +1182,64 @@ body.pieces-woodturn .piece .ring { background: repeating-radial-gradient(circle
 body.pieces-steel .piece .body::before { background: conic-gradient(from 25deg, rgba(255,255,255,.5), transparent 18%, rgba(0,0,0,.25) 45%, rgba(255,255,255,.5) 68%, transparent 86%, rgba(255,255,255,.5)); }
 body.pieces-glass .piece .body::before { background: radial-gradient(ellipse at 35% 20%, rgba(255,255,255,.7), transparent 48%); }
 body.pieces-stone .piece .body::before { opacity: .75; }
+/* Precision-cut surfaces: static vector detail, with the chosen face paint
+   and functional glow layers left in charge of colour and game events. */
+.piece { --disc-depth: clamp(.6px, calc(var(--board-span) * .002), 1.2px); }
+.piece .body::before {
+  box-shadow: inset 0 .7px .6px rgba(255,255,255,.8), inset 0 -2px 1.5px rgba(0,0,0,.52),
+    0 var(--disc-depth) 0 var(--disc-edge), 0 calc(var(--disc-depth) * 2) 0 var(--disc-edge),
+    0 calc(var(--disc-depth) * 3) 0 color-mix(in srgb,var(--disc-edge) 80%,black),
+    0 calc(var(--disc-depth) * 4) 2px rgba(0,0,0,.52), 0 calc(var(--disc-depth) * 5) 6px rgba(0,0,0,.32);
+}
+.piece .ring::before,.piece .ring::after {
+  content:'';position:absolute;border-radius:50%;pointer-events:none;
+}
+.piece .ring::before {
+  inset:-6%;border:1px solid rgba(255,255,255,.27);
+  box-shadow:0 1px 0 rgba(0,0,0,.3),inset 0 1px 0 rgba(0,0,0,.14);
+}
+.piece .ring::after {
+  inset:18%;border:1px solid color-mix(in srgb,var(--disc-edge) 55%,transparent);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.27),0 1px 0 rgba(255,255,255,.14);
+}
+.piece.ivory .body { outline:1px solid color-mix(in srgb,var(--disc-hi) 58%,white);outline-offset:-1px; }
+.piece.ebony .body { outline:1px solid color-mix(in srgb,var(--disc-edge) 78%,black);outline-offset:-1px; }
+.piece.king .stack::after {
+  content:'';position:absolute;inset:8%;border-radius:50%;pointer-events:none;
+  border:1px solid rgba(255,255,255,.19);box-shadow:0 1px 0 rgba(0,0,0,.38);
+}
+.piece.king .crown { filter:drop-shadow(0 .5px 0 rgba(255,255,255,.38)) drop-shadow(0 1px 1px rgba(0,0,0,.62)); }
+.board-frame.flip .piece .stack { top:40%;transform:translate(-50%,-50%) rotate(180deg); }
+body.pieces-tourney .piece .ring::before { border-color:rgba(255,255,255,.2); }
+body.pieces-woodturn .piece .ring::before { border-color:rgba(241,203,153,.27); }
+body.pieces-woodturn .piece .ring::after { box-shadow:inset 0 1px 0 rgba(250,219,177,.3),0 1px 0 rgba(69,32,8,.23); }
+body.pieces-ivoryjet .piece .ring::before { border-color:rgba(255,255,255,.36); }
+body.pieces-bakelite .piece .ring::before { border-color:rgba(255,233,185,.32); }
+body.pieces-steel .piece .ring::before { border-color:rgba(255,255,255,.56); }
+body.pieces-steel .piece .ring::after { box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 1px 0 rgba(0,0,0,.32); }
+body.pieces-glass .piece .ring::before { border-color:color-mix(in srgb,var(--disc-hi) 55%,white); }
+body.pieces-glass .piece .ring::after { opacity:.6; }
+body.pieces-stone .piece .ring::before { opacity:.7; }
+body.pieces-stone .piece .ring::after { opacity:.55; }
+.board-frame { outline:1px solid color-mix(in srgb,var(--frame-hi) 65%,var(--frame-lo));outline-offset:2px; }
+.board-inner { outline:1px solid color-mix(in srgb,var(--frame-hi) 70%,white);outline-offset:1px; }
+body[data-table="marble"]:not(.hv) .sq.light {
+  background-image:linear-gradient(123deg,transparent 27%,rgba(86,102,117,.075) 28%,transparent 29.2% 60%,rgba(86,102,117,.045) 61%,transparent 62.5%),
+    linear-gradient(137deg,transparent 67%,rgba(113,127,141,.055) 68%,transparent 69.3%),
+    linear-gradient(160deg,var(--sq-light-hi),var(--sq-light) 55%,var(--sq-light-lo));
+}
+body[data-table="marble"]:not(.hv) .sq.dark {
+  background-image:linear-gradient(123deg,transparent 27%,rgba(237,244,250,.055) 28%,transparent 29.2% 60%,rgba(12,22,35,.08) 61%,transparent 62.5%),
+    linear-gradient(137deg,transparent 67%,rgba(237,244,250,.035) 68%,transparent 69.3%),
+    linear-gradient(160deg,var(--sq-dark-hi),var(--sq-dark) 55%,var(--sq-dark-lo));
+}
+body[data-table="marble"]:not(.hv) .sq:nth-child(3n) { background-position:14px -9px,-6px 17px,0 0;background-size:140% 120%,130% 160%,100% 100%; }
+body[data-table="marble"]:not(.hv) .sq:nth-child(5n+1) { background-position:-18px 12px,13px -8px,0 0;background-size:125% 160%,170% 130%,100% 100%; }
 body.flags-on .piece.ivory { --disc-hi: var(--side-a-1, var(--pl-l-1)); --disc-face: var(--side-a-2, var(--pl-l-2)); --disc-edge: var(--side-a-edge, var(--pl-l-edge)); }
 body.flags-on .piece.ebony { --disc-hi: var(--side-b-1, var(--pl-d-1)); --disc-face: var(--side-b-2, var(--pl-d-2)); --disc-edge: var(--side-b-edge, var(--pl-d-edge)); }
 .board-frame::before { content: ''; position: absolute; inset: 5px; border-radius: 13px; pointer-events: none;
   border: 1px solid var(--frame-hi); box-shadow: inset 0 1px 1px rgba(255,255,255,.28), 0 1px 2px rgba(0,0,0,.7); }
+.board-frame::before { border-top-color:color-mix(in srgb,var(--frame-hi) 65%,white);border-bottom-color:var(--frame-lo); }
 .board-inner { box-shadow: 0 0 0 1px var(--frame-lo), 0 0 0 3px var(--frame-hi), 0 3px 9px rgba(0,0,0,.7); }
 body.fx-wood .board-frame { background-image: repeating-linear-gradient(93deg, transparent 0 6px, rgba(25,10,0,.15) 7px 8px), linear-gradient(150deg,var(--frame-hi),var(--frame) 55%,var(--frame-lo)); }
 /* The scoreboard sits in the same crafted frame as the playing surface.
