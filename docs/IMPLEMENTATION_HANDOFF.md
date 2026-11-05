@@ -9,6 +9,14 @@
 - Rebuilt HTML is 14,292,307 bytes (SHA-256 `78ec93be68687486365cf078ecd0b2c2a907350a609b8d7cdf18f561f2351929`), below the 14 MiB limit. Vercel deployment `dpl_7n7Ky7wWNcqh8SCi7NyuNp3A9JC6` is READY and `drafti-afrika.vercel.app` points to it. Complete downloaded artifacts from both Vercel and GitHub Pages match the local build byte-for-byte at the same length and SHA-256. Recorded in commit `bb2c5ed`.
 - Offline/update acceptance tests rerun after the draw checkpoint: `test_offline_install.js`, `test_install_update_cycle.js`, `test_app_updates.js`, `test_audience_vibes.js`, and `test_streamer_pack.js` all pass. These are automated browser/service-worker fixtures; physical OS-shell installation and real device offline reopen remain unverified.
 
+## Foundation-preservation check and current rendered matrix — 2026-11-05
+
+- Compared `src/engine.js` at the parent of the loop-escape commit (`e85c858^`) with the current checkout: both have Git blob `ad32ad45ce259dd53a8b5cfb2daae88f55accc11`. The rules/search engine is byte-for-byte unchanged from the pre-loop-fix foundation.
+- The loop escape remains isolated in `src/ui.js`. It returns the original choice unless that choice would repeat a position; then it may break the cycle only with a fully searched, near-equal fresh route. The learning regression check confirms stronger winning routes are preserved. The recent countdown repair changes only the house-rule draw proof and its status wording; it does not change engine search or move selection.
+- Preservation checks at this checkpoint: AI learning/cycle-escape passed; protected-draw expiry, scoring, crown and proof-timeout checks passed; `test_engine.js` reports 39,127 passed / 0 failed; the independent move-generation cross-check reports zero mismatches across all eight rulesets.
+- Re-rendered the exact `3eb5dc2` standalone app at 375×812 through production theme/material/rules controls. All 1,008 opening combinations passed geometry, piece circularity, population and horizontal-overflow checks with zero browser errors. Evidence: `docs/current-presentation-matrix-20261105.json`. This does not certify rendered contrast, flags, event frames or reduced-motion playback.
+- A separate current-policy 36-bout East Africa 8×8 real-engine fairness run is in progress in `docs/arena-current-3eb5dc2-2026-11-05/`, pinned to source `3eb5dc2`. Progress files are resumable; do not treat a partial run as a completed fairness result.
+
 ## Current checkpoint — final-piece loss reaction — 2026-11-05
 
 - Added a rare, gentle losing-side consolation after the opponent's actual last piece is captured. The route checks the terminal result, captured move, winner/loser sides, and zero remaining losing pieces; wins by blockade, draws, non-final captures and stale timers do not trigger it.
