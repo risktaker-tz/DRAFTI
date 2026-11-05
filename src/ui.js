@@ -2547,7 +2547,9 @@ function createSoundAudit(capacity = 12000) {
           stage_final: 'stage_final', win: 'victory', after_loss: 'defeat' };
         const pool = this.extraPools[mode] = {};
         for (const clip of clips) {
-          const role = roles[clip.role];
+          const role = clip.role === 'trap' && /trap_set gate: a real trap is present/.test(clip.predicate)
+            ? 'trap_set' : clip.role === 'trap' && /trap_spring gate: the baited capture resolved/.test(clip.predicate)
+              ? 'trap_spring' : roles[clip.role];
           if (clip.mode !== mode || !role || !/^s[fjm]2_\d{3}$/.test(clip.id) ||
               !(clip.durationSec > 0 && clip.durationSec <= 6)) continue;
           try {

@@ -55,7 +55,7 @@ async function checkVocabulary() {
   assert.equal(played.length, before, 'Loading vocabulary does not start speech');
   const activeRoles = new Set(['session_open', 'new_bout', 'rematch_draw', 'season_advance',
     'capture1', 'capture2', 'capture3plus', 'new_king', 'new_challenger', 'stage_quarter',
-    'stage_semi', 'stage_final', 'win', 'after_loss']);
+    'stage_semi', 'stage_final', 'win', 'after_loss', 'trap']);
   assert.equal(fetched.length, 1 + manifest.filter(clip => clip.mode === 'funny' && activeRoles.has(clip.role)).length,
     'Only approved event roles are downloaded for the selected voice');
   for (const [role, source] of Object.entries({capture: 'capture1', feast: 'capture2', capture_chain: 'capture3plus', crowning: 'new_king'})) {
@@ -72,10 +72,13 @@ async function checkVocabulary() {
     'Only actual tournament stage advances announce the corresponding stage');
   for (const [mode, ids] of Object.entries({
     female: { stage_quarter: ['sf2_021','sf2_022','sf2_023'], stage_semi: ['sf2_024','sf2_025','sf2_026'],
-      stage_final: ['sf2_027','sf2_028','sf2_029'], capture: ['sf2_037','sf2_038','sf2_039','sf2_040'] },
+      stage_final: ['sf2_027','sf2_028','sf2_029'], capture: ['sf2_037','sf2_038','sf2_039','sf2_040','sf2_041','sf2_042'],
+      feast: ['sf2_043','sf2_044','sf2_045','sf2_046','sf2_047','sf2_048'],
+      capture_chain: ['sf2_049','sf2_050','sf2_051','sf2_052'], crowning: ['sf2_053','sf2_054','sf2_055','sf2_056','sf2_057'] },
     male: { stage_semi: ['sm2_026'], stage_final: ['sm2_027','sm2_028','sm2_029'],
       capture: ['sm2_037','sm2_038','sm2_039','sm2_040','sm2_041','sm2_042'],
-      feast: ['sm2_043','sm2_044','sm2_045'] },
+      feast: ['sm2_043','sm2_044','sm2_045','sm2_046','sm2_047','sm2_048'],
+      capture_chain: ['sm2_049','sm2_050','sm2_051','sm2_052'], crowning: ['sm2_053','sm2_054','sm2_055','sm2_056','sm2_057'] },
   })) {
     S.loadingVoices.delete(mode);
     c.settings.streamer = mode;
@@ -91,6 +94,13 @@ async function checkVocabulary() {
     assert(withheldCleanMoves.every(id => !loadedIds.includes(id)),
       `${mode} clean-move praise stays gated until an engine quality signal is available`);
   }
+  assert(S.extraPools.male.trap_set.includes('sm2_067'),
+    'The verified trap-set line is available only to the existing engine trap event');
+  assert(S.extraPools.funny.trap_set.includes('sj2_067') && S.extraPools.funny.trap_spring.includes('sj2_069'),
+    'Funny trap narration stays separated between setting a real trap and seeing it spring');
+  assert(!S.extraPools.female?.turnaround && !S.extraPools.male?.turnaround &&
+    !S.extraPools.female?.pressure && !S.extraPools.male?.pressure,
+    'Unimplemented material-state narration remains withheld until precise engine event gates exist');
   const say = S.say;
   const roles = [];
   S.say = role => { roles.push(role); return role === 'next_rematch'; };
