@@ -14,7 +14,7 @@ async function run(initial,next){
   await c.animateMove({from:40,path:[40,26,12],caps:[33,19],promotes:false},1);
   assert.equal(durations.length,2);
   assert(Math.abs(durations[0]-560/initial)<1e-9&&Math.abs(durations[1]-560/next)<1e-9,'Each capture hop reads the current speed, even inside a single move');
-  assert(Math.abs(parseFloat(transitions.at(-1))-560/next*.85)<1e-9,'The real position transition follows the updated hop clock');
+  assert(Math.abs(parseFloat(transitions.at(-1))-560/next)<1e-9,'The real position transition follows the full updated hop clock without an early stop');
 }
 (async()=>{
   for(const pair of [[2,16],[16,2],[1,4],[4,1],[6,10],[10,8]])await run(...pair);

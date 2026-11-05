@@ -11,7 +11,9 @@ const close=position([[42,2],[33,-2]]);assert.equal(c.possibleWinWithinMoves(rs,
 const crown=[{boardBefore:before,side:1,move:{from:10,path:[10,1],caps:[],promotes:true}}];
 const early=c.lowMaterialCountdown(far,crown,c.E.legalMoves(rs,far,-1),{rs,side:-1});
 assert(early.immediateAfterCrown&&early.remaining===0,'Only a verified no-win small endgame may draw immediately after the first shared king');
-assert.equal(c.lowMaterialLimit([2,1,1,-2,-1,-1,-1,-1]),10,'One side down to three is enough when both have a king');
+assert.equal(c.lowMaterialLimit([2,1,1,-2,-1,-1]),10,'Three pieces each with a king starts the long endgame countdown');
+assert.equal(c.lowMaterialLimit([2,1,1,-2,-1,-1,-1]),0,'Four total pieces on either side block an automatic draw');
+assert.equal(c.lowMaterialLimit([2,1,1,1,-2,-1,-1]),0,'Three men plus a king counts as four and keeps play alive');
 for(const b of [[1,-2],[1,1,-2,-1],[2,1,-1,-1],[1,1,-1,-1]])assert.equal(c.lowMaterialLimit(b),0,'An uncrowned side always blocks automatic drawing');
 const ending=c.lowMaterialCountdown(close,quiet(close,2),c.E.legalMoves(rs,close,1),{rs,side:1});assert(ending.scoringNext,'A winning capture survives a finished countdown');
 let calls=[];Object.assign(c,{G:{board:before,side:1,noProg:999,rs,history:[],legal:c.E.legalMoves(rs,before,1),repMap:new Map([['same',3]])},
@@ -22,4 +24,4 @@ Object.assign(c.G,{board:larger,legal:c.E.legalMoves(rs,larger,1)});c.checkGameE
 Object.assign(c.G,{board:far,legal:c.E.legalMoves(rs,far,1)});c.checkGameEnd();assert.equal(calls.length,1,'An eligible, fully checked no-win repeated/inactive position can still draw');
 calls=[];let time=0;c.Date.now=()=>time+=100;c.possibleWinWithinMoves.cache.clear();
 c.checkGameEnd();assert.equal(calls.length,0,'An expired proof budget conservatively keeps the real game alive');
-console.log('PASS uncrowned-side protection, one-side three-piece threshold, existing countdown lengths, real three-turn legal win checks and guarded official draw paths');
+console.log('PASS uncrowned-side protection, both-sides-three-piece threshold, four-piece guards, existing countdown lengths, real three-turn legal win checks and guarded official draw paths');

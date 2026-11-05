@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="drafti-build" content="d03f9ce5ea49006e85a278c786ce60fc94a003271521197a79f81160f5728efa">
+<meta name="drafti-build" content="cc71ff5ea83941d6a76ee82a6e79df2601d556a129b08e55de069168461e33a0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="apple-touch-icon" href="./icon-192.png">
@@ -5755,7 +5755,7 @@ function createSoundAudit(capacity = 12000) {
       // Give each hop one matching movement/effect/wait clock, independent
       // of AI level, league progress or the time spent calculating.
       const hopMs = moveHopMs(mv.caps.length);
-      p.el.style.setProperty('--hop-time', (hopMs * .85) + 'ms');
+      p.el.style.setProperty('--hop-time', hopMs + 'ms');
       p.el.style.setProperty('--piece-fx-time', (G.mode === 'aivai' ? Math.min(250, hopMs * .7) : 250) + 'ms');
       const to = mv.path[k];
       const from = mv.path[k - 1];
@@ -5964,7 +5964,7 @@ function createSoundAudit(capacity = 12000) {
     for (const p of board) { if (p > 0) { a++; ak ||= p === 2; } else if (p < 0) { b++; bk ||= p === -2; } }
     if (!a || !b || !ak || !bk) return 0;
     if (a <= 2 && b <= 2) return 2;
-    return Math.min(a,b) <= 3 ? 10 : 0;
+    return a <= 3 && b <= 3 ? 10 : 0;
   }
   function possibleWinWithinMoves(rs,board,side,plies=3,cacheOnly=false) {
     const cache=possibleWinWithinMoves.cache ||= new Map(),key=rs.id+'|'+side+'|'+plies+'|'+board.join(',');

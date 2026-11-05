@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-05 — Endgame threshold and continuous movement
+
+- Require both crowned sides to have three pieces or fewer before starting the ten-turn draw countdown; a king counts as a piece. A four-piece side keeps play going.
+- Let each piece complete its full selected movement interval before the next capture hop, removing the previous pause at every landing while preserving speed scaling and capture effects.
+
 ## 2026-11-05 — Season Cups
 
 - Award the Season Cup to the actual grand-final winner, or shared cups for a drawn final. Present the winning flags, an existing short trophy fanfare and a season-engraved metallic trophy, with eight increasing prestige tiers.

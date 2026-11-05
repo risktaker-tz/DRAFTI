@@ -3284,7 +3284,7 @@ function createSoundAudit(capacity = 12000) {
       // Give each hop one matching movement/effect/wait clock, independent
       // of AI level, league progress or the time spent calculating.
       const hopMs = moveHopMs(mv.caps.length);
-      p.el.style.setProperty('--hop-time', (hopMs * .85) + 'ms');
+      p.el.style.setProperty('--hop-time', hopMs + 'ms');
       p.el.style.setProperty('--piece-fx-time', (G.mode === 'aivai' ? Math.min(250, hopMs * .7) : 250) + 'ms');
       const to = mv.path[k];
       const from = mv.path[k - 1];
@@ -3493,7 +3493,7 @@ function createSoundAudit(capacity = 12000) {
     for (const p of board) { if (p > 0) { a++; ak ||= p === 2; } else if (p < 0) { b++; bk ||= p === -2; } }
     if (!a || !b || !ak || !bk) return 0;
     if (a <= 2 && b <= 2) return 2;
-    return Math.min(a,b) <= 3 ? 10 : 0;
+    return a <= 3 && b <= 3 ? 10 : 0;
   }
   function possibleWinWithinMoves(rs,board,side,plies=3,cacheOnly=false) {
     const cache=possibleWinWithinMoves.cache ||= new Map(),key=rs.id+'|'+side+'|'+plies+'|'+board.join(',');
