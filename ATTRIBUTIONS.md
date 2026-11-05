@@ -210,8 +210,8 @@ integration (`scripts/owner_audio_map.json`).
 | `ah_scream` | youtube.com/shorts/fkRNoM2f9GM | 0.035–0.355 s | Comic "AHH!" scream (ASR) | Small comic shock |
 | `comic_hit` | youtube.com/shorts/fkRNoM2f9GM | 1.115–1.675 s | Bright percussive comedy hit | Punchline accent |
 | `mwah_kisses` | youtube.com/shorts/fkRNoM2f9GM | 6.385–9.800 s | Repeated comic mouth-kiss "mwah" sounds (ASR) | Over-affectionate gag |
-| `sorry_dontcry` | youtu.be/g0cRfVqV04Q | 7.520–10.200 s | "Oh, sorry, sorry, sorry, don't cry." (word timestamps) | Consolation after a heavy loss |
-| `dont_cry` | youtu.be/g0cRfVqV04Q | 21.000–21.780 s | "Don't cry." (word timestamps) | Short sympathy tag |
+| `sorry_dontcry` | youtu.be/g0cRfVqV04Q | 7.520–10.200 s | "Oh, sorry, sorry, sorry, don't cry." (word timestamps) | Rare consolation after a verified final-piece capture; prior heavy-loss metadata preserved |
+| `dont_cry` | youtu.be/g0cRfVqV04Q | 21.000–21.780 s | "Don't cry." (word timestamps) | Rare short tag after a verified final-piece capture; prior sympathy metadata preserved |
 | `g0_bass_sting` | youtu.be/g0cRfVqV04Q | 26.500–29.900 s | Sustained ominous bass sting (excerpt of 26.145–32.105 s) | Wahala moment |
 | `comic_hit_bright` | youtu.be/g0cRfVqV04Q | 32.945–33.655 s | Bright comedy hit (distinct recording from `comic_hit`, waveform corr 0.06) | Punchline accent, alternate color |
 | `pregnant_shock` | youtu.be/g0cRfVqV04Q | 48.425–49.585 s | Comic "PREGNANT?!" exclamation (stable across two ASR models) | Huge comic surprise |

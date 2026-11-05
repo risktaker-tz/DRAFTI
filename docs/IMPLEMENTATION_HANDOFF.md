@@ -1,5 +1,13 @@
 # DRAFTI implementation handoff and full remaining plan
 
+## Current checkpoint — final-piece loss reaction — 2026-11-05
+
+- Added a rare, gentle losing-side consolation after the opponent's actual last piece is captured. The route checks the terminal result, captured move, winner/loser sides, and zero remaining losing pieces; wins by blockade, draws, non-final captures and stale timers do not trigger it.
+- Reuses the already-installed `sorry_dontcry` / `dont_cry` recordings. No audio was replaced. Their existing sympathy mappings, voice-category setting, shared consolation quota, cooldown, event rarity and scene lock remain in force. A guarded 2.8-second delay lets the result cue finish. The terminal event is eligible in AI-vs-AI even at faster selected speeds.
+- Focused owner-audio, retirement, endgame billboard, sound-reference and embedded-bank integrity checks pass. The 544-clip bank still has no missing references/events, oversized clips, duration violations or encoding violations. Node build produced 14,292,066 bytes and synced all 300 verified streamer clips. Engine suite: 38,956 passed / 0 failed; independent move-generator cross-check: zero mismatches across all eight rulesets. In the 65-test sweep, 63 passed; the engine test exceeded the sweep's captured-output buffer but passed standalone. The Python/Node reproducibility test could not run because Python is unavailable in this environment.
+- Latest public checkpoint before this change is `c83d8eb`, verified byte-for-byte on Vercel and GitHub Pages. This local change is not yet committed or deployed. Browser automation is unavailable in Work settings, so rendered playback remains to be checked when a browser surface is available.
+- The full blueprint remains active. In particular, complete live playback across all modes, install/offline acceptance, full visual acceptance, and a completed current-policy multi-season fairness simulation remain required.
+
 ## Current checkpoint — role-accurate streamer language and builder parity — 2026-11-05
 
 - The live 300-clip pack remains intact: 100 clips each for Female, Male and Funny. Tactical, result, crown, stage, season, bout, trap, pressure and turnaround lines remain in their specific event pools. Idle language is now split into quiet board commentary, comment prompts and like/share prompts; it cycles through those purposes only during genuine quiet play, with a 90-second idle interval and longer per-purpose cooldowns for social requests. Intermission fallback uses between-bout language, not generic social or stream-ending copy.

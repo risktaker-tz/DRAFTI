@@ -11,7 +11,7 @@ const eventReferences=require('./sound_references').collectSoundReferences(ui,'e
 const ownerReferences=require('./sound_references').collectSoundReferences(ui,'directOwner');
 const eventIds=new Set(Object.values(bank).map(clip=>clip.event).filter(Boolean));
 const ownerMap=(sandbox.window.DRAFTI_OWNER_AUDIO||{}).clips||{};
-const ownerEvents=new Set(Object.values(ownerMap).map(clip=>clip.event));
+const ownerEvents=new Set(Object.values(ownerMap).flatMap(clip=>[clip.event,...(clip.events||[])]));
 const missingEvents=eventReferences.references.filter(event=>!eventIds.has(event));
 const missingOwnerEvents=ownerReferences.references.filter(event=>!ownerEvents.has(event));
 const controlledPreviewExpressions=eventReferences.unresolved.filter(item=>item.expression==='button.dataset.event');

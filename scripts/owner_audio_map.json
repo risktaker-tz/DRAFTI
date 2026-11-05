@@ -1,6 +1,6 @@
 {
   "generated": "2026-11-02",
-  "status": "SUGGESTED MAPPINGS ONLY - not wired into game events. The shared sound director integration is owned by the main agent; until it lands, nothing here plays automatically. No src/ui.js, engine.js or profile files were touched for these clips.",
+  "status": "Source cuts are verified. Only event routes referenced by src/ui.js are live; directOwner routes apply per-event guards, shared family quotas, cooldowns and category settings. Other mappings remain inactive suggestions.",
   "processing": "voice_proc.process keep_duration=True, maximum=3.5s, bitrate=56; mono 22050 Hz; decoded peaks <= -1.5 dBFS; <= 60 KiB",
   "sources": {
     "mvUVrweNvsQ": "https://youtube.com/shorts/mvUVrweNvsQ",
@@ -223,6 +223,7 @@
       "mood": "consoling",
       "family": "nigerian-compilation",
       "event": "consolation_after_heavy_loss",
+      "events": ["last_piece_loss"],
       "phase": "move",
       "priority": "low",
       "cooldownSec": 180,
@@ -240,6 +241,7 @@
       "mood": "consoling",
       "family": "nigerian-compilation",
       "event": "consolation_short_tag",
+      "events": ["last_piece_loss"],
       "phase": "move",
       "priority": "low",
       "cooldownSec": 180,

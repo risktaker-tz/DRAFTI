@@ -1691,12 +1691,17 @@ function createSoundAudit(capacity = 12000) {
     },
     directOwner(event, context) {
       context = context || {};
-      if (!settings.sound || G.over || G.mode === 'aivai' && G.aiSpeed > 1 || performance.now() < this.sceneLockUntil) return null;
+      const finalCaptureLoss = event === 'last_piece_loss' && G.over &&
+        [-1, 1].includes(context.loserSide) && context.winner === G.result?.winner &&
+        context.loserSide === -context.winner && G.history?.at(-1)?.move?.caps?.length > 0 &&
+        countSide(context.loserSide) === 0;
+      if (!settings.sound || (G.over && !finalCaptureLoss) ||
+          (G.mode === 'aivai' && G.aiSpeed > 1 && !finalCaptureLoss) || performance.now() < this.sceneLockUntil) return null;
       if (event === 'human_blunder_flagrant' && (!context.human || context.forced || context.delta < 420)) return null;
       const now = performance.now();
       if (now - this.lastOwnerAt < 18000) return null;
       const eligible = Object.entries(this.ownerMap).filter(([id, m]) => {
-        if (m.event !== event || !this.on(id) || !this.buffers.has(id)) return false;
+        if ((m.event !== event && !m.events?.includes(event)) || !this.on(id) || !this.buffers.has(id)) return false;
         const family = id.startsWith('laugh_baby') ? 'baby-laugh'
           : ['sorry_dontcry', 'dont_cry'].includes(id) ? 'consolation'
           : ['comic_hit', 'comic_hit_bright'].includes(id) ? 'punchline' : id;
@@ -3720,6 +3725,16 @@ function createSoundAudit(capacity = 12000) {
       if (r.winner === null && !(G.mode === 'aivai' && settings.aivaiAuto)) setTimeout(() => STREAMER.say('draw'), 1400);
       // AI vs AI: the show must go on — commentary then the next bout
       if (Math.random() < 0.8) setTimeout(() => SFX_BANK.play(pick(['v_spec9', 'v_spec8', 'v_spec7']), { vol: 0.9 }), 1600);
+    }
+    const finalMove = G.history.at(-1)?.move;
+    if (r.winner !== null && finalMove?.caps?.length && countSide(-r.winner) === 0) {
+      const resultEpoch = gameEpoch, winner = r.winner;
+      // The loser's rare, gentle reaction follows the result fanfare and is
+      // guarded against firing after a restart or an arena position change.
+      setTimeout(() => {
+        if (resultEpoch !== gameEpoch || !G.over || G.result?.winner !== winner || countSide(-winner) !== 0) return;
+        SFX_BANK.directOwner('last_piece_loss', { winner, loserSide: -winner });
+      }, 2800);
     }
     $('goTitle').textContent = r.winner === null ? 'A draw'
       : (G.mode === 'ai'
