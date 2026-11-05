@@ -2082,8 +2082,12 @@ function createSoundAudit(capacity = 12000) {
     if(!fresh.length)return selected;
     // Repetition is only a tiebreak among near-equal, fully searched moves;
     // clearly better lines and the engine's normal result handling stay intact.
-    const best=fresh.reduce((a,b)=>b.score>a.score?b:a),freshLegal=legal.filter(move=>fresh.some(root=>key(root.m)===key(move)));
-    return chooseLadderMove({...res,best:best.m,rootScores:fresh},freshLegal,levelId);
+    // When the preferred move is already repeating, take the strongest
+    // fully-searched fresh route directly. Reapplying the ladder's random
+    // near-equal sampler here could turn a precise escape into another loop.
+    // This is a repetition-only tiebreak: ordinary positions keep the exact
+    // pre-existing move-selection and fairness policy.
+    return fresh.reduce((a,b)=>b.score>a.score?b:a).m;
   }
   function chooseRememberedMove(res,legal,levelId) {
     const initial=chooseLadderMove(res,legal,levelId);if(!initial||legal.length<=1)return initial;

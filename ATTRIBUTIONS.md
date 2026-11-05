@@ -259,10 +259,10 @@ Source: [reproducible synthesizer](https://github.com/risktaker-tz/DRAFTI/blob/c
 | whistle | fx_whistle_1, fx_whistle_2, fx_whistle_3, fx_whistle_4 | comedy |
 | zip | fx_zip_1, fx_zip_2, fx_zip_3, fx_zip_4 | comedy |
 
-## Live streamer voices — in-house TTS, added 2026-11-02
+## Initial live streamer voices — in-house TTS, added 2026-11-02
 
 The three live-streamer modes (Female / Male / Funny, all OFF by default and
-mutually exclusive in the Sound design menu) add forty original commentary
+mutually exclusive in the Sound design menu) initially added forty original commentary
 lines generated in-house with the project's TTS tooling: the Female mode uses
 the tongtong voice, the Male mode the jam voice, and the Funny mode generates
 nothing at all — it reuses the app's own judge voice plus already-credited
@@ -277,6 +277,18 @@ no existing clip was replaced; the modes play only in place of a covered
 event's spoken reaction, never on top of one, and every cooldown, quota and
 category control of the existing sound design still applies. Existing
 clips are byte-for-byte unchanged.
+
+## Expanded live streamer vocabulary — 2026-11-05
+
+The separately distributed, verified `streamer-pack/` contains 121 additional
+original in-house TTS clips: 20 Female clips (z-ai `tongtong`), 34 Male clips
+(z-ai `jam`) and 67 Funny clips (z-ai `kazi`). They are published under
+`web/streamer-vocabulary/`, fetched only for the selected streamer and currently
+supported event roles, and cached by the service worker after successful fetch
+for offline use. They use the same speech-guarded processing described above;
+no third-party recording or existing sound was replaced. The source pack's
+manifest records every transcript, role, source, processing limits, byte count
+and SHA-256. `node tests/test_streamer_pack.js` verifies source-to-public parity.
 
 ## Existing voice processing corrections — 2026-11-03
 

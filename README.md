@@ -410,6 +410,8 @@ The Sound design menu gains a `Live streamer` selector with four mutually exclus
 
 The layer is a guest in the existing design: it takes over only the spoken reaction of an event it covers (never doubling a voice), drops instead of queueing when another voice talks or a ceremony scene-locks the bank, and respects the master volume, mute and the Voice category chip. Per-role cooldowns, per-game quotas and chance gates keep it sparse; selection persists per device. All 1110 researched phrases and their sources are in `docs/streamer-phrasebook.md`; wiring and gates are checked by `node tests/test_streamer_modes.js`.
 
+The separately cached, verified streamer pack now publishes 121 original in-house voice clips (20 Female, 34 Male and 67 Funny). The runtime loads only clips for the selected voice and event roles it currently supports; the pack can grow without replacing the existing sound bank or changing its default-off behavior. Source hashes and deployment parity are checked by `node tests/test_streamer_pack.js`.
+
 ### Fair arena checkpoint
 
 The arena now alternates the champion's colour each bout, applies the same difficulty and mistake policy to either seat, and gives the lower-rated nation a symmetric competitive lift (never more than two rungs apart). Style no longer changes search time or adds extra mistakes; positional preferences remain, with bounded material valuation. Arena move selection uses the actual seat's earned ladder level. Tanzania remains in the full queue after another nation takes the title.

@@ -17,6 +17,10 @@ const cycleScores=legal.map((m,i)=>({m,score:i===0?100:i===1?70:-500}));
 const cycleResult={best:legal[0],depth:6,rootScores:cycleScores};
 assert.equal(c.chooseRememberedMove(cycleResult,legal,'l10').path.join(),legal[1].path.join(),
   'A near-equal legal route escapes a repeated position');
+const closeFreshScores=legal.map((m,i)=>({m,score:i===0?100:i===1?99:i===2?98:-500}));
+assert.equal(c.chooseCycleEscape(legal[0],{best:legal[0],depth:6,rootScores:closeFreshScores},legal,'l10',
+  move=>move===legal[0]?1:0).path.join(),legal[1].path.join(),
+  'A loop escape chooses the highest-scored fresh route without random ladder sampling');
 const costlyResult={best:legal[0],depth:6,rootScores:legal.map((m,i)=>({m,score:i===0?100:i===1?40:-500}))};
 assert.equal(c.chooseRememberedMove(costlyResult,legal,'l10').path.join(),legal[0].path.join(),
   'A repeated best move remains when every fresh route costs more than the safety margin');
@@ -30,6 +34,8 @@ c.G.repMap=new Map(legal.map(m=>[c.posKey(E.applyMove(rs,c.G.board,m,1),-1),1]))
 assert.equal(c.chooseRememberedMove(cycleResult,legal,'l10').path.join(),legal[0].path.join(),
   'The AI keeps its best move when every legal result repeats');
 c.G.repMap.clear();
+assert.equal(c.chooseRememberedMove(cycleResult,legal,'l10').path.join(),legal[0].path.join(),
+  'The loop guard leaves ordinary positions on the existing move-selection policy');
 // The escape check must follow whichever rules and board size are active;
 // do not assume a fixed initial piece count or square count.
 let rulesetCoverage=0;

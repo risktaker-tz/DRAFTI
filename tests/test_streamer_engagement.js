@@ -53,7 +53,10 @@ async function checkVocabulary() {
   const before = played.length;
   await S.warmVoice();
   assert.equal(played.length, before, 'Loading vocabulary does not start speech');
-  assert.equal(fetched.length, 1 + manifest.filter(clip => clip.mode === 'funny').length);
+  const activeRoles = new Set(['session_open', 'new_bout', 'rematch_draw', 'season_advance',
+    'capture1', 'capture2', 'capture3plus', 'new_king']);
+  assert.equal(fetched.length, 1 + manifest.filter(clip => clip.mode === 'funny' && activeRoles.has(clip.role)).length,
+    'Only approved event roles are downloaded for the selected voice');
   for (const [role, source] of Object.entries({capture: 'capture1', feast: 'capture2', capture_chain: 'capture3plus', crowning: 'new_king'})) {
     assert(S.extraPools.funny[role].length > 0);
     assert(S.extraPools.funny[role].every(id => manifest.some(clip => clip.id === id && clip.role === source)));

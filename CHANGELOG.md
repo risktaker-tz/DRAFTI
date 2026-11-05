@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-05 — Precise loop escape and complete streamer-pack publication
+
+- When the engine's chosen move would revisit a position, select the strongest fully searched legal route that avoids that repeat, but only within the existing bounded score margin. Do not run the random ladder sampler a second time on the escape route. Normal positions, ruleset-derived piece counts, search depth, engine scoring, draw rules, nation scheduling and season progression remain unchanged; a clear winning edge is preserved and no outcome is forced.
+- Make both web builders validate and publish every verified streamer clip from the source pack. The separately cached public pack now contains 121 clips; loading remains opt-in and limited to event roles already supported by the runtime. No existing sounds are replaced.
+- Add regression coverage for ordinary-move policy preservation, best-score escape choice, ruleset piece counts, source/public audio parity and currently supported voice roles.
+
 ## 2026-11-05 — AI cycle escape and contact-synced movement
 
 - Give each AI the real game's visited-position counts at move selection. When its chosen route repeats a position, it takes a fresh legal route only when full-search scores remain close; the safe margin widens after a protected loop repeats, while materially stronger lines and normal game results stay intact. This does not force a win or end a game.
