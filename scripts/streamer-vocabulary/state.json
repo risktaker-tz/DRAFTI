@@ -1288,9 +1288,13 @@
    "takes": 1
   },
   "sm2_026": {
-   "error": "retake: jam rate recalibration",
-   "status": "failed",
-   "takes": 1
+   "bytes": 17780,
+   "error": null,
+   "lufs": -18.3,
+   "peakDbfs": -1.642,
+   "seconds": 2.433,
+   "status": "accepted",
+   "takes": 2
   },
   "sm2_027": {
    "bytes": 31677,
@@ -1379,6 +1383,87 @@
    "lufs": -17.4,
    "peakDbfs": -1.598,
    "seconds": 4.9745,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sm2_037": {
+   "bytes": 18328,
+   "error": null,
+   "lufs": -20.1,
+   "peakDbfs": -1.618,
+   "seconds": 2.5264,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sm2_038": {
+   "bytes": 23997,
+   "error": null,
+   "lufs": -21.7,
+   "peakDbfs": -1.648,
+   "seconds": 3.3374,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sm2_039": {
+   "bytes": 20523,
+   "error": null,
+   "lufs": -21.7,
+   "peakDbfs": -1.592,
+   "seconds": 2.8435,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sm2_040": {
+   "bytes": 25277,
+   "error": null,
+   "lufs": -19.4,
+   "peakDbfs": -1.58,
+   "seconds": 3.5085,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sm2_041": {
+   "bytes": 19243,
+   "error": null,
+   "lufs": -16.5,
+   "peakDbfs": -1.589,
+   "seconds": 2.6385,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sm2_042": {
+   "bytes": 23814,
+   "error": null,
+   "lufs": -19.8,
+   "peakDbfs": -1.584,
+   "seconds": 3.2927,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sm2_043": {
+   "bytes": 20888,
+   "error": null,
+   "lufs": -20.0,
+   "peakDbfs": -1.534,
+   "seconds": 2.883,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sm2_044": {
+   "bytes": 30214,
+   "error": null,
+   "lufs": -19.3,
+   "peakDbfs": -1.637,
+   "seconds": 4.2249,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sm2_045": {
+   "bytes": 28934,
+   "error": null,
+   "lufs": -20.8,
+   "peakDbfs": -1.991,
+   "seconds": 4.0478,
    "status": "accepted",
    "takes": 1
   }

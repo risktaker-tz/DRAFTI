@@ -138,7 +138,7 @@ backed by an accepted MP3 in `audio/` with verified duration/peak/hash in
 | `sm2_023` | stage_quarter | Quarter-final stage — only strong play survives. | boutStart where the tournament stage advances to the quarter | — | accepted {"seconds": 4.1297, "bytes": 29666} |
 | `sm2_024` | stage_semi | Semi-final time — the board gets serious! | boutStart where the tournament stage advances to the semi-fi | — | accepted {"seconds": 4.9216, "bytes": 35151} |
 | `sm2_025` | stage_semi | The semi-finals — one bout from the final! | boutStart where the tournament stage advances to the semi-fi | — | accepted {"seconds": 3.1151, "bytes": 22534} |
-| `sm2_026` | stage_semi | Composure decides this bout! | boutStart where the tournament stage advances to the semi-fi | — | failed |
+| `sm2_026` | stage_semi | Composure decides this bout! | boutStart where the tournament stage advances to the semi-fi | — | accepted {"seconds": 2.433, "bytes": 17780} |
 | `sm2_027` | stage_final | The grand final! Everything built leads here. | boutStart where the tournament stage advances to the grand f | — | accepted {"seconds": 4.4285, "bytes": 31677} |
 | `sm2_028` | stage_final | Final bout — the crown is on the line! | boutStart where the tournament stage advances to the grand f | — | accepted {"seconds": 3.1198, "bytes": 22534} |
 | `sm2_029` | stage_final | Grand final underway — checkers at its peak! | boutStart where the tournament stage advances to the grand f | — | accepted {"seconds": 3.654, "bytes": 26191} |
@@ -149,15 +149,15 @@ backed by an accepted MP3 in `audio/` with verified duration/peak/hash in
 | `sm2_034` | clean_move | Solid play — the structure stays strong. | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 3.598, "bytes": 25826} |
 | `sm2_035` | clean_move | No hesitation, no waste — professional! | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 3.8907, "bytes": 27837} |
 | `sm2_036` | clean_move | That is quality — calm hands, clear head. | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 4.9745, "bytes": 35517} |
-| `sm2_037` | capture1 | A piece comes off — the count opens! | caps === 1 on the mover's committed move | — | pending |
-| `sm2_038` | capture1 | One capture — clean and profitable. | caps === 1 on the mover's committed move | — | pending |
-| `sm2_039` | capture1 | Taken! One piece down on that side. | caps === 1 on the mover's committed move | — | pending |
-| `sm2_040` | capture1 | A simple take — the edge begins here. | caps === 1 on the mover's committed move | — | pending |
-| `sm2_041` | capture1 | One off the board — steady work! | caps === 1 on the mover's committed move | — | pending |
-| `sm2_042` | capture1 | Capture made — small step, real value. | caps === 1 on the mover's committed move | — | pending |
-| `sm2_043` | capture2 | Double capture! Two pieces in one move! | caps === 2 on the mover's committed move | — | pending |
-| `sm2_044` | capture2 | One, two — gone! What a combination! | caps === 2 on the mover's committed move | — | pending |
-| `sm2_045` | capture2 | Two captures in one turn — fast changes! | caps === 2 on the mover's committed move | — | pending |
+| `sm2_037` | capture1 | A piece comes off — the count opens! | caps === 1 on the mover's committed move | — | accepted {"seconds": 2.5264, "bytes": 18328} |
+| `sm2_038` | capture1 | One capture — clean and profitable. | caps === 1 on the mover's committed move | — | accepted {"seconds": 3.3374, "bytes": 23997} |
+| `sm2_039` | capture1 | Taken! One piece down on that side. | caps === 1 on the mover's committed move | — | accepted {"seconds": 2.8435, "bytes": 20523} |
+| `sm2_040` | capture1 | A simple take — the edge begins here. | caps === 1 on the mover's committed move | — | accepted {"seconds": 3.5085, "bytes": 25277} |
+| `sm2_041` | capture1 | One off the board — steady work! | caps === 1 on the mover's committed move | — | accepted {"seconds": 2.6385, "bytes": 19243} |
+| `sm2_042` | capture1 | Capture made — small step, real value. | caps === 1 on the mover's committed move | — | accepted {"seconds": 3.2927, "bytes": 23814} |
+| `sm2_043` | capture2 | Double capture! Two pieces in one move! | caps === 2 on the mover's committed move | — | accepted {"seconds": 2.883, "bytes": 20888} |
+| `sm2_044` | capture2 | One, two — gone! What a combination! | caps === 2 on the mover's committed move | — | accepted {"seconds": 4.2249, "bytes": 30214} |
+| `sm2_045` | capture2 | Two captures in one turn — fast changes! | caps === 2 on the mover's committed move | — | accepted {"seconds": 4.0478, "bytes": 28934} |
 | `sm2_046` | capture2 | A double strike — excellent awareness! | caps === 2 on the mover's committed move | — | pending |
 | `sm2_047` | capture2 | Two for one move — real profit! | caps === 2 on the mover's committed move | — | pending |
 | `sm2_048` | capture2 | Doubled! The material gap widens. | caps === 2 on the mover's committed move | — | pending |
