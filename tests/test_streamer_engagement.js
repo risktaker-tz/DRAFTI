@@ -54,18 +54,28 @@ async function checkVocabulary() {
   await S.warmVoice();
   assert.equal(played.length, before, 'Loading vocabulary does not start speech');
   const activeRoles = new Set(['session_open', 'new_bout', 'rematch_draw', 'season_advance',
-    'capture1', 'capture2', 'capture3plus', 'new_king']);
+    'capture1', 'capture2', 'capture3plus', 'new_king', 'new_challenger', 'stage_quarter', 'win', 'after_loss']);
   assert.equal(fetched.length, 1 + manifest.filter(clip => clip.mode === 'funny' && activeRoles.has(clip.role)).length,
     'Only approved event roles are downloaded for the selected voice');
   for (const [role, source] of Object.entries({capture: 'capture1', feast: 'capture2', capture_chain: 'capture3plus', crowning: 'new_king'})) {
     assert(S.extraPools.funny[role].length > 0);
     assert(S.extraPools.funny[role].every(id => manifest.some(clip => clip.id === id && clip.role === source)));
   }
+  for (const [role, id] of Object.entries({next_bout: 'sj2_007', upset: 'sj2_011', next_rematch: 'sj2_016',
+    next_season: 'sj2_018', stage_quarter: 'sj2_022', capture: 'sj2_040', defeat: 'sj2_075', victory: 'sj2_076'})) {
+    assert(S.extraPools.funny[role]?.includes(id), `${id} is loaded for its specific ${role} moment`);
+  }
+  assert(S.extraPools.funny.victory.includes('sj2_077') && S.extraPools.funny.victory.includes('sj2_078'));
+  assert(S.extraPools.funny.next_season.includes('sj2_019'));
   const say = S.say;
   const roles = [];
   S.say = role => { roles.push(role); return role === 'next_rematch'; };
   assert(S.intermission('next_rematch'));
-  assert.deepEqual(roles, ['cta', 'next_rematch']);
+  assert.deepEqual(roles, ['next_rematch'], 'A factual transition line takes precedence over a generic CTA');
+  roles.length = 0;
+  S.say = role => { roles.push(role); return false; };
+  assert.equal(S.intermission('next_season'), false);
+  assert.deepEqual(roles, ['next_season', 'cta'], 'A CTA is the fallback when the event has no eligible line');
   S.say = say;
 }
 checkVocabulary().catch(error => { console.error(error); process.exitCode = 1; });

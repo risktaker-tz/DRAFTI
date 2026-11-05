@@ -2542,7 +2542,8 @@ function createSoundAudit(capacity = 12000) {
       }).then(async clips => {
         const roles = { session_open: 'greeting', capture1: 'capture',
           capture2: 'feast', capture3plus: 'capture_chain', new_king: 'crowning',
-          new_bout: 'next_bout', rematch_draw: 'next_rematch', season_advance: 'next_season' };
+          new_bout: 'next_bout', rematch_draw: 'next_rematch', season_advance: 'next_season',
+          new_challenger: 'upset', stage_quarter: 'stage_quarter', win: 'victory', after_loss: 'defeat' };
         const pool = this.extraPools[mode] = {};
         for (const clip of clips) {
           const role = roles[clip.role];
@@ -2570,6 +2571,8 @@ function createSoundAudit(capacity = 12000) {
       next_bout:    { chance: 1, cooldown: 30000, perGame: 1 },
       next_rematch: { chance: 1, cooldown: 30000, perGame: 1 },
       next_season:  { chance: 1, cooldown: 30000, perGame: 1 },
+      upset:        { chance: 1, cooldown: 30000, perGame: 1 },
+      stage_quarter:{ chance: 1, cooldown: 30000, perGame: 1 },
       crowning:    { chance: 1,  cooldown: 20000,  perGame: 5 },
       trap_set:    { chance: .4,  cooldown: 60000,  perGame: 2 },
       trap_spring: { chance: .55, cooldown: 60000,  perGame: 2 },
@@ -2670,7 +2673,7 @@ function createSoundAudit(capacity = 12000) {
       // A ceremony owns its full original recording. Use the free space after
       // it for engagement, without falsely announcing the stream has ended.
       if (drawerOpen || document.hidden) return false;
-      return this.say('cta') || (role ? this.say(role) : false);
+      return (role ? this.say(role) : false) || this.say('cta');
     },
     canPlay(role, opts) {
       if (typeof drawerOpen !== 'undefined' && drawerOpen) return false;
@@ -3920,7 +3923,8 @@ function createSoundAudit(capacity = 12000) {
       const nextPair = [arena.champion, arena.queue[0] || arena.champion];
       const drawnRematch = G.result?.winner === null && nextPair.includes(G.seatIvory) &&
         nextPair.includes(G.seatEbony);
-      const transition = res.seasonEnd ? 'next_season' : drawnRematch ? 'next_rematch' : 'next_bout';
+      const transition = res.seasonEnd ? 'next_season' : drawnRematch ? 'next_rematch'
+        : res.champion !== prevChamp ? 'upset' : 'next_bout';
       const streamerSpoke = STREAMER.intermission(transition);
       const voiceEnds = streamerSpoke ? STREAMER.busyUntil : 0;
       let left = 6, remainingMs = 6000, lastTick = Date.now();
@@ -4122,6 +4126,7 @@ function createSoundAudit(capacity = 12000) {
           SFX_BANK.play('crown_fanfare', { vol: 0.9 });
           setTimeout(() => { if (openingEpoch === gameEpoch && !G.over && !drawerOpen) SFX_BANK.play('st_air1', { vol: 0.8 }); }, 750);
           flashLabel(line, 'majestic');
+          if (stage === 1) STREAMER.intermission('stage_quarter');
         }, 4300);
       }
       if (G.pairMeets >= 2) {
