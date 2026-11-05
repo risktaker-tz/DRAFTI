@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-05",
+  "builtRuntimeSha256": "066997CCFE012FBEDAA0E0500D9E6282621361279C11F2D9E5F6B2DCFE268FEC",
+  "mobileGeometry": {
+    "viewport": "390x844",
+    "cases": 48,
+    "rulesets": ["eastafrica8", "eastafrica10", "eastafrica12"],
+    "materials": ["tourney", "woodturn", "ivoryjet", "bakelite", "steel", "glass", "stone", "theme"],
+    "orientations": ["normal", "flipped"],
+    "startingPieces": [24, 40, 60],
+    "maximumDiscCircleErrorCssPixels": 0,
+    "horizontalOverflowCases": 0,
+    "browserErrors": 0,
+    "screenshot": "docs/game-over-restart-mobile.png"
+  },
+  "gameOverRestart": {
+    "mode": "computer",
+    "completedMatchPlies": 43,
+    "result": "Uhakika win by capturing all Usiogope pieces",
+    "restartIssuedBeforeThe650msResultDialog": true,
+    "waitAfterRestartMs": 850,
+    "newMatchOver": false,
+    "newMatchHistoryPlies": 0,
+    "staleResultDialogVisible": false,
+    "staleBackdropVisible": false,
+    "browserErrors": 0
+  },
+  "test": "tests/test_show_gameover_epoch.js passes: all delayed result sounds, commentary and result modal are suppressed after the game generation changes, while current-match cues remain active.",
+  "limitations": [
+    "The board matrix checks opening-piece geometry/material/orientation on the mobile viewport. It does not establish animation frame rate, all event-animation appearance, or full theme contrast.",
+    "The result restart run used scripted legal moves in isolated Chromium, not human input or a physical installed device."
+  ]
+}

@@ -3685,6 +3685,10 @@ function createSoundAudit(capacity = 12000) {
   function showGameOver() {
     if (!G.over || overShown) return;
     overShown = true;
+    const resultEpoch = gameEpoch;
+    const later = (fn, delay) => setTimeout(() => {
+      if (resultEpoch === gameEpoch && G.over) fn();
+    }, delay);
     if (typeof recordAudioCheckpoint === 'function') recordAudioCheckpoint('game-end');
     const r = G.result;
     if (G.mode === 'ai') {
@@ -3692,17 +3696,17 @@ function createSoundAudit(capacity = 12000) {
       SFX_BANK.play(r.winner === null ? 'draw_chime'
         : r.winner === G.humanSide ? 'win_fanfare' : 'lose_womp', { vol: 0.9 });
       if (r.winner === null && settings.sfx.party) {
-        setTimeout(() => SFX_BANK.play('god', { vol: 0.9 }), 1000); // "…God."
+        later(() => SFX_BANK.play('god', { vol: 0.9 }), 1000); // "…God."
       }
       if (r.winner === G.humanSide) {
         SFX_BANK.play('achievement', { vol: 0.8 });
-        if (Math.random() < 0.35) setTimeout(() => { if (!STREAMER.say('victory')) SFX_BANK.play(pick(['v_win2', 'v_win3']), { vol: 0.85 }); }, 1400);
+        if (Math.random() < 0.35) later(() => { if (!STREAMER.say('victory')) SFX_BANK.play(pick(['v_win2', 'v_win3']), { vol: 0.85 }); }, 1400);
       } else if (r.winner !== null && Math.random() < 0.35) {
-        setTimeout(() => { if (!STREAMER.say('defeat')) SFX_BANK.play(pick(['v_lose2', 'v_lose3']), { vol: 0.85 }); }, 1400);
+        later(() => { if (!STREAMER.say('defeat')) SFX_BANK.play(pick(['v_lose2', 'v_lose3']), { vol: 0.85 }); }, 1400);
       }
-      if (r.winner === null) setTimeout(() => STREAMER.say('draw'), 1400);
+      if (r.winner === null) later(() => STREAMER.say('draw'), 1400);
       const v = r.winner === null ? 'v_draw' : r.winner === G.humanSide ? 'v_win' : 'v_lose';
-      setTimeout(() => SFX_BANK.play(v, { vol: 0.9 }), 550);
+      later(() => SFX_BANK.play(v, { vol: 0.9 }), 550);
       // ladder celebrations: conquering a new best rung, streaks, giant-killing
       if (r.winner === G.humanSide) {
         const li = LEVEL_IDS.indexOf(G.diff);
@@ -3710,31 +3714,31 @@ function createSoundAudit(capacity = 12000) {
         const prevBest = typeof s.bestLevel === 'number' ? s.bestLevel : -1;
         if (li > prevBest) {
           s.bestLevel = li; stats[G.rsId] = s; saveStats();
-          setTimeout(() => {
+          later(() => {
             FX.play('levelup');
             SFX_BANK.play('v_levelup1', { vol: 0.9 });
             flashWhisper('New best level conquered: ' + LEVELS[G.diff].name + '!');
           }, 1300);
         } else if (s.run >= 3) {
-          setTimeout(() => SFX_BANK.play(pick(['v_streak1', 'v_streak2']), { vol: 0.85 }), 1500);
+          later(() => SFX_BANK.play(pick(['v_streak1', 'v_streak2']), { vol: 0.85 }), 1500);
         } else if (li >= 6 && Math.random() < 0.45) {
-          setTimeout(() => SFX_BANK.play(pick(['v_beatgm1', 'v_beatgm2']), { vol: 0.85 }), 1500);
+          later(() => SFX_BANK.play(pick(['v_beatgm1', 'v_beatgm2']), { vol: 0.85 }), 1500);
         }
       }
     } else {
       FX.play(r.winner === null ? 'draw' : 'king');
       SFX_BANK.play(r.winner === null ? 'draw_chime' : 'crown_fanfare', { vol: 0.85 });
-      if (r.winner === null) setTimeout(() => SFX_BANK.play('god', { vol: 0.9 }), 1000);
-      if (r.winner === null && !(G.mode === 'aivai' && settings.aivaiAuto)) setTimeout(() => STREAMER.say('draw'), 1400);
+      if (r.winner === null) later(() => SFX_BANK.play('god', { vol: 0.9 }), 1000);
+      if (r.winner === null && !(G.mode === 'aivai' && settings.aivaiAuto)) later(() => STREAMER.say('draw'), 1400);
       // AI vs AI: the show must go on — commentary then the next bout
-      if (Math.random() < 0.8) setTimeout(() => SFX_BANK.play(pick(['v_spec9', 'v_spec8', 'v_spec7']), { vol: 0.9 }), 1600);
+      if (Math.random() < 0.8) later(() => SFX_BANK.play(pick(['v_spec9', 'v_spec8', 'v_spec7']), { vol: 0.9 }), 1600);
     }
     const finalMove = G.history.at(-1)?.move;
     if (r.winner !== null && finalMove?.caps?.length && countSide(-r.winner) === 0) {
       const resultEpoch = gameEpoch, winner = r.winner;
       // The loser's rare, gentle reaction follows the result fanfare and is
       // guarded against firing after a restart or an arena position change.
-      setTimeout(() => {
+      later(() => {
         if (resultEpoch !== gameEpoch || !G.over || G.result?.winner !== winner || countSide(-winner) !== 0) return;
         SFX_BANK.directOwner('last_piece_loss', { winner, loserSide: -winner });
       }, 2800);
@@ -3751,7 +3755,7 @@ function createSoundAudit(capacity = 12000) {
       scheduleAutoNext();
       return;
     }
-    setTimeout(() => openModal('modalGameOver'), 650);
+    later(() => openModal('modalGameOver'), 650);
   }
 
   // ---------------- the arena: host vs challenger, the world ladder ----------
