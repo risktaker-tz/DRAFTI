@@ -73,23 +73,23 @@ backed by an accepted MP3 in `audio/` with verified duration/peak/hash in
 | `sf2_063` | turnaround | The material swing is real — turned around! | existing verified-material-turnaround gate | — | accepted {"seconds": 3.9048, "bytes": 28020} |
 | `sf2_064` | turnaround | What a recovery — the balance has flipped! | existing verified-material-turnaround gate | — | accepted {"seconds": 3.1005, "bytes": 22351} |
 | `sf2_065` | turnaround | A genuine comeback — pieces back in the fight! | existing verified-material-turnaround gate | — | accepted {"seconds": 2.613, "bytes": 19060} |
-| `sf2_066` | turnaround | Look at the board — that deficit is gone! | existing verified-material-turnaround gate | — | pending |
-| `sf2_067` | trap | Something's waiting on that square — say no more! | existing trap_set gate: a real trap is present on the board | — | pending |
-| `sf2_068` | trap | That bait sits there quietly... interesting. | existing trap_set gate: a real trap is present on the board | — | pending |
-| `sf2_069` | trap | The trap snaps shut — that piece is caught! | existing trap_spring gate: the baited capture resolved again | — | pending |
-| `sf2_070` | trap | Oh no, straight into it! Perfectly played. | existing trap_spring gate: the baited capture resolved again | — | pending |
-| `sf2_071` | trap | Careful now — that square has ideas! | existing trap_set gate: a real trap is present on the board | — | pending |
-| `sf2_072` | after_loss | Tough loss — well fought, keep learning! | match ends with the addressed seat losing | — | pending |
-| `sf2_073` | after_loss | Didn't go your way — hold your head high! | match ends with the addressed seat losing | — | pending |
-| `sf2_074` | after_loss | Hard to take, but next bout is fresh. | match ends with the addressed seat losing | — | pending |
-| `sf2_075` | after_loss | So close! That performance deserves credit. | match ends with the addressed seat losing | — | pending |
-| `sf2_076` | win | That's the win! Congratulations — well earned! | match ends with the addressed seat winning | — | pending |
-| `sf2_077` | win | Victory! Composed, patient and deserved. | match ends with the addressed seat winning | — | pending |
-| `sf2_078` | win | It's over — a fine win to celebrate! | match ends with the addressed seat winning | — | pending |
-| `sf2_079` | win | The last piece says it all — match won! | match ends with the addressed seat winning | — | pending |
-| `sf2_080` | draw | A draw! After all that, honors shared. | official draw | — | pending |
-| `sf2_081` | draw | Neither side gives an inch — ends level! | official draw | — | pending |
-| `sf2_082` | draw | Hard-fought and split — a fair draw. | official draw | — | pending |
+| `sf2_066` | turnaround | Look at the board — that deficit is gone! | existing verified-material-turnaround gate | — | accepted {"seconds": 3.3274, "bytes": 23997} |
+| `sf2_067` | trap | Something's waiting on that square — say no more! | existing trap_set gate: a real trap is present on the board | — | accepted {"seconds": 3.3943, "bytes": 24363} |
+| `sf2_068` | trap | That bait sits there quietly... interesting. | existing trap_set gate: a real trap is present on the board | — | accepted {"seconds": 4.2167, "bytes": 30214} |
+| `sf2_069` | trap | The trap snaps shut — that piece is caught! | existing trap_spring gate: the baited capture resolved again | — | accepted {"seconds": 3.2506, "bytes": 23448} |
+| `sf2_070` | trap | Oh no, straight into it! Perfectly played. | existing trap_spring gate: the baited capture resolved again | — | accepted {"seconds": 4.6078, "bytes": 32957} |
+| `sf2_071` | trap | Careful now — that square has ideas! | existing trap_set gate: a real trap is present on the board | — | accepted {"seconds": 3.9301, "bytes": 28203} |
+| `sf2_072` | after_loss | Tough loss — well fought, keep learning! | match ends with the addressed seat losing | — | accepted {"seconds": 3.2781, "bytes": 23631} |
+| `sf2_073` | after_loss | Didn't go your way — hold your head high! | match ends with the addressed seat losing | — | accepted {"seconds": 2.9274, "bytes": 21254} |
+| `sf2_074` | after_loss | Hard to take, but next bout is fresh. | match ends with the addressed seat losing | — | accepted {"seconds": 3.1536, "bytes": 22717} |
+| `sf2_075` | after_loss | So close! That performance deserves credit. | match ends with the addressed seat losing | — | accepted {"seconds": 2.8392, "bytes": 20523} |
+| `sf2_076` | win | That's the win! Congratulations — well earned! | match ends with the addressed seat winning | — | accepted {"seconds": 3.4765, "bytes": 25094} |
+| `sf2_077` | win | Victory! Composed, patient and deserved. | match ends with the addressed seat winning | — | accepted {"seconds": 3.8024, "bytes": 27288} |
+| `sf2_078` | win | It's over — a fine win to celebrate! | match ends with the addressed seat winning | — | accepted {"seconds": 4.1216, "bytes": 29483} |
+| `sf2_079` | win | The last piece says it all — match won! | match ends with the addressed seat winning | — | accepted {"seconds": 3.2524, "bytes": 23448} |
+| `sf2_080` | draw | A draw! After all that, honors shared. | official draw | — | accepted {"seconds": 2.7245, "bytes": 19791} |
+| `sf2_081` | draw | Neither side gives an inch — ends level! | official draw | — | accepted {"seconds": 3.3235, "bytes": 23997} |
+| `sf2_082` | draw | Hard-fought and split — a fair draw. | official draw | — | accepted {"seconds": 2.9259, "bytes": 21254} |
 | `sf2_083` | quiet_engagement | A quiet moment — enjoy the craft, everyone. | no tactical claim; live play continues; eligible idle direct | — | pending |
 | `sf2_084` | quiet_engagement | Moments like this are why we love checkers. | no tactical claim; live play continues; eligible idle direct | — | pending |
 | `sf2_085` | quiet_engagement | Good morning, checkers family — coffee and classics! | no tactical claim; live play continues; eligible idle direct | 05-11 | pending |
@@ -175,44 +175,44 @@ backed by an accepted MP3 in `audio/` with verified duration/peak/hash in
 | `sm2_060` | pressure | Pressure builds on that side — hold the line! | the seat the line addresses is behind on material per the en | — | accepted {"seconds": 3.8202, "bytes": 27471} |
 | `sm2_061` | pressure | Material behind — patience is the way back. | the seat the line addresses is behind on material per the en | — | accepted {"seconds": 4.1249, "bytes": 29483} |
 | `sm2_062` | pressure | Keep fighting! One accurate move swings it. | the seat the line addresses is behind on material per the en | — | accepted {"seconds": 3.0958, "bytes": 22351} |
-| `sm2_063` | turnaround | A real turnaround — the balance has flipped! | existing verified-material-turnaround gate | — | failed |
-| `sm2_064` | turnaround | From behind to back in it — superb recovery! | existing verified-material-turnaround gate | — | failed |
-| `sm2_065` | turnaround | The deficit is gone — a genuine comeback! | existing verified-material-turnaround gate | — | failed |
-| `sm2_066` | turnaround | Look at the material — what a recovery! | existing verified-material-turnaround gate | — | failed |
+| `sm2_063` | turnaround | A real turnaround — the balance has flipped! | existing verified-material-turnaround gate | — | accepted {"seconds": 4.4411, "bytes": 31860} |
+| `sm2_064` | turnaround | From behind to back in it — superb recovery! | existing verified-material-turnaround gate | — | accepted {"seconds": 4.654, "bytes": 33323} |
+| `sm2_065` | turnaround | The deficit is gone — a genuine comeback! | existing verified-material-turnaround gate | — | accepted {"seconds": 3.7873, "bytes": 27106} |
+| `sm2_066` | turnaround | Look at the material — what a recovery! | existing verified-material-turnaround gate | — | accepted {"seconds": 3.7484, "bytes": 26923} |
 | `sm2_067` | trap | Someone left a gift on that square — or is it? | existing trap_set gate: a real trap is present on the board | — | accepted {"seconds": 3.0938, "bytes": 22351} |
-| `sm2_068` | trap | Careful — that square bites! | existing trap_set gate: a real trap is present on the board | — | pending |
-| `sm2_069` | trap | The trap springs — the piece is lost! | existing trap_spring gate: the baited capture resolved again | — | pending |
-| `sm2_070` | trap | Right into the trap! Beautifully executed. | existing trap_spring gate: the baited capture resolved again | — | pending |
-| `sm2_071` | trap | That square has a secret — watch closely. | existing trap_set gate: a real trap is present on the board | — | pending |
-| `sm2_072` | after_loss | A hard loss — the effort was real. Onward! | match ends with the addressed seat losing | — | pending |
-| `sm2_073` | after_loss | It ends in defeat — chin up, learn, return. | match ends with the addressed seat losing | — | pending |
-| `sm2_074` | after_loss | Not today — the next bout is a fresh start. | match ends with the addressed seat losing | — | pending |
-| `sm2_075` | after_loss | So much fight — the result is cruel. | match ends with the addressed seat losing | — | pending |
-| `sm2_076` | win | And that is the match — a deserved win! | match ends with the addressed seat winning | — | pending |
-| `sm2_077` | win | Victory! Composure under pressure — well done! | match ends with the addressed seat winning | — | pending |
-| `sm2_078` | win | The final capture says it all — the win! | match ends with the addressed seat winning | — | pending |
-| `sm2_079` | win | It is decided — congratulations to the winner! | match ends with the addressed seat winning | — | pending |
-| `sm2_080` | draw | A draw — after that battle, a fair result! | official draw | — | pending |
-| `sm2_081` | draw | Honors even — neither side would blink! | official draw | — | pending |
-| `sm2_082` | draw | It ends level — a draw both earned. | official draw | — | pending |
-| `sm2_083` | quiet_engagement | A calm spell — savor the technique, everyone. | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sm2_084` | quiet_engagement | Quiet moves carry the real weight of a game. | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sm2_085` | quiet_engagement | A calm evening of checkers — just right! | no tactical claim; live play continues; eligible idle direct | 17-22 | pending |
-| `sm2_086` | quiet_engagement | No fireworks here — deep, honest play. | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sm2_087` | quiet_engagement | Watch the thinking — games are shaped here. | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sm2_088` | comment_prompt | Your move, folks — what would you play? Comments! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sm2_089` | comment_prompt | Which side do you favor? Tell me below! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sm2_090` | comment_prompt | Rate that exchange in the comments — good call? | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sm2_091` | comment_prompt | Guess the next big moment — drop it below! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sm2_092` | like_share_follow | If the games treat you well, tap that like! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sm2_093` | like_share_follow | Share this stream with a friend who loves the board! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sm2_094` | like_share_follow | Follow the channel — the next session is worth it! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sm2_095` | like_share_follow | A quick like keeps this stream energized! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sm2_096` | like_share_follow | Enjoying the coverage? A share goes a long way! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sm2_097` | intermission | Table reset in progress — which move stood out? Comments! | post-retirement speech finished and ceremony ownership relea | — | pending |
-| `sm2_098` | intermission | A short break between bouts — perfect moment to follow! | post-retirement speech finished and ceremony ownership relea | — | pending |
-| `sm2_099` | intermission | Next bout arrives shortly — stay with me, folks! | post-retirement speech finished and ceremony ownership relea | — | pending |
-| `sm2_100` | intermission | While the ceremony settles — more checkers coming up! | post-retirement speech finished and ceremony ownership relea | — | pending |
+| `sm2_068` | trap | Careful — that square bites! | existing trap_set gate: a real trap is present on the board | — | accepted {"seconds": 2.1023, "bytes": 15403} |
+| `sm2_069` | trap | The trap springs — the piece is lost! | existing trap_spring gate: the baited capture resolved again | — | accepted {"seconds": 2.4504, "bytes": 17780} |
+| `sm2_070` | trap | Right into the trap! Beautifully executed. | existing trap_spring gate: the baited capture resolved again | — | accepted {"seconds": 4.5914, "bytes": 32774} |
+| `sm2_071` | trap | That square has a secret — watch closely. | existing trap_set gate: a real trap is present on the board | — | accepted {"seconds": 2.7507, "bytes": 19974} |
+| `sm2_072` | after_loss | A hard loss — the effort was real. Onward! | match ends with the addressed seat losing | — | accepted {"seconds": 4.1497, "bytes": 29666} |
+| `sm2_073` | after_loss | It ends in defeat — chin up, learn, return. | match ends with the addressed seat losing | — | accepted {"seconds": 4.1262, "bytes": 29483} |
+| `sm2_074` | after_loss | Not today — the next bout is a fresh start. | match ends with the addressed seat losing | — | accepted {"seconds": 3.5943, "bytes": 25826} |
+| `sm2_075` | after_loss | So much fight — the result is cruel. | match ends with the addressed seat losing | — | accepted {"seconds": 4.4565, "bytes": 31860} |
+| `sm2_076` | win | And that is the match — a deserved win! | match ends with the addressed seat winning | — | accepted {"seconds": 3.6597, "bytes": 26374} |
+| `sm2_077` | win | Victory! Composure under pressure — well done! | match ends with the addressed seat winning | — | accepted {"seconds": 3.5402, "bytes": 25460} |
+| `sm2_078` | win | The final capture says it all — the win! | match ends with the addressed seat winning | — | accepted {"seconds": 3.0234, "bytes": 21803} |
+| `sm2_079` | win | It is decided — congratulations to the winner! | match ends with the addressed seat winning | — | accepted {"seconds": 3.4409, "bytes": 24728} |
+| `sm2_080` | draw | A draw — after that battle, a fair result! | official draw | — | accepted {"seconds": 4.7818, "bytes": 34237} |
+| `sm2_081` | draw | Honors even — neither side would blink! | official draw | — | accepted {"seconds": 3.9206, "bytes": 28203} |
+| `sm2_082` | draw | It ends level — a draw both earned. | official draw | — | accepted {"seconds": 2.4473, "bytes": 17780} |
+| `sm2_083` | quiet_engagement | A calm spell — savor the technique, everyone. | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 4.084, "bytes": 29300} |
+| `sm2_084` | quiet_engagement | Quiet moves carry the real weight of a game. | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 3.0704, "bytes": 22168} |
+| `sm2_085` | quiet_engagement | A calm evening of checkers — just right! | no tactical claim; live play continues; eligible idle direct | 17-22 | failed |
+| `sm2_086` | quiet_engagement | No fireworks here — deep, honest play. | no tactical claim; live play continues; eligible idle direct | — | failed |
+| `sm2_087` | quiet_engagement | Watch the thinking — games are shaped here. | no tactical claim; live play continues; eligible idle direct | — | failed |
+| `sm2_088` | comment_prompt | Your move, folks — what would you play? Comments! | no tactical claim; live play continues; eligible idle direct | — | failed |
+| `sm2_089` | comment_prompt | Which side do you favor? Tell me below! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 3.4961, "bytes": 25094} |
+| `sm2_090` | comment_prompt | Rate that exchange in the comments — good call? | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 4.2463, "bytes": 30397} |
+| `sm2_091` | comment_prompt | Guess the next big moment — drop it below! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 3.6706, "bytes": 26374} |
+| `sm2_092` | like_share_follow | If the games treat you well, tap that like! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 3.9108, "bytes": 28020} |
+| `sm2_093` | like_share_follow | Share this stream with a friend who loves the board! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 4.106, "bytes": 29483} |
+| `sm2_094` | like_share_follow | Follow the channel — the next session is worth it! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 4.0507, "bytes": 29117} |
+| `sm2_095` | like_share_follow | A quick like keeps this stream energized! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 4.0122, "bytes": 28751} |
+| `sm2_096` | like_share_follow | Enjoying the coverage? A share goes a long way! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 4.0307, "bytes": 28934} |
+| `sm2_097` | intermission | Table reset in progress — which move stood out? Comments! | post-retirement speech finished and ceremony ownership relea | — | accepted {"seconds": 4.8147, "bytes": 34420} |
+| `sm2_098` | intermission | A short break between bouts — perfect moment to follow! | post-retirement speech finished and ceremony ownership relea | — | accepted {"seconds": 5.6049, "bytes": 39906} |
+| `sm2_099` | intermission | Next bout arrives shortly — stay with me, folks! | post-retirement speech finished and ceremony ownership relea | — | failed |
+| `sm2_100` | intermission | While the ceremony settles — more checkers coming up! | post-retirement speech finished and ceremony ownership relea | — | accepted {"seconds": 4.7363, "bytes": 33871} |
 
 ## Funny (kazi persona)
 
@@ -296,25 +296,25 @@ backed by an accepted MP3 in `audio/` with verified duration/peak/hash in
 | `sj2_076` | win | Victory dance, go! | match ends with the addressed seat winning | — | accepted {"seconds": 3.1385, "bytes": 22717} |
 | `sj2_077` | win | Composure wins. Again! | match ends with the addressed seat winning | — | accepted {"seconds": 2.5482, "bytes": 18511} |
 | `sj2_078` | win | Winner takes glory! | match ends with the addressed seat winning | — | accepted {"seconds": 2.2602, "bytes": 16500} |
-| `sj2_079` | win | Match won — the last piece took a bow! | match ends with the addressed seat winning | — | pending |
-| `sj2_080` | draw | A draw — both sides blink, nobody winks! | official draw | — | pending |
-| `sj2_081` | draw | It ends level — the board calls it diplomacy! | official draw | — | pending |
-| `sj2_082` | draw | A fair draw — even the scoreboard needs a nap! | official draw | — | pending |
-| `sj2_083` | quiet_engagement | A quiet moment — I promise not to jinx anything! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sj2_084` | quiet_engagement | Shhh — the pieces are thinking. Their favorite show! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sj2_085` | quiet_engagement | Good morning, early birds — the board salutes you! | no tactical claim; live play continues; eligible idle direct | 05-11 | pending |
-| `sj2_086` | quiet_engagement | Nothing flashy — but I'm staying ready anyway! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sj2_087` | quiet_engagement | A calm stretch — admire the geometry of chaos! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sj2_088` | comment_prompt | What would you play? Comments below — brave answers only! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sj2_089` | comment_prompt | Rate that move — I'll pretend I got it first try! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sj2_090` | comment_prompt | Guess the next big moment — bragging rights await! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sj2_091` | comment_prompt | Favorite move so far? The board is listening... probably! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sj2_092` | like_share_follow | Enjoying the chaos? Tap that like — gently, it's new! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sj2_093` | like_share_follow | Share this stream — your friends deserve checkers too! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sj2_094` | like_share_follow | Hit follow — it's free and makes the board happy! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sj2_095` | like_share_follow | A like, a share, a follow — pick your adventure! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sj2_096` | like_share_follow | Made you smile? The like button takes compliments! | no tactical claim; live play continues; eligible idle direct | — | pending |
-| `sj2_097` | intermission | Table resets — best move so far? Jury is out! | post-retirement speech finished and ceremony ownership relea | — | pending |
-| `sj2_098` | intermission | Short break — the follow button warms up nicely now! | post-retirement speech finished and ceremony ownership relea | — | pending |
-| `sj2_099` | intermission | Next bout approaches — snacks ready, hearts steady! | post-retirement speech finished and ceremony ownership relea | — | pending |
-| `sj2_100` | intermission | Between bouts: the stream continues, and so do the jokes! | post-retirement speech finished and ceremony ownership relea | — | pending |
+| `sj2_079` | win | The pieces bow! | match ends with the addressed seat winning | — | accepted {"seconds": 2.7334, "bytes": 19791} |
+| `sj2_080` | draw | Both sides blink! | official draw | — | accepted {"seconds": 3.201, "bytes": 23083} |
+| `sj2_081` | draw | Scoreboard diplomacy! | official draw | — | accepted {"seconds": 2.9567, "bytes": 21437} |
+| `sj2_082` | draw | Scoreboard takes a nap! | official draw | — | accepted {"seconds": 2.3935, "bytes": 17414} |
+| `sj2_083` | quiet_engagement | Not jinxing anything! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 1.9279, "bytes": 14123} |
+| `sj2_084` | quiet_engagement | Pieces are thinking! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 1.8718, "bytes": 13757} |
+| `sj2_085` | quiet_engagement | Early birds salute! | no tactical claim; live play continues; eligible idle direct | 05-11 | accepted {"seconds": 3.3988, "bytes": 24546} |
+| `sj2_086` | quiet_engagement | Staying ready anyway! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 4.6429, "bytes": 33140} |
+| `sj2_087` | quiet_engagement | Geometry of chaos! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 2.2511, "bytes": 16500} |
+| `sj2_088` | comment_prompt | Brave answers below! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 3.3259, "bytes": 23997} |
+| `sj2_089` | comment_prompt | First try, promise! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 3.2165, "bytes": 23266} |
+| `sj2_090` | comment_prompt | Bragging rights await! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 2.4764, "bytes": 17963} |
+| `sj2_091` | comment_prompt | The board listens. Probably! | no tactical claim; live play continues; eligible idle direct | — | failed |
+| `sj2_092` | like_share_follow | Tap like, gently! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 2.56, "bytes": 18694} |
+| `sj2_093` | like_share_follow | Friends deserve checkers! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 3.2156, "bytes": 23266} |
+| `sj2_094` | like_share_follow | Follow. Board happy! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 3.2189, "bytes": 23266} |
+| `sj2_095` | like_share_follow | Pick your adventure! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 2.3451, "bytes": 17048} |
+| `sj2_096` | like_share_follow | Like button takes compliments! | no tactical claim; live play continues; eligible idle direct | — | accepted {"seconds": 4.4324, "bytes": 31677} |
+| `sj2_097` | intermission | Jury is out! | post-retirement speech finished and ceremony ownership relea | — | accepted {"seconds": 2.217, "bytes": 16134} |
+| `sj2_098` | intermission | Follow warms up! | post-retirement speech finished and ceremony ownership relea | — | accepted {"seconds": 2.621, "bytes": 19060} |
+| `sj2_099` | intermission | Snacks ready, hearts steady! | post-retirement speech finished and ceremony ownership relea | — | accepted {"seconds": 3.8223, "bytes": 27471} |
+| `sj2_100` | intermission | The jokes continue! | post-retirement speech finished and ceremony ownership relea | — | accepted {"seconds": 2.6972, "bytes": 19608} |
