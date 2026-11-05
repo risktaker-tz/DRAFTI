@@ -55,17 +55,23 @@ async function checkVocabulary() {
   assert.equal(played.length, before, 'Loading vocabulary does not start speech');
   const activeRoles = new Set(['session_open', 'new_bout', 'rematch_draw', 'season_advance',
     'capture1', 'capture2', 'capture3plus', 'new_king', 'new_challenger', 'stage_quarter',
-    'stage_semi', 'stage_final', 'win', 'after_loss', 'trap', 'pressure', 'turnaround']);
+    'stage_semi', 'stage_final', 'win', 'after_loss', 'draw', 'trap', 'pressure', 'turnaround',
+    'clean_move', 'quiet_engagement', 'comment_prompt', 'like_share_follow', 'intermission']);
   assert.equal(fetched.length, 1 + manifest.filter(clip => clip.mode === 'funny' && activeRoles.has(clip.role)).length,
     'Only approved event roles are downloaded for the selected voice');
   for (const [role, source] of Object.entries({capture: 'capture1', feast: 'capture2', capture_chain: 'capture3plus', crowning: 'new_king'})) {
     assert(S.extraPools.funny[role].length > 0);
     assert(S.extraPools.funny[role].every(id => manifest.some(clip => clip.id === id && clip.role === source)));
   }
-  for (const [role, id] of Object.entries({next_bout: 'sj2_007', upset: 'sj2_011', next_rematch: 'sj2_016',
+  for (const [role, id] of Object.entries({next_bout: 'sj2_007', new_challenger: 'sj2_011', next_rematch: 'sj2_016',
     next_season: 'sj2_018', stage_quarter: 'sj2_022', capture: 'sj2_040', defeat: 'sj2_075', victory: 'sj2_076'})) {
     assert(S.extraPools.funny[role]?.includes(id), `${id} is loaded for its specific ${role} moment`);
   }
+  assert(S.extraPools.funny.new_challenger.includes('sj2_009'), 'New-opponent lines have their own transition gate');
+  assert(S.extraPools.funny.draw.includes('sj2_080'), 'Draw language is available only to the official draw result');
+  assert(S.extraPools.funny.intermission.includes('sj2_097'), 'Between-bout lines have a dedicated intermission pool');
+  assert(S.extraPools.funny.cta.includes('sj2_088') && S.extraPools.funny.cta.includes('sj2_092'),
+    'Quiet engagement and like/comment prompts share the low-frequency idle director');
   assert(S.extraPools.funny.victory.includes('sj2_077') && S.extraPools.funny.victory.includes('sj2_078'));
   assert(S.extraPools.funny.next_season.includes('sj2_019'));
   assert(ui.includes("const stageRole = { 1: 'stage_quarter', 2: 'stage_semi', 3: 'stage_final' }[stage]"),
@@ -87,12 +93,11 @@ async function checkVocabulary() {
       assert(expected.every(id => S.extraPools[mode][role]?.includes(id)),
         `${mode} vocabulary only uses accepted ${role} lines in its matching situation`);
     }
-    const withheldCleanMoves = mode === 'female'
+    const cleanMoveIds = mode === 'female'
       ? ['sf2_030','sf2_031','sf2_032','sf2_033','sf2_034','sf2_035','sf2_036']
-      : ['sm2_032'];
-    const loadedIds = Object.values(S.extraPools[mode]).flat();
-    assert(withheldCleanMoves.every(id => !loadedIds.includes(id)),
-      `${mode} clean-move praise stays gated until an engine quality signal is available`);
+      : ['sm2_030','sm2_031','sm2_032','sm2_033','sm2_034','sm2_035','sm2_036'];
+    assert(cleanMoveIds.every(id => S.extraPools[mode].clean_move?.includes(id)),
+      `${mode} clean-move lines load into a separate engine-verified quality pool`);
   }
   assert(S.extraPools.male.trap_set.includes('sm2_067'),
     'The verified trap-set line is available only to the existing engine trap event');
@@ -100,8 +105,8 @@ async function checkVocabulary() {
     'Funny trap narration stays separated between setting a real trap and seeing it spring');
   assert(S.extraPools.female.pressure.includes('sf2_058') && S.extraPools.male.pressure.includes('sm2_058') &&
     S.extraPools.funny.pressure.includes('sj2_058'), 'Every voice has material-pressure lines');
-  assert(S.extraPools.female.turnaround.includes('sf2_063') && S.extraPools.funny.turnaround.includes('sj2_063') &&
-    !S.extraPools.male.turnaround, 'Turnaround lines are limited to voices with accepted recordings');
+  assert(S.extraPools.female.turnaround.includes('sf2_063') && S.extraPools.male.turnaround.includes('sm2_063') &&
+    S.extraPools.funny.turnaround.includes('sj2_063'), 'Each streamer has only its own accepted turnaround recordings');
   assert.deepEqual(S.materialShift({boardBefore:[2,1,1,-2,-1]},[2,1,-2,-1,-1]),
     {turnaround:true,pressure:false}, 'Only a real change from a lead to a deficit is a turnaround');
   assert.deepEqual(S.materialShift({boardBefore:[1,1,-1,-1]},[1,0,-1,-1]),
@@ -110,6 +115,12 @@ async function checkVocabulary() {
     {turnaround:false,pressure:false}, 'A shrinking material lead is not announced as pressure');
   assert.equal(S.materialShift({boardBefore:[1,1]},[1]),null,
     'Incomplete board evidence cannot trigger material commentary');
+  assert(ui.includes("!STREAMER.say('clean_move') && !STREAMER.say('praise')"),
+    'Clean-move phrases are called only from the engine-verified accurate move branch');
+  assert(ui.includes("pairChanged ? 'new_challenger' : 'next_bout'"),
+    'New-challenger phrases require an actually changed seated pair');
+  assert(ui.includes("if (r.winner === null) setTimeout(() => STREAMER.say('draw'), 1400)"),
+    'Draw phrases are reserved for the official result and wait behind the original result sounds');
   const originalSay = S.say;
   function observeMaterial(beforeBoard, afterBoard, speaks) {
     const heard = [];
@@ -140,7 +151,7 @@ async function checkVocabulary() {
   roles.length = 0;
   S.say = role => { roles.push(role); return false; };
   assert.equal(S.intermission('next_season'), false);
-  assert.deepEqual(roles, ['next_season', 'cta'], 'A CTA is the fallback when the event has no eligible line');
+  assert.deepEqual(roles, ['next_season', 'intermission', 'cta'], 'Intermission then CTA are fallbacks when no event line is eligible');
   S.say = say;
 }
 checkVocabulary().catch(error => { console.error(error); process.exitCode = 1; });

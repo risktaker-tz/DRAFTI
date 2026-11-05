@@ -1,4 +1,4 @@
-const BUILD = 'a10a9ffaeead041a96e752a75377540f85906b29533a5508a17695043d9daa74';
+const BUILD = '9780beba4e85cd7c5ddd62ee74784367ee75e735184b550ab10533ceb24f5e17';
 const CACHE = 'drafti-install-' + BUILD;
 const VOCAB_CACHE = 'drafti-streamer-vocabulary-v1';
 const vocabularyRoot = new URL('./streamer-vocabulary/', self.registration.scope).href;

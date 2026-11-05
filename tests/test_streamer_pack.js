@@ -13,6 +13,8 @@ const ids = new Set();
 let bytesTotal = 0;
 
 assert.equal(source.schema, 'drafti-streamer-pack/1');
+assert.equal(source.total, 300, 'the accepted first milestone contains 300 complete sentences');
+assert.deepStrictEqual(source.counts, { female: 100, male: 100, funny: 100 }, 'each streamer has 100 accepted lines');
 assert.equal(source.total, source.clips.length);
 assert.equal(runtime.length, source.clips.length, 'public runtime manifest includes every source clip');
 

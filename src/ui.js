@@ -2542,10 +2542,12 @@ function createSoundAudit(capacity = 12000) {
       }).then(async clips => {
         const roles = { session_open: 'greeting', capture1: 'capture',
           capture2: 'feast', capture3plus: 'capture_chain', new_king: 'crowning',
-          pressure: 'pressure', turnaround: 'turnaround',
+          clean_move: 'clean_move', pressure: 'pressure', turnaround: 'turnaround',
           new_bout: 'next_bout', rematch_draw: 'next_rematch', season_advance: 'next_season',
-          new_challenger: 'upset', stage_quarter: 'stage_quarter', stage_semi: 'stage_semi',
-          stage_final: 'stage_final', win: 'victory', after_loss: 'defeat' };
+          new_challenger: 'new_challenger', stage_quarter: 'stage_quarter', stage_semi: 'stage_semi',
+          stage_final: 'stage_final', win: 'victory', after_loss: 'defeat', draw: 'draw',
+          quiet_engagement: 'cta', comment_prompt: 'cta', like_share_follow: 'cta',
+          intermission: 'intermission' };
         const pool = this.extraPools[mode] = {};
         for (const clip of clips) {
           const role = clip.role === 'trap' && /trap_set gate: a real trap is present/.test(clip.predicate)
@@ -2569,6 +2571,7 @@ function createSoundAudit(capacity = 12000) {
       cta:         { chance: 1, cooldown: 90000, perGame: 4 },
       praise:      { chance: .3,  cooldown: 60000,  perGame: 3 },
       great:       { chance: .45, cooldown: 90000,  perGame: 2 },
+      clean_move:  { chance: 1, cooldown: 45000, perGame: 3 },
       capture:     { chance: .8, cooldown: 16000,  perGame: 8 },
       feast:       { chance: 1,  cooldown: 20000,  perGame: 5 },
       capture_chain: { chance: 1, cooldown: 20000, perGame: 5 },
@@ -2577,6 +2580,7 @@ function createSoundAudit(capacity = 12000) {
       next_bout:    { chance: 1, cooldown: 30000, perGame: 1 },
       next_rematch: { chance: 1, cooldown: 30000, perGame: 1 },
       next_season:  { chance: 1, cooldown: 30000, perGame: 1 },
+      new_challenger: { chance: 1, cooldown: 30000, perGame: 1 },
       upset:        { chance: 1, cooldown: 30000, perGame: 1 },
       stage_quarter:{ chance: 1, cooldown: 30000, perGame: 1 },
       stage_semi:   { chance: 1, cooldown: 30000, perGame: 1 },
@@ -2590,6 +2594,8 @@ function createSoundAudit(capacity = 12000) {
       comeback:    { chance: .6,  cooldown: 90000,  perGame: 2 },
       victory:     { chance: 1,  cooldown: 5000,   perGame: 1 },
       defeat:      { chance: 1,  cooldown: 5000,   perGame: 1 },
+      draw:        { chance: 1,  cooldown: 5000,   perGame: 1 },
+      intermission:{ chance: 1, cooldown: 20000, perGame: 1 },
       long_think:  { chance: 1, cooldown: 45000, perGame: 5 },
       outro:       { chance: 1,   cooldown: 60000,  perGame: 1 },
     },
@@ -2698,7 +2704,7 @@ function createSoundAudit(capacity = 12000) {
       // A ceremony owns its full original recording. Use the free space after
       // it for engagement, without falsely announcing the stream has ended.
       if (drawerOpen || document.hidden) return false;
-      return (role ? this.say(role) : false) || this.say('cta');
+      return (role ? this.say(role) : false) || this.say('intermission') || this.say('cta');
     },
     canPlay(role, opts) {
       if (typeof drawerOpen !== 'undefined' && drawerOpen) return false;
@@ -2961,7 +2967,7 @@ function createSoundAudit(capacity = 12000) {
         return;
       }
       const only = flavor === 'only';
-      if (!STREAMER.say('praise')) SFX_BANK.play(only ? pick(['v_only', 'v_hold1', 'v_hold2'])
+      if (!STREAMER.say('clean_move') && !STREAMER.say('praise')) SFX_BANK.play(only ? pick(['v_only', 'v_hold1', 'v_hold2'])
         : ['v_nice', 'v_sharp', 'v_clean'][(Math.random() * 3) | 0], { vol: 0.9 });
       flashLabel(only ? 'The only move!' : ['Precise.', 'Sharp!', 'Clean.'][(Math.random() * 3) | 0], 'judge');
     } else if (ev === 'dubious') {
@@ -3675,6 +3681,7 @@ function createSoundAudit(capacity = 12000) {
       } else if (r.winner !== null && Math.random() < 0.35) {
         setTimeout(() => { if (!STREAMER.say('defeat')) SFX_BANK.play(pick(['v_lose2', 'v_lose3']), { vol: 0.85 }); }, 1400);
       }
+      if (r.winner === null) setTimeout(() => STREAMER.say('draw'), 1400);
       const v = r.winner === null ? 'v_draw' : r.winner === G.humanSide ? 'v_win' : 'v_lose';
       setTimeout(() => SFX_BANK.play(v, { vol: 0.9 }), 550);
       // ladder celebrations: conquering a new best rung, streaks, giant-killing
@@ -3699,6 +3706,7 @@ function createSoundAudit(capacity = 12000) {
       FX.play(r.winner === null ? 'draw' : 'king');
       SFX_BANK.play(r.winner === null ? 'draw_chime' : 'crown_fanfare', { vol: 0.85 });
       if (r.winner === null) setTimeout(() => SFX_BANK.play('god', { vol: 0.9 }), 1000);
+      if (r.winner === null && !(G.mode === 'aivai' && settings.aivaiAuto)) setTimeout(() => STREAMER.say('draw'), 1400);
       // AI vs AI: the show must go on — commentary then the next bout
       if (Math.random() < 0.8) setTimeout(() => SFX_BANK.play(pick(['v_spec9', 'v_spec8', 'v_spec7']), { vol: 0.9 }), 1600);
     }
@@ -3929,6 +3937,7 @@ function createSoundAudit(capacity = 12000) {
     const generation = autoNextGeneration;
     const el = $('autoNext');
     if (!el) return;
+    const previousPair = [G.seatIvory, G.seatEbony].sort().join('|');
     const prevChamp = arena.champion;
     const res = applyArenaResult(G.result && G.result.winner ? G.result.winner : 0);
     if (res.text) flashWhisper(res.text);
@@ -3946,10 +3955,11 @@ function createSoundAudit(capacity = 12000) {
       if (generation !== autoNextGeneration || G.mode !== 'aivai' || !settings.aivaiAuto) return;
       const c = rosterById(arena.champion), ch = rosterById(arena.queue[0] || arena.champion);
       const nextPair = [arena.champion, arena.queue[0] || arena.champion];
+      const pairChanged = nextPair.slice().sort().join('|') !== previousPair;
       const drawnRematch = G.result?.winner === null && nextPair.includes(G.seatIvory) &&
         nextPair.includes(G.seatEbony);
       const transition = res.seasonEnd ? 'next_season' : drawnRematch ? 'next_rematch'
-        : res.champion !== prevChamp ? 'upset' : 'next_bout';
+        : pairChanged ? 'new_challenger' : 'next_bout';
       const streamerSpoke = STREAMER.intermission(transition);
       const voiceEnds = streamerSpoke ? STREAMER.busyUntil : 0;
       let left = 6, remainingMs = 6000, lastTick = Date.now();
