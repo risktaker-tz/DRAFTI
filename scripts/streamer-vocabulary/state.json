@@ -180,6 +180,186 @@
    "status": "accepted",
    "takes": 1
   },
+  "sf2_021": {
+   "bytes": 28751,
+   "error": null,
+   "lufs": -18.5,
+   "peakDbfs": -1.58,
+   "seconds": 4.0021,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_022": {
+   "bytes": 24180,
+   "error": null,
+   "lufs": -17.5,
+   "peakDbfs": -1.535,
+   "seconds": 3.3472,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_023": {
+   "bytes": 23997,
+   "error": null,
+   "lufs": -17.7,
+   "peakDbfs": -1.601,
+   "seconds": 3.3233,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_024": {
+   "bytes": 22351,
+   "error": null,
+   "lufs": -17.8,
+   "peakDbfs": -1.502,
+   "seconds": 3.0932,
+   "status": "accepted",
+   "takes": 4
+  },
+  "sf2_025": {
+   "bytes": 20523,
+   "error": null,
+   "lufs": -19.0,
+   "peakDbfs": -1.586,
+   "seconds": 2.845,
+   "status": "accepted",
+   "takes": 4
+  },
+  "sf2_026": {
+   "bytes": 25826,
+   "error": null,
+   "lufs": -17.9,
+   "peakDbfs": -1.579,
+   "seconds": 3.5863,
+   "status": "accepted",
+   "takes": 2
+  },
+  "sf2_027": {
+   "bytes": 21620,
+   "error": null,
+   "lufs": -16.7,
+   "peakDbfs": -1.588,
+   "seconds": 2.9932,
+   "status": "accepted",
+   "takes": 2
+  },
+  "sf2_028": {
+   "bytes": 31677,
+   "error": null,
+   "lufs": -17.5,
+   "peakDbfs": -1.587,
+   "seconds": 4.4288,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_029": {
+   "bytes": 28934,
+   "error": null,
+   "lufs": -19.5,
+   "peakDbfs": -1.556,
+   "seconds": 4.0331,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_030": {
+   "bytes": 39723,
+   "error": null,
+   "lufs": -19.6,
+   "peakDbfs": -1.553,
+   "seconds": 5.5815,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_031": {
+   "bytes": 23631,
+   "error": null,
+   "lufs": -17.5,
+   "peakDbfs": -1.557,
+   "seconds": 3.2726,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_032": {
+   "bytes": 23448,
+   "error": null,
+   "lufs": -18.2,
+   "peakDbfs": -1.585,
+   "seconds": 3.2509,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_033": {
+   "bytes": 38808,
+   "error": null,
+   "lufs": -19.1,
+   "peakDbfs": -1.63,
+   "seconds": 5.4346,
+   "status": "accepted",
+   "takes": 2
+  },
+  "sf2_034": {
+   "bytes": 35700,
+   "error": null,
+   "lufs": -20.1,
+   "peakDbfs": -1.623,
+   "seconds": 5.0044,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_035": {
+   "bytes": 28934,
+   "error": null,
+   "lufs": -22.1,
+   "peakDbfs": -1.889,
+   "seconds": 4.0347,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_036": {
+   "bytes": 41734,
+   "error": null,
+   "lufs": -19.5,
+   "peakDbfs": -1.557,
+   "seconds": 5.8682,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_037": {
+   "bytes": 22900,
+   "error": null,
+   "lufs": -20.5,
+   "peakDbfs": -2.091,
+   "seconds": 3.1791,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_038": {
+   "bytes": 27837,
+   "error": null,
+   "lufs": -17.2,
+   "peakDbfs": -1.618,
+   "seconds": 3.874,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_039": {
+   "bytes": 19426,
+   "error": null,
+   "lufs": -16.9,
+   "peakDbfs": -1.528,
+   "seconds": 2.6781,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_040": {
+   "bytes": 31311,
+   "error": null,
+   "lufs": -18.0,
+   "peakDbfs": -1.58,
+   "seconds": 4.3753,
+   "status": "accepted",
+   "takes": 1
+  },
   "sj2_001": {
    "bytes": 38443,
    "error": null,
@@ -1108,7 +1288,7 @@
    "takes": 1
   },
   "sm2_026": {
-   "error": "Speech with padding is 6.281s, above 6.0s; no speech was cut",
+   "error": "retake: jam rate recalibration",
    "status": "failed",
    "takes": 1
   },
@@ -1158,9 +1338,13 @@
    "takes": 1
   },
   "sm2_032": {
-   "error": "tts-failed",
-   "status": "failed",
-   "takes": 1
+   "bytes": 17963,
+   "error": null,
+   "lufs": -22.2,
+   "peakDbfs": -1.537,
+   "seconds": 2.4592,
+   "status": "accepted",
+   "takes": 2
   },
   "sm2_033": {
    "bytes": 21803,

@@ -28,26 +28,26 @@ backed by an accepted MP3 in `audio/` with verified duration/peak/hash in
 | `sf2_018` | season_advance | Season rollover — fresh standings, same passion! | season rollover while the stream session continues | — | accepted {"seconds": 4.5979, "bytes": 32957} |
 | `sf2_019` | season_advance | New season on the calendar — who rises? | season rollover while the stream session continues | — | accepted {"seconds": 3.3659, "bytes": 24180} |
 | `sf2_020` | season_advance | The league moves on — a new season begins! | season rollover while the stream session continues | — | accepted {"seconds": 4.4202, "bytes": 31677} |
-| `sf2_021` | stage_quarter | Quarter-finals reached — every move matters now! | boutStart where the tournament stage advances to the quarter | — | pending |
-| `sf2_022` | stage_quarter | Quarter-final bout coming up — real pressure! | boutStart where the tournament stage advances to the quarter | — | pending |
-| `sf2_023` | stage_quarter | Into the quarter-finals — survival mode starts! | boutStart where the tournament stage advances to the quarter | — | pending |
-| `sf2_024` | stage_semi | Semi-final stage — the tension is rising! | boutStart where the tournament stage advances to the semi-fi | — | pending |
-| `sf2_025` | stage_semi | The semi-finals — one step from the big one! | boutStart where the tournament stage advances to the semi-fi | — | pending |
-| `sf2_026` | stage_semi | Semi-final bout underway — focus at maximum! | boutStart where the tournament stage advances to the semi-fi | — | pending |
-| `sf2_027` | stage_final | The grand final is here — enjoy every move! | boutStart where the tournament stage advances to the grand f | — | pending |
-| `sf2_028` | stage_final | Grand final bout — the best side lifts it! | boutStart where the tournament stage advances to the grand f | — | pending |
-| `sf2_029` | stage_final | Finals atmosphere — history is one bout away! | boutStart where the tournament stage advances to the grand f | — | pending |
-| `sf2_030` | clean_move | Oh, that's clean — nothing wasted there! | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sf2_031` | clean_move | Beautifully played — everything stays safe. | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sf2_032` | clean_move | Tidy work — every piece doing its job! | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sf2_033` | clean_move | Smooth, simple, effective — lovely play! | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sf2_034` | clean_move | That's the move coaches show beginners! | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sf2_035` | clean_move | Clean and confident — the position improves! | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sf2_036` | clean_move | Well judged! Nothing rushed, nothing risky. | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sf2_037` | capture1 | One piece off the board — the count begins! | caps === 1 on the mover's committed move | — | pending |
-| `sf2_038` | capture1 | A clean single capture — steady play. | caps === 1 on the mover's committed move | — | pending |
-| `sf2_039` | capture1 | That piece is gone — a small edge! | caps === 1 on the mover's committed move | — | pending |
-| `sf2_040` | capture1 | Taken! One capture, and tension grows. | caps === 1 on the mover's committed move | — | pending |
+| `sf2_021` | stage_quarter | Quarter-finals reached — every move matters now! | boutStart where the tournament stage advances to the quarter | — | accepted {"seconds": 4.0021, "bytes": 28751} |
+| `sf2_022` | stage_quarter | Quarter-final bout coming up — real pressure! | boutStart where the tournament stage advances to the quarter | — | accepted {"seconds": 3.3472, "bytes": 24180} |
+| `sf2_023` | stage_quarter | Into the quarter-finals — survival mode starts! | boutStart where the tournament stage advances to the quarter | — | accepted {"seconds": 3.3233, "bytes": 23997} |
+| `sf2_024` | stage_semi | Semi-final stage — the tension is rising! | boutStart where the tournament stage advances to the semi-fi | — | accepted {"seconds": 3.0932, "bytes": 22351} |
+| `sf2_025` | stage_semi | The semi-finals — one step from the big one! | boutStart where the tournament stage advances to the semi-fi | — | accepted {"seconds": 2.845, "bytes": 20523} |
+| `sf2_026` | stage_semi | Semi-final bout underway — focus at maximum! | boutStart where the tournament stage advances to the semi-fi | — | accepted {"seconds": 3.5863, "bytes": 25826} |
+| `sf2_027` | stage_final | The grand final is here — enjoy every move! | boutStart where the tournament stage advances to the grand f | — | accepted {"seconds": 2.9932, "bytes": 21620} |
+| `sf2_028` | stage_final | Grand final bout — the best side lifts it! | boutStart where the tournament stage advances to the grand f | — | accepted {"seconds": 4.4288, "bytes": 31677} |
+| `sf2_029` | stage_final | Finals atmosphere — history is one bout away! | boutStart where the tournament stage advances to the grand f | — | accepted {"seconds": 4.0331, "bytes": 28934} |
+| `sf2_030` | clean_move | Oh, that's clean — nothing wasted there! | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 5.5815, "bytes": 39723} |
+| `sf2_031` | clean_move | Beautifully played — everything stays safe. | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 3.2726, "bytes": 23631} |
+| `sf2_032` | clean_move | Tidy work — every piece doing its job! | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 3.2509, "bytes": 23448} |
+| `sf2_033` | clean_move | Smooth, simple, effective — lovely play! | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 5.4346, "bytes": 38808} |
+| `sf2_034` | clean_move | That's the move coaches show beginners! | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 5.0044, "bytes": 35700} |
+| `sf2_035` | clean_move | Clean and confident — the position improves! | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 4.0347, "bytes": 28934} |
+| `sf2_036` | clean_move | Well judged! Nothing rushed, nothing risky. | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 5.8682, "bytes": 41734} |
+| `sf2_037` | capture1 | One piece off the board — the count begins! | caps === 1 on the mover's committed move | — | accepted {"seconds": 3.1791, "bytes": 22900} |
+| `sf2_038` | capture1 | A clean single capture — steady play. | caps === 1 on the mover's committed move | — | accepted {"seconds": 3.874, "bytes": 27837} |
+| `sf2_039` | capture1 | That piece is gone — a small edge! | caps === 1 on the mover's committed move | — | accepted {"seconds": 2.6781, "bytes": 19426} |
+| `sf2_040` | capture1 | Taken! One capture, and tension grows. | caps === 1 on the mover's committed move | — | accepted {"seconds": 4.3753, "bytes": 31311} |
 | `sf2_041` | capture1 | One capture landed — the board shifts. | caps === 1 on the mover's committed move | — | pending |
 | `sf2_042` | capture1 | Straightforward take — sometimes simple is best! | caps === 1 on the mover's committed move | — | pending |
 | `sf2_043` | capture2 | Two pieces in one turn — that stings! | caps === 2 on the mover's committed move | — | pending |
@@ -138,13 +138,13 @@ backed by an accepted MP3 in `audio/` with verified duration/peak/hash in
 | `sm2_023` | stage_quarter | Quarter-final stage — only strong play survives. | boutStart where the tournament stage advances to the quarter | — | accepted {"seconds": 4.1297, "bytes": 29666} |
 | `sm2_024` | stage_semi | Semi-final time — the board gets serious! | boutStart where the tournament stage advances to the semi-fi | — | accepted {"seconds": 4.9216, "bytes": 35151} |
 | `sm2_025` | stage_semi | The semi-finals — one bout from the final! | boutStart where the tournament stage advances to the semi-fi | — | accepted {"seconds": 3.1151, "bytes": 22534} |
-| `sm2_026` | stage_semi | Semi-final bout beginning — composure decides this. | boutStart where the tournament stage advances to the semi-fi | — | failed |
+| `sm2_026` | stage_semi | Composure decides this bout! | boutStart where the tournament stage advances to the semi-fi | — | failed |
 | `sm2_027` | stage_final | The grand final! Everything built leads here. | boutStart where the tournament stage advances to the grand f | — | accepted {"seconds": 4.4285, "bytes": 31677} |
 | `sm2_028` | stage_final | Final bout — the crown is on the line! | boutStart where the tournament stage advances to the grand f | — | accepted {"seconds": 3.1198, "bytes": 22534} |
 | `sm2_029` | stage_final | Grand final underway — checkers at its peak! | boutStart where the tournament stage advances to the grand f | — | accepted {"seconds": 3.654, "bytes": 26191} |
 | `sm2_030` | clean_move | What a clean move — textbook stuff! | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 2.9839, "bytes": 21620} |
 | `sm2_031` | clean_move | Excellent technique — simple and strong. | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 3.418, "bytes": 24546} |
-| `sm2_032` | clean_move | Well played! Nothing loose about that. | existing STREAMER praise/good quality gate: engine-verified  | — | failed |
+| `sm2_032` | clean_move | Well played! Nothing loose about that. | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 2.4592, "bytes": 17963} |
 | `sm2_033` | clean_move | That's as clean as it gets! | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 3.024, "bytes": 21803} |
 | `sm2_034` | clean_move | Solid play — the structure stays strong. | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 3.598, "bytes": 25826} |
 | `sm2_035` | clean_move | No hesitation, no waste — professional! | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 3.8907, "bytes": 27837} |

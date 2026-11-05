@@ -221,7 +221,7 @@ MALE = [
     ('sm2_023', 'stage_quarter', "Quarter-final stage — only strong play survives.", P_QF, 'any', None, 'neutral'),
     ('sm2_024', 'stage_semi', "Semi-final time — the board gets serious!", P_SF, 'any', None, 'neutral'),
     ('sm2_025', 'stage_semi', "The semi-finals — one bout from the final!", P_SF, 'any', None, 'positive'),
-    ('sm2_026', 'stage_semi', "Semi-final bout beginning — composure decides this.", P_SF, 'any', None, 'neutral'),
+    ('sm2_026', 'stage_semi', "Composure decides this bout!", P_SF, 'any', None, 'neutral'),
     ('sm2_027', 'stage_final', "The grand final! Everything built leads here.", P_GF, 'any', None, 'positive'),
     ('sm2_028', 'stage_final', "Final bout — the crown is on the line!", P_GF, 'any', None, 'positive'),
     ('sm2_029', 'stage_final', "Grand final underway — checkers at its peak!", P_GF, 'any', None, 'positive'),
