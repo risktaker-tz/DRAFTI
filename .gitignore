@@ -29,3 +29,5 @@ scripts/tooling/pyenv/
 scripts/tooling/asr-models/
 
 scripts/tooling/onnx-models/
+.vercel/
+.env.local
