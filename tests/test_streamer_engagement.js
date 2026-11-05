@@ -135,8 +135,8 @@ async function checkVocabulary() {
     'Clean-move phrases are called only from the engine-verified accurate move branch');
   assert(ui.includes("pairChanged ? 'new_challenger' : 'next_bout'"),
     'New-challenger phrases require an actually changed seated pair');
-  assert(ui.includes("if (r.winner === null) setTimeout(() => STREAMER.say('draw'), 1400)"),
-    'Draw phrases are reserved for the official result and wait behind the original result sounds');
+  assert(ui.includes("if (r.winner === null) later(() => STREAMER.say('draw'), 1400)"),
+    'Draw phrases are reserved for the official result, delayed behind the result sounds, and canceled after a restart');
   const originalSay = S.say;
   function observeMaterial(beforeBoard, afterBoard, speaks) {
     const heard = [];
