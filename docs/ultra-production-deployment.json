@@ -1,0 +1,19 @@
+{
+  "environment": "production",
+  "ownerApproved": true,
+  "runtimeCommit": "e1995f1b4c404da8ac8eb9fc5ba7684ce613c81c",
+  "deploymentId": "dpl_CwqpmZSyfaTboPRRSTwqNeCdnbwF",
+  "state": "READY",
+  "url": "https://drafti-afrika.vercel.app/",
+  "pagesUrl": "https://risktaker-tz.github.io/DRAFTI/web/",
+  "verifiedAt": "2026-11-05T04:05:53.459Z",
+  "verifiedHttpStatus": 200,
+  "verifiedBothHosts": true,
+  "bytes": 14276429,
+  "sha256": "2b8dbdb7b4395de6cef54616108b713c8139455cc544c27514cf9e926df642e6",
+  "checks": 62,
+  "nativeFlagCases": 144,
+  "nativeMaterialGeometryCases": 96,
+  "scope": "Ultra physical material detail; perceptual flag separation; protected crowned endgames with three-turn winning-continuation checks; no deliberate random spectator blunders. Existing movement speed, audio and cinematic effects preserved. Startup optimization explicitly deferred. Broader master goal remains active.",
+  "releasePath": "Fast-forward atomic push of main, codex/blueprint-release and codex/ultra-materials; exact SHA production deployment."
+}
