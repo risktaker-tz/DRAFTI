@@ -22,6 +22,10 @@ c.checkGameEnd();assert.equal(calls.length,0,'Even inactivity/repetition may not
 const larger=position([[1,2],[3,1],[5,1],[7,1],[56,-2],[58,-1],[60,-1],[62,-1]]);
 Object.assign(c.G,{board:larger,legal:c.E.legalMoves(rs,larger,1)});c.checkGameEnd();assert.equal(calls.length,0,'Automatic draws cannot end a larger game before either side reaches the threshold');
 Object.assign(c.G,{board:far,legal:c.E.legalMoves(rs,far,1)});c.checkGameEnd();assert.equal(calls.length,1,'An eligible, fully checked no-win repeated/inactive position can still draw');
+calls=[];Object.assign(c.G,{board:far,side:1,noProg:0,history:quiet(far,2),legal:c.E.legalMoves(rs,far,1),repMap:new Map()});
+c.checkGameEnd();assert.equal(calls.length,1,'An expired low-material countdown ends the actual game after a complete no-win proof');
+calls=[];Object.assign(c.G,{board:close,side:1,noProg:0,history:quiet(close,2),legal:c.E.legalMoves(rs,close,1),repMap:new Map()});
+c.checkGameEnd();assert.equal(calls.length,0,'A real winning capture keeps play alive after the countdown reaches zero');
 calls=[];let time=0;c.Date.now=()=>time+=100;c.possibleWinWithinMoves.cache.clear();
-c.checkGameEnd();assert.equal(calls.length,0,'An expired proof budget conservatively keeps the real game alive');
-console.log('PASS uncrowned-side protection, both-sides-three-piece threshold, four-piece guards, existing countdown lengths, real three-turn legal win checks and guarded official draw paths');
+c.checkGameEnd();assert.equal(calls.length,0,'A genuinely exhausted proof budget conservatively keeps the real game alive');
+console.log('PASS uncrowned-side protection, thresholds, countdown expiry adjudication, real three-turn win preservation, proof-timeout safety and guarded official draw paths');

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="drafti-build" content="30f0f48b854cb7a106cf72f98499dc9e49972a2c3832a6f2beb9dad728424cc4">
+<meta name="drafti-build" content="bff6b87bb389b2c75f7d0a7ca8a6b7db2e68460a8964674297c2aa111d02445b">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="apple-touch-icon" href="./icon-192.png">
@@ -6059,9 +6059,12 @@ function createSoundAudit(capacity = 12000) {
     const cache=possibleWinWithinMoves.cache ||= new Map(),key=rs.id+'|'+side+'|'+plies+'|'+board.join(',');
     if(cache.has(key))return cache.get(key);
     if(cacheOnly)return null;
-    const deadline=Date.now()+35,exhausted={},memo=new Map();let nodes=0;
+    // This is a house-rule adjudication check, separate from AI search. Give
+    // the shallow three-ply proof enough room to finish in ordinary endings;
+    // if the cap is still reached, preserve the position and retry next turn.
+    const deadline=Date.now()+180,exhausted={},memo=new Map();let nodes=0;
     const visit=(position,turn,left)=>{
-      if(++nodes>8000||Date.now()>deadline)throw exhausted;
+      if(++nodes>60000||Date.now()>deadline)throw exhausted;
       const moves=E.legalMoves(rs,position,turn);
       if(!moves.length)return true; // A normal win, not a selected or assigned outcome.
       if(!left)return false;
@@ -6773,7 +6776,7 @@ function createSoundAudit(capacity = 12000) {
       : G.rs.name;
     const ending = lowMaterialCountdown(G.board,G.history,G.legal,{rs:G.rs,side:G.side,cacheOnly:true,
       forceCheck:G.noProg>=G.rs.drawPlies||(G.repMap.get(posKey(G.board,G.side))||0)>=3});
-    if (ending && !G.over) detail = ending.winningNext ? 'Endgame · winning chance' : ending.analysisLimited ? 'Endgame · play continues'
+    if (ending && !G.over) detail = ending.winningNext ? 'Endgame · winning chance' : ending.analysisLimited ? 'Endgame · checking for a win'
       : ending.scoringNext ? 'Draw countdown · scoring chance' : 'Draw in ' + ending.remaining + ' moves';
     $('bannerContext').textContent = context; $('bannerContext').title = context;
     $('bannerDetail').textContent = detail; $('bannerDetail').title = detail;

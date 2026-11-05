@@ -1,5 +1,13 @@
 # DRAFTI implementation handoff and full remaining plan
 
+## Latest current-release draw adjudication and browser evidence — 2026-11-05
+
+- A completed current-release East Africa 8×8 real-engine arena audit is saved under `docs/arena-eastafrica8-current-release/` (source `5233a94`): 36 bouts, 3 dethronings, season-start median levels 4→5→6→7. This is a scheduling/progression sample, not equal national win-probability proof.
+- Investigation of the reported countdown stall found that the three-ply house-rule win proof intentionally deferred a draw on timeout, but its original 8,000-node/35 ms cap could report “unknown” too readily. Increased only that rare adjudication proof to 60,000 nodes/180 ms and changed the billboard wording to “Endgame · checking for a win” while the proof is inconclusive. A proven tactical win and incomplete proof still keep play alive. AI search, engine source, move choice, and ruleset mechanics are unchanged.
+- Added `test_protected_draws.js` assertions through the actual `checkGameEnd()` path: expired count with proven no-win draws; immediate scoring/winning continuation and proof timeout do not. Endgame/billboard tests pass. Engine suite: 38,461 passed / 0 failed; independent move-generation cross-check: all eight rulesets, zero mismatches.
+- Headless Chromium rendered the current mobile build at 390×844 (`docs/current-build-mobile-390.png`); the board, pieces, banner, trays and controls fit the viewport. Desktop screenshot is `docs/current-render-1280.png`. Full theme×piece-set×size rendered contrast remains open.
+- Rebuilt HTML is 14,292,307 bytes, below the 14 MiB limit; deployment and public byte verification for this draw checkpoint remain pending.
+
 ## Current checkpoint — final-piece loss reaction — 2026-11-05
 
 - Added a rare, gentle losing-side consolation after the opponent's actual last piece is captured. The route checks the terminal result, captured move, winner/loser sides, and zero remaining losing pieces; wins by blockade, draws, non-final captures and stale timers do not trigger it.
