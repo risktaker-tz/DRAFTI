@@ -359,3 +359,7 @@ On 2026-11-05, the built-in browser preview at `http://127.0.0.1:8080/`, Vercel 
 ### Offline installation replay
 
 Re-ran `tests/test_offline_install.js`, `tests/test_install_update_cycle.js`, and `tests/test_audience_vibes.js` against the pushed source. All passed. Core app navigation remains available during offline use and server outages on both Vercel root and GitHub Pages subpath scopes; failed updates preserve the previous install; valid vocabulary clips migrate between cache rotations; audience storage remains isolated and survives app updates. The explicit audience install downloads and verifies every item in its current 57-clip manifest into its own persistent Cache Storage bucket, and the test reopens it with network unavailable. That proves the current optional audience pack's offline cache contract in automated fixtures, not a physical device OS-shell install. The live pack remains partial (57 clips, 2,811,210 audio bytes); the reviewed 501+ expansion is still open. Evidence: `docs/offline-install-verification-20261105.json`.
+
+### Two-player sound routing replay
+
+An isolated Chromium run on the exact built artifact completed a 54-ply hotseat match naturally, with 238 sound starts, 49 distinct IDs across eight categories, and zero uncaught browser errors. This supplements the retained human-versus-AI and partial arena logs. It verifies event routing and a win result in scripted two-player play; it is not a human listening-quality or physical-device speaker test. Evidence: `docs/audio-two-player-browser-20261105.json`.

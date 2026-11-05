@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-05",
+  "sourceCommit": "db456ba40b270e65d81c704ed2e00b92ee0cccd2",
+  "artifactSha256": "78ec93be68687486365cf078ecd0b2c2a907350a609b8d7cdf18f561f2351929",
+  "mode": "two-player hotseat",
+  "environment": "Isolated Chromium against the exact built local artifact; scripted legal moves; sound enabled; audio-audit event logging enabled.",
+  "plies": 54,
+  "durationMs": 14505,
+  "result": {
+    "winner": 1,
+    "reason": "Every Usiogope piece has been captured."
+  },
+  "soundStarts": 238,
+  "uniqueSoundIds": 49,
+  "byCategory": {
+    "classic": 117,
+    "comedy": 8,
+    "drama": 1,
+    "judge": 1,
+    "majestic": 14,
+    "party": 5,
+    "ui": 88,
+    "voice": 4
+  },
+  "uncaughtBrowserErrors": 0,
+  "limitations": [
+    "This confirms event routing and normal win completion in an automated two-player playback, not human listening quality or physical device audio output.",
+    "The isolated test browser profile is separate from the owner's browser profile."
+  ]
+}
