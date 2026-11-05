@@ -360,6 +360,231 @@
    "status": "accepted",
    "takes": 1
   },
+  "sf2_041": {
+   "bytes": 22900,
+   "error": null,
+   "lufs": -20.2,
+   "peakDbfs": -1.583,
+   "seconds": 3.1868,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_042": {
+   "bytes": 30580,
+   "error": null,
+   "lufs": -20.9,
+   "peakDbfs": -1.531,
+   "seconds": 4.2762,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_043": {
+   "bytes": 27288,
+   "error": null,
+   "lufs": -19.7,
+   "peakDbfs": -1.587,
+   "seconds": 3.7933,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_044": {
+   "bytes": 22534,
+   "error": null,
+   "lufs": -17.0,
+   "peakDbfs": -1.507,
+   "seconds": 3.1159,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_045": {
+   "bytes": 29666,
+   "error": null,
+   "lufs": -19.6,
+   "peakDbfs": -1.549,
+   "seconds": 4.1352,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_046": {
+   "bytes": 24180,
+   "error": null,
+   "lufs": -19.0,
+   "peakDbfs": -1.721,
+   "seconds": 3.3633,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_047": {
+   "bytes": 26374,
+   "error": null,
+   "lufs": -19.3,
+   "peakDbfs": -1.559,
+   "seconds": 3.6797,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_048": {
+   "bytes": 19608,
+   "error": null,
+   "lufs": -19.4,
+   "peakDbfs": -1.504,
+   "seconds": 2.6917,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_049": {
+   "bytes": 22717,
+   "error": null,
+   "lufs": -18.9,
+   "peakDbfs": -1.538,
+   "seconds": 3.1576,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_050": {
+   "bytes": 17963,
+   "error": null,
+   "lufs": -21.1,
+   "peakDbfs": -1.542,
+   "seconds": 2.467,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_051": {
+   "bytes": 18511,
+   "error": null,
+   "lufs": -18.4,
+   "peakDbfs": -1.554,
+   "seconds": 2.5482,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_052": {
+   "bytes": 22351,
+   "error": null,
+   "lufs": -17.4,
+   "peakDbfs": -1.628,
+   "seconds": 3.0893,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_053": {
+   "bytes": 20706,
+   "error": null,
+   "lufs": -17.4,
+   "peakDbfs": -1.503,
+   "seconds": 2.8552,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_054": {
+   "bytes": 33506,
+   "error": null,
+   "lufs": -18.9,
+   "peakDbfs": -1.538,
+   "seconds": 4.6793,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_055": {
+   "bytes": 20888,
+   "error": null,
+   "lufs": -20.4,
+   "peakDbfs": -1.63,
+   "seconds": 2.898,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_056": {
+   "bytes": 29117,
+   "error": null,
+   "lufs": -19.1,
+   "peakDbfs": -1.521,
+   "seconds": 4.0692,
+   "status": "accepted",
+   "takes": 2
+  },
+  "sf2_057": {
+   "bytes": 21986,
+   "error": null,
+   "lufs": -18.6,
+   "peakDbfs": -1.556,
+   "seconds": 3.0423,
+   "status": "accepted",
+   "takes": 2
+  },
+  "sf2_058": {
+   "bytes": 24180,
+   "error": null,
+   "lufs": -19.0,
+   "peakDbfs": -1.62,
+   "seconds": 3.3559,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_059": {
+   "bytes": 20888,
+   "error": null,
+   "lufs": -15.8,
+   "peakDbfs": -1.523,
+   "seconds": 2.8876,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_060": {
+   "bytes": 32774,
+   "error": null,
+   "lufs": -20.9,
+   "peakDbfs": -1.788,
+   "seconds": 4.588,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_061": {
+   "bytes": 30580,
+   "error": null,
+   "lufs": -19.8,
+   "peakDbfs": -1.512,
+   "seconds": 4.2705,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_062": {
+   "bytes": 25643,
+   "error": null,
+   "lufs": -17.8,
+   "peakDbfs": -1.553,
+   "seconds": 3.5776,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_063": {
+   "bytes": 28020,
+   "error": null,
+   "lufs": -18.1,
+   "peakDbfs": -1.558,
+   "seconds": 3.9048,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_064": {
+   "bytes": 22351,
+   "error": null,
+   "lufs": -18.6,
+   "peakDbfs": -1.564,
+   "seconds": 3.1005,
+   "status": "accepted",
+   "takes": 1
+  },
+  "sf2_065": {
+   "bytes": 19060,
+   "error": null,
+   "lufs": -19.1,
+   "peakDbfs": -1.56,
+   "seconds": 2.613,
+   "status": "accepted",
+   "takes": 1
+  },
   "sj2_001": {
    "bytes": 38443,
    "error": null,

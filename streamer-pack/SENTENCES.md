@@ -48,31 +48,31 @@ backed by an accepted MP3 in `audio/` with verified duration/peak/hash in
 | `sf2_038` | capture1 | A clean single capture — steady play. | caps === 1 on the mover's committed move | — | accepted {"seconds": 3.874, "bytes": 27837} |
 | `sf2_039` | capture1 | That piece is gone — a small edge! | caps === 1 on the mover's committed move | — | accepted {"seconds": 2.6781, "bytes": 19426} |
 | `sf2_040` | capture1 | Taken! One capture, and tension grows. | caps === 1 on the mover's committed move | — | accepted {"seconds": 4.3753, "bytes": 31311} |
-| `sf2_041` | capture1 | One capture landed — the board shifts. | caps === 1 on the mover's committed move | — | pending |
-| `sf2_042` | capture1 | Straightforward take — sometimes simple is best! | caps === 1 on the mover's committed move | — | pending |
-| `sf2_043` | capture2 | Two pieces in one turn — that stings! | caps === 2 on the mover's committed move | — | pending |
-| `sf2_044` | capture2 | Double capture! The board felt that one. | caps === 2 on the mover's committed move | — | pending |
-| `sf2_045` | capture2 | One, two — off they go! Excellent! | caps === 2 on the mover's committed move | — | pending |
-| `sf2_046` | capture2 | A double strike — that side smiles now. | caps === 2 on the mover's committed move | — | pending |
-| `sf2_047` | capture2 | Two captures in one move — great timing! | caps === 2 on the mover's committed move | — | pending |
-| `sf2_048` | capture2 | Doubled up! The material picture changes. | caps === 2 on the mover's committed move | — | pending |
-| `sf2_049` | capture3plus | Three or more in one go — outstanding! | caps >= 3 on the mover's committed move | — | pending |
-| `sf2_050` | capture3plus | A capture run — something special! | caps >= 3 on the mover's committed move | — | pending |
-| `sf2_051` | capture3plus | Multi-capture! The board just opened up! | caps >= 3 on the mover's committed move | — | pending |
-| `sf2_052` | capture3plus | What a chain — multiple pieces gone! | caps >= 3 on the mover's committed move | — | pending |
-| `sf2_053` | new_king | It reaches the last row — a new king! | promotes: the moved piece reaches the king row and is crowne | — | pending |
-| `sf2_054` | new_king | Crowned! That king will be felt. | promotes: the moved piece reaches the king row and is crowne | — | pending |
-| `sf2_055` | new_king | Promotion! A new king enters the game. | promotes: the moved piece reaches the king row and is crowne | — | pending |
-| `sf2_056` | new_king | The piece marches through — king crowned! | promotes: the moved piece reaches the king row and is crowne | — | pending |
-| `sf2_057` | new_king | Fresh royalty on the board — respect the crown! | promotes: the moved piece reaches the king row and is crowne | — | pending |
-| `sf2_058` | pressure | Behind on pieces — dig in and stay calm! | the seat the line addresses is behind on material per the en | — | pending |
-| `sf2_059` | pressure | Down on material, not out of ideas! | the seat the line addresses is behind on material per the en | — | pending |
-| `sf2_060` | pressure | Pressure on that side — one move changes everything! | the seat the line addresses is behind on material per the en | — | pending |
-| `sf2_061` | pressure | Behind on the board — defend with patience. | the seat the line addresses is behind on material per the en | — | pending |
-| `sf2_062` | pressure | Material down, spirit up — not over yet! | the seat the line addresses is behind on material per the en | — | pending |
-| `sf2_063` | turnaround | The material swing is real — turned around! | existing verified-material-turnaround gate | — | pending |
-| `sf2_064` | turnaround | What a recovery — the balance has flipped! | existing verified-material-turnaround gate | — | pending |
-| `sf2_065` | turnaround | A genuine comeback — pieces back in the fight! | existing verified-material-turnaround gate | — | pending |
+| `sf2_041` | capture1 | One capture landed — the board shifts. | caps === 1 on the mover's committed move | — | accepted {"seconds": 3.1868, "bytes": 22900} |
+| `sf2_042` | capture1 | Straightforward take — sometimes simple is best! | caps === 1 on the mover's committed move | — | accepted {"seconds": 4.2762, "bytes": 30580} |
+| `sf2_043` | capture2 | Two pieces in one turn — that stings! | caps === 2 on the mover's committed move | — | accepted {"seconds": 3.7933, "bytes": 27288} |
+| `sf2_044` | capture2 | Double capture! The board felt that one. | caps === 2 on the mover's committed move | — | accepted {"seconds": 3.1159, "bytes": 22534} |
+| `sf2_045` | capture2 | One, two — off they go! Excellent! | caps === 2 on the mover's committed move | — | accepted {"seconds": 4.1352, "bytes": 29666} |
+| `sf2_046` | capture2 | A double strike — that side smiles now. | caps === 2 on the mover's committed move | — | accepted {"seconds": 3.3633, "bytes": 24180} |
+| `sf2_047` | capture2 | Two captures in one move — great timing! | caps === 2 on the mover's committed move | — | accepted {"seconds": 3.6797, "bytes": 26374} |
+| `sf2_048` | capture2 | Doubled up! The material picture changes. | caps === 2 on the mover's committed move | — | accepted {"seconds": 2.6917, "bytes": 19608} |
+| `sf2_049` | capture3plus | Three or more in one go — outstanding! | caps >= 3 on the mover's committed move | — | accepted {"seconds": 3.1576, "bytes": 22717} |
+| `sf2_050` | capture3plus | A capture run — something special! | caps >= 3 on the mover's committed move | — | accepted {"seconds": 2.467, "bytes": 17963} |
+| `sf2_051` | capture3plus | Multi-capture! The board just opened up! | caps >= 3 on the mover's committed move | — | accepted {"seconds": 2.5482, "bytes": 18511} |
+| `sf2_052` | capture3plus | What a chain — multiple pieces gone! | caps >= 3 on the mover's committed move | — | accepted {"seconds": 3.0893, "bytes": 22351} |
+| `sf2_053` | new_king | It reaches the last row — a new king! | promotes: the moved piece reaches the king row and is crowne | — | accepted {"seconds": 2.8552, "bytes": 20706} |
+| `sf2_054` | new_king | Crowned! That king will be felt. | promotes: the moved piece reaches the king row and is crowne | — | accepted {"seconds": 4.6793, "bytes": 33506} |
+| `sf2_055` | new_king | Promotion! A new king enters the game. | promotes: the moved piece reaches the king row and is crowne | — | accepted {"seconds": 2.898, "bytes": 20888} |
+| `sf2_056` | new_king | The piece marches through — king crowned! | promotes: the moved piece reaches the king row and is crowne | — | accepted {"seconds": 4.0692, "bytes": 29117} |
+| `sf2_057` | new_king | Fresh royalty on the board — respect the crown! | promotes: the moved piece reaches the king row and is crowne | — | accepted {"seconds": 3.0423, "bytes": 21986} |
+| `sf2_058` | pressure | Behind on pieces — dig in and stay calm! | the seat the line addresses is behind on material per the en | — | accepted {"seconds": 3.3559, "bytes": 24180} |
+| `sf2_059` | pressure | Down on material, not out of ideas! | the seat the line addresses is behind on material per the en | — | accepted {"seconds": 2.8876, "bytes": 20888} |
+| `sf2_060` | pressure | Pressure on that side — one move changes everything! | the seat the line addresses is behind on material per the en | — | accepted {"seconds": 4.588, "bytes": 32774} |
+| `sf2_061` | pressure | Behind on the board — defend with patience. | the seat the line addresses is behind on material per the en | — | accepted {"seconds": 4.2705, "bytes": 30580} |
+| `sf2_062` | pressure | Material down, spirit up — not over yet! | the seat the line addresses is behind on material per the en | — | accepted {"seconds": 3.5776, "bytes": 25643} |
+| `sf2_063` | turnaround | The material swing is real — turned around! | existing verified-material-turnaround gate | — | accepted {"seconds": 3.9048, "bytes": 28020} |
+| `sf2_064` | turnaround | What a recovery — the balance has flipped! | existing verified-material-turnaround gate | — | accepted {"seconds": 3.1005, "bytes": 22351} |
+| `sf2_065` | turnaround | A genuine comeback — pieces back in the fight! | existing verified-material-turnaround gate | — | accepted {"seconds": 2.613, "bytes": 19060} |
 | `sf2_066` | turnaround | Look at the board — that deficit is gone! | existing verified-material-turnaround gate | — | pending |
 | `sf2_067` | trap | Something's waiting on that square — say no more! | existing trap_set gate: a real trap is present on the board | — | pending |
 | `sf2_068` | trap | That bait sits there quietly... interesting. | existing trap_set gate: a real trap is present on the board | — | pending |
