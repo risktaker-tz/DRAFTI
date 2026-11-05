@@ -1,5 +1,24 @@
 # DRAFTI implementation handoff and full remaining plan
 
+## Authoritative checkpoint — 2026-11-05
+
+- Current pushed source: `eac75562824c91f314b2f3be97d10052f482ec7b` (`Cover loop escapes across every ruleset`), present on `main` and `codex/blueprint-release`. The immediately preceding app checkpoint `e85c858f845e4722a533ca228136feda33d89ba8` contains the production code; this latest commit only broadens loop-escape regression coverage and does not change the app bundle.
+- Current production artifact rebuilt from this checkout: `web/index.html`, 14,287,297 bytes, SHA-256 `e8baed44e8e93a93222c4fbdca4bdeb6dd34aa42f38d28885722d7689febd90c`. Vercel `https://drafti-afrika.vercel.app/` and GitHub Pages `https://risktaker-tz.github.io/DRAFTI/web/index.html` both returned HTTP 200 and the same byte count/hash.
+- Loop escape remains rules-neutral: it works from the current ruleset’s legal move list and resulting board positions, considers repetition history, and only selects a near-equal fresh route. It does not force a result or touch arena scheduling/fairness. New `tests/test_ai_learning.js` coverage iterates over every engine ruleset and board size; PASS.
+- Current required verification: `node tests/test_engine.js` — 38,020 passed, 0 failed; `node tests/crosscheck_movegen.js` — clean, 0 mismatches over all seven rulesets; `node tests/test_ai_learning.js` — PASS; `node tests/test_protected_draws.js` — PASS; `node tests/test_live_capture_speed.js` — PASS; `node tests/test_season_honours.js` — PASS; `node tests/test_arena_draw_fingerprint.js` — PASS; `node tests/test_spectator_quality_floor.js` — PASS; `node tests/test_completed_search_scores.js` — PASS; `node scripts/sound_integrity_audit.js` — 544 clips, no missing references, oversize/overlong/encoding violations, or missing events.
+- The source build is under the 14 MiB ceiling and matches both public hosts exactly. No production-code delta was made by commit `eac7556`; the already-live app behavior is unchanged by that commit.
+- One legacy untracked simulation must be preserved, not staged: `docs/arena-ultra-cups/`. PID 8620 was confirmed running at 2026-11-05 07:40 local; its resumable data identifies source commit `42c7084ccfffa620a711a96989bb6a5650cf32d8` (old policy), East Africa 8×8, and records 23 bouts at its latest checkpoint. It is not evidence for the current draw policy and must not be reported as such. Do not interrupt it; if a current-policy simulation is needed, run it separately after inspecting its completion.
+- Contrast gap remains open: the current 21-theme conservative palette audit records 307/588 samples below 3:1. This is source-palette evidence, not rendered-material proof. Keep theme identities intact; inspect actual rendered contrast before selecting a correction. The in-app CUA browser was disabled in Work settings during this turn, so no new rendered visual acceptance was claimed.
+- The current git worktree has only the untracked legacy simulation directory; the ruleset-wide regression commit is pushed. Author is configured as `zacharia <zachariafx@gmail.com>`.
+
+### Next work against `docs/DRAFTI_MASTER_PROMPT.md`
+
+1. Continue the explicit E1 rendered review for all 21 tables and all 8 material sets, including 8×8/10×10/12×12, flags, crowns, reduced motion, capture/crowning/victory effects and mobile layouts. Resolve the 3:1 contrast audit only with changes supported by rendered proof.
+2. Complete D1 evidence for the 194 authoritative flag references, clash pairs, mode/toggle/name laws, all materials/tables and flags in human modes.
+3. Complete D2 full playback checks across all three modes. Static sound integrity is green; static analysis does not certify listening quality or live browser playback. The requested shrimp and retirement originals are already installed and reversible backups exist.
+4. D3 still needs a current-policy, real-engine 3-season fairness run and its report. The running 23/36 run uses old commit `42c7084`; preserve it and do not use its outcome as current-policy proof. Do not modify fairness policy absent an explicit defect fix.
+5. Continue remaining master-plan and user-requested checks without disturbing sounds, speed/intelligence, draw rules, themes, or game features outside an explicitly listed requirement. Online multiplayer, Supabase and `/admin_tz` remain out of scope.
+
 ## Latest release verification
 
 PUBLIC CHECKPOINT VERIFIED: release 593a83b82ceac3cd0b4729cb0cbd0175a57949c3 (runtime b8c0369) is READY as dpl_ArKRRiAAtfmzmSBP5Fg5Ljuwf3s5. Both hosts serve exact final HTML 12,981,423 bytes SHA-256 6eea043223943f9d49943c1a1c3bb68c24f6c493993d3884d6ded0ba4c5d5e31, and worker SHA-256 7779a674cb5a3ddb9b6eca0741b61857939b1e42d2eaa979734cc9f1058b3429. Both identify build 710a151f4b4c3a171bb7a8e340f2752f755ada94929266fcd7b9154832f30630. All 53 tests pass at b8c0369. See installed-update live receipts and checkpoint document.
