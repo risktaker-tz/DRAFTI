@@ -72,7 +72,6 @@
 .cine-calm{background:linear-gradient(180deg,#a5d5e022,transparent 45%,#dfceaa22);animation:cine-calm 1.6s ease both}
 @keyframes cine-calm{0%,100%{opacity:0}50%{opacity:.8}}
 .cine-intermission{background:radial-gradient(ellipse at 50% 0%,color-mix(in srgb,var(--cue) 22%,transparent),transparent 65%);animation:cine-calm 1.3s ease both}
-.cine-launch{position:fixed;right:18px;bottom:16px;z-index:95;background:var(--panel-opaque);box-shadow:0 6px 24px #0004;font-size:12px}
 .cine-studio{position:fixed;right:16px;top:80px;bottom:68px;z-index:100;width:326px;max-width:calc(100vw - 24px);overflow:auto;overscroll-behavior:contain;padding:20px;border:1px solid var(--panel-line);border-radius:20px;background:var(--panel-opaque);box-shadow:0 20px 70px #0006;color:var(--ink);backdrop-filter:blur(18px)}
 .cine-studio-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
 .cine-eyebrow{font-size:9px;font-weight:750;letter-spacing:.18em;color:var(--accent)}
@@ -87,5 +86,5 @@
 .cine-option{display:grid;grid-template-columns:18px 1fr;gap:8px;align-items:center;margin-top:6px}
 .cine-option input{accent-color:var(--accent)}
 .cine-option .btn{text-align:left;font-size:11px;padding:9px 10px;min-height:34px}
-@media(max-width:900px){.cine-studio{top:auto;bottom:64px;left:12px;right:12px;width:auto;max-height:48vh;border-radius:18px;padding:16px}.cine-launch{right:12px;bottom:12px}.cine-studio h2{font-size:22px}}
+@media(max-width:900px){.cine-studio{top:auto;bottom:64px;left:12px;right:12px;width:auto;max-height:48vh;border-radius:18px;padding:16px}.cine-studio h2{font-size:22px}}
 @media(prefers-reduced-motion:reduce){.cine-atmosphere::before,.cine-atmosphere::after{animation:none!important;transition:none!important}.cine-board-plane,.cine-atmosphere>div,.cine-atmosphere>i,.cine-halo,.cine-glint,.cine-orbit{display:none!important}}

@@ -175,8 +175,8 @@
     debug(){return{catalogue:catalogue.map(([id,group,name])=>({id,group,name})),played:played.slice(),director:director.inspect(),nodes:liveNodes.size,motions:motions.size,timers:timers.size,reduced:reduced(),options:{...options,disabled:[...options.disabled]}};},
   };
   globalThis.DRAFTI_CINEMA=api;
-  const launch=document.createElement('button');launch.id='cineLaunch';launch.className='btn cine-launch';launch.textContent='✦ Preview studio';launch.setAttribute('aria-expanded','true');document.body.appendChild(launch);
-  const panel=document.createElement('aside');panel.id='cineStudio';panel.className='cine-studio';panel.setAttribute('aria-label','Cinematic preview studio');
+  const launch=$('cineLaunch');
+  const panel=document.createElement('aside');panel.id='cineStudio';panel.className='cine-studio';panel.hidden=true;panel.setAttribute('aria-label','Cinematic preview studio');
   panel.innerHTML='<div class="cine-studio-head"><div><span class="cine-eyebrow">REVIEW PREVIEW</span><h2>Make the moment.</h2></div><button class="btn" id="cineClose" aria-label="Close preview studio">×</button></div><p>Gameplay saves effects for qualified moments. Buttons below stage a demonstration without changing the match.</p><div class="cine-controls"><button class="btn" id="cineCompare">Compare original</button><select id="cineEnergy" aria-label="Effect intensity"><option value="subtle">Subtle</option><option value="balanced">Balanced</option><option value="stream">Livestream</option></select><button class="btn" id="cineTour">Play showcase</button></div><p class="cine-status" id="cineStatus" role="status">30 situational effects · original sounds preserved</p><div id="cineCatalogue"></div>';
   document.body.appendChild(panel);
   for(const group of ['Board','Pieces','Background']){
@@ -190,7 +190,7 @@
     $('cineCatalogue').appendChild(details);
   }
   const togglePanel=open=>{panel.hidden=!open;launch.setAttribute('aria-expanded',String(open));};
-  launch.addEventListener('click',()=>togglePanel(panel.hidden));$('cineClose').addEventListener('click',()=>togglePanel(false));
+  launch.addEventListener('click',()=>{app.menu.close();togglePanel(true);});$('cineClose').addEventListener('click',()=>togglePanel(false));
   $('btnMenu').addEventListener('click',()=>togglePanel(false));
   $('cineCompare').addEventListener('click',()=>{options.enabled=!options.enabled;clear();refresh();persist();$('cineCompare').textContent=options.enabled?'Compare original':'Restore preview';$('cineStatus').textContent=options.enabled?'Cinematic preview enabled':'Original presentation · new effects off';});
   $('cineEnergy').value=options.energy;$('cineEnergy').addEventListener('change',event=>{options.energy=event.target.value;refresh();persist();});
@@ -198,10 +198,10 @@
   const pointer=event=>{if(pointerFrame||!allowed('a3')||reduced()||!event.target.closest?.('#boardFrame')||app.menu.isOpen())return;pointerFrame=requestAnimationFrame(()=>{pointerFrame=0;pointerUntil=performance.now()+1700;document.body.style.setProperty('--cine-pointer-x',event.clientX/innerWidth*100+'%');document.body.style.setProperty('--cine-pointer-y',event.clientY/innerHeight*100+'%');refresh();fire('a3',{moment:'interaction',boardInteraction:true});later(refresh,1800);});};
   document.addEventListener('pointermove',pointer,{passive:true});document.addEventListener('pointerdown',pointer,{passive:true});
   new MutationObserver(()=>api.intermission()).observe($('autoNext'),{childList:true,subtree:true,attributes:true,attributeFilter:['hidden']});
-  new MutationObserver(()=>refresh()).observe($('drawer'),{attributes:true,attributeFilter:['aria-hidden']});
+  new MutationObserver(()=>{if(app.menu.isOpen())togglePanel(false);refresh();}).observe($('drawer'),{attributes:true,attributeFilter:['aria-hidden']});
   new MutationObserver(()=>refresh()).observe($('ceremony'),{attributes:true,attributeFilter:['hidden']});
   document.addEventListener('visibilitychange',()=>{if(document.hidden)clear();refresh();});
   matchMedia('(prefers-reduced-motion: reduce)').addEventListener?.('change',()=>{clear();refresh();});
   ensure();refresh();
-  togglePanel(innerWidth>=900);
+  togglePanel(false);
 })();

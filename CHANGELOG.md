@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-05 — Menu-only Preview Studio
+
+- Move Preview Studio into Table & themes → Board feel in the menu. Keep it closed at startup on phone and desktop, and remove the floating gameplay launcher. Preserve all thirty effects and studio controls.
+
 ## 2026-11-05 — Ultra materials and protected endgames
 
 - Add engraved rims, layered contact shadows, crafted frame trim and subtle Marble Lux veins across the existing material system. Correct the visual lower-disc position of flipped kings.
