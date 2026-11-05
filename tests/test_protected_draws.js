@@ -10,6 +10,10 @@ const quiet=(b,n)=>Array.from({length:n},()=>({boardBefore:b,side:1,move:{caps:[
 const rs=c.E.RULESETS.american,far=position([[1,2],[62,-2]]),before=position([[10,1],[62,-2]]);
 assert.equal(c.possibleWinWithinMoves(rs,far,-1,3),false,'Distant short kings have no legal winning continuation in three turns');
 const close=position([[42,2],[33,-2]]);assert.equal(c.possibleWinWithinMoves(rs,close,1,3),true,'A real winning capture must keep play alive');
+const avoidable=position([[1,-2],[62,2]]);
+assert.equal(c.possibleWinWithinMoves(rs,avoidable,1,3),false,'A winning line that requires the opponent to blunder is not a forced continuation');
+const avoidableEnd=c.lowMaterialCountdown(avoidable,quiet(avoidable,2),c.E.legalMoves(rs,avoidable,1),{rs,side:1});
+assert(!avoidableEnd.winningNext&&avoidableEnd.remaining===0,'A kings-only draw countdown expires when neither side can force a win against legal defense');
 const crown=[{boardBefore:before,side:1,move:{from:10,path:[10,1],caps:[],promotes:true}}];
 const early=c.lowMaterialCountdown(far,crown,c.E.legalMoves(rs,far,-1),{rs,side:-1});
 assert(early.immediateAfterCrown&&early.remaining===0,'Only a verified no-win small endgame may draw immediately after the first shared king');
@@ -28,9 +32,11 @@ calls=[];Object.assign(c.G,{board:far,side:1,noProg:0,history:quiet(far,2),legal
 c.checkGameEnd();assert.equal(calls.length,1,'An expired low-material countdown ends the actual game after a complete no-win proof');
 calls=[];Object.assign(c.G,{board:close,side:1,noProg:0,history:quiet(close,2),legal:c.E.legalMoves(rs,close,1),repMap:new Map()});
 c.checkGameEnd();assert.equal(calls.length,0,'A real winning capture keeps play alive after the countdown reaches zero');
+calls=[];Object.assign(c.G,{board:avoidable,side:1,noProg:0,history:quiet(avoidable,2),legal:c.E.legalMoves(rs,avoidable,1),repMap:new Map()});
+c.checkGameEnd();assert.equal(calls.length,1,'A finished kings-only countdown does not remain open for a merely avoidable blunder');
 calls=[];let time=0;c.Date.now=()=>time+=100;c.possibleWinWithinMoves.cache.clear();
 c.checkGameEnd();assert.equal(calls.length,0,'A genuinely exhausted proof budget conservatively keeps the real game alive');
 calls=[];Object.assign(c.G,{side:1,legal:[]});c.checkGameEnd();
 assert.deepEqual(calls.map(result=>result.winner),[-1],'A terminal position with no legal moves records the opponent as the winner');
 assert(calls.every(result=>result.winner===null||result.winner===c.IVORY||result.winner===c.EBONY),'Every completed game is exactly a draw or a win for one side');
-console.log('PASS win/draw-only terminal outcomes, no unresolved player-facing state, uncrowned-side protection, thresholds, countdown expiry adjudication, real three-turn win preservation, proof-timeout safety and guarded official draw paths');
+console.log('PASS win/draw-only outcomes, uncrowned-side protection, thresholds, countdown expiry, forced-win preservation, avoidable-blunder rejection, proof-timeout safety and guarded official draw paths');

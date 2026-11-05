@@ -3589,20 +3589,27 @@ function createSoundAudit(capacity = 12000) {
     if(cache.has(key))return cache.get(key);
     if(cacheOnly)return null;
     // This is a house-rule adjudication check, separate from AI search. Give
-    // the shallow three-ply proof enough room to finish in ordinary endings;
-    // if the cap is still reached, preserve the position and retry next turn.
+    // the shallow three-ply proof enough room to finish in ordinary endings.
+    // A continuation counts only if the winning side can force it against
+    // every legal defense; an avoidable opponent blunder must not hold a
+    // finished draw countdown open forever. If the proof cap is reached,
+    // preserve the position and retry next turn.
     const deadline=Date.now()+180,exhausted={},memo=new Map();let nodes=0;
-    const visit=(position,turn,left)=>{
+    const visit=(position,turn,left,target)=>{
       if(++nodes>60000||Date.now()>deadline)throw exhausted;
       const moves=E.legalMoves(rs,position,turn);
-      if(!moves.length)return true; // A normal win, not a selected or assigned outcome.
+      if(!moves.length)return -turn===target; // A natural win under best legal defense.
       if(!left)return false;
-      const k=turn+'|'+left+'|'+position.join(',');if(memo.has(k))return memo.get(k);
-      for(const move of moves)if(visit(E.applyMove(rs,position,move,turn),-turn,left-1)){memo.set(k,true);return true;}
-      memo.set(k,false);return false;
+      const k=target+'|'+turn+'|'+left+'|'+position.join(',');if(memo.has(k))return memo.get(k);
+      if(turn===target){
+        for(const move of moves)if(visit(E.applyMove(rs,position,move,turn),-turn,left-1,target)){memo.set(k,true);return true;}
+        memo.set(k,false);return false;
+      }
+      for(const move of moves)if(!visit(E.applyMove(rs,position,move,turn),-turn,left-1,target)){memo.set(k,false);return false;}
+      memo.set(k,true);return true;
     };
     try{
-      const result=visit(board,side,plies);cache.set(key,result);
+      const result=visit(board,side,plies,side)||visit(board,side,plies,-side);cache.set(key,result);
       if(cache.size>128)cache.delete(cache.keys().next().value);
       return result;
     }catch(error){if(error!==exhausted)throw error;return null;} // Incomplete proof always keeps play alive.

@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-05",
+  "rootCause": "The three-ply draw guard used an existential search at every turn. It counted a win line even when the opponent could choose a legal defense, so kings-only countdowns could remain at zero indefinitely.",
+  "productionResearchPosition": {
+    "ruleset": "East Africa 8x8",
+    "plies": 3630,
+    "material": "one crowned piece per side",
+    "countdownRemaining": 0,
+    "previousGuard": "reported a winning continuation",
+    "oldWinningLine": [
+      "Ivory king: 62 to 53",
+      "Ebony king: 1 to 46 (the avoidable blunder)",
+      "Ivory king: 53 to 39, capturing the ebony king"
+    ],
+    "bestDefenseAnalysis": "Neither side can force a win within the three-ply proof horizon."
+  },
+  "fix": "The house-rule proof now searches adversarially: a winning side must be able to force the natural no-legal-move win against every legal defense. It still does not choose moves or force a match result. If the bounded proof runs out of time, the position remains active and is checked again later.",
+  "preservation": "No changes to src/engine.js, engine evaluation, legal move generation, or arena scheduling. Only the house-rule adjudication proof changed.",
+  "regressionCoverage": [
+    "A kings-only draw countdown expires when neither side can force a win.",
+    "A real forced winning capture keeps play alive after the countdown reaches zero.",
+    "A potential win that depends on an avoidable opponent blunder no longer blocks the draw.",
+    "An exhausted proof budget keeps the match active rather than inventing an outcome.",
+    "Every completed player-facing result remains a win or a draw."
+  ],
+  "supersededResearch": "The preliminary 36-bout study in docs/arena-current-live-selector-4c57a08-2026-11-06/ used the defective existential guard and stopped during bout 8. Its partial outcomes are not final fairness evidence; its checkpoint and records are preserved for diagnosis. The current-policy three-season study must restart from bout 1."
+}
