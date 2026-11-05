@@ -6,6 +6,7 @@
 - Added focused regression checks proving each of the three voice modes routes quiet, comment and social lines only to its matching role, and that the idle sequence observes the quiet interval. Streamer pack integrity, mode exclusivity, authenticity and local-time checks pass.
 - Fixed a reproducibility defect in `build_web.py`: Python serialized integral float metadata as values such as `18.0`, while the Node builder emitted `18`. The Python builder now normalizes integral numbers to match `JSON.stringify`. The reproducibility test passes: both builders emit 14,291,060 identical bytes, SHA-256 `ac57456e1502bdb509f78c905c97908da3febfe79530b73b29afac3806b242f6`.
 - This is a streamer-routing refinement, not completion of the master blueprint. The optional 300-clip vocabulary still uses first-use network fetch and is not proven to work from a standalone `file://` copy or fully offline; that acceptance gate remains open.
+- Application checkpoint `841f5ed` is pushed to `main`, `codex/blueprint-release`, and `codex/streamer-vocabulary-300`. Vercel production and GitHub Pages both serve the exact local artifact: 14,291,060 bytes, SHA-256 `ac57456e1502bdb509f78c905c97908da3febfe79530b73b29afac3806b242f6`. Vercel marks the `841f5ed` deployment Ready. Both public streamer manifests match the local 252,128-byte manifest (SHA-256 `5e53abc817c09105cc30353ed309b46fefea3e1d01214253d1ac6ac830c52210`).
 
 ## Latest Z.AI vocabulary follow-up — 2026-11-05 (batch 2)
 
