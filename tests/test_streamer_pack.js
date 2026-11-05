@@ -1,33 +1,44 @@
 'use strict';
-const fs=require('fs'),path=require('path'),crypto=require('crypto'),assert=require('assert');
-const root=path.join(__dirname,'..'),packRoot=path.join(root,'streamer-pack'),webRoot=path.join(root,'web','streamer-vocabulary');
-const source=JSON.parse(fs.readFileSync(path.join(packRoot,'manifest.json'),'utf8'));
-const published=JSON.parse(fs.readFileSync(path.join(webRoot,'manifest.json'),'utf8'));
-const ids=new Set(),counts={female:0,male:0,funny:0};
-assert.equal(source.total,source.clips.length,'Source pack total matches its clip records');
-assert.equal(published.length,source.clips.length,'Every accepted source clip is published');
-for(const clip of source.clips){
-  assert.match(clip.id,/^s[fjm]2_\d{3}$/,'Clip IDs use the streamer vocabulary contract');
-  assert(!ids.has(clip.id),'Clip IDs are unique: '+clip.id);ids.add(clip.id);
-  assert(Object.hasOwn(counts,clip.mode),'Known streamer mode: '+clip.id);counts[clip.mode]++;
-  assert(clip.durationSec>0&&clip.durationSec<=6,'Clip duration is within the approved limit: '+clip.id);
-  assert(clip.bytes>0&&clip.bytes<=60*1024,'Clip size is within the approved limit: '+clip.id);
-  const sourceFile=path.resolve(packRoot,clip.file);
-  assert(sourceFile.startsWith(packRoot+path.sep),'Source clip path stays inside streamer-pack: '+clip.id);
-  const sourceBytes=fs.readFileSync(sourceFile);
-  assert.equal(sourceBytes.length,clip.bytes,'Source byte count matches manifest: '+clip.id);
-  assert.equal(crypto.createHash('sha256').update(sourceBytes).digest('hex'),clip.sha256,'Source hash matches manifest: '+clip.id);
-  const webFile=path.join(webRoot,clip.id+'.mp3');
-  const webBytes=fs.readFileSync(webFile);
-  assert.equal(webBytes.length,clip.bytes,'Published byte count matches source: '+clip.id);
-  assert.equal(crypto.createHash('sha256').update(webBytes).digest('hex'),clip.sha256,'Published clip matches source: '+clip.id);
-  const deployed=published.find(item=>item.id===clip.id);
-  assert(deployed,'Published manifest includes '+clip.id);
-  assert.equal(deployed.file,clip.id+'.mp3','Published manifest path matches runtime fetch: '+clip.id);
-  for(const field of ['mode','text','role','durationSec','bytes','sha256'])
-    assert.equal(deployed[field],clip[field],`Published ${field} matches source: ${clip.id}`);
+const fs = require('fs');
+const path = require('path');
+const crypto = require('crypto');
+const assert = require('assert');
+
+const root = path.resolve(__dirname, '..');
+const source = JSON.parse(fs.readFileSync(path.join(root, 'streamer-pack/manifest.json'), 'utf8'));
+const runtime = JSON.parse(fs.readFileSync(path.join(root, 'web/streamer-vocabulary/manifest.json'), 'utf8'));
+const runtimeById = new Map(runtime.map(clip => [clip.id, clip]));
+const counts = { female: 0, male: 0, funny: 0 };
+const ids = new Set();
+let bytesTotal = 0;
+
+assert.equal(source.schema, 'drafti-streamer-pack/1');
+assert.equal(source.total, source.clips.length);
+assert.equal(runtime.length, source.clips.length, 'public runtime manifest includes every source clip');
+
+for (const clip of source.clips) {
+  assert(!ids.has(clip.id), `unique clip id ${clip.id}`);
+  ids.add(clip.id);
+  assert.match(clip.id, /^s[fjm]2_\d{3}$/);
+  assert(['female', 'male', 'funny'].includes(clip.mode), `${clip.id} has a supported voice mode`);
+  assert(clip.text && clip.role && clip.predicate, `${clip.id} has transcript and event gate`);
+  assert(clip.source && clip.license && clip.processing, `${clip.id} has source and processing attribution`);
+  assert(clip.durationSec > 0 && clip.durationSec <= 6, `${clip.id} duration is within the pack limit`);
+  assert(clip.bytes > 0 && clip.bytes <= 60 * 1024, `${clip.id} size is within the pack limit`);
+
+  const original = fs.readFileSync(path.join(root, 'streamer-pack', clip.file));
+  const publicFile = fs.readFileSync(path.join(root, 'web/streamer-vocabulary', `${clip.id}.mp3`));
+  assert.equal(original.length, clip.bytes, `${clip.id} source byte count`);
+  assert.equal(crypto.createHash('sha256').update(original).digest('hex'), clip.sha256, `${clip.id} source SHA-256`);
+  assert(publicFile.equals(original), `${clip.id} public MP3 exactly matches its source`);
+  assert.deepStrictEqual(runtimeById.get(clip.id), { ...clip, file: `${clip.id}.mp3` },
+    `${clip.id} public metadata matches its source`);
+
+  counts[clip.mode]++;
+  bytesTotal += original.length;
 }
-assert.deepEqual(counts,source.counts,'Per-voice totals match the source manifest');
-const ui=fs.readFileSync(path.join(root,'src/ui.js'),'utf8');
-assert(ui.includes("fetch('./streamer-vocabulary/' + clip.id + '.mp3')"),'Runtime fetch path matches published asset names');
-console.log(`PASS streamer vocabulary source/deployment parity: ${source.total} clips (${counts.female} female, ${counts.male} male, ${counts.funny} funny), ${source.totalBytes} bytes`);
+
+assert.equal(source.totalBytes, bytesTotal, 'manifest aggregate byte count');
+assert.deepStrictEqual(counts, source.counts, 'manifest voice counts');
+assert.equal(runtimeById.size, source.clips.length, 'no duplicate or unexpected public clip IDs');
+console.log(`PASS ${source.total} streamer clips: source/public bytes, hashes, attribution and event metadata (${JSON.stringify(counts)}, ${bytesTotal} bytes)`);

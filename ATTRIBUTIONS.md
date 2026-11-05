@@ -280,15 +280,36 @@ clips are byte-for-byte unchanged.
 
 ## Expanded live streamer vocabulary — 2026-11-05
 
-The separately distributed, verified `streamer-pack/` contains 121 additional
+The separately distributed, verified `streamer-pack/` contains 132 additional
 original in-house TTS clips: 20 Female clips (z-ai `tongtong`), 34 Male clips
-(z-ai `jam`) and 67 Funny clips (z-ai `kazi`). They are published under
+(z-ai `jam`) and 78 Funny clips (z-ai `kazi`). They are published under
 `web/streamer-vocabulary/`, fetched only for the selected streamer and currently
 supported event roles, and cached by the service worker after successful fetch
 for offline use. They use the same speech-guarded processing described above;
 no third-party recording or existing sound was replaced. The source pack's
 manifest records every transcript, role, source, processing limits, byte count
 and SHA-256. `node tests/test_streamer_pack.js` verifies source-to-public parity.
+
+The following 11 Funny (`kazi`) recordings were added from Z.AI's pushed
+vocabulary commit on 2026-11-05. Wording was authored for this pack; the MP3s
+are original in-house neural TTS, with no third-party samples or cloned voices.
+Each source permalink identifies the exact committed asset. Rights: original
+generated audio; no third-party source. All use mono 22050 Hz MP3 at 56 kbps
+with the established speech-guarded processing.
+
+| File | Spoken line | Event-gated use | Exact source |
+| --- | --- | --- | --- |
+| `sj2_007.mp3` | The pieces practiced all night... allegedly. | Between bouts, when the live session continues | [source](https://github.com/risktaker-tz/DRAFTI/blob/32adce296e94284e20804e3ecbc41a81de6894fb/streamer-pack/audio/sj2_007.mp3) |
+| `sj2_011.mp3` | Maximum chaos! | Only after a challenger actually becomes champion | [source](https://github.com/risktaker-tz/DRAFTI/blob/32adce296e94284e20804e3ecbc41a81de6894fb/streamer-pack/audio/sj2_011.mp3) |
+| `sj2_016.mp3` | Sequel time! | Same pair begins its rematch after a draw | [source](https://github.com/risktaker-tz/DRAFTI/blob/32adce296e94284e20804e3ecbc41a81de6894fb/streamer-pack/audio/sj2_016.mp3) |
+| `sj2_018.mp3` | Same beautiful chaos! | Season rollover | [source](https://github.com/risktaker-tz/DRAFTI/blob/32adce296e94284e20804e3ecbc41a81de6894fb/streamer-pack/audio/sj2_018.mp3) |
+| `sj2_019.mp3` | Scoreboard sighs! | Season rollover | [source](https://github.com/risktaker-tz/DRAFTI/blob/32adce296e94284e20804e3ecbc41a81de6894fb/streamer-pack/audio/sj2_019.mp3) |
+| `sj2_022.mp3` | Board unbothered! | Only when the arena enters its quarter-final stage | [source](https://github.com/risktaker-tz/DRAFTI/blob/32adce296e94284e20804e3ecbc41a81de6894fb/streamer-pack/audio/sj2_022.mp3) |
+| `sj2_040.mp3` | Clean, polite, civilized aggression! | Exactly one piece is captured by the committed move | [source](https://github.com/risktaker-tz/DRAFTI/blob/32adce296e94284e20804e3ecbc41a81de6894fb/streamer-pack/audio/sj2_040.mp3) |
+| `sj2_075.mp3` | Losses sting — that spirit pays the bills! | Human side loses a computer match | [source](https://github.com/risktaker-tz/DRAFTI/blob/32adce296e94284e20804e3ecbc41a81de6894fb/streamer-pack/audio/sj2_075.mp3) |
+| `sj2_076.mp3` | Victory dance, go! | Match ends with a winner; used for a human win or general arena winner call | [source](https://github.com/risktaker-tz/DRAFTI/blob/32adce296e94284e20804e3ecbc41a81de6894fb/streamer-pack/audio/sj2_076.mp3) |
+| `sj2_077.mp3` | Composure wins. Again! | Match ends with a winner; used for a human win or general arena winner call | [source](https://github.com/risktaker-tz/DRAFTI/blob/32adce296e94284e20804e3ecbc41a81de6894fb/streamer-pack/audio/sj2_077.mp3) |
+| `sj2_078.mp3` | Winner takes glory! | Match ends with a winner; used for a human win or general arena winner call | [source](https://github.com/risktaker-tz/DRAFTI/blob/32adce296e94284e20804e3ecbc41a81de6894fb/streamer-pack/audio/sj2_078.mp3) |
 
 ## Existing voice processing corrections — 2026-11-03
 
