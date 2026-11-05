@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-05",
+  "commit": "66f13f664af5299eac637656dcb21f228dff4b10",
+  "branch": "codex/blueprint-release",
+  "deployment": {
+    "platform": "Vercel",
+    "id": "dpl_FvD9nkUay8PDCdMWPdKfhkTEU9hx",
+    "state": "READY",
+    "alias": "https://drafti-afrika.vercel.app/"
+  },
+  "artifact": {
+    "httpStatus": 200,
+    "bytes": 14292397,
+    "sha256": "066997CCFE012FBEDAA0E0500D9E6282621361279C11F2D9E5F6B2DCFE268FEC",
+    "embeddedBuildId": "e6242cb7445d913ed219974ddb1c12a704959f9710e2a2e9e915a9acd0d8f4b6",
+    "matchesLocalWebIndex": true
+  },
+  "change": "Cancels delayed result dialogs, commentary, and celebration cues when a match generation changes. No rules or AI evaluation behavior changed.",
+  "verification": [
+    "tests/test_show_gameover_epoch.js",
+    "tests/test_arena_lifecycle.js",
+    "tests/test_protected_draws.js",
+    "tests/test_app_updates.js",
+    "tests/test_install_update_cycle.js",
+    "tests/test_arena_playback.js",
+    "tests/test_audio_priority.js",
+    "tests/test_owner_audio_director.js",
+    "tests/test_physical_effects.js",
+    "Build repeated with byte-identical output."
+  ],
+  "note": "The GitHub Pages URL still served the previous release artifact at verification time; only the Vercel production alias is recorded as updated in this checkpoint."
+}
