@@ -1,6 +1,14 @@
 # DRAFTI implementation handoff and full remaining plan
 
-## Latest streamer checkpoint — 2026-11-05
+## Latest Z.AI vocabulary follow-up — 2026-11-05
+
+- Checked the latest pushed Z.AI vocabulary branch at `4c963d4`, including its parent `9cf69ca`; left Z.AI's work untouched. Imported 31 hash-verified accepted assets while preserving all 132 existing source assets: 163 total (40 Female, 45 Male, 78 Funny; 4,870,969 bytes).
+- Enabled precise event use for one-piece captures, two-piece captures, and actual quarter-final, semi-final and final transitions. The season announcer now names the exact advancing stage. Eight `clean_move` clips are kept in the attributed pack but excluded from playback because this build lacks a measured engine-quality gate for such praise.
+- Updated pack attribution and source links. Added tests for all new mode/role pools and the stage-to-announcement mapping. `node tests/test_streamer_pack.js`, `node tests/test_streamer_engagement.js`, `node tests/test_preview_studio_menu_only.js`, and `git diff --check` pass after this follow-up.
+- Local build is 14,288,118 bytes before the next deployment; the full artifact SHA and public host parity must be recorded after the commit is pushed. Existing production remains the previous 132-clip checkpoint until then.
+- The entire master blueprint remains open. The optional streamer pack's first-use network dependency still does not prove single-file offline operation; do not report that acceptance gate complete.
+
+## Previous streamer checkpoint — 2026-11-05
 
 - Reviewed Z.AI commit `32adce296e94284e20804e3ecbc41a81de6894fb` without contacting or interrupting its running work. Its commit headline says 20 accepted, while 11 clip IDs were genuinely new to this checkout (nine were already present). Imported only those 11 originals, preserving every existing clip/hash.
 - Funny streamer pack: 132 clips total (20 female, 34 male, 78 funny), 4,062,697 bytes. The 11 newly imported recordings are gated to their matching events: one capture, a drawn rematch, new bout, actual champion change, quarter-final entry, season rollover, and match result. A real event line takes priority over a generic CTA; the CTA remains the fallback. `node tests/test_streamer_pack.js` now verifies every source/public MP3 byte, SHA-256, transcript, event role and attribution across all 132 files. The optional vocabulary is fetched only when the selected voice is warmed and cached by the service worker after successful fetch; first-use offline availability remains unproven and the Markdown's no-runtime-network/file-offline acceptance is still open.

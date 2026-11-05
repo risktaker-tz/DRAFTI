@@ -20,5 +20,8 @@ no cloned performers, no runtime SpeechSynthesis.
   MP3 56 kbps) plus 10 ms fades applied by `scripts/streamer-vocabulary/generate.py`.
 - Authoring: sentence text written for this pack by zacharia
   (zachariafx@gmail.com); humor comes from wording only, no copyrighted
-  catchphrases. Manifest schema `drafti-streamer-pack/1`, 132 clips,
-  4062697 bytes after importing Z.AI commit `32adce2` (2026-11-05).
+  catchphrases. Manifest schema `drafti-streamer-pack/1`, 163 clips,
+  4870969 bytes after importing Z.AI commits `32adce2`, `9cf69ca` and
+  `4c963d4` (2026-11-05). The eight newly accepted `clean_move` clips remain
+  in the pack but are not loaded at runtime until an engine-verified quality
+  gate can select them precisely.

@@ -54,7 +54,8 @@ async function checkVocabulary() {
   await S.warmVoice();
   assert.equal(played.length, before, 'Loading vocabulary does not start speech');
   const activeRoles = new Set(['session_open', 'new_bout', 'rematch_draw', 'season_advance',
-    'capture1', 'capture2', 'capture3plus', 'new_king', 'new_challenger', 'stage_quarter', 'win', 'after_loss']);
+    'capture1', 'capture2', 'capture3plus', 'new_king', 'new_challenger', 'stage_quarter',
+    'stage_semi', 'stage_final', 'win', 'after_loss']);
   assert.equal(fetched.length, 1 + manifest.filter(clip => clip.mode === 'funny' && activeRoles.has(clip.role)).length,
     'Only approved event roles are downloaded for the selected voice');
   for (const [role, source] of Object.entries({capture: 'capture1', feast: 'capture2', capture_chain: 'capture3plus', crowning: 'new_king'})) {
@@ -67,6 +68,29 @@ async function checkVocabulary() {
   }
   assert(S.extraPools.funny.victory.includes('sj2_077') && S.extraPools.funny.victory.includes('sj2_078'));
   assert(S.extraPools.funny.next_season.includes('sj2_019'));
+  assert(ui.includes("const stageRole = { 1: 'stage_quarter', 2: 'stage_semi', 3: 'stage_final' }[stage]"),
+    'Only actual tournament stage advances announce the corresponding stage');
+  for (const [mode, ids] of Object.entries({
+    female: { stage_quarter: ['sf2_021','sf2_022','sf2_023'], stage_semi: ['sf2_024','sf2_025','sf2_026'],
+      stage_final: ['sf2_027','sf2_028','sf2_029'], capture: ['sf2_037','sf2_038','sf2_039','sf2_040'] },
+    male: { stage_semi: ['sm2_026'], stage_final: ['sm2_027','sm2_028','sm2_029'],
+      capture: ['sm2_037','sm2_038','sm2_039','sm2_040','sm2_041','sm2_042'],
+      feast: ['sm2_043','sm2_044','sm2_045'] },
+  })) {
+    S.loadingVoices.delete(mode);
+    c.settings.streamer = mode;
+    await S.warmVoice();
+    for (const [role, expected] of Object.entries(ids)) {
+      assert(expected.every(id => S.extraPools[mode][role]?.includes(id)),
+        `${mode} vocabulary only uses accepted ${role} lines in its matching situation`);
+    }
+    const withheldCleanMoves = mode === 'female'
+      ? ['sf2_030','sf2_031','sf2_032','sf2_033','sf2_034','sf2_035','sf2_036']
+      : ['sm2_032'];
+    const loadedIds = Object.values(S.extraPools[mode]).flat();
+    assert(withheldCleanMoves.every(id => !loadedIds.includes(id)),
+      `${mode} clean-move praise stays gated until an engine quality signal is available`);
+  }
   const say = S.say;
   const roles = [];
   S.say = role => { roles.push(role); return role === 'next_rematch'; };

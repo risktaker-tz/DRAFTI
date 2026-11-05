@@ -2543,7 +2543,8 @@ function createSoundAudit(capacity = 12000) {
         const roles = { session_open: 'greeting', capture1: 'capture',
           capture2: 'feast', capture3plus: 'capture_chain', new_king: 'crowning',
           new_bout: 'next_bout', rematch_draw: 'next_rematch', season_advance: 'next_season',
-          new_challenger: 'upset', stage_quarter: 'stage_quarter', win: 'victory', after_loss: 'defeat' };
+          new_challenger: 'upset', stage_quarter: 'stage_quarter', stage_semi: 'stage_semi',
+          stage_final: 'stage_final', win: 'victory', after_loss: 'defeat' };
         const pool = this.extraPools[mode] = {};
         for (const clip of clips) {
           const role = roles[clip.role];
@@ -2573,6 +2574,8 @@ function createSoundAudit(capacity = 12000) {
       next_season:  { chance: 1, cooldown: 30000, perGame: 1 },
       upset:        { chance: 1, cooldown: 30000, perGame: 1 },
       stage_quarter:{ chance: 1, cooldown: 30000, perGame: 1 },
+      stage_semi:   { chance: 1, cooldown: 30000, perGame: 1 },
+      stage_final:  { chance: 1, cooldown: 30000, perGame: 1 },
       crowning:    { chance: 1,  cooldown: 20000,  perGame: 5 },
       trap_set:    { chance: .4,  cooldown: 60000,  perGame: 2 },
       trap_spring: { chance: .55, cooldown: 60000,  perGame: 2 },
@@ -4126,7 +4129,8 @@ function createSoundAudit(capacity = 12000) {
           SFX_BANK.play('crown_fanfare', { vol: 0.9 });
           setTimeout(() => { if (openingEpoch === gameEpoch && !G.over && !drawerOpen) SFX_BANK.play('st_air1', { vol: 0.8 }); }, 750);
           flashLabel(line, 'majestic');
-          if (stage === 1) STREAMER.intermission('stage_quarter');
+          const stageRole = { 1: 'stage_quarter', 2: 'stage_semi', 3: 'stage_final' }[stage];
+          if (stageRole) STREAMER.intermission(stageRole);
         }, 4300);
       }
       if (G.pairMeets >= 2) {

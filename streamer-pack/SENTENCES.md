@@ -28,26 +28,26 @@ backed by an accepted MP3 in `audio/` with verified duration/peak/hash in
 | `sf2_018` | season_advance | Season rollover — fresh standings, same passion! | season rollover while the stream session continues | — | accepted {"seconds": 4.5979, "bytes": 32957} |
 | `sf2_019` | season_advance | New season on the calendar — who rises? | season rollover while the stream session continues | — | accepted {"seconds": 3.3659, "bytes": 24180} |
 | `sf2_020` | season_advance | The league moves on — a new season begins! | season rollover while the stream session continues | — | accepted {"seconds": 4.4202, "bytes": 31677} |
-| `sf2_021` | stage_quarter | Quarter-finals reached — every move matters now! | boutStart where the tournament stage advances to the quarter | — | pending |
-| `sf2_022` | stage_quarter | Quarter-final bout coming up — real pressure! | boutStart where the tournament stage advances to the quarter | — | pending |
-| `sf2_023` | stage_quarter | Into the quarter-finals — survival mode starts! | boutStart where the tournament stage advances to the quarter | — | pending |
-| `sf2_024` | stage_semi | Semi-final stage — the tension is rising! | boutStart where the tournament stage advances to the semi-fi | — | pending |
-| `sf2_025` | stage_semi | The semi-finals — one step from the big one! | boutStart where the tournament stage advances to the semi-fi | — | pending |
-| `sf2_026` | stage_semi | Semi-final bout underway — focus at maximum! | boutStart where the tournament stage advances to the semi-fi | — | pending |
-| `sf2_027` | stage_final | The grand final is here — enjoy every move! | boutStart where the tournament stage advances to the grand f | — | pending |
-| `sf2_028` | stage_final | Grand final bout — the best side lifts it! | boutStart where the tournament stage advances to the grand f | — | pending |
-| `sf2_029` | stage_final | Finals atmosphere — history is one bout away! | boutStart where the tournament stage advances to the grand f | — | pending |
-| `sf2_030` | clean_move | Oh, that's clean — nothing wasted there! | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sf2_031` | clean_move | Beautifully played — everything stays safe. | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sf2_032` | clean_move | Tidy work — every piece doing its job! | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sf2_033` | clean_move | Smooth, simple, effective — lovely play! | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sf2_034` | clean_move | That's the move coaches show beginners! | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sf2_035` | clean_move | Clean and confident — the position improves! | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sf2_036` | clean_move | Well judged! Nothing rushed, nothing risky. | existing STREAMER praise/good quality gate: engine-verified  | — | pending |
-| `sf2_037` | capture1 | One piece off the board — the count begins! | caps === 1 on the mover's committed move | — | pending |
-| `sf2_038` | capture1 | A clean single capture — steady play. | caps === 1 on the mover's committed move | — | pending |
-| `sf2_039` | capture1 | That piece is gone — a small edge! | caps === 1 on the mover's committed move | — | pending |
-| `sf2_040` | capture1 | Taken! One capture, and tension grows. | caps === 1 on the mover's committed move | — | pending |
+| `sf2_021` | stage_quarter | Quarter-finals reached — every move matters now! | boutStart where the tournament stage advances to the quarter | — | accepted {"seconds": 4.0021, "bytes": 28751} |
+| `sf2_022` | stage_quarter | Quarter-final bout coming up — real pressure! | boutStart where the tournament stage advances to the quarter | — | accepted {"seconds": 3.3472, "bytes": 24180} |
+| `sf2_023` | stage_quarter | Into the quarter-finals — survival mode starts! | boutStart where the tournament stage advances to the quarter | — | accepted {"seconds": 3.3233, "bytes": 23997} |
+| `sf2_024` | stage_semi | Semi-final stage — the tension is rising! | boutStart where the tournament stage advances to the semi-fi | — | accepted {"seconds": 3.0932, "bytes": 22351} |
+| `sf2_025` | stage_semi | The semi-finals — one step from the big one! | boutStart where the tournament stage advances to the semi-fi | — | accepted {"seconds": 2.845, "bytes": 20523} |
+| `sf2_026` | stage_semi | Semi-final bout underway — focus at maximum! | boutStart where the tournament stage advances to the semi-fi | — | accepted {"seconds": 3.5863, "bytes": 25826} |
+| `sf2_027` | stage_final | The grand final is here — enjoy every move! | boutStart where the tournament stage advances to the grand f | — | accepted {"seconds": 2.9932, "bytes": 21620} |
+| `sf2_028` | stage_final | Grand final bout — the best side lifts it! | boutStart where the tournament stage advances to the grand f | — | accepted {"seconds": 4.4288, "bytes": 31677} |
+| `sf2_029` | stage_final | Finals atmosphere — history is one bout away! | boutStart where the tournament stage advances to the grand f | — | accepted {"seconds": 4.0331, "bytes": 28934} |
+| `sf2_030` | clean_move | Oh, that's clean — nothing wasted there! | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 5.5815, "bytes": 39723} |
+| `sf2_031` | clean_move | Beautifully played — everything stays safe. | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 3.2726, "bytes": 23631} |
+| `sf2_032` | clean_move | Tidy work — every piece doing its job! | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 3.2509, "bytes": 23448} |
+| `sf2_033` | clean_move | Smooth, simple, effective — lovely play! | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 5.4346, "bytes": 38808} |
+| `sf2_034` | clean_move | That's the move coaches show beginners! | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 5.0044, "bytes": 35700} |
+| `sf2_035` | clean_move | Clean and confident — the position improves! | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 4.0347, "bytes": 28934} |
+| `sf2_036` | clean_move | Well judged! Nothing rushed, nothing risky. | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 5.8682, "bytes": 41734} |
+| `sf2_037` | capture1 | One piece off the board — the count begins! | caps === 1 on the mover's committed move | — | accepted {"seconds": 3.1791, "bytes": 22900} |
+| `sf2_038` | capture1 | A clean single capture — steady play. | caps === 1 on the mover's committed move | — | accepted {"seconds": 3.874, "bytes": 27837} |
+| `sf2_039` | capture1 | That piece is gone — a small edge! | caps === 1 on the mover's committed move | — | accepted {"seconds": 2.6781, "bytes": 19426} |
+| `sf2_040` | capture1 | Taken! One capture, and tension grows. | caps === 1 on the mover's committed move | — | accepted {"seconds": 4.3753, "bytes": 31311} |
 | `sf2_041` | capture1 | One capture landed — the board shifts. | caps === 1 on the mover's committed move | — | pending |
 | `sf2_042` | capture1 | Straightforward take — sometimes simple is best! | caps === 1 on the mover's committed move | — | pending |
 | `sf2_043` | capture2 | Two pieces in one turn — that stings! | caps === 2 on the mover's committed move | — | pending |
@@ -138,26 +138,26 @@ backed by an accepted MP3 in `audio/` with verified duration/peak/hash in
 | `sm2_023` | stage_quarter | Quarter-final stage — only strong play survives. | boutStart where the tournament stage advances to the quarter | — | accepted {"seconds": 4.1297, "bytes": 29666} |
 | `sm2_024` | stage_semi | Semi-final time — the board gets serious! | boutStart where the tournament stage advances to the semi-fi | — | accepted {"seconds": 4.9216, "bytes": 35151} |
 | `sm2_025` | stage_semi | The semi-finals — one bout from the final! | boutStart where the tournament stage advances to the semi-fi | — | accepted {"seconds": 3.1151, "bytes": 22534} |
-| `sm2_026` | stage_semi | Semi-final bout beginning — composure decides this. | boutStart where the tournament stage advances to the semi-fi | — | failed |
+| `sm2_026` | stage_semi | Composure decides this bout! | boutStart where the tournament stage advances to the semi-fi | — | accepted {"seconds": 2.433, "bytes": 17780} |
 | `sm2_027` | stage_final | The grand final! Everything built leads here. | boutStart where the tournament stage advances to the grand f | — | accepted {"seconds": 4.4285, "bytes": 31677} |
 | `sm2_028` | stage_final | Final bout — the crown is on the line! | boutStart where the tournament stage advances to the grand f | — | accepted {"seconds": 3.1198, "bytes": 22534} |
 | `sm2_029` | stage_final | Grand final underway — checkers at its peak! | boutStart where the tournament stage advances to the grand f | — | accepted {"seconds": 3.654, "bytes": 26191} |
 | `sm2_030` | clean_move | What a clean move — textbook stuff! | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 2.9839, "bytes": 21620} |
 | `sm2_031` | clean_move | Excellent technique — simple and strong. | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 3.418, "bytes": 24546} |
-| `sm2_032` | clean_move | Well played! Nothing loose about that. | existing STREAMER praise/good quality gate: engine-verified  | — | failed |
+| `sm2_032` | clean_move | Well played! Nothing loose about that. | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 2.4592, "bytes": 17963} |
 | `sm2_033` | clean_move | That's as clean as it gets! | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 3.024, "bytes": 21803} |
 | `sm2_034` | clean_move | Solid play — the structure stays strong. | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 3.598, "bytes": 25826} |
 | `sm2_035` | clean_move | No hesitation, no waste — professional! | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 3.8907, "bytes": 27837} |
 | `sm2_036` | clean_move | That is quality — calm hands, clear head. | existing STREAMER praise/good quality gate: engine-verified  | — | accepted {"seconds": 4.9745, "bytes": 35517} |
-| `sm2_037` | capture1 | A piece comes off — the count opens! | caps === 1 on the mover's committed move | — | pending |
-| `sm2_038` | capture1 | One capture — clean and profitable. | caps === 1 on the mover's committed move | — | pending |
-| `sm2_039` | capture1 | Taken! One piece down on that side. | caps === 1 on the mover's committed move | — | pending |
-| `sm2_040` | capture1 | A simple take — the edge begins here. | caps === 1 on the mover's committed move | — | pending |
-| `sm2_041` | capture1 | One off the board — steady work! | caps === 1 on the mover's committed move | — | pending |
-| `sm2_042` | capture1 | Capture made — small step, real value. | caps === 1 on the mover's committed move | — | pending |
-| `sm2_043` | capture2 | Double capture! Two pieces in one move! | caps === 2 on the mover's committed move | — | pending |
-| `sm2_044` | capture2 | One, two — gone! What a combination! | caps === 2 on the mover's committed move | — | pending |
-| `sm2_045` | capture2 | Two captures in one turn — fast changes! | caps === 2 on the mover's committed move | — | pending |
+| `sm2_037` | capture1 | A piece comes off — the count opens! | caps === 1 on the mover's committed move | — | accepted {"seconds": 2.5264, "bytes": 18328} |
+| `sm2_038` | capture1 | One capture — clean and profitable. | caps === 1 on the mover's committed move | — | accepted {"seconds": 3.3374, "bytes": 23997} |
+| `sm2_039` | capture1 | Taken! One piece down on that side. | caps === 1 on the mover's committed move | — | accepted {"seconds": 2.8435, "bytes": 20523} |
+| `sm2_040` | capture1 | A simple take — the edge begins here. | caps === 1 on the mover's committed move | — | accepted {"seconds": 3.5085, "bytes": 25277} |
+| `sm2_041` | capture1 | One off the board — steady work! | caps === 1 on the mover's committed move | — | accepted {"seconds": 2.6385, "bytes": 19243} |
+| `sm2_042` | capture1 | Capture made — small step, real value. | caps === 1 on the mover's committed move | — | accepted {"seconds": 3.2927, "bytes": 23814} |
+| `sm2_043` | capture2 | Double capture! Two pieces in one move! | caps === 2 on the mover's committed move | — | accepted {"seconds": 2.883, "bytes": 20888} |
+| `sm2_044` | capture2 | One, two — gone! What a combination! | caps === 2 on the mover's committed move | — | accepted {"seconds": 4.2249, "bytes": 30214} |
+| `sm2_045` | capture2 | Two captures in one turn — fast changes! | caps === 2 on the mover's committed move | — | accepted {"seconds": 4.0478, "bytes": 28934} |
 | `sm2_046` | capture2 | A double strike — excellent awareness! | caps === 2 on the mover's committed move | — | pending |
 | `sm2_047` | capture2 | Two for one move — real profit! | caps === 2 on the mover's committed move | — | pending |
 | `sm2_048` | capture2 | Doubled! The material gap widens. | caps === 2 on the mover's committed move | — | pending |
@@ -228,18 +228,18 @@ backed by an accepted MP3 in `audio/` with verified duration/peak/hash in
 | `sj2_008` | new_bout | The board said no pressure. It lied! | boutStart while the stream session is already live | — | accepted {"seconds": 4.1434, "bytes": 29666} |
 | `sj2_009` | new_challenger | A new challenger — somebody hide the good moves! | boutStart and the seated pair differs from the previous bout | — | accepted {"seconds": 4.5237, "bytes": 32408} |
 | `sj2_010` | new_challenger | Fresh challenger — the chair is still warm! | boutStart and the seated pair differs from the previous bout | — | accepted {"seconds": 5.8558, "bytes": 41734} |
-| `sj2_011` | new_challenger | Maximum chaos! | only after a new champion takes the board | — | accepted {"seconds": 3.5066, "bytes": 25277} |
+| `sj2_011` | new_challenger | Maximum chaos! | boutStart and the seated pair differs from the previous bout | — | accepted {"seconds": 3.5066, "bytes": 25277} |
 | `sj2_012` | new_challenger | A different challenger — the plot thickens! | boutStart and the seated pair differs from the previous bout | — | accepted {"seconds": 4.2486, "bytes": 30397} |
 | `sj2_013` | rematch_draw | They drew last time — pride is on the menu! | boutStart with the same pair as the previous bout and that b | — | accepted {"seconds": 3.958, "bytes": 28386} |
 | `sj2_014` | rematch_draw | The rematch — same players, extra drama, free! | boutStart with the same pair as the previous bout and that b | — | accepted {"seconds": 5.5941, "bytes": 39906} |
 | `sj2_015` | rematch_draw | Round two — the board remembers everything! | boutStart with the same pair as the previous bout and that b | — | accepted {"seconds": 5.5136, "bytes": 39357} |
-| `sj2_016` | rematch_draw | Sequel time! | boutStart with the same pair after a drawn match | — | accepted {"seconds": 1.6491, "bytes": 12294} |
+| `sj2_016` | rematch_draw | Sequel time! | boutStart with the same pair as the previous bout and that b | — | accepted {"seconds": 1.6491, "bytes": 12294} |
 | `sj2_017` | season_advance | New season — standings empty, confidence full. | season rollover while the stream session continues | — | accepted {"seconds": 4.717, "bytes": 33688} |
 | `sj2_018` | season_advance | Same beautiful chaos! | season rollover while the stream session continues | — | accepted {"seconds": 4.1218, "bytes": 29483} |
 | `sj2_019` | season_advance | Scoreboard sighs! | season rollover while the stream session continues | — | accepted {"seconds": 2.845, "bytes": 20523} |
 | `sj2_020` | season_advance | Dreams are free — kings are earned! | season rollover while the stream session continues | — | accepted {"seconds": 3.6371, "bytes": 26191} |
 | `sj2_021` | stage_quarter | Quarter-finals — the part where pretending stops working. | boutStart where the tournament stage advances to the quarter | — | accepted {"seconds": 5.8101, "bytes": 41368} |
-| `sj2_022` | stage_quarter | Board unbothered! | boutStart when the tournament enters the quarter-final stage | — | accepted {"seconds": 3.2147, "bytes": 23266} |
+| `sj2_022` | stage_quarter | Board unbothered! | boutStart where the tournament stage advances to the quarter | — | accepted {"seconds": 3.2147, "bytes": 23266} |
 | `sj2_023` | stage_quarter | Quarter-finals here — bold moves only, please! | boutStart where the tournament stage advances to the quarter | — | accepted {"seconds": 5.7039, "bytes": 40637} |
 | `sj2_024` | stage_semi | Semi-finals — one step from glory! | boutStart where the tournament stage advances to the semi-fi | — | accepted {"seconds": 4.8139, "bytes": 34420} |
 | `sj2_025` | stage_semi | Drama included at no extra cost! | boutStart where the tournament stage advances to the semi-fi | — | accepted {"seconds": 4.3994, "bytes": 31494} |
@@ -257,7 +257,7 @@ backed by an accepted MP3 in `audio/` with verified duration/peak/hash in
 | `sj2_037` | capture1 | One piece off — board lost weight! | caps === 1 on the mover's committed move | — | accepted {"seconds": 5.9016, "bytes": 41917} |
 | `sj2_038` | capture1 | A capture — that piece will tell stories. | caps === 1 on the mover's committed move | — | accepted {"seconds": 4.6954, "bytes": 33506} |
 | `sj2_039` | capture1 | Taken — one down — the drama continues! | caps === 1 on the mover's committed move | — | accepted {"seconds": 4.6937, "bytes": 33506} |
-| `sj2_040` | capture1 | Clean, polite, civilized aggression! | exactly one capture on the mover's committed move | — | accepted {"seconds": 4.2418, "bytes": 30397} |
+| `sj2_040` | capture1 | Clean, polite, civilized aggression! | caps === 1 on the mover's committed move | — | accepted {"seconds": 4.2418, "bytes": 30397} |
 | `sj2_041` | capture1 | No farewell party for that piece! | caps === 1 on the mover's committed move | — | accepted {"seconds": 3.2268, "bytes": 23266} |
 | `sj2_042` | capture1 | Captured — the crowd goes... politely interested! | caps === 1 on the mover's committed move | — | accepted {"seconds": 5.2495, "bytes": 37346} |
 | `sj2_043` | capture2 | Double capture — two pieces, zero apologies! | caps === 2 on the mover's committed move | — | accepted {"seconds": 4.5984, "bytes": 32957} |

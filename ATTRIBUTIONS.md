@@ -280,8 +280,8 @@ clips are byte-for-byte unchanged.
 
 ## Expanded live streamer vocabulary — 2026-11-05
 
-The separately distributed, verified `streamer-pack/` contains 132 additional
-original in-house TTS clips: 20 Female clips (z-ai `tongtong`), 34 Male clips
+The separately distributed, verified `streamer-pack/` contains 163 original
+in-house TTS clips: 40 Female clips (z-ai `tongtong`), 45 Male clips
 (z-ai `jam`) and 78 Funny clips (z-ai `kazi`). They are published under
 `web/streamer-vocabulary/`, fetched only for the selected streamer and currently
 supported event roles, and cached by the service worker after successful fetch
@@ -310,6 +310,28 @@ with the established speech-guarded processing.
 | `sj2_076.mp3` | Victory dance, go! | Match ends with a winner; used for a human win or general arena winner call | [source](https://github.com/risktaker-tz/DRAFTI/blob/32adce296e94284e20804e3ecbc41a81de6894fb/streamer-pack/audio/sj2_076.mp3) |
 | `sj2_077.mp3` | Composure wins. Again! | Match ends with a winner; used for a human win or general arena winner call | [source](https://github.com/risktaker-tz/DRAFTI/blob/32adce296e94284e20804e3ecbc41a81de6894fb/streamer-pack/audio/sj2_077.mp3) |
 | `sj2_078.mp3` | Winner takes glory! | Match ends with a winner; used for a human win or general arena winner call | [source](https://github.com/risktaker-tz/DRAFTI/blob/32adce296e94284e20804e3ecbc41a81de6894fb/streamer-pack/audio/sj2_078.mp3) |
+
+### Latest accepted vocabulary batch — source commit `4c963d4`
+
+Z.AI's later Female and Male batches added 31 recordings. The table below
+summarizes the 23 used in this release. Each named file is present in the
+[source commit's audio folder](https://github.com/risktaker-tz/DRAFTI/tree/4c963d4/streamer-pack/audio),
+and the local manifest stores each transcript, event predicate, duration,
+byte count, and SHA-256.
+
+| Files | Event-gated use |
+| --- | --- |
+| `sf2_021`–`sf2_023` | Quarter-final transition |
+| `sf2_024`–`sf2_026` | Semi-final transition |
+| `sf2_027`–`sf2_029` | Grand-final transition |
+| `sf2_037`–`sf2_040` | Exactly one capture |
+| `sm2_026` | Semi-final transition |
+| `sm2_037`–`sm2_042` | Exactly one capture |
+| `sm2_043`–`sm2_045` | Exactly two captures |
+
+Eight other accepted files (`sf2_030`–`sf2_036`, `sm2_032`) are retained in the
+verified pack but not loaded for playback. Their `clean_move` claims need an
+engine-verified quality gate before they can be used precisely.
 
 ## Existing voice processing corrections — 2026-11-03
 
