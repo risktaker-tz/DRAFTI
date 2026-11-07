@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="drafti-build" content="927f77f0c76d8f86490d8b8e1e477993e01e9d33f3e00d3371ee1d43fd4595b0">
+<meta name="drafti-build" content="67618ee86df45298a381ff8ed32caf2ce2c97c555fd24c0f2e26a5b311b3dc30">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="apple-touch-icon" href="./icon-192.png">
@@ -4203,14 +4203,26 @@ function createSoundAudit(capacity = 12000) {
       const ctx = FX.ctx;
       if (!ctx || this.decoding) return;
       this.decoding = true;
-      for (const [name, def] of Object.entries(this.defs)) {
-        if (this.buffers.has(name)) continue;
-        fetch(def.d)
-          .then((r) => r.arrayBuffer())
-          .then((ab) => ctx.decodeAudioData(ab))
-          .then((buf) => this.buffers.set(name, buf))
-          .catch(() => { /* sample simply won't play */ });
-      }
+      const pending = Object.entries(this.defs).filter(([name]) => !this.buffers.has(name));
+      const concurrency = 4;
+      let next = 0, active = 0;
+      const pump = () => {
+        while (active < concurrency && next < pending.length) {
+          const [name, def] = pending[next++]; active++;
+          fetch(def.d)
+            .then((r) => r.arrayBuffer())
+            .then((ab) => ctx.decodeAudioData(ab))
+            .then((buf) => this.buffers.set(name, buf))
+            .catch(() => { /* sample simply won't play */ })
+            .finally(() => {
+              active--;
+              if (next < pending.length) pump();
+              else if (!active) this.decoding = false;
+            });
+        }
+        if (!pending.length) this.decoding = false;
+      };
+      pump();
     },
     on(name) {
       const def = this.defs[name];

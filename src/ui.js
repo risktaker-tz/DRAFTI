@@ -1730,14 +1730,26 @@ function createSoundAudit(capacity = 12000) {
       const ctx = FX.ctx;
       if (!ctx || this.decoding) return;
       this.decoding = true;
-      for (const [name, def] of Object.entries(this.defs)) {
-        if (this.buffers.has(name)) continue;
-        fetch(def.d)
-          .then((r) => r.arrayBuffer())
-          .then((ab) => ctx.decodeAudioData(ab))
-          .then((buf) => this.buffers.set(name, buf))
-          .catch(() => { /* sample simply won't play */ });
-      }
+      const pending = Object.entries(this.defs).filter(([name]) => !this.buffers.has(name));
+      const concurrency = 4;
+      let next = 0, active = 0;
+      const pump = () => {
+        while (active < concurrency && next < pending.length) {
+          const [name, def] = pending[next++]; active++;
+          fetch(def.d)
+            .then((r) => r.arrayBuffer())
+            .then((ab) => ctx.decodeAudioData(ab))
+            .then((buf) => this.buffers.set(name, buf))
+            .catch(() => { /* sample simply won't play */ })
+            .finally(() => {
+              active--;
+              if (next < pending.length) pump();
+              else if (!active) this.decoding = false;
+            });
+        }
+        if (!pending.length) this.decoding = false;
+      };
+      pump();
     },
     on(name) {
       const def = this.defs[name];
