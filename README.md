@@ -346,6 +346,8 @@ Open the hosted game in a browser and choose Install app (Chrome/Edge on desktop
 
 The players card includes optional flag colours in human games, separate arena flag control, two nation selectors, a remembered livestream view, and full screen. Flag palettes use each nation’s main colour first and resolve clashes using the secondary. Discs retain their circular geometry across cell sizes. New-season opening honours are drawn from waiting nations; knockout wins and title retention award extra experience. Sample playback now suppresses rapid repeats.
 
+Audience Vibes is off by default and uses a separate volume slider. Its 35% starting mix is preserved; higher settings now have more gain for both crowd reactions and ambience, while crowd audio still ducks under spoken commentary and important game cues.
+
 For environments with Node but no Python, `node scripts/build_web.js` assembles the same single-file game.
 
 Installation now includes 192px and 512px PNG icons and an Apple home-screen icon. The offline worker removes obsolete DRAFTI installation caches when a new worker activates; settings and arena storage are unaffected.

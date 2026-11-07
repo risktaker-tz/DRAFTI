@@ -42,10 +42,11 @@ const env={settings:{sound:true,audienceEnabled:false,audienceVolume:.35},now:()
   assert(sources.length<=3);assert(sources.every(s=>s.playbackRate.value===1),'Original recordings keep their natural speed');
   assert.equal(gains[0].value,.24*.35,'The default reaction gain is preserved');
   env.settings.audienceVolume=1;await a.pulse();
-  assert.equal(gains[0].value,.78,'Full volume boosts reactions within their gain cap');
-  assert(gains[1].value>.12,'Both crowd beds are raised at full volume');
+  assert.equal(gains[0].value,.92,'Full volume raises reactions to the safe gain ceiling');
+  assert.equal(gains[1].value,.035*5.5,'Full volume makes the first crowd bed clearly audible');
+  assert.equal(gains[2].value,.035*5.5,'Full volume makes the second crowd bed clearly audible');
   env.bank.activeSources.set('voice',{spoken:true});await a.pulse();
-  assert.equal(gains[0].value,.78*.12,'The louder crowd still ducks under speech');
+  assert.equal(gains[0].value,.92*.12,'The louder crowd still ducks under speech');
   env.bank.activeSources.clear();env.settings.audienceVolume=0;await a.pulse();
   assert(gains.every(gain=>gain.value===0),'Zero volume silences all crowd channels');
   context.menu=true;await a.pulse();assert(sources.every(s=>s.stopped),'Menus silence crowds without discarding the installed pack');

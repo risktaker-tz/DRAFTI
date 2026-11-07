@@ -85,8 +85,10 @@ function createAudienceVibes(env) {
   }
   function crowdGain(level,bed,ducked){
     const volume=Math.max(0,Math.min(1,settings.audienceVolume??.35));
-    const boost=1+2.5*Math.max(0,(volume-.35)/.65);
-    return Math.min(bed?.24:.78,level*volume*boost)*(ducked?.12:1);
+    // Keep the 35% default unchanged; give high slider settings enough
+    // headroom to make the crowd clearly audible above the board ambience.
+    const boost=1+4.5*Math.max(0,(volume-.35)/.65);
+    return Math.min(bed?.4:.92,level*volume*boost)*(ducked?.12:1);
   }
   async function play(side,event,bed=false){
     if(!installed||!permitted())return false;
