@@ -388,3 +388,8 @@ The resumed preliminary D3 run reached 3,630 plies in bout 8 with one king each 
 
 - Re-ran `node scripts/sound_integrity_audit.js` on the current source tree; complete output is `docs/audio-integrity-current-20261107.json`. The 544-clip bank has zero missing sound/event/owner references, unresolved expressions, oversized files, duration violations, or sample-rate/channel/bitrate violations. All 338 referenced IDs resolve, with only the controlled sound-preview selector excluded from static expression resolution.
 - This closes the static integrity gate for the current bank. It does not close full listening acceptance: the exact current build still needs complete Computer and AI-arena playback logs, plus human listening review. The existing two-player replay (`docs/audio-two-player-browser-20261105.json`) is useful but was recorded against an earlier artifact and was scripted, not a listening-quality test.
+
+### Rendered mobile presentation matrix — 2026-11-07
+
+- Used the isolated Chromium browser at 390×844 on the current local web build. All 1,008 opening states completed: 21 themes × 8 piece materials × 3 East Africa board sizes × High Visibility off/on. No browser errors, no horizontal overflow (document width stayed 390 px), board width was 340 px, and maximum rendered disc width/height difference was 0 px. Evidence: `docs/rendered-presentation-matrix-20261107.json`.
+- This verifies mobile layout and disc geometry across the matrix. Computed-style samples were collected, but they do not prove whole-disc contrast, flag combinations, reduced-motion, or animated event frames. The conservative 307/588 palette contrast gap remains open pending targeted rendered contrast evaluation.
