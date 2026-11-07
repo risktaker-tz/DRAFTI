@@ -1,9 +1,11 @@
 # DRAFTI — checkers, refined
 
-[Play on Vercel](https://drafti-afrika.vercel.app/) · [GitHub Pages](https://risktaker-tz.github.io/DRAFTI/web/)
+[Play on Vercel](https://drafti-africa.vercel.app/) · [GitHub Pages](https://risktaker-tz.github.io/DRAFTI/web/)
 
-Vercel and GitHub Pages serve the same verified checkpoint. The broader
-blueprint work continues. The first streamer-vocabulary milestone is complete:
+The Vercel project is listed as **drafti-africa**. Vercel and GitHub Pages serve
+the same verified checkpoint; the legacy `drafti-kappa.vercel.app` address
+redirects to the new Vercel URL. The broader blueprint work continues. The first
+streamer-vocabulary milestone is complete:
 300 recorded lines, 100 each for Female, Male and Funny. Audience Vibes remains
 an optional, separately managed sound pack.
 
@@ -431,7 +433,7 @@ Select a piece and tap its outlined final landing to play the whole legal captur
 
 `node tests/test_capture_destination.js` checks all five rulesets, three-piece captures, promotion, partial routes, invalid destinations, repeated input and shared-endpoint king circuits. Browser proof shows an actual two-piece capture completed by one final-square click: `docs/capture-final-before.jpg`, `docs/capture-final-after.jpg`. The settings drawer also now closes before confirmations, so it cannot cover the New game dialog.
 
-Both build tools now emit portable LF line endings. `node tests/test_build_reproducible.js <python executable>` checks that Python and Node produce byte-identical artifacts within the offline size budget. The deployment hash evidence is in `docs/vercel-checkpoint.json`. The owner approved `drafti-afrika.vercel.app` after Vercel rejected the occupied `drafti.vercel.app` alias.
+Both build tools now emit portable LF line endings. `node tests/test_build_reproducible.js <python executable>` checks that Python and Node produce byte-identical artifacts within the offline size budget. The deployment hash evidence is in `docs/vercel-checkpoint.json`. The owner selected `drafti-africa.vercel.app` after the earlier `drafti.vercel.app` alias was unavailable.
 
 ### Uhakika, Usiogope and live strength changes
 

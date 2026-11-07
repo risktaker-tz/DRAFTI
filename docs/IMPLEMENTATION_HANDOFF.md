@@ -1,5 +1,11 @@
 # DRAFTI implementation handoff and full remaining plan
 
+## Vercel project name and public URL — 2026-11-07
+
+- Renamed only the existing DRAFTI Vercel project (project ID `prj_SvOSjfZMBXbubnonPXC4ZvL7eokf`) from `drafti` to the owner's requested `drafti-africa`. The project remains connected to `risktaker-tz/DRAFTI` with `main` as its production branch.
+- Added `drafti-africa.vercel.app` as a verified project domain and assigned it to the current GitHub-triggered Production deployment `dpl_CH6ifJDC6t5iQ7cXKDBCaMD4meV2` (commit `96de298f1df488a714bd34d84184d8c7cdd0c670`). The canonical URL returns HTTP 200 and serves 14,293,595 bytes with SHA-256 `82ec25c978206408743ed8cf47eba97c6dc93c07a2ba79beff78e750bb61b871`, matching the embedded build ID `2b255482bc863aef1dcba060c447a49913ad11e42342de7ae330ffeded3d4a85` and GitHub Pages byte-for-byte.
+- Kept `drafti-afrika.vercel.app` working for existing users. The previous `drafti-kappa.vercel.app` domain permanently redirects (308) to `drafti-africa.vercel.app`. The project list now shows the project name as `drafti-africa`; Vercel's “Latest Production URL” field still displays the legacy kappa address, which redirects to the canonical URL. Evidence: `docs/vercel-project-rename-20261107.json`.
+
 ## Current local E1 contrast checkpoint — 2026-11-07
 
 - Added a fine dark bevel and light outer keyline to piece surfaces. The treatment leaves each selected material, flag paint, board theme and game effect intact. A focused Sakura/Bakelite render is `docs/contrast-keyline-sakura-bakelite-v2.png`.

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "sourceSha256": "fedd8c80c1901653457ee3a77efa2fe9ba8429be68d776493d0fa71a5f68f4b3",
+  "sourceSha256": "2709311b056faf656b74c717dd2d3586e5f923a5e1c510503145f70134d9a9e7",
   "target": 3,
   "method": "WCAG sRGB relative luminance, gamma 2.4; opaque palette samples",
   "scope": "Follow-table colours only. Conservative samples; not rendered whole-disc visibility. Flags, eight piece-set overrides, High visibility, crowns, coordinates, gradients blended with overlays and animation states are not proven by this report.",

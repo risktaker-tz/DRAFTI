@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "observedDate": "2026-11-07",
+  "scope": "DRAFTI Vercel project only",
+  "project": {
+    "id": "prj_SvOSjfZMBXbubnonPXC4ZvL7eokf",
+    "name": "drafti-africa",
+    "repository": "risktaker-tz/DRAFTI",
+    "productionBranch": "main"
+  },
+  "canonicalDomain": {
+    "url": "https://drafti-africa.vercel.app/",
+    "projectDomainVerified": true,
+    "httpStatus": 200,
+    "deploymentId": "dpl_CH6ifJDC6t5iQ7cXKDBCaMD4meV2"
+  },
+  "deployment": {
+    "commit": "96de298f1df488a714bd34d84184d8c7cdd0c670",
+    "target": "production",
+    "readyState": "READY",
+    "buildId": "2b255482bc863aef1dcba060c447a49913ad11e42342de7ae330ffeded3d4a85",
+    "bytes": 14293595,
+    "sha256": "82ec25c978206408743ed8cf47eba97c6dc93c07a2ba79beff78e750bb61b871"
+  },
+  "githubPages": {
+    "url": "https://risktaker-tz.github.io/DRAFTI/web/index.html",
+    "bytes": 14293595,
+    "sha256": "82ec25c978206408743ed8cf47eba97c6dc93c07a2ba79beff78e750bb61b871"
+  },
+  "previousDomains": {
+    "drafti-afrika.vercel.app": "retained as a working alias",
+    "drafti-kappa.vercel.app": {
+      "redirect": "drafti-africa.vercel.app",
+      "statusCode": 308
+    }
+  },
+  "projectList": {
+    "name": "drafti-africa",
+    "latestProductionUrl": "https://drafti-kappa.vercel.app",
+    "note": "The legacy project domain remains listed by Vercel but redirects to the canonical URL."
+  }
+}
