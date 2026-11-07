@@ -352,7 +352,7 @@ For environments with Node but no Python, `node scripts/build_web.js` assembles 
 
 Installation now includes 192px and 512px PNG icons and an Apple home-screen icon. The offline worker removes obsolete DRAFTI installation caches when a new worker activates; settings and arena storage are unaffected.
 
-Installed copies check for releases when reopened or brought back to the foreground. Each build identifies its matching offline worker. An active match continues uninterrupted; a downloaded update takes effect at the next match boundary, after saving the new arena position. The last working game stays available offline or during a server outage. Cached streamer recordings and audience packs survive the upgrade, alongside settings and player progress.
+Installed copies check for releases when reopened or brought back to the foreground. Each build identifies its matching offline worker. An active match continues uninterrupted; a downloaded update takes effect at the next match boundary, after saving the new arena position. The last working game stays available offline or during a server outage. During installation, the worker verifies and prepares the complete streamer voice pack in a separate cache; the previous release remains active until the new app and voice pack are ready. Streamer clips then play from that cache without a network request. Audience packs survive upgrades in their own cache, alongside settings and player progress.
 
 Kenya's main/secondary piece colours now use black/red, consistent with the Wikimedia flag reference: https://commons.wikimedia.org/wiki/File:Flag_of_Kenya.svg . All 194 source palettes are measured and checked; full visual acceptance remains in progress.
 
