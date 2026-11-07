@@ -250,14 +250,13 @@ body.fx-scan::after {
 /* ---------- pieces ---------- */
 .pieces { position: absolute; inset: 0; pointer-events: none; }
 .piece {
-  position: absolute; border-radius: 50%; z-index: 2;
+  position: absolute; left: 0; top: 0; border-radius: 50%; z-index: 2;
   display: flex; align-items: center; justify-content: center;
   /* A fine dual-tone keyline keeps the disc silhouette legible on both pale
      and dark squares without changing its chosen material or flag paint. */
   filter: drop-shadow(0 0 .7px rgba(8, 12, 20, .82));
-  transition: left var(--hop-time, .17s) cubic-bezier(.3, .7, .4, 1), top var(--hop-time, .17s) cubic-bezier(.3, .7, .4, 1),
+  transition: translate var(--hop-time, .17s) cubic-bezier(.3, .7, .4, 1),
               transform var(--piece-fx-time, .25s) ease, opacity var(--piece-fx-time, .25s) ease;
-  will-change: left, top;
 }
 .piece .body {
   position: relative;
@@ -322,7 +321,7 @@ body.fx-scan::after {
 .piece.king .crown { width: 52%; height: 52%; filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .5)); }
 .piece.king.ivory .crown path { fill: var(--pl-d-2); stroke: var(--pl-l-1); }
 .piece.king.ebony .crown path { fill: var(--pl-l-2); stroke: var(--pl-d-3); }
-.piece.lifted { transform: scale(1.08); z-index: 6; }
+.piece.lifted { transform: scale(1.08); z-index: 6; will-change: translate, transform; }
 .piece.captured { transform: scale(.25) rotate(40deg); opacity: 0; z-index: 1; }
 .piece.appear { animation: appear .3s ease; }
 @keyframes appear { from { transform: scale(.4); opacity: 0; } }

@@ -2283,8 +2283,10 @@ function createSoundAudit(capacity = 12000) {
 
   function positionEl(el, sq) {
     const n = G.rs.n, r = (sq / n) | 0, c = sq % n;
-    el.style.left = (c * 100 / n) + '%';
-    el.style.top = (r * 100 / n) + '%';
+    el.dataset.square = String(sq);
+    // Translate the cell-sized piece on the compositor. Animating left/top
+    // forced layout work on every frame and made jumps feel uneven on phones.
+    el.style.translate = (c * 100) + '% ' + (r * 100) + '%';
   }
 
   function winkHintPiece(sq) {
@@ -3342,6 +3344,22 @@ function createSoundAudit(capacity = 12000) {
     const base = G.mode === 'aivai' ? 700 / (G.aiSpeed || 1) : HOP_MS;
     return base * (captures > 1 ? .8 : 1);
   }
+  function animateHopLanding(el, duration) {
+    if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const body = el.querySelector?.('.body');
+    if (!body?.animate) return;
+    // Lift the playing disc above its shadow, then cushion its landing. WAAPI's
+    // individual translate/scale properties preserve the body's 180° board
+    // orientation and the selected material's existing transform styling.
+    const animation = body.animate([
+      { offset: 0, translate: '0 0', scale: '1' },
+      { offset: .42, translate: '0 -14%', scale: '1.035' },
+      { offset: .72, translate: '0 -10%', scale: '1.025' },
+      { offset: .91, translate: '0 1%', scale: '1.035 .93' },
+      { offset: 1, translate: '0 0', scale: '1' }
+    ], { duration, easing: 'cubic-bezier(.3,.7,.4,1)', fill: 'none' });
+    animation.onfinish = () => animation.cancel();
+  }
   function captureContactDelay(from,to,captured,n,hopMs) {
     const fr=Math.floor(from/n),fc=from%n,tr=Math.floor(to/n),tc=to%n,cr=Math.floor(captured/n),cc=captured%n;
     const fractions=[];
@@ -3421,6 +3439,7 @@ function createSoundAudit(capacity = 12000) {
           if (final && captures > 1) SFX_BANK.effect('feast', { vol: Math.min(.48, .24 + captures * .05) });
         }, captureContactDelay(from,to,capIdx,G.rs.n,hopMs));
       }
+      animateHopLanding(p.el, hopMs);
       await sleep(hopMs);
       if(generation !== gameEpoch)return false;
       if(capIdx===undefined){FX.play('move');SFX_BANK.effect('landing',{vol:.08});}

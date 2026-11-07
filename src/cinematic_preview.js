@@ -30,7 +30,7 @@
   };
   const n=()=>app.state.rs.n;
   const point=sq=>({x:(sq%n()+.5)*100/n(),y:(Math.floor(sq/n())+.5)*100/n()});
-  const pieceAt=sq=>[...document.querySelectorAll('#pieces > .piece')].find(el=>Math.round(parseFloat(el.style.left)*n()/100)+Math.round(parseFloat(el.style.top)*n()/100)*n()===sq);
+  const pieceAt=sq=>[...document.querySelectorAll('#pieces > .piece')].find(el=>Number(el.dataset.square)===sq);
   function ensure(){
     if(!plane?.isConnected){plane=document.createElement('div');plane.className='cine-board-plane';plane.setAttribute('aria-hidden','true');$('pieces').appendChild(plane);}
     if(!atmosphere?.isConnected){atmosphere=document.createElement('div');atmosphere.className='cine-atmosphere';atmosphere.setAttribute('aria-hidden','true');atmosphere.innerHTML='<div class="cine-turn-light"></div><div class="cine-stage-light"></div>';document.body.prepend(atmosphere);}
