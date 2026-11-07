@@ -28,6 +28,12 @@ window.qaPresentation = { running: true, startedAt: new Date().toISOString(),
             return { width: rect.width, height: rect.height, background: style.backgroundImage,
               border: style.border, shadow: style.boxShadow, radius: style.borderRadius };
           };
+          const squarePaint = type => {
+            const square = document.querySelector('#board .sq.' + type);
+            const style = getComputedStyle(square);
+            return { backgroundColor: style.backgroundColor, backgroundImage: style.backgroundImage,
+              border: style.border, boxShadow: style.boxShadow };
+          };
           report.rows.push({ ruleset, theme: theme.dataset.v, material: material.dataset.v, hv,
             cells: document.querySelectorAll('#board .sq').length,
             boardWidth: board.width, boardHeight: board.height,
@@ -35,13 +41,15 @@ window.qaPresentation = { running: true, startedAt: new Date().toISOString(),
             pieces: pieces.length,
             maxCircleError: Math.max(...pieces.map(disc => {
               const rect = disc.getBoundingClientRect(); return Math.abs(rect.width - rect.height);
-            })), ivory: sample('ivory'), ebony: sample('ebony') });
+            })), lightSquare: squarePaint('light'), darkSquare: squarePaint('dark'),
+            ivory: sample('ivory'), ebony: sample('ebony') });
         }
       }
     }
   }
   presentationApp.menu.close();
   report.complete = report.rows.length === 3 * 21 * 8 * 2;
+  report.scope = 'Rendered opening geometry and computed piece/square paints across all themes, materials, board sizes and high-visibility states. Paint data enables targeted contrast analysis but is not pixel-level whole-disc, flag, king or animation proof.';
   report.finishedAt = new Date().toISOString();
   report.running = false;
 })().catch(error => { window.qaPresentation.running = false; window.qaPresentation.errors.push(String(error)); });
