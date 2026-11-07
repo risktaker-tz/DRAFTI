@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "sourceCommit": "299c312e6741f676c56d7bde44164e4eaa7e7533",
+  "buildId": "52840ff36501c34851b33ba1d0bd46a3549e9cd6f68ee6614acceb2d6d38c70b",
+  "htmlBytes": 14293597,
+  "htmlSha256": "4d8fef051ce62f50b0f4be677c41520857aac3c0b569cf190f7e085ce0e1cc5d",
+  "browser": "Isolated Chromium, first navigation in a newly launched browser session",
+  "previewServer": "Loopback HTTP at 127.0.0.1:8083",
+  "timingsMs": {
+    "dns": 2,
+    "tcp": 2,
+    "ssl": 0,
+    "ttfb": 3,
+    "download": 213,
+    "domParse": 981,
+    "domReady": 1209,
+    "load": 1224,
+    "total": 1224
+  },
+  "applicationReady": true,
+  "boardMounted": true,
+  "matchStarted": false,
+  "pageErrors": 0,
+  "browserWarnings": [
+    "Three expected Chromium AudioContext autoplay warnings occurred before a trusted user gesture."
+  ],
+  "scopeLimit": "This is a local loopback first-load measurement, not a production-network, mobile-network, installed-shell, or first-play timing result."
+}
