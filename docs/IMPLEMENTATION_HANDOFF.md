@@ -1,5 +1,12 @@
 # DRAFTI implementation handoff and full remaining plan
 
+## Current verified status — 2026-11-07
+
+- Governing scope: `docs/DRAFTI_MASTER_PROMPT.md`, supplemented by the owner's later instructions in this thread. Active worktree: `C:/Users/Risk Taker/Documents/ChatGPT/DRAFTI-multi-capture-audio`, branch `codex/multi-capture-cinematic-audio`; latest runtime checkpoint `1207109`. Checkpoint commits are local and have not been pushed while Z.AI's separate work remains active.
+- The current local single-file build is 14,293,456 bytes (SHA-256 `3851d68df29ae2da4b6d3ebc429c7eec9179d454a931b2e6143fb84d6e5083d1`, build ID `048cf5b3fce2d994befafa924e110b4bca896efdd337099ba3d72b61cdf08b48`). Node and Python builds are byte-identical. All 67 `tests/test_*.js` files pass with the installed Python executable supplied to the reproducibility test. The 544-clip static integrity audit reports no missing references, duration, encoding or size failures.
+- Installed copies now stage and SHA-256-verify all 300 streamer recordings before a service-worker update can activate. Tests prove offline playback from both Vercel root scope and GitHub Pages subpath, and prove an incomplete pack leaves the previous installation active. The separate Audience Vibes pack remains 57 clips; its reviewed 501+ expansion is not complete.
+- Remaining acceptance: full current-build Computer/Two-player/Arena playback logs and human listening; spatially aligned visual contrast plus flags/crowns/reduced-motion/event-frame review; real PC/mobile install and offline reopen; actual startup timing; the Audience Vibes expansion; and final requirement-by-requirement review. The in-app browser is disabled in current Work settings, so do not claim browser-level playback/visual/physical-device proof. Do not interact with Z.AI's active work until the owner says it is finished.
+
 ## Latest current-release draw adjudication and browser evidence — 2026-11-05
 
 - The historical East Africa 8×8 run under `docs/arena-eastafrica8-current-release/` (source `5233a94`) recorded 36 rows and 10 dethronings, but a later harness audit found six rows were simulation safety caps counted as draws, and the run bypassed the production loop-escape selector. It is preserved as diagnostic history, not D3 completion or proof of a 36-result season.
