@@ -2,6 +2,7 @@
 const fs=require('node:fs'),assert=require('node:assert/strict');
 const report=JSON.parse(fs.readFileSync(process.argv[2],'utf8'));
 assert.equal(report.running,false);assert.equal(report.complete,true);assert.deepEqual(report.errors,[]);
+assert.match(report.buildId,/^[a-f0-9]{64}$/,'The exact tested browser build must be identified');
 const expectedPairs=['TZ/KE','IT/BF','ID/MC','CI/EC','MG/KE'].concat(report.extended||process.argv.includes('--extended')?['NZ/QA']:[]);
 assert.equal(report.rows.length,expectedPairs.length*24);
 const groups=new Map(),keys=new Set();

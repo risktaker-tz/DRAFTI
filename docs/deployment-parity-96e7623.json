@@ -1,0 +1,26 @@
+{
+  "commit": "96e76233573a1b7f794fd968e962bddf490c9de0",
+  "local": {
+    "bytes": 14294600,
+    "sha256": "e85abcd417e8c08c2e1a014394bc8b01260858e1b25df60b217577fd8bea874d"
+  },
+  "hosts": [
+    {
+      "url": "https://drafti-africa.vercel.app/",
+      "status": 200,
+      "bytes": 14294600,
+      "sha256": "e85abcd417e8c08c2e1a014394bc8b01260858e1b25df60b217577fd8bea874d",
+      "matchesLocal": true,
+      "buildId": "259c54acc3cf751fc819567e18b5705140a2f3b9d3d6914cb055088956549b8b"
+    },
+    {
+      "url": "https://risktaker-tz.github.io/DRAFTI/web/index.html",
+      "status": 200,
+      "bytes": 14294600,
+      "sha256": "e85abcd417e8c08c2e1a014394bc8b01260858e1b25df60b217577fd8bea874d",
+      "matchesLocal": true,
+      "buildId": "259c54acc3cf751fc819567e18b5705140a2f3b9d3d6914cb055088956549b8b"
+    }
+  ],
+  "checkedAt": "2026-11-07T20:04:59.477Z"
+}

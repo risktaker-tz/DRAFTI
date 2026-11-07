@@ -3,6 +3,7 @@ if (!window.__drafti || __drafti.state.mode !== 'hotseat' || __drafti.state.hist
   throw Error('Use a fresh Two players opening in the isolated review browser');
 }
 window.qaFlags={running:true,extended:true,rows:[],steps:[],errors:[],startedAt:new Date().toISOString(),
+  buildId:document.querySelector('meta[name="drafti-build"]')?.content||null,
   scope:'Production controls and rendered CSS for six flag pairs, four themes, three materials and high visibility; human-mode opt-in and both rename restoration paths. Not all-nation colour or crown visual certification.'};
 (async()=>{
   const app=__drafti,report=qaFlags;

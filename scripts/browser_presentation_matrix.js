@@ -4,6 +4,7 @@ if (window.qaPresentation?.running) throw Error('Presentation matrix already run
 const presentationApp = window.__drafti;
 if (!presentationApp || presentationApp.state.history.length) throw Error('Use a fresh isolated opening');
 window.qaPresentation = { running: true, startedAt: new Date().toISOString(),
+  buildId: document.querySelector('meta[name="drafti-build"]')?.content || null,
   viewport: { width: innerWidth, height: innerHeight }, rows: [], errors: [],
   scope: 'Rendered opening geometry and computed styles across all themes, materials, board sizes and high-visibility states. Does not certify visual contrast, flags, kings or event animations.' };
 (async () => {
@@ -39,6 +40,13 @@ window.qaPresentation = { running: true, startedAt: new Date().toISOString(),
             boardWidth: board.width, boardHeight: board.height,
             documentWidth: document.documentElement.scrollWidth,
             pieces: pieces.length,
+            maxPieceCellError: Math.max(...[...document.querySelectorAll('#pieces > .piece')].map(piece => {
+              const sq = Number(piece.dataset.square), cell = document.querySelectorAll('#board .sq')[sq];
+              if (!Number.isInteger(sq) || !cell) return Infinity;
+              const a = piece.getBoundingClientRect(), b = cell.getBoundingClientRect();
+              return Math.max(Math.abs(a.left - b.left), Math.abs(a.top - b.top),
+                Math.abs(a.width - b.width), Math.abs(a.height - b.height));
+            })),
             maxCircleError: Math.max(...pieces.map(disc => {
               const rect = disc.getBoundingClientRect(); return Math.abs(rect.width - rect.height);
             })), lightSquare: squarePaint('light'), darkSquare: squarePaint('dark'),
@@ -49,7 +57,7 @@ window.qaPresentation = { running: true, startedAt: new Date().toISOString(),
   }
   presentationApp.menu.close();
   report.complete = report.rows.length === 3 * 21 * 8 * 2;
-  report.scope = 'Rendered opening geometry and computed piece/square paints across all themes, materials, board sizes and high-visibility states. Paint data enables targeted contrast analysis but is not pixel-level whole-disc, flag, king or animation proof.';
+  report.scope = 'Rendered opening geometry, exact piece-to-square alignment and computed piece/square paints across all themes, materials, board sizes and high-visibility states. Paint data enables targeted contrast analysis but is not pixel-level whole-disc, flag, king or animation proof.';
   report.finishedAt = new Date().toISOString();
   report.running = false;
 })().catch(error => { window.qaPresentation.running = false; window.qaPresentation.errors.push(String(error)); });

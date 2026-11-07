@@ -5,6 +5,7 @@ const path = require('node:path');
 const report = JSON.parse(fs.readFileSync(path.resolve(process.argv[2]), 'utf8'));
 assert.equal(report.running, false, 'Observation must have finished');
 assert.equal(report.complete, true, 'Partial matrices cannot pass');
+assert.match(report.buildId, /^[a-f0-9]{64}$/, 'The exact tested browser build must be identified');
 assert.deepEqual(report.errors, []);
 assert.equal(report.rows.length, 1008);
 const themes = new Set(report.rows.map(row => row.theme));
@@ -22,6 +23,7 @@ for (const row of report.rows) {
   assert.equal(row.cells, expected[row.ruleset][0], key + ' board cells');
   assert.equal(row.pieces, expected[row.ruleset][1], key + ' opening population');
   assert(row.boardWidth > 0 && Math.abs(row.boardWidth - row.boardHeight) < 1, key + ' square board');
+  assert(row.maxPieceCellError < 1, key + ' pieces centered on their exact occupied cells');
   assert(row.maxCircleError < 1, key + ' circular discs');
   assert(row.documentWidth <= report.viewport.width + 1, key + ' horizontal overflow');
   for (const side of ['ivory', 'ebony']) {
@@ -30,4 +32,4 @@ for (const row of report.rows) {
     assert.equal(typeof row[side].shadow, 'string');
   }
 }
-console.log('PASS: 1,008 distinct rendered opening layouts; 21 themes × 8 materials × 3 board sizes × 2 high-visibility states. Square boards, circular discs, correct populations and no horizontal overflow. Contrast, flags, kings and event effects require separate proof.');
+console.log('PASS: 1,008 distinct rendered opening layouts; 21 themes × 8 materials × 3 board sizes × 2 high-visibility states. Pieces align to occupied cells, discs stay circular, populations are correct and no horizontal overflow occurs. Contrast, flags, kings and event effects require separate proof.');

@@ -1,5 +1,6 @@
 {
   "running": false,
+  "extended": true,
   "rows": [
     {
       "pair": [
@@ -1355,9 +1356,9 @@
       "hv": false,
       "on": true,
       "a": "#6bb88e",
-      "b": "#d86b6b",
+      "b": "#929292",
       "ivory": "radial-gradient(circle at 35% 28%, rgb(107, 184, 142), rgb(0, 132, 61) 55%, rgb(0, 87, 40))",
-      "ebony": "radial-gradient(circle at 35% 28%, rgb(216, 107, 107), rgb(187, 0, 0) 55%, rgb(123, 0, 0))"
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(146, 146, 146), rgb(67, 67, 67) 55%, rgb(44, 44, 44))"
     },
     {
       "pair": [
@@ -1369,9 +1370,9 @@
       "hv": true,
       "on": true,
       "a": "#6bb88e",
-      "b": "#d86b6b",
+      "b": "#929292",
       "ivory": "radial-gradient(circle at 35% 28%, rgb(107, 184, 142), rgb(0, 132, 61) 55%, rgb(0, 87, 40))",
-      "ebony": "radial-gradient(circle at 35% 28%, rgb(216, 107, 107), rgb(187, 0, 0) 55%, rgb(123, 0, 0))"
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(146, 146, 146), rgb(67, 67, 67) 55%, rgb(44, 44, 44))"
     },
     {
       "pair": [
@@ -1383,9 +1384,9 @@
       "hv": false,
       "on": true,
       "a": "#6bb88e",
-      "b": "#d86b6b",
+      "b": "#929292",
       "ivory": "radial-gradient(circle at 35% 28%, rgb(107, 184, 142), rgb(0, 132, 61) 55%, rgb(0, 87, 40))",
-      "ebony": "radial-gradient(circle at 35% 28%, rgb(216, 107, 107), rgb(187, 0, 0) 55%, rgb(123, 0, 0))"
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(146, 146, 146), rgb(67, 67, 67) 55%, rgb(44, 44, 44))"
     },
     {
       "pair": [
@@ -1397,9 +1398,9 @@
       "hv": true,
       "on": true,
       "a": "#6bb88e",
-      "b": "#d86b6b",
+      "b": "#929292",
       "ivory": "radial-gradient(circle at 35% 28%, rgb(107, 184, 142), rgb(0, 132, 61) 55%, rgb(0, 87, 40))",
-      "ebony": "radial-gradient(circle at 35% 28%, rgb(216, 107, 107), rgb(187, 0, 0) 55%, rgb(123, 0, 0))"
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(146, 146, 146), rgb(67, 67, 67) 55%, rgb(44, 44, 44))"
     },
     {
       "pair": [
@@ -1411,9 +1412,9 @@
       "hv": false,
       "on": true,
       "a": "#6bb88e",
-      "b": "#d86b6b",
+      "b": "#929292",
       "ivory": "radial-gradient(circle at 35% 28%, rgb(107, 184, 142), rgb(0, 132, 61) 55%, rgb(0, 87, 40))",
-      "ebony": "radial-gradient(circle at 35% 28%, rgb(216, 107, 107), rgb(187, 0, 0) 55%, rgb(123, 0, 0))"
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(146, 146, 146), rgb(67, 67, 67) 55%, rgb(44, 44, 44))"
     },
     {
       "pair": [
@@ -1425,9 +1426,9 @@
       "hv": true,
       "on": true,
       "a": "#6bb88e",
-      "b": "#d86b6b",
+      "b": "#929292",
       "ivory": "radial-gradient(circle at 35% 28%, rgb(107, 184, 142), rgb(0, 132, 61) 55%, rgb(0, 87, 40))",
-      "ebony": "radial-gradient(circle at 35% 28%, rgb(216, 107, 107), rgb(187, 0, 0) 55%, rgb(123, 0, 0))"
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(146, 146, 146), rgb(67, 67, 67) 55%, rgb(44, 44, 44))"
     },
     {
       "pair": [
@@ -1439,9 +1440,9 @@
       "hv": false,
       "on": true,
       "a": "#6bb88e",
-      "b": "#d86b6b",
+      "b": "#929292",
       "ivory": "radial-gradient(circle at 35% 28%, rgb(107, 184, 142), rgb(0, 132, 61) 55%, rgb(0, 87, 40))",
-      "ebony": "radial-gradient(circle at 35% 28%, rgb(216, 107, 107), rgb(187, 0, 0) 55%, rgb(123, 0, 0))"
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(146, 146, 146), rgb(67, 67, 67) 55%, rgb(44, 44, 44))"
     },
     {
       "pair": [
@@ -1453,9 +1454,9 @@
       "hv": true,
       "on": true,
       "a": "#6bb88e",
-      "b": "#d86b6b",
+      "b": "#929292",
       "ivory": "radial-gradient(circle at 35% 28%, rgb(107, 184, 142), rgb(0, 132, 61) 55%, rgb(0, 87, 40))",
-      "ebony": "radial-gradient(circle at 35% 28%, rgb(216, 107, 107), rgb(187, 0, 0) 55%, rgb(123, 0, 0))"
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(146, 146, 146), rgb(67, 67, 67) 55%, rgb(44, 44, 44))"
     },
     {
       "pair": [
@@ -1467,9 +1468,9 @@
       "hv": false,
       "on": true,
       "a": "#6bb88e",
-      "b": "#d86b6b",
+      "b": "#929292",
       "ivory": "radial-gradient(circle at 35% 28%, rgb(107, 184, 142), rgb(0, 132, 61) 55%, rgb(0, 87, 40))",
-      "ebony": "radial-gradient(circle at 35% 28%, rgb(216, 107, 107), rgb(187, 0, 0) 55%, rgb(123, 0, 0))"
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(146, 146, 146), rgb(67, 67, 67) 55%, rgb(44, 44, 44))"
     },
     {
       "pair": [
@@ -1481,9 +1482,9 @@
       "hv": true,
       "on": true,
       "a": "#6bb88e",
-      "b": "#d86b6b",
+      "b": "#929292",
       "ivory": "radial-gradient(circle at 35% 28%, rgb(107, 184, 142), rgb(0, 132, 61) 55%, rgb(0, 87, 40))",
-      "ebony": "radial-gradient(circle at 35% 28%, rgb(216, 107, 107), rgb(187, 0, 0) 55%, rgb(123, 0, 0))"
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(146, 146, 146), rgb(67, 67, 67) 55%, rgb(44, 44, 44))"
     },
     {
       "pair": [
@@ -1495,9 +1496,9 @@
       "hv": false,
       "on": true,
       "a": "#6bb88e",
-      "b": "#d86b6b",
+      "b": "#929292",
       "ivory": "radial-gradient(circle at 35% 28%, rgb(107, 184, 142), rgb(0, 132, 61) 55%, rgb(0, 87, 40))",
-      "ebony": "radial-gradient(circle at 35% 28%, rgb(216, 107, 107), rgb(187, 0, 0) 55%, rgb(123, 0, 0))"
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(146, 146, 146), rgb(67, 67, 67) 55%, rgb(44, 44, 44))"
     },
     {
       "pair": [
@@ -1509,9 +1510,9 @@
       "hv": true,
       "on": true,
       "a": "#6bb88e",
-      "b": "#d86b6b",
+      "b": "#929292",
       "ivory": "radial-gradient(circle at 35% 28%, rgb(107, 184, 142), rgb(0, 132, 61) 55%, rgb(0, 87, 40))",
-      "ebony": "radial-gradient(circle at 35% 28%, rgb(216, 107, 107), rgb(187, 0, 0) 55%, rgb(123, 0, 0))"
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(146, 146, 146), rgb(67, 67, 67) 55%, rgb(44, 44, 44))"
     },
     {
       "pair": [
@@ -1523,9 +1524,9 @@
       "hv": false,
       "on": true,
       "a": "#6bb88e",
-      "b": "#d86b6b",
+      "b": "#929292",
       "ivory": "radial-gradient(circle at 35% 28%, rgb(107, 184, 142), rgb(0, 132, 61) 55%, rgb(0, 87, 40))",
-      "ebony": "radial-gradient(circle at 35% 28%, rgb(216, 107, 107), rgb(187, 0, 0) 55%, rgb(123, 0, 0))"
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(146, 146, 146), rgb(67, 67, 67) 55%, rgb(44, 44, 44))"
     },
     {
       "pair": [
@@ -1537,9 +1538,9 @@
       "hv": true,
       "on": true,
       "a": "#6bb88e",
-      "b": "#d86b6b",
+      "b": "#929292",
       "ivory": "radial-gradient(circle at 35% 28%, rgb(107, 184, 142), rgb(0, 132, 61) 55%, rgb(0, 87, 40))",
-      "ebony": "radial-gradient(circle at 35% 28%, rgb(216, 107, 107), rgb(187, 0, 0) 55%, rgb(123, 0, 0))"
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(146, 146, 146), rgb(67, 67, 67) 55%, rgb(44, 44, 44))"
     },
     {
       "pair": [
@@ -1551,9 +1552,9 @@
       "hv": false,
       "on": true,
       "a": "#6bb88e",
-      "b": "#d86b6b",
+      "b": "#929292",
       "ivory": "radial-gradient(circle at 35% 28%, rgb(107, 184, 142), rgb(0, 132, 61) 55%, rgb(0, 87, 40))",
-      "ebony": "radial-gradient(circle at 35% 28%, rgb(216, 107, 107), rgb(187, 0, 0) 55%, rgb(123, 0, 0))"
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(146, 146, 146), rgb(67, 67, 67) 55%, rgb(44, 44, 44))"
     },
     {
       "pair": [
@@ -1565,9 +1566,9 @@
       "hv": true,
       "on": true,
       "a": "#6bb88e",
-      "b": "#d86b6b",
+      "b": "#929292",
       "ivory": "radial-gradient(circle at 35% 28%, rgb(107, 184, 142), rgb(0, 132, 61) 55%, rgb(0, 87, 40))",
-      "ebony": "radial-gradient(circle at 35% 28%, rgb(216, 107, 107), rgb(187, 0, 0) 55%, rgb(123, 0, 0))"
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(146, 146, 146), rgb(67, 67, 67) 55%, rgb(44, 44, 44))"
     },
     {
       "pair": [
@@ -1579,9 +1580,9 @@
       "hv": false,
       "on": true,
       "a": "#6bb88e",
-      "b": "#d86b6b",
+      "b": "#929292",
       "ivory": "radial-gradient(circle at 35% 28%, rgb(107, 184, 142), rgb(0, 132, 61) 55%, rgb(0, 87, 40))",
-      "ebony": "radial-gradient(circle at 35% 28%, rgb(216, 107, 107), rgb(187, 0, 0) 55%, rgb(123, 0, 0))"
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(146, 146, 146), rgb(67, 67, 67) 55%, rgb(44, 44, 44))"
     },
     {
       "pair": [
@@ -1593,9 +1594,9 @@
       "hv": true,
       "on": true,
       "a": "#6bb88e",
-      "b": "#d86b6b",
+      "b": "#929292",
       "ivory": "radial-gradient(circle at 35% 28%, rgb(107, 184, 142), rgb(0, 132, 61) 55%, rgb(0, 87, 40))",
-      "ebony": "radial-gradient(circle at 35% 28%, rgb(216, 107, 107), rgb(187, 0, 0) 55%, rgb(123, 0, 0))"
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(146, 146, 146), rgb(67, 67, 67) 55%, rgb(44, 44, 44))"
     },
     {
       "pair": [
@@ -1607,9 +1608,9 @@
       "hv": false,
       "on": true,
       "a": "#6bb88e",
-      "b": "#d86b6b",
+      "b": "#929292",
       "ivory": "radial-gradient(circle at 35% 28%, rgb(107, 184, 142), rgb(0, 132, 61) 55%, rgb(0, 87, 40))",
-      "ebony": "radial-gradient(circle at 35% 28%, rgb(216, 107, 107), rgb(187, 0, 0) 55%, rgb(123, 0, 0))"
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(146, 146, 146), rgb(67, 67, 67) 55%, rgb(44, 44, 44))"
     },
     {
       "pair": [
@@ -1621,9 +1622,9 @@
       "hv": true,
       "on": true,
       "a": "#6bb88e",
-      "b": "#d86b6b",
+      "b": "#929292",
       "ivory": "radial-gradient(circle at 35% 28%, rgb(107, 184, 142), rgb(0, 132, 61) 55%, rgb(0, 87, 40))",
-      "ebony": "radial-gradient(circle at 35% 28%, rgb(216, 107, 107), rgb(187, 0, 0) 55%, rgb(123, 0, 0))"
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(146, 146, 146), rgb(67, 67, 67) 55%, rgb(44, 44, 44))"
     },
     {
       "pair": [
@@ -1635,9 +1636,9 @@
       "hv": false,
       "on": true,
       "a": "#6bb88e",
-      "b": "#d86b6b",
+      "b": "#929292",
       "ivory": "radial-gradient(circle at 35% 28%, rgb(107, 184, 142), rgb(0, 132, 61) 55%, rgb(0, 87, 40))",
-      "ebony": "radial-gradient(circle at 35% 28%, rgb(216, 107, 107), rgb(187, 0, 0) 55%, rgb(123, 0, 0))"
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(146, 146, 146), rgb(67, 67, 67) 55%, rgb(44, 44, 44))"
     },
     {
       "pair": [
@@ -1649,9 +1650,9 @@
       "hv": true,
       "on": true,
       "a": "#6bb88e",
-      "b": "#d86b6b",
+      "b": "#929292",
       "ivory": "radial-gradient(circle at 35% 28%, rgb(107, 184, 142), rgb(0, 132, 61) 55%, rgb(0, 87, 40))",
-      "ebony": "radial-gradient(circle at 35% 28%, rgb(216, 107, 107), rgb(187, 0, 0) 55%, rgb(123, 0, 0))"
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(146, 146, 146), rgb(67, 67, 67) 55%, rgb(44, 44, 44))"
     },
     {
       "pair": [
@@ -1663,9 +1664,9 @@
       "hv": false,
       "on": true,
       "a": "#6bb88e",
-      "b": "#d86b6b",
+      "b": "#929292",
       "ivory": "radial-gradient(circle at 35% 28%, rgb(107, 184, 142), rgb(0, 132, 61) 55%, rgb(0, 87, 40))",
-      "ebony": "radial-gradient(circle at 35% 28%, rgb(216, 107, 107), rgb(187, 0, 0) 55%, rgb(123, 0, 0))"
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(146, 146, 146), rgb(67, 67, 67) 55%, rgb(44, 44, 44))"
     },
     {
       "pair": [
@@ -1677,9 +1678,345 @@
       "hv": true,
       "on": true,
       "a": "#6bb88e",
-      "b": "#d86b6b",
+      "b": "#929292",
       "ivory": "radial-gradient(circle at 35% 28%, rgb(107, 184, 142), rgb(0, 132, 61) 55%, rgb(0, 87, 40))",
-      "ebony": "radial-gradient(circle at 35% 28%, rgb(216, 107, 107), rgb(187, 0, 0) 55%, rgb(123, 0, 0))"
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(146, 146, 146), rgb(67, 67, 67) 55%, rgb(44, 44, 44))"
+    },
+    {
+      "pair": [
+        "NZ",
+        "QA"
+      ],
+      "theme": "marble",
+      "material": "theme",
+      "hv": false,
+      "on": true,
+      "a": "#8190b4",
+      "b": "#eaeaea",
+      "ivory": "radial-gradient(circle at 35% 28%, rgb(129, 144, 180), rgb(37, 64, 126) 55%, rgb(24, 42, 83))",
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(234, 234, 234), rgb(219, 219, 219) 55%, rgb(145, 145, 145))"
+    },
+    {
+      "pair": [
+        "NZ",
+        "QA"
+      ],
+      "theme": "marble",
+      "material": "theme",
+      "hv": true,
+      "on": true,
+      "a": "#8190b4",
+      "b": "#eaeaea",
+      "ivory": "radial-gradient(circle at 35% 28%, rgb(129, 144, 180), rgb(37, 64, 126) 55%, rgb(24, 42, 83))",
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(234, 234, 234), rgb(219, 219, 219) 55%, rgb(145, 145, 145))"
+    },
+    {
+      "pair": [
+        "NZ",
+        "QA"
+      ],
+      "theme": "marble",
+      "material": "woodturn",
+      "hv": false,
+      "on": true,
+      "a": "#8190b4",
+      "b": "#eaeaea",
+      "ivory": "radial-gradient(circle at 35% 28%, rgb(129, 144, 180), rgb(37, 64, 126) 55%, rgb(24, 42, 83))",
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(234, 234, 234), rgb(219, 219, 219) 55%, rgb(145, 145, 145))"
+    },
+    {
+      "pair": [
+        "NZ",
+        "QA"
+      ],
+      "theme": "marble",
+      "material": "woodturn",
+      "hv": true,
+      "on": true,
+      "a": "#8190b4",
+      "b": "#eaeaea",
+      "ivory": "radial-gradient(circle at 35% 28%, rgb(129, 144, 180), rgb(37, 64, 126) 55%, rgb(24, 42, 83))",
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(234, 234, 234), rgb(219, 219, 219) 55%, rgb(145, 145, 145))"
+    },
+    {
+      "pair": [
+        "NZ",
+        "QA"
+      ],
+      "theme": "marble",
+      "material": "steel",
+      "hv": false,
+      "on": true,
+      "a": "#8190b4",
+      "b": "#eaeaea",
+      "ivory": "radial-gradient(circle at 35% 28%, rgb(129, 144, 180), rgb(37, 64, 126) 55%, rgb(24, 42, 83))",
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(234, 234, 234), rgb(219, 219, 219) 55%, rgb(145, 145, 145))"
+    },
+    {
+      "pair": [
+        "NZ",
+        "QA"
+      ],
+      "theme": "marble",
+      "material": "steel",
+      "hv": true,
+      "on": true,
+      "a": "#8190b4",
+      "b": "#eaeaea",
+      "ivory": "radial-gradient(circle at 35% 28%, rgb(129, 144, 180), rgb(37, 64, 126) 55%, rgb(24, 42, 83))",
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(234, 234, 234), rgb(219, 219, 219) 55%, rgb(145, 145, 145))"
+    },
+    {
+      "pair": [
+        "NZ",
+        "QA"
+      ],
+      "theme": "royale",
+      "material": "theme",
+      "hv": false,
+      "on": true,
+      "a": "#8190b4",
+      "b": "#eaeaea",
+      "ivory": "radial-gradient(circle at 35% 28%, rgb(129, 144, 180), rgb(37, 64, 126) 55%, rgb(24, 42, 83))",
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(234, 234, 234), rgb(219, 219, 219) 55%, rgb(145, 145, 145))"
+    },
+    {
+      "pair": [
+        "NZ",
+        "QA"
+      ],
+      "theme": "royale",
+      "material": "theme",
+      "hv": true,
+      "on": true,
+      "a": "#8190b4",
+      "b": "#eaeaea",
+      "ivory": "radial-gradient(circle at 35% 28%, rgb(129, 144, 180), rgb(37, 64, 126) 55%, rgb(24, 42, 83))",
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(234, 234, 234), rgb(219, 219, 219) 55%, rgb(145, 145, 145))"
+    },
+    {
+      "pair": [
+        "NZ",
+        "QA"
+      ],
+      "theme": "royale",
+      "material": "woodturn",
+      "hv": false,
+      "on": true,
+      "a": "#8190b4",
+      "b": "#eaeaea",
+      "ivory": "radial-gradient(circle at 35% 28%, rgb(129, 144, 180), rgb(37, 64, 126) 55%, rgb(24, 42, 83))",
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(234, 234, 234), rgb(219, 219, 219) 55%, rgb(145, 145, 145))"
+    },
+    {
+      "pair": [
+        "NZ",
+        "QA"
+      ],
+      "theme": "royale",
+      "material": "woodturn",
+      "hv": true,
+      "on": true,
+      "a": "#8190b4",
+      "b": "#eaeaea",
+      "ivory": "radial-gradient(circle at 35% 28%, rgb(129, 144, 180), rgb(37, 64, 126) 55%, rgb(24, 42, 83))",
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(234, 234, 234), rgb(219, 219, 219) 55%, rgb(145, 145, 145))"
+    },
+    {
+      "pair": [
+        "NZ",
+        "QA"
+      ],
+      "theme": "royale",
+      "material": "steel",
+      "hv": false,
+      "on": true,
+      "a": "#8190b4",
+      "b": "#eaeaea",
+      "ivory": "radial-gradient(circle at 35% 28%, rgb(129, 144, 180), rgb(37, 64, 126) 55%, rgb(24, 42, 83))",
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(234, 234, 234), rgb(219, 219, 219) 55%, rgb(145, 145, 145))"
+    },
+    {
+      "pair": [
+        "NZ",
+        "QA"
+      ],
+      "theme": "royale",
+      "material": "steel",
+      "hv": true,
+      "on": true,
+      "a": "#8190b4",
+      "b": "#eaeaea",
+      "ivory": "radial-gradient(circle at 35% 28%, rgb(129, 144, 180), rgb(37, 64, 126) 55%, rgb(24, 42, 83))",
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(234, 234, 234), rgb(219, 219, 219) 55%, rgb(145, 145, 145))"
+    },
+    {
+      "pair": [
+        "NZ",
+        "QA"
+      ],
+      "theme": "glass",
+      "material": "theme",
+      "hv": false,
+      "on": true,
+      "a": "#8190b4",
+      "b": "#eaeaea",
+      "ivory": "radial-gradient(circle at 35% 28%, rgb(129, 144, 180), rgb(37, 64, 126) 55%, rgb(24, 42, 83))",
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(234, 234, 234), rgb(219, 219, 219) 55%, rgb(145, 145, 145))"
+    },
+    {
+      "pair": [
+        "NZ",
+        "QA"
+      ],
+      "theme": "glass",
+      "material": "theme",
+      "hv": true,
+      "on": true,
+      "a": "#8190b4",
+      "b": "#eaeaea",
+      "ivory": "radial-gradient(circle at 35% 28%, rgb(129, 144, 180), rgb(37, 64, 126) 55%, rgb(24, 42, 83))",
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(234, 234, 234), rgb(219, 219, 219) 55%, rgb(145, 145, 145))"
+    },
+    {
+      "pair": [
+        "NZ",
+        "QA"
+      ],
+      "theme": "glass",
+      "material": "woodturn",
+      "hv": false,
+      "on": true,
+      "a": "#8190b4",
+      "b": "#eaeaea",
+      "ivory": "radial-gradient(circle at 35% 28%, rgb(129, 144, 180), rgb(37, 64, 126) 55%, rgb(24, 42, 83))",
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(234, 234, 234), rgb(219, 219, 219) 55%, rgb(145, 145, 145))"
+    },
+    {
+      "pair": [
+        "NZ",
+        "QA"
+      ],
+      "theme": "glass",
+      "material": "woodturn",
+      "hv": true,
+      "on": true,
+      "a": "#8190b4",
+      "b": "#eaeaea",
+      "ivory": "radial-gradient(circle at 35% 28%, rgb(129, 144, 180), rgb(37, 64, 126) 55%, rgb(24, 42, 83))",
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(234, 234, 234), rgb(219, 219, 219) 55%, rgb(145, 145, 145))"
+    },
+    {
+      "pair": [
+        "NZ",
+        "QA"
+      ],
+      "theme": "glass",
+      "material": "steel",
+      "hv": false,
+      "on": true,
+      "a": "#8190b4",
+      "b": "#eaeaea",
+      "ivory": "radial-gradient(circle at 35% 28%, rgb(129, 144, 180), rgb(37, 64, 126) 55%, rgb(24, 42, 83))",
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(234, 234, 234), rgb(219, 219, 219) 55%, rgb(145, 145, 145))"
+    },
+    {
+      "pair": [
+        "NZ",
+        "QA"
+      ],
+      "theme": "glass",
+      "material": "steel",
+      "hv": true,
+      "on": true,
+      "a": "#8190b4",
+      "b": "#eaeaea",
+      "ivory": "radial-gradient(circle at 35% 28%, rgb(129, 144, 180), rgb(37, 64, 126) 55%, rgb(24, 42, 83))",
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(234, 234, 234), rgb(219, 219, 219) 55%, rgb(145, 145, 145))"
+    },
+    {
+      "pair": [
+        "NZ",
+        "QA"
+      ],
+      "theme": "maplewood",
+      "material": "theme",
+      "hv": false,
+      "on": true,
+      "a": "#8190b4",
+      "b": "#eaeaea",
+      "ivory": "radial-gradient(circle at 35% 28%, rgb(129, 144, 180), rgb(37, 64, 126) 55%, rgb(24, 42, 83))",
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(234, 234, 234), rgb(219, 219, 219) 55%, rgb(145, 145, 145))"
+    },
+    {
+      "pair": [
+        "NZ",
+        "QA"
+      ],
+      "theme": "maplewood",
+      "material": "theme",
+      "hv": true,
+      "on": true,
+      "a": "#8190b4",
+      "b": "#eaeaea",
+      "ivory": "radial-gradient(circle at 35% 28%, rgb(129, 144, 180), rgb(37, 64, 126) 55%, rgb(24, 42, 83))",
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(234, 234, 234), rgb(219, 219, 219) 55%, rgb(145, 145, 145))"
+    },
+    {
+      "pair": [
+        "NZ",
+        "QA"
+      ],
+      "theme": "maplewood",
+      "material": "woodturn",
+      "hv": false,
+      "on": true,
+      "a": "#8190b4",
+      "b": "#eaeaea",
+      "ivory": "radial-gradient(circle at 35% 28%, rgb(129, 144, 180), rgb(37, 64, 126) 55%, rgb(24, 42, 83))",
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(234, 234, 234), rgb(219, 219, 219) 55%, rgb(145, 145, 145))"
+    },
+    {
+      "pair": [
+        "NZ",
+        "QA"
+      ],
+      "theme": "maplewood",
+      "material": "woodturn",
+      "hv": true,
+      "on": true,
+      "a": "#8190b4",
+      "b": "#eaeaea",
+      "ivory": "radial-gradient(circle at 35% 28%, rgb(129, 144, 180), rgb(37, 64, 126) 55%, rgb(24, 42, 83))",
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(234, 234, 234), rgb(219, 219, 219) 55%, rgb(145, 145, 145))"
+    },
+    {
+      "pair": [
+        "NZ",
+        "QA"
+      ],
+      "theme": "maplewood",
+      "material": "steel",
+      "hv": false,
+      "on": true,
+      "a": "#8190b4",
+      "b": "#eaeaea",
+      "ivory": "radial-gradient(circle at 35% 28%, rgb(129, 144, 180), rgb(37, 64, 126) 55%, rgb(24, 42, 83))",
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(234, 234, 234), rgb(219, 219, 219) 55%, rgb(145, 145, 145))"
+    },
+    {
+      "pair": [
+        "NZ",
+        "QA"
+      ],
+      "theme": "maplewood",
+      "material": "steel",
+      "hv": true,
+      "on": true,
+      "a": "#8190b4",
+      "b": "#eaeaea",
+      "ivory": "radial-gradient(circle at 35% 28%, rgb(129, 144, 180), rgb(37, 64, 126) 55%, rgb(24, 42, 83))",
+      "ebony": "radial-gradient(circle at 35% 28%, rgb(234, 234, 234), rgb(219, 219, 219) 55%, rgb(145, 145, 145))"
     }
   ],
   "steps": [
@@ -1743,9 +2080,9 @@
     }
   ],
   "errors": [],
-  "startedAt": "2026-11-04T11:54:27.111Z",
-  "scope": "Production controls and rendered CSS for five flag pairs, four themes, three materials and high visibility; human-mode opt-in and both rename restoration paths. Not all-nation colour or crown visual certification.",
+  "startedAt": "2026-11-07T20:01:19.566Z",
+  "buildId": "259c54acc3cf751fc819567e18b5705140a2f3b9d3d6914cb055088956549b8b",
+  "scope": "Production controls and rendered CSS for six flag pairs, four themes, three materials and high visibility; human-mode opt-in and both rename restoration paths. Not all-nation colour or crown visual certification.",
   "complete": true,
-  "finishedAt": "2026-11-04T11:54:34.823Z",
-  "runtimeSourceCommit": "3b3c4fba6e3884fb508c8aa7184e9f0fdab45a95"
+  "finishedAt": "2026-11-07T20:01:50.576Z"
 }
