@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "sourceCommit": "1c89460556d13eceaac24d1dc4108d283fa99799",
+  "sourceCommit": "299c312e6741f676c56d7bde44164e4eaa7e7533",
   "sourceStylesSha256": "ada589fc3e8db0647e725504c4b216373c500d38c68008827081867860aea500",
   "buildId": "52840ff36501c34851b33ba1d0bd46a3549e9cd6f68ee6614acceb2d6d38c70b",
   "sourceHtmlSha256": "4d8fef051ce62f50b0f4be677c41520857aac3c0b569cf190f7e085ce0e1cc5d",
-  "createdAt": "2026-11-07T17:35:20.991Z",
+  "createdAt": "2026-11-07T17:38:23.517Z",
   "scope": "336 actual 8x8 opening-board element screenshots: 21 themes × 8 piece surfaces × High visibility on/off. Center-face versus empty playable-square contrast is a conservative legibility screen; rim measurements are diagnostic only because gloss, engraved grooves, shadows and the fine dual-tone keyline intentionally vary. Contact sheets retain visual context. Does not certify flags, crowns, move/capture animations or reduced motion.",
   "viewport": "isolated Chromium, board element rasterized at 514×514 including 1px frame; inner 512×512 board sampled.",
   "sampling": "For each of 24 opening discs, compare the 3×3 median face-center patch with an empty playable-square center on the same column. Also compare 32 rim/background angular pairs at 0.34- and 0.46-cell radii.",

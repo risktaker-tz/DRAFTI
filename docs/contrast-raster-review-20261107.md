@@ -2,7 +2,7 @@
 
 ## Coverage
 
-Source base `1c89460556d13eceaac24d1dc4108d283fa99799`; working CSS SHA-256 and exact build ID are recorded in `contrast-raster-analysis-20261107.json`. The refreshed matrix contains 336 actual 8×8 opening-board captures: 21 tables × 8 piece surfaces × High visibility on/off. The full mobile opening matrix separately covers all three East Africa sizes. The current single-file build is 14,293,597 bytes and remains below the 14 MiB limit.
+Source commit `299c312e6741f676c56d7bde44164e4eaa7e7533`; working CSS SHA-256 and exact build ID are recorded in `contrast-raster-analysis-20261107.json`. The refreshed matrix contains 336 actual 8×8 opening-board captures: 21 tables × 8 piece surfaces × High visibility on/off. The full mobile opening matrix separately covers all three East Africa sizes. The current single-file build is 14,293,597 bytes and remains below the 14 MiB limit.
 
 The refreshed contact sheets were reviewed at full view. All eight piece surfaces remain visually distinct across the table themes; the glass and steel treatments have softer face luminance on pale tables, with their rims, grooves, shadows and color still separating the two sides. High visibility adds square hatching and stronger outlines. A fine dark bevel and light outer keyline were added to each piece, preserving its face material and flag paint while making the perimeter more distinct. A focused Sakura/Bakelite browser capture is `contrast-keyline-sakura-bakelite-v2.png`. No board geometry or theme was changed for this review.
 
