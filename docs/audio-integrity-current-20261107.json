@@ -58,7 +58,7 @@
   "unresolvedEvents": [],
   "controlledPreviewExpressions": [
     {
-      "line": 4927,
+      "line": 4958,
       "expression": "button.dataset.event",
       "ids": []
     }
@@ -67,5 +67,8 @@
   "oversized": [],
   "durations": [],
   "encoding": [],
-  "limitations": "All clips measured for duration, encoding and size. Static analysis covers sample pools and event/owner call sites. The menu event selector is restricted at runtime to embedded registry definitions and unknown events return null; all other unresolved expressions fail. Browser full-game playback still requires verification."
+  "limitations": "All clips measured for duration, encoding and size. Static analysis covers sample pools and event/owner call sites. The menu event selector is restricted at runtime to embedded registry definitions and unknown events return null; all other unresolved expressions fail. Browser full-game playback still requires verification.",
+  "auditedAt": "2026-11-07T20:11:42.294Z",
+  "sourceCommit": "8d60c795280069555b1559f207fa785c9277f542",
+  "buildId": "259c54acc3cf751fc819567e18b5705140a2f3b9d3d6914cb055088956549b8b"
 }
