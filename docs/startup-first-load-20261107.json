@@ -1,9 +1,9 @@
 {
   "schema": 1,
-  "sourceCommit": "299c312e6741f676c56d7bde44164e4eaa7e7533",
-  "buildId": "52840ff36501c34851b33ba1d0bd46a3549e9cd6f68ee6614acceb2d6d38c70b",
+  "sourceCommit": "fc25302",
+  "buildId": "2b255482bc863aef1dcba060c447a49913ad11e42342de7ae330ffeded3d4a85",
   "htmlBytes": 14293597,
-  "htmlSha256": "4d8fef051ce62f50b0f4be677c41520857aac3c0b569cf190f7e085ce0e1cc5d",
+  "htmlSha256": "82ec25c978206408743ed8cf47eba97c6dc93c07a2ba79beff78e750bb61b871",
   "browser": "Isolated Chromium, first navigation in a newly launched browser session",
   "previewServer": "Loopback HTTP at 127.0.0.1:8083",
   "timingsMs": {
@@ -11,11 +11,11 @@
     "tcp": 2,
     "ssl": 0,
     "ttfb": 3,
-    "download": 213,
-    "domParse": 981,
-    "domReady": 1209,
-    "load": 1224,
-    "total": 1224
+    "download": 424,
+    "domParse": 2266,
+    "domReady": 2711,
+    "load": 2725,
+    "total": 2725
   },
   "applicationReady": true,
   "boardMounted": true,

@@ -113,6 +113,9 @@ async function checkVocabulary() {
     'Funny trap narration stays separated between setting a real trap and seeing it spring');
   assert(S.extraPools.female.pressure.includes('sf2_058') && S.extraPools.male.pressure.includes('sm2_058') &&
     S.extraPools.funny.pressure.includes('sj2_058'), 'Every voice has material-pressure lines');
+  assert.equal(S.ROLES.pressure.chance, .65); assert.equal(S.ROLES.pressure.perGame, 2);
+  assert.equal(S.ROLES.pressure.cooldown, 90000); assert.equal(S.ROLES.turnaround.chance, 1);
+  assert.equal(S.ROLES.turnaround.perGame, 1); assert.equal(S.ROLES.turnaround.cooldown, 90000);
   assert(S.extraPools.female.turnaround.includes('sf2_063') && S.extraPools.male.turnaround.includes('sm2_063') &&
     S.extraPools.funny.turnaround.includes('sj2_063'), 'Each streamer has only its own accepted turnaround recordings');
   for (const mode of ['female','male','funny']) {
