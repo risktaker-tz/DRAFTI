@@ -3,8 +3,9 @@
 [Play on Vercel](https://drafti-afrika.vercel.app/) · [GitHub Pages](https://risktaker-tz.github.io/DRAFTI/web/)
 
 Vercel and GitHub Pages serve the same verified checkpoint. The broader
-blueprint work continues; optional audience-pack and streamer-vocabulary
-expansion are still in progress.
+blueprint work continues. The first streamer-vocabulary milestone is complete:
+300 recorded lines, 100 each for Female, Male and Funny. Audience Vibes remains
+an optional, separately managed sound pack.
 
 The approved cinematic checkpoint adds thirty situational board, piece and
 background effects. Cracks accompany multi-captures; rare edge lighting requires
@@ -492,7 +493,7 @@ Move traces now draw a soft ribbon beneath the discs between actual square centr
 
 Enabled Female/Male/Funny streamers retry blocked openings, react to current captures and crowns, and use quiet thinking moments for engagement. Like/share/follow prompts have a 90-second role cooldown and per-game limits. The free space after retirement can carry an engagement line; it never uses the stream-ending outro as a between-bout announcement. Selecting a voice in settings remains silent, midgame joins avoid a false opening, and existing mute/category/voice/ceremony protection stays active. The original recordings are unchanged. See `docs/cinematic-checkpoint.md` for the measured playback evidence and remaining acceptance work.
 
-A welcome belongs to the livestream session, not every new bout. Session state survives per-game resets, voice changes and reloads in the same tab. Delayed tactical commentary is invalidated when the match or move changes; a capture run does not claim consecutive match wins, and a good move alone does not claim a material comeback. Further same-voice vocabulary is queued in `docs/STREAMER_ENGAGEMENT_FOLLOWUP.md` and is not yet installed.
+A welcome belongs to the livestream session, not every new bout. Session state survives per-game resets, voice changes and reloads in the same tab. Delayed tactical commentary is invalidated when the match or move changes; a capture run does not claim consecutive match wins, and a good move alone does not claim a material comeback. True material pressure and turnarounds use bounded, event-specific narration chances, with the existing cooldowns and game quotas preserved.
 
 National matches retain their seated names, flag palettes and event identity through a result and Stop and review. Turning off auto-rematch controls the next bout; it no longer strips the current board’s flags. A newly started manual-style match still uses its existing classic identity.
 
