@@ -1,0 +1,24 @@
+{
+  "sourceCommit": "b7adbd2bc26faec7a882ad6646cd72a73e27d50e",
+  "htmlBytes": 14292855,
+  "htmlSha256": "9ad47e8ba836fee2f2617c9287a8f306819bfb783fa446aa9feb83e407cab62b",
+  "build": "e78ed80a363367c7edd3469f946940b4e56f4bf1760ba5849aef7a793c48179e",
+  "verifiedAt": "2026-11-07T13:44:00.5465688Z",
+  "vercel": {
+    "url": "https://drafti-afrika.vercel.app/",
+    "status": 200,
+    "bytes": 14292855,
+    "sha256": "9ad47e8ba836fee2f2617c9287a8f306819bfb783fa446aa9feb83e407cab62b",
+    "build": "e78ed80a363367c7edd3469f946940b4e56f4bf1760ba5849aef7a793c48179e",
+    "matchesLocal": true
+  },
+  "pages": {
+    "url": "https://risktaker-tz.github.io/DRAFTI/web/index.html",
+    "status": 200,
+    "bytes": 14292855,
+    "sha256": "9ad47e8ba836fee2f2617c9287a8f306819bfb783fa446aa9feb83e407cab62b",
+    "build": "e78ed80a363367c7edd3469f946940b4e56f4bf1760ba5849aef7a793c48179e",
+    "matchesLocal": true
+  },
+  "mainFastForward": "db456ba40b270e65d81c704ed2e00b92ee0cccd2 -> b7adbd2bc26faec7a882ad6646cd72a73e27d50e"
+}
