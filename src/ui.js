@@ -3344,21 +3344,29 @@ function createSoundAudit(capacity = 12000) {
     const base = G.mode === 'aivai' ? 700 / (G.aiSpeed || 1) : HOP_MS;
     return base * (captures > 1 ? .8 : 1);
   }
-  function animateHopLanding(el, duration) {
+  function animateHopLanding(el, duration, isCapture) {
     if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const body = el.querySelector?.('.body');
     if (!body?.animate) return;
-    // Lift the playing disc above its shadow, then cushion its landing. WAAPI's
-    // individual translate/scale properties preserve the body's 180° board
-    // orientation and the selected material's existing transform styling.
-    const animation = body.animate([
+    // A quiet move stays in contact with the board and compresses only at
+    // push-off/landing. Captures alone rise over the jumped piece. Individual
+    // translate/scale preserve board orientation and material transforms.
+    const frames = isCapture ? [
       { offset: 0, translate: '0 0', scale: '1' },
       { offset: .12, translate: '0 2%', scale: '1.045 .92' },
       { offset: .43, translate: '0 -15%', scale: '.99 1.045' },
       { offset: .72, translate: '0 -10%', scale: '1.02 1.01' },
       { offset: .91, translate: '0 1%', scale: '1.04 .93' },
       { offset: 1, translate: '0 0', scale: '1' }
-    ], { duration, easing: 'cubic-bezier(.3,.7,.4,1)', fill: 'none' });
+    ] : [
+      { offset: 0, translate: '0 0', scale: '1' },
+      { offset: .09, translate: '0 1%', scale: '1.025 .975' },
+      { offset: .2, translate: '0 0', scale: '1' },
+      { offset: .84, translate: '0 0', scale: '1' },
+      { offset: .94, translate: '0 1%', scale: '1.025 .975' },
+      { offset: 1, translate: '0 0', scale: '1' }
+    ];
+    const animation = body.animate(frames, { duration, easing: 'cubic-bezier(.3,.7,.4,1)', fill: 'none' });
     animation.onfinish = () => animation.cancel();
   }
   function captureContactDelay(from,to,captured,n,hopMs) {
@@ -3440,7 +3448,7 @@ function createSoundAudit(capacity = 12000) {
           if (final && captures > 1) SFX_BANK.effect('feast', { vol: Math.min(.48, .24 + captures * .05) });
         }, captureContactDelay(from,to,capIdx,G.rs.n,hopMs));
       }
-      animateHopLanding(p.el, hopMs);
+      animateHopLanding(p.el, hopMs, mv.caps.length > 0);
       await sleep(hopMs);
       if(generation !== gameEpoch)return false;
       if(capIdx===undefined){FX.play('move');SFX_BANK.effect('landing',{vol:.08});}
