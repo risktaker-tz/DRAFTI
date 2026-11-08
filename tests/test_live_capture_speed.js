@@ -49,6 +49,21 @@ async function run(initial,next){
   assert(c.captureContactDelay(35,14,28,8,600)<c.captureContactDelay(35,14,21,8,600),
     'Flying-king capture timing follows the actual victim square, not a fixed point');
 }
+{
+  const animations=[],body={animate:(frames,options)=>{animations.push({frames,options});return{cancel(){}};}};
+  const c={window:{matchMedia:()=>({matches:false})}};vm.createContext(c);
+  vm.runInContext(ui.slice(ui.indexOf('  function animateHopLanding('),ui.indexOf('  function captureRibbon(')),c);
+  for(const [victim,expected] of [[28,1/3],[21,2/3]]){
+    const fraction=c.captureContactFraction(35,14,victim,8);
+    assert(Math.abs(fraction-expected)<1e-12,'Capture apex receives the victim\'s exact path fraction');
+    c.animateHopLanding({querySelector:()=>body},600,true,fraction);
+    const frames=animations.at(-1).frames,apex=frames.find(frame=>frame.translate==='0 -15%');
+    assert(Math.abs(apex.offset-fraction)<1e-12,'The jump apex coincides with the exact capture square ('+victim+')');
+    assert(frames[1].offset<apex.offset&&apex.offset<frames[3].offset&&frames[3].offset<frames[4].offset,
+      'Takeoff squeeze, victim contact, release and cushioned landing remain in physical order');
+  }
+  console.log('PASS hop apex, capture contact and landing remain aligned across flying-king victim positions');
+}
 (async()=>{
   for(const pair of [[2,16],[16,2],[1,4],[4,1],[6,10],[10,8]])await run(...pair);
   console.log('PASS increasing/decreasing speed during one multi-capture updates subsequent hop waits and actual CSS movement durations');
