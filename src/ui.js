@@ -1916,7 +1916,7 @@ function createSoundAudit(capacity = 12000) {
         '  if (d.cmd === "search") {\n' +
         '    const t0 = Date.now();\n' +
         '    const res = E.search(E.RULESETS[d.rsId], new Int8Array(d.board), d.side, d.opts);\n' +
-        '    res.id = d.id; res.cmd = "searchResult"; res.ms = Date.now() - t0;\n' +
+        '    res.id = d.id; res.cmd = "searchResult"; res.ms = Date.now() - t0; res.advantage = !!d.advantage;\n' +
         '    postMessage(res);\n' +
         '  } else if (d.cmd === "classify") {\n' +
         '    const rs = E.RULESETS[d.rsId];\n' +
@@ -2041,6 +2041,62 @@ function createSoundAudit(capacity = 12000) {
   }
   const searchLevelForSide = () => G.mode === 'aivai'
     ? (G.side === IVORY ? G.diffIvory : G.diffEbony) : G.diff;
+  function createArenaAdvantages(mode, auto, ivoryLevel, ebonyLevel, random = Math.random) {
+    const ivoryRank = LEVEL_IDS.indexOf(ivoryLevel), ebonyRank = LEVEL_IDS.indexOf(ebonyLevel);
+    if (mode !== 'aivai' || !auto || ivoryRank < 0 || ebonyRank < 0 || ivoryRank === ebonyRank)
+      return { side: 0, total: 0, used: 0, turns: [] };
+    const side = ivoryRank < ebonyRank ? IVORY : EBONY;
+    const total = Math.floor(random() * 4);
+    const turns = [];
+    if (total) {
+      let turn = 2 + Math.floor(random() * 4);
+      for (let i = 0; i < total; i++) {
+        turns.push(turn);
+        turn += 3 + Math.floor(random() * 6);
+      }
+    }
+    return { side, total, used: 0, turns };
+  }
+  function validArenaAdvantages(value, ivoryLevel = G.diffIvory, ebonyLevel = G.diffEbony) {
+    if (!value || ![IVORY, EBONY].includes(value.side) ||
+        !Number.isInteger(value.total) || value.total < 0 || value.total > 3 ||
+        !Number.isInteger(value.used) || value.used < 0 || value.used > value.total ||
+        !Array.isArray(value.turns) || value.turns.length !== value.total ||
+        value.turns.some((turn, i) => !Number.isInteger(turn) || turn < 1 || turn > 32 || i && turn <= value.turns[i - 1]))
+      return { side: 0, total: 0, used: 0, turns: [] };
+    if (value.total) {
+      const ivoryRank=LEVEL_IDS.indexOf(ivoryLevel),ebonyRank=LEVEL_IDS.indexOf(ebonyLevel);
+      const weaker=ivoryRank<ebonyRank?IVORY:ebonyRank<ivoryRank?EBONY:0;
+      if (!weaker || value.side!==weaker) return { side: 0, total: 0, used: 0, turns: [] };
+    }
+    return { side: value.side, total: value.total, used: value.used, turns: value.turns.slice() };
+  }
+  function arenaAdvantageTurn(side, plyIndex = G.history?.length || 0) {
+    const advantage = G.advantage;
+    if (G.mode !== 'aivai' || !settings.aivaiAuto || !advantage || advantage.side !== side ||
+        advantage.used >= advantage.total) return false;
+    const first = G.rs?.firstSide ?? IVORY;
+    const turn = Math.floor((plyIndex + (side === first ? 2 : 1)) / 2);
+    return advantage.turns[advantage.used] === turn;
+  }
+  function arenaSearchLevelFor(side, plyIndex = G.history?.length || 0) {
+    const own = side === IVORY ? G.diffIvory : G.diffEbony;
+    if (!arenaAdvantageTurn(side, plyIndex)) return own;
+    const other = side === IVORY ? G.diffEbony : G.diffIvory;
+    return LEVEL_IDS[Math.max(LEVEL_IDS.indexOf(own), LEVEL_IDS.indexOf(other))];
+  }
+  function chooseArenaAdvantageMove(res, legal, random = Math.random) {
+    if (!Array.isArray(res?.rootScores) || !legal?.length) return null;
+    const roots = res.rootScores.filter(root => Number.isFinite(root.score) &&
+      legal.some(move => move.from === root.m?.from && move.path.join(',') === root.m?.path?.join(',')));
+    if (!roots.length) return null;
+    const top = Math.max(...roots.map(root => root.score));
+    // Only randomize among routes the stronger search itself rates within
+    // 0.45 pawns of its best line; the advantage never picks a known blunder.
+    const equivalent = roots.filter(root => root.score >= top - 45);
+    const picked = equivalent[Math.min(equivalent.length - 1, Math.floor(random() * equivalent.length))];
+    return legal.find(move => move.from === picked.m.from && move.path.join(',') === picked.m.path.join(',')) || null;
+  }
   function changeDifficulty(levelId) {
     if (!LEVELS[levelId]) return;
     if (G.mode === 'aivai') levelId = LEVEL_IDS[Math.max(3, LEVEL_IDS.indexOf(levelId))];
@@ -2127,22 +2183,23 @@ function createSoundAudit(capacity = 12000) {
     if(G.mode!=='aivai'||G.aiSpeed<=1||G.aiPaused||workerBroken)return;
     const nextBoard=E.applyMove(G.rs,board,move,side),nextSide=-side;
     if(!E.legalMoves(G.rs,nextBoard,nextSide).length)return;
-    const level=nextSide===IVORY?G.diffIvory:G.diffEbony;
+    const plyIndex=(G.history?.length||0)+1;
+    const level=arenaSearchLevelFor(nextSide,plyIndex),advantage=arenaAdvantageTurn(nextSide,plyIndex);
     const opts=arenaPressureOpts(levelOpts(level,styleForSide(nextSide)).opts);
     if(opts.weights)opts.weights.for=nextSide;
     const w=getWorker();if(!w)return;
     const nextNoProgress=E.nextNoProgress(G.rs,board,move,side,noProgress),id=++reqId;
-    preparedSearch={id,epoch:gameEpoch,board:nextBoard,side:nextSide,rsId:G.rsId,level,
+    preparedSearch={id,epoch:gameEpoch,board:nextBoard,side:nextSide,rsId:G.rsId,level,advantage,
       noProgress:nextNoProgress,started:Date.now(),waiting:false,result:null};
     // Search the known next legal position while the current piece is in flight.
     // Exactly the same level options are used, with no reduced time/depth budget.
-    w.postMessage({cmd:'search',id,rsId:G.rsId,side:nextSide,board:nextBoard,noProgress:nextNoProgress,opts});
+    w.postMessage({cmd:'search',id,rsId:G.rsId,side:nextSide,board:nextBoard,noProgress:nextNoProgress,opts,advantage});
   }
   function runSearch(kind) {
     if(kind==='ai'&&preparedSearch){
       const p=preparedSearch;
       if(p.id===reqId&&p.epoch===gameEpoch&&p.rsId===G.rsId&&p.side===G.side&&
-          p.level===searchLevelForSide()&&p.noProgress===G.noProg&&p.board.every((v,i)=>v===G.board[i])){
+          p.level===arenaSearchLevelFor(G.side)&&p.noProgress===G.noProg&&p.board.every((v,i)=>v===G.board[i])){
         thinkStart=p.started;aiPending=true;hintPending=false;p.waiting=true;
         if(p.result){preparedSearch=null;setTimeout(()=>handleSearch(p.result),0);}return;
       }
@@ -2155,14 +2212,15 @@ function createSoundAudit(capacity = 12000) {
     if (kind === 'hint') {
       opts = { budgetMs: 600, maxDepth: 12, jitter: 0 };
     } else {
-      opts = arenaPressureOpts(levelOpts(searchLevelForSide(), style).opts);
+      const level=kind==='ai'?arenaSearchLevelFor(G.side):searchLevelForSide();
+      opts = arenaPressureOpts(levelOpts(level, style).opts);
     }
     // Against a person the computer keeps its thoughts short — the long
     // deep searches belong to the spectator arena, not to your game.
     if (G.mode === 'ai') opts.budgetMs = Math.min(opts.budgetMs, 1300);
     const payload = {
       cmd: 'search', id, rsId: G.rsId, side: G.side, noProgress: G.noProg,
-      board: G.board,
+      board: G.board, advantage:kind==='ai'&&arenaAdvantageTurn(G.side),
       opts,
     };
     if (payload.opts.weights) payload.opts.weights.for = G.side;
@@ -2172,7 +2230,7 @@ function createSoundAudit(capacity = 12000) {
     // fallback: synchronous search off the input path
     setTimeout(() => {
       const res = E.search(E.RULESETS[payload.rsId], payload.board, payload.side, payload.opts);
-      res.id = payload.id;
+      res.id = payload.id; res.advantage = !!payload.advantage;
       handleSearch(res);
     }, 30);
   }
@@ -2223,7 +2281,18 @@ function createSoundAudit(capacity = 12000) {
       clearTimeout(timer);
       const now=Date.now();remaining-=Math.max(0,now-last)*pace;last=now;pace=multiplier();
       if(res.id!==reqId||G.phase!=='idle'||G.mode==='aivai'&&G.aiPaused){if(presentationWait===wait)presentationWait=null;return;}
-      if(remaining<=0){if(presentationWait===wait)presentationWait=null;executeMove(chooseRememberedMove(res,G.legal,searchLevelForSide()));}
+      if(remaining<=0){
+        if(presentationWait===wait)presentationWait=null;
+        const isAdvantage=!!res.advantage&&G.mode==='aivai'&&arenaAdvantageTurn(G.side);
+        const advantageMove=isAdvantage?chooseArenaAdvantageMove(res,G.legal):null;
+        const move=advantageMove||chooseRememberedMove(res,G.legal,arenaSearchLevelFor(G.side));
+        if(isAdvantage){
+          G.advantage.used++;
+          const stronger=G.advantage.side===IVORY?G.diffEbony:G.diffIvory;
+          flashAdvantage('ADVANTAGE · '+seatTag(G.side)+' · '+LEVELS[stronger].name+' search');
+        }
+        executeMove(move);
+      }
       else timer=setTimeout(advance,remaining/pace);
     };
     const wait={retime:advance,cancel(){clearTimeout(timer);if(presentationWait===wait)presentationWait=null;}};
@@ -2525,6 +2594,7 @@ function createSoundAudit(capacity = 12000) {
   let verdictId = 0;
   let labelTimer = 0;
   let whisperTimer = 0;
+  let advantagePopupTimer = 0;
 
   // post-thought reactions: a long think followed by a great (or awful) move
   const PRAISE_POOL = ['v_bigbrain', 'v_worth', 'v_paidoff', 'v_slowsteady', 'v_genius', 'v_masterpiece'];
@@ -2826,6 +2896,16 @@ function createSoundAudit(capacity = 12000) {
     clearTimeout(whisperTimer);
     whisperTimer = setTimeout(() => el.classList.remove('run'), 2400);
   }
+
+  function flashAdvantage(text) {
+    const host=$('stage');if(!host)return;
+    let el=$('advantagePopup');
+    if(!el){el=document.createElement('div');el.id='advantagePopup';el.className='advantage-popup';
+      el.setAttribute('role','status');el.setAttribute('aria-live','polite');host.appendChild(el);}
+    el.textContent=text;void el.offsetWidth;el.classList.add('run');
+    clearTimeout(advantagePopupTimer);advantagePopupTimer=setTimeout(()=>el.classList.remove('run'),1900);
+  }
+  function clearAdvantagePopup(){clearTimeout(advantagePopupTimer);$('advantagePopup')?.classList.remove('run');}
 
   const pick = (arr) => {
     if (!arr || !arr.length) return null;
@@ -4096,6 +4176,7 @@ function createSoundAudit(capacity = 12000) {
       board: Array.from(G.board), history: G.history.map(h => ({...h,boardBefore:Array.from(h.boardBefore)})),
       repetition: [...G.repMap], seatIvory: G.seatIvory, seatEbony: G.seatEbony,
       diffIvory: G.diffIvory, diffEbony: G.diffEbony, pairKey: G.pairKey, pairMeets: G.pairMeets,
+      advantage:validArenaAdvantages(G.advantage,G.diffIvory,G.diffEbony),
       lastMove: G.lastMove, aiPaused: G.aiPaused, firstStrike: G.firstStrike });
   }
   function restoreLeaguePosition(saved) {
@@ -4127,6 +4208,7 @@ function createSoundAudit(capacity = 12000) {
         saved.season != null && saved.season !== arena.season || saved.bout != null && saved.bout !== arena.bouts ||
         !Array.isArray(saved.history) || saved.history.length > 2000 || !Array.isArray(saved.repetition)) return false;
     const position=restoreLeaguePosition(saved);if(!position)return false;
+    clearAdvantagePopup();
     gameEpoch++;
     cancelVerdictWork();
     G.lastMoveAt = 0;
@@ -4137,12 +4219,14 @@ function createSoundAudit(capacity = 12000) {
       nationalMatch:true,arenaSeason:saved.season ?? arena.season,arenaBout:saved.bout ?? arena.bouts,
       seatIvory:saved.seatIvory,seatEbony:saved.seatEbony,diffIvory:saved.diffIvory,diffEbony:saved.diffEbony,
       pairKey:saved.pairKey,pairMeets:saved.pairMeets||1,lastMove:saved.lastMove,firstStrike:!!saved.firstStrike,
+      advantage:validArenaAdvantages(saved.advantage,saved.diffIvory,saved.diffEbony),
       phase:'idle',over:false,result:null,recorded:false,sel:null,hint:null,aiPaused:!!saved.aiPaused,aiSpeed:settings.speed,progressConflict:false,
       capStreak:0,capStreakSide:0,shrimpFired:false});
     Object.assign(G,position);G.lastMove=G.history.length?G.history.at(-1).move:null;
     rememberResumedPairColours(G.seatIvory,G.seatEbony);
     const resumedLevels=arenaSeatLevels(G.seatIvory,G.seatEbony);
     G.diffIvory=LEVEL_IDS[resumedLevels[0]-1];G.diffEbony=LEVEL_IDS[resumedLevels[1]-1];
+    G.advantage=validArenaAdvantages(G.advantage,G.diffIvory,G.diffEbony);
     G.firstStrike=G.history.some(h=>h.move.caps.length);
     G.legal=E.legalMoves(rs,G.board,G.side);overShown=false;
     frameEl.classList.remove('victory-a','victory-b','coronation-a','coronation-b');
@@ -4153,6 +4237,7 @@ function createSoundAudit(capacity = 12000) {
   }
   function newGame() {
     gameEpoch++;
+    clearAdvantagePopup();
     cancelVerdictWork();
     G.progressConflict=false;
     SFX_BANK.resetGame();
@@ -4201,6 +4286,7 @@ function createSoundAudit(capacity = 12000) {
       G.diffIvory = G.diff; G.diffEbony = G.diff;
       G.pairKey = null; G.pairMeets = 0;
     }
+    G.advantage=createArenaAdvantages(G.mode,settings.aivaiAuto,G.diffIvory,G.diffEbony);
     doomClear();
     buildBoard();
     rebuildPieces();

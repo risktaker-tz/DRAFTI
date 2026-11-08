@@ -624,6 +624,22 @@ body.hv .piece.ebony .body {
   text-shadow: 0 0 18px rgba(255, 200, 90, .85), 0 2px 0 rgba(60, 30, 0, .65),
     0 0 46px rgba(255, 170, 40, .5);
 }
+.advantage-popup {
+  position: absolute; left: 50%; top: 30%; z-index: 52; pointer-events: none;
+  max-width: calc(100% - 24px); padding: 9px 18px; border: 1px solid rgba(255, 220, 151, .9);
+  border-radius: 999px; color: #fff0c8; background: linear-gradient(135deg, rgba(40, 28, 12, .96), rgba(10, 16, 28, .96));
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .42), 0 0 25px rgba(242, 185, 76, .3), inset 0 1px rgba(255,255,255,.16);
+  font-size: clamp(12px, 2.6vw, 18px); font-weight: 850; letter-spacing: .055em;
+  line-height: 1.25; text-align: center; text-shadow: 0 1px 3px #000;
+  opacity: 0; transform: translate(-50%, -50%) scale(.82);
+}
+.advantage-popup.run { animation: advantagePop 1.85s cubic-bezier(.2,.75,.25,1) forwards; }
+@keyframes advantagePop {
+  0% { opacity: 0; transform: translate(-50%, -42%) scale(.78); }
+  16% { opacity: 1; transform: translate(-50%, -50%) scale(1.04); }
+  24%, 76% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -64%) scale(.97); }
+}
 .event-label.comedy {
   color: #ffb46b;
   text-shadow: 0 2px 0 rgba(50, 10, 0, .7), 0 0 22px rgba(255, 110, 40, .55);
@@ -1325,6 +1341,7 @@ body.fx-wood .board-frame { background-image: repeating-linear-gradient(93deg, t
   .modal, .cer-card { animation: none !important; }
   .banner.thinking #bannerText::after { content: '…'; animation: none; }
   .event-label.run { animation: none; opacity: 1; transform: translate(-50%, 0) scale(1); }
+  .advantage-popup.run { animation: none; opacity: 1; transform: translate(-50%, -50%) scale(1); }
   #whisperLabel.run { animation: none; opacity: 1; transform: translateX(-50%); }
   .shockwave, .capture-corner { display: none !important; }
   .board-frame.thump .board-inner,

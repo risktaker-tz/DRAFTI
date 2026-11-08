@@ -25,7 +25,7 @@ function createHarness(seed=0xD4AF71,savedSettings={},checkpoint=null){
   vm.runInContext(slice('  function chooseLadderMove(','  function runSearch('),context);
   vm.runInContext(slice('  let manualRetire =','  // the retirement ceremony:'),context);
   vm.runInContext(slice('  function lowMaterialLimit(','  function checkGameEnd('),context);
-  vm.runInContext('this.api={ROSTER,STYLES,LEVELS,LEVEL_IDS,rosterLevel,levelOpts,chooseLadderMove,searchLevelForSide,arenaPressureOpts,arenaSeatLevels,rememberResumedPairColours,seatArenaBout,guardArena,ladderQueue,applyArenaResult,stageOfBout,arena,arenaProgress,seasonHonours}; this.aiName=id=>rosterById(id).name;',context);
+  vm.runInContext('this.api={ROSTER,STYLES,LEVELS,LEVEL_IDS,rosterLevel,levelOpts,chooseLadderMove,searchLevelForSide,createArenaAdvantages,validArenaAdvantages,arenaAdvantageTurn,arenaSearchLevelFor,chooseArenaAdvantageMove,arenaPressureOpts,arenaSeatLevels,rememberResumedPairColours,seatArenaBout,guardArena,ladderQueue,applyArenaResult,stageOfBout,arena,arenaProgress,seasonHonours}; this.aiName=id=>rosterById(id).name;',context);
   const fingerprint=crypto.createHash('sha256').update(JSON.stringify({
     engine:fs.readFileSync(path.join(__dirname,'../src/engine.js'),'utf8').replace(/\r\n/g,'\n'),
     levels:context.api.LEVELS,styles:context.api.STYLES,roster:context.api.ROSTER,
@@ -47,6 +47,8 @@ function createHarness(seed=0xD4AF71,savedSettings={},checkpoint=null){
 function playGame(h,{rsId='american',styles,levels,maxPlies=360,checkpoint=null,onProgress=null,houseDraws=false}={}){
   const {E,G,api}=h,rs=E.RULESETS[rsId];let board=checkpoint?Int8Array.from(checkpoint.board):E.setupBoard(rs),side=checkpoint?checkpoint.side:rs.firstSide,noProgress=checkpoint?checkpoint.noProgress:0;
   const seen=new Map(checkpoint?.seen||[]),history=checkpoint?.history||[];let nodes=checkpoint?.nodes||0,deepest=checkpoint?.deepest||0;
+  G.rs=rs;G.rsId=rsId;G.history=history;
+  G.advantage=checkpoint?.advantage?api.validArenaAdvantages(checkpoint.advantage):api.createArenaAdvantages('aivai',h.settings.aivaiAuto,G.diffIvory,G.diffEbony,h.random);
   for(let ply=checkpoint?.ply||0;ply<maxPlies;ply++){
     const legal=E.legalMoves(rs,board,side);
     if(!legal.length)return {winner:-side,plies:ply,nodes,deepest,reason:'no legal moves'};
@@ -55,8 +57,8 @@ function playGame(h,{rsId='american',styles,levels,maxPlies=360,checkpoint=null,
     if(!houseDraws&&standardDrawDue)return {winner:0,plies:ply,nodes,deepest,reason:visits>=3?'threefold repetition':'move limit'};
     if(houseDraws){const end=h.lowMaterialCountdown(board,history,legal,{rs,side,forceCheck:standardDrawDue});
       if(end&&!end.scoringNext&&!end.winningNext&&!end.analysisLimited&&(end.remaining<=0||standardDrawDue))return {winner:0,plies:ply,nodes,deepest,reason:'protected low-material house draw'};}
-    G.rs=rs;G.rsId=rsId;G.board=board;G.side=side;G.repMap=seen;
-    const index=side===E.IVORY?0:1,levelId=levels?levels[index]:api.searchLevelForSide();
+    G.rs=rs;G.rsId=rsId;G.board=board;G.side=side;G.repMap=seen;G.history=history;
+    const index=side===E.IVORY?0:1,advantage=api.arenaAdvantageTurn(side,ply),levelId=levels?levels[index]:api.arenaSearchLevelFor(side,ply);
     const style=styles?styles[index]:api.STYLES.find(s=>s.id===api.ROSTER.find(r=>r.id===(index===0?G.seatIvory:G.seatEbony)).styleId);
     const opts=api.arenaPressureOpts(api.levelOpts(levelId,style).opts);
     if(opts.weights)opts.weights.for=side;
@@ -64,13 +66,15 @@ function playGame(h,{rsId='american',styles,levels,maxPlies=360,checkpoint=null,
     // searches without an automatic draw counter. Keep that same boundary.
     opts.noProgress=houseDraws?0:noProgress;
     const result=E.search(rs,board,side,opts);
-    const move=h.chooseMove(result,legal,levelId);
+    const advantageMove=advantage?api.chooseArenaAdvantageMove(result,legal,h.random):null;
+    const move=advantageMove||h.chooseMove(result,legal,levelId);
     if(!move)throw Error('Production ladder returned no legal move');
+    if(advantage)G.advantage.used++;
     nodes+=result.nodes;deepest=Math.max(deepest,result.depth);
     noProgress=E.nextNoProgress(rs,board,move,side,noProgress);
     history.push({boardBefore:Array.from(board),move,side});
     board=E.applyMove(rs,board,move,side);side=-side;
-    if(onProgress)onProgress({ply:ply+1,board:Array.from(board),side,noProgress,seen:[...seen],nodes,deepest,history});
+    if(onProgress)onProgress({ply:ply+1,board:Array.from(board),side,noProgress,seen:[...seen],nodes,deepest,history,advantage:G.advantage});
   }
   return {winner:null,unresolved:true,plies:maxPlies,nodes,deepest,reason:'simulation safety cap; no game result assigned'};
 }

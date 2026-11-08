@@ -12,7 +12,7 @@ const move={from:0,path:[0,9],caps:[]};
 const c={G:{mode:'aivai',phase:'thinking',legal:[move,{from:1,path:[1,10],caps:[]},{from:2,path:[2,11],caps:[]}],aiSpeed:1},
   reqId:1,hintPending:false,aiPending:true,settings:{humanlike:false},thinkStart:0,presentationWait:null,clearTimeout(){},
   Date:{now:()=>clock},Math:Object.assign(Object.create(Math),{random:()=>.9}),setTimeout:(fn,ms)=>{delay=ms;pending=fn;},
-  chooseRememberedMove:r=>r.best,searchLevelForSide:()=> 'l5',executeMove:()=>executed++};
+  chooseRememberedMove:r=>r.best,searchLevelForSide:()=> 'l5',arenaSearchLevelFor:()=> 'l5',arenaAdvantageTurn:()=>false,executeMove:()=>executed++};
 vm.createContext(c);
 vm.runInContext(ui.slice(ui.indexOf('  function handleSearch('),ui.indexOf('  // ---------------- board DOM')),c);
 for(const mode of ['aivai','ai'])for(const speed of [1,2,4,6,8,10,16]) {
@@ -46,7 +46,7 @@ for (const [speed, baseline] of Object.entries(watchable)) {
 }
 h.G.mode='ai';assert.equal(h.moveHopMs(0),200,'Spectator speed cannot speed up human gestures');
 const sent=[];const s={G:{mode:'aivai',side:1,rsId:'american',noProg:0,board:[1,-1]},reqId:0,Date:{now:()=>0},
-  styleForSide:()=>null,searchLevelForSide:()=> 'l10',levelOpts:()=>({opts:{budgetMs:5200,maxDepth:24}}),
+  styleForSide:()=>null,searchLevelForSide:()=> 'l10',arenaSearchLevelFor:()=> 'l10',arenaAdvantageTurn:()=>false,levelOpts:()=>({opts:{budgetMs:5200,maxDepth:24}}),
   arenaPressureOpts:o=>o,getWorker:()=>({postMessage:p=>sent.push(p)}),settings:{humanlike:false},preparedSearch:null};
 vm.createContext(s);vm.runInContext(ui.slice(ui.indexOf('  function runSearch('),ui.indexOf('  function handleSearch(')),s);
 for(const speed of [1,16]){s.G.aiSpeed=speed;s.runSearch('ai');}
