@@ -125,11 +125,14 @@ def audit(palettes, rims, target=3):
 
 
 def main():
+    target = 3.0
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--report', type=Path, default=ROOT / 'docs/board-contrast-audit.json')
     parser.add_argument('--rendered-report', type=Path,
-                        default=ROOT / 'docs/rendered-contrast-release-final-20261108.json')
+                        default=ROOT / 'docs/contrast-raster-evidence-20261108/contrast-raster-analysis-exact-20261108.json')
     args = parser.parse_args()
+    args.report = args.report.resolve()
+    args.rendered_report = args.rendered_report.resolve()
     rims = keyline_colours()
     rows = audit(themes(), rims)
     if len(rows) != 21 or len({r['id'] for r in rows}) != 21:
@@ -138,11 +141,21 @@ def main():
     html = (ROOT / 'web/index.html').read_bytes()
     build = re.search(rb'name="drafti-build" content="([a-f0-9]{64})"', html)
     if (not build or rendered.get('buildId') != build.group(1).decode('ascii') or
-            rendered.get('htmlSha256') != hashlib.sha256(html).hexdigest() or
-            rendered.get('cssSha256') != hashlib.sha256((ROOT / 'src/styles.css').read_bytes()).hexdigest()):
+            rendered.get('sourceHtmlSha256') != hashlib.sha256(html).hexdigest() or
+            rendered.get('sourceStylesSha256') != hashlib.sha256((ROOT / 'src/styles.css').read_bytes()).hexdigest()):
         raise ValueError('Rendered contrast evidence does not match the current source/build; rerender all themes')
-    if (rendered.get('captures') != 336 or rendered.get('themeCount') != 21 or
-            not rendered.get('fullThemeCoverage') or rendered.get('squareFailCases') or rendered.get('rimFailCases')):
+    expected_cases = {(theme['id'], material, hv)
+                      for theme in themes() for material in
+                      ('theme', 'tourney', 'woodturn', 'ivoryjet', 'bakelite', 'steel', 'glass', 'stone')
+                      for hv in (False, True)}
+    cases = rendered.get('cases', [])
+    actual_cases = {(case.get('theme'), case.get('material'), case.get('hv')) for case in cases}
+    measured_failures = [case for case in cases
+                         if case.get('squareP10Ratio', 0) < target or case.get('edgeP10Ratio', 0) < target]
+    if (rendered.get('captures') != 336 or rendered.get('caseCount') != 336 or
+            rendered.get('themeCount') != 21 or not rendered.get('fullThemeCoverage') or
+            actual_cases != expected_cases or rendered.get('squareFailCases') or rendered.get('rimFailCases') or
+            measured_failures):
         raise ValueError('The complete 336-case raster matrix must have zero square and piece-rim failures')
     report = {'schema': 3, 'sourceUiSha256': hashlib.sha256((ROOT / 'src/ui.js').read_bytes()).hexdigest(),
               'sourceCssSha256': hashlib.sha256((ROOT / 'src/styles.css').read_bytes()).hexdigest(),
@@ -153,11 +166,11 @@ def main():
               'acceptanceFailures': sum(r['squareAndSilhouetteFailures'] for r in rows),
               'facePaintBelow3Diagnostics': sum(r['facePaintBelow3'] for r in rows),
               'renderedEvidence': {'path': str(args.rendered_report.relative_to(ROOT)), 'buildId': rendered['buildId'],
-                  'htmlSha256': rendered['htmlSha256'], 'cssSha256': rendered['cssSha256'],
+                  'htmlSha256': rendered['sourceHtmlSha256'], 'cssSha256': rendered['sourceStylesSha256'],
                   'captures': rendered['captures'], 'themes': rendered['themeCount'],
                   'squareFailCases': rendered['squareFailCases'], 'rimFailCases': rendered['rimFailCases'],
-                  'worstSquareP10': min(row['squareP10'] for row in rendered['rows']),
-                  'worstPieceRimP10': min(row['rimP10'] for row in rendered['rows'])}}
+                  'worstSquareP10': min(row['squareP10Ratio'] for row in cases),
+                  'worstPieceRimP10': min(row['edgeP10Ratio'] for row in cases)}}
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
     for row in rows:

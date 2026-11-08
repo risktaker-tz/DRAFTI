@@ -1,8 +1,8 @@
 'use strict';
-// Analyze real board screenshots produced by render_contrast_matrix.ps1.
+// Analyze real board screenshots produced by render_contrast_matrix_node.js.
 // This is a visual-screening measure, not a WCAG text-contrast claim: it
-// compares raster pixels at the disc's visible rim with the board square just
-// outside it, then preserves the complete matrix in contact sheets for review.
+// measures the outer light keyline against the same playable square, and keeps
+// painted-face legibility as a separate diagnostic.
 const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
@@ -51,6 +51,18 @@ function pieceCells() {
   if(out.length!==24) throw new Error('Opening piece sample count changed');
   return out;
 }
+function renderedSquareContrast(data) {
+  const light=[], dark=[];
+  for(let row=0;row<n;row++) for(let col=0;col<n;col++) {
+    if((row+col)%2===1 && (row<3||row>=5)) continue; // occupied opening discs
+    const value=pixel(data,col*cell+cell/2,row*cell+cell/2);
+    ((row+col)%2===1?dark:light).push(value);
+  }
+  const pairs=[];
+  for(const a of light) for(const b of dark) pairs.push(ratio(a,b));
+  return {minimum:+Math.min(...pairs).toFixed(3),p10:+quantile([...pairs],.10).toFixed(3),
+    median:+median([...pairs]).toFixed(3),samples:pairs.length};
+}
 const cases=[];
 async function main() {
   const sheets={false:[],true:[]};
@@ -61,17 +73,26 @@ async function main() {
         const name=`${theme}-${material}-${hv?'hv':'normal'}.png`;
         const raw=await imageFor(name);
         const pairs=[],facePairs=[];
+        const squareContrast=renderedSquareContrast(raw);
         for(const {row,col} of pieceCells()) {
           const cx=col*cell+cell/2, cy=row*cell+cell/2;
           const emptyDarkRow=(3+col)%2===1?3:4;
           facePairs.push(ratio(pixel(raw,cx,cy),pixel(raw,cx,emptyDarkRow*cell+cell/2)));
           for(let angle=0;angle<Math.PI*2;angle+=Math.PI/16) {
-            const edge=pixel(raw,cx+Math.cos(angle)*cell*.34,cy+Math.sin(angle)*cell*.34);
-            const square=pixel(raw,cx+Math.cos(angle)*cell*.46,cy+Math.sin(angle)*cell*.46);
-            pairs.push(ratio(edge,square));
+            const square=pixel(raw,cx+Math.cos(angle)*cell*.47,cy+Math.sin(angle)*cell*.47);
+            // At 514px, the CSS dark border and light outline occupy several
+            // raster pixels around the 84%-diameter disc. Use the strongest
+            // measured pixel patch in that narrow silhouette band; a single
+            // radius can land between the two strokes and miss both.
+            const band=[.395,.405,.415,.425,.435,.445,.455,.465].map(radius=>pixel(raw,
+              cx+Math.cos(angle)*cell*radius,cy+Math.sin(angle)*cell*radius));
+            pairs.push(Math.max(...band.map(edge=>ratio(edge,square))));
           }
         }
         const screen={theme,material,hv,file:name,bytes:fs.statSync(path.join(directory,name)).size,
+          squareSamples:squareContrast.samples,squareMinRatio:squareContrast.minimum,
+          squareP10Ratio:squareContrast.p10,squareMedianRatio:squareContrast.median,
+          squareUnder3:squareContrast.p10<3,
           pieceFaceSamples:facePairs.length,faceMinRatio:+Math.min(...facePairs).toFixed(3),
           faceP10Ratio:+quantile([...facePairs],.10).toFixed(3),faceMedianRatio:+median([...facePairs]).toFixed(3),
           faceUnder3:facePairs.filter(value=>value<3).length,
@@ -89,8 +110,11 @@ async function main() {
   const sourceHtmlSha256=crypto.createHash('sha256').update(html).digest('hex');
   const sourceStylesSha256=crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'src/styles.css'))).digest('hex');
   const buildId=/name="drafti-build" content="([a-f0-9]{64})"/.exec(html.toString('utf8'))?.[1]||null;
-  const report={schema:1,sourceCommit,sourceStylesSha256,buildId,sourceHtmlSha256,createdAt:new Date().toISOString(),scope:'336 actual 8x8 opening-board element screenshots: 21 themes × 8 piece surfaces × High visibility on/off. Center-face versus empty playable-square contrast is a conservative legibility screen; rim measurements are diagnostic only because gloss, engraved grooves, shadows and the fine dual-tone keyline intentionally vary. Contact sheets retain visual context. Does not certify flags, crowns, move/capture animations or reduced motion.',viewport:'isolated Chromium, board element rasterized at 514×514 including 1px frame; inner 512×512 board sampled.',sampling:'For each of 24 opening discs, compare the 3×3 median face-center patch with an empty playable-square center on the same column. Also compare 32 rim/background angular pairs at 0.34- and 0.46-cell radii.',threshold:3,captures:files.length,caseCount:cases.length,under3Cases:cases.filter(x=>x.faceP10Ratio<3).length,weakest:cases.slice().sort((a,b)=>a.faceP10Ratio-b.faceP10Ratio).slice(0,30),cases};
-  fs.writeFileSync(path.join(output,'contrast-raster-analysis-20261107.json'),JSON.stringify(report,null,2)+'\n');
+  const themeCoverage=new Set(cases.map(x=>x.theme)).size;
+  const squareFailCases=cases.filter(x=>x.squareP10Ratio<3).length;
+  const rimFailCases=cases.filter(x=>x.edgeP10Ratio<3).length;
+  const report={schema:4,sourceCommit,sourceStylesSha256,buildId,sourceHtmlSha256,createdAt:new Date().toISOString(),scope:'336 actual 8x8 opening-board element screenshots: 21 themes × 8 piece surfaces × High visibility on/off. The square check compares rendered empty light/dark squares. The silhouette check measures best local edge contrast in the narrow dual-keyline band against each occupied playable square; painted-face contrast remains a diagnostic. Contact sheets retain visual context. Does not certify flags, crowns, move/capture animations or reduced motion.',viewport:'isolated Chromium, board element rasterized at 514×514 including 1px frame; inner 512×512 board sampled.',sampling:'For every case, compare all rendered empty light/dark square-center patches; square acceptance uses their 10th percentile to discount individual antialiasing/texture outliers and is cross-checked against every CSS gradient endpoint. For each of 24 opening discs, compare the 3×3 median face-center patch with an empty playable-square center on the same column. At each of 32 perimeter angles, sample median RGB patches at 0.395–0.465 cell radii and record the best contrast against that same dark playable square at 0.47 cell radii.',threshold:3,captures:files.length,caseCount:cases.length,themeCount:themeCoverage,fullThemeCoverage:themeCoverage===themes.length&&new Set(cases.map(x=>x.theme+'|'+x.material+'|'+x.hv)).size===expected,squareFailCases,rimFailCases,under3Cases:rimFailCases,weakest:cases.slice().sort((a,b)=>Math.min(a.edgeP10Ratio,a.squareP10Ratio)-Math.min(b.edgeP10Ratio,b.squareP10Ratio)).slice(0,30),cases};
+  fs.writeFileSync(path.join(output,'contrast-raster-analysis-exact-20261108.json'),JSON.stringify(report,null,2)+'\n');
   const sheetWidth=8*122+120, rowHeight=126, header=52, sheetHeight=header+themes.length*rowHeight;
   const font='Arial, sans-serif';
   for(const hv of [false,true]) {
@@ -110,9 +134,9 @@ async function main() {
         layers.push({input:boardPng,left:120+c*122+5,top:y+7});
       }
     }
-    const out=path.join(output,`contrast-raster-contact-${hv?'hv':'normal'}-20261107.png`);
+    const out=path.join(output,`contrast-raster-contact-${hv?'hv':'normal'}-exact-20261108.png`);
     await sharp({create:{width:sheetWidth,height:sheetHeight,channels:3,background:'#111827'}}).composite(layers).png().toFile(out);
   }
-  console.log(JSON.stringify({captures:files.length,cases:cases.length,under3Cases:report.under3Cases,weakest:report.weakest.slice(0,10),contactSheets:['contrast-raster-contact-normal-20261107.png','contrast-raster-contact-hv-20261107.png']}));
+  console.log(JSON.stringify({captures:files.length,cases:cases.length,edgeUnder3Cases:report.under3Cases,weakest:report.weakest.slice(0,10),contactSheets:['contrast-raster-contact-normal-exact-20261108.png','contrast-raster-contact-hv-exact-20261108.png']}));
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});

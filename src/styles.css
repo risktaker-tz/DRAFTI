@@ -1238,6 +1238,19 @@ body.pieces-stone .piece .body::before { opacity: .75; }
   outline: var(--disc-depth) solid rgba(255, 252, 243, .98); outline-offset: 0;
   pointer-events: none; z-index: 3;
 }
+/* Glass refracts the board beneath its color; give its clear rim a tiny,
+   board-scaled boost so it stays legible without changing the glass surface. */
+body.pieces-glass .piece .body::after {
+  border-width: calc(var(--disc-keyline) + clamp(.1px, calc(var(--board-span) * .0008), .4px));
+  outline-width: calc(var(--disc-depth) + clamp(.1px, calc(var(--board-span) * .0006), .32px));
+}
+/* The translucent neon finish softens its own silhouette under High visibility.
+   Reinforce its two-tone rim slightly so it keeps the same low-vision edge
+   clarity as opaque materials without changing its glass face or glow. */
+body.hv.pieces-glass .piece .body::after {
+  border-width: calc(var(--disc-keyline) + clamp(.25px, calc(var(--board-span) * .0012), .65px));
+  outline-width: calc(var(--disc-depth) + clamp(.25px, calc(var(--board-span) * .0008), .5px));
+}
 .piece .ring::before,.piece .ring::after {
   content:'';position:absolute;border-radius:50%;pointer-events:none;
 }

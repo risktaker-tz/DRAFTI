@@ -14,6 +14,10 @@ assert.match(css, /--disc-depth:\s*clamp\(1\.5px, calc\(var\(--board-span\) \* \
   'the light side of the rim remains visible on small and full-size boards');
 assert.match(css, /\.piece \.body::after\s*\{[^}]*border:\s*var\(--disc-keyline\) solid rgba\(5, 8, 14, \.98\);[^}]*outline:\s*var\(--disc-depth\) solid rgba\(255, 252, 243, \.98\)/s,
   'every piece has a size-aware dark/light keyline that reads on either square');
+assert.match(css, /body\.pieces-glass \.piece \.body::after\s*\{[^}]*border-width:\s*calc\(var\(--disc-keyline\) \+ clamp\(\.1px, calc\(var\(--board-span\) \* \.0008\), \.4px\)\);[^}]*outline-width:\s*calc\(var\(--disc-depth\) \+ clamp\(\.1px, calc\(var\(--board-span\) \* \.0006\), \.32px\)\)/s,
+  'translucent material keeps a subtly reinforced, responsive silhouette');
+assert.match(css, /body\.hv\.pieces-glass \.piece \.body::after\s*\{[^}]*border-width:\s*calc\(var\(--disc-keyline\) \+ clamp\(\.25px, calc\(var\(--board-span\) \* \.0012\), \.65px\)\);[^}]*outline-width:\s*calc\(var\(--disc-depth\) \+ clamp\(\.25px, calc\(var\(--board-span\) \* \.0008\), \.5px\)\)/s,
+  'high-visibility Neon Glass strengthens only its responsive dual-tone rim');
 assert.match(css, /body\.flags-on \.pieces \.piece\.ivory \.body\s*\{[^}]*border-color:\s*var\(--side-a-edge/s,
   'the outline treatment does not replace flag-specific piece edges');
 assert.match(css, /body\.flags-on \.pieces \.piece\.ebony \.body\s*\{[^}]*border-color:\s*var\(--side-b-edge/s,
