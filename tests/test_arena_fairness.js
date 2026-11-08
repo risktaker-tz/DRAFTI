@@ -51,6 +51,6 @@ for(const style of h.api.STYLES){
   const fixed=createHarness(123);efforts.push(fixed.api.levelOpts('l5',style).opts);
 }
 check(new Set(efforts.map(o=>o.budgetMs)).size===1,'Personality cannot change search time');
-check(efforts.every(o=>o.maxDepth===10&&o.jitter===6),'Shared rung has identical depth and jitter');
+check(efforts.every(o=>o.maxDepth===10&&o.jitter===0),'Expert uses deterministic evaluation with identical search depth for every style');
 check(efforts.every(o=>Math.abs(o.weights.trade-1)<=.031&&Math.abs(o.weights.king-1)<=.091),'Material preference remains bounded');
 console.log(checks+' arena fairness checks passed: full roster, seat symmetry, progression, correct ladder and equal search effort');

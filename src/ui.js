@@ -191,19 +191,18 @@ function createSoundAudit(capacity = 12000) {
   const CROWN = '<svg class="crown" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 18h17l1.4-9.2-5.4 3.6L12 5.2 7.5 12.4 2.1 8.8z" stroke-width="1"/></svg>';
 
   // ---------------- difficulty ladder ----------------
-  // Ten rungs from first-timer to superhuman. `blunder` is the chance the
-  // engine throws in a deliberately random move, `pool` is how far (in
-  // centipawns) from the best move alternatives stay attractive — together
-  // they make the low rungs human-beatable without making them silly.
+  // Ten rungs from first-timer to superhuman. Intentional randomness belongs
+  // only to the learning rungs; Expert and above use deterministic evaluation
+  // so a high-level engine never loses accuracy to score noise.
   const LEVELS = {
     l1: { name: 'Beginner',       budgetMs: 90,   maxDepth: 2,  jitter: 45, blunder: .35, pool: 160 },
     l2: { name: 'Novice',         budgetMs: 120,  maxDepth: 3,  jitter: 30, blunder: .22, pool: 120 },
     l3: { name: 'Casual',         budgetMs: 220,  maxDepth: 5,  jitter: 16, blunder: .12, pool: 80 },
     l4: { name: 'Club',           budgetMs: 320,  maxDepth: 8,  jitter: 9,  blunder: .06, pool: 55 },
-    l5: { name: 'Expert',         budgetMs: 420,  maxDepth: 10, jitter: 6,  blunder: .03, pool: 0 },
-    l6: { name: 'Master',         budgetMs: 700,  maxDepth: 13, jitter: 4,  blunder: .015, pool: 0 },
-    l7: { name: 'Grandmaster',    budgetMs: 1200, maxDepth: 18, jitter: 2,  blunder: 0,   pool: 0 },
-    l8: { name: 'Super GM',       budgetMs: 1800, maxDepth: 22, jitter: 1,  blunder: 0,   pool: 0 },
+    l5: { name: 'Expert',         budgetMs: 420,  maxDepth: 10, jitter: 0,  blunder: 0,   pool: 0 },
+    l6: { name: 'Master',         budgetMs: 700,  maxDepth: 13, jitter: 0,  blunder: 0,   pool: 0 },
+    l7: { name: 'Grandmaster',    budgetMs: 1200, maxDepth: 18, jitter: 0,  blunder: 0,   pool: 0 },
+    l8: { name: 'Super GM',       budgetMs: 1800, maxDepth: 22, jitter: 0,  blunder: 0,   pool: 0 },
     l9: { name: 'World Champion', budgetMs: 2600, maxDepth: 26, jitter: 0,  blunder: 0,   pool: 0 },
     l10: { name: 'The Machine',   budgetMs: 4200, maxDepth: 30, jitter: 0,  blunder: 0,   pool: 0 },
   };
