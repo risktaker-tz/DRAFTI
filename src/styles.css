@@ -1318,6 +1318,14 @@ body.fx-wood .board-frame { background-image: repeating-linear-gradient(93deg, t
 @media (prefers-reduced-motion: reduce) {
   .physical-burst { display: none; }
   .sq.last::after { animation: none; opacity: .24; }
+  .sq.target::before, .sq.hint::after, .sq.landing::after,
+  .piece.threat .body, .piece.doomed .body::after, .clock-pill.urgent,
+  .piece:has(.hint-wink-shake), .piece.appear,
+  .banner.thinking .dot, body.think-a .piece.ivory .body, body.think-b .piece.ebony .body,
+  .modal, .cer-card { animation: none !important; }
+  .banner.thinking #bannerText::after { content: '…'; animation: none; }
+  .event-label.run { animation: none; opacity: 1; transform: translate(-50%, 0) scale(1); }
+  #whisperLabel.run { animation: none; opacity: 1; transform: translateX(-50%); }
   .shockwave, .capture-corner { display: none !important; }
   .board-frame.thump .board-inner,
   .board-frame.shake-m .board-inner, .board-frame.shake-l .board-inner,

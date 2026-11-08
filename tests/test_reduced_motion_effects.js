@@ -31,4 +31,10 @@ assert(css.includes('.shockwave, .capture-corner { display: none !important; }')
   'CSS also suppresses transient rings and corner sparkles for reduced-motion users');
 assert(css.includes('.board-frame.doomed::after { animation: none !important; }'),
   'The doom vignette remains visible without pulsing');
+assert(css.includes('.event-label.run { animation: none; opacity: 1; transform: translate(-50%, 0) scale(1); }') &&
+  css.includes('#whisperLabel.run { animation: none; opacity: 1; transform: translateX(-50%); }'),
+  'Reduced motion leaves event captions visible without their pop/fly animation');
+assert(css.includes(".banner.thinking #bannerText::after { content: '…'; animation: none; }") &&
+  css.includes('.sq.target::before, .sq.hint::after, .sq.landing::after,'),
+  'Thinking status and move cues stay legible without pulsing');
 console.log('PASS reduced-motion guards keep functional highlights while suppressing decorative board motion');

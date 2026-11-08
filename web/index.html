@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="drafti-build" content="b07ac6bffc7ee50ca7db7e55b6e9633e802374c543b8681aa5c7b55dcbae84f3">
+<meta name="drafti-build" content="5476bbb026012874e32a1fa783e685ccfd9937e1f2d73322850242b22e5477fa">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="apple-touch-icon" href="./icon-192.png">
@@ -1332,6 +1332,14 @@ body.fx-wood .board-frame { background-image: repeating-linear-gradient(93deg, t
 @media (prefers-reduced-motion: reduce) {
   .physical-burst { display: none; }
   .sq.last::after { animation: none; opacity: .24; }
+  .sq.target::before, .sq.hint::after, .sq.landing::after,
+  .piece.threat .body, .piece.doomed .body::after, .clock-pill.urgent,
+  .piece:has(.hint-wink-shake), .piece.appear,
+  .banner.thinking .dot, body.think-a .piece.ivory .body, body.think-b .piece.ebony .body,
+  .modal, .cer-card { animation: none !important; }
+  .banner.thinking #bannerText::after { content: '…'; animation: none; }
+  .event-label.run { animation: none; opacity: 1; transform: translate(-50%, 0) scale(1); }
+  #whisperLabel.run { animation: none; opacity: 1; transform: translateX(-50%); }
   .shockwave, .capture-corner { display: none !important; }
   .board-frame.thump .board-inner,
   .board-frame.shake-m .board-inner, .board-frame.shake-l .board-inner,
