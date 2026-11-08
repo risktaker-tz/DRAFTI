@@ -25,6 +25,7 @@ def main() -> None:
         ("/*__AUDIO__*/", "audio.manifest.js"),
         ("/*__ENGINE__*/", "engine.js"),
         ("/*__AUDIENCE__*/", "audience.js"),
+        ("/*__STREAMER_PACK__*/", "streamer_pack.js"),
         ("/*__UI__*/", "ui.js"),
         ("/*__UPDATES__*/", "app_updates.js"),
         ("/*__CINEMA_STYLES__*/", "cinematic_preview.css"),
@@ -43,8 +44,7 @@ def main() -> None:
     streamer_count = sync_streamer_vocabulary()
     stamp = hashlib.sha256(html.encode('utf-8'))
     stamp.update(('\0sw\0' + sw).encode('utf-8'))
-    for name in ('manifest.webmanifest','icon.svg','icon-192.png','icon-512.png',
-                 'streamer-vocabulary/manifest.json','audience-vibes/manifest.json'):
+    for name in ('manifest.webmanifest','icon.svg','icon-192.png','icon-512.png'):
         filename = ROOT / 'web' / name
         if filename.exists():
             stamp.update(('\0' + name + '\0').encode('utf-8'))

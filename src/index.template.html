@@ -350,6 +350,16 @@
         <label class="seg-label" for="audienceVolume">Audience volume <output id="audienceVolumeValue">35%</output></label>
         <input type="range" id="audienceVolume" min="0" max="100" value="35">
       </div>
+      <div class="seg-row offline-pack-card">
+        <span class="seg-label">Offline extras</span>
+        <p class="setup-note">The board, rules, AI, themes, flags and core sound effects come with the game and work offline. These optional packs add extras; update checks for the latest recordings when selected.</p>
+        <label class="offline-pack-choice"><input type="checkbox" id="offlinePackStreamer"> Streamer voices · 300 lines · about 8 MB</label>
+        <label class="offline-pack-choice"><input type="checkbox" id="offlinePackAudience"> Audience Vibes · optional crowd recordings</label>
+        <button class="btn" id="btnDownloadOfflinePacks">Download / update selected packs</button>
+        <button class="btn" id="btnStreamerPackRemove">Remove streamer pack</button>
+        <p class="setup-note" id="streamerStatus" role="status" aria-live="polite">Optional streamer voice pack · not downloaded.</p>
+        <p class="setup-note" id="offlinePacksStatus" role="status" aria-live="polite"></p>
+      </div>
       <p class="setup-note">Original recordings, comedy, crafted effects and voice lines · credits in ATTRIBUTIONS.md</p>
       <details class="sound-palette"><summary>Explore the new sound palette</summary>
         <p class="setup-note">Tap to preview. Gameplay chooses moments automatically and gives reactions time to rest.</p>
@@ -411,6 +421,9 @@
 </script>
 <script>
 /*__AUDIENCE__*/
+</script>
+<script>
+/*__STREAMER_PACK__*/
 </script>
 <script>
 /*__CEREMONY_FLAG_DATA__*/

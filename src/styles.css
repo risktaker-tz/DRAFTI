@@ -197,6 +197,10 @@ body.fx-scan::after {
 /* square states */
 .audience-actions { display: flex; flex-wrap: wrap; gap: 8px; }
 .audience-actions .btn { min-width: 0; white-space: normal; }
+.offline-pack-card { border-top: 1px solid var(--line); margin-top: 12px; padding-top: 12px; }
+.offline-pack-choice { display: flex; align-items: center; gap: 9px; min-height: 36px; font-size: 13px; color: var(--ink); }
+.offline-pack-choice input { accent-color: var(--accent); }
+.offline-pack-card > .btn { min-height: 38px; }
 #audienceVolume { max-width: 100%; }
 .sq.last::after {
   content: ''; position: absolute; inset: 0;

@@ -52,6 +52,7 @@ async function checkVocabulary() {
   const fetched = [];
   c.settings.streamer = 'funny';
   c.FX.ctx = { decodeAudioData: async () => ({duration: 3}) };
+  c.STREAMER_PACK = {init: async () => null, installed: () => null, read: async () => null};
   c.fetch = async url => {
     fetched.push(url);
     return {ok: true, json: async () => manifest, arrayBuffer: async () => new ArrayBuffer(1)};

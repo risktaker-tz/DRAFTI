@@ -2616,18 +2616,28 @@ function createSoundAudit(capacity = 12000) {
   // per-game quota or chance gate says no. Line sources: the researched
   // phrasebook in docs/streamer-phrasebook.md; Funny mode reuses the app's
   // own judge voice and already-credited funny reactions only.
+  const STREAMER_PACK = createStreamerPackStore({
+    location: window.location, caches: window.caches, crypto: window.crypto,
+    fetch: (...args) => fetch(...args),
+    status: text => { const node = $('streamerStatus'); if (node) node.textContent = text; },
+  });
+  void STREAMER_PACK.init().then(updateSegs);
   const STREAMER = {
     extraPools: {},
     loadingVoices: new Set(),
+    retryAfter: new Map(),
     warmVoice() {
       const mode = settings.streamer, ctx = FX.ctx;
       if (!ctx || !settings.sound || !settings.sfx.voice ||
-          !['female', 'male', 'funny'].includes(mode) || this.loadingVoices.has(mode)) return;
+          !['female', 'male', 'funny'].includes(mode) || this.loadingVoices.has(mode) ||
+          performance.now() < (this.retryAfter.get(mode) || 0)) return;
       this.loadingVoices.add(mode);
-      return fetch('./streamer-vocabulary/manifest.json').then(response => {
-        if (!response.ok) throw Error('Streamer vocabulary unavailable');
-        return response.json();
-      }).then(async clips => {
+      return STREAMER_PACK.init().then(installed => installed
+        ? installed.manifest
+        : fetch('./streamer-vocabulary/manifest.json').then(response => {
+          if (!response.ok) throw Error('Streamer vocabulary unavailable');
+          return response.json();
+        })).then(async clips => {
         const roles = { session_open: 'greeting', capture1: 'capture',
           capture2: 'feast', capture3plus: 'capture_chain', new_king: 'crowning',
           clean_move: 'clean_move', pressure: 'pressure', turnaround: 'turnaround',
@@ -2645,15 +2655,22 @@ function createSoundAudit(capacity = 12000) {
           if (clip.mode !== mode || !role || !/^s[fjm]2_\d{3}$/.test(clip.id) ||
               !(clip.durationSec > 0 && clip.durationSec <= 6)) continue;
           try {
-            const response = await fetch('./streamer-vocabulary/' + clip.id + '.mp3');
-            if (!response.ok) continue;
-            const buffer = await ctx.decodeAudioData(await response.arrayBuffer());
+            const installed = STREAMER_PACK.installed();
+            let bytes;
+            if (installed) bytes = await STREAMER_PACK.read(clip);
+            else {
+              const response = await fetch('./streamer-vocabulary/' + clip.id + '.mp3');
+              if (response.ok) bytes = await response.arrayBuffer();
+            }
+            if (!bytes) continue;
+            const buffer = await ctx.decodeAudioData(bytes.slice(0));
             SFX_BANK.defs[clip.id] = { c: 'voice', b: clip.text, durationSec: buffer.duration, hourGate: clip.hourGate };
             SFX_BANK.buffers.set(clip.id, buffer);
             (pool[role] ||= []).push(clip.id);
           } catch { /* the existing voice library remains available */ }
         }
-      }).catch(() => { /* optional vocabulary can be unavailable offline */ });
+      }).catch(() => { this.retryAfter.set(mode, performance.now() + 30000); })
+        .finally(() => this.loadingVoices.delete(mode));
     },
     ROLES: {
       greeting:    { chance: 1, cooldown: 20000, perGame: 1 },
@@ -4592,6 +4609,13 @@ function createSoundAudit(capacity = 12000) {
     $('segAudience').querySelector('[data-v="on"]').disabled = !AUDIENCE.installed();
     $('btnAudienceDownload').disabled = AUDIENCE.installing();
     $('btnAudienceRemove').disabled = !AUDIENCE.installed() || AUDIENCE.installing();
+    const streamerInstalling = STREAMER_PACK.installing();
+    const streamerInstalled = !!STREAMER_PACK.installed();
+    $('offlinePackStreamer').disabled = streamerInstalling;
+    $('offlinePackAudience').disabled = AUDIENCE.installing();
+    $('btnDownloadOfflinePacks').disabled = streamerInstalling || AUDIENCE.installing() ||
+      (!$('offlinePackStreamer').checked && !$('offlinePackAudience').checked);
+    $('btnStreamerPackRemove').disabled = !streamerInstalled || streamerInstalling;
     $('audienceVolume').value = Math.round(settings.audienceVolume*100);
     $('audienceVolumeValue').textContent = Math.round(settings.audienceVolume*100)+'%';
     set('segProgression', humanLadder.automatic() ? 'on' : 'off');
@@ -4794,6 +4818,7 @@ function createSoundAudit(capacity = 12000) {
   });
   wireSeg('segStreamer', (v) => {
     if (v === settings.streamer) return;
+    STREAMER.retryAfter.delete(v);
     settings.streamer = v;
     saveJSON(SETTINGS_KEY, settings);
     updateSegs();
@@ -4825,6 +4850,37 @@ function createSoundAudit(capacity = 12000) {
   });
   $('btnAudienceDownload').addEventListener('click',async()=>{await AUDIENCE.install();updateSegs();});
   $('btnAudienceRemove').addEventListener('click',async()=>{await AUDIENCE.remove();updateSegs();});
+  $('offlinePackStreamer').addEventListener('change', updateSegs);
+  $('offlinePackAudience').addEventListener('change', updateSegs);
+  $('btnDownloadOfflinePacks').addEventListener('click', async () => {
+    const streamer = $('offlinePackStreamer').checked;
+    const audience = $('offlinePackAudience').checked;
+    if (!streamer && !audience) return;
+    $('btnDownloadOfflinePacks').disabled = true;
+    $('offlinePacksStatus').textContent = 'Preparing selected offline extras…';
+    let ok = true;
+    if (streamer) {
+      ok = await STREAMER_PACK.install() && ok;
+      if (ok) {
+        STREAMER.extraPools = {};
+        for (const id of [...SFX_BANK.buffers.keys()]) if (/^s[fjm]2_\d{3}$/.test(id)) SFX_BANK.buffers.delete(id);
+        for (const id of Object.keys(SFX_BANK.defs)) if (/^s[fjm]2_\d{3}$/.test(id)) delete SFX_BANK.defs[id];
+      }
+    }
+    if (audience) ok = await AUDIENCE.install() && ok;
+    $('offlinePacksStatus').textContent = ok
+      ? 'Selected offline extras are ready. The core game remains available without them.'
+      : 'One or more downloads could not finish. Any previously installed pack remains available.';
+    updateSegs();
+  });
+  $('btnStreamerPackRemove').addEventListener('click', async () => {
+    await STREAMER_PACK.remove();
+    STREAMER.extraPools = {};
+    for (const id of [...SFX_BANK.buffers.keys()]) if (/^s[fjm]2_\d{3}$/.test(id)) SFX_BANK.buffers.delete(id);
+    for (const id of Object.keys(SFX_BANK.defs)) if (/^s[fjm]2_\d{3}$/.test(id)) delete SFX_BANK.defs[id];
+    $('offlinePacksStatus').textContent = 'The optional streamer recordings were removed from this device.';
+    updateSegs();
+  });
   $('audienceVolume').addEventListener('input',event=>{
     settings.audienceVolume=Math.max(0,Math.min(1,+event.target.value/100));
     $('audienceVolumeValue').textContent=Math.round(settings.audienceVolume*100)+'%';saveJSON(SETTINGS_KEY,settings);
@@ -5395,7 +5451,7 @@ function createSoundAudit(capacity = 12000) {
   document.body.classList.toggle('ambient-off', !settings.ambient);
   if(!resumeLeagueMatch())newGame();
   try { FX.ensure(); } catch { /* audio starts on first gesture instead */ }
-  AUDIENCE.init();
+  void AUDIENCE.init().then(updateSegs);
 
   // Minimal test hook: lets automated tests drive the real input path and
   // inspect game state. Not used by the game itself.

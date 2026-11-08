@@ -345,6 +345,12 @@ domain; this implementation is ours, and it can be yours too.
 
 Open the hosted game in a browser and choose Install app (Chrome/Edge on desktop or Android), or Share → Add to Home Screen on iPhone/iPad. After the first online visit the installed game can load offline. Installation requires HTTPS; the standalone HTML still plays directly from disk.
 
+The first install downloads the self-contained game. Rules, AI, themes, flags,
+and the core sound bank are part of that app and do not need a separate data
+connection. Optional streamer voices and Audience Vibes can be selected in the
+Sound design menu and downloaded together for offline use. Download/update
+fetches the latest pack; a failed update keeps the previously installed pack.
+
 ### Presentation controls
 
 The players card includes optional flag colours in human games, separate arena flag control, two nation selectors, a remembered livestream view, and full screen. Flag palettes use each nation’s main colour first and resolve clashes using the secondary. Discs retain their circular geometry across cell sizes. New-season opening honours are drawn from waiting nations; knockout wins and title retention award extra experience. Sample playback now suppresses rapid repeats.
@@ -355,7 +361,7 @@ For environments with Node but no Python, `node scripts/build_web.js` assembles 
 
 Installation now includes 192px and 512px PNG icons and an Apple home-screen icon. The offline worker removes obsolete DRAFTI installation caches when a new worker activates; settings and arena storage are unaffected.
 
-Installed copies check for releases when reopened or brought back to the foreground. Each build identifies its matching offline worker. An active match continues uninterrupted; a downloaded update takes effect at the next match boundary, after saving the new arena position. The last working game stays available offline or during a server outage. During installation, the worker verifies and prepares the complete streamer voice pack in a separate cache; the previous release remains active until the new app and voice pack are ready. Streamer clips then play from that cache without a network request. Audience packs survive upgrades in their own cache, alongside settings and player progress.
+Installed copies check for releases when reopened or brought back to the foreground. Each build identifies its matching offline worker. An active match continues uninterrupted; a downloaded update takes effect at the next match boundary, after saving the new arena position. Navigation serves the saved game first, including during a server outage. App updates install the core game without downloading optional recordings. The 300-line streamer pack and Audience Vibes can be explicitly downloaded or updated together; verified pack updates switch over only after every selected recording is saved, and a failed update keeps the previous version. Existing settings and player progress are preserved.
 
 Kenya's main/secondary piece colours now use black/red, consistent with the Wikimedia flag reference: https://commons.wikimedia.org/wiki/File:Flag_of_Kenya.svg . All 194 source palettes are measured and checked; full visual acceptance remains in progress.
 
