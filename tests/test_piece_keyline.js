@@ -6,10 +6,14 @@ const assert = require('node:assert/strict');
 const css = fs.readFileSync(path.join(__dirname, '../src/styles.css'), 'utf8');
 assert.match(css, /filter:\s*drop-shadow\(0 0 \.7px rgba\(8, 12, 20, \.82\)\)/,
   'the disc keeps a soft dark perimeter shadow');
-assert.match(css, /\.piece \.body::before\s*\{[^}]*border:\s*1px solid rgba\(8, 12, 20, \.78\)/s,
-  'the material face keeps a fine dark bevel');
-assert.match(css, /\.piece \.body\s*\{\s*outline:\s*1px solid rgba\(255, 250, 238, \.88\);\s*outline-offset:\s*0/s,
-  'every piece has a light outer keyline');
+assert.match(css, /\.piece \.body::before\s*\{[^}]*border:\s*1\.5px solid rgba\(8, 12, 20, \.9\)/s,
+  'the material face keeps a visible dark bevel beneath the outer keyline');
+assert.match(css, /--disc-keyline:\s*clamp\(2px, calc\(var\(--board-span\) \* \.005\), 3\.2px\)/,
+  'keyline thickness scales with the rendered board size');
+assert.match(css, /--disc-depth:\s*clamp\(1\.5px, calc\(var\(--board-span\) \* \.0044\), 2\.8px\)/,
+  'the light side of the rim remains visible on small and full-size boards');
+assert.match(css, /\.piece \.body::after\s*\{[^}]*border:\s*var\(--disc-keyline\) solid rgba\(5, 8, 14, \.98\);[^}]*outline:\s*var\(--disc-depth\) solid rgba\(255, 252, 243, \.98\)/s,
+  'every piece has a size-aware dark/light keyline that reads on either square');
 assert.match(css, /body\.flags-on \.pieces \.piece\.ivory \.body\s*\{[^}]*border-color:\s*var\(--side-a-edge/s,
   'the outline treatment does not replace flag-specific piece edges');
 assert.match(css, /body\.flags-on \.pieces \.piece\.ebony \.body\s*\{[^}]*border-color:\s*var\(--side-b-edge/s,
