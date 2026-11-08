@@ -1,4 +1,4 @@
-const BUILD = '21577c10750265b9ee2579337967d0d2d01f0620c1ee3424314e1db83526bbaf';
+const BUILD = '991bbc270a12ece7c6989b1c657b2692b9c2a31792cf717c62b15cad64216a0d';
 const CACHE = 'drafti-install-' + BUILD;
 const VOCAB_CACHE = 'drafti-streamer-vocabulary-v1';
 const VOCAB_INDEX = 'drafti-streamer-index-v1';
@@ -57,13 +57,20 @@ self.addEventListener('fetch', event => {
     })());
     return;
   }
+  const coreAsset = ASSETS.some(asset => new URL(asset, self.registration.scope).href === event.request.url);
+  if (!navigation && !coreAsset) {
+    // Do not let an older optional audio-cache entry shadow a user's explicit
+    // request to update a crowd recording or another separately managed pack.
+    event.respondWith(fetch(event.request).catch(() => Response.error()));
+    return;
+  }
   event.respondWith((async () => {
     const canonical = navigation ? new URL('./index.html', self.registration.scope).href : event.request;
     const cached = await caches.match(canonical);
     if (cached) return cached;
     try {
       const response = await fetch(event.request);
-      if (response.ok && (navigation || ASSETS.some(asset => new URL(asset, self.registration.scope).href === event.request.url))) {
+      if (response.ok && (navigation || coreAsset)) {
         const key = navigation ? canonical : event.request;
         event.waitUntil(caches.open(CACHE).then(cache => cache.put(key, response.clone())));
       }

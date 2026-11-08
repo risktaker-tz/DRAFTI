@@ -15,6 +15,7 @@ async function checkScope(scope){
  await previous.put(absolute('streamer-vocabulary/sf2_001.mp3'),new Response('previously downloaded voice'));
  cache('drafti-streamer-vocabulary-v1-stage-obsolete');
  const unrelated=cache('another-project-cache');await unrelated.put(absolute('keep.txt'),new Response('keep'));
+ await cache('drafti-audience-audio-v1-old').put(absolute('audience-vibes/audio/avpb-100001.mp3'),new Response('old crowd audio'));
  const build=source.match(/const BUILD = '([^']+)'/)[1],current=cache('drafti-install-'+build);
  const context={URL,Request,Response,TextDecoder,
   self:{location:new URL(scope),registration:{scope},skipWaiting:async()=>skipped++,clients:{claim:async()=>claimed++},addEventListener:(n,f)=>handlers[n]=f},
@@ -41,6 +42,9 @@ async function checkScope(scope){
  let refreshedVoice;handlers.fetch({request:{method:'GET',cache:'reload',url:absolute('streamer-vocabulary/sf2_001.mp3'),mode:'cors'},respondWith:p=>refreshedVoice=p});
  assert.equal(await (await refreshedVoice).text(),absolute('streamer-vocabulary/sf2_001.mp3'),
    'explicit pack updates bypass older cached recordings when checking the latest data');
+ let refreshedAudience;handlers.fetch({request:{method:'GET',cache:'no-store',url:absolute('audience-vibes/audio/avpb-100001.mp3'),mode:'cors'},respondWith:p=>refreshedAudience=p});
+ assert.equal(await (await refreshedAudience).text(),absolute('audience-vibes/audio/avpb-100001.mp3'),
+   'optional audience updates fetch fresh recordings instead of stale cross-pack cache entries');
  online=false;let missing;handlers.fetch({request:{method:'GET',url:absolute('streamer-vocabulary/sf2_002.mp3'),mode:'cors'},respondWith:p=>missing=p});
  assert.equal((await missing).type,'error','not-downloaded optional data is not falsely reported as offline-ready');
  let reply;handlers.message({data:{type:'DRAFTI_BUILD_REQUEST'},ports:[{postMessage:value=>reply=value}]});
