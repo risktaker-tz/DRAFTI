@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="drafti-build" content="f4ee4604f00443e8fd3cdd3125a61949086ef8270656e43b2c299167a650bd56">
+<meta name="drafti-build" content="c2b289386bbc8be1d11c2d57346900ec34b3b37caf6b127db9725af00ba7f8ac">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="apple-touch-icon" href="./icon-192.png">
@@ -335,7 +335,7 @@ body.fx-scan::after {
 .piece.king .crown { width: 52%; height: 52%; filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .5)); }
 .piece.king.ivory .crown path { fill: var(--pl-d-2); stroke: var(--pl-l-1); }
 .piece.king.ebony .crown path { fill: var(--pl-l-2); stroke: var(--pl-d-3); }
-.piece.lifted { transform: scale(1.08); z-index: 6; will-change: translate, transform; }
+.piece.lifted { z-index: 6; will-change: translate; }
 .piece.captured { transform: scale(.25) rotate(40deg); opacity: 0; z-index: 1; }
 .piece.appear { animation: appear .3s ease; }
 @keyframes appear { from { transform: scale(.4); opacity: 0; } }
@@ -5839,9 +5839,10 @@ function createSoundAudit(capacity = 12000) {
     // orientation and the selected material's existing transform styling.
     const animation = body.animate([
       { offset: 0, translate: '0 0', scale: '1' },
-      { offset: .42, translate: '0 -14%', scale: '1.035' },
-      { offset: .72, translate: '0 -10%', scale: '1.025' },
-      { offset: .91, translate: '0 1%', scale: '1.035 .93' },
+      { offset: .12, translate: '0 2%', scale: '1.045 .92' },
+      { offset: .43, translate: '0 -15%', scale: '.99 1.045' },
+      { offset: .72, translate: '0 -10%', scale: '1.02 1.01' },
+      { offset: .91, translate: '0 1%', scale: '1.04 .93' },
       { offset: 1, translate: '0 0', scale: '1' }
     ], { duration, easing: 'cubic-bezier(.3,.7,.4,1)', fill: 'none' });
     animation.onfinish = () => animation.cancel();

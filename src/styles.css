@@ -321,7 +321,7 @@ body.fx-scan::after {
 .piece.king .crown { width: 52%; height: 52%; filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .5)); }
 .piece.king.ivory .crown path { fill: var(--pl-d-2); stroke: var(--pl-l-1); }
 .piece.king.ebony .crown path { fill: var(--pl-l-2); stroke: var(--pl-d-3); }
-.piece.lifted { transform: scale(1.08); z-index: 6; will-change: translate, transform; }
+.piece.lifted { z-index: 6; will-change: translate; }
 .piece.captured { transform: scale(.25) rotate(40deg); opacity: 0; z-index: 1; }
 .piece.appear { animation: appear .3s ease; }
 @keyframes appear { from { transform: scale(.4); opacity: 0; } }

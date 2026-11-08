@@ -3353,9 +3353,10 @@ function createSoundAudit(capacity = 12000) {
     // orientation and the selected material's existing transform styling.
     const animation = body.animate([
       { offset: 0, translate: '0 0', scale: '1' },
-      { offset: .42, translate: '0 -14%', scale: '1.035' },
-      { offset: .72, translate: '0 -10%', scale: '1.025' },
-      { offset: .91, translate: '0 1%', scale: '1.035 .93' },
+      { offset: .12, translate: '0 2%', scale: '1.045 .92' },
+      { offset: .43, translate: '0 -15%', scale: '.99 1.045' },
+      { offset: .72, translate: '0 -10%', scale: '1.02 1.01' },
+      { offset: .91, translate: '0 1%', scale: '1.04 .93' },
       { offset: 1, translate: '0 0', scale: '1' }
     ], { duration, easing: 'cubic-bezier(.3,.7,.4,1)', fill: 'none' });
     animation.onfinish = () => animation.cancel();

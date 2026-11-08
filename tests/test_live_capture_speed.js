@@ -40,8 +40,12 @@ async function run(initial,next){
   assert(Math.abs(hopAnimations[0].options.duration-560/initial)<1e-9&&
     Math.abs(hopAnimations[1].options.duration-560/next)<1e-9,
     'Each lift and landing uses the same live speed clock as that hop');
-  assert.equal(hopAnimations[0].frames[1].translate,'0 -14%','The disc visibly lifts during its hop');
-  assert.equal(hopAnimations[0].frames[3].scale,'1.035 .93','The landing has a brief cushioned squeeze');
+  assert.equal(hopAnimations[0].frames[1].translate,'0 2%','The piece compresses before it leaves the square');
+  assert.equal(hopAnimations[0].frames[1].scale,'1.045 .92','The takeoff squeeze is visible and proportional');
+  assert.equal(hopAnimations[0].frames[2].translate,'0 -15%','The piece clears the board on the airborne arc');
+  assert.equal(hopAnimations[0].frames[4].scale,'1.04 .93','The landing has a brief cushioned squeeze');
+  assert.match(fs.readFileSync(path.join(__dirname,'../src/styles.css'),'utf8'),/\.piece\.lifted\s*\{\s*z-index:\s*6;\s*will-change:\s*translate;\s*\}/,
+    'The lift has no second outer transform transition that can outlast the hop clock');
   assert(c.captureContactDelay(35,14,28,8,600)<c.captureContactDelay(35,14,21,8,600),
     'Flying-king capture timing follows the actual victim square, not a fixed point');
 }
