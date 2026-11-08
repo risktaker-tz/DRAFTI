@@ -1,4 +1,4 @@
-const BUILD = 'dd9d7841b9b4c4226d57ff390e1dc4627a7ffb8770b0f66a7f79fe2542c9171d';
+const BUILD = 'b07ac6bffc7ee50ca7db7e55b6e9633e802374c543b8681aa5c7b55dcbae84f3';
 const CACHE = 'drafti-install-' + BUILD;
 const VOCAB_CACHE = 'drafti-streamer-vocabulary-v1';
 const VOCAB_STAGE = VOCAB_CACHE + '-stage-' + BUILD;

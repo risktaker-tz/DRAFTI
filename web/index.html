@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="drafti-build" content="dd9d7841b9b4c4226d57ff390e1dc4627a7ffb8770b0f66a7f79fe2542c9171d">
+<meta name="drafti-build" content="b07ac6bffc7ee50ca7db7e55b6e9633e802374c543b8681aa5c7b55dcbae84f3">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="apple-touch-icon" href="./icon-192.png">
@@ -1331,6 +1331,13 @@ body.fx-wood .board-frame { background-image: repeating-linear-gradient(93deg, t
 @keyframes emberBreath { 50% { box-shadow: inset 0 0 7px rgba(255,94,30,.65), 0 0 4px rgba(255,94,30,.2); } }
 @media (prefers-reduced-motion: reduce) {
   .physical-burst { display: none; }
+  .sq.last::after { animation: none; opacity: .24; }
+  .shockwave, .capture-corner { display: none !important; }
+  .board-frame.thump .board-inner,
+  .board-frame.shake-m .board-inner, .board-frame.shake-l .board-inner,
+  .board-frame.shake-xl .board-inner { animation: none !important; }
+  .board-frame.flare .board-inner::after { display: none; }
+  .board-frame.doomed::after { animation: none !important; }
   .crowning .crown, .coronation-a .piece .body, .coronation-b .piece .body,
   .victory-a .piece .body, .victory-b .piece .body, .board-frame[data-doom-side] .piece .ring { animation: none !important; }
 }
@@ -5325,6 +5332,7 @@ function createSoundAudit(capacity = 12000) {
   };
 
   function thump() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     frameEl.classList.remove('thump');
     void frameEl.offsetWidth;
     frameEl.classList.add('thump');
@@ -5333,7 +5341,7 @@ function createSoundAudit(capacity = 12000) {
 
   // expanding ring from a square — the crowning shockwave
   function shockwave(sq, {captures = 0, landing = false, corner = false} = {}) {
-    if (sq == null) return;
+    if (sq == null || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const n = G.rs.n, r = (sq / n) | 0, c = sq % n;
     const el = document.createElement('div');
     el.className = corner ? 'capture-corner' : landing ? 'shockwave landing-ring' :
@@ -5388,7 +5396,7 @@ function createSoundAudit(capacity = 12000) {
   // impact shake, scaled by how heavy the hit was
   let lastShake = 0;
   function shake(cls) {
-    if (!settings.shake) return;
+    if (!settings.shake || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const now = Date.now();
     if (now - lastShake < 500) return;
     lastShake = now;
@@ -5398,7 +5406,7 @@ function createSoundAudit(capacity = 12000) {
     setTimeout(() => frameEl.classList.remove(cls), 850);
   }
   function flare() {
-    if (!settings.shake) return;
+    if (!settings.shake || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     frameEl.classList.add('flare');
     setTimeout(() => frameEl.classList.remove('flare'), 550);
   }

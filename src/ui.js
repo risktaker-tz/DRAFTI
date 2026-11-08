@@ -2839,6 +2839,7 @@ function createSoundAudit(capacity = 12000) {
   };
 
   function thump() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     frameEl.classList.remove('thump');
     void frameEl.offsetWidth;
     frameEl.classList.add('thump');
@@ -2847,7 +2848,7 @@ function createSoundAudit(capacity = 12000) {
 
   // expanding ring from a square — the crowning shockwave
   function shockwave(sq, {captures = 0, landing = false, corner = false} = {}) {
-    if (sq == null) return;
+    if (sq == null || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const n = G.rs.n, r = (sq / n) | 0, c = sq % n;
     const el = document.createElement('div');
     el.className = corner ? 'capture-corner' : landing ? 'shockwave landing-ring' :
@@ -2902,7 +2903,7 @@ function createSoundAudit(capacity = 12000) {
   // impact shake, scaled by how heavy the hit was
   let lastShake = 0;
   function shake(cls) {
-    if (!settings.shake) return;
+    if (!settings.shake || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const now = Date.now();
     if (now - lastShake < 500) return;
     lastShake = now;
@@ -2912,7 +2913,7 @@ function createSoundAudit(capacity = 12000) {
     setTimeout(() => frameEl.classList.remove(cls), 850);
   }
   function flare() {
-    if (!settings.shake) return;
+    if (!settings.shake || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     frameEl.classList.add('flare');
     setTimeout(() => frameEl.classList.remove('flare'), 550);
   }
