@@ -377,3 +377,315 @@ to -1.5 dBFS, mono 22050 Hz, MP3 56 kbps.
 ---
 
 **Totals: jam 206 lines, kazi 91 lines, sum 301 across 9 batch scripts.**
+
+<!-- BEGIN CURRENT STREAMER VOCABULARY INVENTORY -->
+
+## Current streamer vocabulary (synchronized from the shipped manifest)
+
+Current entries: 300 — female: 100, funny: 100, male: 100.
+The manifest is the source of truth for each ID, voice, and exact spoken text.
+
+| name | voice | exact text |
+| --- | --- | --- |
+| sf2_001 | female / tongtong | Welcome in, everyone — the stream is live! |
+| sf2_002 | female / tongtong | So glad you're here — a fresh session begins! |
+| sf2_003 | female / tongtong | Good evening, everybody — the checkers night starts now! |
+| sf2_004 | female / tongtong | Here we go — a brand new bout begins! |
+| sf2_005 | female / tongtong | Next bout, fresh board. Let's enjoy this! |
+| sf2_006 | female / tongtong | Pieces are set — a new bout starts now! |
+| sf2_007 | female / tongtong | Two more players to the table — enjoy! |
+| sf2_008 | female / tongtong | Bout under way — early moves set the tone. |
+| sf2_009 | female / tongtong | A new challenger steps up — welcome! |
+| sf2_010 | female / tongtong | Different opponent this time — let's see! |
+| sf2_011 | female / tongtong | Fresh face at the board — looking focused! |
+| sf2_012 | female / tongtong | New challenger, same board — anything can happen! |
+| sf2_013 | female / tongtong | They drew last time — the rematch starts now! |
+| sf2_014 | female / tongtong | Same pairing again — someone wants a decision! |
+| sf2_015 | female / tongtong | Points shared last game — round two begins! |
+| sf2_016 | female / tongtong | A draw before, and both want more! |
+| sf2_017 | female / tongtong | A new season opens — storylines continue! |
+| sf2_018 | female / tongtong | Season rollover — fresh standings, same passion! |
+| sf2_019 | female / tongtong | New season on the calendar — who rises? |
+| sf2_020 | female / tongtong | The league moves on — a new season begins! |
+| sf2_021 | female / tongtong | Quarter-finals reached — every move matters now! |
+| sf2_022 | female / tongtong | Quarter-final bout coming up — real pressure! |
+| sf2_023 | female / tongtong | Into the quarter-finals — survival mode starts! |
+| sf2_024 | female / tongtong | Semi-final stage — the tension is rising! |
+| sf2_025 | female / tongtong | The semi-finals — one step from the big one! |
+| sf2_026 | female / tongtong | Semi-final bout underway — focus at maximum! |
+| sf2_027 | female / tongtong | The grand final is here — enjoy every move! |
+| sf2_028 | female / tongtong | Grand final bout — the best side lifts it! |
+| sf2_029 | female / tongtong | Finals atmosphere — history is one bout away! |
+| sf2_030 | female / tongtong | Oh, that's clean — nothing wasted there! |
+| sf2_031 | female / tongtong | Beautifully played — everything stays safe. |
+| sf2_032 | female / tongtong | Tidy work — every piece doing its job! |
+| sf2_033 | female / tongtong | Smooth, simple, effective — lovely play! |
+| sf2_034 | female / tongtong | That's the move coaches show beginners! |
+| sf2_035 | female / tongtong | Clean and confident — the position improves! |
+| sf2_036 | female / tongtong | Well judged! Nothing rushed, nothing risky. |
+| sf2_037 | female / tongtong | One piece off the board — the count begins! |
+| sf2_038 | female / tongtong | A clean single capture — steady play. |
+| sf2_039 | female / tongtong | That piece is gone — a small edge! |
+| sf2_040 | female / tongtong | Taken! One capture, and tension grows. |
+| sf2_041 | female / tongtong | One capture landed — the board shifts. |
+| sf2_042 | female / tongtong | Straightforward take — sometimes simple is best! |
+| sf2_043 | female / tongtong | Two pieces in one turn — that stings! |
+| sf2_044 | female / tongtong | Double capture! The board felt that one. |
+| sf2_045 | female / tongtong | One, two — off they go! Excellent! |
+| sf2_046 | female / tongtong | A double strike — that side smiles now. |
+| sf2_047 | female / tongtong | Two captures in one move — great timing! |
+| sf2_048 | female / tongtong | Doubled up! The material picture changes. |
+| sf2_049 | female / tongtong | Three or more in one go — outstanding! |
+| sf2_050 | female / tongtong | A capture run — something special! |
+| sf2_051 | female / tongtong | Multi-capture! The board just opened up! |
+| sf2_052 | female / tongtong | What a chain — multiple pieces gone! |
+| sf2_053 | female / tongtong | It reaches the last row — a new king! |
+| sf2_054 | female / tongtong | Crowned! That king will be felt. |
+| sf2_055 | female / tongtong | Promotion! A new king enters the game. |
+| sf2_056 | female / tongtong | The piece marches through — king crowned! |
+| sf2_057 | female / tongtong | Fresh royalty on the board — respect the crown! |
+| sf2_058 | female / tongtong | Behind on pieces — dig in and stay calm! |
+| sf2_059 | female / tongtong | Down on material, not out of ideas! |
+| sf2_060 | female / tongtong | Pressure on that side — one move changes everything! |
+| sf2_061 | female / tongtong | Behind on the board — defend with patience. |
+| sf2_062 | female / tongtong | Material down, spirit up — not over yet! |
+| sf2_063 | female / tongtong | The material swing is real — turned around! |
+| sf2_064 | female / tongtong | What a recovery — the balance has flipped! |
+| sf2_065 | female / tongtong | A genuine comeback — pieces back in the fight! |
+| sf2_066 | female / tongtong | Look at the board — that deficit is gone! |
+| sf2_067 | female / tongtong | Something's waiting on that square — say no more! |
+| sf2_068 | female / tongtong | That bait sits there quietly... interesting. |
+| sf2_069 | female / tongtong | The trap snaps shut — that piece is caught! |
+| sf2_070 | female / tongtong | Oh no, straight into it! Perfectly played. |
+| sf2_071 | female / tongtong | Careful now — that square has ideas! |
+| sf2_072 | female / tongtong | Tough loss — well fought, keep learning! |
+| sf2_073 | female / tongtong | Didn't go your way — hold your head high! |
+| sf2_074 | female / tongtong | Hard to take, but next bout is fresh. |
+| sf2_075 | female / tongtong | So close! That performance deserves credit. |
+| sf2_076 | female / tongtong | That's the win! Congratulations — well earned! |
+| sf2_077 | female / tongtong | Victory! Composed, patient and deserved. |
+| sf2_078 | female / tongtong | It's over — a fine win to celebrate! |
+| sf2_079 | female / tongtong | The last piece says it all — match won! |
+| sf2_080 | female / tongtong | A draw! After all that, honors shared. |
+| sf2_081 | female / tongtong | Neither side gives an inch — ends level! |
+| sf2_082 | female / tongtong | Hard-fought and split — a fair draw. |
+| sf2_083 | female / tongtong | A quiet moment — enjoy the craft, everyone. |
+| sf2_084 | female / tongtong | Moments like this are why we love checkers. |
+| sf2_085 | female / tongtong | Good morning, checkers family — coffee and classics! |
+| sf2_086 | female / tongtong | Take it in, folks — quiet moves win games. |
+| sf2_087 | female / tongtong | Nothing flashy — just two minds at work. |
+| sf2_088 | female / tongtong | What would you play there? Comments below! |
+| sf2_089 | female / tongtong | Which side looks better? Drop your read below! |
+| sf2_090 | female / tongtong | Comment your favorite moment of this match! |
+| sf2_091 | female / tongtong | If it were your board — what's next? Comments! |
+| sf2_092 | female / tongtong | Make sure you like this stream — it helps! |
+| sf2_093 | female / tongtong | Enjoying the coverage? Share the live! |
+| sf2_094 | female / tongtong | Hit follow — never miss the next session! |
+| sf2_095 | female / tongtong | One tap on like keeps the stream strong! |
+| sf2_096 | female / tongtong | Share this live with someone who loves checkers! |
+| sf2_097 | female / tongtong | While we reset — which move impressed you most? |
+| sf2_098 | female / tongtong | Quick pause between bouts — tap that follow! |
+| sf2_099 | female / tongtong | Next bout soon, stay close! |
+| sf2_100 | female / tongtong | Between bouts, the story continues — more ahead! |
+| sj2_001 | funny / kazi | Welcome in — jokes are free and checkers is serious! |
+| sj2_002 | funny / kazi | We are live — side effects may include smiling. |
+| sj2_003 | funny / kazi | Good evening, night owls — the board is awake! |
+| sj2_004 | funny / kazi | A piece plans an early retirement! |
+| sj2_005 | funny / kazi | Fresh bout — legal jumps, zero refunds! |
+| sj2_006 | funny / kazi | Next bout begins — place your hopes now! |
+| sj2_007 | funny / kazi | The pieces practiced all night... allegedly. |
+| sj2_008 | funny / kazi | The board said no pressure. It lied! |
+| sj2_009 | funny / kazi | A new challenger — somebody hide the good moves! |
+| sj2_010 | funny / kazi | Fresh challenger — the chair is still warm! |
+| sj2_011 | funny / kazi | Maximum chaos! |
+| sj2_012 | funny / kazi | A different challenger — the plot thickens! |
+| sj2_013 | funny / kazi | They drew last time — pride is on the menu! |
+| sj2_014 | funny / kazi | The rematch — same players, extra drama, free! |
+| sj2_015 | funny / kazi | Round two — the board remembers everything! |
+| sj2_016 | funny / kazi | Sequel time! |
+| sj2_017 | funny / kazi | New season — standings empty, confidence full. |
+| sj2_018 | funny / kazi | Same beautiful chaos! |
+| sj2_019 | funny / kazi | Scoreboard sighs! |
+| sj2_020 | funny / kazi | Dreams are free — kings are earned! |
+| sj2_021 | funny / kazi | Quarter-finals — the part where pretending stops working. |
+| sj2_022 | funny / kazi | Board unbothered! |
+| sj2_023 | funny / kazi | Quarter-finals here — bold moves only, please! |
+| sj2_024 | funny / kazi | Semi-finals — one step from glory! |
+| sj2_025 | funny / kazi | Drama included at no extra cost! |
+| sj2_026 | funny / kazi | Semi-finals underway — hold your snacks! |
+| sj2_027 | funny / kazi | Grand final — popcorn time! |
+| sj2_028 | funny / kazi | The crown is here — finders keepers! |
+| sj2_029 | funny / kazi | Grand final underway — history, one jump at a time! |
+| sj2_030 | funny / kazi | Ooh, clean — even the pieces clapped quietly. |
+| sj2_031 | funny / kazi | So tidy — the board said thank you! |
+| sj2_032 | funny / kazi | Smooth — not one piece complained. |
+| sj2_033 | funny / kazi | Textbook — someone did their homework. |
+| sj2_034 | funny / kazi | Cleaner than my kitchen — and I never cook! |
+| sj2_035 | funny / kazi | The move is elegant — not me! |
+| sj2_036 | funny / kazi | The sneaky ones are the best! |
+| sj2_037 | funny / kazi | One piece off — board lost weight! |
+| sj2_038 | funny / kazi | A capture — that piece will tell stories. |
+| sj2_039 | funny / kazi | Taken — one down — the drama continues! |
+| sj2_040 | funny / kazi | Clean, polite, civilized aggression! |
+| sj2_041 | funny / kazi | No farewell party for that piece! |
+| sj2_042 | funny / kazi | Captured — the crowd goes... politely interested! |
+| sj2_043 | funny / kazi | Double capture — two pieces, zero apologies! |
+| sj2_044 | funny / kazi | Off they go like late buses! |
+| sj2_045 | funny / kazi | A double strike — the material report got interesting! |
+| sj2_046 | funny / kazi | Somebody skipped breakfast for this! |
+| sj2_047 | funny / kazi | Doubled up — the picnic basket got lighter. |
+| sj2_048 | funny / kazi | Two for one move — best deal in town! |
+| sj2_049 | funny / kazi | A capture chain — call the board's insurance! |
+| sj2_050 | funny / kazi | Three or more — that was a whole parade! |
+| sj2_051 | funny / kazi | Multi-capture — they left faster than my Mondays! |
+| sj2_052 | funny / kazi | What a sequence — the board needs a moment. |
+| sj2_053 | funny / kazi | A new king — get the tiny crown polished! |
+| sj2_054 | funny / kazi | Promotion — humble piece to royalty in one trip. |
+| sj2_055 | funny / kazi | Crowned — that king owned the runway. |
+| sj2_056 | funny / kazi | Last row reached — a king is born, applaud! |
+| sj2_057 | funny / kazi | The others pretend not to be jealous! |
+| sj2_058 | funny / kazi | Behind on pieces — underdogs love a good story! |
+| sj2_059 | funny / kazi | Deep breath, then magic! |
+| sj2_060 | funny / kazi | Behind on material — the board respects patience! |
+| sj2_061 | funny / kazi | Pressure on — snack, calm, play on! |
+| sj2_062 | funny / kazi | Material down, humor intact! |
+| sj2_063 | funny / kazi | The report flipped like pancakes! |
+| sj2_064 | funny / kazi | From behind to superb bounce-back! |
+| sj2_065 | funny / kazi | The comeback is real — I checked twice! |
+| sj2_066 | funny / kazi | Look at the material now — doubters, sit down! |
+| sj2_067 | funny / kazi | Something suspicious on that square... just saying! |
+| sj2_068 | funny / kazi | That bait is so obvious. I almost took it! |
+| sj2_069 | funny / kazi | That piece is a souvenir now! |
+| sj2_070 | funny / kazi | Even I saw that trap coming! |
+| sj2_071 | funny / kazi | Careful — that square has sticky fingers! |
+| sj2_072 | funny / kazi | A tough loss — but hey, the jokes were free! |
+| sj2_073 | funny / kazi | Didn't go your way — the board forgives! |
+| sj2_074 | funny / kazi | That spirit pays the bills! |
+| sj2_075 | funny / kazi | Losses sting — that spirit pays the bills! |
+| sj2_076 | funny / kazi | Victory dance, go! |
+| sj2_077 | funny / kazi | Composure wins. Again! |
+| sj2_078 | funny / kazi | Winner takes glory! |
+| sj2_079 | funny / kazi | The pieces bow! |
+| sj2_080 | funny / kazi | Both sides blink! |
+| sj2_081 | funny / kazi | Scoreboard diplomacy! |
+| sj2_082 | funny / kazi | Scoreboard takes a nap! |
+| sj2_083 | funny / kazi | Not jinxing anything! |
+| sj2_084 | funny / kazi | Pieces are thinking! |
+| sj2_085 | funny / kazi | Early birds salute! |
+| sj2_086 | funny / kazi | Staying ready anyway! |
+| sj2_087 | funny / kazi | Geometry of chaos! |
+| sj2_088 | funny / kazi | Brave answers below! |
+| sj2_089 | funny / kazi | First try, promise! |
+| sj2_090 | funny / kazi | Bragging rights await! |
+| sj2_091 | funny / kazi | The board listens. Probably! |
+| sj2_092 | funny / kazi | Tap like, gently! |
+| sj2_093 | funny / kazi | Friends deserve checkers! |
+| sj2_094 | funny / kazi | Follow. Board happy! |
+| sj2_095 | funny / kazi | Pick your adventure! |
+| sj2_096 | funny / kazi | Like button takes compliments! |
+| sj2_097 | funny / kazi | Jury is out! |
+| sj2_098 | funny / kazi | Follow warms up! |
+| sj2_099 | funny / kazi | Snacks ready, hearts steady! |
+| sj2_100 | funny / kazi | The jokes continue! |
+| sm2_001 | male / jam | Good day, everyone — welcome! The stream starts shortly. |
+| sm2_002 | male / jam | We are on air — serious checkers begins right here! |
+| sm2_003 | male / jam | Morning, everyone! Bright start, sharp moves — stream opens now. |
+| sm2_004 | male / jam | A new bout is underway — watch the opening! |
+| sm2_005 | male / jam | Fresh game, fresh chances — the next bout starts! |
+| sm2_006 | male / jam | Pieces are placed — the next bout is on! |
+| sm2_007 | male / jam | Here comes the next bout — openings matter. |
+| sm2_008 | male / jam | Play begins again — eyes on the center squares! |
+| sm2_009 | male / jam | A new challenger arrives — let's see their style! |
+| sm2_010 | male / jam | A different opponent takes the seat — new test! |
+| sm2_011 | male / jam | New name at the table — everyone starts even! |
+| sm2_012 | male / jam | The challenger is ready — this should be interesting! |
+| sm2_013 | male / jam | They drew last time — now the rematch! |
+| sm2_014 | male / jam | Same two again — unfinished business on the board! |
+| sm2_015 | male / jam | After that draw, both want a statement — round two! |
+| sm2_016 | male / jam | The rematch is here — expect adjustments! |
+| sm2_017 | male / jam | A new season begins — history starts today! |
+| sm2_018 | male / jam | Season advance! New table, new ambitions. |
+| sm2_019 | male / jam | The league turns its page — fresh season underway! |
+| sm2_020 | male / jam | New season, same hunger — the standings will talk. |
+| sm2_021 | male / jam | Quarter-finals! From here, mistakes are expensive. |
+| sm2_022 | male / jam | Quarter-final bout set — high stakes, full focus! |
+| sm2_023 | male / jam | Quarter-final stage — only strong play survives. |
+| sm2_024 | male / jam | Semi-final time — the board gets serious! |
+| sm2_025 | male / jam | The semi-finals — one bout from the final! |
+| sm2_026 | male / jam | Composure decides this bout! |
+| sm2_027 | male / jam | The grand final! Everything built leads here. |
+| sm2_028 | male / jam | Final bout — the crown is on the line! |
+| sm2_029 | male / jam | Grand final underway — checkers at its peak! |
+| sm2_030 | male / jam | What a clean move — textbook stuff! |
+| sm2_031 | male / jam | Excellent technique — simple and strong. |
+| sm2_032 | male / jam | Well played! Nothing loose about that. |
+| sm2_033 | male / jam | That's as clean as it gets! |
+| sm2_034 | male / jam | Solid play — the structure stays strong. |
+| sm2_035 | male / jam | No hesitation, no waste — professional! |
+| sm2_036 | male / jam | That is quality — calm hands, clear head. |
+| sm2_037 | male / jam | A piece comes off — the count opens! |
+| sm2_038 | male / jam | One capture — clean and profitable. |
+| sm2_039 | male / jam | Taken! One piece down on that side. |
+| sm2_040 | male / jam | A simple take — the edge begins here. |
+| sm2_041 | male / jam | One off the board — steady work! |
+| sm2_042 | male / jam | Capture made — small step, real value. |
+| sm2_043 | male / jam | Double capture! Two pieces in one move! |
+| sm2_044 | male / jam | One, two — gone! What a combination! |
+| sm2_045 | male / jam | Two captures in one turn — fast changes! |
+| sm2_046 | male / jam | A double strike — excellent awareness! |
+| sm2_047 | male / jam | Two for one move — real profit! |
+| sm2_048 | male / jam | Doubled! The material gap widens. |
+| sm2_049 | male / jam | Multiple captures in one turn — magnificent! |
+| sm2_050 | male / jam | What a chain — several gone at once! |
+| sm2_051 | male / jam | Three or more off — a thunderous sequence! |
+| sm2_052 | male / jam | A sweeping capture — pieces everywhere! |
+| sm2_053 | male / jam | And it crowns — a new king takes the field! |
+| sm2_054 | male / jam | King it is! That promotion matters. |
+| sm2_055 | male / jam | Promotion achieved — the king changes everything! |
+| sm2_056 | male / jam | Last row reached — a king is born! |
+| sm2_057 | male / jam | Crowned and ready — respect the new king! |
+| sm2_058 | male / jam | Behind on pieces — steady defense, no panic! |
+| sm2_059 | male / jam | Down on pieces — the board still offers chances. |
+| sm2_060 | male / jam | Pressure builds on that side — hold the line! |
+| sm2_061 | male / jam | Material behind — patience is the way back. |
+| sm2_062 | male / jam | Keep fighting! One accurate move swings it. |
+| sm2_063 | male / jam | A real turnaround — the balance has flipped! |
+| sm2_064 | male / jam | From behind to back in it — superb recovery! |
+| sm2_065 | male / jam | The deficit is gone — a genuine comeback! |
+| sm2_066 | male / jam | Look at the material — what a recovery! |
+| sm2_067 | male / jam | Someone left a gift on that square — or is it? |
+| sm2_068 | male / jam | Careful — that square bites! |
+| sm2_069 | male / jam | The trap springs — the piece is lost! |
+| sm2_070 | male / jam | Right into the trap! Beautifully executed. |
+| sm2_071 | male / jam | That square has a secret — watch closely. |
+| sm2_072 | male / jam | A hard loss — the effort was real. Onward! |
+| sm2_073 | male / jam | It ends in defeat — chin up, learn, return. |
+| sm2_074 | male / jam | Not today — the next bout is a fresh start. |
+| sm2_075 | male / jam | So much fight — the result is cruel. |
+| sm2_076 | male / jam | And that is the match — a deserved win! |
+| sm2_077 | male / jam | Victory! Composure under pressure — well done! |
+| sm2_078 | male / jam | The final capture says it all — the win! |
+| sm2_079 | male / jam | It is decided — congratulations to the winner! |
+| sm2_080 | male / jam | A draw — after that battle, a fair result! |
+| sm2_081 | male / jam | Honors even — neither side would blink! |
+| sm2_082 | male / jam | It ends level — a draw both earned. |
+| sm2_083 | male / jam | A calm spell — savor the technique, everyone. |
+| sm2_084 | male / jam | Quiet moves carry the real weight of a game. |
+| sm2_085 | male / jam | A calm evening of checkers — just right! |
+| sm2_086 | male / jam | No fireworks here — deep, honest play. |
+| sm2_087 | male / jam | Watch the thinking — games are shaped here. |
+| sm2_088 | male / jam | Your move, folks — what would you play? Comments! |
+| sm2_089 | male / jam | Which side do you favor? Tell me below! |
+| sm2_090 | male / jam | Rate that exchange in the comments — good call? |
+| sm2_091 | male / jam | Guess the next big moment — drop it below! |
+| sm2_092 | male / jam | If the games treat you well, tap that like! |
+| sm2_093 | male / jam | Share this stream with a friend who loves the board! |
+| sm2_094 | male / jam | Follow the channel — the next session is worth it! |
+| sm2_095 | male / jam | A quick like keeps this stream energized! |
+| sm2_096 | male / jam | Enjoying the coverage? A share goes a long way! |
+| sm2_097 | male / jam | Table reset in progress — which move stood out? Comments! |
+| sm2_098 | male / jam | A short break between bouts — perfect moment to follow! |
+| sm2_099 | male / jam | Stay with me, folks! |
+| sm2_100 | male / jam | While the ceremony settles — more checkers coming up! |
+
+<!-- END CURRENT STREAMER VOCABULARY INVENTORY -->
