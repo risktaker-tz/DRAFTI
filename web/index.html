@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="drafti-build" content="5476bbb026012874e32a1fa783e685ccfd9937e1f2d73322850242b22e5477fa">
+<meta name="drafti-build" content="a8f6752b829f5ebadd87d43ea59c77b9bff0bb969550be4e64647b111881f467">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="apple-touch-icon" href="./icon-192.png">
@@ -5846,21 +5846,29 @@ function createSoundAudit(capacity = 12000) {
     const base = G.mode === 'aivai' ? 700 / (G.aiSpeed || 1) : HOP_MS;
     return base * (captures > 1 ? .8 : 1);
   }
-  function animateHopLanding(el, duration, isCapture) {
+  function animateHopLanding(el, duration, isCapture, contactFraction = .5) {
     if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const body = el.querySelector?.('.body');
     if (!body?.animate) return;
     // A quiet move stays in contact with the board and compresses only at
     // push-off/landing. Captures alone rise over the jumped piece. Individual
     // translate/scale preserve board orientation and material transforms.
-    const frames = isCapture ? [
-      { offset: 0, translate: '0 0', scale: '1' },
-      { offset: .12, translate: '0 2%', scale: '1.045 .92' },
-      { offset: .43, translate: '0 -15%', scale: '.99 1.045' },
-      { offset: .72, translate: '0 -10%', scale: '1.02 1.01' },
-      { offset: .91, translate: '0 1%', scale: '1.04 .93' },
-      { offset: 1, translate: '0 0', scale: '1' }
-    ] : [
+    const frames = isCapture ? (() => {
+      // Reach the jump apex as the piece crosses its victim. The same path
+      // fraction drives the impact clock, including flying-king captures.
+      const impact = Math.max(.04, Math.min(.96, contactFraction));
+      const squeeze = impact * .18;
+      const release = impact + (1 - impact) * .62;
+      const touchdown = 1 - Math.min(.06, (1 - impact) * .25);
+      return [
+        { offset: 0, translate: '0 0', scale: '1' },
+        { offset: squeeze, translate: '0 2%', scale: '1.045 .92' },
+        { offset: impact, translate: '0 -15%', scale: '.99 1.045' },
+        { offset: release, translate: '0 -8%', scale: '1.02 1.01' },
+        { offset: touchdown, translate: '0 1%', scale: '1.04 .93' },
+        { offset: 1, translate: '0 0', scale: '1' }
+      ];
+    })() : [
       { offset: 0, translate: '0 0', scale: '1' },
       { offset: .09, translate: '0 1%', scale: '1.025 .975' },
       { offset: .2, translate: '0 0', scale: '1' },
@@ -5872,19 +5880,22 @@ function createSoundAudit(capacity = 12000) {
     animation.onfinish = () => animation.cancel();
   }
   function captureContactDelay(from,to,captured,n,hopMs) {
-    const fr=Math.floor(from/n),fc=from%n,tr=Math.floor(to/n),tc=to%n,cr=Math.floor(captured/n),cc=captured%n;
-    const fractions=[];
-    if(tr!==fr)fractions.push(Math.abs(cr-fr)/Math.abs(tr-fr));
-    if(tc!==fc)fractions.push(Math.abs(cc-fc)/Math.abs(tc-fc));
-    const distance=Math.max(...fractions);
+    const distance=captureContactFraction(from,to,captured,n);
     if(!Number.isFinite(distance)||distance<0||distance>1)return hopMs*.22228046353706682;
-    // Match the piece's CSS cubic-bezier(.3,.7,.4,1), so each victim burst
-    // lands at the instant the moving disc reaches that victim (also for flying kings).
+    // Match the piece's CSS cubic-bezier(.3,.7,.4,1), so impact and motion
+    // remain synchronized even when the captured piece is far along a king hop.
     const bezier=(t,a,b)=>3*(1-t)*(1-t)*t*a+3*(1-t)*t*t*b+t*t*t;
     let lo=0,hi=1;
     for(let i=0;i<20;i++){const mid=(lo+hi)/2;if(bezier(mid,.7,1)<distance)lo=mid;else hi=mid;}
     const contact=(lo+hi)/2;
     return hopMs*bezier(contact,.3,.4);
+  }
+  function captureContactFraction(from,to,captured,n) {
+    const fr=Math.floor(from/n),fc=from%n,tr=Math.floor(to/n),tc=to%n,cr=Math.floor(captured/n),cc=captured%n;
+    const fractions=[];
+    if(tr!==fr)fractions.push(Math.abs(cr-fr)/Math.abs(tr-fr));
+    if(tc!==fc)fractions.push(Math.abs(cc-fc)/Math.abs(tc-fc));
+    return Math.max(...fractions);
   }
   function captureRibbon(from, to, hopMs, captures) {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -5950,7 +5961,8 @@ function createSoundAudit(capacity = 12000) {
           if (final && captures > 1) SFX_BANK.effect('feast', { vol: Math.min(.48, .24 + captures * .05) });
         }, captureContactDelay(from,to,capIdx,G.rs.n,hopMs));
       }
-      animateHopLanding(p.el, hopMs, mv.caps.length > 0);
+      animateHopLanding(p.el, hopMs, mv.caps.length > 0,
+        capIdx === undefined ? .5 : captureContactFraction(from,to,capIdx,G.rs.n));
       await sleep(hopMs);
       if(generation !== gameEpoch)return false;
       if(capIdx===undefined){FX.play('move');SFX_BANK.effect('landing',{vol:.08});}
