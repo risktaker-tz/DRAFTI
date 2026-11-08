@@ -36,7 +36,8 @@ function select(theme, material, hv) {
   return `(()=>{const a=window.__drafti;if(!a?.menu)throw Error('DRAFTI preview is not ready');` +
     `let s=document.getElementById('contrast-matrix-clean');if(!s){s=document.createElement('style');s.id='contrast-matrix-clean';s.textContent='#whisperLabel,#eventLabel{display:none!important}';document.head.appendChild(s)}` +
     `document.querySelectorAll('#whisperLabel,#eventLabel').forEach(x=>x.remove());` +
-    `a.menu.open();const t=[...document.querySelectorAll('.theme-sw')].find(x=>x.dataset.v===${JSON.stringify(theme)});` +
+    `a.menu.open();if(a.settings.rsId!=='eastafrica8'){document.querySelector('.east-africa-rule[data-v="eastafrica8"]').click();if(!document.getElementById('modalConfirm').hidden)document.getElementById('cfYes').click()}` +
+    `const t=[...document.querySelectorAll('.theme-sw')].find(x=>x.dataset.v===${JSON.stringify(theme)});` +
     `const m=[...document.querySelectorAll('#segPieces [data-v]')].find(x=>x.dataset.v===${JSON.stringify(material)});` +
     `if(!t||!m)throw Error('Missing picker: ${theme}/${material}');t.click();m.click();` +
     `if(a.settings.hv!==${hv})document.querySelector('#btnHV').click();a.menu.close();` +

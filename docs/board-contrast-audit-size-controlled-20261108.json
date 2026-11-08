@@ -1,0 +1,6512 @@
+{
+  "schema": 3,
+  "sourceUiSha256": "df0e5e7556493200d8edfeaf91ee00737853ef5e246795fb591465260a98d50e",
+  "sourceCssSha256": "2d70aaccfec2d3e1a98d71d130f88577fa31de432c6ad3f58618d1846fed017f",
+  "target": 3,
+  "method": "WCAG sRGB relative luminance, gamma 2.4; keyline alpha composited over each square endpoint",
+  "scope": "All 21 themes: light-versus-dark square centres and all gradient endpoint pairs, plus the actual dark/light CSS silhouette over every light/dark endpoint. Face-paint contrasts are retained as diagnostics and do not decide whether the piece boundary is visible.",
+  "keylines": [
+    {
+      "name": "dark keyline",
+      "rgba": [
+        5.0,
+        8.0,
+        14.0
+      ],
+      "alpha": 0.98
+    },
+    {
+      "name": "light keyline",
+      "rgba": [
+        255.0,
+        252.0,
+        243.0
+      ],
+      "alpha": 0.98
+    }
+  ],
+  "themes": [
+    {
+      "id": "neon",
+      "name": "Neon Circuit",
+      "squareAndSilhouette": [
+        {
+          "check": "square centres",
+          "foreground": "#4f759b",
+          "background": "#08121d",
+          "ratio": 3.903,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#5882aa",
+          "background": "#0c1723",
+          "ratio": 4.4633,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#5882aa",
+          "background": "#08121d",
+          "ratio": 4.655,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#5882aa",
+          "background": "#050c15",
+          "ratio": 4.8496,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#4f759b",
+          "background": "#0c1723",
+          "ratio": 3.7423,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#4f759b",
+          "background": "#08121d",
+          "ratio": 3.903,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#4f759b",
+          "background": "#050c15",
+          "ratio": 4.0662,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#47688a",
+          "background": "#0c1723",
+          "ratio": 3.1098,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#47688a",
+          "background": "#08121d",
+          "ratio": 3.2434,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#47688a",
+          "background": "#050c15",
+          "ratio": 3.379,
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-hi",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#5882aa",
+          "ratio": 4.8922,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 4.8922
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 3.8731
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light",
+          "foreground": "light keyline CSS keyline",
+          "background": "#4f759b",
+          "ratio": 4.5795,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 4.1069
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 4.5795
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#47688a",
+          "ratio": 5.5109,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 3.4148
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 5.5109
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-hi",
+          "foreground": "light keyline CSS keyline",
+          "background": "#0c1723",
+          "ratio": 16.8741,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.1097
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 16.8741
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark",
+          "foreground": "light keyline CSS keyline",
+          "background": "#08121d",
+          "ratio": 17.5989,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.064
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 17.5989
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#050c15",
+          "ratio": 18.3345,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.0213
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 18.3345
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "squareAndSilhouetteFailures": 0,
+      "facePaintDiagnostics": [
+        {
+          "check": "l face 1/square-hi",
+          "foreground": "#ffffff",
+          "background": "#0c1723",
+          "ratio": 18.0651,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square",
+          "foreground": "#ffffff",
+          "background": "#08121d",
+          "ratio": 18.841,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square-lo",
+          "foreground": "#ffffff",
+          "background": "#050c15",
+          "ratio": 19.6285,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-hi",
+          "foreground": "#dbeefa",
+          "background": "#0c1723",
+          "ratio": 15.1594,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square",
+          "foreground": "#dbeefa",
+          "background": "#08121d",
+          "ratio": 15.8105,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-lo",
+          "foreground": "#dbeefa",
+          "background": "#050c15",
+          "ratio": 16.4714,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-hi",
+          "foreground": "#7fa7c2",
+          "background": "#0c1723",
+          "ratio": 7.0617,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square",
+          "foreground": "#7fa7c2",
+          "background": "#08121d",
+          "ratio": 7.365,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-lo",
+          "foreground": "#7fa7c2",
+          "background": "#050c15",
+          "ratio": 7.6728,
+          "pass": true
+        },
+        {
+          "check": "d face 1/square-hi",
+          "foreground": "#5d7295",
+          "background": "#0c1723",
+          "ratio": 3.7045,
+          "pass": true
+        },
+        {
+          "check": "d face 1/square",
+          "foreground": "#5d7295",
+          "background": "#08121d",
+          "ratio": 3.8636,
+          "pass": true
+        },
+        {
+          "check": "d face 1/square-lo",
+          "foreground": "#5d7295",
+          "background": "#050c15",
+          "ratio": 4.0251,
+          "pass": true
+        },
+        {
+          "check": "d face 2/square-hi",
+          "foreground": "#364260",
+          "background": "#0c1723",
+          "ratio": 1.8109,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square",
+          "foreground": "#364260",
+          "background": "#08121d",
+          "ratio": 1.8886,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-lo",
+          "foreground": "#364260",
+          "background": "#050c15",
+          "ratio": 1.9676,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-hi",
+          "foreground": "#0a0f18",
+          "background": "#0c1723",
+          "ratio": 1.0622,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square",
+          "foreground": "#0a0f18",
+          "background": "#08121d",
+          "ratio": 1.0184,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-lo",
+          "foreground": "#0a0f18",
+          "background": "#050c15",
+          "ratio": 1.023,
+          "pass": false
+        }
+      ],
+      "facePaintBelow3": 6
+    },
+    {
+      "id": "hologlass",
+      "name": "Hologlass",
+      "squareAndSilhouette": [
+        {
+          "check": "square centres",
+          "foreground": "#517178",
+          "background": "#040c0f",
+          "ratio": 3.7413,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#587d84",
+          "background": "#050f13",
+          "ratio": 4.3181,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#587d84",
+          "background": "#040c0f",
+          "ratio": 4.3973,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#587d84",
+          "background": "#02090b",
+          "ratio": 4.4736,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#517178",
+          "background": "#050f13",
+          "ratio": 3.6738,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#517178",
+          "background": "#040c0f",
+          "ratio": 3.7413,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#517178",
+          "background": "#02090b",
+          "ratio": 3.8062,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#4b656b",
+          "background": "#050f13",
+          "ratio": 3.111,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#4b656b",
+          "background": "#040c0f",
+          "ratio": 3.1681,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#4b656b",
+          "background": "#02090b",
+          "ratio": 3.2231,
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-hi",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#587d84",
+          "ratio": 4.4169,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 4.4169
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 4.2634
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light",
+          "foreground": "light keyline CSS keyline",
+          "background": "#517178",
+          "ratio": 5.011,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 3.7579
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 5.011
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#4b656b",
+          "ratio": 5.903,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 3.1861
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 5.903
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-hi",
+          "foreground": "light keyline CSS keyline",
+          "background": "#050f13",
+          "ratio": 18.0924,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.035
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 18.0924
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark",
+          "foreground": "light keyline CSS keyline",
+          "background": "#040c0f",
+          "ratio": 18.4133,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.0163
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 18.4133
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#02090b",
+          "ratio": 18.7329,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.001
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 18.7329
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "squareAndSilhouetteFailures": 0,
+      "facePaintDiagnostics": [
+        {
+          "check": "l face 1/square-hi",
+          "foreground": "#f2fffb",
+          "background": "#050f13",
+          "ratio": 18.8828,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square",
+          "foreground": "#f2fffb",
+          "background": "#040c0f",
+          "ratio": 19.2293,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square-lo",
+          "foreground": "#f2fffb",
+          "background": "#02090b",
+          "ratio": 19.563,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-hi",
+          "foreground": "#d2f2e8",
+          "background": "#050f13",
+          "ratio": 16.2393,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square",
+          "foreground": "#d2f2e8",
+          "background": "#040c0f",
+          "ratio": 16.5373,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-lo",
+          "foreground": "#d2f2e8",
+          "background": "#02090b",
+          "ratio": 16.8243,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-hi",
+          "foreground": "#7fb5a6",
+          "background": "#050f13",
+          "ratio": 8.3589,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square",
+          "foreground": "#7fb5a6",
+          "background": "#040c0f",
+          "ratio": 8.5123,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-lo",
+          "foreground": "#7fb5a6",
+          "background": "#02090b",
+          "ratio": 8.66,
+          "pass": true
+        },
+        {
+          "check": "d face 1/square-hi",
+          "foreground": "#46707e",
+          "background": "#050f13",
+          "ratio": 3.5781,
+          "pass": true
+        },
+        {
+          "check": "d face 1/square",
+          "foreground": "#46707e",
+          "background": "#040c0f",
+          "ratio": 3.6438,
+          "pass": true
+        },
+        {
+          "check": "d face 1/square-lo",
+          "foreground": "#46707e",
+          "background": "#02090b",
+          "ratio": 3.707,
+          "pass": true
+        },
+        {
+          "check": "d face 2/square-hi",
+          "foreground": "#2a4a56",
+          "background": "#050f13",
+          "ratio": 2.0406,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square",
+          "foreground": "#2a4a56",
+          "background": "#040c0f",
+          "ratio": 2.078,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-lo",
+          "foreground": "#2a4a56",
+          "background": "#02090b",
+          "ratio": 2.1141,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-hi",
+          "foreground": "#08131a",
+          "background": "#050f13",
+          "ratio": 1.0315,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square",
+          "foreground": "#08131a",
+          "background": "#040c0f",
+          "ratio": 1.0505,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-lo",
+          "foreground": "#08131a",
+          "background": "#02090b",
+          "ratio": 1.0687,
+          "pass": false
+        }
+      ],
+      "facePaintBelow3": 6
+    },
+    {
+      "id": "cyberjade",
+      "name": "Cyber Jade",
+      "squareAndSilhouette": [
+        {
+          "check": "square centres",
+          "foreground": "#437054",
+          "background": "#010302",
+          "ratio": 3.6292,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#497c5d",
+          "background": "#010403",
+          "ratio": 4.2397,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#497c5d",
+          "background": "#010302",
+          "ratio": 4.2597,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#497c5d",
+          "background": "#010201",
+          "ratio": 4.2799,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#437054",
+          "background": "#010403",
+          "ratio": 3.6122,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#437054",
+          "background": "#010302",
+          "ratio": 3.6292,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#437054",
+          "background": "#010201",
+          "ratio": 3.6464,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#3e654d",
+          "background": "#010403",
+          "ratio": 3.1113,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#3e654d",
+          "background": "#010302",
+          "ratio": 3.126,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#3e654d",
+          "background": "#010201",
+          "ratio": 3.1408,
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-hi",
+          "foreground": "light keyline CSS keyline",
+          "background": "#497c5d",
+          "ratio": 4.6042,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 4.0849
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 4.6042
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light",
+          "foreground": "light keyline CSS keyline",
+          "background": "#437054",
+          "ratio": 5.404,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 3.4822
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 5.404
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#3e654d",
+          "ratio": 6.274,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 2.9993
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 6.274
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-hi",
+          "foreground": "light keyline CSS keyline",
+          "background": "#010403",
+          "ratio": 19.2199,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.027
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 19.2199
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark",
+          "foreground": "light keyline CSS keyline",
+          "background": "#010302",
+          "ratio": 19.3103,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.0319
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 19.3103
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#010201",
+          "ratio": 19.4017,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.0367
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 19.4017
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "squareAndSilhouetteFailures": 0,
+      "facePaintDiagnostics": [
+        {
+          "check": "l face 1/square-hi",
+          "foreground": "#f0fff6",
+          "background": "#010403",
+          "ratio": 19.9415,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square",
+          "foreground": "#f0fff6",
+          "background": "#010302",
+          "ratio": 20.0354,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square-lo",
+          "foreground": "#f0fff6",
+          "background": "#010201",
+          "ratio": 20.1302,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-hi",
+          "foreground": "#c2ecd6",
+          "background": "#010403",
+          "ratio": 15.9446,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square",
+          "foreground": "#c2ecd6",
+          "background": "#010302",
+          "ratio": 16.0197,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-lo",
+          "foreground": "#c2ecd6",
+          "background": "#010201",
+          "ratio": 16.0955,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-hi",
+          "foreground": "#63a583",
+          "background": "#010403",
+          "ratio": 7.0985,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square",
+          "foreground": "#63a583",
+          "background": "#010302",
+          "ratio": 7.132,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-lo",
+          "foreground": "#63a583",
+          "background": "#010201",
+          "ratio": 7.1657,
+          "pass": true
+        },
+        {
+          "check": "d face 1/square-hi",
+          "foreground": "#456a52",
+          "background": "#010403",
+          "ratio": 3.3692,
+          "pass": true
+        },
+        {
+          "check": "d face 1/square",
+          "foreground": "#456a52",
+          "background": "#010302",
+          "ratio": 3.3851,
+          "pass": true
+        },
+        {
+          "check": "d face 1/square-lo",
+          "foreground": "#456a52",
+          "background": "#010201",
+          "ratio": 3.4011,
+          "pass": true
+        },
+        {
+          "check": "d face 2/square-hi",
+          "foreground": "#2a4434",
+          "background": "#010403",
+          "ratio": 1.9362,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square",
+          "foreground": "#2a4434",
+          "background": "#010302",
+          "ratio": 1.9453,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-lo",
+          "foreground": "#2a4434",
+          "background": "#010201",
+          "ratio": 1.9545,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-hi",
+          "foreground": "#050806",
+          "background": "#010403",
+          "ratio": 1.0234,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square",
+          "foreground": "#050806",
+          "background": "#010302",
+          "ratio": 1.0282,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-lo",
+          "foreground": "#050806",
+          "background": "#010201",
+          "ratio": 1.0331,
+          "pass": false
+        }
+      ],
+      "facePaintBelow3": 6
+    },
+    {
+      "id": "synth",
+      "name": "Synthwave",
+      "squareAndSilhouette": [
+        {
+          "check": "square centres",
+          "foreground": "#7c6a9b",
+          "background": "#190d28",
+          "ratio": 3.8882,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#8572ab",
+          "background": "#201435",
+          "ratio": 4.116,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#8572ab",
+          "background": "#190d28",
+          "ratio": 4.4197,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#8572ab",
+          "background": "#120920",
+          "ratio": 4.5984,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#7c6a9b",
+          "background": "#201435",
+          "ratio": 3.6211,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#7c6a9b",
+          "background": "#190d28",
+          "ratio": 3.8882,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#7c6a9b",
+          "background": "#120920",
+          "ratio": 4.0454,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#70618b",
+          "background": "#201435",
+          "ratio": 3.1096,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#70618b",
+          "background": "#190d28",
+          "ratio": 3.3391,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#70618b",
+          "background": "#120920",
+          "ratio": 3.4741,
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-hi",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#8572ab",
+          "ratio": 4.7016,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 4.7016
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 4.008
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light",
+          "foreground": "light keyline CSS keyline",
+          "background": "#7c6a9b",
+          "ratio": 4.5446,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 4.1412
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 4.5446
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#70618b",
+          "ratio": 5.292,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 3.5584
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 5.292
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-hi",
+          "foreground": "light keyline CSS keyline",
+          "background": "#201435",
+          "ratio": 16.2031,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.1558
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 16.2031
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark",
+          "foreground": "light keyline CSS keyline",
+          "background": "#190d28",
+          "ratio": 17.3659,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.0777
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 17.3659
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#120920",
+          "ratio": 18.068,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.0364
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 18.068
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "squareAndSilhouetteFailures": 0,
+      "facePaintDiagnostics": [
+        {
+          "check": "l face 1/square-hi",
+          "foreground": "#fff3fb",
+          "background": "#201435",
+          "ratio": 16.0487,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square",
+          "foreground": "#fff3fb",
+          "background": "#190d28",
+          "ratio": 17.2328,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square-lo",
+          "foreground": "#fff3fb",
+          "background": "#120920",
+          "ratio": 17.9296,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-hi",
+          "foreground": "#f0d5ea",
+          "background": "#201435",
+          "ratio": 12.7059,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square",
+          "foreground": "#f0d5ea",
+          "background": "#190d28",
+          "ratio": 13.6434,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-lo",
+          "foreground": "#f0d5ea",
+          "background": "#120920",
+          "ratio": 14.195,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-hi",
+          "foreground": "#a878b8",
+          "background": "#201435",
+          "ratio": 4.9829,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square",
+          "foreground": "#a878b8",
+          "background": "#190d28",
+          "ratio": 5.3506,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-lo",
+          "foreground": "#a878b8",
+          "background": "#120920",
+          "ratio": 5.5669,
+          "pass": true
+        },
+        {
+          "check": "d face 1/square-hi",
+          "foreground": "#5f4a94",
+          "background": "#201435",
+          "ratio": 2.3858,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square",
+          "foreground": "#5f4a94",
+          "background": "#190d28",
+          "ratio": 2.5618,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square-lo",
+          "foreground": "#5f4a94",
+          "background": "#120920",
+          "ratio": 2.6654,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-hi",
+          "foreground": "#463470",
+          "background": "#201435",
+          "ratio": 1.6371,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square",
+          "foreground": "#463470",
+          "background": "#190d28",
+          "ratio": 1.7579,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-lo",
+          "foreground": "#463470",
+          "background": "#120920",
+          "ratio": 1.8289,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-hi",
+          "foreground": "#120a20",
+          "background": "#201435",
+          "ratio": 1.1127,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square",
+          "foreground": "#120a20",
+          "background": "#190d28",
+          "ratio": 1.0363,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-lo",
+          "foreground": "#120a20",
+          "background": "#120920",
+          "ratio": 1.004,
+          "pass": false
+        }
+      ],
+      "facePaintBelow3": 9
+    },
+    {
+      "id": "vapor",
+      "name": "Vapor Dreams",
+      "squareAndSilhouette": [
+        {
+          "check": "square centres",
+          "foreground": "#9e91c0",
+          "background": "#392c54",
+          "ratio": 4.3706,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#ab9ccc",
+          "background": "#443761",
+          "ratio": 4.2542,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#ab9ccc",
+          "background": "#392c54",
+          "ratio": 5.0286,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#ab9ccc",
+          "background": "#2e2344",
+          "ratio": 5.8046,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#9e91c0",
+          "background": "#443761",
+          "ratio": 3.6975,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#9e91c0",
+          "background": "#392c54",
+          "ratio": 4.3706,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#9e91c0",
+          "background": "#2e2344",
+          "ratio": 5.045,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#9084b0",
+          "background": "#443761",
+          "ratio": 3.1113,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#9084b0",
+          "background": "#392c54",
+          "ratio": 3.6777,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#9084b0",
+          "background": "#2e2344",
+          "ratio": 4.2452,
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-hi",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#ab9ccc",
+          "ratio": 7.8345,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 7.8345
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 2.4086
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#9e91c0",
+          "ratio": 6.8094,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 6.8094
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 2.7712
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-lo",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#9084b0",
+          "ratio": 5.7573,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 5.7573
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 3.2933
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-hi",
+          "foreground": "light keyline CSS keyline",
+          "background": "#443761",
+          "ratio": 10.0704,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.8637
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 10.0704
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark",
+          "foreground": "light keyline CSS keyline",
+          "background": "#392c54",
+          "ratio": 11.9037,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.5775
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 11.9037
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#2e2344",
+          "ratio": 13.7405,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.3666
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 13.7405
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "squareAndSilhouetteFailures": 0,
+      "facePaintDiagnostics": [
+        {
+          "check": "l face 1/square-hi",
+          "foreground": "#fffdf7",
+          "background": "#443761",
+          "ratio": 10.5071,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square",
+          "foreground": "#fffdf7",
+          "background": "#392c54",
+          "ratio": 12.4199,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square-lo",
+          "foreground": "#fffdf7",
+          "background": "#2e2344",
+          "ratio": 14.3364,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-hi",
+          "foreground": "#f2e6f5",
+          "background": "#443761",
+          "ratio": 8.862,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square",
+          "foreground": "#f2e6f5",
+          "background": "#392c54",
+          "ratio": 10.4753,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-lo",
+          "foreground": "#f2e6f5",
+          "background": "#2e2344",
+          "ratio": 12.0917,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-hi",
+          "foreground": "#b191c4",
+          "background": "#443761",
+          "ratio": 3.9273,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square",
+          "foreground": "#b191c4",
+          "background": "#392c54",
+          "ratio": 4.6423,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-lo",
+          "foreground": "#b191c4",
+          "background": "#2e2344",
+          "ratio": 5.3586,
+          "pass": true
+        },
+        {
+          "check": "d face 1/square-hi",
+          "foreground": "#8a7ab4",
+          "background": "#443761",
+          "ratio": 2.8111,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square",
+          "foreground": "#8a7ab4",
+          "background": "#392c54",
+          "ratio": 3.3229,
+          "pass": true
+        },
+        {
+          "check": "d face 1/square-lo",
+          "foreground": "#8a7ab4",
+          "background": "#2e2344",
+          "ratio": 3.8356,
+          "pass": true
+        },
+        {
+          "check": "d face 2/square-hi",
+          "foreground": "#6f5d9e",
+          "background": "#443761",
+          "ratio": 1.9011,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square",
+          "foreground": "#6f5d9e",
+          "background": "#392c54",
+          "ratio": 2.2472,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-lo",
+          "foreground": "#6f5d9e",
+          "background": "#2e2344",
+          "ratio": 2.5939,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-hi",
+          "foreground": "#0e0a1a",
+          "background": "#443761",
+          "ratio": 1.8244,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square",
+          "foreground": "#0e0a1a",
+          "background": "#392c54",
+          "ratio": 1.5434,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-lo",
+          "foreground": "#0e0a1a",
+          "background": "#2e2344",
+          "ratio": 1.3371,
+          "pass": false
+        }
+      ],
+      "facePaintBelow3": 7
+    },
+    {
+      "id": "solar",
+      "name": "Solar Storm",
+      "squareAndSilhouette": [
+        {
+          "check": "square centres",
+          "foreground": "#846148",
+          "background": "#090401",
+          "ratio": 3.6764,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#916a4e",
+          "background": "#0c0602",
+          "ratio": 4.197,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#916a4e",
+          "background": "#090401",
+          "ratio": 4.2505,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#916a4e",
+          "background": "#060300",
+          "ratio": 4.2865,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#846148",
+          "background": "#0c0602",
+          "ratio": 3.6301,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#846148",
+          "background": "#090401",
+          "ratio": 3.6764,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#846148",
+          "background": "#060300",
+          "ratio": 3.7076,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#765841",
+          "background": "#0c0602",
+          "ratio": 3.1102,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#765841",
+          "background": "#090401",
+          "ratio": 3.1499,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#765841",
+          "background": "#060300",
+          "ratio": 3.1766,
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-hi",
+          "foreground": "light keyline CSS keyline",
+          "background": "#916a4e",
+          "ratio": 4.5674,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 4.1254
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 4.5674
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light",
+          "foreground": "light keyline CSS keyline",
+          "background": "#846148",
+          "ratio": 5.2807,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 3.5682
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 5.2807
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#765841",
+          "ratio": 6.1482,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 3.0609
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 6.1482
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-hi",
+          "foreground": "light keyline CSS keyline",
+          "background": "#0c0602",
+          "ratio": 18.8035,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.0048
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 18.8035
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark",
+          "foreground": "light keyline CSS keyline",
+          "background": "#090401",
+          "ratio": 19.0435,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.0176
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 19.0435
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#060300",
+          "ratio": 19.2049,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.0262
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 19.2049
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "squareAndSilhouetteFailures": 0,
+      "facePaintDiagnostics": [
+        {
+          "check": "l face 1/square-hi",
+          "foreground": "#fff4e0",
+          "background": "#0c0602",
+          "ratio": 18.4821,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square",
+          "foreground": "#fff4e0",
+          "background": "#090401",
+          "ratio": 18.718,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square-lo",
+          "foreground": "#fff4e0",
+          "background": "#060300",
+          "ratio": 18.8766,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-hi",
+          "foreground": "#f5ddb8",
+          "background": "#0c0602",
+          "ratio": 15.2674,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square",
+          "foreground": "#f5ddb8",
+          "background": "#090401",
+          "ratio": 15.4623,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-lo",
+          "foreground": "#f5ddb8",
+          "background": "#060300",
+          "ratio": 15.5934,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-hi",
+          "foreground": "#b08850",
+          "background": "#0c0602",
+          "ratio": 6.2189,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square",
+          "foreground": "#b08850",
+          "background": "#090401",
+          "ratio": 6.2982,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-lo",
+          "foreground": "#b08850",
+          "background": "#060300",
+          "ratio": 6.3516,
+          "pass": true
+        },
+        {
+          "check": "d face 1/square-hi",
+          "foreground": "#6e5240",
+          "background": "#0c0602",
+          "ratio": 2.8238,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square",
+          "foreground": "#6e5240",
+          "background": "#090401",
+          "ratio": 2.8598,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square-lo",
+          "foreground": "#6e5240",
+          "background": "#060300",
+          "ratio": 2.8841,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-hi",
+          "foreground": "#4e3828",
+          "background": "#0c0602",
+          "ratio": 1.8419,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square",
+          "foreground": "#4e3828",
+          "background": "#090401",
+          "ratio": 1.8654,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-lo",
+          "foreground": "#4e3828",
+          "background": "#060300",
+          "ratio": 1.8812,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-hi",
+          "foreground": "#0d0805",
+          "background": "#0c0602",
+          "ratio": 1.011,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square",
+          "foreground": "#0d0805",
+          "background": "#090401",
+          "ratio": 1.0239,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-lo",
+          "foreground": "#0d0805",
+          "background": "#060300",
+          "ratio": 1.0326,
+          "pass": false
+        }
+      ],
+      "facePaintBelow3": 9
+    },
+    {
+      "id": "glass",
+      "name": "Neon Glass",
+      "squareAndSilhouette": [
+        {
+          "check": "square centres",
+          "foreground": "#3883ac",
+          "background": "#160d37",
+          "ratio": 4.3688,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#4492bf",
+          "background": "#1d1247",
+          "ratio": 4.9682,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#4492bf",
+          "background": "#160d37",
+          "ratio": 5.3273,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#4492bf",
+          "background": "#0f0725",
+          "ratio": 5.6707,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#3883ac",
+          "background": "#1d1247",
+          "ratio": 4.0743,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#3883ac",
+          "background": "#160d37",
+          "ratio": 4.3688,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#3883ac",
+          "background": "#0f0725",
+          "ratio": 4.6504,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#2f6f93",
+          "background": "#1d1247",
+          "ratio": 3.103,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#2f6f93",
+          "background": "#160d37",
+          "ratio": 3.3273,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#2f6f93",
+          "background": "#0f0725",
+          "ratio": 3.5418,
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-hi",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#4492bf",
+          "ratio": 5.7403,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 5.7403
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 3.283
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#3883ac",
+          "ratio": 4.7301,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 4.7301
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 4.0033
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#2f6f93",
+          "ratio": 5.2208,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 3.6025
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 5.2208
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-hi",
+          "foreground": "light keyline CSS keyline",
+          "background": "#1d1247",
+          "ratio": 15.9604,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.1733
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 15.9604
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark",
+          "foreground": "light keyline CSS keyline",
+          "background": "#160d37",
+          "ratio": 17.1038,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.0942
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 17.1038
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#0f0725",
+          "ratio": 18.206,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.0285
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 18.206
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "squareAndSilhouetteFailures": 0,
+      "facePaintDiagnostics": [
+        {
+          "check": "l face 1/square-hi",
+          "foreground": "#ffffff",
+          "background": "#1d1247",
+          "ratio": 17.0766,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square",
+          "foreground": "#ffffff",
+          "background": "#160d37",
+          "ratio": 18.311,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square-lo",
+          "foreground": "#ffffff",
+          "background": "#0f0725",
+          "ratio": 19.4911,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-hi",
+          "foreground": "#d9f6ff",
+          "background": "#1d1247",
+          "ratio": 15.106,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square",
+          "foreground": "#d9f6ff",
+          "background": "#160d37",
+          "ratio": 16.198,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-lo",
+          "foreground": "#d9f6ff",
+          "background": "#0f0725",
+          "ratio": 17.2418,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-hi",
+          "foreground": "#6fb3cc",
+          "background": "#1d1247",
+          "ratio": 7.3152,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square",
+          "foreground": "#6fb3cc",
+          "background": "#160d37",
+          "ratio": 7.844,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-lo",
+          "foreground": "#6fb3cc",
+          "background": "#0f0725",
+          "ratio": 8.3495,
+          "pass": true
+        },
+        {
+          "check": "d face 1/square-hi",
+          "foreground": "#8a76b4",
+          "background": "#1d1247",
+          "ratio": 4.3351,
+          "pass": true
+        },
+        {
+          "check": "d face 1/square",
+          "foreground": "#8a76b4",
+          "background": "#160d37",
+          "ratio": 4.6485,
+          "pass": true
+        },
+        {
+          "check": "d face 1/square-lo",
+          "foreground": "#8a76b4",
+          "background": "#0f0725",
+          "ratio": 4.948,
+          "pass": true
+        },
+        {
+          "check": "d face 2/square-hi",
+          "foreground": "#423468",
+          "background": "#1d1247",
+          "ratio": 1.5635,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square",
+          "foreground": "#423468",
+          "background": "#160d37",
+          "ratio": 1.6765,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-lo",
+          "foreground": "#423468",
+          "background": "#0f0725",
+          "ratio": 1.7846,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-hi",
+          "foreground": "#0e0820",
+          "background": "#1d1247",
+          "ratio": 1.1447,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square",
+          "foreground": "#0e0820",
+          "background": "#160d37",
+          "ratio": 1.0676,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-lo",
+          "foreground": "#0e0820",
+          "background": "#0f0725",
+          "ratio": 1.0029,
+          "pass": false
+        }
+      ],
+      "facePaintBelow3": 6
+    },
+    {
+      "id": "ice",
+      "name": "Quantum Ice",
+      "squareAndSilhouette": [
+        {
+          "check": "square centres",
+          "foreground": "#f0f7fb",
+          "background": "#638091",
+          "ratio": 3.8596,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#fcfdff",
+          "background": "#728c9a",
+          "ratio": 3.4775,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#fcfdff",
+          "background": "#638091",
+          "ratio": 4.1044,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#fcfdff",
+          "background": "#547384",
+          "ratio": 4.957,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#f0f7fb",
+          "background": "#728c9a",
+          "ratio": 3.2701,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#f0f7fb",
+          "background": "#638091",
+          "ratio": 3.8596,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#f0f7fb",
+          "background": "#547384",
+          "ratio": 4.6613,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#e7f2f8",
+          "background": "#728c9a",
+          "ratio": 3.1102,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#e7f2f8",
+          "background": "#638091",
+          "ratio": 3.6709,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#e7f2f8",
+          "background": "#547384",
+          "ratio": 4.4335,
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-hi",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#fcfdff",
+          "ratio": 19.107,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 19.107
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.008
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#f0f7fb",
+          "ratio": 17.9672,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 17.9672
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.055
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-lo",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#e7f2f8",
+          "ratio": 17.089,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 17.089
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.1093
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-hi",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#728c9a",
+          "ratio": 5.5712,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 5.5712
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 3.3849
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#638091",
+          "ratio": 4.7401,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 4.7401
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 3.9951
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#547384",
+          "ratio": 4.7951,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 3.9271
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 4.7951
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "squareAndSilhouetteFailures": 0,
+      "facePaintDiagnostics": [
+        {
+          "check": "l face 1/square-hi",
+          "foreground": "#ffffff",
+          "background": "#728c9a",
+          "ratio": 3.5393,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square",
+          "foreground": "#ffffff",
+          "background": "#638091",
+          "ratio": 4.1774,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square-lo",
+          "foreground": "#ffffff",
+          "background": "#547384",
+          "ratio": 5.0451,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-hi",
+          "foreground": "#f8fcfe",
+          "background": "#728c9a",
+          "ratio": 3.4292,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square",
+          "foreground": "#f8fcfe",
+          "background": "#638091",
+          "ratio": 4.0474,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-lo",
+          "foreground": "#f8fcfe",
+          "background": "#547384",
+          "ratio": 4.8881,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-hi",
+          "foreground": "#6f9cb5",
+          "background": "#728c9a",
+          "ratio": 1.1964,
+          "pass": false
+        },
+        {
+          "check": "l face edge/square",
+          "foreground": "#6f9cb5",
+          "background": "#638091",
+          "ratio": 1.4121,
+          "pass": false
+        },
+        {
+          "check": "l face edge/square-lo",
+          "foreground": "#6f9cb5",
+          "background": "#547384",
+          "ratio": 1.7054,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square-hi",
+          "foreground": "#56788e",
+          "background": "#728c9a",
+          "ratio": 1.3265,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square",
+          "foreground": "#56788e",
+          "background": "#638091",
+          "ratio": 1.1239,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square-lo",
+          "foreground": "#56788e",
+          "background": "#547384",
+          "ratio": 1.0746,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-hi",
+          "foreground": "#3a566b",
+          "background": "#728c9a",
+          "ratio": 2.1787,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square",
+          "foreground": "#3a566b",
+          "background": "#638091",
+          "ratio": 1.8459,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-lo",
+          "foreground": "#3a566b",
+          "background": "#547384",
+          "ratio": 1.5284,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-hi",
+          "foreground": "#16283a",
+          "background": "#728c9a",
+          "ratio": 4.2419,
+          "pass": true
+        },
+        {
+          "check": "d face edge/square",
+          "foreground": "#16283a",
+          "background": "#638091",
+          "ratio": 3.594,
+          "pass": true
+        },
+        {
+          "check": "d face edge/square-lo",
+          "foreground": "#16283a",
+          "background": "#547384",
+          "ratio": 2.9759,
+          "pass": false
+        }
+      ],
+      "facePaintBelow3": 10
+    },
+    {
+      "id": "space",
+      "name": "Deep Space",
+      "squareAndSilhouette": [
+        {
+          "check": "square centres",
+          "foreground": "#626886",
+          "background": "#090a16",
+          "ratio": 3.6036,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#6b7194",
+          "background": "#0b0c1b",
+          "ratio": 4.0778,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#6b7194",
+          "background": "#090a16",
+          "ratio": 4.1391,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#6b7194",
+          "background": "#060711",
+          "ratio": 4.2198,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#626886",
+          "background": "#0b0c1b",
+          "ratio": 3.5503,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#626886",
+          "background": "#090a16",
+          "ratio": 3.6036,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#626886",
+          "background": "#060711",
+          "ratio": 3.6739,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#5b5f79",
+          "background": "#0b0c1b",
+          "ratio": 3.1015,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#5b5f79",
+          "background": "#090a16",
+          "ratio": 3.1481,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#5b5f79",
+          "background": "#060711",
+          "ratio": 3.2094,
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-hi",
+          "foreground": "light keyline CSS keyline",
+          "background": "#6b7194",
+          "ratio": 4.521,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 4.1628
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 4.521
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light",
+          "foreground": "light keyline CSS keyline",
+          "background": "#626886",
+          "ratio": 5.1928,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 3.6264
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 5.1928
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#5b5f79",
+          "ratio": 5.9442,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 3.1679
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 5.9442
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-hi",
+          "foreground": "light keyline CSS keyline",
+          "background": "#0b0c1b",
+          "ratio": 18.1181,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.0335
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 18.1181
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark",
+          "foreground": "light keyline CSS keyline",
+          "background": "#090a16",
+          "ratio": 18.3904,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.0182
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 18.3904
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#060711",
+          "ratio": 18.7375,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.0012
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 18.7375
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "squareAndSilhouetteFailures": 0,
+      "facePaintDiagnostics": [
+        {
+          "check": "l face 1/square-hi",
+          "foreground": "#f5f7ff",
+          "background": "#0b0c1b",
+          "ratio": 18.1323,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square",
+          "foreground": "#f5f7ff",
+          "background": "#090a16",
+          "ratio": 18.4047,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square-lo",
+          "foreground": "#f5f7ff",
+          "background": "#060711",
+          "ratio": 18.7634,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-hi",
+          "foreground": "#d8ddf2",
+          "background": "#0b0c1b",
+          "ratio": 14.3579,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square",
+          "foreground": "#d8ddf2",
+          "background": "#090a16",
+          "ratio": 14.5737,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-lo",
+          "foreground": "#d8ddf2",
+          "background": "#060711",
+          "ratio": 14.8577,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-hi",
+          "foreground": "#7f8ab5",
+          "background": "#0b0c1b",
+          "ratio": 5.7314,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square",
+          "foreground": "#7f8ab5",
+          "background": "#090a16",
+          "ratio": 5.8175,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-lo",
+          "foreground": "#7f8ab5",
+          "background": "#060711",
+          "ratio": 5.9309,
+          "pass": true
+        },
+        {
+          "check": "d face 1/square-hi",
+          "foreground": "#4d5480",
+          "background": "#0b0c1b",
+          "ratio": 2.6744,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square",
+          "foreground": "#4d5480",
+          "background": "#090a16",
+          "ratio": 2.7146,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square-lo",
+          "foreground": "#4d5480",
+          "background": "#060711",
+          "ratio": 2.7675,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-hi",
+          "foreground": "#333a5e",
+          "background": "#0b0c1b",
+          "ratio": 1.762,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square",
+          "foreground": "#333a5e",
+          "background": "#090a16",
+          "ratio": 1.7885,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-lo",
+          "foreground": "#333a5e",
+          "background": "#060711",
+          "ratio": 1.8233,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-hi",
+          "foreground": "#0b0c1a",
+          "background": "#0b0c1b",
+          "ratio": 1.0008,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square",
+          "foreground": "#0b0c1a",
+          "background": "#090a16",
+          "ratio": 1.0142,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-lo",
+          "foreground": "#0b0c1a",
+          "background": "#060711",
+          "ratio": 1.0339,
+          "pass": false
+        }
+      ],
+      "facePaintBelow3": 9
+    },
+    {
+      "id": "club",
+      "name": "Midnight Club",
+      "squareAndSilhouette": [
+        {
+          "check": "square centres",
+          "foreground": "#e9d5a7",
+          "background": "#7c4a24",
+          "ratio": 5.0805,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#f0debc",
+          "background": "#8a5629",
+          "ratio": 4.6111,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#f0debc",
+          "background": "#7c4a24",
+          "ratio": 5.5485,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#f0debc",
+          "background": "#6d3f1d",
+          "ratio": 6.675,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#e9d5a7",
+          "background": "#8a5629",
+          "ratio": 4.2222,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#e9d5a7",
+          "background": "#7c4a24",
+          "ratio": 5.0805,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#e9d5a7",
+          "background": "#6d3f1d",
+          "ratio": 6.112,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#d9c193",
+          "background": "#8a5629",
+          "ratio": 3.4844,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#d9c193",
+          "background": "#7c4a24",
+          "ratio": 4.1927,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#d9c193",
+          "background": "#6d3f1d",
+          "ratio": 5.044,
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-hi",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#f0debc",
+          "ratio": 14.7913,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 14.7913
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.2804
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#e9d5a7",
+          "ratio": 13.5438,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 13.5438
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.3976
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-lo",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#d9c193",
+          "ratio": 11.1906,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 11.1906
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.6903
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-hi",
+          "foreground": "light keyline CSS keyline",
+          "background": "#8a5629",
+          "ratio": 5.7998,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 3.2469
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 5.7998
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark",
+          "foreground": "light keyline CSS keyline",
+          "background": "#7c4a24",
+          "ratio": 6.9226,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 2.7142
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 6.9226
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#6d3f1d",
+          "ratio": 8.3281,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 2.2561
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 8.3281
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "squareAndSilhouetteFailures": 0,
+      "facePaintDiagnostics": [
+        {
+          "check": "l face 1/square-hi",
+          "foreground": "#fffdf4",
+          "background": "#8a5629",
+          "ratio": 5.9842,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square",
+          "foreground": "#fffdf4",
+          "background": "#7c4a24",
+          "ratio": 7.2007,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square-lo",
+          "foreground": "#fffdf4",
+          "background": "#6d3f1d",
+          "ratio": 8.6627,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-hi",
+          "foreground": "#ecdcb4",
+          "background": "#8a5629",
+          "ratio": 4.4901,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square",
+          "foreground": "#ecdcb4",
+          "background": "#7c4a24",
+          "ratio": 5.4028,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-lo",
+          "foreground": "#ecdcb4",
+          "background": "#6d3f1d",
+          "ratio": 6.4998,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-hi",
+          "foreground": "#8f7448",
+          "background": "#8a5629",
+          "ratio": 1.3821,
+          "pass": false
+        },
+        {
+          "check": "l face edge/square",
+          "foreground": "#8f7448",
+          "background": "#7c4a24",
+          "ratio": 1.6631,
+          "pass": false
+        },
+        {
+          "check": "l face edge/square-lo",
+          "foreground": "#8f7448",
+          "background": "#6d3f1d",
+          "ratio": 2.0007,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square-hi",
+          "foreground": "#6a553f",
+          "background": "#8a5629",
+          "ratio": 1.1541,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square",
+          "foreground": "#6a553f",
+          "background": "#7c4a24",
+          "ratio": 1.0426,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square-lo",
+          "foreground": "#6a553f",
+          "background": "#6d3f1d",
+          "ratio": 1.2543,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-hi",
+          "foreground": "#35261a",
+          "background": "#8a5629",
+          "ratio": 2.3857,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square",
+          "foreground": "#35261a",
+          "background": "#7c4a24",
+          "ratio": 1.9826,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-lo",
+          "foreground": "#35261a",
+          "background": "#6d3f1d",
+          "ratio": 1.648,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-hi",
+          "foreground": "#0c0703",
+          "background": "#8a5629",
+          "ratio": 3.2881,
+          "pass": true
+        },
+        {
+          "check": "d face edge/square",
+          "foreground": "#0c0703",
+          "background": "#7c4a24",
+          "ratio": 2.7326,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-lo",
+          "foreground": "#0c0703",
+          "background": "#6d3f1d",
+          "ratio": 2.2715,
+          "pass": false
+        }
+      ],
+      "facePaintBelow3": 11
+    },
+    {
+      "id": "walnut",
+      "name": "Walnut Classic",
+      "squareAndSilhouette": [
+        {
+          "check": "square centres",
+          "foreground": "#eed7ab",
+          "background": "#8a5629",
+          "ratio": 4.3393,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#f5e3bd",
+          "background": "#96602c",
+          "ratio": 4.1447,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#f5e3bd",
+          "background": "#8a5629",
+          "ratio": 4.8217,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#f5e3bd",
+          "background": "#7a4a22",
+          "ratio": 5.8672,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#eed7ab",
+          "background": "#96602c",
+          "ratio": 3.73,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#eed7ab",
+          "background": "#8a5629",
+          "ratio": 4.3393,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#eed7ab",
+          "background": "#7a4a22",
+          "ratio": 5.2802,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#e2c795",
+          "background": "#96602c",
+          "ratio": 3.2042,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#e2c795",
+          "background": "#8a5629",
+          "ratio": 3.7276,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#e2c795",
+          "background": "#7a4a22",
+          "ratio": 4.5359,
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-hi",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#f5e3bd",
+          "ratio": 15.4576,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 15.4576
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.2321
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#eed7ab",
+          "ratio": 13.9193,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 13.9193
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.3606
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-lo",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#e2c795",
+          "ratio": 11.9716,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 11.9716
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.58
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-hi",
+          "foreground": "light keyline CSS keyline",
+          "background": "#96602c",
+          "ratio": 4.9854,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 3.7773
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 4.9854
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark",
+          "foreground": "light keyline CSS keyline",
+          "background": "#8a5629",
+          "ratio": 5.7998,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 3.2469
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 5.7998
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#7a4a22",
+          "ratio": 7.0006,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 2.684
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 7.0006
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "squareAndSilhouetteFailures": 0,
+      "facePaintDiagnostics": [
+        {
+          "check": "l face 1/square-hi",
+          "foreground": "#fffdf4",
+          "background": "#96602c",
+          "ratio": 5.144,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square",
+          "foreground": "#fffdf4",
+          "background": "#8a5629",
+          "ratio": 5.9842,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square-lo",
+          "foreground": "#fffdf4",
+          "background": "#7a4a22",
+          "ratio": 7.2818,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-hi",
+          "foreground": "#ecdcb4",
+          "background": "#96602c",
+          "ratio": 3.8596,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square",
+          "foreground": "#ecdcb4",
+          "background": "#8a5629",
+          "ratio": 4.4901,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-lo",
+          "foreground": "#ecdcb4",
+          "background": "#7a4a22",
+          "ratio": 5.4637,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-hi",
+          "foreground": "#8f7448",
+          "background": "#96602c",
+          "ratio": 1.188,
+          "pass": false
+        },
+        {
+          "check": "l face edge/square",
+          "foreground": "#8f7448",
+          "background": "#8a5629",
+          "ratio": 1.3821,
+          "pass": false
+        },
+        {
+          "check": "l face edge/square-lo",
+          "foreground": "#8f7448",
+          "background": "#7a4a22",
+          "ratio": 1.6818,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square-hi",
+          "foreground": "#6a553f",
+          "background": "#96602c",
+          "ratio": 1.3426,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square",
+          "foreground": "#6a553f",
+          "background": "#8a5629",
+          "ratio": 1.1541,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square-lo",
+          "foreground": "#6a553f",
+          "background": "#7a4a22",
+          "ratio": 1.0544,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-hi",
+          "foreground": "#35261a",
+          "background": "#96602c",
+          "ratio": 2.7754,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square",
+          "foreground": "#35261a",
+          "background": "#8a5629",
+          "ratio": 2.3857,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-lo",
+          "foreground": "#35261a",
+          "background": "#7a4a22",
+          "ratio": 1.9605,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-hi",
+          "foreground": "#0c0703",
+          "background": "#96602c",
+          "ratio": 3.8252,
+          "pass": true
+        },
+        {
+          "check": "d face edge/square",
+          "foreground": "#0c0703",
+          "background": "#8a5629",
+          "ratio": 3.2881,
+          "pass": true
+        },
+        {
+          "check": "d face edge/square-lo",
+          "foreground": "#0c0703",
+          "background": "#7a4a22",
+          "ratio": 2.7022,
+          "pass": false
+        }
+      ],
+      "facePaintBelow3": 10
+    },
+    {
+      "id": "royale",
+      "name": "Walnut Royale",
+      "squareAndSilhouette": [
+        {
+          "check": "square centres",
+          "foreground": "#e3c591",
+          "background": "#784c25",
+          "ratio": 4.4285,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#ecd4a6",
+          "background": "#86572d",
+          "ratio": 4.2563,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#ecd4a6",
+          "background": "#784c25",
+          "ratio": 5.0836,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#ecd4a6",
+          "background": "#673e1c",
+          "ratio": 6.3678,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#e3c591",
+          "background": "#86572d",
+          "ratio": 3.7078,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#e3c591",
+          "background": "#784c25",
+          "ratio": 4.4285,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#e3c591",
+          "background": "#673e1c",
+          "ratio": 5.5472,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#d4b57d",
+          "background": "#86572d",
+          "ratio": 3.1349,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#d4b57d",
+          "background": "#784c25",
+          "ratio": 3.7442,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#d4b57d",
+          "background": "#673e1c",
+          "ratio": 4.69,
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-hi",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#ecd4a6",
+          "ratio": 13.5383,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 13.5383
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.3981
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#e3c591",
+          "ratio": 11.8079,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 11.8079
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.602
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-lo",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#d4b57d",
+          "ratio": 10.0332,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 10.0332
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.8947
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-hi",
+          "foreground": "light keyline CSS keyline",
+          "background": "#86572d",
+          "ratio": 5.8489,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 3.2196
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 5.8489
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark",
+          "foreground": "light keyline CSS keyline",
+          "background": "#784c25",
+          "ratio": 6.9296,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 2.7115
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 6.9296
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#673e1c",
+          "ratio": 8.68,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 2.1647
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 8.68
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "squareAndSilhouetteFailures": 0,
+      "facePaintDiagnostics": [
+        {
+          "check": "l face 1/square-hi",
+          "foreground": "#fbf3dd",
+          "background": "#86572d",
+          "ratio": 5.554,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square",
+          "foreground": "#fbf3dd",
+          "background": "#784c25",
+          "ratio": 6.6336,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square-lo",
+          "foreground": "#fbf3dd",
+          "background": "#673e1c",
+          "ratio": 8.3093,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-hi",
+          "foreground": "#f6ead0",
+          "background": "#86572d",
+          "ratio": 5.1535,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square",
+          "foreground": "#f6ead0",
+          "background": "#784c25",
+          "ratio": 6.1553,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-lo",
+          "foreground": "#f6ead0",
+          "background": "#673e1c",
+          "ratio": 7.7101,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-hi",
+          "foreground": "#a8895c",
+          "background": "#86572d",
+          "ratio": 1.8735,
+          "pass": false
+        },
+        {
+          "check": "l face edge/square",
+          "foreground": "#a8895c",
+          "background": "#784c25",
+          "ratio": 2.2377,
+          "pass": false
+        },
+        {
+          "check": "l face edge/square-lo",
+          "foreground": "#a8895c",
+          "background": "#673e1c",
+          "ratio": 2.8029,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square-hi",
+          "foreground": "#6b4526",
+          "background": "#86572d",
+          "ratio": 1.3635,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square",
+          "foreground": "#6b4526",
+          "background": "#784c25",
+          "ratio": 1.1416,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square-lo",
+          "foreground": "#6b4526",
+          "background": "#673e1c",
+          "ratio": 1.0972,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-hi",
+          "foreground": "#472c14",
+          "background": "#86572d",
+          "ratio": 2.0844,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square",
+          "foreground": "#472c14",
+          "background": "#784c25",
+          "ratio": 1.7452,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-lo",
+          "foreground": "#472c14",
+          "background": "#673e1c",
+          "ratio": 1.3932,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-hi",
+          "foreground": "#140a02",
+          "background": "#86572d",
+          "ratio": 3.1794,
+          "pass": true
+        },
+        {
+          "check": "d face edge/square",
+          "foreground": "#140a02",
+          "background": "#784c25",
+          "ratio": 2.662,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-lo",
+          "foreground": "#140a02",
+          "background": "#673e1c",
+          "ratio": 2.1252,
+          "pass": false
+        }
+      ],
+      "facePaintBelow3": 11
+    },
+    {
+      "id": "tourney",
+      "name": "Tournament",
+      "squareAndSilhouette": [
+        {
+          "check": "square centres",
+          "foreground": "#ecd6a0",
+          "background": "#3f6d3e",
+          "ratio": 4.2362,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#f2e0b0",
+          "background": "#4a7a4a",
+          "ratio": 3.8489,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#f2e0b0",
+          "background": "#3f6d3e",
+          "ratio": 4.6318,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#f2e0b0",
+          "background": "#345c34",
+          "ratio": 5.8921,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#ecd6a0",
+          "background": "#4a7a4a",
+          "ratio": 3.5202,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#ecd6a0",
+          "background": "#3f6d3e",
+          "ratio": 4.2362,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#ecd6a0",
+          "background": "#345c34",
+          "ratio": 5.389,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#dfc68c",
+          "background": "#4a7a4a",
+          "ratio": 3.0173,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#dfc68c",
+          "background": "#3f6d3e",
+          "ratio": 3.6311,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#dfc68c",
+          "background": "#345c34",
+          "ratio": 4.6191,
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-hi",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#f2e0b0",
+          "ratio": 14.9635,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 14.9635
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.2657
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#ecd6a0",
+          "ratio": 13.6857,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 13.6857
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.3831
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-lo",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#dfc68c",
+          "ratio": 11.7448,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 11.7448
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.6106
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-hi",
+          "foreground": "light keyline CSS keyline",
+          "background": "#4a7a4a",
+          "ratio": 4.7702,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 3.9448
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 4.7702
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark",
+          "foreground": "light keyline CSS keyline",
+          "background": "#3f6d3e",
+          "ratio": 5.7371,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 3.2781
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 5.7371
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#345c34",
+          "ratio": 7.2983,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 2.5769
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 7.2983
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "squareAndSilhouetteFailures": 0,
+      "facePaintDiagnostics": [
+        {
+          "check": "l face 1/square-hi",
+          "foreground": "#fffdf3",
+          "background": "#4a7a4a",
+          "ratio": 4.9346,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square",
+          "foreground": "#fffdf3",
+          "background": "#3f6d3e",
+          "ratio": 5.9383,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square-lo",
+          "foreground": "#fffdf3",
+          "background": "#345c34",
+          "ratio": 7.5542,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-hi",
+          "foreground": "#f0e6c8",
+          "background": "#4a7a4a",
+          "ratio": 4.0389,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square",
+          "foreground": "#f0e6c8",
+          "background": "#3f6d3e",
+          "ratio": 4.8604,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-lo",
+          "foreground": "#f0e6c8",
+          "background": "#345c34",
+          "ratio": 6.183,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-hi",
+          "foreground": "#91805a",
+          "background": "#4a7a4a",
+          "ratio": 1.3032,
+          "pass": false
+        },
+        {
+          "check": "l face edge/square",
+          "foreground": "#91805a",
+          "background": "#3f6d3e",
+          "ratio": 1.5682,
+          "pass": false
+        },
+        {
+          "check": "l face edge/square-lo",
+          "foreground": "#91805a",
+          "background": "#345c34",
+          "ratio": 1.995,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square-hi",
+          "foreground": "#4a4536",
+          "background": "#4a7a4a",
+          "ratio": 1.9009,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square",
+          "foreground": "#4a4536",
+          "background": "#3f6d3e",
+          "ratio": 1.5796,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square-lo",
+          "foreground": "#4a4536",
+          "background": "#345c34",
+          "ratio": 1.2417,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-hi",
+          "foreground": "#2a281c",
+          "background": "#4a7a4a",
+          "ratio": 2.942,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square",
+          "foreground": "#2a281c",
+          "background": "#3f6d3e",
+          "ratio": 2.4447,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-lo",
+          "foreground": "#2a281c",
+          "background": "#345c34",
+          "ratio": 1.9218,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-hi",
+          "foreground": "#0a0906",
+          "background": "#4a7a4a",
+          "ratio": 3.9577,
+          "pass": true
+        },
+        {
+          "check": "d face edge/square",
+          "foreground": "#0a0906",
+          "background": "#3f6d3e",
+          "ratio": 3.2888,
+          "pass": true
+        },
+        {
+          "check": "d face edge/square-lo",
+          "foreground": "#0a0906",
+          "background": "#345c34",
+          "ratio": 2.5853,
+          "pass": false
+        }
+      ],
+      "facePaintBelow3": 10
+    },
+    {
+      "id": "marble",
+      "name": "Marble Lux",
+      "squareAndSilhouette": [
+        {
+          "check": "square centres",
+          "foreground": "#f1f3f5",
+          "background": "#5c6672",
+          "ratio": 5.2462,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#fafbfc",
+          "background": "#6a7686",
+          "ratio": 4.4563,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#fafbfc",
+          "background": "#5c6672",
+          "ratio": 5.6326,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#fafbfc",
+          "background": "#4c5664",
+          "ratio": 7.1815,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#f1f3f5",
+          "background": "#6a7686",
+          "ratio": 4.1506,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#f1f3f5",
+          "background": "#5c6672",
+          "ratio": 5.2462,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#f1f3f5",
+          "background": "#4c5664",
+          "ratio": 6.6889,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#e2e6ea",
+          "background": "#6a7686",
+          "ratio": 3.6805,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#e2e6ea",
+          "background": "#5c6672",
+          "ratio": 4.652,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#e2e6ea",
+          "background": "#4c5664",
+          "ratio": 5.9313,
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-hi",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#fafbfc",
+          "ratio": 18.77,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 18.77
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.0099
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#f1f3f5",
+          "ratio": 17.4824,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 17.4824
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.0843
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-lo",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#e2e6ea",
+          "ratio": 15.6025,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 15.6025
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.2205
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-hi",
+          "foreground": "light keyline CSS keyline",
+          "background": "#6a7686",
+          "ratio": 4.3882,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 4.2913
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 4.3882
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark",
+          "foreground": "light keyline CSS keyline",
+          "background": "#5c6672",
+          "ratio": 5.5432,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 3.3951
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 5.5432
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#4c5664",
+          "ratio": 7.0543,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 2.6661
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 7.0543
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "squareAndSilhouetteFailures": 0,
+      "facePaintDiagnostics": [
+        {
+          "check": "l face 1/square-hi",
+          "foreground": "#ffffff",
+          "background": "#6a7686",
+          "ratio": 4.617,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square",
+          "foreground": "#ffffff",
+          "background": "#5c6672",
+          "ratio": 5.8356,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square-lo",
+          "foreground": "#ffffff",
+          "background": "#4c5664",
+          "ratio": 7.4404,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-hi",
+          "foreground": "#f0f2f5",
+          "background": "#6a7686",
+          "ratio": 4.1167,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square",
+          "foreground": "#f0f2f5",
+          "background": "#5c6672",
+          "ratio": 5.2033,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-lo",
+          "foreground": "#f0f2f5",
+          "background": "#4c5664",
+          "ratio": 6.6341,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-hi",
+          "foreground": "#8b95a3",
+          "background": "#6a7686",
+          "ratio": 1.5226,
+          "pass": false
+        },
+        {
+          "check": "l face edge/square",
+          "foreground": "#8b95a3",
+          "background": "#5c6672",
+          "ratio": 1.9245,
+          "pass": false
+        },
+        {
+          "check": "l face edge/square-lo",
+          "foreground": "#8b95a3",
+          "background": "#4c5664",
+          "ratio": 2.4538,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square-hi",
+          "foreground": "#4a5462",
+          "background": "#6a7686",
+          "ratio": 1.6626,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square",
+          "foreground": "#4a5462",
+          "background": "#5c6672",
+          "ratio": 1.3154,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square-lo",
+          "foreground": "#4a5462",
+          "background": "#4c5664",
+          "ratio": 1.0317,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-hi",
+          "foreground": "#323a48",
+          "background": "#6a7686",
+          "ratio": 2.4795,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square",
+          "foreground": "#323a48",
+          "background": "#5c6672",
+          "ratio": 1.9617,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-lo",
+          "foreground": "#323a48",
+          "background": "#4c5664",
+          "ratio": 1.5386,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-hi",
+          "foreground": "#10141c",
+          "background": "#6a7686",
+          "ratio": 3.9939,
+          "pass": true
+        },
+        {
+          "check": "d face edge/square",
+          "foreground": "#10141c",
+          "background": "#5c6672",
+          "ratio": 3.1598,
+          "pass": true
+        },
+        {
+          "check": "d face edge/square-lo",
+          "foreground": "#10141c",
+          "background": "#4c5664",
+          "ratio": 2.4783,
+          "pass": false
+        }
+      ],
+      "facePaintBelow3": 10
+    },
+    {
+      "id": "mono",
+      "name": "Porcelain & Obsidian",
+      "squareAndSilhouette": [
+        {
+          "check": "square centres",
+          "foreground": "#f2f2f2",
+          "background": "#121212",
+          "ratio": 16.734,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#fbfbfb",
+          "background": "#1c1c1c",
+          "ratio": 16.4689,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#fbfbfb",
+          "background": "#121212",
+          "ratio": 18.1036,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#fbfbfb",
+          "background": "#080808",
+          "ratio": 19.3538,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#f2f2f2",
+          "background": "#1c1c1c",
+          "ratio": 15.223,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#f2f2f2",
+          "background": "#121212",
+          "ratio": 16.734,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#f2f2f2",
+          "background": "#080808",
+          "ratio": 17.8897,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#e4e4e4",
+          "background": "#1c1c1c",
+          "ratio": 13.4035,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#e4e4e4",
+          "background": "#121212",
+          "ratio": 14.734,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#e4e4e4",
+          "background": "#080808",
+          "ratio": 15.7515,
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-hi",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#fbfbfb",
+          "ratio": 18.7926,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 18.7926
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.0087
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#f2f2f2",
+          "ratio": 17.3709,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 17.3709
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.0913
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-lo",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#e4e4e4",
+          "ratio": 15.3937,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 15.3937
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.2371
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-hi",
+          "foreground": "light keyline CSS keyline",
+          "background": "#1c1c1c",
+          "ratio": 16.018,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.1763
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 16.018
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark",
+          "foreground": "light keyline CSS keyline",
+          "background": "#121212",
+          "ratio": 17.4881,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.0701
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 17.4881
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#080808",
+          "ratio": 18.6958,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.001
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 18.6958
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "squareAndSilhouetteFailures": 0,
+      "facePaintDiagnostics": [
+        {
+          "check": "l face 1/square-hi",
+          "foreground": "#ffffff",
+          "background": "#1c1c1c",
+          "ratio": 17.0421,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square",
+          "foreground": "#ffffff",
+          "background": "#121212",
+          "ratio": 18.7337,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square-lo",
+          "foreground": "#ffffff",
+          "background": "#080808",
+          "ratio": 20.0274,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-hi",
+          "foreground": "#f0f0f0",
+          "background": "#1c1c1c",
+          "ratio": 14.9543,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square",
+          "foreground": "#f0f0f0",
+          "background": "#121212",
+          "ratio": 16.4386,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-lo",
+          "foreground": "#f0f0f0",
+          "background": "#080808",
+          "ratio": 17.5739,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-hi",
+          "foreground": "#787878",
+          "background": "#1c1c1c",
+          "ratio": 3.86,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square",
+          "foreground": "#787878",
+          "background": "#121212",
+          "ratio": 4.2431,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-lo",
+          "foreground": "#787878",
+          "background": "#080808",
+          "ratio": 4.5361,
+          "pass": true
+        },
+        {
+          "check": "d face 1/square-hi",
+          "foreground": "#4a4a4a",
+          "background": "#1c1c1c",
+          "ratio": 1.923,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square",
+          "foreground": "#4a4a4a",
+          "background": "#121212",
+          "ratio": 2.1138,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square-lo",
+          "foreground": "#4a4a4a",
+          "background": "#080808",
+          "ratio": 2.2598,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-hi",
+          "foreground": "#363636",
+          "background": "#1c1c1c",
+          "ratio": 1.4103,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square",
+          "foreground": "#363636",
+          "background": "#121212",
+          "ratio": 1.5502,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-lo",
+          "foreground": "#363636",
+          "background": "#080808",
+          "ratio": 1.6573,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-hi",
+          "foreground": "#000000",
+          "background": "#1c1c1c",
+          "ratio": 1.2322,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square",
+          "foreground": "#000000",
+          "background": "#121212",
+          "ratio": 1.121,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-lo",
+          "foreground": "#000000",
+          "background": "#080808",
+          "ratio": 1.0486,
+          "pass": false
+        }
+      ],
+      "facePaintBelow3": 9
+    },
+    {
+      "id": "sakura",
+      "name": "Sakura",
+      "squareAndSilhouette": [
+        {
+          "check": "square centres",
+          "foreground": "#fef7f9",
+          "background": "#b86c80",
+          "ratio": 3.6191,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#fffbfc",
+          "background": "#be7588",
+          "ratio": 3.3593,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#fffbfc",
+          "background": "#b86c80",
+          "ratio": 3.7229,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#fffbfc",
+          "background": "#ab5e74",
+          "ratio": 4.4618,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#fef7f9",
+          "background": "#be7588",
+          "ratio": 3.2657,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#fef7f9",
+          "background": "#b86c80",
+          "ratio": 3.6191,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#fef7f9",
+          "background": "#ab5e74",
+          "ratio": 4.3374,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#fcf0f3",
+          "background": "#be7588",
+          "ratio": 3.1033,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#fcf0f3",
+          "background": "#b86c80",
+          "ratio": 3.4391,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#fcf0f3",
+          "background": "#ab5e74",
+          "ratio": 4.1217,
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-hi",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#fffbfc",
+          "ratio": 18.9434,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 18.9434
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.0007
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#fef7f9",
+          "ratio": 18.4154,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 18.4154
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.0294
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-lo",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#fcf0f3",
+          "ratio": 17.4995,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 17.4995
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.0832
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-hi",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#be7588",
+          "ratio": 5.7312,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 5.7312
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 3.29
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#b86c80",
+          "ratio": 5.1715,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 5.1715
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 3.6461
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#ab5e74",
+          "ratio": 4.3589,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 4.3204
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 4.3589
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "squareAndSilhouetteFailures": 0,
+      "facePaintDiagnostics": [
+        {
+          "check": "l face 1/square-hi",
+          "foreground": "#ffffff",
+          "background": "#be7588",
+          "ratio": 3.4486,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square",
+          "foreground": "#ffffff",
+          "background": "#b86c80",
+          "ratio": 3.8218,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square-lo",
+          "foreground": "#ffffff",
+          "background": "#ab5e74",
+          "ratio": 4.5803,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-hi",
+          "foreground": "#fdf0f2",
+          "background": "#be7588",
+          "ratio": 3.1075,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square",
+          "foreground": "#fdf0f2",
+          "background": "#b86c80",
+          "ratio": 3.4438,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-lo",
+          "foreground": "#fdf0f2",
+          "background": "#ab5e74",
+          "ratio": 4.1272,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-hi",
+          "foreground": "#b57f92",
+          "background": "#be7588",
+          "ratio": 1.0536,
+          "pass": false
+        },
+        {
+          "check": "l face edge/square",
+          "foreground": "#b57f92",
+          "background": "#b86c80",
+          "ratio": 1.1676,
+          "pass": false
+        },
+        {
+          "check": "l face edge/square-lo",
+          "foreground": "#b57f92",
+          "background": "#ab5e74",
+          "ratio": 1.3993,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square-hi",
+          "foreground": "#7a4a5c",
+          "background": "#be7588",
+          "ratio": 2.0562,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square",
+          "foreground": "#7a4a5c",
+          "background": "#b86c80",
+          "ratio": 1.8554,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square-lo",
+          "foreground": "#7a4a5c",
+          "background": "#ab5e74",
+          "ratio": 1.5481,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-hi",
+          "foreground": "#57303f",
+          "background": "#be7588",
+          "ratio": 3.2053,
+          "pass": true
+        },
+        {
+          "check": "d face 2/square",
+          "foreground": "#57303f",
+          "background": "#b86c80",
+          "ratio": 2.8923,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-lo",
+          "foreground": "#57303f",
+          "background": "#ab5e74",
+          "ratio": 2.4133,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-hi",
+          "foreground": "#1f0f16",
+          "background": "#be7588",
+          "ratio": 5.3502,
+          "pass": true
+        },
+        {
+          "check": "d face edge/square",
+          "foreground": "#1f0f16",
+          "background": "#b86c80",
+          "ratio": 4.8277,
+          "pass": true
+        },
+        {
+          "check": "d face edge/square-lo",
+          "foreground": "#1f0f16",
+          "background": "#ab5e74",
+          "ratio": 4.0282,
+          "pass": true
+        }
+      ],
+      "facePaintBelow3": 8
+    },
+    {
+      "id": "arcade",
+      "name": "Retro Arcade",
+      "squareAndSilhouette": [
+        {
+          "check": "square centres",
+          "foreground": "#407745",
+          "background": "#020602",
+          "ratio": 3.8297,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#46864d",
+          "background": "#030803",
+          "ratio": 4.5942,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#46864d",
+          "background": "#020602",
+          "ratio": 4.6407,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#46864d",
+          "background": "#010501",
+          "ratio": 4.6682,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#407745",
+          "background": "#030803",
+          "ratio": 3.7913,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#407745",
+          "background": "#020602",
+          "ratio": 3.8297,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#407745",
+          "background": "#010501",
+          "ratio": 3.8524,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#3a683e",
+          "background": "#030803",
+          "ratio": 3.1056,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#3a683e",
+          "background": "#020602",
+          "ratio": 3.137,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#3a683e",
+          "background": "#010501",
+          "ratio": 3.1556,
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-hi",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#46864d",
+          "ratio": 4.4965,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 4.4965
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 4.1934
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light",
+          "foreground": "light keyline CSS keyline",
+          "background": "#407745",
+          "ratio": 5.05,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 3.7263
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 5.05
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#3a683e",
+          "ratio": 6.1613,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 3.0524
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 6.1613
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-hi",
+          "foreground": "light keyline CSS keyline",
+          "background": "#030803",
+          "ratio": 18.8512,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.0073
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 18.8512
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark",
+          "foreground": "light keyline CSS keyline",
+          "background": "#020602",
+          "ratio": 19.0418,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.0175
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 19.0418
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#010501",
+          "ratio": 19.1548,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.0235
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 19.1548
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "squareAndSilhouetteFailures": 0,
+      "facePaintDiagnostics": [
+        {
+          "check": "l face 1/square-hi",
+          "foreground": "#eaffea",
+          "background": "#030803",
+          "ratio": 19.2232,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square",
+          "foreground": "#eaffea",
+          "background": "#020602",
+          "ratio": 19.4176,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square-lo",
+          "foreground": "#eaffea",
+          "background": "#010501",
+          "ratio": 19.5328,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-hi",
+          "foreground": "#b8f0b8",
+          "background": "#030803",
+          "ratio": 15.5726,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square",
+          "foreground": "#b8f0b8",
+          "background": "#020602",
+          "ratio": 15.7301,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-lo",
+          "foreground": "#b8f0b8",
+          "background": "#010501",
+          "ratio": 15.8234,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-hi",
+          "foreground": "#4a9a4a",
+          "background": "#030803",
+          "ratio": 5.7815,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square",
+          "foreground": "#4a9a4a",
+          "background": "#020602",
+          "ratio": 5.84,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-lo",
+          "foreground": "#4a9a4a",
+          "background": "#010501",
+          "ratio": 5.8746,
+          "pass": true
+        },
+        {
+          "check": "d face 1/square-hi",
+          "foreground": "#8a6215",
+          "background": "#030803",
+          "ratio": 3.6912,
+          "pass": true
+        },
+        {
+          "check": "d face 1/square",
+          "foreground": "#8a6215",
+          "background": "#020602",
+          "ratio": 3.7285,
+          "pass": true
+        },
+        {
+          "check": "d face 1/square-lo",
+          "foreground": "#8a6215",
+          "background": "#010501",
+          "ratio": 3.7507,
+          "pass": true
+        },
+        {
+          "check": "d face 2/square-hi",
+          "foreground": "#563d0e",
+          "background": "#030803",
+          "ratio": 1.9901,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square",
+          "foreground": "#563d0e",
+          "background": "#020602",
+          "ratio": 2.0102,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-lo",
+          "foreground": "#563d0e",
+          "background": "#010501",
+          "ratio": 2.0221,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-hi",
+          "foreground": "#140c02",
+          "background": "#030803",
+          "ratio": 1.0416,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square",
+          "foreground": "#140c02",
+          "background": "#020602",
+          "ratio": 1.0522,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-lo",
+          "foreground": "#140c02",
+          "background": "#010501",
+          "ratio": 1.0584,
+          "pass": false
+        }
+      ],
+      "facePaintBelow3": 6
+    },
+    {
+      "id": "greenbuff",
+      "name": "Tournament Green",
+      "squareAndSilhouette": [
+        {
+          "check": "square centres",
+          "foreground": "#eedba7",
+          "background": "#417046",
+          "ratio": 4.221,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#f4e7bc",
+          "background": "#4b7c51",
+          "ratio": 3.9533,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#f4e7bc",
+          "background": "#417046",
+          "ratio": 4.6829,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#f4e7bc",
+          "background": "#36603a",
+          "ratio": 5.8812,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#eedba7",
+          "background": "#4b7c51",
+          "ratio": 3.5633,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#eedba7",
+          "background": "#417046",
+          "ratio": 4.221,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#eedba7",
+          "background": "#36603a",
+          "ratio": 5.3011,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#e1cd91",
+          "background": "#4b7c51",
+          "ratio": 3.1022,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#e1cd91",
+          "background": "#417046",
+          "ratio": 3.6748,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#e1cd91",
+          "background": "#36603a",
+          "ratio": 4.6152,
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-hi",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#f4e7bc",
+          "ratio": 15.8377,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 15.8377
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.2032
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#eedba7",
+          "ratio": 14.2755,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 14.2755
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.3259
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-lo",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#e1cd91",
+          "ratio": 12.4433,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 12.4433
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.5201
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-hi",
+          "foreground": "light keyline CSS keyline",
+          "background": "#4b7c51",
+          "ratio": 4.6292,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 4.065
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 4.6292
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark",
+          "foreground": "light keyline CSS keyline",
+          "background": "#417046",
+          "ratio": 5.4836,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 3.4316
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 5.4836
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#36603a",
+          "ratio": 6.8827,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 2.7325
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 6.8827
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "squareAndSilhouetteFailures": 0,
+      "facePaintDiagnostics": [
+        {
+          "check": "l face 1/square-hi",
+          "foreground": "#ffffff",
+          "background": "#4b7c51",
+          "ratio": 4.8825,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square",
+          "foreground": "#ffffff",
+          "background": "#417046",
+          "ratio": 5.7837,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square-lo",
+          "foreground": "#ffffff",
+          "background": "#36603a",
+          "ratio": 7.2637,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-hi",
+          "foreground": "#f4efe4",
+          "background": "#4b7c51",
+          "ratio": 4.2579,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square",
+          "foreground": "#f4efe4",
+          "background": "#417046",
+          "ratio": 5.0438,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-lo",
+          "foreground": "#f4efe4",
+          "background": "#36603a",
+          "ratio": 6.3344,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-hi",
+          "foreground": "#9a927c",
+          "background": "#4b7c51",
+          "ratio": 1.5756,
+          "pass": false
+        },
+        {
+          "check": "l face edge/square",
+          "foreground": "#9a927c",
+          "background": "#417046",
+          "ratio": 1.8664,
+          "pass": false
+        },
+        {
+          "check": "l face edge/square-lo",
+          "foreground": "#9a927c",
+          "background": "#36603a",
+          "ratio": 2.344,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square-hi",
+          "foreground": "#c04a42",
+          "background": "#4b7c51",
+          "ratio": 1.0004,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square",
+          "foreground": "#c04a42",
+          "background": "#417046",
+          "ratio": 1.1841,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square-lo",
+          "foreground": "#c04a42",
+          "background": "#36603a",
+          "ratio": 1.4871,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-hi",
+          "foreground": "#9c3028",
+          "background": "#4b7c51",
+          "ratio": 1.5002,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square",
+          "foreground": "#9c3028",
+          "background": "#417046",
+          "ratio": 1.2664,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-lo",
+          "foreground": "#9c3028",
+          "background": "#36603a",
+          "ratio": 1.0084,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-hi",
+          "foreground": "#3d0e0a",
+          "background": "#4b7c51",
+          "ratio": 3.3984,
+          "pass": true
+        },
+        {
+          "check": "d face edge/square",
+          "foreground": "#3d0e0a",
+          "background": "#417046",
+          "ratio": 2.8689,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-lo",
+          "foreground": "#3d0e0a",
+          "background": "#36603a",
+          "ratio": 2.2843,
+          "pass": false
+        }
+      ],
+      "facePaintBelow3": 11
+    },
+    {
+      "id": "maplewood",
+      "name": "Maple & Rosewood",
+      "squareAndSilhouette": [
+        {
+          "check": "square centres",
+          "foreground": "#e8c88f",
+          "background": "#6e3b23",
+          "ratio": 5.6595,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#f0d6a4",
+          "background": "#7c462a",
+          "ratio": 5.3713,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#f0d6a4",
+          "background": "#6e3b23",
+          "ratio": 6.4249,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#f0d6a4",
+          "background": "#5c301a",
+          "ratio": 7.8508,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#e8c88f",
+          "background": "#7c462a",
+          "ratio": 4.7314,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#e8c88f",
+          "background": "#6e3b23",
+          "ratio": 5.6595,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#e8c88f",
+          "background": "#5c301a",
+          "ratio": 6.9156,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#dbb87c",
+          "background": "#7c462a",
+          "ratio": 4.0337,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#dbb87c",
+          "background": "#6e3b23",
+          "ratio": 4.8249,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#dbb87c",
+          "background": "#5c301a",
+          "ratio": 5.8958,
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-hi",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#f0d6a4",
+          "ratio": 13.8412,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 13.8412
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.3675
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#e8c88f",
+          "ratio": 12.1923,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 12.1923
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.5525
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-lo",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#dbb87c",
+          "ratio": 10.4128,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 10.4128
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.8176
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-hi",
+          "foreground": "light keyline CSS keyline",
+          "background": "#7c462a",
+          "ratio": 7.1615,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 2.6223
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 7.1615
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark",
+          "foreground": "light keyline CSS keyline",
+          "background": "#6e3b23",
+          "ratio": 8.5662,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 2.1934
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 8.5662
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#5c301a",
+          "ratio": 10.4675,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.795
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 10.4675
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "squareAndSilhouetteFailures": 0,
+      "facePaintDiagnostics": [
+        {
+          "check": "l face 1/square-hi",
+          "foreground": "#fbf3dd",
+          "background": "#7c462a",
+          "ratio": 6.8556,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square",
+          "foreground": "#fbf3dd",
+          "background": "#6e3b23",
+          "ratio": 8.2003,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square-lo",
+          "foreground": "#fbf3dd",
+          "background": "#5c301a",
+          "ratio": 10.0204,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-hi",
+          "foreground": "#f2e4c2",
+          "background": "#7c462a",
+          "ratio": 6.0191,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square",
+          "foreground": "#f2e4c2",
+          "background": "#6e3b23",
+          "ratio": 7.1997,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-lo",
+          "foreground": "#f2e4c2",
+          "background": "#5c301a",
+          "ratio": 8.7976,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-hi",
+          "foreground": "#a68a55",
+          "background": "#7c462a",
+          "ratio": 2.309,
+          "pass": false
+        },
+        {
+          "check": "l face edge/square",
+          "foreground": "#a68a55",
+          "background": "#6e3b23",
+          "ratio": 2.7619,
+          "pass": false
+        },
+        {
+          "check": "l face edge/square-lo",
+          "foreground": "#a68a55",
+          "background": "#5c301a",
+          "ratio": 3.3749,
+          "pass": true
+        },
+        {
+          "check": "d face 1/square-hi",
+          "foreground": "#6b4526",
+          "background": "#7c462a",
+          "ratio": 1.1047,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square",
+          "foreground": "#6b4526",
+          "background": "#6e3b23",
+          "ratio": 1.0828,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square-lo",
+          "foreground": "#6b4526",
+          "background": "#5c301a",
+          "ratio": 1.3231,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-hi",
+          "foreground": "#472c14",
+          "background": "#7c462a",
+          "ratio": 1.6887,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square",
+          "foreground": "#472c14",
+          "background": "#6e3b23",
+          "ratio": 1.4117,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-lo",
+          "foreground": "#472c14",
+          "background": "#5c301a",
+          "ratio": 1.1553,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-hi",
+          "foreground": "#140a02",
+          "background": "#7c462a",
+          "ratio": 2.5758,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square",
+          "foreground": "#140a02",
+          "background": "#6e3b23",
+          "ratio": 2.1534,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-lo",
+          "foreground": "#140a02",
+          "background": "#5c301a",
+          "ratio": 1.7623,
+          "pass": false
+        }
+      ],
+      "facePaintBelow3": 11
+    },
+    {
+      "id": "baize",
+      "name": "Club Baize",
+      "squareAndSilhouette": [
+        {
+          "check": "square centres",
+          "foreground": "#72a379",
+          "background": "#203c24",
+          "ratio": 4.1717,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#7daf84",
+          "background": "#25452b",
+          "ratio": 4.2433,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#7daf84",
+          "background": "#203c24",
+          "ratio": 4.8102,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#7daf84",
+          "background": "#19331e",
+          "ratio": 5.4363,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#72a379",
+          "background": "#25452b",
+          "ratio": 3.68,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#72a379",
+          "background": "#203c24",
+          "ratio": 4.1717,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#72a379",
+          "background": "#19331e",
+          "ratio": 4.7147,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#67956c",
+          "background": "#25452b",
+          "ratio": 3.1007,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#67956c",
+          "background": "#203c24",
+          "ratio": 3.515,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#67956c",
+          "background": "#19331e",
+          "ratio": 3.9725,
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-hi",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#7daf84",
+          "ratio": 7.8329,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 7.8329
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 2.4089
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#72a379",
+          "ratio": 6.7931,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 6.7931
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 2.7776
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-lo",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#67956c",
+          "ratio": 5.7237,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 5.7237
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 3.2946
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-hi",
+          "foreground": "light keyline CSS keyline",
+          "background": "#25452b",
+          "ratio": 10.0648,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.8646
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 10.0648
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark",
+          "foreground": "light keyline CSS keyline",
+          "background": "#203c24",
+          "ratio": 11.4094,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.6457
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 11.4094
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#19331e",
+          "ratio": 12.8704,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 1.458
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 12.8704
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "squareAndSilhouetteFailures": 0,
+      "facePaintDiagnostics": [
+        {
+          "check": "l face 1/square-hi",
+          "foreground": "#f8f2dc",
+          "background": "#25452b",
+          "ratio": 9.5306,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square",
+          "foreground": "#f8f2dc",
+          "background": "#203c24",
+          "ratio": 10.8039,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square-lo",
+          "foreground": "#f8f2dc",
+          "background": "#19331e",
+          "ratio": 12.2101,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-hi",
+          "foreground": "#ecdfb8",
+          "background": "#25452b",
+          "ratio": 8.0486,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square",
+          "foreground": "#ecdfb8",
+          "background": "#203c24",
+          "ratio": 9.1239,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-lo",
+          "foreground": "#ecdfb8",
+          "background": "#19331e",
+          "ratio": 10.3115,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-hi",
+          "foreground": "#8f7448",
+          "background": "#25452b",
+          "ratio": 2.4225,
+          "pass": false
+        },
+        {
+          "check": "l face edge/square",
+          "foreground": "#8f7448",
+          "background": "#203c24",
+          "ratio": 2.7461,
+          "pass": false
+        },
+        {
+          "check": "l face edge/square-lo",
+          "foreground": "#8f7448",
+          "background": "#19331e",
+          "ratio": 3.1036,
+          "pass": true
+        },
+        {
+          "check": "d face 1/square-hi",
+          "foreground": "#7a3a34",
+          "background": "#25452b",
+          "ratio": 1.2634,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square",
+          "foreground": "#7a3a34",
+          "background": "#203c24",
+          "ratio": 1.4322,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square-lo",
+          "foreground": "#7a3a34",
+          "background": "#19331e",
+          "ratio": 1.6186,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-hi",
+          "foreground": "#54201c",
+          "background": "#25452b",
+          "ratio": 1.2277,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square",
+          "foreground": "#54201c",
+          "background": "#203c24",
+          "ratio": 1.083,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-lo",
+          "foreground": "#54201c",
+          "background": "#19331e",
+          "ratio": 1.0435,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-hi",
+          "foreground": "#180604",
+          "background": "#25452b",
+          "ratio": 1.842,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square",
+          "foreground": "#180604",
+          "background": "#203c24",
+          "ratio": 1.6249,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-lo",
+          "foreground": "#180604",
+          "background": "#19331e",
+          "ratio": 1.4378,
+          "pass": false
+        }
+      ],
+      "facePaintBelow3": 11
+    },
+    {
+      "id": "travel",
+      "name": "Travel Magnetic",
+      "squareAndSilhouette": [
+        {
+          "check": "square centres",
+          "foreground": "#dec99a",
+          "background": "#64563f",
+          "ratio": 4.3899,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-hi",
+          "foreground": "#e7d4a8",
+          "background": "#706347",
+          "ratio": 4.0342,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/",
+          "foreground": "#e7d4a8",
+          "background": "#64563f",
+          "ratio": 4.8835,
+          "pass": true
+        },
+        {
+          "check": "square gradients -hi/-lo",
+          "foreground": "#e7d4a8",
+          "background": "#554833",
+          "ratio": 6.0909,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-hi",
+          "foreground": "#dec99a",
+          "background": "#706347",
+          "ratio": 3.6265,
+          "pass": true
+        },
+        {
+          "check": "square gradients /",
+          "foreground": "#dec99a",
+          "background": "#64563f",
+          "ratio": 4.3899,
+          "pass": true
+        },
+        {
+          "check": "square gradients /-lo",
+          "foreground": "#dec99a",
+          "background": "#554833",
+          "ratio": 5.4753,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-hi",
+          "foreground": "#d1ba87",
+          "background": "#706347",
+          "ratio": 3.1095,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/",
+          "foreground": "#d1ba87",
+          "background": "#64563f",
+          "ratio": 3.7641,
+          "pass": true
+        },
+        {
+          "check": "square gradients -lo/-lo",
+          "foreground": "#d1ba87",
+          "background": "#554833",
+          "ratio": 4.6948,
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-hi",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#e7d4a8",
+          "ratio": 13.3949,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 13.3949
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.4139
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#dec99a",
+          "ratio": 12.0556,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 12.0556
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.569
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-light-lo",
+          "foreground": "dark keyline CSS keyline",
+          "background": "#d1ba87",
+          "ratio": 10.343,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 10.343
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 1.8299
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-hi",
+          "foreground": "light keyline CSS keyline",
+          "background": "#706347",
+          "ratio": 5.5959,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 3.365
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 5.5959
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark",
+          "foreground": "light keyline CSS keyline",
+          "background": "#64563f",
+          "ratio": 6.7699,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 2.7798
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 6.7699
+            }
+          ],
+          "pass": true
+        },
+        {
+          "check": "visible silhouette/--sq-dark-lo",
+          "foreground": "light keyline CSS keyline",
+          "background": "#554833",
+          "ratio": 8.3915,
+          "candidates": [
+            {
+              "edge": "dark keyline",
+              "ratio": 2.2379
+            },
+            {
+              "edge": "light keyline",
+              "ratio": 8.3915
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "squareAndSilhouetteFailures": 0,
+      "facePaintDiagnostics": [
+        {
+          "check": "l face 1/square-hi",
+          "foreground": "#f6f0da",
+          "background": "#706347",
+          "ratio": 5.1604,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square",
+          "foreground": "#f6f0da",
+          "background": "#64563f",
+          "ratio": 6.2467,
+          "pass": true
+        },
+        {
+          "check": "l face 1/square-lo",
+          "foreground": "#f6f0da",
+          "background": "#554833",
+          "ratio": 7.7912,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-hi",
+          "foreground": "#eae0c0",
+          "background": "#706347",
+          "ratio": 4.4666,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square",
+          "foreground": "#eae0c0",
+          "background": "#64563f",
+          "ratio": 5.4069,
+          "pass": true
+        },
+        {
+          "check": "l face 2/square-lo",
+          "foreground": "#eae0c0",
+          "background": "#554833",
+          "ratio": 6.7437,
+          "pass": true
+        },
+        {
+          "check": "l face edge/square-hi",
+          "foreground": "#96865c",
+          "background": "#706347",
+          "ratio": 1.6443,
+          "pass": false
+        },
+        {
+          "check": "l face edge/square",
+          "foreground": "#96865c",
+          "background": "#64563f",
+          "ratio": 1.9904,
+          "pass": false
+        },
+        {
+          "check": "l face edge/square-lo",
+          "foreground": "#96865c",
+          "background": "#554833",
+          "ratio": 2.4826,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square-hi",
+          "foreground": "#a34430",
+          "background": "#706347",
+          "ratio": 1.0402,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square",
+          "foreground": "#a34430",
+          "background": "#64563f",
+          "ratio": 1.1637,
+          "pass": false
+        },
+        {
+          "check": "d face 1/square-lo",
+          "foreground": "#a34430",
+          "background": "#554833",
+          "ratio": 1.4514,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-hi",
+          "foreground": "#7e2e1e",
+          "background": "#706347",
+          "ratio": 1.5521,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square",
+          "foreground": "#7e2e1e",
+          "background": "#64563f",
+          "ratio": 1.2822,
+          "pass": false
+        },
+        {
+          "check": "d face 2/square-lo",
+          "foreground": "#7e2e1e",
+          "background": "#554833",
+          "ratio": 1.028,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-hi",
+          "foreground": "#2c0c06",
+          "background": "#706347",
+          "ratio": 3.0669,
+          "pass": true
+        },
+        {
+          "check": "d face edge/square",
+          "foreground": "#2c0c06",
+          "background": "#64563f",
+          "ratio": 2.5335,
+          "pass": false
+        },
+        {
+          "check": "d face edge/square-lo",
+          "foreground": "#2c0c06",
+          "background": "#554833",
+          "ratio": 2.0313,
+          "pass": false
+        }
+      ],
+      "facePaintBelow3": 11
+    }
+  ],
+  "acceptanceFailures": 0,
+  "facePaintBelow3Diagnostics": 187,
+  "renderedEvidence": {
+    "path": "docs\\contrast-raster-current-size-controlled-20261108\\contrast-raster-analysis-exact-20261108.json",
+    "buildId": "ba2fab198f741a932c3fc2d3faa3d935da96173576e68759b097f17feeb8e872",
+    "htmlSha256": "037c4e0c8f9b1e4e7f927b434ca9fc8782bcbe2965a696b688c2c64c90c0b645",
+    "cssSha256": "2d70aaccfec2d3e1a98d71d130f88577fa31de432c6ad3f58618d1846fed017f",
+    "captures": 336,
+    "themes": 21,
+    "squareFailCases": 0,
+    "rimFailCases": 0,
+    "worstSquareP10": 3.03,
+    "worstPieceRimP10": 3.019
+  }
+}
