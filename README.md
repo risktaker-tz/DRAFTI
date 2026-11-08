@@ -4,10 +4,8 @@
 
 The Vercel project is listed as **drafti-africa**. Vercel and GitHub Pages serve
 the same verified checkpoint; the legacy `drafti-kappa.vercel.app` address
-redirects to the new Vercel URL. The broader blueprint work continues. The first
-streamer-vocabulary milestone is complete:
-300 recorded lines, 100 each for Female, Male and Funny. Audience Vibes remains
-an optional, separately managed sound pack.
+redirects to the new Vercel URL. The broader blueprint work continues. Streamer
+voices and Audience Vibes are optional, separately managed offline packs.
 
 The approved cinematic checkpoint adds thirty situational board, piece and
 background effects. Cracks accompany multi-captures; rare edge lighting requires
@@ -347,9 +345,10 @@ Open the hosted game in a browser and choose Install app (Chrome/Edge on desktop
 
 The first install downloads the self-contained game. Rules, AI, themes, flags,
 and the core sound bank are part of that app and do not need a separate data
-connection. Optional streamer voices and Audience Vibes can be selected in the
-Sound design menu and downloaded together for offline use. Download/update
-fetches the latest pack; a failed update keeps the previously installed pack.
+connection. Optional streamer voices (about 8.4 MB) and Audience Vibes (about
+2.8 MB) can be selected in the Sound design menu and downloaded together for
+offline use. Download/update fetches the latest pack; a failed update keeps the
+previously installed pack.
 
 ### Presentation controls
 
@@ -361,7 +360,7 @@ For environments with Node but no Python, `node scripts/build_web.js` assembles 
 
 Installation now includes 192px and 512px PNG icons and an Apple home-screen icon. The offline worker removes obsolete DRAFTI installation caches when a new worker activates; settings and arena storage are unaffected.
 
-Installed copies check for releases when reopened or brought back to the foreground. Each build identifies its matching offline worker. An active match continues uninterrupted; a downloaded update takes effect at the next match boundary, after saving the new arena position. Navigation serves the saved game first, including during a server outage. App updates install the core game without downloading optional recordings. The 300-line streamer pack and Audience Vibes can be explicitly downloaded or updated together; verified pack updates switch over only after every selected recording is saved, and a failed update keeps the previous version. Existing settings and player progress are preserved.
+Installed copies check for releases when reopened or brought back to the foreground. Each build identifies its matching offline worker. An active match continues uninterrupted; a downloaded update takes effect at the next match boundary, after saving the new arena position. Navigation serves the saved game first, including during a server outage. App updates install the core game without downloading optional packs. Streamer voices and Audience Vibes can be explicitly downloaded or updated together; verified pack updates switch over only after every selected asset is saved, and a failed update keeps the previous version. Existing settings and player progress are preserved.
 
 Kenya's main/secondary piece colours now use black/red, consistent with the Wikimedia flag reference: https://commons.wikimedia.org/wiki/File:Flag_of_Kenya.svg . All 194 source palettes are measured and checked; full visual acceptance remains in progress.
 
@@ -417,11 +416,11 @@ The requested original shrimp question is now installed in `shrimp1` and `shrimp
 
 ### Live streamer modes (added 2026-11-02)
 
-The Sound design menu gains a `Live streamer` selector with four mutually exclusive positions — **Off** (default), **Female live streamer**, **Male live streamer** and **Funny live streamer**. With Off selected nothing changes: the dispatcher never plays, and the previous sound design remains exactly as it was. Female and Male modes speak forty original in-house TTS lines (tongtong and jam voices, natural speed, speech-guarded processing) as a situational commentator: greeting at the first move, occasional like/share/follow engagement calls every third game, praise for verified good moves, capture and multi-jump reactions, sympathetic (never mocking) blunder responses split by who actually erred, trap warnings and springs, crowning, capture streaks, comebacks, victory and defeat tags, and a line during genuinely long engine thinks. The Funny mode uses no new audio at all: it maps the same situations onto the app's own judge voice and already-credited funny reactions (bruh, vineboom, badboy, wilhelm, the Nigerian comedy cuts and more).
+The Sound design menu gains a `Live streamer` selector with four mutually exclusive positions — **Off** (default), **Female live streamer**, **Male live streamer** and **Funny live streamer**. With Off selected nothing changes: the dispatcher never plays, and the previous sound design remains exactly as it was. The voice modes use original in-house recordings as situational commentary: greeting at the first move, occasional like/share/follow engagement calls, praise for verified good moves, capture and multi-jump reactions, sympathetic (never mocking) blunder responses split by who actually erred, trap warnings and springs, crowning, capture streaks, comebacks, victory and defeat tags, and a line during genuinely long engine thinks. The Funny mode maps the same situations onto the app's own judge voice and already-credited funny reactions.
 
 The layer is a guest in the existing design: it takes over only the spoken reaction of an event it covers (never doubling a voice), drops instead of queueing when another voice talks or a ceremony scene-locks the bank, and respects the master volume, mute and the Voice category chip. Per-role cooldowns, per-game quotas and chance gates keep it sparse; selection persists per device. All 1110 researched phrases and their sources are in `docs/streamer-phrasebook.md`; wiring and gates are checked by `node tests/test_streamer_modes.js`.
 
-The separately cached, verified streamer pack now publishes 163 original in-house voice clips (40 Female, 45 Male and 78 Funny). The runtime loads only clips for the selected voice and event roles it currently supports; the pack can grow without replacing the existing sound bank or changing its default-off behavior. Eight newly accepted clean-move lines remain gated out until an engine-verified quality signal can select them accurately. Source hashes and deployment parity are checked by `node tests/test_streamer_pack.js`.
+The separately cached streamer pack is verified before activation. The runtime loads only clips for the selected voice and event roles it currently supports; the pack can grow without replacing the existing sound bank or changing its default-off behavior. Source hashes and deployment parity are checked by `node tests/test_streamer_pack.js`.
 
 ### Fair arena checkpoint
 

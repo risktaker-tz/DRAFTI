@@ -49,6 +49,11 @@ async function run(){
   const latestCache=reloaded.installed().cache;await reloaded.remove();assert.equal(reloaded.installed(),null);assert(!bins.has(latestCache));
   const final=create(env);assert.equal(await final.init(),null,'removal is remembered on the next app start');
   assert(statuses.some(text=>text.includes('ready offline')),'download readiness is reported');
+  assert(statuses.every(text=>!text.includes('3 recordings')&&!/\b[1-3] \/ 3\b/.test(text)),
+    'player-facing pack updates never disclose how many voice lines are included');
+  assert(statuses.some(text=>text.includes('MB')),'pack progress and readiness communicate size only');
+  const template=fs.readFileSync(path.join(__dirname,'../src/index.template.html'),'utf8');
+  assert(!/Streamer voices[^\n]*\b300\b/i.test(template),'the menu does not expose the vocabulary count');
   console.log('PASS optional streamer pack: offline-safe startup, explicit download, verified latest update, rollback and removal');
 }
 run().catch(error=>{console.error(error);process.exitCode=1;});

@@ -59,5 +59,9 @@ const env={settings:{sound:true,audienceEnabled:false,audienceVolume:.35},now:()
   const reopened=c.api.createAudienceVibes({...env,fetch:async()=>{throw Error('offline');}});await reopened.init();assert(reopened.installed(),'A complete pack reopens without network');
   cacheData.set('drafti-install-v3',new Map());await a.remove();assert(cacheData.has('drafti-install-v3'),'Removing crowds never deletes the installed core game');
   assert.equal(env.settings.audienceEnabled,false);assert.equal(saveCount,1);
+  assert(messages.some(text=>text.includes('Audience Vibes ready offline')&&text.includes('MB')),
+    'audience pack readiness communicates size');
+  assert(messages.every(text=>!/\b\d+ audience recordings\b|Downloading audience · \d+ \/ \d+/i.test(text)),
+    'player-facing audience updates never disclose recording counts');
   console.log('PASS optional/off-default install, file validation and hashes, atomic rollback, offline reopen, both crowd identities, original rate, bounded sources, menu/scene/epoch guards and scoped removal');
 })().catch(error=>{console.error(error);process.exitCode=1;});

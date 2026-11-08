@@ -65,8 +65,8 @@ function createStreamerPackStore(env) {
   function report() {
     if (installing) return;
     say(installed
-      ? 'Streamer voices ready offline · ' + installed.manifest.length + ' recordings · ' +
-        (installed.totalBytes / 1048576).toFixed(1) + ' MB. Download / update checks for the latest pack.'
+      ? 'Streamer voices ready offline · ' + (installed.totalBytes / 1000000).toFixed(1) +
+        ' MB. Download / update checks for the latest pack.'
       : 'Optional streamer voice pack · not downloaded. Core game voices and sound effects work offline.');
   }
 
@@ -84,7 +84,7 @@ function createStreamerPackStore(env) {
       const stage = await env.caches.open(stageName);
       const old = installed ? await env.caches.open(installed.cache) : null;
       await stage.put(manifestURL, new Response(raw, { headers: { 'Content-Type': 'application/json' } }));
-      let cursor = 0, failure = null, done = 0;
+      let cursor = 0, failure = null, doneBytes = 0;
       const worker = async () => {
         while (cursor < parsed.clips.length && !failure) {
           const clip = parsed.clips[cursor++], url = new URL(clip.file, base).href;
@@ -102,7 +102,9 @@ function createStreamerPackStore(env) {
                 throw Error('Recording check failed: ' + clip.id);
             }
             await stage.put(url, new Response(bytes, { headers: { 'Content-Type': 'audio/mpeg' } }));
-            say('Downloading streamer voices · ' + (++done) + ' / ' + parsed.clips.length);
+            doneBytes += clip.bytes;
+            say('Downloading streamer voices · ' + (doneBytes / 1000000).toFixed(1) +
+              ' / ' + (parsed.totalBytes / 1000000).toFixed(1) + ' MB');
           } catch (error) { failure ||= error; throw error; }
         }
       };

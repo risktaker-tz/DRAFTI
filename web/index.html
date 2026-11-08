@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="drafti-build" content="d6cef75678e894b6af31ea56cff9424a3d2ed1736066e400140c1901f7948780">
+<meta name="drafti-build" content="ba2fab198f741a932c3fc2d3faa3d935da96173576e68759b097f17feeb8e872">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="apple-touch-icon" href="./icon-192.png">
@@ -1814,8 +1814,8 @@ body.fx-wood .board-frame { background-image: repeating-linear-gradient(93deg, t
       <div class="seg-row offline-pack-card">
         <span class="seg-label">Offline extras</span>
         <p class="setup-note">The board, rules, AI, themes, flags and core sound effects come with the game and work offline. These optional packs add extras; update checks for the latest recordings when selected.</p>
-        <label class="offline-pack-choice"><input type="checkbox" id="offlinePackStreamer"> Streamer voices · 300 lines · about 8 MB</label>
-        <label class="offline-pack-choice"><input type="checkbox" id="offlinePackAudience"> Audience Vibes · optional crowd recordings</label>
+        <label class="offline-pack-choice"><input type="checkbox" id="offlinePackStreamer"> Streamer voices · about 8.4 MB</label>
+        <label class="offline-pack-choice"><input type="checkbox" id="offlinePackAudience"> Audience Vibes · about 2.8 MB</label>
         <button class="btn" id="btnDownloadOfflinePacks">Download / update selected packs</button>
         <button class="btn" id="btnStreamerPackRemove">Remove streamer pack</button>
         <p class="setup-note" id="streamerStatus" role="status" aria-live="polite">Optional streamer voice pack · not downloaded.</p>
@@ -2386,7 +2386,8 @@ function createAudienceVibes(env) {
   const now=()=>env.now(),status=text=>env.status(text),settings=env.settings;
   const digest=async bytes=>Array.from(new Uint8Array(await env.crypto.subtle.digest('SHA-256',bytes)),b=>b.toString(16).padStart(2,'0')).join('');
   const capable=()=>!!env.caches&&!!env.crypto?.subtle&&/^https?:$/.test(env.location.protocol);
-  const report=()=>installed ? installed.manifest.clips.length+' audience recordings ready for offline play.' : 'Optional audience pack · not downloaded.';
+  const packBytes=manifest=>manifest.clips.reduce((total,clip)=>total+clip.bytes,0);
+  const report=()=>installed ? 'Audience Vibes ready offline · '+(packBytes(installed.manifest)/1000000).toFixed(1)+' MB.' : 'Optional audience pack · not downloaded.';
   const permitted=()=>{const c=env.context();return settings.audienceEnabled&&settings.sound&&!c.menu&&!c.hidden&&!c.paused&&!c.conflict&&!c.ceremony&&env.bank.sceneLockUntil<=now();};
   function stop(){serial++;pending=[];for(const a of active){try{a.source.stop();}catch{}}active.clear();}
   function reset(){stop();epoch=env.context().epoch;counts.clear();jokes=0;nextBed=now()+2000;}
@@ -2405,7 +2406,7 @@ function createAudienceVibes(env) {
     try{
       const r=await env.fetch(new URL('manifest.json',base).href,{cache:'no-store'});if(!r.ok)throw Error('Pack unavailable');
       const raw=await r.arrayBuffer(),manifest=validateAudiencePack(JSON.parse(new TextDecoder().decode(raw)));
-      staging=prefix+await digest(raw);const cache=await env.caches.open(staging);let done=0;
+      staging=prefix+await digest(raw);const cache=await env.caches.open(staging);let doneBytes=0;
       for(const c of manifest.clips){
         const url=new URL(c.file,base).href;let response=await cache.match(url);
         if(!response&&installed)response=await(await env.caches.open(installed.cache)).match(url);
@@ -2415,7 +2416,8 @@ function createAudienceVibes(env) {
           if(bytes.byteLength!==c.bytes||await digest(bytes)!==c.sha256)throw Error('Recording check failed');
         }
         await cache.put(url,new Response(bytes,{headers:{'Content-Type':'audio/mpeg'}}));
-        status('Downloading audience · '+(++done)+' / '+manifest.clips.length);
+        doneBytes+=c.bytes;
+        status('Downloading Audience Vibes · '+(doneBytes/1000000).toFixed(1)+' / '+(packBytes(manifest)/1000000).toFixed(1)+' MB');
       }
       const next={cache:staging,manifest},index=await env.caches.open(indexName);
       await index.put(markerURL,new Response(JSON.stringify(next),{headers:{'Content-Type':'application/json'}}));
@@ -2582,8 +2584,8 @@ function createStreamerPackStore(env) {
   function report() {
     if (installing) return;
     say(installed
-      ? 'Streamer voices ready offline · ' + installed.manifest.length + ' recordings · ' +
-        (installed.totalBytes / 1048576).toFixed(1) + ' MB. Download / update checks for the latest pack.'
+      ? 'Streamer voices ready offline · ' + (installed.totalBytes / 1000000).toFixed(1) +
+        ' MB. Download / update checks for the latest pack.'
       : 'Optional streamer voice pack · not downloaded. Core game voices and sound effects work offline.');
   }
 
@@ -2601,7 +2603,7 @@ function createStreamerPackStore(env) {
       const stage = await env.caches.open(stageName);
       const old = installed ? await env.caches.open(installed.cache) : null;
       await stage.put(manifestURL, new Response(raw, { headers: { 'Content-Type': 'application/json' } }));
-      let cursor = 0, failure = null, done = 0;
+      let cursor = 0, failure = null, doneBytes = 0;
       const worker = async () => {
         while (cursor < parsed.clips.length && !failure) {
           const clip = parsed.clips[cursor++], url = new URL(clip.file, base).href;
@@ -2619,7 +2621,9 @@ function createStreamerPackStore(env) {
                 throw Error('Recording check failed: ' + clip.id);
             }
             await stage.put(url, new Response(bytes, { headers: { 'Content-Type': 'audio/mpeg' } }));
-            say('Downloading streamer voices · ' + (++done) + ' / ' + parsed.clips.length);
+            doneBytes += clip.bytes;
+            say('Downloading streamer voices · ' + (doneBytes / 1000000).toFixed(1) +
+              ' / ' + (parsed.totalBytes / 1000000).toFixed(1) + ' MB');
           } catch (error) { failure ||= error; throw error; }
         }
       };

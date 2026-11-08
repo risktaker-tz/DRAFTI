@@ -24,7 +24,8 @@ function createAudienceVibes(env) {
   const now=()=>env.now(),status=text=>env.status(text),settings=env.settings;
   const digest=async bytes=>Array.from(new Uint8Array(await env.crypto.subtle.digest('SHA-256',bytes)),b=>b.toString(16).padStart(2,'0')).join('');
   const capable=()=>!!env.caches&&!!env.crypto?.subtle&&/^https?:$/.test(env.location.protocol);
-  const report=()=>installed ? installed.manifest.clips.length+' audience recordings ready for offline play.' : 'Optional audience pack · not downloaded.';
+  const packBytes=manifest=>manifest.clips.reduce((total,clip)=>total+clip.bytes,0);
+  const report=()=>installed ? 'Audience Vibes ready offline · '+(packBytes(installed.manifest)/1000000).toFixed(1)+' MB.' : 'Optional audience pack · not downloaded.';
   const permitted=()=>{const c=env.context();return settings.audienceEnabled&&settings.sound&&!c.menu&&!c.hidden&&!c.paused&&!c.conflict&&!c.ceremony&&env.bank.sceneLockUntil<=now();};
   function stop(){serial++;pending=[];for(const a of active){try{a.source.stop();}catch{}}active.clear();}
   function reset(){stop();epoch=env.context().epoch;counts.clear();jokes=0;nextBed=now()+2000;}
@@ -43,7 +44,7 @@ function createAudienceVibes(env) {
     try{
       const r=await env.fetch(new URL('manifest.json',base).href,{cache:'no-store'});if(!r.ok)throw Error('Pack unavailable');
       const raw=await r.arrayBuffer(),manifest=validateAudiencePack(JSON.parse(new TextDecoder().decode(raw)));
-      staging=prefix+await digest(raw);const cache=await env.caches.open(staging);let done=0;
+      staging=prefix+await digest(raw);const cache=await env.caches.open(staging);let doneBytes=0;
       for(const c of manifest.clips){
         const url=new URL(c.file,base).href;let response=await cache.match(url);
         if(!response&&installed)response=await(await env.caches.open(installed.cache)).match(url);
@@ -53,7 +54,8 @@ function createAudienceVibes(env) {
           if(bytes.byteLength!==c.bytes||await digest(bytes)!==c.sha256)throw Error('Recording check failed');
         }
         await cache.put(url,new Response(bytes,{headers:{'Content-Type':'audio/mpeg'}}));
-        status('Downloading audience · '+(++done)+' / '+manifest.clips.length);
+        doneBytes+=c.bytes;
+        status('Downloading Audience Vibes · '+(doneBytes/1000000).toFixed(1)+' / '+(packBytes(manifest)/1000000).toFixed(1)+' MB');
       }
       const next={cache:staging,manifest},index=await env.caches.open(indexName);
       await index.put(markerURL,new Response(JSON.stringify(next),{headers:{'Content-Type':'application/json'}}));
